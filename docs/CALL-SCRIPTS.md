@@ -138,3 +138,43 @@ Then independently call the named recycler and ask:
 - "Would your outreach to Wellington/Narromine be relevant to a regional pilot?"
 - "What device warranty/support expectations would you need?"
 - "Could outcome reporting be done without exposing recipient personal information?"
+
+
+## Fliptech / equivalent ITAD regional partnership calls
+
+Detailed evidence: [FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY.md](FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY.md).
+
+### Fliptech Australia
+- "Do you currently service Dubbo or Western NSW? If yes, how are those collections currently handled?"
+- "What minimum asset volume makes a Dubbo collection viable?"
+- "Your public team material says Fliptech is operating in Melbourne. Is that a company-owned facility, local staff/vehicle operation, contractor model or logistics-only service?"
+- "Do you use approved regional collection or ITAD subcontractors anywhere in Australia?"
+- "Would you consider a Western NSW secure collection/ITAD satellite in Dubbo if a local operator can prove recurring business fleet volume?"
+- "What could the local operator do: collection only, serial capture, Blancco/NIST erasure, testing, repair/refurbishment, resale preparation?"
+- "What premises security, insurance, WHS, privacy and audit controls would you require?"
+- "Would reusable devices be sold through Fliptech's existing channels, and how would value/revenue be shared?"
+- "Could suitable social-use devices collected in Western NSW be redistributed back into Western NSW?"
+- "What monthly/annual device volume would justify a permanent Dubbo site?"
+- "Could we run a 90-day or six-month regional pilot before anyone commits to premises?"
+
+### G1 Asset Management
+- "You publicly offer white-labelled ITAD services to IT providers. Could a Dubbo-based operator act as a Western NSW local collection/first-pass asset-handling partner?"
+- "Which activities may a regional partner perform without breaking chain of custody or your certification controls?"
+- "Can local sanitisation be performed under G1-managed Blancco/SOPs?"
+- "Could reusable devices be tested/refurbished locally?"
+- "Do you already have Western NSW contractors?"
+- "What security/premises/insurance standard would be required?"
+- "How are buyback/reuse proceeds shared?"
+- "What recurring volume would justify a dedicated regional node?"
+
+### 9R Cycle IT
+- "You advertise regional NSW collection through third-party logistics. Would you consider an approved Western NSW collection/triage partner in Dubbo?"
+- "Could a partner replace some 3PL handling while keeping 9R's chain-of-custody and client reporting?"
+- "Can devices be locally serialised, wiped or graded before transfer?"
+- "What minimum volume and facility controls would be required?"
+
+### WorkVentures
+- "Could Dubbo support a local CircularIT collection/refurbishment and Device Bank node?"
+- "Can regional partners perform triage, testing, repairs or deployment preparation?"
+- "Would local businesses be able to donate devices through a Dubbo partner and have suitable equipment distributed back into Western NSW?"
+- "Could an existing Dubbo community partner provide the final distribution/digital-literacy layer?"
