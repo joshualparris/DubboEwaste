@@ -22,3 +22,36 @@
 - Home business definitions (NSW Standard Instrument amendments): https://legislation.nsw.gov.au/view/pdf/asmade/epi-2020-636
 
 **Not verified:** property zoning; Avance or related business holding a dealer licence; insurance cost; Joe's and Matthews' commercial terms; whether the recycling-program exemption covers this model.
+
+
+## Matthews / InfraBuild / Australian Metal Recycling research — checked 2 Oct 2026
+
+**CURRENT / STRONGEST**
+- Australian Metal Recycling — homepage/materials accepted: https://australianmetalrecycling.com.au/
+- Australian Metal Recycling — services (e-waste/free recycling/commercial): https://australianmetalrecycling.com.au/services/
+- Australian Metal Recycling — drop-off: https://australianmetalrecycling.com.au/drop-off/
+- Australian Metal Recycling — contact / Dubbo “Formerly Matthews Metal Management”: https://australianmetalrecycling.com.au/contact/
+- Australian Metal Recycling — company history / yard network: https://australianmetalrecycling.com.au/scrap-metal-recycling-tamworth/
+- ABR — Scrap Metal Services Pty Ltd, ABN 51 640 765 091: https://abr.business.gov.au/ABN/View?abn=51640765091
+- NSW Police — Scrap Metal Industry Register, 19 Feb 2026 (SM-0759 includes 34 Mountbatten Drive Dubbo): https://www.police.nsw.gov.au/__data/assets/pdf_file/0019/743500/Public_Register_19_Feb_2026.pdf
+- ABR — OneSteel Recycling Pty Limited, ABN 28 002 707 262 (Matthews Metal Management business name): https://abr.business.gov.au/ABN/View/28002707262
+- SIRA — InfraBuild self-insurer application, July 2026 (OneSteel Recycling listed as InfraBuild subsidiary): https://www.sira.nsw.gov.au/workers-compensation/self-insurers/self-insurer-licence-applications
+- Tamworth/NIRW RFT P00824 tender submissions, March 2025: InfraBuild Recycling and Scrap Metal Services Pty Ltd listed as separate tenderers: https://www.tamworth.nsw.gov.au/ArticleDocuments/222/RFT%20P00824%20-%20Record%20of%20Tender%20Submissions.pdf.aspx
+
+**LEGACY / TRANSITION EVIDENCE**
+- InfraBuild — Matthews Metal Management Dubbo branch page: https://www.infrabuild.com/branch/matthews-metal-management-dubbo/
+- InfraBuild — Metal Recycling overview: https://www.infrabuild.com/metal-recycling/
+- Dubbo Regional Council 2025-2035 Waste Strategy (Matthews e-waste contract shown to 30 Jun 2025; InfraBuild steel): https://www.dubbo.nsw.gov.au/ArticleDocuments/242/Waste_Strategy_2025_Adopted.pdf.aspx
+- Dubbo Regional Council Wellington Waste Facility PIRMP, 24 Jun 2025 (Matthews Metal — Scrap metal & E-Waste Recycling, same Dubbo phone): https://www.dubbo.nsw.gov.au/ArticleDocuments/490/Pollution%20Incident%20Response%20Management%20Plan%20June%202025%20-%20Wellington%20Waste%20Transfer%20Station%20-%20Active%20Version.pdf.aspx?Embed=Y
+- NSW Planning — Central West Orana REZ Waste study (scrap metal InfraBuild; e-waste Matthews Metals Dubbo): https://www.planning.nsw.gov.au/sites/default/files/2025-12/central-west-orana-rez-waste-regional-major-infrastructure-study-report-for-nsw-dphi.pdf
+
+**SECONDARY**
+- Australian Metal Recycling Dubbo current local/social listing: https://www.findglocal.com/AU/Dubbo/126806891326594/Australian-Metal-Recycling-Dubbo
+
+**UNRESOLVED**
+- Exact transaction/transition date and agreement between InfraBuild/Matthews and AMR for the Dubbo yard.
+- Current Dubbo Regional Council e-waste contract after 30 Jun 2025.
+- TV/CRT, phone/tablet and embedded-lithium acceptance at the Dubbo AMR yard.
+- Commercial volume limits, collection minimums and whether recycling/weight certificates are available.
+- Exact downstream processor/final destination for AMR Dubbo e-waste.
+- AS/NZS 5377 and NTCRS status for the current AMR Dubbo operation.
