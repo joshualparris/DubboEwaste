@@ -704,3 +704,129 @@ No national TV-shipping policy should be adopted without testing packaging and c
 - https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/battery-and-charging-safety/shop-charge-and-recycle-safely
 - https://www.epa.nsw.gov.au/Your-environment/Dangerous-goods/licensing-training
 - https://auspost.com.au/business/shipping/shipping-guidelines/dangerous-prohibited-items
+
+
+---
+
+# Supplementary compliance/tooling findings — 2 October 2026
+
+## EESS / RCM nuance for second-hand equipment
+
+The Electrical Equipment Safety System (EESS) states that the EESS framework itself does **not** apply to second-hand electrical equipment that was previously sold in Australia and was compliant when originally offered for sale.
+
+That is important: ordinary resale of legitimately Australian-market second-hand equipment does **not automatically turn Dubbo E-Waste into an EESS Responsible Supplier**.
+
+However:
+
+- individual state/territory second-hand electrical safety requirements still apply;
+- if the business imports or manufactures new in-scope electrical equipment, Responsible Supplier / registration / RCM obligations can arise;
+- suppliers of new in-scope equipment should source compliant/registered products and observe RCM requirements.
+
+Sources:
+- https://www.eess.gov.au/equipment/second-hand-electrical-equipment/
+- https://www.eess.gov.au/responsible-suppliers/
+- https://www.eess.gov.au/equipment/electrical-equipment-safety-system/
+
+### Phase 0 implication
+
+Prefer original/compliant Australian chargers and power supplies. Do not import generic mains chargers and assume second-hand-device rules cover them.
+
+## Electrical repair licensing
+
+NSW Government says a licence/certificate is required to do **electrical wiring work**, regardless of cost or location.
+
+Source:
+- https://www.nsw.gov.au/business-and-economy/licences-and-credentials/electrical-work-licences
+
+That does not mean every low-voltage computer repair is licensed electrical wiring work.
+
+It does mean the project should draw a firm boundary around mains wiring/electrical work and use an appropriately licensed person where the legal definition is triggered.
+
+## Practical sanitisation tooling
+
+### nwipe
+
+Current nwipe documentation says recent releases, including v0.43, add native secure-erase support for ATA SSDs and NVMe devices where the hardware/firmware supports it.
+
+The project's tool policy can therefore distinguish between:
+
+- magnetic-drive overwrite/verification;
+- drive-native ATA secure erase;
+- NVMe native erase/sanitize capabilities.
+
+Source:
+- https://github.com/martijnvanbrummelen/nwipe
+
+### nvme-cli
+
+NVM Express documentation describes the NVMe **Sanitize** command as supporting operations including:
+
+- block erase;
+- cryptographic erase;
+- overwrite;
+
+with the purpose of making prior user data unrecoverable from media, cache and relevant overprovisioned areas where the controller implements the feature.
+
+Sources:
+- https://nvmexpress.org/resources/nvm-express-base-specification/
+- https://github.com/linux-nvme/nvme-cli
+
+### Operational warning
+
+Do not turn tool availability into a compliance claim.
+
+For every medium:
+
+1. detect capabilities;
+2. select the documented appropriate method;
+3. capture tool/version and result;
+4. verify/validate;
+5. if sanitisation cannot be successfully completed/verified, route the medium to destruction.
+
+Destructive firmware commands such as ATA security erase should be used only under a controlled SOP by someone who understands the device and risks.
+
+## Lithium fire response / extinguishers
+
+Fire and Rescue NSW's current guidance is more nuanced than "buy extinguisher type X".
+
+For a small overheating phone/tablet, if safe, FRNSW guidance includes disconnecting power and moving it away from structures/combustibles. Small lithium-ion devices may be cooled with clean water where safe, and water may be used on a small lithium-ion fire where there is no energised-electrical hazard.
+
+FRNSW also warns that dry-chemical-powder or CO₂ extinguishers may help stop fire spread but are **unlikely to fully extinguish a lithium-ion cell fire**; reignition remains a risk and **000 should be called**.
+
+Sources:
+- https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/battery-and-charging-safety/what-should-i-do-if-my-battery-is-damaged
+- https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/battery-and-charging-safety/shop-charge-and-recycle-safely
+
+### Phase 0 conclusion
+
+Do not specify one extinguisher as "the lithium solution".
+
+Final fire equipment/detection should follow:
+
+- the actual premises risk assessment;
+- insurer requirements;
+- FRNSW guidance;
+- electrical risks present in the workspace.
+
+No authoritative source found in this pass justified a universal **smoke-vs-heat detector** answer for this exact shed.
+
+## Courier-specific lithium restrictions
+
+Australia Post is not the only rule set.
+
+Sendle's current dangerous-goods policy is notably restrictive for electronics with lithium batteries. Its public policy allows only defined small quantities/conditions and does **not** provide a safe basis for assuming old phones being sent for recycling are acceptable. International lithium-ion carriage is restricted.
+
+Source:
+- https://try.sendle.com/en-au/dangerous-goods
+
+### Shipping rule
+
+Before booking each courier:
+
+- check that carrier's current lithium/device policy;
+- confirm whether **used/refurbished** battery devices are eligible;
+- retain battery Wh/model details;
+- never ship damaged/swollen/recalled batteries;
+- do not assume Australia Post acceptance means another courier accepts the parcel.
+
+StarTrack/other carriers should be treated as **carrier-confirmation required** until their current service-specific terms are checked at booking.
