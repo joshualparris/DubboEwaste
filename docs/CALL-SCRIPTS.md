@@ -20,9 +20,10 @@
 
 ## 5. Australian Metal Recycling (Dubbo, formerly Matthews Metal Management) - (02) 6882 1033
 - "I'm running a small electronics refurbishment/reuse operation and need a legitimate downstream outlet for zero-value material. Can I bring small commercial loads of sorted e-waste to the Dubbo yard?"
-- Confirm: laptops/desktops, monitors, printers, phones/tablets, flat-screen TVs, CRTs, loose PCBs, cables/power supplies.
-- "Your website says lithium batteries aren't accepted. Do embedded laptop/phone batteries need to be removed before delivery?"
-- Ask: fee/free, minimum quantity, commercial-account requirement, pickup threshold, weight docket/recycling receipt, and downstream processing.
+- "Your current website lists TVs, computers/laptops, monitors, smart phones/tablets and printers/scanners as accepted e-waste. Does the Dubbo yard follow that list for small commercial loads?"
+- "The same list says electronic waste excludes lithium ion. Do batteries need to be removed from laptops, phones and tablets? What about non-removable batteries?"
+- Confirm specifically: CRT TVs/monitors, loose PCBs, mixed/smashed equipment, cables and power supplies.
+- Ask: whether small commercial e-waste is free, minimum quantity, commercial-account requirement, pickup threshold, weight docket/recycling receipt, and downstream processing.
 - "Are you now Australian Metal Recycling rather than InfraBuild/Matthews Metal Management at this yard? I'm seeing both names online and want the current legal operator correct."
 
 ## 6. Whylandra (Council waste)
