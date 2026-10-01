@@ -19,6 +19,27 @@ Evidence labels:
 
 The date matters. Prices, courses, platform fees, laws, company operations, software support, and partner programmes can change. Re-check live sources before making a decision.
 
+## Research reports produced from this audit
+
+The gap audit is now accompanied by a numbered research series. These reports distinguish public-source findings and controlled synthetic tests from evidence that still requires a written external answer or a real pilot:
+
+1. [Front-door triage](RESEARCH-01-FRONT-DOOR-TRIAGE.md)
+2. [Skills, courses, videos and practice](RESEARCH-02-SKILLS-LEARNING-PATH.md)
+3. [Competitor operating mechanics](RESEARCH-03-COMPETITOR-OPERATING-MECHANICS.md)
+4. [Resale channels, pricing, shipping and returns](RESEARCH-04-RESALE-PRICING-CHANNELS-RETURNS.md)
+5. [Data, identity, locks and privacy](RESEARCH-05-DATA-IDENTITY-PRIVACY-SOP.md)
+6. [Battery, electrical and workshop safety](RESEARCH-06-BATTERY-ELECTRICAL-WORKSHOP-SAFETY.md)
+7. [Repair economics and parts strategy](RESEARCH-07-REPAIR-ECONOMICS-PARTS-STRATEGY.md)
+8. [Category route sheets](RESEARCH-08-CATEGORY-ROUTE-SHEETS.md)
+9. [Inventory system of record](RESEARCH-09-INVENTORY-SYSTEM-OF-RECORD.md)
+10. [Supply, demand and partner validation](RESEARCH-10-SUPPLY-DEMAND-PARTNER-VALIDATION.md)
+11. [Downstream environmental chain of custody](RESEARCH-11-DOWNSTREAM-ENVIRONMENTAL-CHAIN-OF-CUSTODY.md)
+12. [Premises, physical flow and capacity](RESEARCH-12-PREMISES-PHYSICAL-FLOW-CAPACITY.md)
+13. [Finance, time and unit economics](RESEARCH-13-FINANCE-TIME-UNIT-ECONOMICS.md)
+14. [Community, accessibility and impact](RESEARCH-14-COMMUNITY-ACCESSIBILITY-IMPACT.md)
+15. [Trust, marketing and pilot closure](RESEARCH-15-TRUST-MARKETING-PILOT-CLOSURE.md)
+16. [Closure evidence register and next experiments](RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md)
+
 ## Executive summary
 
 The largest unexplored opportunity is not another list of recyclers. It is a repeatable **acceptance-and-routing system** that can answer, before taking an item:
