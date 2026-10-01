@@ -1258,3 +1258,160 @@ Use these files for the underlying evidence:
 After all the research and all chats, the strongest version of the idea is:
 
 > **Get useful retired technology before the recycling system does; prove ownership, secure the data, preserve whole-device value, use resale to fund the operation and some social reuse, track what happened to every significant asset, and recycle only the genuine end-of-life remainder.**
+
+
+---
+
+# 26. Closest-town official reuse/resale programs
+
+Detailed file:
+- [DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS.md](DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS.md)
+
+## Dubbo
+- Whylandra accepts domestic e-waste.
+- Council has formally investigated/business-cased reuse shops.
+- No current public evidence found of an operating electronics-specific test/wipe/refurbish/resale service at Whylandra.
+
+## Wellington
+- Wellington Waste Transfer Station accepts domestic e-waste.
+- Wellington was explicitly included in Council reuse-shop planning.
+- No verified operating electronics refurbishment/resale shop found.
+
+## Narromine
+- Domestic e-waste is listed as no charge.
+- Council uses a low-infrastructure reuse strategy through Garage Sale Trail.
+- 2024–25 reporting records **47 garage sales/stalls** and **4,231 items reused or sold**.
+- No verified council-run electronics testing/refurbishment program found.
+
+## Trangie
+- Current council information supports small-electronics recycling through Trangie Library for categories such as phones and cartridges.
+- Full computer/TV e-waste routing is more clearly documented through Narromine than Trangie.
+- No verified electronics reuse/resale program found.
+
+The regional pattern is therefore:
+
+> **reuse is encouraged before disposal, but electronics-specific secure triage after council custody is not visibly established.**
+
+---
+
+# 27. Why councils have not done more electronics reuse
+
+Detailed file:
+- [WHY-COUNCIL-ELECTRONICS-REUSE-IS-HARD.md](WHY-COUNCIL-ELECTRONICS-REUSE-IS-HARD.md)
+
+The evidence does not support the idea that councils simply do not value reuse.
+
+Dubbo has planned reuse shops. Narromine promotes resale/reuse. NetWaste's strategy supports circular-economy outcomes.
+
+The barrier is the operational jump from:
+
+**waste collection + contracted recycling**
+
+to:
+
+**IT asset disposition + data security + repair + retail + liability + inventory management**.
+
+Major barriers documented across NSW/regional evidence include:
+- labour/staffing;
+- security;
+- illegal dumping/bad donations;
+- storage;
+- electrical test/tag and product-safety requirements;
+- ACL/liability;
+- data sanitisation;
+- stolen-goods/provenance issues;
+- lithium battery/fire risk;
+- repair skills;
+- customer service/POS;
+- warranty/returns;
+- unsold inventory;
+- electronics depreciation;
+- regional transport distances;
+- weak economies of scale;
+- limited council budgets.
+
+A particularly useful 2026 Cessnock Council report said a reuse shop would require, among other things:
+- minimum two staff at all times;
+- security/patrols;
+- electrical test/tag;
+- product-liability management;
+- point-of-sale;
+- capital works and dedicated structure;
+- ongoing compliance.
+
+It described charity/op-shop partnerships as a lower-risk alternative to council-run retail.
+
+This comparative evidence helps explain why a specialist private/social-enterprise reuse layer can make more sense than asking waste-facility staff to become computer refurbishers.
+
+---
+
+# 28. PonyUp → SecondBite → Dubbo connection
+
+Detailed file:
+- [PONYUP-SECONDBITE-DUBBO.md](PONYUP-SECONDBITE-DUBBO.md)
+
+The correct chain is:
+
+**PonyUp technology reuse/resale**
+→ **PonyUp profit**
+→ **SecondBite nationally**
+
+and separately:
+
+**SecondBite / Coles**
+→ **Connecting Community Services in Dubbo**
+→ local food relief.
+
+Important correction:
+
+> **PonyUp does not send the computers to SecondBite. It sends a share of profits.**
+
+PonyUp says 50% of its profits support SecondBite.
+
+Connecting Community Services is a current SecondBite partner in Dubbo and also provides:
+- free computer/internet access;
+- basic computer-skills help;
+- community/referral support.
+
+No public evidence was found that:
+- PonyUp currently processes Dubbo equipment;
+- PonyUp donations are earmarked for Dubbo;
+- Connecting Community Services receives refurbished devices from PonyUp or SecondBite.
+
+This creates a **potential** local social-reuse partnership lead, not a current electronics partnership.
+
+---
+
+# 29. Latest local strategic conclusion
+
+The local evidence now supports a sharper division of roles:
+
+### Councils / NetWaste
+Best at:
+- mass waste collection;
+- facility operation;
+- regional procurement;
+- statutory compliance;
+- material-recycling contracts.
+
+### Specialist local reuse operator
+Best at:
+- deciding whether something is actually end-of-life;
+- ownership/provenance;
+- secure wipe;
+- functional testing;
+- repair;
+- resale;
+- social reuse;
+- parts recovery.
+
+### Community/digital-inclusion organisations
+Best at:
+- identifying recipient need;
+- providing local support;
+- digital-skills assistance;
+- outcome follow-up.
+
+A future Dubbo model therefore does not need to replace Council.
+
+It can sit **before** Council's destructive recycling stream and connect to existing community organisations only where they want that role.
