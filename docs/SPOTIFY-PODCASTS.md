@@ -1,5 +1,231 @@
 # Spotify podcast listening list for Dubbo eWaste
 
+# Australia / NSW first — most relevant to Dubbo eWaste
+
+The original list mixed Australian and overseas material. For Dubbo eWaste, start here.
+
+## 1. Killoway Report — Ep.7 Talking with Young Entrepreneur Austin Turpin
+
+**Spotify show:** https://open.spotify.com/show/4u5ci9897ICp2uuNmi8AOA  
+**Episode:** **Ep.7 Talking with Young Entrepreneur Austin Turpin**  
+**Published:** 18 September 2020  
+**Length:** ~22 min  
+**Why it is the closest NSW match:** Austin Turpin is described as Managing Director of **FlipTech Recycling**, working to stop tech waste **around NSW** and aiming to scale nationally.
+
+### Why it matters for Dubbo
+This is the best “small NSW e-waste founder” comparison found on Spotify. Listen for:
+- how FlipTech started;
+- what problem it was solving in NSW;
+- founder mindset before national scale;
+- how a local/regional operation framed the opportunity.
+
+Use this alongside the Bendigo/Joe early-days research.
+
+---
+
+## 2. Life on Planet A — #82: E-waste Revolution with Austin Turpin
+
+**Spotify:** https://open.spotify.com/show/2m7vWs5BoO9s1iU1HdsOcc  
+**Find in show:** **#82: E-waste Revolution with Austin Turpin**  
+**Published:** 1 May 2025  
+**Length:** ~45 min  
+**Australia:** Yes
+
+### Why it matters
+A newer interview with the same Australian founder, covering:
+- the Australian e-waste problem;
+- Australia's regulatory landscape;
+- founder challenges;
+- startup milestones;
+- how an e-waste business develops.
+
+### Dubbo relevance
+This is the strongest current Australian founder episode for:
+- Phase 0;
+- regulation;
+- collection model;
+- scaling;
+- defining an e-waste business before it becomes large.
+
+---
+
+## 3. All Things Circular — EP49: E-Waste, Microfactories & Circular Plastics Innovation with James Lancaster of Renew IT
+
+**Spotify:** https://open.spotify.com/episode/6WyTlDuqgcYpBieTiEsdB2  
+**Published:** 18 March 2026  
+**Length:** ~20 min  
+**Australian company:** Renew IT
+
+### Why it matters
+Renew IT is Australian. The episode gets into what happens **after equipment is no longer worth reusing**, especially hard-to-recycle plastics and microfactory processing.
+
+### Dubbo relevance
+Excellent for:
+- AMR/Sircel downstream questions;
+- why reuse must come before shredding;
+- what industrial processing looks like after refurbishment fails;
+- understanding what Dubbo eWaste should outsource rather than build itself.
+
+---
+
+## 4. Zwittering On — Trash Talking: Recycling with Professor Veena Sahajwalla (UNSW)
+
+**Spotify:** https://open.spotify.com/episode/7rworfp9mDP97LUqDcqWM9  
+**Published:** 5 March 2024  
+**Length:** ~42 min  
+**NSW:** University of New South Wales, Sydney
+
+### Why it matters
+Professor Veena Sahajwalla is one of Australia's leading waste/materials researchers and pioneered microfactory approaches at UNSW.
+
+### Dubbo relevance
+Strong NSW-specific background for:
+- e-waste/material recovery;
+- local processing;
+- turning waste into usable materials;
+- understanding why “recycling” is not a single process.
+
+This is more downstream than resale, but highly relevant to the regional processing side of the project.
+
+---
+
+## 5. Reducing Our Footprint — Looking at waste as a useful resource with Dr Veena Sahajwalla
+
+**Spotify show:** https://open.spotify.com/show/7mx1Co4AYVAVxdtkwzA9fP  
+**Find in show:** **Looking at waste as a useful resource with Dr Veena Sahajwalla**  
+**Published:** 28 June 2021  
+**Length:** ~27 min  
+**NSW:** UNSW
+
+### Why it matters
+A shorter Australian conversation about treating waste as a resource rather than an endpoint.
+
+### Dubbo relevance
+Useful for the core project logic:
+- a discarded device may still contain product value first;
+- only then component/material value;
+- local recovery systems can be designed around those layers.
+
+---
+
+## 6. Towards Better — Digitising Dreams: Rob Birnie on Bridging the Digital Divide with LiteHaus International
+
+**Spotify:** https://open.spotify.com/show/3LiamrXYr7oHazXJliLqKW  
+**Find in show:** **Digitising Dreams: Rob Birnie on Bridging the Digital Divide with LiteHaus International**  
+**Published:** 10 August 2025  
+**Length:** ~34 min  
+**Australia:** Yes
+
+### Why it matters
+LiteHaus is a very close Australian **reuse/refurbishment** analogue. The episode says it grew from a single donated laptop from a garage and has refurbished more than 23,000 devices.
+
+### Dubbo relevance
+Probably the best Australian episode for:
+- starting very small;
+- donated device supply;
+- refurbishment rather than destruction;
+- rural/regional Australia;
+- social reuse and digital inclusion;
+- partnerships.
+
+This is especially relevant to the Device Bank / Good360 / community-use side of the repo.
+
+---
+
+## 7. Community Matters — PHILANTHROPY: With Susan Wallis, Good360 Australia
+
+**Spotify:** https://open.spotify.com/show/3LQnIRqiRXOmpMB67YulsK  
+**Find in show:** **PHILANTHROPY: With Susan Wallis – A Commitment to Kindness**  
+**Published:** 26 May 2026  
+**Length:** ~38 min  
+**NSW:** Community Industry Group / Illawarra
+
+### Why it matters
+Good360 is already in the Dubbo eWaste research. This episode explains the Australian model of:
+
+**corporate surplus → matching platform → charities/schools/community**
+
+### Dubbo relevance
+Not specifically e-waste, but very relevant to:
+- how refurbished devices might be distributed;
+- social reuse;
+- charity partnerships;
+- the Good360/Device Bank side of the project.
+
+---
+
+## 8. Green Building Voice — Ep15: What does tangible circular economy look like? with Lisa McLean, NSW Circular
+
+**Spotify playlist/show:** https://open.spotify.com/playlist/3XkfQI3CjJ6JLqiqfAFGmy  
+**Episode:** **Ep 15: What does tangible circular economy look like? with Lisa McLean, NSW Circular**  
+**Length:** ~38 min  
+**NSW:** Yes
+
+### Why it matters
+This is NSW-specific circular-economy business thinking rather than generic international theory.
+
+### Dubbo relevance
+Useful for:
+- positioning Dubbo eWaste as circular-economy infrastructure;
+- reuse and new business models;
+- explaining the project to Council or partners;
+- understanding the NSW policy/business environment.
+
+---
+
+## 9. Living with Purpose — Working in Partnership with Councils
+
+**Spotify:** https://open.spotify.com/show/77KIQNix2CgqiiPWYjL4ae  
+**Find in show:** **Living with Purpose: Working in Partnership with Councils**  
+**Published:** 17 December 2025  
+**Length:** ~40 min  
+**Australia:** Yes
+
+### Why it matters
+This is not electronics-specific, but it is directly about how Australian councils, suppliers and residents work together on circular-economy services.
+
+### Dubbo relevance
+Very useful for the future question:
+> How could Dubbo eWaste work with Dubbo Regional Council without trying to replace Council's existing recycling service?
+
+---
+
+## 10. Think: Sustainability — How to solve the problem of waste
+
+**Spotify:** https://open.spotify.com/show/2zWIYRf7PhIhFmREh1WnR7  
+**Find in show:** **How to solve the problem of waste**  
+**Published:** 23 October 2024  
+**Length:** ~29 min  
+**NSW:** 2SER / UTS Sydney
+
+### Why it matters
+Includes John Gertsakis from the Australian **Product Stewardship Centre of Excellence** and looks at how Australia can move from disposal to producer responsibility and better recovery systems.
+
+### Dubbo relevance
+Useful for:
+- NTCRS/product stewardship;
+- why some recycling streams are free;
+- where retailers/manufacturers fit;
+- understanding the policy machinery behind e-waste solutions.
+
+---
+
+# Best 5 for exactly what we are doing
+
+If the goal is **Dubbo + NSW + e-waste + reuse + resale**, listen in this order:
+
+1. **Killoway Report — Austin Turpin / FlipTech NSW**
+2. **Life on Planet A — Austin Turpin / FlipTech**
+3. **Towards Better — LiteHaus International**
+4. **Renew IT — E-Waste & Microfactories**
+5. **Veena Sahajwalla — UNSW recycling episode**
+
+That gives the best Australian chain:
+
+**NSW startup → Australian regulation/business → refurbish/reuse → downstream processing → NSW materials/recycling expertise.**
+
+---
+
 **Curated:** 2 October 2026 (AEST)  
 **Purpose:** a practical listening list tied directly to the Dubbo eWaste research: reuse-before-recycling, ITAD, secure data handling, refurbishment economics, repair/right-to-repair, social reuse, digital inclusion, circular business models and downstream material recovery.
 
