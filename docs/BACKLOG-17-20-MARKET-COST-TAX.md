@@ -568,3 +568,71 @@ Source:
 - Second-hand GST: https://www.ato.gov.au/law/view/document?docid=%22GSD%2FGSTD20132%2FNAT%2FATO%2F00001%22
 - Home-business expenses: https://www.ato.gov.au/individuals-and-families/income-deductions-offsets-and-records/deductions-you-can-claim/working-from-home-expenses
 - AER DMO: https://www.aer.gov.au/industry/retail/default-market-offer
+
+
+---
+
+# Supplementary live-market findings — 2 October 2026
+
+## Current Dubbo industrial/workshop asking rents
+
+Live commercial-property searches provide a better scale-up benchmark than the repo's earlier broad startup estimate.
+
+Examples surfaced in the current market include:
+
+- **13 McGuinn Crescent:** about **200 m² from $395/week + GST**;
+- **6 Depot Road:** about **236 m² at $442.30/week + GST**;
+- another current **373 m²** industrial listing around **$45,000/year + GST/outgoings**;
+- a larger **573 m²** option around **$1,000/week**, with the listing indicating outgoings included;
+- a recent **222 m² Asset Way** lease recorded around **$650/week + GST**;
+- **476 m² Depot Road** around **$895/week + GST + rates/insurance**.
+
+These are **asking/recent listing figures, not achieved-rent forecasts**. They demonstrate why Phase 0 should not take premises before supply and margins are proven.
+
+Re-check live listings immediately before any future lease decision.
+
+Current listing/search references:
+- https://www.realcommercial.com.au/for-lease/dubbo-nsw-2830/industrial-warehouse/
+- https://www.commercialrealestate.com.au/for-lease/dubbo-nsw-2830/industrial-warehouse/
+
+## Scrap/e-waste commodity value
+
+Australian Metal Recycling's current public model distinguishes between materials it **buys** and streams it accepts as **free recycling**.
+
+Its current public material says it pays for commodity metals such as copper, aluminium, brass, lead, stainless steel and other recoverable scrap, while e-waste is promoted primarily as a **free recycling** stream.
+
+A current Dubbo AMR social/local listing published late August 2026 advertised indicative copper/brass rates such as roughly:
+
+- bright & shiny copper: **$14/kg**;
+- bright copper: **$13/kg**;
+- burnt copper: **$12/kg**;
+- clean brass: **$8/kg**.
+
+Those numbers are **secondary, date-specific commodity quotes**, not guaranteed e-waste payouts.
+
+### Margin rule
+
+Do **not** assign a generic per-kilogram scrap value to incoming computers.
+
+Instead record the real outcome:
+
+- recycler charges $X;
+- recycler takes it free;
+- recycler pays $X for a separated commodity fraction.
+
+The project's economics should remain driven by **reuse/refurbishment**, not speculative commodity prices.
+
+Primary operator source:
+- https://australianmetalrecycling.com.au/
+
+## Remaining price research that is inherently live
+
+The following cannot be usefully "solved once" online:
+
+- SSD/RAM/screen/battery replacement prices;
+- courier cost for a particular packed device;
+- sold-market price for a particular refurb configuration;
+- current commodity payout;
+- future warehouse rent.
+
+The correct implementation is already in the expanded pilot tracker: record the actual direct price/cost on each job rather than maintaining a static average.
