@@ -24,9 +24,13 @@ Dubbo Regional Council's adopted 2025–2035 Waste Strategy lists:
 - commencement: 30 June 2023
 - listed expiry: **30 June 2025**
 
-Because the later NSW study still identifies Matthews Metals as Dubbo's e-waste processor, the processing relationship appears to have continued at least into the study period, but the exact current contractual arrangement should be confirmed with Council.
+Those references describe the established 2024-25 pathway, but they are no longer enough to identify the current yard operator.
 
-Matthews Metal Management Dubbo is currently listed by InfraBuild at 34 Mountbatten Drive, Dubbo.
+**2026 operator update:** NSW Police's 19 February 2026 Scrap Metal Industry Register lists **Scrap Metal Services Pty Ltd / Australian Metal Recycling (AMR)**, registration **SM-0759**, at **34 Mountbatten Drive, Dubbo**. AMR's current website calls the Dubbo yard **“Formerly Matthews Metal Management.”** AMR says e-waste is recycled free and explicitly includes computers, monitors and printers, while listing lithium batteries as not accepted.
+
+InfraBuild still has an online “Matthews Metal Management – Dubbo” page at the same address, and its subsidiary OneSteel Recycling still holds the Matthews Metal Management business name. A March 2025 regional waste tender listed InfraBuild Recycling and Scrap Metal Services Pty Ltd as separate bidders, confirming they were separate operators by then.
+
+The exact transaction/transition date, current Council contract after 30 June 2025, TVs/CRTs and detailed commercial conditions remain unresolved. See [MATTHEWS-INFRABUILD-AMR.md](MATTHEWS-INFRABUILD-AMR.md).
 
 ### Implication for Dubbo eWaste
 
@@ -273,7 +277,7 @@ Dubbo already has:
 
 - Council domestic e-waste drop-off
 - commercial waste/recycling operators
-- Matthews/InfraBuild material-processing capability
+- Australian Metal Recycling at the former Matthews Dubbo yard, plus InfraBuild's broader metal-recycling network
 - retail take-back options for some electronics
 
 Dubbo eWaste should therefore differentiate on:
@@ -327,7 +331,11 @@ Real operating numbers from a comparable regional city are more valuable than th
   https://www.dubbo.nsw.gov.au/ArticleDocuments/242/Waste_Strategy_2025_Adopted.pdf.aspx
 - NSW DPHI — Central West Orana REZ Waste: Regional Major Infrastructure Study  
   https://www.planning.nsw.gov.au/sites/default/files/2025-12/central-west-orana-rez-waste-regional-major-infrastructure-study-report-for-nsw-dphi.pdf
-- InfraBuild — Matthews Metal Management Dubbo  
+- Australian Metal Recycling — Dubbo/current network  
+  https://australianmetalrecycling.com.au/contact/
+- NSW Police — Scrap Metal Industry Register (19 Feb 2026)  
+  https://www.police.nsw.gov.au/__data/assets/pdf_file/0019/743500/Public_Register_19_Feb_2026.pdf
+- InfraBuild — legacy Matthews Metal Management Dubbo page  
   https://www.infrabuild.com/branch/matthews-metal-management-dubbo/
 
 ### Business / regulation
