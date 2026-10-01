@@ -218,3 +218,17 @@ Full research: [docs/SIRCEL-REUSE-PARTNERS-WHERE-DOES-IT-GO.md](docs/SIRCEL-REUS
 - **[Unknown] approved brokers:** Sircel still does not publicly name the brokers that buy reuse-qualified assets or where those brokers resell them.
 - **[Unknown] serial-level second-life tracking:** Sircel's own ESG report says visibility ends once assets enter partner operational control.
 - **Opportunity for Dubbo:** design serial-level outcome tracking beyond handoff so a reused device can be reported through sale/donation/return/recycling rather than simply marked "reused".
+
+
+---
+
+## I. Reuse-first benchmark models
+
+Detailed research: `docs/REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md`.
+
+- **[Found] PonyUp for Good:** business-focused IT asset disposition and reuse. Strongest reuse target is recent corporate technology, typically around **2–5 years old**. It offers collection, serialised asset registers, Blancco/Aiken sanitisation, certificates, refurbishment and remarketing; equipment with no reuse potential goes to ANZRP/accredited recycling. PonyUp's published impact material says roughly **32–32.5%** of collected equipment has been reused.
+- **[Found] Reconnect Project:** accepts phones/tablets of any age/condition and laptops under about **8 years**, then performs real device-level triage, repair, donor-parts harvesting, Blancco erasure and either affordable resale or distribution through partner agencies. Its current distribution page reports **4,800+ devices distributed**. Unrepairable remnants go to Australian reprocessors.
+- **[Found] Laptop Initiative:** highly selective direct-reuse model for business-donated laptops, generally **≤4 years old**, in good working condition, with charger/webcam and already wiped/prepared. It says it does **not** normally repair laptops after gifting. It minimises warehousing by matching incoming donations to charity demand and moving devices within days. It announced a **1,000-laptop milestone in September 2026**.
+- **[Found] Different economics:** PonyUp funds itself through commercial services and resale; Reconnect uses repair income, refurbished sales, grants/donations and business/government work; The Laptop Initiative gifts devices and relies on sponsorship/donations/volunteers rather than resale.
+- **[Implication] Best Phase 0 hybrid for Dubbo:** copy PonyUp's business-first sourcing and traceability, Reconnect's device-level triage/parts hierarchy, and The Laptop Initiative's strict acceptance criteria/fast inventory turnover. Do **not** copy Reconnect's broad intake/employment model or TLI's donation-only economics at launch.
+- **[Unknown] Partnership opportunity:** whether PonyUp, Reconnect or The Laptop Initiative would accept a Dubbo regional feeder/triage partner. Ask directly.
