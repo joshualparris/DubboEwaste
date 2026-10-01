@@ -280,7 +280,13 @@ Then ask:
 - Current local business listing / social-feed mirror for Australian Metal Recycling Dubbo: https://www.findglocal.com/AU/Dubbo/126806891326594/Australian-Metal-Recycling-Dubbo
 - Older Business Recycling Matthews listings should be treated as historical/secondary and rechecked by phone.
 
-## 11. Remaining unknowns
+## 11. Downstream-process deep dive
+
+The detailed trace of what happens **after** Dubbo accepts TVs, computers, monitors, phones/tablets and printers is now in [WHAT-HAPPENS-TO-EWASTE.md](WHAT-HAPPENS-TO-EWASTE.md).
+
+Key finding: AMR does not publicly identify the downstream e-waste processor used by Dubbo. The evidence supports treating Dubbo primarily as a receiving/sorting/consolidation/logistics point until AMR confirms otherwise. The new note separates AMR-confirmed facts from NTCRS/MobileMuster industry benchmarks and lists the exact questions required to build a real chain-of-custody map.
+
+## 12. Remaining unknowns
 - exact legal transaction/transition from InfraBuild/Matthews to AMR at Dubbo
 - exact date AMR took operational control of 34 Mountbatten Drive
 - post-30-June-2025 Dubbo Regional Council e-waste contract
