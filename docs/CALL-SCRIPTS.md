@@ -178,3 +178,44 @@ Detailed evidence: [FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY.md](FLIPTECH-E
 - "Can regional partners perform triage, testing, repairs or deployment preparation?"
 - "Would local businesses be able to donate devices through a Dubbo partner and have suitable equipment distributed back into Western NSW?"
 - "Could an existing Dubbo community partner provide the final distribution/digital-literacy layer?"
+
+
+## Fliptech Australia — Dubbo regional pilot / branch feasibility
+
+Suggested opening:
+- "I've been researching secure electronics reuse and ITAD in Dubbo/Central West NSW. Your model is much closer to what is missing locally than an ordinary e-waste recycler. Would Fliptech be open to testing a regional collection/ITAD pilot in Dubbo before considering a permanent hub?"
+
+### Existing regional activity
+- "Do you currently collect from Dubbo, Orange, Bathurst, Mudgee or elsewhere in Central West/Orana?"
+- "How many regional NSW clients do you currently service?"
+- "For regional jobs, do you use your own vehicles, freight providers or subcontractors?"
+- "What is the normal minimum quantity/value for a regional collection?"
+- "Could several smaller regional clients be consolidated into scheduled runs?"
+
+### Expansion structure
+- "Does Fliptech have plans for regional branches or satellite depots?"
+- "Have you ever operated a secure consolidation hub outside Brookvale?"
+- "Would you consider an authorised local operating partner rather than an owned branch?"
+- "Do you have, or would you consider, a formal partner/licensing model?"
+- "Would you consider a 3–6 collection-cycle pilot in Dubbo before committing to premises?"
+
+### Economics
+- "Which device categories make regional collections financially worthwhile?"
+- "How do hardware buybacks work — per device, per grade or per bulk lot?"
+- "Can asset recovery subsidise collection and erasure for good corporate fleets?"
+- "What approximate monthly asset count or tonnage would justify a permanent regional site?"
+- "What percentage of your incoming enterprise devices are typically reused/resold, donated and materially recycled?"
+
+### Security / processing
+- "Could an approved regional partner perform serial capture and chain-of-custody intake?"
+- "Could an approved Dubbo site perform Fliptech-authorised data sanitisation locally?"
+- "Which security controls would a regional facility need?"
+- "What erasure software/reporting system does Fliptech require?"
+- "Would failed media be destroyed locally or returned to Brookvale?"
+- "Could the Dubbo operation be ITAD/reuse-focused without doing industrial material processing?"
+
+### Dubbo-specific proposition
+- "NSW Government currently promotes Dubbo specifically as an e-waste recycling investment location, and Council describes a 125,000+ regional catchment. Would Central West/Orana interest you as a regional service territory?"
+- "Could Royal Far West/community redistribution be incorporated into a regional pilot?"
+- "Would you be interested in a local person developing the customer pipeline and collection logistics under Fliptech's processes?"
+- "What evidence would you need before seriously considering a Dubbo hub?"
