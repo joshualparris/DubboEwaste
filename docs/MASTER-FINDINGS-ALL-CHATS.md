@@ -1618,3 +1618,96 @@ The following remain useful operators/partners/benchmarks, but current public ev
 CirculaTech, Multi R IT, 9R Cycle IT, Tech Rekall, LinkBytes, ITC Asset Management, Excess Technology, EraseIT, Interlink Asset Management, ITSD, Secure Computer Recycling & Disposal, Recycle IT Australia, Enable IT Recycling, Sircel, Lifecycle Plus, WorkVentures, Total Green Recycling, Close the Loop and Sims Lifecycle Services.
 
 Removal does **not** mean they would refuse work in Dubbo. It means there is not enough branch-pattern evidence to prioritise them for a Dubbo physical-site approach.
+
+
+---
+
+# 32. Dubbo ITAD branch-entry playbook
+
+Detailed file:
+- [DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md](DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md)
+
+The deeper branch research separates three models:
+
+1. **partner / white-label**
+2. **approved satellite / aggregation hub**
+3. **corporate-owned branch**
+
+None of the seven shortlisted companies publicly offers a simple purchasable Dubbo franchise.
+
+## Best entry ranking — ease + low cost + payoff
+
+1. **Greenbox Partner Program**
+2. **G1 white-labelled ITAD**
+3. **Fliptech regional pilot / authorised operator**
+4. **WV Technologies commercial partner**
+5. **Iron Mountain Global Partner + ALM**
+6. **Renew IT regional depot proposal**
+7. **Shred-X corporate branch proposal**
+
+## Separate physical-branch plausibility ranking
+
+1. **Greenbox**
+2. **G1 Asset Management**
+3. **WV Technologies**
+4. **Fliptech**
+5. **Shred-X**
+6. **Renew IT**
+7. **Iron Mountain / ACT**
+
+## Why Greenbox moved to the top
+
+Greenbox publishes a real partner-onboarding process:
+- two-page application;
+- 12-month business plan;
+- three references;
+- three months of credit information;
+- mandatory training;
+- stated 14-business-day decision target;
+- partnership MOU;
+- co-branding / white-labelling / direct customer servicing;
+- preferred pricing and asset-recovery margin opportunity.
+
+No public partner joining fee was found.
+
+## Why G1 is the cheapest operational alternative
+
+G1 already advertises **white-labelled ITAD for IT service providers** and covers regional NSW.
+
+A Dubbo provider could potentially:
+- own the customer relationship;
+- sell the ITAD service;
+- have G1 perform collection, sanitisation, processing and reporting;
+- avoid a warehouse and local Blancco at launch.
+
+No public white-label fee/margin schedule is published.
+
+## Current cost benchmark
+
+Public/current components now captured:
+- business name: **$47/1 year**, if a new name is required;
+- NSW second-hand dealer licence, if applicable: **$692/1 year**;
+- current 190 m² Dubbo industrial rent benchmark: **$395/week + GST**, or **$20,540/year + GST**;
+- low-end small-commercial security benchmark: about **$5,000+**;
+- current Australian Blancco reseller example: **$982.30** for an SMB Select 50 bundle;
+- national minimum wage: **$26.44/hour**;
+- wage + 12% super floor for one full-time award-free adult: **$58,525.38/year**.
+
+Modelled secure-hub baseline:
+- **$27,261.30** before insurance, bond, outgoings, utilities, vehicle, racking, tools and labour.
+
+Same model + one minimum-wage FTE:
+- **$85,786.68** before those same unknown costs.
+
+These are transparent modelled floors, **not quotes**.
+
+## Strongest next commercial evidence
+
+Do not lease a warehouse yet.
+
+Obtain:
+1. Greenbox partner pricing/rulebook;
+2. G1 white-label commercial pricing;
+3. Fliptech written regional-pilot terms.
+
+Those three documents are the fastest route from public estimates to actual Dubbo economics.
