@@ -4,6 +4,8 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 
 > **Reuse first. Recycle second.**
 
+**Master all-chat synthesis:** [docs/MASTER-FINDINGS-ALL-CHATS.md](docs/MASTER-FINDINGS-ALL-CHATS.md) now consolidates the important Dubbo eWaste findings, decisions and corrections from all project conversations while keeping private residential identifiers out of this public repo.
+
 *Compiled 2 October 2026. Status: research stage. Figures marked (estimate) are not quotes. Items marked VERIFIED were read from an official source during this research; everything else needs a phone call. Not legal advice.*
 
 ## What's in this repo
@@ -11,6 +13,7 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | File | What it is |
 |---|---|
 | [README.md](README.md) | This summary |
+| [docs/MASTER-FINDINGS-ALL-CHATS.md](docs/MASTER-FINDINGS-ALL-CHATS.md) | **Master synthesis from all project chats:** top 10 takeaways, Officeworks clarification, planning/legal, downstream, reuse/ITAD, Device Bank/Dubbo links, corrections and the five biggest unanswered questions |
 | [GAPS.md](GAPS.md) | Full list of what is known, found, and still unknown |
 | [docs/BACKLOG-01-16-INDEX.md](docs/BACKLOG-01-16-INDEX.md) | **Research handoff for backlog items 1–16, with status and remaining confirmations** |
 | [docs/BACKLOG-01-05-PLANNING-LEGAL.md](docs/BACKLOG-01-05-PLANNING-LEGAL.md) | Property planning, NSW waste law, second-hand dealer and scrap-metal research |
