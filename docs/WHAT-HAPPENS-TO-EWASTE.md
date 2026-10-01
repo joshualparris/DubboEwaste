@@ -703,3 +703,10 @@ For each surrounding council:
 - battery-removal rules for laptops/phones/tablets
 - CRT acceptance
 - cartridge/toner rules
+
+
+### Reuse-first model deep dive
+
+The most strategically relevant part of Sircel is not the industrial shredding line; it is the **decision system before destruction**. Sircel tracks incoming lots, triages devices for reuse, sanitises data with Blancco, hardware-tests reuse candidates, then routes passing devices to reuse/redeployment/charity/approved brokers. Its FY2023-24 ESG report records **2,350 items reused** and explicitly says significant numbers of incoming laptops and desktops were still working.
+
+That workflow has now been researched separately as a potential core operating model for Dubbo E-Waste: [SIRCEL-ITAD-REUSE-MODEL.md](SIRCEL-ITAD-REUSE-MODEL.md).
