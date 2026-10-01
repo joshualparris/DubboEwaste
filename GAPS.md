@@ -232,3 +232,35 @@ Detailed research: `docs/REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md`.
 - **[Found] Different economics:** PonyUp funds itself through commercial services and resale; Reconnect uses repair income, refurbished sales, grants/donations and business/government work; The Laptop Initiative gifts devices and relies on sponsorship/donations/volunteers rather than resale.
 - **[Implication] Best Phase 0 hybrid for Dubbo:** copy PonyUp's business-first sourcing and traceability, Reconnect's device-level triage/parts hierarchy, and The Laptop Initiative's strict acceptance criteria/fast inventory turnover. Do **not** copy Reconnect's broad intake/employment model or TLI's donation-only economics at launch.
 - **[Unknown] Partnership opportunity:** whether PonyUp, Reconnect or The Laptop Initiative would accept a Dubbo regional feeder/triage partner. Ask directly.
+
+
+---
+
+## Good360 / Compnow / National Device Bank / Dubbo — deep-dive findings
+
+Full research: [docs/GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md](docs/GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md).
+
+### Confirmed
+- **[Found] Sircel -> Good360 ecosystem:** Good360's 2024 reporting names Sircel among digital-access product donors. This proves a Good360 connection, but not the quantity or exact Sircel devices supplied.
+- **[Found] Compnow -> Good360:** Compnow is Good360's named Education Partner/refurbishment partner. Its documented workflow is nationwide corporate fleet pickup -> certified wipe -> cosmetic/hardware test -> repairs/battery replacement/parts matching -> OS reinstall -> source missing charger -> individual box/label -> Good360 distribution.
+- **[Found] Cross-subsidy:** Good360/Compnow can on-sell unsuitable donated categories and return proceeds to Good360; National Device Bank reporting also describes some residual-value devices being sold to help fund free devices.
+- **[Found] National Device Bank:** launched 7 Aug 2025 by WorkVentures, Good360 Australia and Good Things Australia. Current standard free laptop spec is i5 6th gen+, 8GB+ RAM, 128GB+ SSD, Wi-Fi, webcam/mic and 13.3"+ display.
+- **[Found] Current NDB donor threshold:** the NDB's public donor page currently asks for contributions of **more than 50 devices**. WorkVentures' broader CircularIT service can scope smaller/flexible fleets separately.
+- **[Found] WorkVentures ITAD:** secure collection, Blancco/NIST-style sanitisation, serialised certificates, grading, refurbishment/resale/donation, R2-certified recycling for failures and impact reporting.
+- **[Found] NSW Device Bank:** 12-month 2026 pilot using surplus NSW Government laptops, delivered through NSW Telco Authority + WorkVentures + Good Things Australia. General public cannot apply directly; registered NSW charities/NFPs on the ACNC register can request devices or apply as digital-literacy providers.
+- **[Found] First NSW rollout:** The Place Charlestown was the first publicly announced community partner in Sep 2026, distributing 30 refurbished laptops with 12 months of data, digital-skills training and IT support.
+- **[Found] Dubbo Support Center:** direct Good Things partner; selected for Digital Sisters; $3,000 and $5,200 Building Digital Skills grants in 2025 plus $1,000 Get Online Week grant; now ACNC-registered. It **appears to satisfy the NSW Device Bank's published organisation-level eligibility criterion**, but no application/selection is publicly confirmed.
+- **[Found] Digital Nebula – Dubbo:** received $3,000 Building Digital Skills and $1,000 Get Online Week funding from Good Things in 2025. Its current ABN record is a discretionary trading trust rather than an ACNC charity, so direct NSW Device Bank eligibility is **not established**.
+- **[Found] Existing Dubbo need/use:** Aboriginal Housing Office's Services Our Way program distributed 90+ refurbished laptops and published a 2026 Dubbo recipient using one for TAFE study/employment. DRC/VERTO also ran Laptop to Launch digital-skills training in Dubbo/Wellington.
+- **[Found] Good360 already reaches Dubbo through non-device programs:** historical LeaderLife distribution, Little Wings support to a Dubbo family, and a NSW NGO Flood Recovery grant with Dubbo in Good360's approved service area.
+
+### Still unknown
+- Whether Sircel is still an active Good360 digital-device donor in 2026.
+- How many Sircel assets went to Good360 and whether any Sircel asset was processed by Compnow.
+- Whether any Good360 Digital Divide/Laptop Launchpad device has already been distributed in Dubbo.
+- Whether the National Device Bank has delivered devices in Dubbo.
+- Whether the NSW Device Bank has selected a Dubbo partner; no public Dubbo rollout was found as of 2 Oct 2026.
+- Whether Dubbo Support Center has applied to either device bank.
+- Whether WorkVentures/Good360 would accept a small Dubbo refurbisher as a local technical, aggregation or final-mile partner.
+- Whether Compnow currently collects corporate IT fleets from Dubbo and the minimum economical regional volume.
+- Whether Digital Nebula could participate through another pathway despite not obviously meeting the NSW Device Bank's ACNC criterion.
