@@ -97,19 +97,19 @@
 ## J. Legal, council and downstream (untried online angles)
 | # | Question | Status |
 |---|---|---|
-| 55 | Do Dubbo Regional Council's business papers or tender register show the post-June-2025 e-waste contractor? | ⬜ |
-| 56 | What do NetWaste's current e-waste contract details say? | ⬜ |
-| 57 | Do the national TV/computer recycling schemes' collection-point lists (ANZRP/TechCollect, EPSA, Ecycle) include AMR Dubbo? | ⬜ |
-| 58 | What does the full 2026 Pawnbrokers and Second-hand Dealers Regulation say about the recycling exemption and "alteration" during the 14-day hold? | ⬜ |
-| 59 | How do you apply to Fair Trading for an exemption (forms, criteria, fees)? | ⬜ |
-| 60 | What are the exact home business vs home industry definitions in the Dubbo LEP/DCP, and the exempt-development conditions? | ⬜ |
-| 61 | Which insurers cover small electronics refurbishers, and do online quote tools give an indicative premium? | ⬜ |
-| 62 | Which NSW EPA or federal circular-economy/repair grants are open now (2026)? | ⬜ |
-| 63 | Has the NSW Device Bank named new community partners, especially in Dubbo/Orana? | ⬜ |
-| 64 | Has Good360 distributed devices in Dubbo? | ⬜ |
-| 65 | Which Officeworks trade-in and recycling categories does the Dubbo store actually accept? | ⬜ |
-| 66 | What is Sircel's status (receivership/sale) in 2026? | ⬜ |
-| 67 | Does the NSW eTendering contract-award history name the NSW Education school e-waste vendor? | ⬜ |
-| 68 | What do ABN/ASIC records of local competitors show about how long they've traded and their structure? | ⬜ |
+| 55 | Do Dubbo Regional Council's business papers or tender register show the post-June-2025 e-waste contractor? | 🟡 [J](J-LEGAL-COUNCIL-DOWNSTREAM.md) |
+| 56 | What do NetWaste's current e-waste contract details say? | 🟡 [J](J-LEGAL-COUNCIL-DOWNSTREAM.md) |
+| 57 | Do the national TV/computer recycling schemes' collection-point lists (ANZRP/TechCollect, EPSA, Ecycle) include AMR Dubbo? | 🟡 [J](J-LEGAL-COUNCIL-DOWNSTREAM.md) |
+| 58 | What does the full 2026 Pawnbrokers and Second-hand Dealers Regulation say about the recycling exemption and "alteration" during the 14-day hold? | ✅ [J](J-LEGAL-COUNCIL-DOWNSTREAM.md) |
+| 59 | How do you apply to Fair Trading for an exemption (forms, criteria, fees)? | ✅🟡 [J](J-LEGAL-COUNCIL-DOWNSTREAM.md) |
+| 60 | What are the exact home business vs home industry definitions in the Dubbo LEP/DCP, and the exempt-development conditions? | ✅🟡 [J](J-LEGAL-COUNCIL-DOWNSTREAM.md) |
+| 61 | Which insurers cover small electronics refurbishers, and do online quote tools give an indicative premium? | 🟡 [J](J-LEGAL-COUNCIL-DOWNSTREAM.md) |
+| 62 | Which NSW EPA or federal circular-economy/repair grants are open now (2026)? | 🟡 [J](J-LEGAL-COUNCIL-DOWNSTREAM.md) |
+| 63 | Has the NSW Device Bank named new community partners, especially in Dubbo/Orana? | 🟡 [J](J-LEGAL-COUNCIL-DOWNSTREAM.md) |
+| 64 | Has Good360 distributed devices in Dubbo? | 🟡 [J](J-LEGAL-COUNCIL-DOWNSTREAM.md) |
+| 65 | Which Officeworks trade-in and recycling categories does the Dubbo store actually accept? | ✅ [J](J-LEGAL-COUNCIL-DOWNSTREAM.md) |
+| 66 | What is Sircel's status (receivership/sale) in 2026? | 🟡 [J](J-LEGAL-COUNCIL-DOWNSTREAM.md) |
+| 67 | Does the NSW eTendering contract-award history name the NSW Education school e-waste vendor? | 🟡 [J](J-LEGAL-COUNCIL-DOWNSTREAM.md) |
+| 68 | What do ABN/ASIC records of local competitors show about how long they've traded and their structure? | ✅🟡 [J](J-LEGAL-COUNCIL-DOWNSTREAM.md) |
 
 **Hardest online:** #21, #49 and #58 sit behind bot protection or JavaScript. #11 is fastest with an eBay seller account (Product Research).
