@@ -374,3 +374,26 @@
 - Connecting Community Services' SecondBite role is food relief; no public electronics-refurbishment partnership with PonyUp/SecondBite was found.
 - Dubbo/Wellington reuse shops were planned/business-cased; current operation was not verified.
 - Narromine Garage Sale Trail proves community reuse, not council electronics refurbishment.
+
+
+## Conversation-history provenance — added 2 Oct 2026
+
+Some project-history facts are **firsthand user reports or prior-chat history**, not claims derived from public web sources.
+
+They are intentionally kept separate from VERIFIED/official research.
+
+Preserved in [PROJECT-HISTORY-ALL-CHATS.md](PROJECT-HISTORY-ALL-CHATS.md):
+
+- **December 2024:** prior project context recorded a Bendigo request for five low-cost/donated computers for reuse.
+- **4 September 2025:** Josh reported receiving **10 donated laptops from Bendigo E-Waste**, without chargers; condition unknown but the units appeared substantially intact.
+- DadLAN's hands-on refurbishment/testing experience is treated as **user/project experience**, not an external industry dataset.
+- The historical Dubbo refurb margin figures ($10–$50 dead/untested acquisition, <$100–$120 total cost, ~$180–$250 resale, ~$80–$120 gross room) are preserved as **old working estimates**, not current market evidence.
+- The Painted Brush chronology supplied directly in chat is preserved as **first-person business-history material**; where a detail also has independent public evidence, the dedicated Bendigo/Kristy research file identifies it.
+
+### Evidence rule
+
+Do not cite these conversation-derived facts as if they were independently verified third-party evidence.
+
+For legal, regulatory, commercial, planning, downstream, pricing or current-market claims, prefer the newer dated primary-source research files.
+
+Some older uploaded attachments referenced in historic conversations are no longer available to reload. If their exact contents are required later, they should be re-uploaded rather than reconstructed from memory.
