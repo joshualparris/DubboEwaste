@@ -7,16 +7,16 @@
 ## A. Triage, specs and locks
 | # | Question | Status |
 |---|---|---|
-| 1 | Which exact CPUs are on Microsoft's official Windows 11 supported lists (incl. 7th-gen exceptions)? Build a model-level lookup table | ⬜ |
-| 2 | Which Mac models does the current macOS support, and which are on Apple's vintage/obsolete lists? Build a Mac accept/reject table | ⬜ |
-| 3 | Which iPhone and iPad models does the current iOS/iPadOS support? | ⬜ |
-| 4 | When does security support end for common Android phones (Samsung, Google, Motorola, Oppo)? | ⬜ |
-| 5 | What are the auto-update end dates for the Chromebook models most common in schools? | ⬜ |
-| 6 | How do Dell and HP handle forgotten BIOS admin passwords (master codes, unlock services, proof of ownership)? | ⬜ |
-| 7 | How do you spot that Computrace/Absolute is enabled, from the BIOS or from Linux? | ⬜ |
-| 8 | How do you detect a Samsung Knox Guard lock or a carrier lock before accepting a phone? | ⬜ |
-| 9 | What are the terms of AMTA's bulk IMEI Lookup Service for businesses? | ⬜ |
-| 10 | What are the most common failure modes for each main business laptop family? | ⬜ |
+| 1 | Which exact CPUs are on Microsoft's official Windows 11 supported lists (incl. 7th-gen exceptions)? Build a model-level lookup table | ✅ [A](A-TRIAGE-SPECS-LOCKS.md) |
+| 2 | Which Mac models does the current macOS support, and which are on Apple's vintage/obsolete lists? Build a Mac accept/reject table | ✅ [A](A-TRIAGE-SPECS-LOCKS.md) |
+| 3 | Which iPhone and iPad models does the current iOS/iPadOS support? | ✅ [A](A-TRIAGE-SPECS-LOCKS.md) |
+| 4 | When does security support end for common Android phones (Samsung, Google, Motorola, Oppo)? | 🟡 [A](A-TRIAGE-SPECS-LOCKS.md) |
+| 5 | What are the auto-update end dates for the Chromebook models most common in schools? | 🟡 [A](A-TRIAGE-SPECS-LOCKS.md) |
+| 6 | How do Dell and HP handle forgotten BIOS admin passwords (master codes, unlock services, proof of ownership)? | ✅ [A](A-TRIAGE-SPECS-LOCKS.md) |
+| 7 | How do you spot that Computrace/Absolute is enabled, from the BIOS or from Linux? | ✅ [A](A-TRIAGE-SPECS-LOCKS.md) |
+| 8 | How do you detect a Samsung Knox Guard lock or a carrier lock before accepting a phone? | ✅ [A](A-TRIAGE-SPECS-LOCKS.md) |
+| 9 | What are the terms of AMTA's bulk IMEI Lookup Service for businesses? | ✅ [A](A-TRIAGE-SPECS-LOCKS.md) |
+| 10 | What are the most common failure modes for each main business laptop family? | ✅ [A](A-TRIAGE-SPECS-LOCKS.md) |
 
 ## B. Pricing and valuation
 | # | Question | Status |

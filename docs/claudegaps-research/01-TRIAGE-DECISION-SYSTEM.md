@@ -4,6 +4,10 @@
 **Researched:** 2 Oct 2026, web research by Claude Code (search → primary-source fetch → cross-check)
 **Confidence key:** **[Primary]** = read from the operator/vendor/regulator's own page · **[Secondary]** = third-party summary, treat as indicative · **[Derived]** = my synthesis from the sources · **[Open]** = can only be closed by a call or hands-on test
 
+> **CORRECTIONS (2 Oct 2026, from `claudeDOCS/A-TRIAGE-SPECS-LOCKS.md`):**
+> 1. The Windows 11 floor for **AMD laptops is Ryzen 3000-series mobile**. Mobile Ryzen 2000 (2500U/2700U) is **not** on Microsoft's 24H2 list; desktop Ryzen 2000 is. Read "Ryzen 2000+" below as "Ryzen 2000+ desktop / 3000+ laptop".
+> 2. AMTA's free IMEI checker is licensed for **personal use only** and must not be used "in connection with any other products or services". Have the donor/seller run it and show the result, or find a commercial service (§1.5 below is superseded).
+
 ---
 
 ## Bottom line
