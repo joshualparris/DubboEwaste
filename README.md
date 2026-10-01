@@ -12,6 +12,10 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 |---|---|
 | [README.md](README.md) | This summary |
 | [GAPS.md](GAPS.md) | Full list of what is known, found, and still unknown |
+| [docs/BACKLOG-01-16-INDEX.md](docs/BACKLOG-01-16-INDEX.md) | **Research handoff for backlog items 1–16, with status and remaining confirmations** |
+| [docs/BACKLOG-01-05-PLANNING-LEGAL.md](docs/BACKLOG-01-05-PLANNING-LEGAL.md) | Property planning, NSW waste law, second-hand dealer and scrap-metal research |
+| [docs/BACKLOG-06-12-DOWNSTREAM-STEWARDSHIP.md](docs/BACKLOG-06-12-DOWNSTREAM-STEWARDSHIP.md) | AMR/Council downstream, NTCRS, MobileMuster and B-cycle research |
+| [docs/BACKLOG-13-16-REGIONAL-SUPPLY.md](docs/BACKLOG-13-16-REGIONAL-SUPPLY.md) | Surrounding councils, NetWaste/Sircel, volumes and supply-source research |
 | [docs/PHASE-0-OPERATING-BLUEPRINT.md](docs/PHASE-0-OPERATING-BLUEPRINT.md) | **Detailed cheapest-start blueprint: Tue/Sat intake, acceptance gates, storage, wiping, resale, safety and downstream** |
 | [docs/LEGAL-LICENSING.md](docs/LEGAL-LICENSING.md) | Second-hand dealer licence, council/planning, EPA, in detail |
 | [docs/COSTS.md](docs/COSTS.md) | Start-up and running cost picture |
