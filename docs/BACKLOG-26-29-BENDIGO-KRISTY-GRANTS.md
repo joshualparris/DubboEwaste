@@ -625,3 +625,84 @@ Treat grants as acceleration for an already sensible project, not as the reason 
 - https://www.dubbo.nsw.gov.au/News-and-Media/News-and-Resources/grants-and-funding
 - https://www.investregional.nsw.gov.au/opportunities/dubbo
 - https://www.environment.nsw.gov.au/funding-and-support/nsw-environmental-trust/grants-available
+
+
+---
+
+# Supplementary Kristy / grant opportunities — 2 October 2026
+
+## HomeGround: a serious emerging-artist pathway in Dubbo
+
+Dubbo Regional Council / Western Plains Cultural Centre runs **HomeGround**, a professional-development opportunity for emerging artists in the Dubbo region.
+
+The 2026 program included:
+
+- professional development with a curator;
+- development toward an exhibition;
+- exhibition opening;
+- artist talk;
+- studio visits and related support.
+
+The 2026 application window ran from **9 February to 10 April 2026**, so it is closed now, but it is exactly the kind of pathway Kristy should watch for the next intake if she builds a body of work.
+
+Sources:
+- https://www.dubbo.nsw.gov.au/news-and-media/news-and-resources/council-news/2026/homeground-callout
+- https://www.westernplainsculturalcentre.org/
+
+## Waste 2 Art
+
+Dubbo Regional Council's **Waste 2 Art** program is another local creative route and is unusually relevant to the broader reuse theme.
+
+The 2026 competition/exhibition:
+
+- accepted community and professional artists;
+- required work made from reused/recycled materials;
+- had entries close on **3 April 2026**;
+- exhibited from **2 May to 9 August 2026**;
+- featured dozens of works.
+
+Sources:
+- https://www.dubbo.nsw.gov.au/news-and-media/news-and-resources/council-news/2026/waste-2-art
+- https://www.westernplainsculturalcentre.org/
+
+### Kristy implication
+
+This could be a future low-risk exhibition target if recycled-material art genuinely interests her. It should not be forced simply because Josh is researching e-waste.
+
+## Other local public-art opportunities
+
+Council has also run artist-selection opportunities connected with public display/public-art projects such as the Dubbo Showground scoreboard program.
+
+These are irregular rather than a dependable income stream, but they support monitoring Council/WPCC artist callouts rather than relying solely on markets.
+
+Source:
+- https://www.dubbo.nsw.gov.au/news-and-media/news-and-resources/council-news
+
+## Environmental Trust — currently open, but not a direct private-microbusiness grant
+
+The NSW Environmental Trust's **Environmental Education Grants** round opened **21 September 2026** and closes **9 November 2026**.
+
+Current program material indicates grants can support environmental education projects, with eligibility centred on entities such as eligible community/not-for-profit organisations and government bodies rather than an ordinary private microbusiness.
+
+Source:
+- https://www.environment.nsw.gov.au/funding-and-support/nsw-environmental-trust/grants-available/environmental-education
+
+### Dubbo E-Waste implication
+
+This is potentially relevant **only through a genuine eligible partnership/project**, for example a community organisation/Council education initiative about reuse and responsible e-waste.
+
+It is not evidence that Josh can claim an Environmental Trust grant for a home refurb business.
+
+## Pricing limits
+
+Local public web research can identify programs and places to sell/exhibit, but it did **not** produce a reliable current public price sheet for:
+
+- local fine-art printing;
+- framing;
+- cards;
+- market insurance;
+- venue hire across all options.
+
+These are quote-stage inputs.
+
+Do not convert unsourced local shop estimates into the Kristy business model.
