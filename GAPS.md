@@ -160,3 +160,18 @@ The surrounding councils already solve much of the **household disposal** proble
 - Annual e-waste tonnes/item counts by council, and estimated reusable share.
 - Exact current downstream contractor and final destination for Coonamble, Gilgandra, Nyngan, Warren, Parkes, Forbes, Narromine and Mid-Western.
 - Commercial e-waste prices/limits across surrounding facilities.
+
+
+### Regional downstream gaps narrowed — 2 Oct 2026
+
+New evidence closes part of the earlier "what happens next?" gap:
+
+- **[Found] Parkes:** Council explicitly records e-waste from Parkes Landfill being collected by **Sircel**. Sircel's Parkes facility and detailed processing method are public.
+- **[Found] Coonamble (2025):** Council explicitly records an arrangement with **Matthews Metals Dubbo** for e-waste and batteries.
+- **[Found/Historical] NetWaste:** an older regional contract explicitly described e-waste being **shredded at Sims St Marys**, while NetWaste's current page still says Sims collects e-waste for the majority of member councils.
+- **[Unknown] Dubbo 2026:** the exact current contractor after the Matthews contract expiry remains unconfirmed.
+- **[Unknown] Council reuse rights:** no public contract found yet showing whether a local third-party refurbisher can take suitable devices before the contracted recycler.
+- **[Unknown] ownership:** exact point at which deposited electronics become Council/contractor property needs council/legal confirmation.
+- **[Unknown] quantities:** current annual e-waste tonnes and reusable-device share by council remain to be obtained.
+- **[Unknown] Narromine:** Sircel/Parkes has demonstrably handled Narromine regional e-waste, but current exclusive routing is not published.
+- **[Important distinction] Access Recycling won a 2025 regional **scrap-metal** tender; this is not evidence it replaced Sims for e-waste.
