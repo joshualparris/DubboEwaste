@@ -1395,3 +1395,37 @@ It is:
 **resolve classification → make the shed genuinely suitable → pre-screen → accept only high-value/reusable devices → control data and batteries → sell online → use established downstream recyclers → measure 30 items → scale only if the numbers work.**
 
 That is the closest practical analogue to starting small rather than trying to reproduce a mature e-waste warehouse on day one.
+
+
+---
+
+# 27. Reuse-first benchmark adaptation
+
+Deep research: [REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md](REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md).
+
+Three Australian reuse organisations provide a useful design spectrum:
+
+- **PonyUp for Good:** recent corporate fleets, strong chain-of-custody/data erasure, asset registers, remarketing and ESG reporting. Best analogue for future paid business ITAD.
+- **The Reconnect Project:** deeper repair, donor-parts harvesting, refurbished retail and partner-agency distribution. Best analogue for the actual repair hierarchy, but too operationally broad for Phase 0.
+- **The Laptop Initiative:** strict intake, mostly good ≤4-year-old laptops, donor-prepared/wiped, rapid charity matching, minimal storage and no normal repair service. Best analogue for controlling stock and only accepting equipment with a destination.
+
+## Phase 0 rules reinforced by these benchmarks
+
+1. Prefer **recent corporate equipment** over random household e-waste.
+2. Ask the source for model/spec/condition before collection.
+3. Record serial numbers and final outcomes from day one.
+4. Build a sanitisation record even before offering enterprise-grade certificates.
+5. Do not remove/destroy functioning drives unnecessarily if a secure erase can preserve whole-device reuse, subject to the agreed data standard.
+6. Set a maximum age/spec gate for the default intake and make exceptions deliberately.
+7. Know whether an item is headed for resale, repair, donor parts, social reuse or recycling before accepting it.
+8. Keep stock moving; "shelf time" should be measured as a business metric.
+9. Add a social donation stream only after the commercial pilot proves its workflow and partner agencies are identified.
+10. Treat downstream material recycling as the final route, not the first evaluation step.
+
+## Longer-term service concept
+
+If the pilot works, the most defensible future business-client service is:
+
+> **Collection → serialised asset register → secure erase → test/grade → refurbish/reuse/resale → optional social redeployment → parts recovery → certified downstream recycling → client outcome report.**
+
+That model captures value before destruction while also solving the risk/compliance problem that causes businesses to use conventional IT disposal providers.
