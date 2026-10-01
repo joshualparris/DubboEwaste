@@ -156,3 +156,37 @@
 - NetWaste -> Sims is current at majority-of-councils level, but not enough to assign every named council to Sims.
 - Sims St Marys shredding is historical contract/process evidence, not proof of the current 2026 Dubbo route.
 - No public evidence found yet naming Dubbo Regional Council's exact post-30-June-2025 e-waste processor.
+
+
+## AMR Dubbo exact-recipient forensic research — checked 2 Oct 2026
+
+**HISTORICAL MATTHEWS / NTCRS**
+- Great Lakes Council ordinary meeting agenda, 24 Feb 2015 — records Matthews Metal Management's free e-waste service operating under the Australian Government NTCRS, later terminated after scheme funding/volume issues: https://www.midcoast.nsw.gov.au/files/assets/public/v/3/document-resources/council-meetings/former-great-lakes-council/2015/02-15/ordinary-agenda-24-feb-2015.pdf
+- Historical Recycling Near You Matthews Parkes listing — NTCRS-covered e-waste only and reference to TechCollect accepted products: https://recyclingnearyou.com.au/business/17314
+- ANZRP Annual Report 2014–15 — NSW recycling network included Sims and TES-AMM: https://www.anzrp.com.au/Downloads/Annual-Reports/ANZRP_Annual-Report_2014-2015.pdf
+- ANZRP Annual Report 2015–16 — Sims Recycling Solutions and TES-AMM again listed among NSW recyclers: https://www.dcceew.gov.au/sites/default/files/documents/anzrp-annual-report-2015-16.pdf
+
+**CURRENT TECHCOLLECT / NTCRS**
+- DCCEEW current approved NTCRS co-regulatory arrangements (updated 20 May 2026): https://www.dcceew.gov.au/environment/protection/waste/product-stewardship/products-schemes/television-computer-recycling-scheme/coreg-arrangements
+- TechCollect current collection partners: https://techcollect.com.au/our-partners/
+- ANZRP Annual Report 2024–25 — current NSW recyclers are ACE Recycling Group and Sircel: https://www.anzrp.com.au/wp-content/uploads/2025/11/29632-anzrp-annual-report-2024-25_regulator_web_final.pdf
+
+**SIRCEL PARKES — STRONGEST REGIONAL LEAD, NOT AN AMR LINK**
+- Sircel current facilities / Parkes: https://sircel.com/contact-us/
+- Sircel processing / services: https://sircel.com/services/
+- Sircel regional Parkes/Narromine announcement: https://www.linkedin.com/posts/sircel-limited_e-waste-is-not-just-an-urban-problem-activity-7185517489282318336--mM5
+- Parkes Shire 2024–25 progress report — e-waste from Parkes Landfill collected by Sircel: https://www.parkes.nsw.gov.au/files/assets/public/v/1/council/strategies-and-plans/operational-plan-amp-budget/2024-25_op-plan_progress_report_jan-to-june-2025-infocouncil-final.pdf
+
+**ACE RECYCLING GROUP — CURRENT NSW TECHCOLLECT RECYCLER, NOT AN AMR LINK**
+- ACE e-waste recycling: https://acerecycling.net.au/services/e-waste/
+- ACE process/facilities: https://acerecycling.net.au/company/how-it-works/
+
+**AMR INTERNAL-NETWORK LEAD**
+- AMR 2025 network article — Rutherford described as a major hub where material is consolidated for processing/onward sale; does not state Dubbo e-waste is routed there: https://australianmetalrecycling.com.au/rescuing-scrap-metal-across-nsw/
+
+**NEGATIVE FINDINGS / LIMITS**
+- No current public source found naming the first facility receiving AMR Dubbo e-waste.
+- No current TechCollect public collection-partner entry found for AMR, Matthews or Dubbo.
+- No current public co-regulator document found tying Scrap Metal Services Pty Ltd / Australian Metal Recycling to an NTCRS arrangement.
+- No documentary AMR→Sircel, AMR→ACE or AMR→Sims link found.
+- Geography or historical supplier relationships must not be presented as proof of the current route.
