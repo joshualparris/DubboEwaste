@@ -94,7 +94,7 @@ No flipper or repair technician can operate in a vacuum. You will encounter stra
 
 ### **Discord Servers & Physical Communities**
 *   **Electronics Repair School Discord:** Connected to a prominent YouTube channel, this Discord server offers real-time tech support. It is divided into channels for laptops, phones, TVs, and consoles, allowing you to chat live with technicians around the world when you are stuck on a difficult repair.
-*   **Australian Maker Spaces & Social Enterprises:** Sourcing e-waste legally and ethically in Australia often means partnering with local groups. Organizations like **Substation33** in Logan, Queensland is an active e-waste social enterprise in Meadowbrook, QLD [VERIFIED], are prime examples of social enterprises that process e-waste. Volunteering or networking at local Hackerspaces or tip shops (resource recovery centres run by local councils) allows you to build relationships. Often, these facilities will let known, competent repairers purchase broken electronics before they are sent to the shredder, giving you first pick of prime salvage material.
+*   **Australian Maker Spaces & Social Enterprises:** Sourcing e-waste legally and ethically in Australia often means partnering with local groups. Organizations like **Substation33** (an active e-waste social enterprise in Meadowbrook, QLD [VERIFIED]) are prime examples of social enterprises that process e-waste. Volunteering or networking at local Hackerspaces or tip shops (resource recovery centres run by local councils) allows you to build relationships. Often, these facilities will let known, competent repairers purchase broken electronics before they are sent to the shredder, giving you first pick of prime salvage material.
 
 ---
 
