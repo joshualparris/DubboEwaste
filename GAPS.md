@@ -264,3 +264,25 @@ Full research: [docs/GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md](docs/GOOD360
 - Whether WorkVentures/Good360 would accept a small Dubbo refurbisher as a local technical, aggregation or final-mile partner.
 - Whether Compnow currently collects corporate IT fleets from Dubbo and the minimum economical regional volume.
 - Whether Digital Nebula could participate through another pathway despite not obviously meeting the NSW Device Bank's ACNC criterion.
+
+
+---
+
+## Five biggest unresolved questions after all-chat synthesis — 2 Oct 2026
+
+Full synthesis: [docs/MASTER-FINDINGS-ALL-CHATS.md](docs/MASTER-FINDINGS-ALL-CHATS.md).
+
+1. **Can the exact Phase 0 home-site model operate lawfully and safely?**  
+   Need the definitive Council classification/property planning answer, lease/landlord position, demonstrably dry/secure workspace and insurer acceptance.
+
+2. **Does the NSW second-hand dealer regime apply to the exact collect → wipe → refurbish/resell → recycle model?**  
+   Need Fair Trading's written answer on the recycling-program exemption, donated/free goods, 14-day hold and whether wiping/repair counts as alteration.
+
+3. **Where does the genuine end-of-life material physically go?**  
+   Need AMR Dubbo's first downstream facility, embedded-lithium rule, NTCRS/AS 5377 relationship, CRT/commercial terms and documentation; also need Dubbo Council's current post-June-2025 e-waste contractor/reuse rights.
+
+4. **Is there enough repeatable profitable supply in Dubbo?**  
+   Only a measured pilot can establish reusable-device rate, repair labour, sale values, stock days, returns, downstream costs and margin per labour hour.
+
+5. **Which organisations will actually partner with a Dubbo reuse operator, and on what terms?**  
+   Promising leads include Dubbo Support Center, Good Things, WorkVentures, Good360, National/NSW Device Bank, ANZRP/TechCollect, Sircel, councils and local businesses/MSPs, but volume thresholds, responsibilities, warranty, reporting, logistics and commercial terms are still unconfirmed.
