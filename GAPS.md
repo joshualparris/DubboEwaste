@@ -409,29 +409,37 @@ Possible progression:
 
 ---
 
-## Fliptech / national ITAD regional-branch opportunity — 2 Oct 2026
+## Physical Dubbo ITAD branch / hub shortlist — 2 Oct 2026
 
-Full research: [docs/FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY.md](docs/FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY.md).
+Full staffing and branch-pattern evidence:
+[docs/AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md](docs/AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md)
 
-### New findings
-- **[Found] Fliptech is a real reuse-first ITAD comparator:** current corporate/business evidence shows secure decommissioning, NIST 800-88 erasure, asset reports, reuse/resale/donation and recycling rather than simple scrap handling.
-- **[Found] Fliptech started very small:** public founder profiles describe a garage-origin business that grew into a multi-employee national-client operation.
-- **[Found] Fliptech has expanded beyond Sydney:** public staff material says it is operating in Melbourne, although no verified dedicated Melbourne processing-facility address was found.
-- **[Found] Fliptech is a Buy NSW supplier** and already works with corporate/government-facing programs.
-- **[Found] Dubbo scale is credible for a regional satellite:** Council/NSW sources describe a 125,000+ service catchment and ~5,593 active LGA businesses.
-- **[Found] Several mature ITAD firms already use the exact expansion models a Dubbo site could copy:** capital-city processing + regional logistics, drop-off depots, scheduled routes, 3PL, white-label IT-provider relationships or social-enterprise collection networks.
-- **[Found] G1 explicitly offers white-labelled ITAD to IT service providers**, making it a strong candidate for a Dubbo local-front / certified-back-end partnership.
-- **[Found] 9R Cycle IT explicitly services regional NSW via third-party logistics**, making a Western NSW local collection/triage partner a plausible logistics proposition.
-- **[Found] WorkVentures explicitly covers regional centres nationally** and offers CircularIT + Device Bank reuse pathways; its likely Dubbo fit is partnership/program delivery rather than a standard commercial branch.
-- **[Strategic conclusion]** the strongest first proposal is **not a Dubbo shredding/recycling plant**. It is a **Western NSW secure ITAD collection + triage + data + refurbishment satellite**, with true end-of-life material sent to an existing approved downstream processor.
+### Important staffing correction
+- **[Found] Fliptech does not have a verified exact count of 11 staff.** LinkedIn currently places Fliptech in the **11–50 employee** band.
+- **[Found] G1 Asset Management is also in the 11–50 LinkedIn band**, yet operates secure processing facilities in Brisbane, Sydney, Canberra and Melbourne and explicitly services metro and regional Australia.
+- **Implication:** Fliptech's employee band by itself does not rule out a small Dubbo satellite.
 
-### Unanswered
-- Does Fliptech already service Dubbo/Western NSW, and at what minimum collection volume?
-- What exactly is Fliptech's Melbourne operating structure: company facility, contractor, route or logistics partnership?
-- Does Fliptech use approved regional subcontractors?
-- Would Fliptech/G1/9R/WorkVentures allow a Dubbo partner to perform only collection/serial capture, or also sanitisation/refurbishment?
-- What physical security, insurance, certification and premises requirements would a parent ITAD company impose?
-- What recurring annual volume of business refresh equipment actually exists across Dubbo/Orana?
-- How many large local organisations are already contractually tied to national ITAD providers?
-- Who owns/re-sells reusable stock and who carries ACL/warranty risk in a regional-partner model?
-- Can a parent company direct social-use assets to remain in Western NSW?
+### Retained physical-branch/hub candidates
+These are the companies with the strongest public evidence that a Dubbo physical presence is worth testing:
+1. **Fliptech Australia** — strongest model fit; one current public site but historical national ambition/nationwide clients.
+2. **G1 Asset Management** — 11–50 band; proven multi-facility specialist.
+3. **Renew IT** — 51–200 LinkedIn band; company material has also said 200+ professionals; multi-depot Australian model.
+4. **Greenbox Group** — 51–200; repeated branch expansion, four Australian facilities, formal partner program and historic regional roadshows.
+5. **WV Technologies** — 51–200; locations in ACT, NSW, QLD, VIC and WA; buyback/refurbish/remarket model.
+6. **Shred-X** — 201–500; 11 national facilities, three in NSW, explicit regional NSW coverage and growing ITAD/e-waste sales.
+7. **Iron Mountain / former ACT Logistics** — ACT had a 51–200 band and multi-site Australian lifecycle operation before acquisition; Iron Mountain is actively expanding ALM in Australia/APAC.
+
+### Removed from the physical-branch shortlist
+The following remain possible service providers, downstream partners or benchmarks, but current public evidence is not strong enough to prioritise them for a **new Dubbo physical branch**:
+CirculaTech, Multi R IT, 9R Cycle IT, Tech Rekall, LinkBytes, ITC Asset Management, Excess Technology, EraseIT, Interlink Asset Management, ITSD, Secure Computer Recycling & Disposal, Recycle IT Australia, Enable IT Recycling, Sircel, Lifecycle Plus, WorkVentures, Total Green Recycling, Close the Loop and Sims Lifecycle Services.
+
+This does **not** mean they would refuse Dubbo work. It means their public operating pattern currently points more strongly to remote service, logistics, partnership, a single processing centre, or a different strategic role than opening a new Dubbo branch.
+
+### Unanswered for all seven retained candidates
+- Do they already service Dubbo / Central West NSW?
+- How many recurring western NSW enterprise accounts do they have?
+- What monthly device count or tonnes justify premises?
+- Would they open an owned site, use a secure satellite, or approve a local operating partner?
+- Can local sanitisation/refurbishment occur under their standards?
+- What proportion of regional assets are reused/resold versus recycled?
+- Would a Dubbo pilot be commercially preferable to existing Sydney/Canberra logistics?
