@@ -131,3 +131,28 @@
 - No public AS 5377 certificate found for AMR Dubbo in this research.
 - No AMR public process found for NIST-style sanitisation, drive shredding or serial-numbered data-destruction certificates.
 - No AMR public material-flow report found showing its e-waste recovery percentage or overseas destinations.
+
+
+## Named regional downstream routes — checked 2 Oct 2026
+
+**PRIMARY / CURRENT OR COUNCIL-RECORDED**
+- NetWaste current e-waste page — Sims collects e-waste from the majority of NetWaste councils: https://www.netwaste.com.au/ewaste/
+- Parkes Shire 2024-25 progress report — e-waste from Parkes Landfill collected by Sircel: https://www.parkes.nsw.gov.au/files/assets/public/v/1/council/strategies-and-plans/operational-plan-amp-budget/2024-25_op-plan_progress_report_jan-to-june-2025-infocouncil-final.pdf
+- Parkes Shire 2025-26 progress report — ongoing Sircel e-waste/shared-agreement work: https://www.parkes.nsw.gov.au/files/assets/public/v/2/council/strategies-and-plans/operational-plan-amp-budget/ecm_2191606_v2_ipr-operational-plan-2025-2026-progress-report-july-to-december-2025.pdf
+- Coonamble Shire Feb 2025 business paper — Matthews Metals Dubbo e-waste/battery arrangement: https://www.coonambleshire.nsw.gov.au/__media_downloads/business-papers-minutes/2025/250212_1._Business_Paper_-_Ordinary_Meeting_February_2025.pdf
+- Sircel current Parkes site: https://sircel.com/contact-us/
+- Sircel current processing chain: https://sircel.com/how-we-work/our-process/
+- Sircel current recycling process: https://sircel.com/services/recycling/
+- Sircel ITAD/reuse/data sanitisation: https://sircel.com/services/itad-asset-recovery-repurposing/
+- DCCEEW — Ecycle Solutions NTCRS Annual Report 2023-24: https://www.dcceew.gov.au/environment/protection/waste/publications/ecycle-solutions-annual-report-2023-24
+- DCCEEW — NTCRS co-regulatory arrangements and 90% material-recovery target: https://www.dcceew.gov.au/environment/protection/waste/product-stewardship/products-schemes/television-computer-recycling-scheme/coreg-arrangements
+
+**HISTORICAL / IMPORTANT PHYSICAL-PROCESS EVIDENCE**
+- NetWaste Regional Waste and Sustainable Materials Strategy 2023-2027 — older regional e-waste option described as shredded at Sims St Marys, with E-cycle Solutions recovery trial: https://netwaste.com.au/wp-content/uploads/2023/03/TW22135_NetWaste_Regional-Waste-and-Sustainable-Materials-Strategy-2023-2027_5.0.pdf
+
+**INTERPRETATION LIMITS**
+- Parkes -> Sircel is directly evidenced by Council.
+- Coonamble -> Matthews Dubbo is directly evidenced for 2025, not proven current for 2026.
+- NetWaste -> Sims is current at majority-of-councils level, but not enough to assign every named council to Sims.
+- Sims St Marys shredding is historical contract/process evidence, not proof of the current 2026 Dubbo route.
+- No public evidence found yet naming Dubbo Regional Council's exact post-30-June-2025 e-waste processor.
