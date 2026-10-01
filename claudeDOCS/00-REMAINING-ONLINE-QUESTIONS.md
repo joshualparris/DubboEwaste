@@ -90,9 +90,9 @@
 ## I. Supply
 | # | Question | Status |
 |---|---|---|
-| 52 | How many businesses are in Dubbo by industry and size (ABS counts)? | ⬜ |
-| 53 | Which independent schools are in Dubbo, and how do they handle ICT and disposal? | ⬜ |
-| 54 | What share of Australian PCs still run Windows 10 (e.g. StatCounter AU)? | ⬜ |
+| 52 | How many businesses are in Dubbo by industry and size (ABS counts)? | 🟡 [I](I-SUPPLY.md) |
+| 53 | Which independent schools are in Dubbo, and how do they handle ICT and disposal? | ✅🟡 [I](I-SUPPLY.md) |
+| 54 | What share of Australian PCs still run Windows 10 (e.g. StatCounter AU)? | ✅ [I](I-SUPPLY.md) |
 
 ## J. Legal, council and downstream (untried online angles)
 | # | Question | Status |
