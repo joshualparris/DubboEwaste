@@ -1,3 +1,6 @@
+> [!WARNING]
+> This document contains AI-generated policies, estimates, and generic industry practices. It has only been partly fact-checked and not every unverified claim is tagged; treat anything not marked [VERIFIED] in the corrections file as unchecked. Please refer to `00-CORRECTIONS-AND-CAVEATS.md` for full source checking.
+
 # Operational Guide: Flipping Refurbished Electronics in NSW, Australia
 
 ## 1. Introduction
@@ -13,8 +16,8 @@ When flipping electronics, your choice of platform directly impacts your profit 
 eBay remains a dominant force in the Australian e-commerce landscape, particularly for electronics. Its vast audience comes at a premium, though recent changes have altered the landscape for smaller sellers.
 
 *   **Fee Structures for Sellers:** As of 2026, eBay Australia introduced substantial changes to its fee structure to remain competitive. 
-    *   **Fee-Free Tier:** Eligible Australia-based private sellers earning less than $25,000 annually may qualify for a fee-free tier, meaning no standard transaction or final value fees are charged to the seller. Instead, a buyer protection fee (approximately 8%) may be passed directly to the consumer. This is highly advantageous for small-scale flippers starting out.
-    *   **Pro and Business Sellers:** If your turnover exceeds $25,000 or you operate as a registered business, you are subject to standard transaction fees. These typically include a Final Value Fee (a percentage of the total sale, including shipping and taxes, often ranging from 8% to 12% depending on the exact tech category) and a fixed Per-Order Fee (e.g., $0.30).
+    *   **Fee-Free Tier:** Eligible Australia-based casual sellers at or under AU$25,000 over 12 months (not just 'private' status, but based on revenue threshold) may qualify for a fee-free tier, meaning no standard transaction or final value fees are charged to the seller. Instead, a Buyer Protection fee (a flat $0.30 plus a percentage per eBay, exact percentage [UNVERIFIED]) is charged to the buyer. This is highly advantageous for small-scale flippers starting out.
+    *   **Pro and Business Sellers:** If your turnover exceeds $25,000 or you hold an eBay Pro plan (this depends on your sales total and plan, not on being a "registered business"), you are subject to standard transaction fees. These typically include a Final Value Fee (a percentage of the total sale, including shipping and taxes, typically 13.4% up to AU$4,000, then 2.5% above that [SECONDARY: https://www.salehoo.com/ebay-au-fee-calculator ; check eBay's Pro fees page]) plus a fixed $0.30 per-order fee.
 *   **The eBay Refurbished Program:** Selling items specifically marked as "Refurbished" (Certified, Excellent, Very Good, Good) requires approval into the eBay Refurbished Program. 
     *   **Requirements:** You must maintain a Top Rated Seller status, offer a minimum 1-year warranty, provide free standard shipping, and accept 30-day returns. 
     *   **Implications:** If you do not meet these criteria, you cannot list items as "Seller Refurbished" in many categories and must instead list them as "Used." Gaining entry into the Refurbished program significantly boosts buyer trust and conversion rates, but the margin requirements (free shipping, warranties) must be factored into your pricing model.
@@ -24,7 +27,6 @@ eBay remains a dominant force in the Australian e-commerce landscape, particular
 Facebook Marketplace has revolutionized local selling in Australia, offering unparalleled access to community-level buyers.
 
 *   **Local Pickup Economics:** The primary advantage of Facebook Marketplace is that local, in-person transactions are entirely **free**. Arranging cash on pickup or an instant bank transfer (like PayID) incurs zero listing, final value, or commission fees. This maximizes profit margins on bulky items like desktop PCs or large monitors.
-*   **Shipping and Checkout Fees:** If you opt to use Facebook's integrated checkout and shipping services to reach a nationwide audience, fees apply. These are automatically deducted from your payout and generally range from 5% to 10% of the sale price, often with a minimum fee threshold (e.g., $0.40 to $0.80 per order).
 *   **Business Considerations:** While casual flipping on Facebook is common, once you operate with the intent to make a profit regularly, you transition into "business" territory under Australian law. This means you cannot simply rely on the "buyer beware" nature of private sales (more on this in the Legal section). 
 
 ### 2.3. Gumtree Australia
@@ -32,7 +34,7 @@ Gumtree operates primarily as a classifieds platform. It shares similarities wit
 
 *   **Standard Listings:** For casual sellers or those operating on a small scale, listing in general tech categories is mostly free. 
 *   **Business and Professional Accounts:** If you scale up and register as a business, Gumtree offers subscription packages. Rather than paying per lead or a percentage of the sale, businesses typically pay a monthly subscription fee. This package often includes a dedicated business page, data feed integrations, and automated "bump-ups" to keep your ads at the top of search results.
-*   **Gumtree Pay:** If you use Gumtree's integrated payment system (Gumtree Pay) to facilitate secure transactions, the platform generally charges a fee to the *buyer* (around 3%), which is reduced if they use PayTo. For sellers, receiving funds via Gumtree Pay is generally fee-free, ensuring you get the agreed-upon asking price. 
+*   **Gumtree Pay:** If you use Gumtree's integrated payment system (Gumtree Pay) to facilitate secure transactions, the platform generally charges a fee to the *buyer* ([UNVERIFIED] around 3%), which is reduced if they use PayTo. For sellers, receiving funds via Gumtree Pay is generally fee-free, ensuring you get the agreed-upon asking price. 
 *   **Visibility Costs:** The main economic factor on Gumtree is visibility. Because free listings get pushed down quickly, serious flippers must often pay for feature packages (e.g., Top Ad, Highlight) which can range from $10 to $50+ depending on the duration and category.
 
 ### 2.4. Shopify Australia
@@ -41,7 +43,7 @@ For flippers looking to build an independent brand, Shopify is the industry stan
 *   **Subscription Pricing:** Shopify’s plans are billed monthly or annually. In Australia, the Basic plan costs approximately $56 AUD per month (or ~$42/month if billed annually). Higher tiers (Grow, Advanced) scale up from $149 to over $500 monthly, offering advanced reporting and lower credit card rates.
 *   **Transaction Fees:** 
     *   **Shopify Payments:** If you use Shopify's native payment processor, you do not pay third-party transaction fees. You only pay standard credit card processing rates (e.g., 1.75% + 30c for domestic cards on the Basic plan).
-    *   **Third-Party Gateways:** If you use an external gateway, Shopify penalizes you with an additional 0.5% to 2% fee depending on your plan.
+    *   **Third-Party Gateways:** If you use an external gateway, Shopify penalizes you with an additional [UNVERIFIED] 0.5% to 2% fee depending on your plan.
 *   **Ecosystem Costs:** Operating a Shopify store requires budgeting for extras. You will need a custom domain (~$20/year), premium themes ($200-$400 one-off), and likely several third-party apps for inventory management, email marketing, and product reviews (adding anywhere from $20 to $100+ to your monthly overhead). If you plan to open a physical retail space in NSW, the Shopify POS Pro system adds roughly $129 AUD per month per location.
 
 ---
@@ -60,14 +62,12 @@ The golden rule of shipping electronics is the "Kick Test": pack the item so sec
 ### 3.2. Lithium Battery Regulations
 Lithium-ion batteries (found in laptops, phones, and tablets) are classified as **Dangerous Goods** under Australian transport regulations due to fire risks.
 
-*   **Transport Restrictions:** Within the Australia Post network, devices containing lithium batteries generally cannot be sent via the Express Post air network. They must be sent via **Road Transport Only**.
-*   **Labeling:** Your package must be explicitly marked. You must apply a "Road Transport Only" sticker or write it clearly in red marker next to the shipping label. 
-*   **Safety Protocols:** The device must be completely powered down. Ensure the power button cannot be accidentally pressed during transit. If the battery is removable, it is sometimes safer to ship it detached but wrapped securely in non-conductive material to prevent short circuits.
+*   **Australia Post rules:** Follow Australia Post\'s current service-specific lithium battery requirements before sending. Air services generally require batteries installed in equipment; loose/packed-with batteries may be permitted on some surface services subject to packaging and dangerous-goods requirements.
 
 ### 3.3. Carrier Costs and Services (AusPost vs. Couriers)
 *   **Australia Post:** 
     *   **Flat-Rate vs. Cubic:** For dense, heavy items under 5kg (like older laptops), AusPost’s flat-rate satchels or boxes are highly cost-effective, offering a single price nationwide. For larger items (monitors, PC towers), shipping is calculated based on cubic weight (volume) and the destination zone. Shipping a bulky PC from Sydney to Perth will be significantly more expensive than Sydney to Newcastle.
-    *   **Mandatory Add-ons:** Never ship electronics without **Signature on Delivery** ($3.50) and **Extra Cover** (insurance). Extra Cover costs $0.00 for the first $100 of value, and $2.50 for every subsequent $100. Without this, AusPost’s liability is severely limited.
+    *   **Optional Add-ons:** **Signature on Delivery** costs $2.95 and must be added when the item is valued above $500 [VERIFIED]; consider it for any high-value item. **Extra Cover** (insurance) is also available [VERIFIED: https://auspost.com.au/personal/sending/parcels/sending-in-australia/optional-extras]. Extra Cover costs $0.00 for the first $100 of value, and $2.50 for every subsequent $100. [UNVERIFIED: the claim that Australia Post’s liability is "severely limited" without Extra Cover was not checked.]
 *   **Courier Alternatives:** For high-value or exceptionally fragile items (e.g., a $2,000 gaming rig), consider specialized couriers (like Pack & Send or Aramex). While potentially more expensive, they often provide better handling for fragile goods and offer more comprehensive transit warranty options specifically tailored to technology.
 
 ---
@@ -93,7 +93,7 @@ If a refurbished device fails to meet a consumer guarantee, the buyer is entitle
     *   If the issue is a **minor failure** (e.g., a single loose key on a keyboard that can be easily popped back into place), you (the seller) can choose the remedy: repair the item, replace it, or offer a refund.
     *   If the issue is a **major failure** (e.g., the motherboard dies after two weeks, making the laptop unusable), the **buyer** has the right to choose the remedy. They can demand a full refund or a replacement.
 *   **Store Warranties vs. ACL:** If you offer a "3-month warranty" on your refurbished goods, this is considered a voluntary warranty. It acts *in addition* to the ACL. Even if your 3-month warranty expires, if a logic board dies at month 4, the buyer may still be entitled to a remedy under the ACL, as a reasonable consumer would expect a $1,000 refurbished laptop to last longer than a few months.
-*   **Illegal Practices:** In NSW, it is strictly illegal to display signs or policies stating "No Refunds," "No Refunds on Sale Items," or "Sold As Is" (when acting as a business). You cannot contract out of your ACL obligations. While you can request proof of purchase (a receipt) for a return claim, you cannot demand the original packaging.
+*   **Illegal Practices:** Nationally under the Australian Consumer Law, it is unlawful to display signs or policies stating "No Refunds," because it implies no refund is possible even for faulty goods. Similarly, blanket "Sold As Is" statements do not override statutory guarantees. You cannot contract out of your ACL obligations. While you can request proof of purchase (a receipt) for a return claim, you cannot demand the original packaging.
 
 ---
 

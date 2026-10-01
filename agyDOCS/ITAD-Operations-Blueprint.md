@@ -1,7 +1,10 @@
+> [!WARNING]
+> This document contains AI-generated policies, estimates, and generic industry practices. It has only been partly fact-checked and not every unverified claim is tagged; treat anything not marked [VERIFIED] in the corrections file as unchecked. Please refer to `00-CORRECTIONS-AND-CAVEATS.md` for full source checking.
+
 # Operational Blueprint: Commercial IT Asset Disposition (ITAD) Processing
 
 ## Executive Summary
-As the modern technological landscape continues to scale rapidly, the lifecycle management of retired, off-lease, and depreciated IT hardware has become a critical operational and security challenge. Commercial IT Asset Disposition (ITAD) providers—such as Fliptech, Sircel, and PonyUp—function as the industrial bridge between corporate obsolescence and the secondary tech market. An ITAD facility is part high-security data fortress, part high-throughput manufacturing line in reverse. 
+As the modern technological landscape continues to scale rapidly, the lifecycle management of retired, off-lease, and depreciated IT hardware has become a critical operational and security challenge. Commercial IT Asset Disposition (ITAD) providers (for example Fliptech, Sircel and PonyUp; [UNVERIFIED] this document does not describe their actual internal operations) function as the industrial bridge between corporate obsolescence and the secondary tech market. An ITAD facility is part high-security data fortress, part high-throughput manufacturing line in reverse. 
 
 This deep-dive operational blueprint details the end-to-end mechanics of a commercial ITAD facility. By breaking down the intricate workflows of physical intake, secure data sanitization, cosmetic grading, enterprise-grade inventory management, and algorithmic pricing, this document serves as a comprehensive standard operating procedure for modern value recovery operations.
 
@@ -18,7 +21,7 @@ The process begins at the loading dock. Shipments arrive in pallets, gaylord box
 
 ### Staging and Secure Storage
 Once received, assets do not sit openly on the warehouse floor. They are immediately transitioned to a highly secure staging area.
-* **Access Control:** This staging area typically consists of floor-to-ceiling chain-link cages equipped with biometric or badge-restricted access controls, dual-factor authentication, and 24/7 high-definition CCTV coverage with minimum 90-day retention policies.
+* **Access Control:** This staging area typically consists of floor-to-ceiling chain-link cages equipped with biometric or badge-restricted access controls, dual-factor authentication, and 24/7 high-definition CCTV coverage with minimum [PROPOSED POLICY / UNVERIFIED] 90-day retention policies.
 * **Lot ID Assignment:** At this bulk stage, the entire shipment is assigned a unique "Lot ID" or "Pallet ID." 
 
 ### The Triage Intake and Serialized Tracking
@@ -37,26 +40,26 @@ Eradicating sensitive corporate data is the non-negotiable core of ITAD. While p
 ### Blancco (The Enterprise Standard)
 Blancco is the undisputed industry heavyweight for highly regulated environments (finance, government, healthcare).
 * **Mechanics:** It performs overwriting and cryptographic erasure techniques that address hidden sectors, Device Configuration Overlays (DCO), and Host Protected Areas (HPA) on HDDs and SSDs. Blancco is often deployed via a local PXE (Preboot Execution Environment) server, allowing an ITAD technician to connect 50+ laptops to a switch and wipe them simultaneously without USBs.
-* **Licensing & Costs:** Blancco avoids simple perpetual licenses, favoring a "Platform + Event-based" model. ITADs pay for the management console and buy "wipe licenses" in bulk (e.g., $1 to $3 per wipe depending on volume). 
+* **Licensing & Costs:** Blancco avoids simple perpetual licenses, favoring a "Platform + Event-based" model. ITADs pay for the management console and buy "wipe licenses" in bulk (e.g., [UNVERIFIED] Quote-based per wipe depending on volume). 
 * **Certificates:** Its main selling point is the generation of tamper-proof, digitally signed, and globally recognized Certificates of Erasure (CoE). 
 
 ### Active@ KillDisk (The Cost-Efficient Workhorse)
 For mid-sized ITADs looking to maximize throughput while controlling variable costs, KillDisk is a powerful alternative.
 * **Mechanics:** Offers an Industrial version that allows for massive parallel erasure of up to 100+ disks simultaneously using custom-built wiping arrays or drive carts. 
-* **Licensing & Costs:** KillDisk is typically sold via a perpetual license (one-time fee per server/station, roughly ranging from $1,000 to $3,000+ for industrial deployments). There are no "per-wipe" fees, making it highly attractive for low-margin, high-volume consumer electronics processing.
+* **Licensing & Costs:** KillDisk is typically sold via a perpetual license (one-time fee per server/station, roughly ranging from $149.95 for Corporate single-PC, $3,999 for Site license, and $5,999 for Enterprise [VERIFIED]). There are no "per-wipe" fees, making it highly attractive for low-margin, high-volume consumer electronics processing.
 * **Certificates:** Generates fully customizable PDF/XML certificates of destruction that comply with DoD 5220.22-M and NIST standards.
 
 ### PartedMagic (The Technician's Multi-Tool)
 PartedMagic is a lightweight, bootable Linux environment utilized for diagnostic and targeted erasure tasks.
 * **Mechanics:** Deployed via USB or PXE, it utilizes the native ATA Secure Erase commands built into modern drives (especially crucial for SSDs where standard overwriting degrades the flash memory). 
-* **Licensing & Costs:** Very low cost—commercial licenses are available for under $100 per user/technician, with no recurring per-wipe fees.
+* **Licensing & Costs:** Very low cost—[UNVERIFIED] commercial licences are available for under $100 per user/technician (prices vary by source; a one-off "Forever" licence is reported at about US$199; check https://partedmagic.com/store/), with no recurring per-wipe fees.
 * **Certificates:** While it can export basic PDF wipe logs and certificates, it lacks the enterprise API centralization and signed validation of Blancco, making it better suited for small-scale bench repairs or secondary verification rather than automated industrial compliance.
 
 ---
 
 ## 3. Cosmetic & Functional Grading Systems
 
-Once a device is sanitized, its value is determined by its condition. Because there is no legally enforced universal standard, ITADs adhere to rigorous internal A/B/C/D grading matrices to build trust with B2B wholesale buyers.
+Once a device is sanitized, its value is determined by its condition. Because there is no legally enforced universal standard, ITADs adhere to rigorous internal [PROPOSED POLICY] A/B/C/D grading matrices to build trust with B2B wholesale buyers.
 
 ### Cosmetic Grading Definitions
 Cosmetic grading assesses the physical exterior. 
@@ -78,7 +81,7 @@ Cosmetics mean nothing without functionality. Devices are graded on a dual-axis 
 Generic inventory systems fail in the ITAD space because ITAD is a game of *reverse logistics*. You are not receiving 1,000 identical new SKUs; you are receiving 1,000 unique, damaged, unknown devices that must be individually identified, tested, fixed, and resold. 
 
 ### Industry-Specific ERPs
-* **Makor ERP:** The dominant enterprise solution for large-scale ITADs. Makor is purpose-built to manage the "spiderweb" workflow of reverse logistics. It tracks compliance (R2/e-Stewards) and automates client settlements. 
+* **Makor ERP:** [UNVERIFIED] The dominant enterprise solution for large-scale ITADs. Makor is purpose-built to manage the "spiderweb" workflow of reverse logistics. It tracks compliance (R2/e-Stewards) and automates client settlements. 
 * **RazorERP:** A cloud-centric platform favored by aggressive ITAD brokers and recyclers. Razor excels at multi-channel e-commerce syndication, immediately pushing refurbished inventory to eBay, Amazon Renewed, or Back Market while preventing double-selling.
 * **Snipe-IT:** A popular open-source IT Asset Management (ITAM) tool. While excellent for corporate IT departments tracking *outbound* internal gear, it is not an ITAD ERP. Operations attempting to use Snipe-IT for ITAD must rely heavily on custom JSON REST API scripts to simulate the reverse logistics and financial settlement workflows that Makor and Razor offer natively.
 
@@ -98,12 +101,12 @@ Valuing used technology is highly dynamic. Unlike retail, where prices are set b
 ### Valuation Methods
 * **Market-Based Dynamic Assessment:** ITADs rarely use static price sheets. Instead, they rely on algorithms that scrape real-time clearing prices from B2B broker networks (like BrokerBin), eBay completed sales, and Amazon marketplace data. The algorithm cross-references the device’s Make, Model, Processor, RAM, and Storage to establish the current Fair Market Value (FMV).
 * **Component-Level Valuation:** If a server or laptop is Grade D, the valuation algorithm splits the device into its bill of materials (BOM). A five-year-old server might be worthless as a whole unit, but its dual Intel Xeon processors and 256GB of DDR4 ECC RAM might hold high liquidity in the secondary market.
-* **Depreciation Forecasting:** Tech depreciates rapidly—often 3-4% per month. Pricing models must account for "decay." A batch of laptops held in an ITAD warehouse for 90 days waiting for repair will lose up to 10% of their aggregate value. 
+* **Depreciation Forecasting:** Tech depreciates rapidly—[UNVERIFIED] often 3-4% per month. Pricing models must account for "decay." A batch of laptops held in an ITAD warehouse for 90 days waiting for repair will lose up to 10% of their aggregate value. 
 
 ### Financial Settlement Models
 The final "price" provided to the corporate client depends heavily on the financial model defined in their Master Service Agreement (MSA):
 1. **Direct Purchase (Buyout):** The ITAD assesses the list of assets upfront, applies a risk-adjusted algorithm, and offers a fixed cash payout. The ITAD assumes all market risk; if memory prices crash next week, the ITAD takes the loss.
-2. **Revenue Share (Consignment):** The ITAD takes possession, processes the gear, and sells it at the maximum market price. The client receives a percentage of the gross recovery (typically 60-80%). The algorithm here dynamically deducts operational costs (e.g., $15 per unit for wiping and grading) from the gross sale price before the profit split is calculated. 
+2. **Revenue Share (Consignment):** The ITAD takes possession, processes the gear, and sells it at the maximum market price. The client receives a percentage of the gross recovery ([UNVERIFIED] typically 60-80%). The algorithm here dynamically deducts operational costs (e.g., [UNVERIFIED] $15 per unit for wiping and grading) from the gross sale price before the profit split is calculated. 
 
 ### Conclusion
 Commercial ITAD processing is a highly regulated, software-driven industrial operation. Success depends on the flawless execution of chain-of-custody handoffs, integration of secure cryptographic wiping APIs into robust reverse-logistics ERPs, and adherence to strict grading rubrics. By combining these operational tight-controls with real-time algorithmic market valuation, modern ITAD providers transform chaotic corporate e-waste into compliant, secure, and highly liquid secondary revenue streams.

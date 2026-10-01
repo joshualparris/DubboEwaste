@@ -1,3 +1,6 @@
+> [!WARNING]
+> This document contains AI-generated policies, estimates, and generic industry practices. It has only been partly fact-checked and not every unverified claim is tagged; treat anything not marked [VERIFIED] in the corrections file as unchecked. Please refer to `00-CORRECTIONS-AND-CAVEATS.md` for full source checking.
+
 # Triage Skills & Avoidance of Junk: A Comprehensive Guide for E-Waste and ITAD Refurbishers
 
 ## Introduction
@@ -23,7 +26,7 @@ Cosmetic condition directly impacts resale value. Establish clear grading criter
 *   **Major Damage:** Broken hinges, severely cracked displays, bent chassis that prevent flat seating, or missing crucial proprietary ports usually push a device below the economic threshold for whole-unit refurbishment, especially on older models.
 
 ### Age Cutoffs
-Establish a strict age cutoff policy to prevent wasting diagnostic time on obsolete equipment. In 2026, a general rule of thumb for standard enterprise laptops and desktops is 5 to 7 years. Anything older is unlikely to support modern operating systems efficiently and will have minimal secondary market demand.
+[PROPOSED POLICY] Establish a strict age cutoff policy to prevent wasting diagnostic time on obsolete equipment. In 2026, a general rule of thumb for standard enterprise laptops and desktops is 5 to 7 years. Anything older is unlikely to support modern operating systems efficiently and will have minimal secondary market demand.
 
 ## 2. Component Value Thresholds
 A core ITAD skill is determining when a device is worth more as a collection of harvested parts than as a whole refurbished unit. This requires an understanding of current market demands and minimum specifications.
@@ -34,8 +37,8 @@ As Windows 10 reaches end-of-life, the ability to officially support Windows 11 
 *   **Action for Pre-8th Gen:** While some can be sold to Linux users or specific budget markets, it is often more profitable to harvest their RAM, SSDs, and power supplies, and recycle the barebones chassis and motherboard.
 
 ### RAM and Storage Minimums
-*   **RAM:** In 2026, 8GB is the absolute bare minimum for basic computing, with 16GB being the "Gold Standard" for standard office refurbishment. Devices with soldered 4GB RAM should generally be considered e-waste or sold in heavy bulk lots for nominal value. If a device has 4GB of socketed RAM, calculate if the cost of a RAM upgrade yields a positive return on the final sale price.
-*   **Storage:** Mechanical Hard Disk Drives (HDDs) are virtually obsolete for primary boot drives in refurbished PCs. Any device coming in with an HDD should have it removed and securely wiped/shredded (NIST 800-88). The threshold for a refurbished system's SSD is typically 256GB NVMe or SATA, with 512GB highly preferred.
+*   **RAM:** [PROPOSED POLICY] 8GB is the minimum for basic computing, with 16GB being the "Gold Standard" for standard office refurbishment. Devices with soldered 4GB RAM should generally be considered e-waste or sold in heavy bulk lots for nominal value. If a device has 4GB of socketed RAM, calculate if the cost of a RAM upgrade yields a positive return on the final sale price.
+*   **Storage:** Mechanical Hard Disk Drives (HDDs) are virtually obsolete for primary boot drives in refurbished PCs. Any device coming in with an HDD should have it removed and securely wiped/shredded (NIST SP 800-88 Rev.2). The threshold for a refurbished system's SSD is typically 256GB NVMe or SATA, with 512GB highly preferred.
 
 ### Harvesting Strategy
 When a unit fails the whole-unit economic test, harvest components systematically. CPUs, DDR4/DDR5 SODIMMs, NVMe SSDs, OEM power adapters, and pristine display assemblies often retain high value. Create a matrix of current market prices for these components and update it quarterly to guide your technicians' harvesting decisions.
@@ -50,7 +53,7 @@ Once a device passes visual inspection and meets basic specification thresholds,
 *   **smartmontools / CrystalDiskInfo:** Essential for checking the health of storage drives. These tools read the S.M.A.R.T. (Self-Monitoring, Analysis, and Reporting Technology) data from HDDs and SSDs. Look for high power-on hours, reallocated sector counts, and overall health percentages.
 
 ### Automated Triage and Sanitization
-Modern ITAD facilities integrate diagnostics with data sanitization. Tools like Blancco or WipeOS not only securely erase drives to NIST 800-88 standards but also perform hardware discovery and basic diagnostics, generating a unified certificate of erasure and hardware report. This automation significantly reduces labor costs and prevents human error in the triage process.
+Modern ITAD facilities integrate diagnostics with data sanitization. Tools like Blancco or WipeOS not only securely erase drives to NIST SP 800-88 Rev.2 standards but also perform hardware discovery and basic diagnostics, generating a unified certificate of erasure and hardware report. This automation significantly reduces labor costs and prevents human error in the triage process.
 
 ## 4. Battery Health Assessment
 For laptops, tablets, and smartphones, battery health is a critical component of the device's value and usability. A device with a dead battery is effectively a desktop, and replacing a battery can erase the profit margin on a refurbishment.
@@ -60,7 +63,7 @@ For laptops, tablets, and smartphones, battery health is a critical component of
 *   **Windows / PC:** Windows includes a built-in command line tool: `powercfg /batteryreport`. Running this generates an HTML file detailing the battery's design capacity and current full charge capacity. Additionally, OEM-specific BIOS diagnostics (like Dell SupportAssist or HP PC Hardware Diagnostics) provide excellent battery health metrics.
 
 ### Health Thresholds
-Establish strict cutoffs for battery health to ensure customer satisfaction and limit returns:
+[PROPOSED POLICY] Establish strict cutoffs for battery health to ensure customer satisfaction and limit returns:
 *   **> 80% Health (and < 500 cycles):** Generally considered Good/Grade A. No replacement necessary.
 *   **60% - 79% Health:** Considered Fair/Grade B. May require a disclaimer in the sales listing, or the unit might need a battery replacement if the profit margin allows.
 *   **< 60% Health or "Service Recommended" status:** The battery is degraded to the point of being a liability. The device must either have its battery replaced with a high-quality third-party or OEM unit, or the device must be sold strictly "As-Is / For Parts" or sent for material recycling.
@@ -89,13 +92,13 @@ The following matrix provides a quick-reference guide for technicians on the flo
 | **Visual Inspection** | Swollen Battery ("Spicy Pillow") | Quarantine immediately, remove battery safely. | **CRITICAL** / Hazmat Recycling |
 | **Visual Inspection** | Liquid Damage (Red LCI, Corrosion) | Do not refurbish whole. Harvest unaffected parts. | LOW / Parts & Recycle |
 | **Visual Inspection** | Severe Structural Damage (Broken hinges, bent chassis) | Harvest parts (CPU, RAM, SSD, Screen). | LOW / Parts & Recycle |
-| **Age / Specs** | CPU older than Intel 8th Gen / Ryzen 2000 | Harvest valuable RAM/SSDs. Recycle chassis. | MEDIUM / Parts Harvesting |
+| **Age / Specs** | CPU older than Intel 8th Gen / Ryzen 2000 (General shorthand; check Microsoft's official supported processor list and TPM 2.0 requirement) | Harvest valuable RAM/SSDs. Recycle chassis. | MEDIUM / Parts Harvesting |
 | **Age / Specs** | < 8GB RAM (Soldered) | Unsuitable for modern OS. Recycle or bulk wholesale. | LOW / E-Waste |
 | **Diagnostics** | Fails MemTest86 or PC-Doctor CPU/Mobo tests | Harvest working components. Recycle defective boards. | LOW / Parts & Recycle |
 | **Diagnostics** | Storage drive has high bad sectors (SMART fail) | Securely destroy drive. Replace if unit value warrants it. | HIGH (Security) / Drive Destruction |
 | **Battery Health** | Capacity < 60% or "Service Needed" | Replace battery if ROI positive, else sell "As-Is". | MEDIUM / Repair or Wholesale |
 | **Activation Lock** | iCloud, FRP, or MDM Locked | Quarantine. Request client release. If fail, harvest parts. | **CRITICAL** / Client Resolution |
-| **Clear Passage** | Meets specs, passes diags, good battery, unlocked | Proceed to secure data wipe (NIST 800-88) and OS install. | HIGH / Grade A/B Refurbishment |
+| **Clear Passage** | Meets specs, passes diags, good battery, unlocked | Proceed to secure data wipe (NIST SP 800-88 Rev.2) and OS install. | HIGH / Grade A/B Refurbishment |
 
 ## Conclusion
 Effective ITAD triage is not about saving every piece of equipment; it is about maximizing the value of what is viable and minimizing the labor spent on what is not. By strictly adhering to these protocols—from identifying physical hazards and market-driven component thresholds to leveraging advanced diagnostics and enforcing rigorous lock checks—an ITAD refurbisher can build a scalable, profitable, and secure operation that keeps quality technology in the circular economy and true "junk" safely recycled.
