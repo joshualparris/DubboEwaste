@@ -62,15 +62,15 @@
 ## F. How FlipTech and its peers operate
 | # | Question | Status |
 |---|---|---|
-| 36 | What are WorkVentures' grade definitions? | ⬜ |
-| 37 | What does LinkBytes buy, at what grades and minimum lots? | ⬜ |
-| 38 | Are Fliptech's ISO certificates on the JAS-ANZ register (numbers, scope)? | ⬜ |
-| 39 | What do Seek ads from Renew IT, Sims Lifecycle, Greenbox and WorkVentures say about technician duties, skills and pay? | ⬜ |
-| 40 | How do Free Geek and the Restart Project document their refurb processes? | ⬜ |
-| 41 | What are Back Market Australia's own seller-onboarding requirements? | ⬜ |
-| 42 | Does Reebelo's primary seller terms text confirm the second-hand dealer registration requirement? | ⬜ |
-| 43 | What would it cost and take to host Snipe-IT for a one-person business? | ⬜ |
-| 44 | What are the lithium shipping rules for Sendle, CouriersPlease, StarTrack and Aramex? | ⬜ |
+| 36 | What are WorkVentures' grade definitions? | 🟡 [F](F-FLIPTECH-PEERS-OPERATIONS.md) |
+| 37 | What does LinkBytes buy, at what grades and minimum lots? | 🟡 [F](F-FLIPTECH-PEERS-OPERATIONS.md) |
+| 38 | Are Fliptech's ISO certificates on the JAS-ANZ register (numbers, scope)? | 🟡⛔ [F](F-FLIPTECH-PEERS-OPERATIONS.md) |
+| 39 | What do Seek ads from Renew IT, Sims Lifecycle, Greenbox and WorkVentures say about technician duties, skills and pay? | 🟡 [F](F-FLIPTECH-PEERS-OPERATIONS.md) |
+| 40 | How do Free Geek and the Restart Project document their refurb processes? | ✅ [F](F-FLIPTECH-PEERS-OPERATIONS.md) |
+| 41 | What are Back Market Australia's own seller-onboarding requirements? | ✅ [F](F-FLIPTECH-PEERS-OPERATIONS.md) |
+| 42 | Does Reebelo's primary seller terms text confirm the second-hand dealer registration requirement? | ✅ [F](F-FLIPTECH-PEERS-OPERATIONS.md) |
+| 43 | What would it cost and take to host Snipe-IT for a one-person business? | ✅ [F](F-FLIPTECH-PEERS-OPERATIONS.md) |
+| 44 | What are the lithium shipping rules for Sendle, CouriersPlease, StarTrack and Aramex? | ✅🟡 [F](F-FLIPTECH-PEERS-OPERATIONS.md) |
 
 ## G. Selling channels and auction supply
 | # | Question | Status |
