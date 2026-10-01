@@ -74,3 +74,38 @@ Then independently call the named recycler and ask:
 - "Do ACE Recycling Group or Sircel perform any whole-device reuse triage on TechCollect loads, or are TechCollect loads contractually for material recycling?"
 - "Are there contract or compliance rules preventing resale once an item has entered the TechCollect stream?"
 - "Is ANZRP seeking more regional reuse partnerships in 2026?"
+
+
+## Reuse-first benchmark calls
+
+### PonyUp for Good
+- "What minimum volume makes a regional NSW business collection viable?"
+- "What percentage of current collections are reused whole versus recycled?"
+- "What age/spec/condition rules decide whether a laptop, desktop, phone or network device is remarketed?"
+- "Who takes legal ownership of donated assets, and how are resale proceeds accounted for?"
+- "Which parts of collection, wiping, refurbishment and remarketing are done by PonyUp versus operational partners?"
+- "Would you accept pre-screened viable equipment from a small Dubbo regional refurbisher?"
+- "Could Dubbo eWaste act as a regional collection/triage feeder, with PonyUp handling enterprise-grade sanitisation/reporting/resale?"
+- "What client reporting fields are most important: serial, erase status, final route, sale/recycle outcome, CO2, reuse percentage?"
+
+### The Reconnect Project
+- "What percentage of incoming phones/tablets/laptops are repaired whole, harvested for parts and ultimately recycled?"
+- "Which faults or device ages usually make repair uneconomic?"
+- "What are your typical parts/labour costs for phones versus laptops?"
+- "How do you decide between affordable retail sale and distribution through a support agency?"
+- "Which Australian reprocessors receive the unrepairable remainder?"
+- "Could a Dubbo refurbisher supply repaired devices, donor parts or bulk donations?"
+- "Would you accept bulk regional NSW shipments of phones/tablets/laptops?"
+- "How do you handle activation locks, MDM, damaged batteries and devices with uncertain provenance?"
+- "What asset-disposition reporting do NSW Government/business clients expect from you?"
+
+### The Laptop Initiative
+- "Is the ≤4-year laptop rule strict or a guideline, and what exact 2026 minimum specifications do you require?"
+- "Do you require Windows 11 compatibility, and what OS/build state should a donor provide?"
+- "Your current pages mention both Renew IT and Zolo for wiping/logistics. Which provider(s) are current?"
+- "What happens if a laptop is discovered faulty after it reaches you?"
+- "Who normally pays freight from regional NSW?"
+- "Could a Dubbo refurbisher test, wipe, install/update Windows and prepare laptops to your standard before donation?"
+- "Do you have charity-partner demand in Dubbo/Western NSW?"
+- "Could Dubbo eWaste act as a regional preparation/logistics partner rather than shipping every device to Sydney?"
+- "What documentation do corporate donors receive showing where laptops were distributed?"
