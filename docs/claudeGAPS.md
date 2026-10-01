@@ -3,6 +3,8 @@
 **Compiled:** 2 October 2026 (AEST) by Claude Code after a read-through of the whole repo (README, `GAPS.md`, every file in `docs/`, `templates/` and `pilot-tracker.csv`).
 **Purpose:** list the research that has **not yet been done**, especially the practical, hands-on side: how to triage incoming gear so the business does not take on junk, what to learn and where (courses, videos, podcasts, communities), and what FlipTech-style operators actually do on the floor.
 
+> **Research results (2 Oct 2026):** every section below has been researched. See [`claudegaps-research/00-INDEX.md`](claudegaps-research/00-INDEX.md) for findings, sources and the remaining CALL/TRY items.
+
 ## How this file relates to the other gap lists
 
 - [`GAPS.md`](../GAPS.md) is thorough on **legal, planning, downstream and partner** unknowns (Council classification, Fair Trading exemption, AMR's downstream recycler, Device Bank, branch economics). Those are **not repeated here**. Section 14 just points to them.
