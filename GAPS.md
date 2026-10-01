@@ -365,3 +365,43 @@ Detailed research:
 - Whether Connecting Community Services wants refurbished devices for clients.
 - Whether PonyUp currently services any Dubbo/Orana fleets.
 - Whether PonyUp, Reconnect or Laptop Initiative would use a Dubbo feeder/triage partner.
+
+
+---
+
+## K. Fliptech regional-hub feasibility
+
+Detailed research:
+- `docs/FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md`
+
+### Found
+- **Fliptech Australia Pty Ltd** is an active NSW company (ABN 54 653 401 024) headquartered in Brookvale.
+- Current public positioning is **secure IT decommissioning / ITAD**, not merely generic e-waste recycling.
+- Public material supports: hardware buybacks, paid/subsidised data erasure, NIST-aligned sanitisation, asset reports/certificates, refurbishment, donation, official resale channels and material recycling.
+- Fliptech has historical public evidence of **national expansion ambition** and later media described **nationwide clients**.
+- Current public location material still shows **Brookvale** as the only identified Fliptech location.
+- No current public franchise, dealer, authorised-partner or regional-branch program was found.
+- Fliptech already works with **Royal Far West**, giving it a real rural/regional-NSW social-reuse dimension.
+- NSW Government currently markets **Dubbo as an e-waste recycling investment opportunity**, citing transport connectivity, industrial land and regional aggregation potential.
+- Dubbo Regional Council describes a **125,000+ regional catchment**; Leading Edge Data Centres says Dubbo has **4,500+ businesses**.
+
+### Most credible expansion model
+A **regional collection / ITAD pilot** or secure consolidation hub is more evidence-based than immediately proposing a full processing branch.
+
+Possible progression:
+1. scheduled Dubbo/Central West collection runs;
+2. local secure aggregation;
+3. authorised local operator/partner if Fliptech is willing;
+4. local sanitisation/triage only after processes/security are approved;
+5. full branch only if sustained volume proves the economics.
+
+### Unknown / must ask Fliptech
+- Current number of regional NSW clients.
+- Whether Fliptech already services Dubbo/Orange/Bathurst/Mudgee.
+- Regional pickup minimums and collection economics.
+- Whether regional work uses own fleet, freight or subcontractors.
+- Whether Fliptech would consider an authorised regional operating partner.
+- Whether a franchise/licensing model is intentionally excluded or simply undeveloped.
+- Current reuse/resale percentage.
+- Current annual tonnes and Brookvale capacity.
+- Minimum monthly asset/tonnage threshold needed for a permanent Dubbo site.
