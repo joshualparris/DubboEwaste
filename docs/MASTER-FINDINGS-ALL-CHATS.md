@@ -1711,3 +1711,59 @@ Obtain:
 3. Fliptech written regional-pilot terms.
 
 Those three documents are the fastest route from public estimates to actual Dubbo economics.
+
+
+---
+
+# 32. Cheapest path to a Dubbo ITAD branch / hub
+
+Detailed file:
+- [DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS.md](DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS.md)
+
+The branch research now distinguishes three different models:
+
+1. **white-label / sales front end** — no local custody or processing;
+2. **secure collection / consolidation hub** — local custody but central backend processing;
+3. **full processing branch** — local sanitisation, testing, refurbishment and remarketing preparation.
+
+## Best pathway ranking for a local operator
+
+1. **G1 Asset Management** — easiest and lowest capital because G1 explicitly offers white-labelled ITAD to IT service providers.
+2. **Greenbox** — strongest formal partner program, including application, 12-month business plan, references, credit information, mandatory training and preferred pricing.
+3. **Fliptech** — strongest conceptual fit and potentially highest entrepreneurial upside, but no public partner/franchise program exists; requires a negotiated regional pilot.
+4. **WV Technologies** — six hubs/five states; likely company-backed regional hub rather than independently opened branch.
+5. **Renew IT** — mature depot/facility model; likely corporate-led.
+6. **Shred-X** — 11 national facilities and regional NSW coverage, but a Dubbo site would likely need broader secure-destruction route economics.
+7. **Iron Mountain / ACT** — strongest corporate capability but least independently openable.
+
+## Current public cost floors
+
+Using current public prices:
+
+- **No-premises market test:** ABN $0; business name $47/year if needed.
+- **New company:** $636 registration + $47 business name = **$683 upfront**, plus $342 annual company review.
+- **18 m² secure business-storage example:** $125/month incl. GST.
+- **32–36 m² business-storage example:** $220/month incl. GST.
+- **NSW second-hand dealer 1-year licence, if required:** $692.
+- **Current 200 m² Dubbo industrial listing:** $395/week + GST = **$22,594/year incl. GST**.
+- **Current Blancco SMB Select 50 listing:** $982.30.
+- **Owner-operated processing-hub known public-price subtotal:** **$24,315.30/year**, before insurance, outgoings, bond, power, fitout, freight and vehicle.
+- **Hub + 20-hour casual legal wage/super floor:** **$62,811.94/year** before the same missing costs.
+- **Hub + one full-time legal wage/super floor:** **$82,830.19/year** before the same missing costs.
+
+These are arithmetic from public prices, **not all-in quotes**.
+
+## Strategic conclusion
+
+The strongest risk-adjusted sequence is:
+
+> **G1 white-label or Greenbox partner → win Dubbo accounts → prove volume → secure aggregation → local processing → branded branch only when the numbers justify it.**
+
+The exact profit still cannot be calculated because none of the shortlisted companies publishes:
+- reseller margin;
+- referral commission;
+- branch-manager pay;
+- regional exclusivity terms;
+- buyback/revenue-share arrangements.
+
+Those need written commercial quotes.
