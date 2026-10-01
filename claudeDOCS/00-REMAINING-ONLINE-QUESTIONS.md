@@ -83,9 +83,9 @@
 ## H. Parts and scrap
 | # | Question | Status |
 |---|---|---|
-| 49 | What are The Board Guy's prices (the price page only loads in a full browser)? | ⬜ |
-| 50 | Which other NSW board/CPU/RAM scrap buyers publish prices? | ⬜ |
-| 51 | Does Shred-X publish regional collection or mail-in terms for drive destruction? | ⬜ |
+| 49 | What are The Board Guy's prices (the price page only loads in a full browser)? | ✅ [H](H-PARTS-SCRAP.md) |
+| 50 | Which other NSW board/CPU/RAM scrap buyers publish prices? | 🟡 [H](H-PARTS-SCRAP.md) |
+| 51 | Does Shred-X publish regional collection or mail-in terms for drive destruction? | 🟡 [H](H-PARTS-SCRAP.md) |
 
 ## I. Supply
 | # | Question | Status |
