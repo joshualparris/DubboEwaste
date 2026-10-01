@@ -286,3 +286,51 @@ Full synthesis: [docs/MASTER-FINDINGS-ALL-CHATS.md](docs/MASTER-FINDINGS-ALL-CHA
 
 5. **Which organisations will actually partner with a Dubbo reuse operator, and on what terms?**  
    Promising leads include Dubbo Support Center, Good Things, WorkVentures, Good360, National/NSW Device Bank, ANZRP/TechCollect, Sircel, councils and local businesses/MSPs, but volume thresholds, responsibilities, warranty, reporting, logistics and commercial terms are still unconfirmed.
+
+
+---
+
+## J. NSW public-school eWaste / EDConnect gap — researched 2 Oct 2026
+
+Full deep dive: [docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md](docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md).
+
+### Confirmed
+
+- **[Found]** NSW public schools use a dedicated Department eWaste contract accessed through EDConnect / the Department eWaste application.
+- **[Found]** Schools take stock, obtain approval, submit the collection request, centralise the equipment and sign off collection.
+- **[Found]** The vendor plans a **cost-efficient collection schedule** and the form asks for quantities so the appropriate team/truck can be arranged.
+- **[Found]** The current operational guide says school-side **wiping/destruction of hard drives is no longer required** under this process.
+- **[Found]** The vendor must **data sanitise all collected hard drives**, provide a sanitisation certificate and provide a **Settlement Report**.
+- **[Found]** Department policy separately allows redistribution of unused Department-allocated devices for students in need before disposal.
+- **[Found]** Whole-of-government Contract 9826 permits disposal outcomes including reuse through sale/donation, supplier supply-chain recovery and recycling through a proven third party.
+- **[Found]** Current C9826 standalone-service suppliers include ACT Logistics, G1 Asset Management, Greenbox, Lifecycle Plus, Sims Lifecycle Services and WorkVentures.
+- **[Found]** The NSW Device Bank is a separate 2026 government laptop-reuse program delivered through WorkVentures, with about 2,800 initial laptops plus about 2,500 more expected during the 12-month term.
+
+### Still unknown
+
+- **[Unknown]** Current dedicated NSW Education school eWaste vendor name/ABN.
+- **[Unknown]** Whether the Education contract is actually placed under C9826.
+- **[Unknown]** Which contractor physically collects from Dubbo/Orana schools.
+- **[Unknown]** Regional consolidation depot / first receiving facility.
+- **[Unknown]** First testing/refurbishment facility.
+- **[Unknown]** First material-recycling facility.
+- **[Unknown]** Whether AMR, Sircel, Sims, WorkVentures, ACT Logistics or another provider is in the Dubbo school chain.
+- **[Unknown]** Percentage of devices reused/remarketed, donated, parted, recycled or destroyed.
+- **[Unknown]** Whether residual-value credits are returned to Education/schools.
+- **[Unknown]** Whether normal EDConnect school eWaste can enter the NSW Device Bank.
+- **[Unknown]** Exact fields in the required Settlement Report.
+
+### Strategic implication
+
+NSW public schools should **not** be treated as an easy Phase 0 donation source. The opportunity is a later approved ITAD/reuse role: vendor, subcontractor, formal regional pilot or approved Device Bank/reuse pathway.
+
+### Evidence needed to close it
+
+- current contract award / purchase order;
+- vendor name;
+- blank/redacted Settlement Report;
+- blank/redacted sanitisation certificate;
+- Dubbo/Orana collection statistics;
+- downstream facility names;
+- asset outcome breakdown.
+
