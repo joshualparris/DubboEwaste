@@ -109,3 +109,32 @@ Then independently call the named recycler and ask:
 - "Do you have charity-partner demand in Dubbo/Western NSW?"
 - "Could Dubbo eWaste act as a regional preparation/logistics partner rather than shipping every device to Sydney?"
 - "What documentation do corporate donors receive showing where laptops were distributed?"
+
+
+## Local reuse-shop / pre-disposal diversion questions
+
+### Dubbo Regional Council
+- "What is the current status of the Whylandra and Wellington reuse-shop business cases?"
+- "Is either reuse shop funded, designed or scheduled for opening?"
+- "Would electronics be included, and if so who would test/data-wipe them?"
+- "At what point does ownership of an item transfer to Council after drop-off?"
+- "Does the current e-waste contract prevent Council from diverting selected reusable devices before recycling?"
+- "Could Council refer residents/businesses to a reuse operator **before** disposal rather than releasing material after it becomes Council waste?"
+- "Would Council consider a small pre-disposal pilot with serial-number tracking, secure wipe and a guaranteed downstream recycling route for failures?"
+
+### Narromine Shire Council
+- "Does Narromine currently separate any working/repairable electronics before recycling?"
+- "Who is the current downstream contractor for laptops, PCs, monitors and TVs?"
+- "Would Council consider an electronics-specific reuse pilot before items enter the e-waste stream?"
+- "Could the successful Garage Sale Trail reuse approach be extended to secure electronics reuse?"
+- "What exact full e-waste categories are currently accepted at Trangie versus Narromine?"
+
+### Connecting Community Services, Dubbo
+- "Do clients currently ask for laptops/tablets/phones they can take home?"
+- "Do you already receive refurbished devices through any program?"
+- "Would you be interested in being a recipient/referral partner for a local device-reuse pilot?"
+- "Could your staff/partner network assess recipient need so the refurbisher does not decide welfare eligibility?"
+- "Could existing computer-skills support accompany device distribution?"
+- "Would your outreach to Wellington/Narromine be relevant to a regional pilot?"
+- "What device warranty/support expectations would you need?"
+- "Could outcome reporting be done without exposing recipient personal information?"
