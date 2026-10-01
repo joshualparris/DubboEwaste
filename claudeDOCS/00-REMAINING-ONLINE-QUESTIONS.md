@@ -39,15 +39,15 @@
 ## D. Learning and electrical safety law
 | # | Question | Status |
 |---|---|---|
-| 21 | Does Part 6 of the NSW Gas and Electricity (Consumer Safety) Regulation 2018 require test-and-tag or an "untested" label before reselling mains goods? | ⬜ |
-| 22 | Are TAFE NSW UEE30920 and ICT30120 offered in Dubbo or online, and is Fee-Free TAFE available? | ⬜ |
-| 23 | Can a NSW resident study the Cert II Computer Assembly and Repair online through an interstate TAFE? | ⬜ |
-| 24 | What does the iFixit MasterTech exam cost, and can it be sat from Australia? | ⬜ |
-| 25 | What individual data-erasure technician certifications exist (Blancco, ADISA, NAID), and what do they cost? | ⬜ |
-| 26 | Is there a free overview course for R2v3, e-Stewards or AS 5377? | ⬜ |
-| 27 | Which Udemy/Coursera laptop/phone repair or ITAD courses are well reviewed? | ⬜ |
-| 28 | What is NSW's new Small Business Advisory program, and how is it accessed from Dubbo? | ⬜ |
-| 29 | How do you register a Repair Café in Australia; what insurance and volunteer rules apply; which is the nearest active one? | ⬜ |
+| 21 | Does Part 6 of the NSW Gas and Electricity (Consumer Safety) Regulation 2018 require test-and-tag or an "untested" label before reselling mains goods? | ⛔ [D](D-LEARNING-AND-ELECTRICAL-LAW.md) |
+| 22 | Are TAFE NSW UEE30920 and ICT30120 offered in Dubbo or online, and is Fee-Free TAFE available? | ✅🟡 [D](D-LEARNING-AND-ELECTRICAL-LAW.md) |
+| 23 | Can a NSW resident study the Cert II Computer Assembly and Repair online through an interstate TAFE? | 🟡 [D](D-LEARNING-AND-ELECTRICAL-LAW.md) |
+| 24 | What does the iFixit MasterTech exam cost, and can it be sat from Australia? | ✅ [D](D-LEARNING-AND-ELECTRICAL-LAW.md) |
+| 25 | What individual data-erasure technician certifications exist (Blancco, ADISA, NAID), and what do they cost? | ✅ [D](D-LEARNING-AND-ELECTRICAL-LAW.md) |
+| 26 | Is there a free overview course for R2v3, e-Stewards or AS 5377? | ✅ [D](D-LEARNING-AND-ELECTRICAL-LAW.md) |
+| 27 | Which Udemy/Coursera laptop/phone repair or ITAD courses are well reviewed? | ✅ [D](D-LEARNING-AND-ELECTRICAL-LAW.md) |
+| 28 | What is NSW's new Small Business Advisory program, and how is it accessed from Dubbo? | ✅ [D](D-LEARNING-AND-ELECTRICAL-LAW.md) |
+| 29 | How do you register a Repair Café in Australia; what insurance and volunteer rules apply; which is the nearest active one? | ✅ [D](D-LEARNING-AND-ELECTRICAL-LAW.md) |
 
 ## E. Media and communities
 | # | Question | Status |

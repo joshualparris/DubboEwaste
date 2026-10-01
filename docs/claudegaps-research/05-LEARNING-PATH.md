@@ -3,6 +3,8 @@
 **Answers:** `claudeGAPS.md` §5 and the skills parts of §13
 **Researched:** 2 Oct 2026
 
+> **CORRECTIONS (2 Oct 2026, from `claudeDOCS/D-LEARNING-AND-ELECTRICAL-LAW.md`):** (1) **iFixit MasterTech is on hold**, so drop step 8. (2) **UEE30920 requires an apprenticeship or current industry employment**, so it isn't an option; use **ICT30120 under Fee-Free TAFE (commence by 31 Dec 2026)**. (3) Add the **ADISA Foundation Data Sanitisation course (£250)** before offering B2B data services. (4) The free alternative to Messer is Coursera's Google IT Support certificate.
+
 ---
 
 ## Bottom line
