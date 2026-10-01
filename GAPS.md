@@ -15,12 +15,16 @@ Confidence key: **[Found]** = seen in an official/primary source this session. *
 - **[Unknown]** Separate thresholds for waste *processing/recovery* (e.g. dismantling) weren't confirmed. Ask EPA: "refurb and part-out of ~X items/week, no shredding."
 - Waste-law catch: Section 143 POEO makes it an offence to send waste to a place that can't lawfully be used as a waste facility. That "lawful" test also involves planning consent (below).
 
-### 2. Planning / council - the real risk, especially public open days
-- **[Found]** Home-based enterprise definitions (NSW Standard Instrument): a **home business** can't involve retail sale or display of items *not produced at the dwelling*, other than online. It also can't cause amenity interference (noise, waste products, traffic generation), use excessive signage, or exceed the allowed floor area. Dubbo LEP 2022 follows the Standard Instrument but **[Unknown]** whether its wording matches exactly.
-- Implication: public drop-offs and walk-in sales on Tuesdays/Saturdays likely go beyond a "home business". It may need a development application for a different land use, or may simply be refused.
-- **[Unknown]** Actual zoning of the property. Surrounding Boundary Road land includes R5, R2 and R1 residential, with active rezonings and a residential release area, so expect close neighbours and complaint risk.
-- Cheaper route that probably fits the definition better: **online-only sales, business clients by appointment, no public walk-ins.**
-- **[Unknown]** DA cost and timeline if consent is needed.
+### 2. Planning / council - the real gating risk
+- **[Found]** NSW Planning says a qualifying home business can be exempt development and can operate from an ancillary building such as a detached garage/studio.
+- **[Found]** The standard home-business definition restricts amenity impacts from traffic, waste, noise, fumes etc., visible unsightly matter, signage, and ordinary on-site retail of goods not produced there (online retailing is allowed).
+- **[Found]** Dubbo Regional LEP 2022 caps a home business at **30 m²**.
+- **[Found]** NSW planning law separately defines **goods repair and reuse premises** as premises principally used to collect, repair or refurbish goods for sale/hire/swap.
+- **[Found]** NSW EPA said in July 2026 that accepting old material and separating/sorting it can meet the definition of a waste facility; it also said a below-EPL-threshold scrap business can still require development consent.
+- **Implication:** Tue/Sat intake is **not automatically prohibited**, but the exact classification of this collect/refurbish/resell model is unresolved. Council must decide whether it is an exempt home business, another permissible use requiring consent, or a waste/resource use.
+- **[Unknown]** Exact statutory zoning/site constraints for the property.
+- **Cheapest operating design while this is resolved:** pre-approved intake only, low traffic, no unattended bin, no outdoor stockpile, no walk-in retail showroom, online sales, and rejected items leave with the customer.
+- **[Unknown]** DA/CDC cost and timeline if Council says consent is needed.
 
 ### 3. Second-hand dealer licence (NSW Fair Trading) - VERIFIED, updated Sept 2026
 - **[Found]** Needed to buy, sell or exchange prescribed goods, including **electronic goods** (phones, laptops, tablets). Not needed for whitegoods, video games, non-portable items, or anyone who will **"engage in recycling and rubbish collection programs"**.
@@ -60,12 +64,14 @@ Confidence key: **[Found]** = seen in an official/primary source this session. *
 
 ## C. Safety and liability
 
-- **[Found]** Fire and Rescue NSW calls lithium-ion batteries the fastest-growing fire risk in NSW; damaged batteries can re-ignite after being put out. EPA is actively concerned about e-waste/battery storage fires.
-- Practical: a fire-safe metal container for swollen/damaged cells, on a concrete floor, away from the house, no charging unattended, smoke alarm/extinguisher, and no stockpiling.
-- Keep the working area separate from the family part of the property. Public visitors on a residential block add liability.
-- **[Found]** SafeWork NSW has lithium-ion guidance; a sole trader is still a PCBU under WHS.
-- **[Unknown]** Public liability and product liability insurance cost, and whether insurers will cover a home shed with public visitors. Get 2-3 quotes.
-- **[Unknown]** Whether a home insurance policy has any cover. Assume not.
+- **[Found]** Fire and Rescue NSW says damaged lithium-ion batteries include swollen/bulging, leaking, cracked/dented/punctured/crushed, overheated, wet/submerged and fire-exposed batteries/devices. It says never use or charge a damaged battery.
+- **[Found]** B-cycle says badly damaged/swollen batteries must **not** be taken to ordinary B-cycle drop-off points.
+- **Phase 0 decision:** do **not** operate a public battery drop-off and reject loose lithium batteries plus damaged/swollen/wet/fire-affected battery devices at intake.
+- If battery damage is discovered after intake, stop use/charging and follow FRNSW/B-cycle/accredited-collector guidance rather than improvising storage.
+- No unattended/overnight charging; use compatible/compliant chargers and a non-combustible test area.
+- **[Found]** Existing tenancy evidence records moisture/mould/water-damage concerns in the intended shed area. It should not hold valuable resale stock or unwiped data devices until it is demonstrably dry, secure and suitable.
+- **[Found]** business.gov.au says standard home insurance often does not cover business activity and public liability may be needed when clients visit the home.
+- **[Unknown]** Public/product liability premium and whether an insurer will accept this exact home electronics activity.
 
 ---
 
@@ -78,12 +84,18 @@ Confidence key: **[Found]** = seen in an official/primary source this session. *
 
 ---
 
-## E. Data and supply side (not researched, flag for work-through)
+## E. Data, device viability and supply side
 
-- **Wipe standard:** business and school clients will expect a recognised standard (e.g. NIST 800-88) and a certificate per device. nwipe covers HDDs; **SSDs/NVMe need secure-erase or crypto-erase**, not a plain overwrite. Phones need factory reset *and* account/lock removal.
-- **Locked gear is unsellable:** MDM/Intune/Autopilot-enrolled laptops, Apple Activation Lock, Google FRP, BIOS/firmware passwords. Agree with clients up front that devices arrive unenrolled and unlocked.
-- **Ownership transfer:** each client needs to sign that the gear is theirs to give. For schools, **[Unknown]** whether NSW Department of Education asset-disposal rules limit giving gear away.
-- **Avance conflict of interest:** **[Unknown]** until you've checked your employment terms.
+- **[Found]** ACSC recommends erasing data before disposal and notes SSDs can require manufacturer-specific sanitisation steps. ASD's current media guidance and NIST SP 800-88 Rev. 2 are stronger references for a documented business workflow.
+- **Phase 0 workflow:** every data-bearing item gets an intake ID and begins in **UNWIPED — RESTRICTED**; account locks are cleared legitimately; sanitisation is media-appropriate; result is verified and recorded; only then can the item move to repair/parts/resale.
+- **Marketing:** use **documented secure data erasure** initially, not “certified data destruction” unless later accreditation/process genuinely supports that claim.
+- **[Found] Apple:** Activation Lock must be removed for another person to activate the device. Reject unresolved locked Apple gear for resale.
+- **[Found] Android:** device protection can require the previous account after factory reset. Do not retain donor passwords; have legitimate account/device protection cleared as part of handover.
+- **[Found] Windows:** normal Windows 10 support ended 14 October 2025. For ordinary refurbished Windows sales in late 2026, Windows 11 compatibility should be the default target; older machines need a specific Linux/vintage/parts/use case.
+- **[Found] Phones:** ACMA says 3G-only and some older 4G phones are unusable/blocked after the 3G shutdown if they cannot meet emergency-calling requirements. Network/000 compatibility must be checked before resale.
+- **Ownership transfer:** every item should have a source/authority-to-transfer record even if Fair Trading ultimately confirms the recycling exemption.
+- **[Unknown]** For school/business fleet sources, what internal disposal approvals each organisation requires.
+- **[Unknown]** Avance conflict-of-interest/employment permission until checked.
 
 ---
 
@@ -98,17 +110,17 @@ Confidence key: **[Found]** = seen in an official/primary source this session. *
 | Item | Estimate |
 |---|---|
 | Wipe tools and cert template | $0-$300 |
-| Extinguisher, metal battery bin, shelving | $100-$500 |
+| Basic safe test/storage setup | **Unknown** — use existing suitable gear where possible; do not buy a public battery bin in Phase 0 |
 | Public liability insurance | $800-$1,500/yr (get quotes) |
 | Second-hand dealer licence, if required | **$692 (1 yr) VERIFIED**; don't budget until confirmed |
 | DA / council consent, if required | **Unknown** |
-| Disposal of leftovers | $0 if NTCRS/Whylandra accepts, else per-item |
+| Downstream leftovers | Potentially $0/low-cost for eligible NTCRS/MobileMuster streams; AMR/commercial terms still need confirmation |
 
 ---
 
 ## H. Call list (in this order)
 
-1. **Dubbo Regional Council planning:** "Is a home business with business-client-only pickups by appointment and online sales permitted at this zoning? What triggers a DA if the public drop off on set days?"
+1. **Dubbo Regional Council planning:** describe the exact pre-approved Tue/Sat model (under 30 m², no public bin, no outside stockpile, no walk-in retail, online sales) and ask whether it is exempt home business, another use requiring consent, or a waste/resource activity. Ask for the answer in writing.
 2. **NSW Fair Trading (13 32 20):** "Does a free-collection, refurb, resell, recycle-the-rest model fall under the 'recycling and rubbish collection programs' exemption? Can wiping happen during the 14-day hold? Can I operate under an already-licensed entity?"
 3. **NSW EPA (131 555):** thresholds for refurb/dismantling at tiny scale; whether damaged lithium batteries count as hazardous waste for storage.
 4. **Joe (Bendigo):** what he pays for sorted lots; any minimum volumes; freight.
