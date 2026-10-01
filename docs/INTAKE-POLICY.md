@@ -15,7 +15,7 @@
 - Locked or enrolled devices.
 
 ## Exit for items that fail the profit test
-1. Refuse at intake (best). 2. Small intake fee. 3. NTCRS/Whylandra/Matthews if they accept. Confirm terms before the pilot.
+1. Refuse at intake (best). 2. Small intake fee. 3. Australian Metal Recycling for accepted zero-value e-waste/metal, or NTCRS/Whylandra where legally available. AMR currently says e-waste is free but lithium batteries are not accepted; confirm exact Dubbo categories and commercial terms before the pilot.
 
 ## Wipe and test
 - Standard: NIST SP 800-88 style sanitisation; certificate per device.
