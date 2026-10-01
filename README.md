@@ -22,7 +22,7 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [pilot-tracker.csv](pilot-tracker.csv) | Per-item profit tracker for the 20-30 item pilot |
 | [docs/research.md](docs/research.md) | Earlier feasibility research retained for additional context |
 | [docs/launch-checklist.md](docs/launch-checklist.md) | Earlier lean-launch checklist retained for operational planning |
-| [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md) | Current research on the Dubbo Matthews/InfraBuild/AMR yard and e-waste outlet |
+| [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md) | Current research on the Dubbo Matthews/InfraBuild/AMR yard and e-waste outlet |\n| [docs/REGIONAL-EWASTE-PATHWAYS.md](docs/REGIONAL-EWASTE-PATHWAYS.md) | What surrounding towns do with e-waste, current drop-off pathways, downstream evidence and reuse opportunities |
 | [docs/WHAT-HAPPENS-TO-EWASTE.md](docs/WHAT-HAPPENS-TO-EWASTE.md) | Deep trace of what happens after AMR accepts TVs, computers, phones, monitors and printers |
 
 ## 1. What happens to Dubbo e-waste today
