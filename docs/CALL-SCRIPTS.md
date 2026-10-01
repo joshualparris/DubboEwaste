@@ -61,3 +61,16 @@ Then independently call the named recycler and ask:
 
 ## 8. Avance (and any related entity)
 - Conflict-of-interest check; does the business hold a dealer licence; would it agree in writing to anything involving its entity.
+
+
+## TechCollect / ANZRP — reuse partnership questions
+- "If a fully working laptop is surrendered into a normal TechCollect collection site, is it ever tested for reuse, or is it committed to first-stage recycling?"
+- "Your Safety & Environment page says collected products are not sold second-hand. Does that apply to 100% of normal TechCollect public drop-offs?"
+- "Can a collection partner perform reuse triage before an item is formally accepted into TechCollect/NTCRS custody?"
+- "Do you have a formal referral path to PonyUp for Good, The Reconnect Project or The Laptop Initiative before recycling?"
+- "Could a regional refurbisher operate as an upstream reuse partner and send only non-reusable NTCRS-covered equipment to ANZRP?"
+- "At what legal/operational point does a surrendered product become TechCollect material that cannot be diverted to reuse?"
+- "Are reused/refurbished devices excluded from NTCRS recycling tonnage/reporting?"
+- "Do ACE Recycling Group or Sircel perform any whole-device reuse triage on TechCollect loads, or are TechCollect loads contractually for material recycling?"
+- "Are there contract or compliance rules preventing resale once an item has entered the TechCollect stream?"
+- "Is ANZRP seeking more regional reuse partnerships in 2026?"
