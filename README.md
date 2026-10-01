@@ -67,6 +67,7 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [docs/SPOTIFY-PODCASTS-EWASTE-REUSE-ITAD.md](docs/SPOTIFY-PODCASTS-EWASTE-REUSE-ITAD.md) | **Curated Spotify listening list:** ranked episodes on e-waste, reuse, refurbishment, ITAD, data wiping, right-to-repair, reverse logistics, digital inclusion and Australian circular electronics |
 | [docs/FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md](docs/FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md) | **Fliptech deep dive:** corporate ITAD/reuse model, data security, growth signals and feasibility of a Dubbo/Central West regional hub or partner operation |
 | [docs/AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md](docs/AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md) | **Filtered branch shortlist:** Australian Fliptech-style ITAD companies by public staffing signal, physical network and evidence that a Dubbo regional hub/branch is worth pursuing |
+| [docs/DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS.md](docs/DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS.md) | **How to actually establish a Dubbo ITAD presence:** ranked G1/Greenbox/Fliptech/WV/Renew/Shred-X/Iron Mountain pathways, public onboarding processes, current Dubbo premises costs, staffing floors and 90-day launch plan |
 | [docs/DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md](docs/DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md) | **Branch/partner playbook:** ranks Greenbox, G1, Fliptech, WV, Iron Mountain, Renew IT and Shred-X by ease/cost/payoff, gives public onboarding processes and current Dubbo cost benchmarks |
 
 ## 1. What happens to Dubbo e-waste today
