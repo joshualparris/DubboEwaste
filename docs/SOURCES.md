@@ -443,3 +443,49 @@ Some older uploaded attachments referenced in historic conversations are no long
 - No public Fliptech announcement naming Dubbo.
 - No public data sufficient to calculate branch break-even, regional pickup economics or current reuse percentage.
 - "Dubbo regional hub/partner" is a feasibility inference and proposed test structure, not an existing Fliptech plan.
+
+
+## Australian ITAD staffing / Dubbo branch shortlist — checked 2 Oct 2026
+
+### Fliptech
+- LinkedIn — current company-size band **11–50**, Brookvale primary location: https://au.linkedin.com/company/fliptech-australia
+
+### G1 Asset Management
+- LinkedIn — **11–50** band and multiple east-coast locations: https://au.linkedin.com/company/g1-asset-management
+- G1 contact page — processing facilities in Brisbane, Sydney, Canberra and Melbourne: https://g1.com.au/contact/
+- G1 home page — explicitly services all Australian metro and regional areas: https://g1.com.au/
+
+### Renew IT
+- LinkedIn — **51–200** band: https://www.linkedin.com/company/renewitgroup
+- Current Australian/international locations and major-capital-city drop-off statement: https://renew-it.com/international/
+- Contact: https://renew-it.com/contact-us/
+
+### Greenbox
+- LinkedIn — **51–200** band and multi-city physical footprint: https://au.linkedin.com/company/greenbox-group
+- Current facilities: https://www.greenbox.com.au/contact/
+- FAQ — Australian facilities and national service capacity: https://www.greenbox.com.au/faqs/
+- Company history — Sydney/Melbourne expansion, Canberra facility, branch relaunch, regional QLD roadshows: https://www.greenbox.com.au/about/
+- Partner program: https://www.greenbox.com.au/partners/
+
+### WV Technologies
+- LinkedIn — **51–200** band, locations in ACT/NSW/QLD/VIC/WA: https://au.linkedin.com/company/wvtechnologies
+- ITAD/buyback/refurbishment solutions: https://wvtech.com.au/solutions/
+- Buy NSW current profile: https://buy.nsw.gov.au/supplier/profile/2987
+- Buyback/resell/recycle model: https://wvtech.com.au/sustainability/
+
+### Shred-X
+- LinkedIn — **201–500** band and 11-location national network: https://au.linkedin.com/company/shred-x-pty-ltd
+- Current 11 locations: https://www.shred-x.com.au/contact/
+- NSW page — metropolitan and regional NSW coverage plus three NSW facilities: https://www.shred-x.com.au/location/new-south-wales/
+- National e-waste coverage: https://www.shred-x.com.au/e-waste/
+
+### Iron Mountain / ACT Logistics
+- ACT Logistics LinkedIn snapshot — **51–200** prior company band, multi-site Australian lifecycle operations: https://au.linkedin.com/company/act-logistics-au-
+- Iron Mountain Australia Asset Lifecycle Management: https://www.ironmountain.com/en-au/services/it-asset-lifecycle-management
+- Iron Mountain acquisition announcements — ACT Logistics acquired to expand Australian/APAC ALM capability.
+
+### Branch-shortlist interpretation
+- LinkedIn size bands are not exact payroll counts.
+- A visible LinkedIn profile count is not treated as an employee headcount.
+- "Shortlisted" means public evidence supports investigating a physical regional presence; it does not mean the company has announced or agreed to a Dubbo branch.
+- Companies removed from the branch shortlist may still service Dubbo remotely or partner with a local operator.
