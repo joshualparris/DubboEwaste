@@ -397,3 +397,49 @@ Do not cite these conversation-derived facts as if they were independently verif
 For legal, regulatory, commercial, planning, downstream, pricing or current-market claims, prefer the newer dated primary-source research files.
 
 Some older uploaded attachments referenced in historic conversations are no longer available to reload. If their exact contents are required later, they should be re-uploaded rather than reconstructed from memory.
+
+
+## Fliptech Australia / Dubbo feasibility — checked 2 Oct 2026
+
+### Fliptech direct/current
+- Main site: https://www.fliptech.com.au/
+- E-waste bin process: https://www.fliptech.com.au/bins
+- Data security / secure collection / NIST-aligned erasure: https://www.fliptech.com.au/articles/8e4e2ca7-22e2-4d68-bf22-d0420c297db4
+- Royal Far West reuse/donation partnership: https://www.fliptech.com.au/articles/3b6db187-5654-4e59-9515-e3202851afce
+- Company reuse/refurbishing overview: https://www.fliptech.com.au/articles/53b6be97-e467-4c86-9dc7-7bc1d9dff119
+- Contact/collection form: https://www.fliptech.com.au/forms/contact-us
+- Current LinkedIn company page / Brookvale location: https://au.linkedin.com/company/fliptech-australia
+- Current Brookvale Business Development Manager role / expansion through enterprise account acquisition: https://au.linkedin.com/jobs/view/business-development-manager-at-fliptech-australia-4407665970
+
+### Corporate/legal / government
+- ABR — FLIPTECH AUSTRALIA PTY LTD, ABN 54 653 401 024: https://abr.business.gov.au/ABN/View?id=54653401024
+- NSW Government buy.nsw supplier profile: https://buy.nsw.gov.au/supplier/profile/123199
+
+### Current reuse / partner evidence
+- Konica Minolta 2026 Rethink e-Recycling — Fliptech NIST erasure, certificates, asset reports and possible refurbishment/donation/official resale: https://www.konicaminolta.com.au/promotions/rethink-e-recycling-2026
+- City of Ryde event page: https://www.ryde.nsw.gov.au/Events/Listing/Community/2026-Rethink-e-Recycling-Drive
+
+### Founder / growth
+- Awards Australia 2025 profile — eight-person team and 50+ tonnes at that date, major-corporate work and Royal Far West partnership: https://awardsaustralia.com/young-achiever-awards/nsw/previous-winners/
+- Life on Planet A #82 — Austin Turpin / Australian e-waste startup story: https://open.spotify.com/show/2m7vWs5BoO9s1iU1HdsOcc
+- Killoway Report Ep.7 — 2020 description says Fliptech was helping stop tech waste around NSW and looking to scale nationally: https://open.spotify.com/show/4u5ci9897ICp2uuNmi8AOA
+- Daily Telegraph / Manly Daily founder profile — secondary source describing garage origins, nationwide clients, secure resale and collection model.
+
+### Royal Far West
+- Main site / regional footprint: https://www.royalfarwest.org.au/
+- Research/advocacy — includes 2024 Dubbo/Wagga paediatric-clinic submission: https://www.royalfarwest.org.au/research-advocacy-childrens-health/
+
+### Dubbo branch case
+- NSW Government Invest Regional — Dubbo opportunity page explicitly includes e-waste recycling: https://www.investregional.nsw.gov.au/opportunities/dubbo
+- Dubbo Regional Council economic-development page — 125,000+ service catchment / investment support: https://www.dubbo.nsw.gov.au/Business-Investors/Economic-development/regional-economic-development
+- Leading Edge Data Centres Dubbo — 4,500+ businesses and regional technology infrastructure: https://leadingedgedc.com/dc_location/dubbo/
+- Dubbo Region transport distances/connectivity: https://dubboregion.com.au/visit/getting-here
+- Orana Business Solutions local refurbished-device activity: https://obsolutions.com.au/refurbished-devices
+- Tech Savvy Dubbo local refurbished-device activity: https://www.techsavvyau.com/
+
+### Evidence limits
+- No current public Fliptech franchise program found.
+- No current public second Fliptech branch/location found.
+- No public Fliptech announcement naming Dubbo.
+- No public data sufficient to calculate branch break-even, regional pickup economics or current reuse percentage.
+- "Dubbo regional hub/partner" is a feasibility inference and proposed test structure, not an existing Fliptech plan.
