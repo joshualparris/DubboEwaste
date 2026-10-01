@@ -21,13 +21,13 @@
 ## B. Pricing and valuation
 | # | Question | Status |
 |---|---|---|
-| 11 | What do 10 common fleet models actually sell for on eBay Australia (sold, not asking)? | ⬜ |
-| 12 | How fast do laptops, phones and tablets lose value year by year, using Australian data? | ⬜ |
-| 13 | What do used TVs actually sell for in Australia, by size and age? | ⬜ |
-| 14 | What do used RAM sticks, SSDs and CPUs sell for in Australia? | ⬜ |
-| 15 | What do replacement batteries cost from AU suppliers for common fleet laptops? | ⬜ |
-| 16 | What do Officeworks Tech Trade-in, Mobile Monster and Mobile Guru quote online for 5 sample devices? | ⬜ |
-| 17 | What are Gumtree's current seller fees (its own pages conflict)? | ⬜ |
+| 11 | What do 10 common fleet models actually sell for on eBay Australia (sold, not asking)? | 🟡⛔ [B](B-PRICING-VALUATION.md) |
+| 12 | How fast do laptops, phones and tablets lose value year by year, using Australian data? | 🟡 [B](B-PRICING-VALUATION.md) |
+| 13 | What do used TVs actually sell for in Australia, by size and age? | ⛔ [B](B-PRICING-VALUATION.md) |
+| 14 | What do used RAM sticks, SSDs and CPUs sell for in Australia? | ✅ [B](B-PRICING-VALUATION.md) |
+| 15 | What do replacement batteries cost from AU suppliers for common fleet laptops? | ✅ [B](B-PRICING-VALUATION.md) |
+| 16 | What do Officeworks Tech Trade-in, Mobile Monster and Mobile Guru quote online for 5 sample devices? | 🟡 [B](B-PRICING-VALUATION.md) |
+| 17 | What are Gumtree's current seller fees (its own pages conflict)? | ✅ [B](B-PRICING-VALUATION.md) |
 
 ## C. Bench tools
 | # | Question | Status |
