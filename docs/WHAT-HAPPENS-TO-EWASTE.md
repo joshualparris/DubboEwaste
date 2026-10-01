@@ -544,7 +544,128 @@ This keeps the pilot defensible while the exact downstream chain is still being 
 
 ---
 
-## 13. Research status
+
+
+---
+
+## 13. Regional council chain-of-custody evidence
+
+This section goes beyond AMR and records the strongest evidence found for **what actually happens after e-waste is dropped at surrounding council sites**.
+
+### What is proven, council by council
+
+| Council / area | Proven collection point | Named downstream evidence | What we can actually say happens |
+|---|---|---|---|
+| **Dubbo / Wellington** | Whylandra and Wellington accept household e-waste | Historical Council documents named Matthews Metal Management; that listed contract ended 30 June 2025. NetWaste currently says Sims collects e-waste from the majority of member councils, but does not identify Dubbo specifically. | **2026 processor still unknown.** E-waste is separated from general waste and sent for recycling, but the present processor/final destination is not publicly named. |
+| **Parkes** | Parkes Waste Facility | Parkes Shire's 2024-25 report says e-waste from Parkes Landfill was **collected by Sircel**. Its 2025-26 report records continued work on an e-waste/shared agreement with Sircel. | This is the strongest current nearby chain: **Parkes collection -> Sircel**. Sircel has a processing site at **55 Brolgan Road, Parkes**. |
+| **Coonamble** | Coonamble Waste Management Facility; e-waste is a free separated stream | February 2025 Council papers say **Matthews Metals Dubbo agreed to work with Coonamble Waste for collection and disposal of e-waste and batteries**. | Proven 2025 route: **Coonamble -> Matthews Metals Dubbo**. Whether that arrangement continues in 2026 under AMR is not publicly proven. |
+| **Narromine** | Narromine Waste Management Facility; domestic e-waste no charge | Council says e-waste collections are organised through NetWaste. Sircel has publicly reported receiving regional e-waste from Narromine at Parkes, but current council contract routing is not published. | Sircel/Parkes has been used in practice; **current exclusive route not proven**. |
+| **Warren / Forbes / Mid-Western and most NetWaste councils** | Current NetWaste map lists Ewenmar/Warren, Daroobalgie/Forbes, Mudgee, Gulgong, Kandos etc. | NetWaste currently says **Sims Metal Management collects e-waste from the majority of NetWaste councils**. | Exact council-by-council route is not disclosed. A historical NetWaste contract explicitly sent e-waste to **Sims St Marys for shredding**. |
+| **Mudgee** | Mudgee Waste Facility | Council has a Revolve/Tip Shop reuse stream as well as e-waste collection | Clear evidence of a **reuse opportunity before material recycling**, but the downstream processor for rejected/unsold e-waste is not publicly named. |
+| **Gilgandra / Nyngan** | Public information is incomplete/inconsistent | No current named processor found | These remain genuine information gaps requiring direct Council confirmation. |
+
+### The historical Sims/St Marys process is unusually explicit
+
+NetWaste's 2023-2027 regional strategy records the then regional scrap-metal contractor as **Sims Metal Management**, with McCabe Transport as collection subcontractor. It says the e-waste option was **shredded at the St Marys depot**, with a trial involving E-cycle Solutions for further recovery/co-regulatory participation.
+
+That gives a concrete historical chain:
+
+**Council e-waste cage -> regional collection -> Sims St Marys -> shredding -> further material recovery.**
+
+Do **not** label this the confirmed 2026 Dubbo route. The named contract dates have passed. NetWaste's current e-waste page still names Sims as the majority collector, but does not say that every current load still goes to St Marys.
+
+### Parkes/Sircel: what specifically happens to the devices
+
+Sircel's current published process is much more detailed:
+
+1. **Collection and secure transport** to a Sircel facility.
+2. **Receival and weighing**; each lot gets a tracking number.
+3. **Triage**:
+   - batteries, large plastics, steel and wood are removed/separated;
+   - equipment suitable for reuse/repurposing is diverted to ITAD rather than destroyed.
+4. **Data-bearing reusable devices** can be sanitised with Blancco and supplied with digitally signed erasure certificates.
+5. End-of-life whole devices (without batteries) enter a **multi-stage mechanical size-reduction and separation process**.
+6. Material is reduced as far as **<1 mm fractions**.
+7. Separated commodities include **steel, aluminium, copper and other recoverable fractions**.
+8. Sircel says it performs additional in-house metallurgical recovery of base, precious and platinum-group metals.
+9. Recovered steel/copper and other commodities are sent back into manufacturing; plastics go to certified downstream manufacturing partners.
+10. Batteries are handled separately through accredited downstream partners rather than through Sircel's standard mechanical line.
+
+For a good laptop, the most important step is **step 3**. If it can be reused, the whole device can retain far more value than if it is mechanically reduced to metal/plastic/PCB fractions.
+
+### What "recycled" looks like in real Australian NTCRS numbers
+
+A useful audited-scale benchmark is **Ecycle Solutions' 2023-24 NTCRS annual report**. This is national Ecycle data, **not Dubbo-specific**.
+
+- **45,617,361 kg** was recorded as recycled.
+- **41,692,686 kg** became usable materials.
+- **3,587,297 kg** went to landfill including downstream losses.
+- **337,378 kg** remained as recycled material stored at recyclers at year end.
+- The report states a **92.14% recovery/conversion rate**.
+- It also reports **15,628,808 kg of reusable material exported** for use in new goods, including metals, circuit boards, plastics and hard drives.
+
+So in a real large NTCRS chain, "recycled" does not mean every kilogram becomes a new product. Most becomes usable commodity feedstock, while a measurable residual still ends up in landfill.
+
+### NTCRS sets the standard for TVs/computers
+
+Under the National Television and Computer Recycling Scheme:
+
+- approved co-regulatory arrangements must meet a **90% material recovery target** by weight;
+- they must report collection, storage, recycling, exports and contracted service providers;
+- scheme recyclers must meet the applicable **AS 5377** requirements.
+
+That is the standard Dubbo E-Waste should seek from any downstream partner handling TVs/computers for business or school clients.
+
+### Scrap metal and e-waste are now clearly separate contract questions
+
+A late-2025 NetWaste tender for **Collection and Recycling of Scrap Metal (F4459)** was awarded by participating councils to **Access Recycling**. This is useful because it shows the regional metal contract changed.
+
+However, this does **not** establish that Access Recycling replaced Sims for e-waste. NetWaste's current e-waste page still says Sims handles the majority of council e-waste. Treat **scrap metal** and **e-waste** as separate streams until a council confirms otherwise.
+
+### The exact opportunity for Dubbo E-Waste
+
+Council/recycler systems are very good at:
+
+**collect -> consolidate -> shred/process -> recover commodities**
+
+The missing layer is often:
+
+**inspect -> test -> data-wipe -> repair -> redeploy/resell -> only recycle when genuinely end-of-life**
+
+That is the strongest regional role for Dubbo E-Waste. A functioning 8 GB laptop with an SSD should ideally be captured **before** it becomes anonymous bulk e-waste.
+
+### Questions now worth getting answered in writing
+
+For each surrounding council:
+
+1. Who is your **current e-waste contractor in 2026**?
+2. What **physical facility** does the truck take the material to next?
+3. Does the contract permit **reuse/repair diversion before recycler pickup**?
+4. Who owns an item after a resident deposits it?
+5. Does the contractor get exclusive rights to the e-waste stream?
+6. Is any device triaged for reuse before shredding?
+7. What data-destruction standard is used?
+8. Is the recycler AS 5377 certified / operating under NTCRS?
+9. What percentage is reused, materially recovered and landfilled?
+10. Can Council provide the last 12 months of e-waste tonnage?
+11. Would Council trial a separate **reuse-first electronics cage/referral pathway**?
+
+### Additional sources for this regional deep dive
+
+- NetWaste current e-waste page: https://www.netwaste.com.au/ewaste/
+- NetWaste Regional Waste and Sustainable Materials Strategy 2023-2027 (historical St Marys shredding route): https://netwaste.com.au/wp-content/uploads/2023/03/TW22135_NetWaste_Regional-Waste-and-Sustainable-Materials-Strategy-2023-2027_5.0.pdf
+- Parkes Shire 2024-25 progress report (Sircel collection): https://www.parkes.nsw.gov.au/files/assets/public/v/1/council/strategies-and-plans/operational-plan-amp-budget/2024-25_op-plan_progress_report_jan-to-june-2025-infocouncil-final.pdf
+- Parkes Shire 2025-26 progress report: https://www.parkes.nsw.gov.au/files/assets/public/v/2/council/strategies-and-plans/operational-plan-amp-budget/ecm_2191606_v2_ipr-operational-plan-2025-2026-progress-report-july-to-december-2025.pdf
+- Coonamble Shire February 2025 business paper (Matthews Dubbo arrangement): https://www.coonambleshire.nsw.gov.au/__media_downloads/business-papers-minutes/2025/250212_1._Business_Paper_-_Ordinary_Meeting_February_2025.pdf
+- Sircel current process: https://sircel.com/how-we-work/our-process/
+- Sircel ITAD/reuse/data sanitisation: https://sircel.com/services/itad-asset-recovery-repurposing/
+- Sircel Parkes location: https://sircel.com/contact-us/
+- DCCEEW Ecycle Solutions 2023-24 annual report: https://www.dcceew.gov.au/environment/protection/waste/publications/ecycle-solutions-annual-report-2023-24
+- DCCEEW NTCRS co-regulatory requirements / 90% recovery target: https://www.dcceew.gov.au/environment/protection/waste/product-stewardship/products-schemes/television-computer-recycling-scheme/coreg-arrangements
+
+---
+
+## 14. Research status
 
 **High confidence**
 - AMR Dubbo location/operator.
