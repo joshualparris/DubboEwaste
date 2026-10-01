@@ -1127,3 +1127,155 @@ The very next commercial task is to obtain:
 3. Fliptech's answer on an authorised regional pilot.
 
 Those three documents will make the next cost model materially more exact than anything available publicly.
+
+
+---
+
+# 19. Separate ranking — most likely to open a physical Dubbo branch
+
+This is a **different question** from "which is easiest/cheapest for the local operator to enter?"
+
+Based on current public branch history, regional footprint and operating model:
+
+| Physical-branch likelihood rank | Company | Evidence-based reason |
+|---|---|---|
+| **1** | **Greenbox** | Strongest documented branch/facility expansion history plus formal partner program, white label/co-branding and regional computer roadshow precedent |
+| **2** | **G1 Asset Management** | Same 11–50 LinkedIn band as Fliptech yet already runs multiple processing facilities and explicitly serves regional NSW |
+| **3** | **WV Technologies** | Already operates six hubs across five states, making another regional node structurally consistent with its model |
+| **4** | **Fliptech** | Best conceptual fit and historical national ambition, but no published second permanent branch or formal partner program |
+| **5** | **Shred-X** | Strong corporate branch capability and regional NSW service, but may simply serve Dubbo from existing NSW sites rather than add another branch |
+| **6** | **Renew IT** | Has scale and multiple depots but current pattern favours major-city processing facilities plus logistics/drop-off points |
+| **7** | **Iron Mountain / ACT** | Huge capability, but a Dubbo processing branch would likely require major enterprise/government volume and corporate investment |
+
+This ranking is not a prediction or statement of any company's internal plans.
+
+It is a **public-evidence plausibility ranking**.
+
+---
+
+# 20. Decision matrix — what to do with each one
+
+| Company | Ask for first | Do NOT ask for first | Spend before answer |
+|---|---|---|---:|
+| **Greenbox** | Partner Programme + Dubbo regional territory discussion | Full warehouse approval | **$0** company fee publicly identified |
+| **G1** | White-labelled regional ITAD pricing | New processing facility | **$0** company fee publicly identified |
+| **Fliptech** | 3–6 cycle Central West pilot | Franchise | **$0** company fee publicly identified |
+| **WV** | Commercial logistics/ITAD partnership | Independent WV-branded branch | **$0** company fee publicly identified |
+| **Iron Mountain** | ALM Sell/Service partnership eligibility | Dubbo warehouse | **$0** partner fee publicly identified |
+| **Renew IT** | Dubbo drop-off / last-mile depot proposal | Franchise | **$0** franchise fee because none is published |
+| **Shred-X** | Corporate Dubbo business-case discussion | Buy a franchise | **$0** franchise fee because none is published |
+
+"$0 publicly identified" means **no entry fee was found in the public material**. It does not mean onboarding is guaranteed to cost nothing.
+
+---
+
+# 21. Highest-return sequence before spending on premises
+
+## Step 1 — obtain three commercial documents
+
+1. **Greenbox Partner Programme pricing / rulebook**
+2. **G1 white-label pricing / commercial terms**
+3. **Fliptech written pilot / regional operator terms**
+
+These three documents answer most of the currently unknowable questions:
+- margin;
+- buyback split;
+- client ownership;
+- asset ownership;
+- insurance;
+- reporting;
+- local custody;
+- local sanitisation;
+- use of brand;
+- territory.
+
+## Step 2 — compare real dollars
+
+Use the same sample job for all three:
+
+> 100 business-class laptops, 3–5 years old, collected in Dubbo, serialised, sanitised, tested and routed to resale/reuse/recycling.
+
+Ask each provider for:
+- client charge;
+- buyback/rebate;
+- your margin;
+- freight;
+- erase cost;
+- reporting cost;
+- failed-device cost;
+- who receives resale upside.
+
+## Step 3 — only then decide whether a local hub makes sense
+
+If the parent will collect directly and still leave enough margin locally, a warehouse may never be necessary.
+
+If the biggest cost is repeated Sydney/Canberra transport, a Dubbo secure hub becomes more valuable.
+
+---
+
+# 22. What "highest payoff" currently means
+
+Because no provider publishes local partner margin, the actual dollar winner is unknown.
+
+The current evidence supports:
+
+### Highest likely payoff per dollar invested
+**Greenbox Partner Program**
+
+because it combines:
+- direct partner status;
+- white label/co-branding;
+- direct client servicing;
+- preferred pricing;
+- explicit asset-recovery margins;
+- no public franchise fee;
+- no warehouse requirement to start.
+
+### Lowest operational effort
+**G1 white-label**
+
+because G1 can perform:
+- collection;
+- data destruction;
+- processing;
+- reporting;
+
+while the local IT provider owns the customer-facing service.
+
+### Highest speculative entrepreneurial upside
+**Fliptech**
+
+because a Dubbo model could potentially be negotiated as a new regional operating arrangement rather than joining a mature predefined channel.
+
+### Highest enterprise ceiling
+**Iron Mountain / WV / Greenbox**
+
+but these may give the local operator less ownership/autonomy.
+
+---
+
+# 23. Exact cost status table
+
+| Item | Exact/current published amount? | Amount / status |
+|---|---|---|
+| Greenbox joining fee | **No published fee found** | Unknown until partner pack |
+| G1 white-label partner fee | **No published fee found** | Quote required |
+| Fliptech partner/branch fee | **No public program** | Negotiated |
+| WV commercial-partner fee | **No published fee found** | Negotiated |
+| Iron Mountain partner fee | **No published fee found** | Partner terms required |
+| Renew IT depot/franchise fee | **No public program** | Negotiated |
+| Shred-X franchise fee | **No public franchise program** | Corporate decision |
+| Business name | **Yes** | $47/1yr or $108/3yr |
+| NSW second-hand dealer licence, if applicable | **Yes** | $692/1yr |
+| Current 190 m² Dubbo industrial rent benchmark | **Yes** | $395/week + GST + outgoings |
+| Annual rent at that advertised rate | **Calculated from published rent** | $20,540 + GST |
+| Low-end small commercial security benchmark | **Indicative, not quote** | ~$5,000+ |
+| Blancco SMB Select 50 reseller benchmark | **Current reseller price** | $982.30 |
+| National Minimum Wage | **Yes** | $26.44/hr |
+| Full-time national-minimum base | **Calculated** | $52,254.80/year |
+| 12% super on that base | **Calculated** | $6,270.58/year |
+| Wage + super floor | **Calculated** | $58,525.38/year |
+| Modelled hub baseline before unknowns/labour | **Calculated** | $27,261.30 |
+| Same model + one minimum-wage FTE | **Calculated** | $85,786.68 |
+
+The modelled totals are **not quotes** and deliberately exclude unknowns rather than hiding them inside a false "exact" estimate.
