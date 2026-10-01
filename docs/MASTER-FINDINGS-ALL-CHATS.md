@@ -1415,3 +1415,52 @@ Best at:
 A future Dubbo model therefore does not need to replace Council.
 
 It can sit **before** Council's destructive recycling stream and connect to existing community organisations only where they want that role.
+
+
+---
+
+# Appendix A — NSW public-school laptops / EDConnect eWaste chain
+
+A major new finding after the original master synthesis is that **NSW public-school laptops in Dubbo use a separate Department of Education eWaste pipeline rather than simply entering the Council/Whylandra/AMR household stream**.
+
+The current public Department workflow is:
+
+**school approval and stocktake → eWaste PowerApp/EDConnect request → contracted vendor schedules a cost-efficient regional collection → vendor collects → vendor data-sanitises all collected hard drives → vendor issues a sanitisation certificate → vendor issues a Settlement Report**
+
+The current eWaste application guide explicitly says school-side **wiping/destruction of hard drives is no longer required** under this collection process; final hard-drive sanitisation is a vendor responsibility.
+
+The public documents do **not** identify:
+
+- the current dedicated Education eWaste vendor;
+- the Dubbo/Orana transport route;
+- the first processing warehouse;
+- whether useful laptops are tested/graded;
+- how many are resold, donated, parted, recycled or destroyed;
+- whether the stream feeds the NSW Device Bank.
+
+The broader NSW Government Contract 9826 allows end-user-device disposal methods including:
+
+- reuse through donation or sale;
+- reinsertion into a supplier's supply chain;
+- recycling through a proven third-party channel.
+
+Current standalone-service suppliers on that panel include ACT Logistics, G1 Asset Management, Greenbox, Lifecycle Plus, Sims Lifecycle Services and WorkVentures. **This does not prove which supplier holds Education's dedicated school eWaste contract.**
+
+The NSW Device Bank separately demonstrates a reuse-first government model through WorkVentures, with an initial 2026 pilot pool of about 2,800 laptops plus roughly 2,500 more expected during the 12-month term. No public evidence currently proves normal EDConnect school eWaste feeds into that Device Bank.
+
+### Strategic consequence for Dubbo eWaste
+
+NSW public schools are **not a casual Phase 0 donation source**.
+
+The future opportunity would need to be formal:
+
+- approved vendor;
+- subcontractor;
+- Department-approved regional reuse pilot;
+- or integration into an approved Device Bank/reuse program.
+
+The most valuable next evidence is the current Education vendor's **Settlement Report** and contract details, because those may reveal the true asset outcomes after sanitisation.
+
+Full deep dive:
+
+- [NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md](NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md)
