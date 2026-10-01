@@ -52,7 +52,18 @@ Your current website lists TVs, computers/laptops, monitors, smart phones/tablet
 
 The same materials list says electronic waste excludes lithium ion. Do batteries need to be removed from laptops, phones and tablets before delivery, including non-removable batteries? Do you accept CRT TVs/monitors, loose circuit boards, cables and power supplies?
 
-Could you also confirm any fees, minimum quantities, commercial account requirements, pickup thresholds, whether you provide weight/recycling receipts, and whether Australian Metal Recycling is now the current legal operator of the 34 Mountbatten Drive yard rather than InfraBuild/Matthews?
+Could you also confirm:
+
+1. After e-waste is received at Dubbo, what is the next physical facility it goes to? Please provide the recycler's company name and suburb/address if possible.
+2. Is any e-waste dismantled or shredded at 34 Mountbatten Drive, or is Dubbo a collection/sorting/consolidation yard?
+3. Is the free e-waste service part of the National Television and Computer Recycling Scheme (NTCRS)? If so, which approved co-regulatory arrangement do you work with?
+4. Which facility in the chain is AS 5377 certified, and can you provide the certification details/scope?
+5. Do you offer secure destruction for HDDs/SSDs and serial-numbered destruction certificates, or should all storage media be removed/sanitised before delivery?
+6. Can a small commercial customer receive a weight ticket and certificate of recycling?
+7. Are any e-waste fractions exported for further processing? If so, what fractions and where?
+8. Is the free service funded through NTCRS/a council arrangement, or is it AMR's own commercial recycling service?
+9. What are the minimum quantities, commercial account requirements and pickup thresholds?
+10. Is Australian Metal Recycling now the current legal operator of the 34 Mountbatten Drive yard rather than InfraBuild/Matthews?
 
 Thanks,
 [Name]
