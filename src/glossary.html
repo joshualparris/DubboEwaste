@@ -1,0 +1,57 @@
+<title>Glossary · Dubbo E-Waste Field School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700,800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>/*__STYLES__*/
+.glossary-page { max-width: 1120px; margin: 0 auto; padding: 42px clamp(16px, 4vw, 56px) 80px; }
+.glossary-head { display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap; margin-bottom:28px; }
+.glossary-head h1 { font-size:clamp(34px, 5vw, 58px); font-weight:800; letter-spacing:-.035em; }
+.glossary-head .lede { max-width:66ch; margin-top:12px; }
+.glossary-tools { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+.glossary-tools input { width:min(100%, 440px); border:1px solid var(--line); background:var(--surface); border-radius:8px; padding:10px 12px; }
+.glossary-count { color:var(--muted); font-family:var(--mono); font-size:12px; }
+.glossary-term { scroll-margin-top:20px; }
+.glossary-term dt { font-family:var(--display); font-size:18px; font-weight:700; }
+.glossary-term dd { margin:0; font-family:var(--body); color:var(--muted); line-height:1.6; }
+.glossary-empty { display:none; }
+</style>
+
+<main class="glossary-page">
+  <div class="glossary-head">
+    <div>
+      <div class="eyebrow">Dubbo eWaste · reference</div>
+      <h1>Plain-English glossary</h1>
+      <p class="lede">A quick explanation of the abbreviations, standards, legal terms and recycling language used across the Field School. Definitions are intentionally practical; check the linked research before relying on a term for a business or compliance decision.</p>
+    </div>
+    <a class="btn primary" href="index.html#home">← Back to the Field School</a>
+  </div>
+  <div class="glossary-tools">
+    <label for="glossarySearch" class="sr">Filter glossary terms</label>
+    <input id="glossarySearch" type="search" placeholder="Filter terms…" autocomplete="off">
+    <span class="glossary-count" id="glossaryCount"></span>
+  </div>
+  <dl class="grid g2" id="glossaryList"></dl>
+  <p class="empty glossary-empty" id="glossaryEmpty">No glossary terms match that search.</p>
+</main>
+
+<script>
+/*__CONTENT__*/
+(() => {
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"}[c]));
+  const slug = s => "term-" + s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const list = document.getElementById("glossaryList");
+  const search = document.getElementById("glossarySearch");
+  const count = document.getElementById("glossaryCount");
+  const empty = document.getElementById("glossaryEmpty");
+  function render() {
+    const q = search.value.trim().toLowerCase();
+    const terms = C.glossary.filter(([term, def]) => !q || `${term} ${def}`.toLowerCase().includes(q));
+    list.innerHTML = terms.map(([term, def]) => `<div class="card glossary-term" id="${slug(term)}"><dt>${esc(term)}</dt><dd>${esc(def)}</dd></div>`).join("");
+    count.textContent = `${terms.length} of ${C.glossary.length} terms`;
+    empty.style.display = terms.length ? "none" : "block";
+  }
+  search.addEventListener("input", render);
+  render();
+  if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
+})();
+</script>

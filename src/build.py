@@ -128,7 +128,12 @@ def main():
         html = SKELETON_HEAD + html + "</body></html>"
     with open(OUT, "w", encoding="utf-8") as fh:
         fh.write(html)
-    print(f"{len(docs)} docs, {len(html)/1024:.0f} KB -> {OUT}")
+    glossary = read("glossary.html")
+    glossary = glossary.replace("/*__STYLES__*/", read("styles.css"))
+    glossary = glossary.replace("/*__CONTENT__*/", read("content.js"))
+    with open(os.path.join(os.path.dirname(OUT), "glossary.html"), "w", encoding="utf-8") as fh:
+        fh.write(SKELETON_HEAD + glossary + "</body></html>")
+    print(f"{len(docs)} docs, {len(html)/1024:.0f} KB -> {OUT} and glossary.html")
 
 
 if __name__ == "__main__":

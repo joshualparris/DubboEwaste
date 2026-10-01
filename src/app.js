@@ -142,7 +142,8 @@ function viewHome() {
     <div>
       <div class="eyebrow">Dubbo eWaste · research to practice</div>
       <h1>Get useful technology <em>before</em> the recycling system does.</h1>
-      <p class="lede">Everything from the DubboEwaste research, turned into a place to learn it: how e-waste moves through Dubbo, the rules that govern it, an eight-week study plan, practice quizzes, a money model and every research document.</p>
+  <p class="lede">Everything from the DubboEwaste research, turned into a place to learn it: how e-waste moves through Dubbo, the rules that govern it, an eight-week study plan, practice quizzes, a money model and every research document.</p>
+      <p class="callout info" style="margin-top:14px">New to terms like <a href="glossary.html#term-ntcrs">NTCRS</a>, <a href="glossary.html#term-as-5377-2022">AS 5377</a>, <a href="glossary.html#term-crt-crts">CRTs</a> or <a href="glossary.html#term-certificate-of-recycling-sanitisation-certificate">certificates</a>? <a href="glossary.html">Open the plain-English glossary →</a></p>
     </div>
     <div class="today" aria-label="Today">
       <div class="eyebrow">${nb.weekend ? "Weekend" : esc(nb.wd) + " · " + esc(nb.hm) + " Dubbo time"}</div>
