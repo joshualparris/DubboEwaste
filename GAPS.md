@@ -180,3 +180,24 @@ New evidence closes part of the earlier "what happens next?" gap:
 - **[Unknown] quantities:** current annual e-waste tonnes and reusable-device share by council remain to be obtained.
 - **[Unknown] Narromine:** Sircel/Parkes has demonstrably handled Narromine regional e-waste, but current exclusive routing is not published.
 - **[Important distinction] Access Recycling won a 2025 regional **scrap-metal** tender; this is not evidence it replaced Sims for e-waste.
+
+
+### Sircel reuse-first model — high-priority unknowns to resolve
+
+Detailed research: [docs/SIRCEL-ITAD-REUSE-MODEL.md](docs/SIRCEL-ITAD-REUSE-MODEL.md).
+
+Sircel's public material confirms the broad model — unique load tracking, triage before destruction, Blancco sanitisation, hardware testing, reuse via charity/approved brokers, FMV/buy-back, then mechanical recycling for failures — but it does **not** publish the operational thresholds that would be most useful for Dubbo E-Waste.
+
+Ask Sircel/ITAD directly:
+- exact laptop/desktop pass/fail test list;
+- minimum CPU/RAM/storage/age specifications for resale;
+- cosmetic/battery grading rules;
+- which repairs/upgrades are economical;
+- what percentage of incoming PCs/laptops are actually reused;
+- how fair-market-value/buy-back is calculated;
+- broker/charity channel rules;
+- how Autopilot/MDM/Activation Lock/BitLocker failures are treated;
+- whether Parkes performs ITAD locally or transfers reuse candidates elsewhere;
+- whether Sircel would accept pre-triaged regional devices or partner with a Dubbo first-stage refurbisher;
+- minimum pallet/weight/collection volumes and certificate/reporting costs;
+- current contracting entity and commercial continuity while Sircel remains under receivership/administration.
