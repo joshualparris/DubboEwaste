@@ -48,9 +48,9 @@ Hello,
 
 I'm setting up a very small electronics refurbishment and reuse operation in Dubbo. Anything repairable will be reused or resold, but I need a legitimate downstream outlet for zero-value electronics.
 
-Your website says AMR accepts e-waste for free. Can the Dubbo yard accept small commercial loads of laptops/desktops, monitors, printers, phones/tablets, flat-screen TVs, CRTs, circuit boards, cables and power supplies?
+Your current website lists TVs, computers/laptops, monitors, smart phones/tablets and printers/scanners as accepted e-waste. Does the Dubbo yard follow that list for small commercial loads, and is that e-waste drop-off free for a small business?
 
-Your site also lists lithium batteries as not accepted. Do embedded laptop/phone batteries need to be removed before delivery?
+The same materials list says electronic waste excludes lithium ion. Do batteries need to be removed from laptops, phones and tablets before delivery, including non-removable batteries? Do you accept CRT TVs/monitors, loose circuit boards, cables and power supplies?
 
 Could you also confirm any fees, minimum quantities, commercial account requirements, pickup thresholds, whether you provide weight/recycling receipts, and whether Australian Metal Recycling is now the current legal operator of the 34 Mountbatten Drive yard rather than InfraBuild/Matthews?
 
