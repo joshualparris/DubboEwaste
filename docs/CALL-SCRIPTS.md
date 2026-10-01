@@ -34,6 +34,25 @@
 - "Is the free service funded through NTCRS/a council contract, or is it AMR's own commercial service?"
 - "Are you now Australian Metal Recycling rather than InfraBuild/Matthews Metal Management at this yard? I'm seeing both names online and want the current legal operator correct."
 
+### If AMR names a downstream recycler
+Do not stop at the company name. Record:
+- legal entity name and ABN
+- facility street address
+- whether that facility is the **first physical destination** or merely a later processor
+- AS/NZS 5377 certificate number/scope if applicable
+- whether the load is under NTCRS and which co-regulatory arrangement
+- whether AMR or the downstream recycler issues the recycling certificate
+- whether working/reusable devices are tested/diverted before destruction
+- whether any fractions are exported and under whose chain of custody
+
+Then independently call the named recycler and ask:
+- "Do you currently receive e-waste from Scrap Metal Services Pty Ltd / Australian Metal Recycling at 34 Mountbatten Drive, Dubbo?"
+- "What categories do you receive from them?"
+- "Do you test for reuse before dismantling/shredding?"
+- "Can you confirm your AS/NZS 5377 certification and NTCRS relationship?"
+
+**Current research leads only — do not present as AMR suppliers unless confirmed:** Sircel Parkes; ACE Recycling Group; Sims. Historical Matthews also had NTCRS/TechCollect links.
+
 ## 6. Whylandra (Council waste)
 - Commercial e-waste fee, NTCRS limits for a business drop-off.
 
