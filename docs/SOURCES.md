@@ -528,3 +528,56 @@ Some older uploaded attachments referenced in historic conversations are no long
 - Storage prices do not establish permission to operate a workshop/process electronics there.
 - Warehouse listings exclude or separately charge some outgoings/bond.
 - Wage calculations use the National Minimum Wage/legal floor only; an applicable modern award may be higher.
+
+
+## Dubbo ITAD branch-entry playbook sources — checked 2 Oct 2026
+
+### Greenbox
+- Partner programme / white label / co-brand / direct customer servicing / asset-recovery margin: https://www.greenbox.com.au/partners/
+- FAQ — exact partner onboarding: two-page application, 12-month business plan, three references, three months credit information, training, 14-business-day review target, MOU: https://www.greenbox.com.au/faqs/
+- Current facilities: https://www.greenbox.com.au/contact/
+
+### G1 Asset Management
+- IT service provider white-label model / unbranded reporting / regional NSW coverage: https://g1.com.au/solutions/it-service-providers/
+- Quote process: https://g1.com.au/quote/
+- Facilities: https://g1.com.au/contact/
+- Buyback / locked-in pre-collection pricing: https://g1.com.au/service/corporate-and-education-it-asset-buybacks/
+
+### WV Technologies
+- Strategic/aligned/commercial/industry partner framework; commercial partners include secure logistics/component recovery: https://wvtech.com.au/partners/
+- Six hubs across five states: https://wvtech.com.au/contact/
+
+### Iron Mountain
+- Global Partner Program — Build/Sell/Service: https://www.ironmountain.com/en-au/about-us/partners
+- Australian Asset Lifecycle Management and ACT Group acquisition: https://www.ironmountain.com/en-au/services/it-asset-lifecycle-management
+
+### Renew IT
+- Current Australian depots and major-capital-city drop-off points: https://renew-it.com/international/
+- Contact: https://renew-it.com/contact-us/
+
+### Shred-X
+- 11-location network: https://www.shred-x.com.au/contact/
+- NSW facilities and regional coverage: https://www.shred-x.com.au/location/new-south-wales/
+- E-waste / IT value recovery: https://www.shred-x.com.au/e-waste/
+
+### Fliptech
+- Main site: https://www.fliptech.com.au/
+- Contact/pilot entry point: https://www.fliptech.com.au/forms/contact-us
+- See dedicated feasibility file for wider evidence: `FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md`
+
+### Current cost benchmarks
+- Current Dubbo industrial unit — 190 m², $395/week + GST, outgoings additional: https://www.eldersrealestate.com.au/commercial/rent/13-mcguinn-crescent-dubbo-nsw-2830-300P181435/
+- Alternative local listing confirmation: https://www.rhcommercial.com.au/dubbo/properties/13-mcguinn-crescent-dubbo-2830-new-south-wales
+- Current commercial-security cost benchmark: https://www.securitywholesalers.com.au/guides/security-costs/commercial-security-system-cost/
+- Blancco public pricing structure is quote-based: https://blancco.com/blancco-cost-bundles-pricing/
+- Current Australian Blancco reseller examples: https://shop.tech2000.com.au/brand/blancco/
+- Business-name fee: https://business.gov.au/registrations/register-your-business-name
+- NSW second-hand dealer licence fees 2026–27: https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/pawnbrokers-and-second-hand-dealers/pawnbrokers-and-second-hand-dealers-fees
+- National Minimum Wage from 1 Jul 2026: https://www.fairwork.gov.au/pay-and-wages/minimum-wages
+- Super guarantee 12%: https://www.ato.gov.au/tax-rates-and-codes/key-superannuation-rates-and-thresholds/super-guarantee
+
+### Evidence limits
+- No exact Dubbo branch/franchise fee is publicly available for any of the seven companies.
+- No exact local partner margin/revenue share is public.
+- No exact branch fitout/security specification has been supplied by a parent company.
+- The $27,261.30 and $85,786.68 figures in the playbook are transparent modelled floors from published inputs, not quotes.
