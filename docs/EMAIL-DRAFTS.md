@@ -77,3 +77,41 @@ I'm exploring a small separate venture refurbishing and reselling second-hand el
 
 Thanks,
 [Name]
+
+
+## NSW Department of Education - eWaste contract / Dubbo laptop pathway
+
+Subject: Information request - current school eWaste contractor and Dubbo/Orana device outcomes
+
+Hello,
+
+I'm researching reuse and recycling pathways for retired computers in the Dubbo/Orana region.
+
+The Department's current Technology in schools procedures state that NSW public schools use a dedicated eWaste contract through EDConnect. The current eWaste Application User Guide also states that the vendor collects the equipment, sanitises all collected hard drives, provides a certificate of data sanitisation and provides the school with a Settlement Report.
+
+Could you please provide, or advise where I can obtain, the following current information:
+
+1. Name and ABN of the current dedicated schools eWaste contractor.
+2. Contract/RFQ/purchase-order identifier, commencement date and expiry/extensions.
+3. Whether this arrangement is under NSW ICT End User Devices and Services Contract 9826 or another procurement.
+4. Which contractor collects eWaste from Dubbo/Orana public schools.
+5. The first facility or consolidation point that receives those devices after collection.
+6. The first testing/refurbishment facility and first recycling facility used for Dubbo/Orana collections.
+7. Whether usable laptops are tested and diverted for reuse, remarketing or donation before material recycling.
+8. The number of laptops/desktops collected from Dubbo/Orana public schools in 2023/24, 2024/25 and 2025/26, if available.
+9. The number or percentage subsequently reused/remarketed, donated, harvested for parts, materially recycled or physically destroyed.
+10. Whether any residual value from remarketed devices is credited back to the Department or schools.
+11. A blank or redacted example of the vendor's Settlement Report.
+12. A blank or redacted example of the data-sanitisation certificate.
+13. Whether school devices can be diverted into the NSW Device Bank or another approved reuse program.
+14. Whether regional reuse/refurbishment organisations can participate as approved subcontractors or through a pilot arrangement.
+
+I am not seeking personal information about students or staff.
+
+If this information is not available informally, could you please advise the appropriate GIPA or procurement contact?
+
+Thank you,
+[Name]
+
+Public program contact from the eWaste guide:
+cor0835r8406.schoolsinfra@det.nsw.edu.au
