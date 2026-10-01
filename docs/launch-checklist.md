@@ -111,5 +111,5 @@ Do not lease a workshop until there is evidence that:
 1. Fair Trading: does the recycling exemption cover this exact reuse/resale model?
 2. Council: is the home-shed model permissible at the proposed scale?
 3. Existing IT businesses: is there a compliant structure worth operating under?
-4. Matthews/InfraBuild or another recycler: what commercial e-waste streams will they accept from a small operator and at what cost?
+4. Australian Metal Recycling (former Matthews Dubbo): confirm small-commercial e-waste categories, lithium-battery removal, TVs/CRTs, fees, pickup minimums and recycling receipts.
 5. Regional benchmark: what are the actual reuse rate, margin and disposal costs in an established regional e-waste business?
