@@ -257,3 +257,76 @@ Suggested opening:
 - "Could Royal Far West/community redistribution be incorporated into a regional pilot?"
 - "Would you be interested in a local person developing the customer pipeline and collection logistics under Fliptech's processes?"
 - "What evidence would you need before seriously considering a Dubbo hub?"
+
+
+---
+
+## Greenbox Partner Programme — exact public onboarding questions
+
+Public process already verified:
+1. two-page application;
+2. 12-month business plan;
+3. three references;
+4. three months' credit information;
+5. Greenbox review — stated target within 14 business days;
+6. mandatory online training;
+7. MOU/business plan;
+8. access to preferred pricing / partner benefits if approved.
+
+Opening:
+- "I want to explore becoming a Greenbox partner focused on Dubbo and Central West NSW. Your public Partner Programme specifically allows co-branding, white labelling and direct servicing of partner customers. Could you send me the current application, 12-month business-plan template, partner rulebook and pricing?"
+
+Ask:
+- "Is there any joining fee, annual fee, minimum spend or revenue commitment?"
+- "What gross margin or discount structure applies to asset-recovery services?"
+- "Can I invoice the end customer directly under a white-label arrangement?"
+- "Can Greenbox service the customer directly while I retain the commercial relationship?"
+- "Who owns recovered hardware and resale proceeds?"
+- "Could I start sales-only with no local device custody?"
+- "After volume is proven, could a partner operate a secure Dubbo staging/collection hub?"
+- "Could the Dubbo site ever perform serial capture, diagnostics, Blancco erasure or refurbishment under Greenbox systems?"
+- "What insurance, security, certifications and audit requirements would apply?"
+- "Would Central West/Orana be treated as a defined partner territory or non-exclusive market?"
+
+## G1 white-label ITAD — pricing questions
+
+Opening:
+- "Your public IT Service Provider solution says G1 can deliver plain-clothed, white-labelled ITAD and unbranded reporting across regional NSW. I want pricing for using that model for Dubbo/Central West clients."
+
+Use the same sample job for comparability:
+> 100 business-class laptops, 3–5 years old, collected from a Dubbo business, serialised, securely erased, tested and routed to resale/reuse/recycling.
+
+Ask:
+- "What is the all-in client price for that sample job?"
+- "What buyback/rebate would apply?"
+- "Can I add my own project-management/ITAD margin?"
+- "Do you offer reseller pricing or a fixed white-label discount?"
+- "Who invoices the end client?"
+- "Who legally takes ownership of the retired assets?"
+- "Who gets the resale upside?"
+- "Does G1 collect directly from Dubbo or would freight be charged?"
+- "What regional minimum volume applies?"
+- "What would need to change before G1 approved a secure Dubbo staging/satellite site?"
+- "Could local staff eventually operate under G1's Blancco and chain-of-custody procedures?"
+
+## Common 100-laptop comparison request
+
+Send the exact same scenario to:
+- Greenbox;
+- G1;
+- Fliptech;
+- WV;
+- Iron Mountain ALM;
+- Renew IT;
+- Shred-X.
+
+Scenario:
+> "Please quote or explain the commercial model for 100 business-class laptops, 3–5 years old, from one Dubbo NSW business. They need collection, serial capture, verified data sanitisation, functional grading and maximum whole-device reuse/resale, with genuine failures recycled. Please separate collection/logistics, data erasure, processing/reporting, buyback/rebate, and any local partner margin."
+
+This creates the first apples-to-apples evidence for:
+- actual collection cost;
+- erase cost;
+- asset value;
+- partner margin;
+- reuse percentage;
+- whether a Dubbo hub reduces cost.
