@@ -20,6 +20,7 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [docs/EMAIL-DRAFTS.md](docs/EMAIL-DRAFTS.md) | Ready-to-send emails for Fair Trading, Council, EPA, Joe, Australian Metal Recycling and Avance |
 | [docs/SOURCES.md](docs/SOURCES.md) | Sources and confidence levels |
 | [docs/bendigo-early-days-deep-dive.md](docs/bendigo-early-days-deep-dive.md) | Deep source-led reconstruction of Joe Parker / Bendigo E-Waste's startup path |
+| [docs/KRISTY-CREATIVE-MICROBUSINESS.md](docs/KRISTY-CREATIVE-MICROBUSINESS.md) | Research-backed hobby → microbusiness path for Kristy's creative/art work, modelled on The Painted Brush & Co |
 | [templates/ownership-and-wipe-certificate.md](templates/ownership-and-wipe-certificate.md) | Client transfer-of-ownership and data-wipe certificate template |
 | [pilot-tracker.csv](pilot-tracker.csv) | Per-item profit tracker for the 20-30 item pilot |
 | [docs/research.md](docs/research.md) | Earlier feasibility research retained for additional context |
