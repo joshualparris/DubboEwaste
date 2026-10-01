@@ -17,6 +17,7 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md](docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md) | **NSW public-school laptop deep dive:** EDConnect/eWaste PowerApp, vendor sanitisation, Settlement Reports, C9826 suppliers, Device Bank comparison and the missing Dubbo downstream chain |
 | [GAPS.md](GAPS.md) | Full list of what is known, found, and still unknown |
 | [docs/PROJECT-HISTORY-ALL-CHATS.md](docs/PROJECT-HISTORY-ALL-CHATS.md) | **Cross-chat project history:** Bendigo 2025 origin, 10 donated laptops, DadLAN reuse experience, Dubbo pivot, Joe/Elise lessons, decisions, corrections and unresolved real-world questions |
+| [docs/SPOTIFY-PODCAST-LIST.md](docs/SPOTIFY-PODCAST-LIST.md) | **Curated Spotify listening guide:** ITAD, e-waste, repair, data sanitisation, social reuse, resale economics and Kristy creative-business podcasts |
 | [docs/ALL-CHAT-RESEARCH-SYNTHESIS.md](docs/ALL-CHAT-RESEARCH-SYNTHESIS.md) | Extended cross-chat strategic synthesis covering Council/AMR, Officeworks, regional routes, Sircel, TechCollect, Good360/Device Banks, Education, Phase 0, legal and pilot strategy |
 | [docs/BACKLOG-01-16-INDEX.md](docs/BACKLOG-01-16-INDEX.md) | **Research handoff for backlog items 1–16, with status and remaining confirmations** |
 | [docs/BACKLOG-01-05-PLANNING-LEGAL.md](docs/BACKLOG-01-05-PLANNING-LEGAL.md) | Property planning, NSW waste law, second-hand dealer and scrap-metal research |
