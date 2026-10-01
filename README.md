@@ -56,6 +56,7 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [docs/WHY-COUNCIL-ELECTRONICS-REUSE-IS-HARD.md](docs/WHY-COUNCIL-ELECTRONICS-REUSE-IS-HARD.md) | **Barrier deep dive:** staffing, safety, data, batteries, dumping, retail liability, economics and regional scale |
 | [docs/DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS.md](docs/DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS.md) | **Closest-town official programs:** e-waste collection versus actual reuse/resale in Dubbo, Wellington, Narromine and Trangie |
 | [docs/PONYUP-SECONDBITE-DUBBO.md](docs/PONYUP-SECONDBITE-DUBBO.md) | **Dubbo connection deep dive:** PonyUp's profit-to-SecondBite model, Connecting Community Services' real Dubbo link, and what is/not an electronics pathway |
+| [docs/SPOTIFY-PODCASTS-EWASTE-REUSE-ITAD.md](docs/SPOTIFY-PODCASTS-EWASTE-REUSE-ITAD.md) | **Curated Spotify listening list:** ranked episodes on e-waste, reuse, refurbishment, ITAD, data wiping, right-to-repair, reverse logistics, digital inclusion and Australian circular electronics |
 
 ## 1. What happens to Dubbo e-waste today
 
