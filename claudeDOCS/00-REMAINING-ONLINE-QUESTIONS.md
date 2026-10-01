@@ -32,9 +32,9 @@
 ## C. Bench tools
 | # | Question | Status |
 |---|---|---|
-| 18 | What do PC-Doctor, PartedMagic, KillDisk and NSYS cost at small volume? | ⬜ |
-| 19 | Does Blancco offer smaller bundles or per-erasure pricing; what does Blancco Mobile cost? | ⬜ |
-| 20 | Do coconutBattery or 3uTools reliably and safely read iPad battery health? | ⬜ |
+| 18 | What do PC-Doctor, PartedMagic, KillDisk and NSYS cost at small volume? | ✅ [C](C-BENCH-TOOLS.md) |
+| 19 | Does Blancco offer smaller bundles or per-erasure pricing; what does Blancco Mobile cost? | ✅ [C](C-BENCH-TOOLS.md) |
+| 20 | Do coconutBattery or 3uTools reliably and safely read iPad battery health? | ✅ [C](C-BENCH-TOOLS.md) |
 
 ## D. Learning and electrical safety law
 | # | Question | Status |
