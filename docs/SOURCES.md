@@ -333,3 +333,44 @@
 - No public Dubbo National Device Bank or NSW Device Bank rollout found as of 2 Oct 2026.
 - No public Compnow refurbishment site/project in Dubbo found; the Good360 case study says its national team can collect fleets from anywhere in Australia.
 - Dubbo Support Center appears eligible at organisation level under the published NSW Device Bank rule, but no application or approval was found.
+
+
+## Local reuse, SecondBite and council-barrier research — checked 2 Oct 2026
+
+### PonyUp / SecondBite / Dubbo
+- PonyUp FAQ — reuse-first corporate technology model; 50% of profits donated to SecondBite: https://www.ponyupforgood.com/faq
+- PonyUp main site — national collections and SecondBite relationship: https://www.ponyupforgood.com/
+- PonyUp impact — 600,000+ kg diverted, 32.5% reused, 1M meals (company-published): https://www.ponyupforgood.com/1-million-meals
+- PonyUp / Telstra Enterprise — reuse-first commercial IT disposal, cost-neutral where residual value supports costs: https://www.ponyupforgood.com/telstraenterprise
+- Connecting Community Services — current SecondBite/Coles weekly food-rescue partnership in Dubbo: https://ccsd.org.au/community/food-for-those-in-need
+- Connecting Community Services — free computer/internet access and basic computer skills support: https://ccsd.org.au/community/computer-internet-access
+- Connecting Community Services — broader community services: https://ccsd.org.au/
+- Connecting Community Services — migrant support with outreach to Wellington, Gilgandra, Mudgee and Narromine: https://ccsd.org.au/family/migrant-support
+
+### Dubbo / Wellington reuse-shop evidence
+- Dubbo Regional Council — October 2024 Council meeting outcome: business case being prepared for reuse shops at Whylandra and Wellington: https://www.dubbo.nsw.gov.au/News-and-Media/News-and-Resources/Council-News/2024/outcomes-from-the-october-ordinary-council-meeting
+- Dubbo Regional Council — Whylandra/Wellington free separated domestic e-waste/old TVs: https://www.dubbo.nsw.gov.au/News-and-Media/News-and-Resources/Council-News/2024/waste-facilities-cashless-from-1-july-2024
+- Dubbo Regional Council 2024–25 operational-plan submission response — master plans recognise tip/reuse shops as part of local circular economy: https://www.dubbo.nsw.gov.au/ArticleDocuments/278/CCL24-150%20-%20Draft%202024%202025%20Budget%20and%20Operational%20Plan%20-%20Submission%20Summary%20and%20Responses%20%28Appendix%208%29.pdf.aspx?Embed=Y
+
+### Narromine / Trangie
+- Narromine Shire Council 2024–25 Annual Report — 2024 Garage Sale Trail: 47 sales/stalls and 4,231 items reused or sold: https://www.narromine.nsw.gov.au/2024%202025%20Narromine%20Shire%20Council%20Annual%20Report.pdf?downloadable=1
+- Narromine Shire Council — 2026/27 waste disposal fees / domestic e-waste no charge: https://www.narromine.nsw.gov.au/residents/waste-disposal-fees
+- Narromine Shire Council — excluded/special waste and small-item recycling information including Trangie: https://www.narromine.nsw.gov.au/residents/excluded-waste
+- Narromine Shire Council — Garage Sale Trail promotion: https://www.narromine.nsw.gov.au/council/media-releases
+
+### Structural reuse barriers
+- NSW EPA — reuse impacts: 25x more jobs/tonne than recycling, 81x landfill, 49,900 t diverted in 2022–23: https://www.epa.nsw.gov.au/Working-together/Partnerships-with-the-EPA/Measuring-impacts-of-reuse
+- NSW EPA — poor/illegal charity donations cost millions annually: https://www.epa.nsw.gov.au/Your-environment/Illegal-dumping/responsible-donating
+- NSW EPA — battery-fire reform; 332 lithium-ion incidents in 2025 and 2026 waste-facility/truck fires: https://www.epa.nsw.gov.au/news/epamedia/260407-nsw-leads-the-country-in-battery-reform-to-fight-fires-and-pollution
+- NSW Government — second-hand electrical safety obligations: https://www.nsw.gov.au/housing-and-construction/safety-home/electrical-safety/buying-and-using-electrical-appliances
+- NSW Government — selling safe products: https://www.nsw.gov.au/business-and-economy/running-a-business/selling-goods-and-services/selling-safe-products
+- Cyber.gov.au — secure disposal/data-erasure risk: https://www.cyber.gov.au/protect-yourself/securing-your-devices/how-secure-your-device/how-dispose-your-device-securely
+- NetWaste Regional Waste and Sustainable Materials Strategy 2023–27 — regional isolation, transport, budget and economies-of-scale barriers: https://www.netwaste.com.au/wp-content/uploads/2023/03/TW22135_NetWaste_Regional-Waste-and-Sustainable-Materials-Strategy-2023-2027_5.0.pdf
+- Cessnock City Council Supplementary Agenda 18 Feb 2026 — reuse-shop staffing, security, electrical test/tag, liability, POS, capital/compliance and dumping barriers: https://www.cessnock.nsw.gov.au/files/assets/public/v/1/hptrim/councillors-council-meetings/council-business-papers/governance-council-meeting-agenda-and-minutes-2026/council-meeting-_-supplementary-agenda-_-8-02-2026-_-ccc-website-doc.pdf
+
+### Interpretation limits
+- Cessnock is comparative NSW evidence, not proof that Dubbo's business case reached the same conclusion.
+- PonyUp's national SecondBite relationship does not prove any particular PonyUp donation was spent in Dubbo.
+- Connecting Community Services' SecondBite role is food relief; no public electronics-refurbishment partnership with PonyUp/SecondBite was found.
+- Dubbo/Wellington reuse shops were planned/business-cased; current operation was not verified.
+- Narromine Garage Sale Trail proves community reuse, not council electronics refurbishment.
