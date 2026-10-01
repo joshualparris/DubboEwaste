@@ -1,0 +1,9 @@
+- id: EVD-001
+  claim: Substation33 is an active e-waste social enterprise operating in Meadowbrook, QLD.
+  type: Verified Fact
+  source: Substation33 Official Website
+  url: https://www.substation33.com.au/contact-us
+  date_checked: 2026-10-02
+  verification_method: Primary source
+  confidence: High
+  notes: Confirmed operating hours and address from contact page.
