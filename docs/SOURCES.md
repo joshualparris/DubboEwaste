@@ -51,7 +51,7 @@
 **UNRESOLVED**
 - Exact transaction/transition date and agreement between InfraBuild/Matthews and AMR for the Dubbo yard.
 - Current Dubbo Regional Council e-waste contract after 30 Jun 2025.
-- TV/CRT, phone/tablet and embedded-lithium acceptance at the Dubbo AMR yard.
+- CRT-specific acceptance and how AMR's “electronic waste excluding lithium ion” rule applies to whole laptops/phones/tablets with embedded batteries.
 - Commercial volume limits, collection minimums and whether recycling/weight certificates are available.
 - Exact downstream processor/final destination for AMR Dubbo e-waste.
 - AS/NZS 5377 and NTCRS status for the current AMR Dubbo operation.
