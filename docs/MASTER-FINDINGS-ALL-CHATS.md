@@ -1749,7 +1749,7 @@ Using current public prices:
 - **Current Blancco SMB Select 50 listing:** $982.30.
 - **Owner-operated processing-hub known public-price subtotal:** **$24,315.30/year**, before insurance, outgoings, bond, power, fitout, freight and vehicle.
 - **Hub + 20-hour casual legal wage/super floor:** **$62,811.94/year** before the same missing costs.
-- **Hub + one full-time legal wage/super floor:** **$82,830.19/year** before the same missing costs.
+- **Hub + one full-time legal wage/super floor:** **$82,840.68/year** before the same missing costs.
 
 These are arithmetic from public prices, **not all-in quotes**.
 
