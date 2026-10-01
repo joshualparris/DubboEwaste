@@ -80,24 +80,22 @@ AMR says it pays for aluminium, copper, brass, lead, cars, stainless steel, batt
 - tyres
 - **lithium batteries**
 
-### E-waste categories that appear supported
-AMR explicitly describes e-waste as including:
-- computers
-- keyboards
+### E-waste categories explicitly supported on AMR's current website
+AMR's current materials list says **electronic waste excluding lithium ion** and explicitly includes:
+- TVs
+- computers / laptops
 - monitors
-- printers
-- fax machines
-- copiers
-- household appliances
-- other electrical/electronic equipment containing metal
+- smart phones / tablets
+- printers / scanners
+- household appliances and other electrical/electronic equipment containing metal
+
+This supersedes older third-party category lists at the company-policy level.
 
 ### Still unknown / must call
 AMR’s current pages do **not** clearly answer:
-- televisions / flat-screen TVs
-- CRT TVs
-- CRT monitors
-- mobile phones
-- tablets
+- whether **CRT** TVs/monitors are included in the general "TVs"/"monitors" categories
+- whether lithium batteries must be removed from laptops, phones and tablets before drop-off
+- whether devices with embedded, non-removable lithium batteries are accepted
 - loose PCBs
 - mixed unsorted e-waste
 - smashed or incomplete electronics
@@ -116,10 +114,10 @@ An older Business Recycling directory listing for Matthews stated **no TVs, CRT 
 
 That should no longer be treated as current policy because:
 - the operator/branding appears to have changed;
-- AMR’s current website explicitly includes **printers** in its e-waste definition;
+- AMR’s current official website explicitly lists **TVs, computers/laptops, monitors, smart phones/tablets and printers/scanners** as e-waste;
 - the old directory is secondary and warns users to confirm details directly.
 
-TV/CRT acceptance remains unresolved.
+The remaining category ambiguity is narrower: **CRT-specific acceptance** and how AMR applies its **"excluding lithium ion"** rule to whole devices containing batteries.
 
 ## 4. Legal entity and registration trail
 
@@ -211,7 +209,7 @@ AMR is potentially a much better downstream lead than the earlier research sugge
 - local Dubbo yard
 - current operator says e-waste is accepted free
 - commercial customers explicitly supported
-- computers/monitors/printers explicitly within its e-waste definition
+- TVs, computers/laptops, monitors, smart phones/tablets and printers/scanners explicitly listed as e-waste
 - accepts metal and non-lithium batteries
 - may collect depending on job/volume
 - same regional operator family historically involved in Council e-waste processing
@@ -220,8 +218,8 @@ AMR is potentially a much better downstream lead than the earlier research sugge
 - AMR is fundamentally a **metal recovery** business, not shown as a refurb/resale partner.
 - No evidence found that it will pay for mixed e-waste.
 - No evidence found that it provides data destruction suitable for business clients.
-- Lithium batteries are explicitly not accepted.
-- TVs/CRTs are unresolved.
+- Lithium batteries are explicitly not accepted, and the rule for whole devices containing lithium-ion batteries is not explained.
+- CRT-specific acceptance is unresolved even though TVs and monitors generally are listed as accepted.
 - No evidence found of current AS/NZS 5377 certification or NTCRS co-regulatory arrangement in the material searched.
 - No public evidence found showing the exact downstream recycler/process used for Dubbo e-waste.
 
@@ -232,7 +230,7 @@ Ask whether Dubbo eWaste can:
 1. deliver sorted, zero-value computer/electrical scrap free;
 2. separate batteries first;
 3. send printers, monitors and desktops/laptops;
-4. send TVs or not;
+4. confirm whether CRT TVs/monitors are accepted and whether lithium batteries must be removed from laptops/phones/tablets;
 5. receive a weight docket or recycling receipt;
 6. arrange collection once enough volume is accumulated;
 7. get a commercial account/bin without minimum monthly volume.
@@ -245,17 +243,11 @@ Call **(02) 6882 1033**:
 >
 > I saw Australian Metal Recycling lists e-waste as free to recycle and the Dubbo yard at 34 Mountbatten Drive. Can I bring small commercial loads of sorted computers and electrical gear to you?
 >
-> Specifically, do you accept:
-> - laptops and desktops after data drives are removed/wiped
-> - monitors
-> - printers
-> - phones and tablets
-> - flat-screen TVs
-> - CRT TVs/monitors
-> - loose circuit boards
-> - power supplies/cables
+> Your website currently lists TVs, computers/laptops, monitors, smart phones/tablets and printers/scanners as e-waste, but says electronic waste excludes lithium ion. Does the Dubbo yard follow that list for small commercial loads?
 >
-> Do lithium batteries need to be removed first? Is there any fee, minimum quantity, or business-account requirement? Can you provide a weight docket or recycling receipt, and at what volume would you collect from me instead?
+> Do lithium batteries need to be removed from laptops, phones and tablets first? Do you accept CRT TVs/monitors, loose circuit boards and power supplies/cables?
+>
+> Is there any fee, minimum quantity, or business-account requirement? Can you provide a weight docket or recycling receipt, and at what volume would you collect from me instead?
 
 Then ask:
 
@@ -292,9 +284,8 @@ Then ask:
 - exact legal transaction/transition from InfraBuild/Matthews to AMR at Dubbo
 - exact date AMR took operational control of 34 Mountbatten Drive
 - post-30-June-2025 Dubbo Regional Council e-waste contract
-- TVs/CRT acceptance
-- phones/tablets acceptance
-- embedded lithium battery rules
+- CRT-specific acceptance
+- how "electronic waste excluding lithium ion" applies to laptops/phones/tablets with embedded batteries
 - commercial volume limits and pickup minimums
 - weight/recycling certificates
 - downstream processor and final destination
