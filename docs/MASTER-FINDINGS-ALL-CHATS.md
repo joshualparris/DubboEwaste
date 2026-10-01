@@ -1498,3 +1498,73 @@ The highest-priority episodes include:
 Full ranked list with Spotify links and project-specific relevance notes:
 
 - [SPOTIFY-PODCASTS-EWASTE-REUSE-ITAD.md](SPOTIFY-PODCASTS-EWASTE-REUSE-ITAD.md)
+
+
+---
+
+# 30. Fliptech Australia / Dubbo regional hub feasibility
+
+Detailed file:
+- [FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md](FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md)
+
+Fliptech Australia is a Brookvale-based secure ITAD/e-waste company rather than simply a generic recycling operator.
+
+Current public evidence supports:
+- enterprise IT decommissioning;
+- secure collection;
+- NIST-aligned data sanitisation;
+- certificates and asset reporting;
+- hardware buybacks;
+- paid/subsidised erasure services;
+- refurbishment;
+- official resale;
+- charitable redistribution;
+- downstream recycling.
+
+Historical evidence shows Austin Turpin discussed scaling nationally as early as 2020, and later media described nationwide clients. Current public location material still identifies Brookvale as the primary Fliptech site.
+
+No public evidence was found of:
+- a franchise program;
+- an authorised regional-partner scheme;
+- another permanent Fliptech branch;
+- an announced Dubbo site.
+
+### Why Dubbo is nevertheless credible
+
+NSW Government currently markets **Dubbo itself as an e-waste recycling investment opportunity**, citing:
+- road/rail/air connectivity;
+- regional aggregation;
+- industrial land;
+- skilled workforce.
+
+Dubbo Regional Council describes a regional service catchment of **125,000+ people**, and current local technology/business sources describe **4,500+ businesses**.
+
+Local repair/refurbishment businesses exist, but public pages reviewed do not establish a local provider offering the full enterprise-grade Fliptech package of:
+- secure fleet collection;
+- chain of custody;
+- NIST-level erase;
+- serialised reporting/certificates;
+- hardware buyback/value recovery;
+- official resale/donation;
+- downstream reporting.
+
+### Most evidence-based model
+
+Do **not** assume the right starting point is a full branch.
+
+The strongest test is:
+
+> **Fliptech Central West / Orana regional ITAD collection pilot based around Dubbo**
+
+Possible progression:
+1. scheduled regional collection runs;
+2. secure local aggregation;
+3. authorised local operator/partner if Fliptech agrees;
+4. local sanitisation/triage once standards are proven;
+5. permanent full branch only after recurring volume justifies it.
+
+This would directly test the missing commercial variable:
+
+> **Does regional asset volume justify local people/premises/security, or is Brookvale-based collection still cheaper?**
+
+The key next step is a direct conversation with Fliptech using the dedicated questions now in `CALL-SCRIPTS.md`.
