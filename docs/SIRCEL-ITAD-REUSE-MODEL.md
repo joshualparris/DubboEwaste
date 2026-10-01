@@ -912,3 +912,26 @@ It is the **decision system before the shredder**.
 That is the part Dubbo E-Waste can realistically copy:
 
 **receive → identify → secure data → test → value → refurbish → reuse → parts → recycle last.**
+
+
+---
+
+## Follow-up: what happens after Sircel hands a reused device to a partner?
+
+This is now researched separately in [SIRCEL-REUSE-PARTNERS-WHERE-DOES-IT-GO.md](SIRCEL-REUSE-PARTNERS-WHERE-DOES-IT-GO.md).
+
+The strongest named downstream link found is **Good360 Australia**. Good360's 2024 Annual Report and 2025 Digital Access Report both name **Sircel as a product donor** in its digital-inclusion work. Good360 then uses refurbishment/distribution partners and a large charity/school network to put devices into real community use.
+
+Documented Good360 end uses include:
+- upper-secondary students without their own laptop;
+- social-housing residents studying, job hunting and staying connected;
+- employment-service participants;
+- family/domestic-violence support;
+- flood-affected communities;
+- community laptop libraries.
+
+Good360's current device flow is **donor -> secure wipe/test/refurbish -> vetted charity/school -> final user**, sometimes with connectivity and digital skills support.
+
+The newer **National Device Bank**, led by WorkVentures with Good360 and Good Things Australia, formalises that same model nationally: secure collection, Blancco/NIST-grade sanitisation, repair/refurbishment, Windows/base-software setup where appropriate, distribution through community organisations, and ongoing support/digital-literacy assistance.
+
+**Evidence limit:** no public source proves that all or most of Sircel's 2,350 FY2023-24 reused assets went to Good360/NDB. Sircel does not disclose its full reuse-partner or approved-broker list, and its ESG report explicitly says visibility ends after partner handoff.
