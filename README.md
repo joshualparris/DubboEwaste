@@ -65,6 +65,7 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [docs/PONYUP-SECONDBITE-DUBBO.md](docs/PONYUP-SECONDBITE-DUBBO.md) | **Dubbo connection deep dive:** PonyUp's profit-to-SecondBite model, Connecting Community Services' real Dubbo link, and what is/not an electronics pathway |
 | [docs/SPOTIFY-PODCASTS-EWASTE-REUSE-ITAD.md](docs/SPOTIFY-PODCASTS-EWASTE-REUSE-ITAD.md) | **Curated Spotify listening list:** ranked episodes on e-waste, reuse, refurbishment, ITAD, data wiping, right-to-repair, reverse logistics, digital inclusion and Australian circular electronics |
 | [docs/FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md](docs/FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md) | **Fliptech deep dive:** corporate ITAD/reuse model, data security, growth signals and feasibility of a Dubbo/Central West regional hub or partner operation |
+| [docs/AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md](docs/AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md) | **Filtered branch shortlist:** Australian Fliptech-style ITAD companies by public staffing signal, physical network and evidence that a Dubbo regional hub/branch is worth pursuing |
 
 ## 1. What happens to Dubbo e-waste today
 
