@@ -1568,3 +1568,53 @@ This would directly test the missing commercial variable:
 > **Does regional asset volume justify local people/premises/security, or is Brookvale-based collection still cheaper?**
 
 The key next step is a direct conversation with Fliptech using the dedicated questions now in `CALL-SCRIPTS.md`.
+
+
+---
+
+# 31. Australian ITAD staffing / Dubbo branch shortlist
+
+Detailed file:
+- [AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md](AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md)
+
+The earlier broad staffing comparison was deliberately narrowed to organisations with public evidence that a **physical Dubbo hub/branch/satellite is worth investigating**, rather than merely companies capable of servicing Dubbo remotely.
+
+## Staffing correction
+
+Fliptech's current public LinkedIn figure is:
+- **11–50 employees**
+
+not an exact count of 11.
+
+## Retained shortlist
+
+- **Fliptech Australia** — 11–50; one public site, but historical national ambition and strongest model fit.
+- **G1 Asset Management** — 11–50; multiple secure processing facilities and explicit regional-Australia service.
+- **Renew IT** — 51–200 LinkedIn band; company material has also said 200+ professionals; multiple Australian depots/facilities.
+- **Greenbox Group** — 51–200; repeated branch expansion, four Australian facilities, partner program and historic regional roadshows.
+- **WV Technologies** — 51–200; five-state location footprint and full buyback/refurbish/remarket model.
+- **Shred-X** — 201–500; 11 national facilities, three in NSW, explicit regional NSW coverage and active E-Waste/ITAD growth.
+- **Iron Mountain / former ACT Logistics** — ACT was 51–200 before acquisition; multiple Australian facilities and active Australian/APAC ALM expansion.
+
+## Most important finding
+
+**G1 is the key staffing comparison.**
+
+It sits in the **same 11–50 LinkedIn size band as Fliptech** yet currently operates processing facilities across Brisbane, Sydney, Canberra and Melbourne and services regional Australia.
+
+That means employee band alone does **not** rule out a small Fliptech Dubbo satellite.
+
+The bigger determinants are:
+- recurring regional contract volume;
+- logistics savings;
+- resale/recovery value;
+- security/compliance costs;
+- facility utilisation.
+
+## Removed from the branch shortlist
+
+The following remain useful operators/partners/benchmarks, but current public evidence is not strong enough to treat a physical Dubbo branch as a leading thesis:
+
+CirculaTech, Multi R IT, 9R Cycle IT, Tech Rekall, LinkBytes, ITC Asset Management, Excess Technology, EraseIT, Interlink Asset Management, ITSD, Secure Computer Recycling & Disposal, Recycle IT Australia, Enable IT Recycling, Sircel, Lifecycle Plus, WorkVentures, Total Green Recycling, Close the Loop and Sims Lifecycle Services.
+
+Removal does **not** mean they would refuse work in Dubbo. It means there is not enough branch-pattern evidence to prioritise them for a Dubbo physical-site approach.
