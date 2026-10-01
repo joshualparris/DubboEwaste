@@ -55,3 +55,45 @@
 - Commercial volume limits, collection minimums and whether recycling/weight certificates are available.
 - Exact downstream processor/final destination for AMR Dubbo e-waste.
 - AS/NZS 5377 and NTCRS status for the current AMR Dubbo operation.
+
+
+## Regional e-waste pathways around Dubbo — checked 2 Oct 2026
+
+**CURRENT / OFFICIAL**
+- NetWaste — current e-waste collection points; says Sims Metal Management collects e-waste from the majority of NetWaste councils: https://www.netwaste.com.au/ewaste/
+- NetWaste — member councils / regional role: https://www.netwaste.com.au/about-us/
+- NetWaste — existing regional contracts: https://www.netwaste.com.au/projects/existing-regional-contracts/
+- Sims E-Recycling Australia — reuse and end-of-life electronics recycling: https://www.simsmm.com.au/sell-to-us/electronics-recycling/
+- Dubbo Regional Council — council waste facilities: https://www.dubbo.nsw.gov.au/Households-Residents/Rubbish-Recycling-and-Sustainability/council-waste-facilities
+- Dubbo Regional Council — hazardous waste / e-waste at Whylandra and Wellington: https://www.dubbo.nsw.gov.au/Households-Residents/Rubbish-Recycling-and-Sustainability/hazardous-waste
+- Dubbo Regional Council — Wellington Waste Transfer Station: https://www.dubbo.nsw.gov.au/Households-Residents/Rubbish-Recycling-and-Sustainability/wellington-waste-transfer-station
+- Dubbo Regional Council — village and rural waste: https://www.dubbo.nsw.gov.au/Households-Residents/Rubbish-Recycling-and-Sustainability/village-and-rural-waste-depots
+- Narromine Shire Council — recycling / NetWaste programs: https://narromine.nsw.gov.au/environment/recycling
+- Narromine Shire Council — 2026/27 fees; domestic e-waste no charge: https://www.narromine.nsw.gov.au/residents/waste-disposal-fees
+- Gilgandra Shire Council — waste facility: https://www.gilgandra.nsw.gov.au/Live/Recycling-Waste/Gilgandra-Waste-Facility
+- Gilgandra Shire Council — 2026/27 waste fees/free-item information: https://www.gilgandra.nsw.gov.au/Stay-Connected/Have-Your-Say/Proposed-draft-Waste-Facility-Fees-Charges
+- Coonamble Shire Council — Coonamble facility: https://coonambleshire.nsw.gov.au/residents/coonamble-waste-management-facility-1
+- Coonamble Shire Council — Gulargambone facility: https://coonambleshire.nsw.gov.au/residents/gulargambone-waste-transfer-station
+- Coonamble Shire Council — Quambone facility: https://www.coonambleshire.nsw.gov.au/residents/quambone-waste-facility
+- Warren Shire Council — Ewenmar Waste Depot: https://www.warren.nsw.gov.au/residents/waste-depot
+- Warren Shire Council — A-Z recycling guide: https://www.warren.nsw.gov.au/kerbside-recycling/a-z-recycling-guide
+- Parkes Shire Council — waste facilities: https://www.parkes.nsw.gov.au/Services/Waste-and-recycling/Waste-Facilities
+- Parkes Shire Council — e-waste in 2025/26 fee schedule: https://www.parkes.nsw.gov.au/files/assets/public/v/1/services/waste-and-recycling/garbage-and-depot-tipping-charges-fees-and-charges-2025-26.pdf
+- Parkes Shire Council — 2026 bulky collection: https://www.parkes.nsw.gov.au/Services/Waste-and-recycling/Waste-Collection-Days-and-Bins
+- Bogan Shire Council — bin collection / recycling: https://bogan.nsw.gov.au/everyday-living/waste-recycling/bin-collection
+- Bogan Shire Council — Nyngan Waste & Resource Facility: https://bogan.nsw.gov.au/everyday-living/waste-recycling/nyngan-waste-resource-facility
+- Mid-Western Regional Council — e-waste guide: https://www.midwestern.nsw.gov.au/Services/Bins-and-waste/Waste-guide/EWASTE
+- Mid-Western Regional Council — waste facilities: https://www.midwestern.nsw.gov.au/Services/Bins-and-waste/Waste-facilities
+
+**HISTORICAL / DO NOT TREAT AS CURRENT CONTRACT ROUTING**
+- NetWaste Regional Waste and Sustainable Materials Strategy 2023–2027 — historical St Marys/e-waste contract detail: https://www.netwaste.com.au/wp-content/uploads/2023/03/TW22135_NetWaste_Regional-Waste-and-Sustainable-Materials-Strategy-2023-2027_5.0.pdf
+
+**SECONDARY / VERIFY**
+- CouncilBeacon current Bogan/Nyngan waste summary, including claimed free domestic e-waste: https://councilbeacon.com.au/bogan/waste
+
+**REGIONAL UNRESOLVED**
+- Exact current downstream contractor for each surrounding council.
+- Current acceptance wording at Gilgandra and official e-waste wording at Nyngan.
+- Whether Sims still uses St Marys for these councils in 2026.
+- Reuse-versus-material-recovery rates.
+- Commercial e-waste rules and whether council contracts permit pre-recycling diversion to a local refurbisher.
