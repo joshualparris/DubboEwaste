@@ -60,6 +60,9 @@ Confidence key: **[Found]** = seen in an official/primary source this session. *
 - **Phones:** MobileMuster is another recycling route **[Secondary]**.
 - **Batteries:** B-cycle/council routes for lithium batteries; AMR accepts non-lithium batteries but not lithium batteries. Don't stockpile.
 - **[Found benchmark]** Under the Australian NTCRS, first-stage recycling normally dismantles/shreds/sorts TVs and computers into glass, metals, plastics, batteries, PCBs and toner; specialist fractions then go to processors in Australia or approved overseas facilities. This explains what a compliant downstream chain can look like, but it is **not proof of AMR's exact chain**.
+- **[Found — TechCollect reuse policy]** TechCollect says all computers, accessories and TVs collected through its normal recycling stream are recycled in Australia and **not sold as second-hand products for reuse**. It tells people to donate/pass on working current equipment before bringing it to TechCollect.
+- **[Found — ANZRP reuse outside normal TechCollect intake]** ANZRP supports reuse through PonyUp for Good, The Reconnect Project and The Laptop Initiative. PonyUp triages, erases data, refurbishes and remarkets viable equipment, then sends only non-reusable devices to ANZRP for recycling.
+- **Implication for Dubbo eWaste:** the strongest strategic position is to sit **upstream of the recycling stream** and capture working/repairable value before an item is formally surrendered as e-waste. See `docs/TECHCOLLECT-REUSE-DEEP-DIVE.md`.
 - Takeaway: test **AMR first** as the local zero-value electronics/metal downstream outlet, but do not describe its final recycling pathway until it names the next processor. See `docs/WHAT-HAPPENS-TO-EWASTE.md` and the exact-recipient investigation in `docs/AMR-DUBBO-DOWNSTREAM-FORENSIC.md`.
 
 ### TVs specifically (you said you want them)
