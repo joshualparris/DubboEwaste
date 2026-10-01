@@ -18,11 +18,13 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [docs/CALL-SCRIPTS.md](docs/CALL-SCRIPTS.md) | Who to ring, in order, with exact questions |
 | [docs/EMAIL-DRAFTS.md](docs/EMAIL-DRAFTS.md) | Ready-to-send emails for Fair Trading, Council, EPA, Joe, Australian Metal Recycling and Avance |
 | [docs/SOURCES.md](docs/SOURCES.md) | Sources and confidence levels |
+| [docs/bendigo-early-days-deep-dive.md](docs/bendigo-early-days-deep-dive.md) | Deep source-led reconstruction of Joe Parker / Bendigo E-Waste's startup path |
 | [templates/ownership-and-wipe-certificate.md](templates/ownership-and-wipe-certificate.md) | Client transfer-of-ownership and data-wipe certificate template |
 | [pilot-tracker.csv](pilot-tracker.csv) | Per-item profit tracker for the 20-30 item pilot |
 | [docs/research.md](docs/research.md) | Earlier feasibility research retained for additional context |
 | [docs/launch-checklist.md](docs/launch-checklist.md) | Earlier lean-launch checklist retained for operational planning |
-| [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md) | Current research on the Dubbo Matthews/InfraBuild/AMR yard and e-waste outlet |\n| [docs/REGIONAL-EWASTE-PATHWAYS.md](docs/REGIONAL-EWASTE-PATHWAYS.md) | What surrounding towns do with e-waste, current drop-off pathways, downstream evidence and reuse opportunities |
+| [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md) | Current research on the Dubbo Matthews/InfraBuild/AMR yard and e-waste outlet |
+| [docs/REGIONAL-EWASTE-PATHWAYS.md](docs/REGIONAL-EWASTE-PATHWAYS.md) | What surrounding towns do with e-waste, current drop-off pathways, downstream evidence and reuse opportunities |
 | [docs/WHAT-HAPPENS-TO-EWASTE.md](docs/WHAT-HAPPENS-TO-EWASTE.md) | Deep trace of what happens after AMR accepts TVs, computers, phones, monitors and printers |
 
 ## 1. What happens to Dubbo e-waste today
@@ -44,7 +46,7 @@ Not a recycling plant: **a refurb and resale business with e-waste as the supply
 2. **Parts**: RAM, SSDs, chargers, screens.
 3. **Scrap** (worst margin): only if someone takes it.
 
-Joe (Bendigo E-Waste) only takes good, sellable stuff, so he is not the outlet for junk. Filter: **anything sellable for a profit.** Anything failing that test needs a pre-agreed exit (refuse, small intake fee, Whylandra/NTCRS, or Australian Metal Recycling if the exact category is accepted).
+Bendigo E-Waste's **mature** operation now accepts a broad range of complete, broken and raw e-waste. The useful benchmark is Joe's published hierarchy: keep devices complete, attempt **restoration/reuse first**, use donor parts and repairer pathways next, and send material to scrap/resource recovery only as a last resort. Dubbo should **not** copy the mature operation's broad intake yet; the pilot should stay selective until each low-value category has a proven downstream exit. See [the early-days deep dive](docs/bendigo-early-days-deep-dive.md).
 
 ## 3. The three main legal regimes
 
