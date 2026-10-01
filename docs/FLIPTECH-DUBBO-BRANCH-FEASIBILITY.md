@@ -1070,3 +1070,52 @@ It is:
 > **"Does the regional asset volume and account value justify Fliptech dedicating people, premises and security infrastructure to Dubbo?"**
 
 Only Fliptech's internal commercial data and a Dubbo pilot can answer that.
+
+
+---
+
+# 27. Staffing comparison versus branch-capable Australian ITAD firms
+
+A separate Australian ITAD staffing review corrected one important assumption:
+
+> Fliptech does **not** have a verified exact count of 11 staff. Its current LinkedIn company-size band is **11–50 employees**.
+
+The broader comparison was then filtered to companies with actual public evidence of:
+- multiple Australian facilities;
+- branch/facility expansion;
+- strong regional logistics;
+- national physical coverage;
+- or active ITAD expansion that could make a Dubbo hub plausible.
+
+The retained shortlist is:
+
+- **Fliptech Australia** — 11–50 LinkedIn band;
+- **G1 Asset Management** — 11–50;
+- **Renew IT** — 51–200 LinkedIn band, with company material also stating 200+ professionals;
+- **Greenbox Group** — 51–200;
+- **WV Technologies** — 51–200, with 61 public LinkedIn profiles visible on a current regional rendering;
+- **Shred-X** — 201–500;
+- **Iron Mountain / former ACT Logistics** — ACT was 51–200 before acquisition; Iron Mountain itself is much larger globally.
+
+The most important comparison is **G1**.
+
+G1 sits in the **same 11–50 LinkedIn size band as Fliptech** but currently operates secure processing facilities in:
+- Brisbane;
+- Sydney;
+- Canberra;
+- Melbourne;
+
+and explicitly says it services all Australian metro and regional areas.
+
+That means Fliptech's staffing band alone is **not evidence that a Dubbo satellite would be too early**.
+
+The relevant constraints are more likely:
+- regional contract volume;
+- transport savings;
+- recurring fleet-refresh work;
+- asset recovery value;
+- facility utilisation;
+- security/compliance overhead.
+
+Full comparison and companies removed from the branch shortlist:
+- [AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md](AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md)
