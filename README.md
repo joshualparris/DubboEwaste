@@ -23,6 +23,7 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [docs/research.md](docs/research.md) | Earlier feasibility research retained for additional context |
 | [docs/launch-checklist.md](docs/launch-checklist.md) | Earlier lean-launch checklist retained for operational planning |
 | [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md) | Current research on the Dubbo Matthews/InfraBuild/AMR yard and e-waste outlet |
+| [docs/WHAT-HAPPENS-TO-EWASTE.md](docs/WHAT-HAPPENS-TO-EWASTE.md) | Deep trace of what happens after AMR accepts TVs, computers, phones, monitors and printers |
 
 ## 1. What happens to Dubbo e-waste today
 
@@ -31,7 +32,9 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 - **2026 update:** the strongest current evidence points to **Australian Metal Recycling (AMR), operated by Scrap Metal Services Pty Ltd (ABN 51 640 765 091), at 34 Mountbatten Drive**. NSW Police's 19 Feb 2026 Scrap Metal Industry Register lists that address under AMR registration SM-0759, while AMR calls Dubbo “Formerly Matthews Metal Management”.
 - InfraBuild still has an online Matthews Dubbo branch page and OneSteel Recycling (an InfraBuild subsidiary) still holds the Matthews Metal Management business name. A March 2025 tender listed InfraBuild Recycling and Scrap Metal Services as separate bidders, so AMR should not be treated as simply another InfraBuild brand.
 - AMR currently advertises **free e-waste recycling** and explicitly lists **TVs, computers/laptops, monitors, smart phones/tablets and printers/scanners** as accepted e-waste. Its materials list says **electronic waste excluding lithium ion**, and lithium batteries are separately listed as not accepted. CRT-specific rules, battery removal from whole devices, commercial limits and downstream certificates still need direct confirmation.
-- Full evidence trail: [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md).
+- **What happens after drop-off:** AMR does not publicly name the downstream e-waste processor used by Dubbo. Its published equipment/capabilities look primarily like regional collection, weighing, sorting, consolidation and transport rather than a specialist electronics dismantling/refining line. The normal Australian downstream chain is dismantling/shredding → separation into steel, aluminium/copper, glass, plastics, batteries, PCBs and toner → specialist processing in Australia and, for some fractions, approved overseas facilities. This benchmark is documented by NTCRS operators, but **must not be presented as AMR's exact chain until AMR names its processor(s)**.
+- **Data rule:** ordinary AMR recycling is not currently evidenced as a secure data-destruction service. Wipe/remove HDDs, SSDs and NVMe storage before handover unless AMR provides a written, serialised destruction process.
+- Full operator evidence: [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md). Full downstream trace: [docs/WHAT-HAPPENS-TO-EWASTE.md](docs/WHAT-HAPPENS-TO-EWASTE.md).
 
 ## 2. The business model
 
