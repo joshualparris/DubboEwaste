@@ -41,10 +41,21 @@ Subject: Quick one on what you'd take from Dubbo
 
 Hey Joe, I'm looking at a small refurb setup in Dubbo. What do you count as "good" (brands, ages, specs), what do you pay for sorted lots, and are there minimum volumes or freight arrangements?
 
-## Matthews Metal Management (Dubbo)
-Subject: Small commercial e-waste loads
+## Australian Metal Recycling (Dubbo, formerly Matthews Metal Management)
+Subject: Small commercial e-waste loads in Dubbo
 
-Hello, do you accept small commercial loads of e-waste (laptops, tower PCs, phones), and are TVs or printers accepted? Do you pay, charge, or need it sorted? What are your drop-off hours?
+Hello,
+
+I'm setting up a very small electronics refurbishment and reuse operation in Dubbo. Anything repairable will be reused or resold, but I need a legitimate downstream outlet for zero-value electronics.
+
+Your website says AMR accepts e-waste for free. Can the Dubbo yard accept small commercial loads of laptops/desktops, monitors, printers, phones/tablets, flat-screen TVs, CRTs, circuit boards, cables and power supplies?
+
+Your site also lists lithium batteries as not accepted. Do embedded laptop/phone batteries need to be removed before delivery?
+
+Could you also confirm any fees, minimum quantities, commercial account requirements, pickup thresholds, whether you provide weight/recycling receipts, and whether Australian Metal Recycling is now the current legal operator of the 34 Mountbatten Drive yard rather than InfraBuild/Matthews?
+
+Thanks,
+[Name]
 
 ## Avance (draft for your own judgement)
 Subject: Disclosure and conflict-of-interest check - side venture
