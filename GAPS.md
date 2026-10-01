@@ -37,12 +37,16 @@ Confidence key: **[Found]** = seen in an official/primary source this session. *
 
 ## B. What happens to the leftovers (the junk problem)
 
-- **TVs:** a Matthews Metal Management (Dubbo) directory listing says **no TVs, CRT monitors or printers accepted** **[Secondary]**. Whylandra takes TVs/e-waste free from residents, and is an NTCRS (TV & computer scheme) participant via DHL Drop Zone **[Found]**. Whylandra publishes a separate *commercial* fee schedule; business rates for e-waste **[Unknown]**.
-- **NTCRS** gives households and small businesses free recycling of TVs and computers at collection points **[Found]**; recyclers must be AS 5377 certified. That's a free fallback for dead TVs/laptops, if it accepts your volume.
-- **Phones:** MobileMuster is the industry free-recycle route **[Secondary]**.
-- **Batteries:** B-cycle, council CRC, MobileMuster. Don't stockpile.
-- **Matthews Dubbo:** hours listed Mon-Fri 8-4:30, closed Sat **[Secondary]**. Terms for small commercial loads **[Unknown]**.
-- Takeaway: with Joe taking only sellable gear, your leftover exit is free *only if* it fits the council/NTCRS rules. Test this early.
+- **[Found] Current operator evidence:** NSW Police's 19 Feb 2026 scrap-metal register lists **Scrap Metal Services Pty Ltd / Australian Metal Recycling (AMR)**, registration **SM-0759**, at **34 Mountbatten Drive, Dubbo**, managed by Gordon Matthews. AMR's own current site calls Dubbo **“Formerly Matthews Metal Management.”**
+- **[Found] AMR current e-waste offer:** AMR says e-waste is recycled **for free** and describes e-waste as including computers, keyboards, monitors, printers, fax machines, copiers, household appliances and related electrical/electronic equipment containing metal.
+- **[Found] AMR current exclusions:** AMR explicitly lists **lithium batteries** among materials it does not accept. Remove/handle lithium batteries through a separate approved stream unless AMR confirms an embedded-battery exception.
+- **[Unknown] TVs/CRTs:** the old Matthews directory said no TVs/CRTs/printers, but that listing is now stale/conflicted because AMR explicitly includes printers. Call AMR about flat-screen TVs and CRTs rather than relying on the old listing.
+- **[Unknown] phones/tablets, loose PCBs, mixed loads, pickup minimums, business volume limits and recycling certificates.**
+- **[Found] Corporate split:** a March 2025 regional tender listed InfraBuild Recycling (OneSteel Recycling Pty Limited, ABN 28 002 707 262) and Scrap Metal Services Pty Ltd (ABN 51 640 765 091) as separate bidders. InfraBuild still owns/uses the Matthews Metal Management business name and has an old Dubbo branch page, but AMR is the strongest evidence for the current physical Dubbo yard operator.
+- **NTCRS** gives households and small businesses free recycling of TVs and computers at collection points **[Found]**; recyclers must be AS 5377 certified. Whylandra remains a fallback if its business-volume rules allow the load.
+- **Phones:** MobileMuster is another recycling route **[Secondary]**.
+- **Batteries:** B-cycle/council routes for lithium batteries; AMR accepts non-lithium batteries but not lithium batteries. Don't stockpile.
+- Takeaway: test **AMR first** as the local zero-value electronics/metal downstream outlet, but confirm categories and paperwork before sending the pilot's waste there.
 
 ### TVs specifically (you said you want them)
 - Bulky, fragile, low resale value, and the local scrap outlet reportedly won't take them. Consider accepting **only working flat-screen/smart TVs under a size/age limit**, and refuse CRTs entirely.
@@ -103,7 +107,7 @@ Confidence key: **[Found]** = seen in an official/primary source this session. *
 2. **NSW Fair Trading (13 32 20):** "Does a free-collection, refurb, resell, recycle-the-rest model fall under the 'recycling and rubbish collection programs' exemption? Can wiping happen during the 14-day hold? Can I operate under an already-licensed entity?"
 3. **NSW EPA (131 555):** thresholds for refurb/dismantling at tiny scale; whether damaged lithium batteries count as hazardous waste for storage.
 4. **Joe (Bendigo):** what he pays for sorted lots; any minimum volumes; freight.
-5. **Matthews (Dubbo):** small commercial loads; TVs/printers; price or free.
+5. **Australian Metal Recycling (former Matthews Dubbo), (02) 6882 1033:** small commercial e-waste loads; TVs/CRTs; phones/tablets; embedded lithium batteries; pickup minimums; weight/recycling receipts; exact current legal operator.
 6. **Whylandra:** commercial e-waste fee and NTCRS limits for a business drop-off.
 7. **Insurers:** public liability for home-shed e-waste refurb with visitors.
 8. **Avance:** conflict-of-interest check.
