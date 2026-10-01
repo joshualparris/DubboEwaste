@@ -710,3 +710,16 @@ For each surrounding council:
 The most strategically relevant part of Sircel is not the industrial shredding line; it is the **decision system before destruction**. Sircel tracks incoming lots, triages devices for reuse, sanitises data with Blancco, hardware-tests reuse candidates, then routes passing devices to reuse/redeployment/charity/approved brokers. Its FY2023-24 ESG report records **2,350 items reused** and explicitly says significant numbers of incoming laptops and desktops were still working.
 
 That workflow has now been researched separately as a potential core operating model for Dubbo E-Waste: [SIRCEL-ITAD-REUSE-MODEL.md](SIRCEL-ITAD-REUSE-MODEL.md).
+
+
+## TechCollect and whole-device reuse
+
+A dedicated review of TechCollect's current policy found an important boundary:
+
+- TechCollect says products collected through its normal recycling stream are **not sold second-hand for reuse**.
+- It recommends that equipment still working and current enough to be useful in Australia be given to family, friends or charity **before** it enters TechCollect.
+- Once surrendered, TechCollect's published path is first-stage recycling in Australia: dismantling, shredding and sorting.
+- ANZRP's reuse activity happens through separate upstream initiatives, especially PonyUp for Good, The Reconnect Project and The Laptop Initiative.
+- PonyUp explicitly performs reuse triage, data erasure, refurbishment and remarketing before ANZRP takes the non-reusable remainder for recycling.
+
+See [TECHCOLLECT-REUSE-DEEP-DIVE.md](TECHCOLLECT-REUSE-DEEP-DIVE.md) for the full evidence and implications.
