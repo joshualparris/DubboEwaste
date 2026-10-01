@@ -239,3 +239,23 @@ Further research found several **named physical routes**, improving on the earli
 - **Separate scrap-metal change:** the late-2025 NetWaste scrap-metal tender F4459 was awarded to Access Recycling by participating councils. This does not prove Access took over e-waste; NetWaste still names Sims on its current e-waste page.
 
 For the detailed device-to-material flow, data handling, NTCRS rules and real recovery numbers, see [WHAT-HAPPENS-TO-EWASTE.md](WHAT-HAPPENS-TO-EWASTE.md).
+
+
+---
+
+## Closest-town reuse/resale update — 2 October 2026
+
+A separate official-program review of **Dubbo, Wellington, Narromine and Trangie** found:
+
+- **Dubbo:** full e-waste recycling access; reuse shops have been planned/business-cased, but no operating electronics-specific test/wipe/refurbish/resale program was verified.
+- **Wellington:** full e-waste collection; reuse-shop concept included in Council planning; no verified operating electronics reuse service.
+- **Narromine:** domestic e-waste no charge; Council promotes reuse through Garage Sale Trail. The 2024–25 Annual Report records **47 sales/stalls and 4,231 items reused or sold**.
+- **Trangie:** current documented electronics program is smaller and focused on small-item recycling; no specialist electronics reuse/resale program was verified.
+
+See:
+- [DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS.md](DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS.md)
+- [WHY-COUNCIL-ELECTRONICS-REUSE-IS-HARD.md](WHY-COUNCIL-ELECTRONICS-REUSE-IS-HARD.md)
+
+The strategic implication is unchanged but stronger:
+
+> **Do not compete with councils on disposal. Build the pre-disposal electronics reuse layer they are not currently structured to provide.**
