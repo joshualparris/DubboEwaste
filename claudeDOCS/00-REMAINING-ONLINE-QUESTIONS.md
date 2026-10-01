@@ -75,10 +75,10 @@
 ## G. Selling channels and auction supply
 | # | Question | Status |
 |---|---|---|
-| 45 | What buyer's premium and fees does Grays charge, and what does Sydney→Dubbo freight cost? | ⬜ |
-| 46 | Do ex-government laptop lots state that devices are released from Autopilot/Intune? | ⬜ |
-| 47 | Which other auction houses sell government IT (Pickles, Manheim, Slattery), and at what prices? | ⬜ |
-| 48 | Are there more authoritative figures on refurbished-laptop return and complaint rates? | ⬜ |
+| 45 | What buyer's premium and fees does Grays charge, and what does Sydney→Dubbo freight cost? | 🟡 [G](G-SELLING-CHANNELS-AUCTIONS.md) |
+| 46 | Do ex-government laptop lots state that devices are released from Autopilot/Intune? | 🟡 [G](G-SELLING-CHANNELS-AUCTIONS.md) |
+| 47 | Which other auction houses sell government IT (Pickles, Manheim, Slattery), and at what prices? | ✅🟡 [G](G-SELLING-CHANNELS-AUCTIONS.md) |
+| 48 | Are there more authoritative figures on refurbished-laptop return and complaint rates? | ✅ [G](G-SELLING-CHANNELS-AUCTIONS.md) |
 
 ## H. Parts and scrap
 | # | Question | Status |
