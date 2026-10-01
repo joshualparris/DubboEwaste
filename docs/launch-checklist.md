@@ -4,12 +4,15 @@ Goal: validate Dubbo eWaste from an existing home shed with the least possible c
 
 ## Before accepting equipment
 
+- [ ] Read and use [PHASE-0-OPERATING-BLUEPRINT.md](PHASE-0-OPERATING-BLUEPRINT.md) as the current Phase 0 design.
 - [ ] Define the exact legal entity that would operate Dubbo eWaste.
 - [ ] Check availability/register the **Dubbo eWaste** business name if proceeding.
 - [ ] Ask NSW Fair Trading in writing whether the **recycling and rubbish collection program exemption** covers the proposed collect → refurbish/resell → recycle model.
 - [ ] If an existing IT business may operate the project, confirm its legal entity, licence status and whether the proposed activity/premises are actually covered.
-- [ ] Ask Dubbo Regional Council planning staff whether the proposed home-shed use is permissible and whether consent is required.
-- [ ] Keep operational floor area within the relevant planning limit unless Council advises another approval pathway.
+- [ ] Ask Dubbo Regional Council to classify the **exact** pre-approved Tue/Sat model: <30 m², low traffic, no unattended bin, no outdoor stockpile, no walk-in retail showroom, online sales. Ask whether it is exempt home business, another use requiring consent, or a waste/resource activity.
+- [ ] If Council accepts a home-business pathway, keep business floor area within Dubbo LEP's 30 m² limit and every other exempt-development condition.
+- [ ] Confirm the intended shed area is permitted under the tenancy/landlord arrangements.
+- [ ] **Do not store resale stock or unwiped data devices there until the shed is demonstrably dry, secure and suitable given the documented moisture/mould history.**
 - [ ] Obtain public/product liability insurance quotes.
 - [ ] Identify a commercial downstream e-waste recycler and obtain its acceptance rules and pricing.
 - [ ] Check whether NSW scrap-metal registration is required for the planned activities.
@@ -23,13 +26,15 @@ Goal: validate Dubbo eWaste from an existing home shed with the least possible c
 - [ ] Documented erase/test process.
 - [ ] Record erase result or physical destruction outcome.
 - [ ] Triage categories: reuse / repair / parts / redeploy-donate / recycle.
-- [ ] Separate batteries from ordinary stock where appropriate.
-- [ ] Working smoke/heat detection in charging/storage area.
+- [ ] Phase 0 does **not** accept loose lithium batteries; inspect embedded batteries before acceptance.
+- [ ] Confirm insurer/FRNSW-appropriate smoke/heat detection and safe charging/testing controls for the actual workspace.
 - [ ] Non-combustible charging surface.
 - [ ] No unattended/overnight charging.
-- [ ] Damaged/swollen/leaking batteries quarantined and never charged.
+- [ ] Reject damaged/swollen/wet/fire-affected battery devices at intake. If damage is discovered later, stop use/charging and follow FRNSW/B-cycle/accredited-collector guidance.
 - [ ] No business waste sent through household CRC services as the business disposal pathway.
-- [ ] Keep stock volumes small enough that the shed remains orderly and safe.
+- [ ] Give each workflow zone a physical shelf/bin limit; **full zone = pause intake**.
+- [ ] No unattended drop-off, gate pile, public waste bin or outdoor stock.
+- [ ] Pre-screen every item before it is given an intake appointment.
 
 ## Cheapest pilot
 
@@ -57,9 +62,10 @@ Goal: validate Dubbo eWaste from an existing home shed with the least possible c
 
 Initial wording to test:
 
-> **Dubbo eWaste**  
-> Unwanted computers and IT equipment collected in Dubbo.  
-> Secure data handling. Reuse and refurbishment wherever practical. Responsible recycling for equipment that cannot be saved.
+> **Dubbo eWaste — electronics reuse intake**  
+> Tuesday & Saturday — pre-approval required.  
+> Send the model, photos and condition first. We are interested in reusable/repairable laptops, computers, phones, tablets, monitors, selected flat-screen TVs and other worthwhile electronics.  
+> No general rubbish, no unattended drop-offs, no loose batteries, and damaged/swollen battery devices are not accepted.
 
 For businesses, test a stronger service:
 
