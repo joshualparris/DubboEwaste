@@ -22,13 +22,16 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [pilot-tracker.csv](pilot-tracker.csv) | Per-item profit tracker for the 20-30 item pilot |
 | [docs/research.md](docs/research.md) | Earlier feasibility research retained for additional context |
 | [docs/launch-checklist.md](docs/launch-checklist.md) | Earlier lean-launch checklist retained for operational planning |
+| [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md) | Current research on the Dubbo Matthews/InfraBuild/AMR yard and e-waste outlet |
 
 ## 1. What happens to Dubbo e-waste today
 
 - Dubbo Regional Council's Whylandra Waste and Recycling Centre takes household e-waste (anything with a cord or battery) free from residents. It is a Community Recycling Centre and an NTCRS participant (via DHL Drop Zone). Council also publishes a separate commercial fee schedule; the e-waste rate for business is unknown.
-- Public trail: Whylandra -> Matthews Metal Management (Dubbo) -> recycling/material recovery. A late-2025 NSW Government regional waste study names Matthews Metals in Dubbo as the e-waste processor. Matthews is now an InfraBuild operation (Mountbatten Drive).
-- Caveat: an older Council strategy listed Matthews' e-waste contract to 30 June 2025; a June 2025 Council operational document still lists them. Council doesn't publish what happens downstream after Matthews.
-- A directory listing says Matthews Dubbo does **not** take TVs, CRT monitors or printers, and is closed weekends. Verify.
+- Historical public trail: Whylandra -> Matthews Metals (Dubbo) -> downstream recovery. Council's 2025-2035 Waste Strategy and a late-2025 NSW Planning study name Matthews Metals in Dubbo as the e-waste processor, but Council's listed Matthews e-waste contract expired 30 June 2025.
+- **2026 update:** the strongest current evidence points to **Australian Metal Recycling (AMR), operated by Scrap Metal Services Pty Ltd (ABN 51 640 765 091), at 34 Mountbatten Drive**. NSW Police's 19 Feb 2026 Scrap Metal Industry Register lists that address under AMR registration SM-0759, while AMR calls Dubbo “Formerly Matthews Metal Management”.
+- InfraBuild still has an online Matthews Dubbo branch page and OneSteel Recycling (an InfraBuild subsidiary) still holds the Matthews Metal Management business name. A March 2025 tender listed InfraBuild Recycling and Scrap Metal Services as separate bidders, so AMR should not be treated as simply another InfraBuild brand.
+- AMR currently advertises **free e-waste recycling** and includes computers, monitors and printers, but explicitly lists **lithium batteries as not accepted**. TVs/CRTs, phones/tablets, commercial limits and downstream certificates still need direct confirmation.
+- Full evidence trail: [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md).
 
 ## 2. The business model
 
@@ -38,7 +41,7 @@ Not a recycling plant: **a refurb and resale business with e-waste as the supply
 2. **Parts**: RAM, SSDs, chargers, screens.
 3. **Scrap** (worst margin): only if someone takes it.
 
-Joe (Bendigo E-Waste) only takes good, sellable stuff, so he is not the outlet for junk. Filter: **anything sellable for a profit.** Anything failing that test needs a pre-agreed exit (refuse, small intake fee, Whylandra/NTCRS, Matthews).
+Joe (Bendigo E-Waste) only takes good, sellable stuff, so he is not the outlet for junk. Filter: **anything sellable for a profit.** Anything failing that test needs a pre-agreed exit (refuse, small intake fee, Whylandra/NTCRS, or Australian Metal Recycling if the exact category is accepted).
 
 ## 3. The three main legal regimes
 
@@ -74,7 +77,7 @@ See [docs/research.md](docs/research.md) and [docs/launch-checklist.md](docs/lau
 
 ## 5. Do first
 
-See [docs/CALL-SCRIPTS.md](docs/CALL-SCRIPTS.md). Resolve Council planning, Fair Trading, EPA, Joe, Matthews, Whylandra, insurers and Avance before spending heavily.
+See [docs/CALL-SCRIPTS.md](docs/CALL-SCRIPTS.md). Resolve Council planning, Fair Trading, EPA, Joe, Australian Metal Recycling, Whylandra, insurers and Avance before spending heavily.
 
 ## 6. Pilot
 
