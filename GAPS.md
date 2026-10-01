@@ -116,3 +116,35 @@ Confidence key: **[Found]** = seen in an official/primary source this session. *
 6. **Whylandra:** commercial e-waste fee and NTCRS limits for a business drop-off.
 7. **Insurers:** public liability for home-shed e-waste refurb with visitors.
 8. **Avance:** conflict-of-interest check.
+
+
+---
+
+## I. Surrounding-town e-waste pathways — researched 2 Oct 2026
+
+Full evidence table and sources: [docs/REGIONAL-EWASTE-PATHWAYS.md](docs/REGIONAL-EWASTE-PATHWAYS.md).
+
+- **[Found] NetWaste regional layer:** NetWaste covers 25 Central/Western NSW councils and says **Sims Metal Management collects e-waste from the majority of NetWaste councils**, while several councils use individual arrangements.
+- **[Found] Current NetWaste e-waste points near Dubbo:** Whylandra (Dubbo), Wellington, Narromine, Parkes, Daroobalgie/Forbes, Ewenmar/Warren, Mudgee, Gulgong and Kandos.
+- **[Found] Dubbo Regional Council:** domestic e-waste/old TVs are free at Whylandra and Wellington; village/rural facilities also accept household quantities of domestic e-waste where that stream is offered.
+- **[Found] Narromine:** 2026/27 fee schedule lists **domestic e-waste — no charge** at the waste facility.
+- **[Found] Coonamble Shire:** Coonamble, Gulargambone and Quambone pages all say sorted e-waste can be dropped without charge; Quambone is domestic-only. Their exact downstream contractor is **[Unknown]**.
+- **[Found] Parkes:** its waste-facility fee schedule lists sorted e-waste as no charge. Important nuance: the **CRC itself** says it does not accept TVs/computers; e-waste is handled through the wider waste-facility stream. Parkes' 2026 bulky collection also separated e-waste from general bulky waste.
+- **[Found] Mid-Western:** Council specifically directs e-waste to Gulgong Waste Facility, Kandos Waste Facility or the **Tip Shop at Mudgee Waste Facility**. This is the clearest nearby public reuse-oriented pathway found.
+- **[Found] Warren:** Ewenmar is on NetWaste's current e-waste collection-point list.
+- **[Found] Forbes:** Daroobalgie is on NetWaste's current e-waste collection-point list.
+- **[Unknown] Gilgandra:** current Council 2026/27 free-item material does not explicitly list e-waste and NetWaste's current e-waste map does not list Gilgandra, even though historical regional documents show participation. Call Council before treating a permanent e-waste service as current.
+- **[Secondary/Unknown] Nyngan:** Bogan's official pages confirm the waste facility and NetWaste participation, and a current secondary council-data service reports free domestic e-waste, but the official page surfaced here does not state it and NetWaste's current e-waste map omits Nyngan. Verify directly.
+- **[Historical] St Marys:** NetWaste's 2023–2027 strategy recorded an earlier e-waste route under the scrap-metal contract where material was shredded at Sims' St Marys depot, with a further recovery pilot involving E-cycle Solutions. Do **not** treat this as the confirmed 2026 route; the old contract dates have passed.
+- **[Found] Sims model:** Sims E-Recycling publicly describes both reuse and end-of-life recycling of computers, TVs, phones and other electronics, but current public sources do not show the exact final destination/fraction recovery for each surrounding council.
+
+### Strategic implication
+The surrounding councils already solve much of the **household disposal** problem. The stronger Dubbo E-Waste proposition is **reuse before recycling**: collect good devices before they enter council cages, document ownership/data wiping, refurbish/resell/donate them, and send only end-of-life remainder downstream.
+
+### New unknowns to resolve
+- Which surrounding councils' current contracts permit a separate reuse stream before recycler pickup?
+- Who legally owns devices once deposited at each council facility?
+- Can a local refurbisher receive diverted items under a formal agreement?
+- Annual e-waste tonnes/item counts by council, and estimated reusable share.
+- Exact current downstream contractor and final destination for Coonamble, Gilgandra, Nyngan, Warren, Parkes, Forbes, Narromine and Mid-Western.
+- Commercial e-waste prices/limits across surrounding facilities.
