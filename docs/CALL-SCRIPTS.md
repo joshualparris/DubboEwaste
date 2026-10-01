@@ -23,7 +23,15 @@
 - "Your current website lists TVs, computers/laptops, monitors, smart phones/tablets and printers/scanners as accepted e-waste. Does the Dubbo yard follow that list for small commercial loads?"
 - "The same list says electronic waste excludes lithium ion. Do batteries need to be removed from laptops, phones and tablets? What about non-removable batteries?"
 - Confirm specifically: CRT TVs/monitors, loose PCBs, mixed/smashed equipment, cables and power supplies.
-- Ask: whether small commercial e-waste is free, minimum quantity, commercial-account requirement, pickup threshold, weight docket/recycling receipt, and downstream processing.
+- Ask: whether small commercial e-waste is free, minimum quantity, commercial-account requirement and pickup threshold.
+- "After I drop the e-waste at Dubbo, what is the **next physical facility** it goes to? Can you give me the recycler's legal company name and suburb/address?"
+- "Do you dismantle or shred any e-waste at 34 Mountbatten Drive, or is Dubbo collection/sorting/consolidation only?"
+- "Is the free service part of the **NTCRS**? If yes, which approved co-regulatory arrangement do you work for?"
+- "Which facility in your chain is **AS 5377** certified? Can you give me the certificate number or scope?"
+- "Do you offer secure HDD/SSD destruction and serial-numbered destruction certificates, or should I always remove/sanitise drives before delivery?"
+- "Can a small commercial customer receive a weight ticket and certificate of recycling identifying the date/load?"
+- "Are any e-waste fractions exported for processing? If so, which fractions and countries/processors?"
+- "Is the free service funded through NTCRS/a council contract, or is it AMR's own commercial service?"
 - "Are you now Australian Metal Recycling rather than InfraBuild/Matthews Metal Management at this yard? I'm seeing both names online and want the current legal operator correct."
 
 ## 6. Whylandra (Council waste)
