@@ -330,3 +330,89 @@ This creates the first apples-to-apples evidence for:
 - partner margin;
 - reuse percentage;
 - whether a Dubbo hub reduces cost.
+
+
+## Cheapest branch-path calls — exact commercial questions
+
+Detailed cost/process model:
+[docs/DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS.md](docs/DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS.md)
+
+### 1. G1 — first call
+Opening:
+- "You publish white-labelled ITAD for IT service providers. I want to test a Western NSW/Dubbo local-front model without duplicating your processing. What is the exact wholesale/commercial structure?"
+
+Ask:
+- Who signs the end-client contract?
+- Who invoices the client?
+- Can the local provider add a markup?
+- Is there a referral/commission structure?
+- Is there a minimum monthly spend/volume?
+- What does a Dubbo collection cost?
+- What asset count/value makes pickup free or profitable?
+- How is buyback value settled?
+- Can the local provider collect/stage assets, or must G1 collect directly?
+- What insurance limit does the local provider need?
+- What chain-of-custody paperwork is mandatory?
+- Can local sanitisation ever be approved later?
+- What recurring volume would justify a dedicated Dubbo node?
+- Can the arrangement be trialled without premises?
+
+### 2. Greenbox — partner application
+Opening:
+- "Your partner FAQ describes a two-page application, 12-month business plan, references, credit information and mandatory training. Would a Dubbo ITAD/refurb reseller qualify as a reseller under your partner program?"
+
+Confirm:
+- Is there any application, membership, training or annual partner fee?
+- What preferred pricing applies?
+- May a partner markup Greenbox services?
+- Who owns the end-client relationship?
+- Does Greenbox permit white-label/co-brand delivery?
+- What insurance requirements apply?
+- What minimum annual volume must the 12-month business plan show?
+- Can a new business satisfy the three-reference/three-month-credit requirements?
+- Can a Dubbo partner operate without premises initially?
+- Can assets be staged locally later?
+- What conditions would trigger Greenbox considering a western NSW physical facility?
+
+### 3. Fliptech — regional pilot
+Opening:
+- "Would you approve a 3–6 collection-cycle Dubbo/Central West pilot before any premises are leased?"
+
+Get written figures for:
+- regional pickup minimum;
+- collection charge/km or per job;
+- sanitisation charge;
+- asset buyback/recovery formula;
+- resale proceeds split;
+- recycling/reject charge;
+- local commission/markup;
+- required insurance;
+- brand-use rights;
+- volume required for secure local staging;
+- volume required for a permanent branch.
+
+### 4–7. WV / Renew IT / Shred-X / Iron Mountain
+For each:
+- "Do you have an approved regional operator/vendor model, or would any Dubbo site have to be company-owned?"
+- "Would you fund premises and employ the local manager if a Dubbo business case is approved?"
+- "If contractor-led, what capital, insurance, security and equipment must the local operator fund?"
+- "What recurring annual revenue/device volume triggers a regional facility?"
+- "Can we first run a 90-day regional collection pilot from your existing network?"
+
+### Exact numbers required before signing any lease
+Do not sign premises until one candidate supplies in writing:
+1. wholesale/service price;
+2. local margin/commission;
+3. buyback schedule;
+4. pickup/freight cost;
+5. sanitisation charge;
+6. residual recycling charge;
+7. minimum monthly volume;
+8. required insurance limits;
+9. custody/liability rules;
+10. local-site security requirements;
+11. who funds Blancco/software;
+12. who owns refurbished stock;
+13. who carries ACL/warranty risk;
+14. geographic exclusivity, if any;
+15. branch go/no-go volume threshold.
