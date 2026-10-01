@@ -894,10 +894,10 @@ ATO current Payday Super guidance.
 
 ## Legal-floor calculation — one full-time worker
 
-38 hours × $26.44 × 52:
-- base wages: **$52,245.44**
-- 12% super: **$6,269.45**
-- wage + super floor: **$58,514.89/year**
+Fair Work's published weekly full-time minimum is $1,004.90. Using that published weekly figure:
+- base wages: **$52,254.80/year**
+- 12% super: **$6,270.58**
+- wage + super floor: **$58,525.38/year**
 
 This excludes:
 - workers compensation;
@@ -917,8 +917,8 @@ This excludes:
 
 Using the $24,315.30 known owner-operated public-price subtotal:
 
-$24,315.30 + $58,514.89 =
-**$82,830.19/year known floor**
+$24,315.30 + $58,525.38 =
+**$82,840.68/year known floor**
 
 before:
 - insurance;
@@ -965,7 +965,7 @@ Therefore the most precise truthful statement is:
 **$62,811.94 known annual floor**, before missing costs.
 
 ### Hub + full-time employee
-**$82,830.19 known annual floor**, before missing costs.
+**$82,840.68 known annual floor**, before missing costs.
 
 These are not "estimates pretending to be quotes". They are arithmetic from current public prices and explicitly identified assumptions.
 
