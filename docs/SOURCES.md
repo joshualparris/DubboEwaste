@@ -190,3 +190,33 @@
 - No current public co-regulator document found tying Scrap Metal Services Pty Ltd / Australian Metal Recycling to an NTCRS arrangement.
 - No documentary AMR→Sircel, AMR→ACE or AMR→Sims link found.
 - Geography or historical supplier relationships must not be presented as proof of the current route.
+
+
+## TechCollect reuse deep dive — checked 2 Oct 2026
+
+**TECHCOLLECT DIRECT / CURRENT**
+- TechCollect Safety & Environment — collected computers/accessories/TVs are recycled in Australia and not sold second-hand for reuse; working/current equipment should be passed to family/friends/charity before drop-off: https://techcollect.com.au/about-us/safety-environment/
+- TechCollect downstream process — all collected e-waste sent to approved Australian recycling partners for dismantling, shredding and sorting: https://techcollect.com.au/about-us/where-does-our-e-waste-go/
+- TechCollect FAQs — current funding model, recovery-rate statement and owner responsibility for data: https://techcollect.com.au/about-us/faqs/
+- TechCollect data deletion — recycling does not include data deletion; equipment is dismantled/broken down after drop-off: https://techcollect.com.au/about-us/delete-your-data/
+- TechCollect accepted products: https://techcollect.com.au/about-us/what-we-take/
+
+**ANZRP REUSE / CURRENT**
+- ANZRP E-Stewardship / Product Reuse — separates reuse programs from recycling programs and identifies PonyUp, Reconnect and Laptop Initiative: https://www.anzrp.com.au/about/e-stewardship/
+- PonyUp for Good — reuse-first mandate, data destruction, refurbishment/redeployment; unreusable devices go to ANZRP recycling: https://www.anzrp.com.au/partnerships/ponyup-for-good/
+- The Reconnect Project — donated phones/tablets/laptops assessed, repaired/refurbished/redeployed; failures recycled: https://www.anzrp.com.au/partnerships/the-reconnect-project/
+- The Laptop Initiative — functioning laptops redirected to digital-inclusion reuse: https://www.anzrp.com.au/partnerships/the-laptop-initiative/
+- ANZRP Sustainability — reuse programs implemented since FY25 via Reconnect and Laptop Initiative: https://www.anzrp.com.au/about/sustainability/
+
+**ANZRP 2024–25 ANNUAL REPORT**
+- Annual report — all TechCollect e-waste undergoes first-stage recycling in Australia; NSW recyclers ACE Recycling Group and Sircel; PonyUp partnership for refurbishment/reuse ahead of recycling: https://www.anzrp.com.au/wp-content/uploads/2025/11/29632-anzrp-annual-report-2024-25_regulator_web_final.pdf
+
+**AUSTRALIAN GOVERNMENT / NTCRS**
+- NTCRS overview/objectives: https://www.dcceew.gov.au/environment/protection/waste/product-stewardship/television-computer-recycling-scheme
+- Co-regulatory arrangements / 90% material recovery target: https://www.dcceew.gov.au/environment/protection/waste/product-stewardship/products-schemes/television-computer-recycling-scheme/coreg-arrangements
+- Recyclers / scheme operational requirements: https://www.dcceew.gov.au/environment/protection/waste/product-stewardship/products-schemes/television-computer-recycling-scheme/recyclers
+
+**INTERPRETATION**
+- TechCollect's ordinary public recycling stream should not be described as a refurbishment/resale pipeline.
+- ANZRP has reuse programs, but these operate upstream/alongside the NTCRS recycling program rather than as post-drop-off rescue from ordinary TechCollect cages.
+- "Reuse" on some TechCollect education material often refers to recovered materials being used in new products; distinguish this from whole-device reuse.
