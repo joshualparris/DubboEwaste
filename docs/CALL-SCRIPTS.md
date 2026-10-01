@@ -18,8 +18,12 @@
 ## 4. Joe (Bendigo E-Waste)
 - What exactly counts as "good", what he pays for sorted lots, minimum volumes, freight.
 
-## 5. Matthews Metal Management (Dubbo)
-- Small commercial e-waste loads, TVs/printers, price or free, hours.
+## 5. Australian Metal Recycling (Dubbo, formerly Matthews Metal Management) - (02) 6882 1033
+- "I'm running a small electronics refurbishment/reuse operation and need a legitimate downstream outlet for zero-value material. Can I bring small commercial loads of sorted e-waste to the Dubbo yard?"
+- Confirm: laptops/desktops, monitors, printers, phones/tablets, flat-screen TVs, CRTs, loose PCBs, cables/power supplies.
+- "Your website says lithium batteries aren't accepted. Do embedded laptop/phone batteries need to be removed before delivery?"
+- Ask: fee/free, minimum quantity, commercial-account requirement, pickup threshold, weight docket/recycling receipt, and downstream processing.
+- "Are you now Australian Metal Recycling rather than InfraBuild/Matthews Metal Management at this yard? I'm seeing both names online and want the current legal operator correct."
 
 ## 6. Whylandra (Council waste)
 - Commercial e-waste fee, NTCRS limits for a business drop-off.
