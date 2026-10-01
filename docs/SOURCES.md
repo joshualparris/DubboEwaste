@@ -220,3 +220,50 @@
 - TechCollect's ordinary public recycling stream should not be described as a refurbishment/resale pipeline.
 - ANZRP has reuse programs, but these operate upstream/alongside the NTCRS recycling program rather than as post-drop-off rescue from ordinary TechCollect cages.
 - "Reuse" on some TechCollect education material often refers to recovered materials being used in new products; distinguish this from whole-device reuse.
+
+
+## Reuse-first benchmark organisations — checked 2 Oct 2026
+
+### PonyUp for Good — current/direct
+- Main site / reuse-first commercial model: https://www.ponyupforgood.com/
+- Services / asset registers / data certificates / e-waste recycling: https://www.ponyupforgood.com/our-services
+- FAQ — primary reuse target 2–5-year-old tech, Blancco/Aiken, reuse-v-recycle reporting: https://www.ponyupforgood.com/faq
+- Data security — Blancco, asset registers, failed sanitisation/non-reusable gear to ANZRP: https://www.ponyupforgood.com/partners-data-security
+- Donate devices — business-only bulk focus and reusable categories: https://www.ponyupforgood.com/donate-devices
+- Impact — 600,000+ kg diverted, ~32.5% reused, 1M meals (company-reported): https://www.ponyupforgood.com/1-million-meals
+- ESG reporting: https://www.ponyupforgood.com/esg-reporting
+- ABR — Pony Up for Good Pty Ltd, ABN 89 610 863 717: https://abr.business.gov.au/ABN/View?abn=89610863717
+- Social Traders case study — independent summary of wipe/refurbish/recycle model and ~32% second-life figure: https://www.socialtraders.com.au/news/ponyup-for-good-nandos-partnership
+- ANZRP PonyUp partnership: https://www.anzrp.com.au/partnerships/ponyup-for-good/
+- ANZRP 2024–25 annual report — PonyUp erases, debadges, refurbishes and remarkets; ANZRP recycles failures: https://www.anzrp.com.au/wp-content/uploads/2025/11/29632-anzrp-annual-report-2024-25_regulator_web_final.pdf
+
+### The Reconnect Project — current/direct
+- Main site: https://thereconnectproject.com.au/
+- Donate — phones/tablets any age/condition, laptops <8 years; triage, repair, Blancco, parts harvesting and Australian reprocessors: https://thereconnectproject.com.au/donate/
+- Distribute — partner-agency model and 4,800+ devices distributed: https://thereconnectproject.com.au/distribute/
+- Repair — repair categories and current refurbished retail listings: https://thereconnectproject.com.au/repair/
+- Online shop / actual refurbished sales: https://thereconnectproject.com.au/shop/
+- FAQ — affordable sales or donation; failures responsibly recycled: https://thereconnectproject.com.au/faq/
+- Training — repair work linked to employment/training: https://thereconnectproject.com.au/training/
+- About: https://thereconnectproject.com.au/about-us/
+- NSW Government buy.nsw supplier profile — government decommissioning, secure erase and asset disposition reporting: https://buy.nsw.gov.au/supplier/profile/136694
+- ANZRP partnership: https://www.anzrp.com.au/partnerships/the-reconnect-project/
+- Banksia Foundation 2024 national Circular Economy Award: https://banksiafdn.com/national-winners-2024/
+- NSW Small Business Commissioner profile: https://www.smallbusiness.nsw.gov.au/news-podcasts/news/annette-brodie-how-a-tech-repair-shop-is-making-a-difference-in-sydney
+
+### The Laptop Initiative — current/direct
+- Main site / direct corporate-to-charity model: https://thelaptopinitiative.com.au/
+- About — small volunteer-led charity, strict laptop criteria, no ordinary repair model, fast matching/distribution: https://thelaptopinitiative.com.au/about/
+- Corporate Hero workflow: https://thelaptopinitiative.com.au/corporate-hero/
+- Partners and charities: https://thelaptopinitiative.com.au/partners-and-charities/
+- Signup — current page names Renew IT for nationwide certified wiping: https://thelaptopinitiative.com.au/become-a-hero-signup/
+- Some other current/cached FAQ pages still name Zolo for wiping/logistics: https://thelaptopinitiative.com.au/wall-of-fame/
+- Latest news — 1,000-laptop milestone announced 7 Sep 2026: https://thelaptopinitiative.com.au/latest-news/
+- ABR / ACNC charity details — ABN 95 671 869 364: https://abr.business.gov.au/ABN/View?abn=95671869364
+- ANZRP partnership: https://www.anzrp.com.au/partnerships/the-laptop-initiative/
+
+### Interpretation / unresolved
+- PonyUp's 600,000+ kg, 32–32.5% reuse and 1M-meal figures are organisation-published impact metrics; this research did not find an independent audit of those exact totals.
+- Reconnect's site currently reports 4,800+ distributed devices; older pages/search surfaces can show lower figures because pages update at different times.
+- The Laptop Initiative's site is inconsistent about the named wiping partner (Renew IT on a current signup page; Zolo on other pages). Confirm current provider before relying on either.
+- The Laptop Initiative generally expects working, prepared equipment and says it does not repair gifted laptops; do not describe it as a repair/refurbishment workshop like Reconnect.
