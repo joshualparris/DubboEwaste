@@ -204,3 +204,17 @@ Ask Sircel/ITAD directly:
 - whether Sircel would accept pre-triaged regional devices or partner with a Dubbo first-stage refurbisher;
 - minimum pallet/weight/collection volumes and certificate/reporting costs;
 - current contracting entity and commercial continuity while Sircel remains under receivership/administration.
+
+
+### Sircel reuse-partner downstream trace — new findings
+
+Full research: [docs/SIRCEL-REUSE-PARTNERS-WHERE-DOES-IT-GO.md](docs/SIRCEL-REUSE-PARTNERS-WHERE-DOES-IT-GO.md).
+
+- **[Found] Good360 link:** Good360's 2024 Annual Report and 2025 Digital Access Report name **Sircel as a product donor** in its digital-inclusion/device program.
+- **[Found] Good360 downstream model:** devices are securely wiped/tested/refurbished, matched to eligible charities/disadvantaged schools, then distributed locally to people in need. Named real-world endpoints include students, social-housing residents, employment-service participants, family-violence support and disaster-recovery communities.
+- **[Found] Compnow refurbishment detail:** Good360's named refurbishment partner Compnow documents wipe -> condition/hardware test -> repair/battery replacement where required -> OS reinstall -> accessory completion -> box/label -> Good360 distribution.
+- **[Found] National Device Bank evolution:** WorkVentures + Good360 + Good Things Australia now operate a national donated-device pathway with secure refurbishment, Blancco/NIST-grade sanitisation, community distribution and digital support.
+- **[Unknown] exact Sircel allocation:** no public evidence says how many of Sircel's 2,350 FY24 reused devices went to Good360, other charities, client redeployment or commercial brokers.
+- **[Unknown] approved brokers:** Sircel still does not publicly name the brokers that buy reuse-qualified assets or where those brokers resell them.
+- **[Unknown] serial-level second-life tracking:** Sircel's own ESG report says visibility ends once assets enter partner operational control.
+- **Opportunity for Dubbo:** design serial-level outcome tracking beyond handoff so a reused device can be reported through sale/donation/return/recycling rather than simply marked "reused".
