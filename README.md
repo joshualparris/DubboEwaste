@@ -16,6 +16,11 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [docs/BACKLOG-01-05-PLANNING-LEGAL.md](docs/BACKLOG-01-05-PLANNING-LEGAL.md) | Property planning, NSW waste law, second-hand dealer and scrap-metal research |
 | [docs/BACKLOG-06-12-DOWNSTREAM-STEWARDSHIP.md](docs/BACKLOG-06-12-DOWNSTREAM-STEWARDSHIP.md) | AMR/Council downstream, NTCRS, MobileMuster and B-cycle research |
 | [docs/BACKLOG-13-16-REGIONAL-SUPPLY.md](docs/BACKLOG-13-16-REGIONAL-SUPPLY.md) | Surrounding councils, NetWaste/Sircel, volumes and supply-source research |
+| [docs/BACKLOG-17-32-INDEX.md](docs/BACKLOG-17-32-INDEX.md) | **Research handoff for backlog items 17–32: market, costs, tax, compliance, devices, data, safety, Bendigo/Kristy, grants, templates and pilot metrics** |
+| [docs/BACKLOG-17-20-MARKET-COST-TAX.md](docs/BACKLOG-17-20-MARKET-COST-TAX.md) | Dubbo competitor map, resale channels, corrected costs and tax/accounting |
+| [docs/BACKLOG-21-25-COMPLIANCE-DATA-SAFETY.md](docs/BACKLOG-21-25-COMPLIANCE-DATA-SAFETY.md) | ACL/product safety, Windows/device viability, NIST/ASD sanitisation, WHS/lithium and postage |
+| [docs/BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md](docs/BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md) | Joe/Elise early history, Kristy creative pathway and current grant landscape |
+| [docs/BACKLOG-30-32-OPERATIONS-CORRECTIONS.md](docs/BACKLOG-30-32-OPERATIONS-CORRECTIONS.md) | Operating paperwork, expanded pilot metrics and explicit correction register |
 | [docs/PHASE-0-OPERATING-BLUEPRINT.md](docs/PHASE-0-OPERATING-BLUEPRINT.md) | **Detailed cheapest-start blueprint: Tue/Sat intake, acceptance gates, storage, wiping, resale, safety and downstream** |
 | [docs/LEGAL-LICENSING.md](docs/LEGAL-LICENSING.md) | Second-hand dealer licence, council/planning, EPA, in detail |
 | [docs/COSTS.md](docs/COSTS.md) | Start-up and running cost picture |
@@ -26,7 +31,11 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [docs/bendigo-early-days-deep-dive.md](docs/bendigo-early-days-deep-dive.md) | Deep source-led reconstruction of Joe Parker / Bendigo E-Waste's startup path |
 | [docs/KRISTY-CREATIVE-MICROBUSINESS.md](docs/KRISTY-CREATIVE-MICROBUSINESS.md) | Research-backed hobby → microbusiness path for Kristy's creative/art work, modelled on The Painted Brush & Co |
 | [templates/ownership-and-wipe-certificate.md](templates/ownership-and-wipe-certificate.md) | Client transfer-of-ownership and data-wipe certificate template |
-| [pilot-tracker.csv](pilot-tracker.csv) | Per-item profit tracker for the 20-30 item pilot |
+| [templates/asset-transfer-and-chain-of-custody.md](templates/asset-transfer-and-chain-of-custody.md) | Detailed asset authority, transfer basis and custody-state record |
+| [templates/data-sanitisation-certificate.md](templates/data-sanitisation-certificate.md) | Per-media sanitisation method, tool/version, verification and PASS/FAIL/DESTROY record |
+| [templates/repair-notice.md](templates/repair-notice.md) | Customer repair/data-loss notice scaffold with ACCC prescribed-wording checkpoint |
+| [templates/sale-and-recall-record.md](templates/sale-and-recall-record.md) | Sale condition, serial/buyer link and later recall-contact record |
+| [pilot-tracker.csv](pilot-tracker.csv) | **Expanded 47-field pilot tracker:** provenance, data, labour, selling costs, stock days and downstream outcome |
 | [docs/research.md](docs/research.md) | Earlier feasibility research retained for additional context |
 | [docs/launch-checklist.md](docs/launch-checklist.md) | Earlier lean-launch checklist retained for operational planning |
 | [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md) | Current research on the Dubbo Matthews/InfraBuild/AMR yard and e-waste outlet |
