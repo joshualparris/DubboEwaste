@@ -9,6 +9,21 @@ We can now describe the **front of the chain** confidently, and the normal Austr
 
 > **AMR does not publicly identify the actual downstream e-waste recycler/facility that receives material from its Dubbo yard.**
 
+### 2026 forensic follow-up
+
+A deeper search of NTCRS/co-regulator records, historical Matthews contracts, current recycler partner lists and regional Central West processing routes still did **not** identify a current AMR Dubbo recipient.
+
+What it did establish:
+- historical Matthews Metal Management operated some e-waste collection under the **NTCRS**, with a historical Matthews listing pointing to **TechCollect** product rules;
+- historical TechCollect NSW recycler pools included **Sims** and **TES-AMM**, but no Matthews load was mapped to one of them;
+- current TechCollect/ANZRP NSW recyclers are **ACE Recycling Group** and **Sircel**;
+- current TechCollect public NSW collection-partner information does **not** identify AMR/Matthews/Dubbo;
+- **Sircel Parkes** is the strongest regional lead because Sircel currently processes Central West e-waste and has documented Parkes/Narromine/NetWaste activity, but **no AMR→Sircel evidence was found**;
+- **ACE Recycling Group** is another credible current NSW processor, but again **no AMR→ACE evidence was found**;
+- AMR's own **Rutherford** yard is a documented consolidation/processing hub, but AMR does not say Dubbo e-waste is routed there.
+
+The full candidate-by-candidate evidence test is in [AMR-DUBBO-DOWNSTREAM-FORENSIC.md](AMR-DUBBO-DOWNSTREAM-FORENSIC.md).
+
 The evidence therefore needs three labels:
 
 - **[CONFIRMED — AMR]** AMR itself says it accepts the material / performs the step.
