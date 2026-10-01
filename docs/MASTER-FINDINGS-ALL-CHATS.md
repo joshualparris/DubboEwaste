@@ -1466,3 +1466,35 @@ The most valuable next evidence is the current Education vendor's **Settlement R
 Full deep dive:
 
 - [NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md](NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md)
+
+
+---
+
+# Appendix B — Spotify listening list
+
+A curated Spotify listening list has been added for the concepts that repeatedly matter most to this project:
+
+- reuse before recycling;
+- data sanitisation;
+- testing/grading;
+- IT asset disposition;
+- corporate fleet recovery;
+- refurbished resale;
+- reverse logistics;
+- right to repair;
+- social/digital-inclusion reuse;
+- Australian e-waste processing.
+
+The highest-priority episodes include:
+- **Beyond Recycling: The Global Systems Behind E-Waste**
+- **Is Your Phone's Data Safe When You Recycle It?**
+- **Refurbished Technology, ITAD, Circular Growth — Foxway**
+- **Why We Hate Recycling — Edinburgh Remakery**
+- **Renew IT — E-Waste, Microfactories & Circular Plastics Innovation**
+- **E-waste Revolution with Austin Turpin / FlipTech**
+- **The Device on Your Desk and the Child Who Needs It**
+- **How LEAP Creates Circular Jobs in Australia**
+
+Full ranked list with Spotify links and project-specific relevance notes:
+
+- [SPOTIFY-PODCASTS-EWASTE-REUSE-ITAD.md](SPOTIFY-PODCASTS-EWASTE-REUSE-ITAD.md)
