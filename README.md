@@ -28,6 +28,7 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md) | Current research on the Dubbo Matthews/InfraBuild/AMR yard and e-waste outlet |
 | [docs/REGIONAL-EWASTE-PATHWAYS.md](docs/REGIONAL-EWASTE-PATHWAYS.md) | What surrounding towns do with e-waste, current drop-off pathways, downstream evidence and reuse opportunities |
 | [docs/WHAT-HAPPENS-TO-EWASTE.md](docs/WHAT-HAPPENS-TO-EWASTE.md) | **Deep downstream trace:** AMR, council routes, Parkes/Sircel, historical Sims/St Marys shredding, Coonamble/Matthews, device-to-material flows and NTCRS recovery data |
+| [docs/AMR-DUBBO-DOWNSTREAM-FORENSIC.md](docs/AMR-DUBBO-DOWNSTREAM-FORENSIC.md) | **Forensic trace:** attempts to identify the exact company/facility receiving AMR Dubbo e-waste, with candidates and evidence limits |
 
 ## 1. What happens to Dubbo e-waste today
 
@@ -38,7 +39,8 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 - AMR currently advertises **free e-waste recycling** and explicitly lists **TVs, computers/laptops, monitors, smart phones/tablets and printers/scanners** as accepted e-waste. Its materials list says **electronic waste excluding lithium ion**, and lithium batteries are separately listed as not accepted. CRT-specific rules, battery removal from whole devices, commercial limits and downstream certificates still need direct confirmation.
 - **What happens after drop-off:** AMR does not publicly name the downstream e-waste processor used by Dubbo. Its published equipment/capabilities look primarily like regional collection, weighing, sorting, consolidation and transport rather than a specialist electronics dismantling/refining line. The normal Australian downstream chain is dismantling/shredding → separation into steel, aluminium/copper, glass, plastics, batteries, PCBs and toner → specialist processing in Australia and, for some fractions, approved overseas facilities. This benchmark is documented by NTCRS operators, but **must not be presented as AMR's exact chain until AMR names its processor(s)**.
 - **Data rule:** ordinary AMR recycling is not currently evidenced as a secure data-destruction service. Wipe/remove HDDs, SSDs and NVMe storage before handover unless AMR provides a written, serialised destruction process.
-- Full operator evidence: [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md). Full downstream trace: [docs/WHAT-HAPPENS-TO-EWASTE.md](docs/WHAT-HAPPENS-TO-EWASTE.md).
+- **Deepest downstream finding:** no public source currently names AMR Dubbo's first downstream e-waste recipient. Historical Matthews records show NTCRS involvement and a TechCollect-linked intake scope. Current TechCollect NSW recyclers include **Sircel** and **ACE Recycling Group**, but its current public collection-partner list does not identify AMR/Matthews/Dubbo. **Sircel Parkes is the strongest regional research lead** because of its current Central West/NetWaste/Narromine/Parkes role, but there is still **no evidence that AMR Dubbo sends material there**.
+- Full operator evidence: [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md). Full downstream trace: [docs/WHAT-HAPPENS-TO-EWASTE.md](docs/WHAT-HAPPENS-TO-EWASTE.md). Exact-recipient forensic trace: [docs/AMR-DUBBO-DOWNSTREAM-FORENSIC.md](docs/AMR-DUBBO-DOWNSTREAM-FORENSIC.md).
 
 ## 2. The business model
 
