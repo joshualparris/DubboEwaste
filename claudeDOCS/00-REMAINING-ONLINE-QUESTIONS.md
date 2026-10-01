@@ -52,12 +52,12 @@
 ## E. Media and communities
 | # | Question | Status |
 |---|---|---|
-| 30 | Does Bendigo E-Waste have video or social content showing its intake process? | ⬜ |
-| 31 | Are transcripts of the Austin Turpin (FlipTech) and James Lancaster (Renew IT) episodes available to mine for triage/grading detail? | ⬜ |
-| 32 | Are the newly found podcasts on Spotify, and what are their direct links? | ⬜ |
-| 33 | Which Reddit communities exist, how big are they, and what are their trading rules? | ⬜ |
-| 34 | What Dubbo buy/swap/sell Facebook groups exist, and what are their business-seller rules? | ⬜ |
-| 35 | What do WMRR and Charitable Reuse Australia memberships actually cost? | ⬜ |
+| 30 | Does Bendigo E-Waste have video or social content showing its intake process? | 🟡 [E](E-MEDIA-AND-COMMUNITIES.md) |
+| 31 | Are transcripts of the Austin Turpin (FlipTech) and James Lancaster (Renew IT) episodes available to mine for triage/grading detail? | ✅⛔ [E](E-MEDIA-AND-COMMUNITIES.md) |
+| 32 | Are the newly found podcasts on Spotify, and what are their direct links? | 🟡 [E](E-MEDIA-AND-COMMUNITIES.md) |
+| 33 | Which Reddit communities exist, how big are they, and what are their trading rules? | ⛔ [E](E-MEDIA-AND-COMMUNITIES.md) |
+| 34 | What Dubbo buy/swap/sell Facebook groups exist, and what are their business-seller rules? | ✅ [E](E-MEDIA-AND-COMMUNITIES.md) |
+| 35 | What do WMRR and Charitable Reuse Australia memberships actually cost? | ✅🟡 [E](E-MEDIA-AND-COMMUNITIES.md) |
 
 ## F. How FlipTech and its peers operate
 | # | Question | Status |
