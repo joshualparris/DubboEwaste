@@ -443,3 +443,49 @@ This does **not** mean they would refuse Dubbo work. It means their public opera
 - Can local sanitisation/refurbishment occur under their standards?
 - What proportion of regional assets are reused/resold versus recycled?
 - Would a Dubbo pilot be commercially preferable to existing Sydney/Canberra logistics?
+
+
+---
+
+## L. Branch-entry commercial unknowns
+
+Detailed playbook:
+- `docs/DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md`
+
+### Best low-cost entry paths found
+- **Greenbox:** formal Partner Programme, co-branding/white-label/direct-client service, preferred pricing, training and asset-recovery margin; no public joining fee found.
+- **G1:** explicit white-labelled ITAD for IT service providers and regional NSW coverage; no public white-label fee/margin schedule.
+- **Fliptech:** no public partner/franchise system; strongest route is a negotiated 3–6 collection-cycle regional pilot.
+- **WV:** commercial-partner category exists for secure logistics/component recovery; commercial terms private.
+- **Iron Mountain:** global Build/Sell/Service partner program exists, but applicability to Australian ALM/ITAD physical service must be confirmed.
+- **Renew IT:** no public franchise/channel process; Dubbo would need to be proposed as a last-mile/drop-off depot.
+- **Shred-X:** no public franchise path; a Dubbo site would likely be a corporate branch or contractor depot.
+
+### Exact numbers now established
+- Business name if needed: **$47/1yr**.
+- NSW second-hand dealer licence if applicable: **$692/1yr**.
+- Current 190 m² Dubbo industrial rent benchmark: **$395/week + GST** = **$20,540/year + GST**.
+- Low-end commercial security benchmark: **about $5,000+**.
+- Blancco SMB Select 50 current reseller benchmark: **$982.30**.
+- National Minimum Wage: **$26.44/hr**.
+- One FTE minimum-wage base + 12% super: **$58,525.38/year**.
+- Modelled first-year secure-hub baseline before insurance/bond/outgoings/utilities/vehicle/racking/tools/labour: **$27,261.30**.
+- Same model plus one minimum-wage FTE: **$85,786.68** before those same unknowns.
+
+### Commercial terms still unknown
+- Greenbox preferred pricing / actual partner margin.
+- G1 white-label markup / reseller margin / buyback allocation.
+- Fliptech local-operator revenue share.
+- WV commercial-partner commercial terms.
+- Iron Mountain ALM partner eligibility and margin.
+- Renew IT local-depot operating arrangement.
+- Shred-X contractor/corporate-branch structure.
+- Required insurance limits for each parent.
+- Whether any parent requires its own Blancco tenant/licences.
+- Exact local security/fitout standard.
+- Minimum recurring monthly device volume needed to justify premises.
+
+### Next evidence that matters most
+1. Greenbox partner pricing/rulebook.
+2. G1 white-label quote using the same 100-laptop sample job.
+3. Fliptech written terms for a Dubbo/Central West pilot.
