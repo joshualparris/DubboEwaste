@@ -630,3 +630,14 @@ But the evidence stops short of proving that this pathway accounts for all, or e
 The commercial-broker branch remains opaque.
 
 For Dubbo E-Waste, that opacity is an opportunity: build **serial-level outcome tracking through the second life**, not just to the point of handoff.
+
+
+---
+
+## Further deep dive: the Good360 / Device Bank ecosystem and Dubbo
+
+The Good360/Compnow/National Device Bank branch has now been researched much further, including the exact Compnow refurbishment sequence, WorkVentures' ITAD process, Good Things Australia's local partners, the NSW Device Bank pilot and specific Dubbo connections.
+
+See: [GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md](GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md).
+
+The strongest new local finding is that **Dubbo Support Center is already a Good Things Australia digital-inclusion partner and is now ACNC-registered**, so it appears to satisfy the published organisation-level eligibility rule for the NSW Device Bank. No public evidence was found that it has yet applied or received devices.
