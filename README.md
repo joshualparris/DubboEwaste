@@ -27,7 +27,7 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [docs/launch-checklist.md](docs/launch-checklist.md) | Earlier lean-launch checklist retained for operational planning |
 | [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md) | Current research on the Dubbo Matthews/InfraBuild/AMR yard and e-waste outlet |
 | [docs/REGIONAL-EWASTE-PATHWAYS.md](docs/REGIONAL-EWASTE-PATHWAYS.md) | What surrounding towns do with e-waste, current drop-off pathways, downstream evidence and reuse opportunities |
-| [docs/WHAT-HAPPENS-TO-EWASTE.md](docs/WHAT-HAPPENS-TO-EWASTE.md) | Deep trace of what happens after AMR accepts TVs, computers, phones, monitors and printers |
+| [docs/WHAT-HAPPENS-TO-EWASTE.md](docs/WHAT-HAPPENS-TO-EWASTE.md) | **Deep downstream trace:** AMR, council routes, Parkes/Sircel, historical Sims/St Marys shredding, Coonamble/Matthews, device-to-material flows and NTCRS recovery data |
 
 ## 1. What happens to Dubbo e-waste today
 
