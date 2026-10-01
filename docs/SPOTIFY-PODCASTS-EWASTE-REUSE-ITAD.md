@@ -17,6 +17,232 @@ This is **not** a generic sustainability-podcast list. The episodes below were s
 - digital inclusion / social reuse;
 - Australian e-waste conditions.
 
+## Australia / NSW first — the most relevant episodes
+
+This section should be treated as the **priority listening list** for the Dubbo project. It deliberately favours Australian and NSW operators over more generic overseas circular-economy material.
+
+### 1. UNSW Business School — “IT Upgrade: The future of recycling office e-waste”
+**NSW relevance: extremely high — best match found**
+
+Spotify show — *The Business Of*:  
+https://open.spotify.com/show/6kUw4yMSMNMJQQm4StZBhi
+
+Exact episode: **IT Upgrade: The future of recycling office e-waste**  
+Published: **21 May 2025**
+
+Official episode/transcript:  
+https://www.businessthink.unsw.edu.au/articles/circular-economy-renew-it-e-waste-filament
+
+Guest: **James Lancaster, founder and CEO of Renew IT**.
+
+Why this is the strongest match:
+- Renew IT's head office is **91 Mars Road, Lane Cove West NSW**;
+- the episode describes Renew IT collecting old corporate laptops during device refreshes;
+- data is sanitised and clients receive data-wipe certificates;
+- viable devices are **on-sold / remarketed** rather than automatically destroyed;
+- equipment with no useful resale route goes into downstream material processing;
+- Renew IT later developed an e-waste plastics microfactory with UNSW;
+- James explicitly argues that small businesses should ask recyclers **where material actually goes** and what the downstream process looks like.
+
+This is almost the exact mature business model being investigated for Dubbo:
+
+**corporate refresh → collection → data sanitisation → value recovery/resale → true end-of-life processing.**
+
+Current Renew IT operating model:
+https://renew-it.com/
+
+NSW location:
+https://renew-it.com/contact-us/
+
+---
+
+### 2. All Things Circular — “EP 49: E-Waste, Microfactories & Circular Plastics Innovation with James Lancaster of Renew IT”
+**NSW relevance: extremely high — best downstream companion to #1**
+
+Direct Spotify episode:  
+https://open.spotify.com/episode/6WyTlDuqgcYpBieTiEsdB2
+
+Published: **18 March 2026**  
+Duration: **20:28**
+
+Guest: **James Lancaster, Renew IT**.
+
+Why listen:
+- same NSW company as #1;
+- focuses more heavily on what happens **after equipment has no remaining resale value**;
+- Australian e-waste plastics;
+- microfactories;
+- recovered materials returning to manufacturing;
+- explains the downstream half of a reuse-first business.
+
+Together, episodes #1 and #2 give the clearest Australian/NSW picture found:
+
+**save and resell the useful device first; process the material only when device value is exhausted.**
+
+---
+
+### 3. UTS Business School / 2SER — “Is E-waste really waste?”
+**NSW relevance: very high — Sydney e-waste operator + UTS**
+
+Spotify show — *Think: Business Futures*:  
+https://open.spotify.com/show/44ritbasQXGivQQDX4wdrM
+
+Exact episode: **Is E-waste really waste?**  
+Published: **28 June 2022**  
+Duration: **27 min**
+
+Official UTS episode page:  
+https://www.uts.edu.au/about/faculties/business/research/think-business-futures-podcast/e-waste-really-waste
+
+Guests:
+- Dr Maruf Chowdhury — UTS Business School;
+- Lisa Saunders — co-founder/CEO of **Arnies Recon**, then a free electronics recycling centre in Sydney.
+
+Why it is relevant:
+- specifically about **Australian e-waste**;
+- produced by UTS + Sydney community radio 2SER;
+- looks at whether e-waste is really "waste" or a recoverable resource;
+- discusses repurposing/recycling and how businesses, consumers and regulators can improve the system;
+- useful historical NSW case study of a local e-waste venture.
+
+Important context:
+Arnies Recon later closed, so this is also useful as a **business-model cautionary case**, not simply a model to copy.
+
+---
+
+### 4. Life on Planet A — “#82: E-waste Revolution with Austin Turpin”
+**Australian relevance: very high — e-waste startup/founder perspective**
+
+Spotify show:  
+https://open.spotify.com/show/2m7vWs5BoO9s1iU1HdsOcc
+
+Exact episode: **#82: E-waste Revolution with Austin Turpin**  
+Published: **1 May 2025**  
+Duration: **45:25**
+
+Guest: **Austin Turpin, founder of FlipTech**.
+
+Why it is relevant:
+- Australian founder trying to turn e-waste into a commercial solution;
+- discusses Australia's regulatory landscape;
+- entrepreneurship and startup barriers;
+- value being lost in discarded electronics;
+- useful comparison with trying to build a small Dubbo operation rather than merely studying established multinational recyclers.
+
+This is more founder/business focused than technical ITAD.
+
+---
+
+### 5. Sustainable Future with SK tes — “How LEAP Creates Circular Jobs in Australia”
+**Australian relevance: high — social enterprise / circular jobs**
+
+Direct Spotify episode:  
+https://open.spotify.com/episode/6crKcAJ6pcgdxeroWbyH2p
+
+Published: **26 November 2025**  
+Duration: **13:47**
+
+Why it is relevant:
+- specifically about Australia;
+- links electronics/circular-economy activity to social and disability enterprises;
+- useful for the possible longer-term Dubbo model involving employment, training or community partnerships;
+- complements the Reconnect / Device Bank research.
+
+Less useful for Phase 0 resale mechanics than Renew IT, but useful for the **social-enterprise layer**.
+
+---
+
+## Excellent NSW audio that I could NOT verify as a Spotify episode
+
+These are highly relevant and worth listening to, but they are kept separate because a current direct Spotify listing was **not verified** during this research.
+
+### The Reconnect Project — Annette Brodie
+**“Closing the Digital Divide, Social Enterprise and Backing Yourself”**  
+Career Stories — 20 May 2026 — 49:25
+
+Episode page:  
+https://stories.the-career-library.com/episodes/annette-brodie
+
+Why it may actually be the **best NSW reuse episode overall**:
+- The Reconnect Project is Sydney-based;
+- collects donated phones, tablets and laptops;
+- **securely refurbishes** them;
+- redistributes devices through 130+ social-service agencies;
+- runs income-generating business units rather than relying only on grants;
+- repair/refurbishment also creates employment pathways.
+
+This is directly relevant to:
+**donation → test/repair → secure data handling → resale/social reuse → recycle failures**.
+
+I did **not** find a trustworthy Spotify URL, so no Spotify link is invented here.
+
+---
+
+### WorkVentures / National Device Bank — NSW regional audio
+
+WorkVentures media hub:  
+https://workventures.com.au/media/
+
+Two especially relevant 2026 interviews:
+
+**“Bridging the Youth Digital Divide” — 2MCE — 5 February 2026**
+- businesses/government redirect quality refurbished devices;
+- National Device Bank;
+- device access for students.
+
+**“Device Refresh Cycle: A Practical Solution” — 2NM — 15 February 2026**
+- corporate/government device refresh cycles;
+- capture quality machines before they become e-waste;
+- donate/refurbish through the National Device Bank.
+
+These are highly relevant to Dubbo because 2MCE/2NM are regional-NSW radio contexts and WorkVentures is central to the NSW/National Device Bank model.
+
+Again, no Spotify listing was verified, so they are not presented as Spotify links.
+
+---
+
+### ABC Radio National — “Encouraging repair over waste”
+**NSW/Australian right-to-repair background**
+
+ABC Listen:  
+https://www.abc.net.au/listen/programs/bigideas/encouraging-repair-over-waste/11924272
+
+Published: **13 February 2020**  
+Duration: **54:06**
+
+Speakers include:
+- John Gertsakis — eWaste Watch;
+- Leanne Wiseman — Australian right-to-repair;
+- Guy Keulemans — UNSW;
+- Annette Mayne;
+- Guido Verbist — **The Bower Reuse & Repair Centre** in Sydney.
+
+Why it is relevant:
+- specifically Australian;
+- UTS/UNSW/Sydney reuse voices;
+- repair instead of disposal;
+- barriers created by manufacturers;
+- The Bower is a concrete NSW reuse/repair/resale model.
+
+---
+
+## Best three for the exact Dubbo idea
+
+If only three are played, use this order:
+
+1. **UNSW / Renew IT — IT Upgrade: The future of recycling office e-waste**  
+   Closest to the proposed **business fleet → wipe → resell → recycle remainder** model.
+
+2. **UTS / 2SER — Is E-waste really waste?**  
+   NSW-specific local e-waste entrepreneurship and system design.
+
+3. **Life on Planet A — E-waste Revolution with Austin Turpin**  
+   Australian founder/startup perspective and regulatory/business challenges.
+
+Then play the **Reconnect Project** episode even though I could not verify it on Spotify, because it is one of the closest Australian examples of the exact **repair + resale/social reuse** model.
+
+---
+
 ## Listen first — the 10 most relevant
 
 ### 1. The Energy Forum — “Beyond Recycling: The Global Systems Behind E-Waste”
