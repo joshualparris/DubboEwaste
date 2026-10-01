@@ -49,7 +49,7 @@ Prefer:
 - mini PCs/desktops
 - machines with useful SSD/RAM/parts even if repairable
 
-**2026 default retail target:** Windows 11-compatible hardware. Windows 10 normal support ended 14 October 2025. Older PCs can still be accepted where there is a credible Linux, vintage, donor-parts or other value path.
+**2026 default retail target:** Windows 11-compatible hardware. Windows 10 normal support ended 14 October 2025, but Microsoft now offers the consumer Extended Security Updates (ESU) programme in Australia through **12 October 2027** under current enrollment terms. A Windows 10 22H2 machine may therefore have a temporary supported resale path if that limitation is clearly disclosed; otherwise use a credible Linux, vintage, donor-parts or other value path.
 
 ### Phones
 
@@ -305,4 +305,4 @@ Do not treat the household CRC as an assumed commercial waste-disposal service.
 
 ## Sources
 
-See [PHASE-0-OPERATING-BLUEPRINT.md](PHASE-0-OPERATING-BLUEPRINT.md), especially sections 2, 6–16 and 26.
+See [PHASE-0-OPERATING-BLUEPRINT.md](PHASE-0-OPERATING-BLUEPRINT.md), especially sections 2, 6–16 and 26. See also [BACKLOG-21-25-COMPLIANCE-DATA-SAFETY.md](BACKLOG-21-25-COMPLIANCE-DATA-SAFETY.md) for the current Windows ESU, ACL, sanitisation, WHS and transport corrections.
