@@ -5,6 +5,8 @@
 
 This is a **synthesis**, not a replacement for the source-led deep dives. Where a specialised file contains newer evidence, the newer dated finding wins.
 
+For the **historical/provenance layer** — including the December 2024 donated-computer prehistory, the **10 laptops donated by Bendigo E-Waste on 4 September 2025**, DadLAN's reuse role, earlier refurb economics and how the idea moved from Bendigo to Dubbo — see [PROJECT-HISTORY-ALL-CHATS.md](PROJECT-HISTORY-ALL-CHATS.md).
+
 ## Privacy rule
 
 This repository is public.
