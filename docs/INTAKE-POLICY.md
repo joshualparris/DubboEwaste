@@ -288,10 +288,18 @@ Rules:
 
 Before public intake, confirm:
 
-- Australian Metal Recycling Dubbo categories/fees/lithium rules
+- Australian Metal Recycling Dubbo categories/fees/lithium rules **and the named downstream recycler**
 - NTCRS option for TVs/computers/peripherals
 - MobileMuster option for dead phones/chargers/accessories
 - safe damaged-battery pathway
+- whether AMR can provide a weight ticket/certificate of recycling for small commercial loads
+- whether any downstream facility in the AMR chain is AS 5377 certified
+
+**Data-bearing rule:** do not rely on ordinary AMR recycling as evidence of data destruction. Sanitise media first or remove HDD/SSD/NVMe storage for a separately verified destruction path.
+
+**Battery rule:** AMR's site simultaneously lists laptops/phones/tablets and excludes lithium-ion material. Do not send battery-equipped devices to AMR until the Dubbo yard confirms exactly how that rule works.
+
+See [WHAT-HAPPENS-TO-EWASTE.md](WHAT-HAPPENS-TO-EWASTE.md) for the detailed downstream trace.
 
 Do not treat the household CRC as an assumed commercial waste-disposal service.
 
