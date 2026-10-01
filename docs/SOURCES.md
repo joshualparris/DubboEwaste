@@ -267,3 +267,69 @@
 - Reconnect's site currently reports 4,800+ distributed devices; older pages/search surfaces can show lower figures because pages update at different times.
 - The Laptop Initiative's site is inconsistent about the named wiping partner (Renew IT on a current signup page; Zolo on other pages). Confirm current provider before relying on either.
 - The Laptop Initiative generally expects working, prepared equipment and says it does not repair gifted laptops; do not describe it as a repair/refurbishment workshop like Reconnect.
+
+
+## Good360 / Compnow / National Device Bank / Dubbo — checked 2 Oct 2026
+
+### Good360
+- Digital Divide current model: https://good360.org.au/digital-divide/
+- Digital Divide donor pledge; 3–5 year devices, donor processing/data contribution and current eligibility: https://good360.org.au/digital-divide/donor-pledge/
+- Recipient EOI: https://good360.org.au/digital-divide/eoi/
+- Good360 / Compnow refurbishment case study: https://good360.org.au/wp-content/uploads/2024/07/Compnow-Good360-CaseStudy.pdf
+- Good360 article on the Compnow partnership: https://good360.org.au/good-news/securely-wiped-refurbished-devices-at-good360-australia/
+- Good360 2024 Annual Report; Sircel/Compnow donor ecosystem and device impact: https://good360.org.au/wp-content/uploads/2025/03/Good360-Annual-Report-2024.pdf
+- Good360 2021 Annual Report; LeaderLife Dubbo example: https://good360.org.au/wp-content/uploads/2023/04/Good360-2021-Annual-Report.pdf
+- Good360 Little Wings / Dubbo example: https://good360.org.au/good-news/member-of-the-month-little-wings/
+
+### Compnow / SustainIT
+- Buy-back lifecycle: https://www.compnow.com.au/it-knowledge-base/buy-back-electronics/
+- Laptop buy-back: https://www.compnow.com.au/it-knowledge-base/laptop-buyback-offer/
+- Certified data destruction: https://www.compnow.com.au/it-knowledge-base/certified-data-destruction-services/
+- Lifecycle management: https://www.compnow.com.au/capabilities/lifecycle-management/
+- Sustainability: https://www.compnow.com.au/sustainability-vision/
+- Current locations: https://www.compnow.com.au/contact/
+- Company 98% refurbishment/repurpose claim: https://www.compnow.com.au/blog/a-sustainable-approach-to-your-next-device-refresh/
+
+### National Device Bank
+- Main site and current device specs/recipient model: https://nationaldevicebank.org.au/
+- About / partner roles: https://nationaldevicebank.org.au/about-us/
+- Official launch, 7 Aug 2025: https://nationaldevicebank.org.au/introducing-the-national-device-bank/
+- Access devices: https://nationaldevicebank.org.au/access-devices/
+- Donate devices; current >50-device direct-donation threshold: https://nationaldevicebank.org.au/donate-devices/
+- LIDIF 2025 report; NDB cross-subsidy model: https://www.nbnco.com.au/content/dam/nbn/documents/sell/industry-consultation/LIDIF-annual-report-2025.pdf.coredownload.pdf
+
+### WorkVentures
+- CircularIT / full ITAD workflow: https://workventures.com.au/circularit/
+- National Device Bank: https://workventures.com.au/national-device-bank/
+- First Nations NDB support/warranty example: https://workventures.com.au/first-nations-national-device-bank-support/
+- NSW Device Bank EOI / current organisation eligibility: https://workventures.com.au/nswdb-eoi/
+- Refurbished-device support: https://workventures.com.au/affordable-laptops/
+
+### Good Things Australia
+- Network: https://goodthingsaustralia.org/our-network/
+- Connecting Communities: https://goodthingsaustralia.org/our-programs/connecting-communities/
+- National Device Bank launch/partner roles: https://goodthingsaustralia.org/news/creating-a-national-device-bank
+- 2024-25 Annual Report: https://goodthingsaustralia.org/news/good-things-australia-annual-report-2024-25
+- Digital Sisters partners incl. Dubbo Support Center: https://goodthingsaustralia.org/news/55-organisations-selected-to-be-part-of-the-digital-sisters-program
+- Dubbo Support Center BDS $3,000: https://goodthingsaustralia.org/wp-content/uploads/2025/04/Be-Connected-grant-recipients-BDS-R1T-Apr-2025-.pdf
+- Dubbo Support Center BDS $5,200: https://goodthingsaustralia.org/wp-content/uploads/2025/04/Be-Connected-grant-recipients-BDS-R3-Apr-2025-.pdf
+- Digital Nebula – Dubbo BDS $3,000: https://goodthingsaustralia.org/wp-content/uploads/2025/05/Be-Connected-grant-recipients-BDS-R7-May-2025-.pdf
+- Get Online Week 2025 grants incl. Dubbo Support Center and Digital Nebula – Dubbo: https://goodthingsaustralia.org/wp-content/uploads/2025/08/Be-Connected-grant-recipients_Get-Online-Week-Aug-2025-.pdf
+
+### NSW Device Bank
+- NSW Government launch, 21 May 2026: https://www.nsw.gov.au/ministerial-releases/nsw-device-bank-to-help-people-and-communities-get-online
+- Buy NSW RFT-TELCO/6182; all-regions scope and priority cohorts: https://buy.nsw.gov.au/prcOpportunity/9A339589-49D9-448D-9A06E56260BBFA42
+- First community rollout, The Place Charlestown: https://www.theplacecharlestown.org.au/news
+
+### Dubbo-specific evidence
+- Dubbo Support Center ABN/ACNC: https://abr.business.gov.au/ABN/View?abn=84457470609
+- Digital Nebula entity/ABN: https://abr.business.gov.au/ABN/View?abn=85879394338
+- AHO Services Our Way refurbished laptops / named Dubbo recipient: https://dcj.nsw.gov.au/content/dcj/aboriginal-housing-office/aboriginal-housing-office-home/about-us/news/90-laptops-for-sow-clients.html
+- Dubbo Regional Council / VERTO Laptop to Launch: https://www.dubbo.nsw.gov.au/news-and-media/news-and-resources/council-news/2025/react-supporting-inaugural-laptop-to-launch-program
+- NSW NGO Flood Recovery Program; Good360 approved service area included Dubbo: https://dcj.nsw.gov.au/service-providers/grants/disaster-recovery-grant-programs/ngo-flood-recovery-program.html
+
+### Important evidence limits
+- No public proof found that Sircel's donated devices specifically pass through Compnow.
+- No public Dubbo National Device Bank or NSW Device Bank rollout found as of 2 Oct 2026.
+- No public Compnow refurbishment site/project in Dubbo found; the Good360 case study says its national team can collect fleets from anywhere in Australia.
+- Dubbo Support Center appears eligible at organisation level under the published NSW Device Bank rule, but no application or approval was found.
