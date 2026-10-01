@@ -507,7 +507,7 @@ Detailed file:
 - **Blancco SMB Select 50 current Australian reseller listing:** $982.30.
 - **Owner-operated processing hub — known public-price subtotal:** $24,315.30/year before insurance, outgoings, bond, fitout, utilities, transport and vehicle.
 - **Hub + 20h casual legal wage/super floor:** $62,811.94/year before those missing costs.
-- **Hub + full-time legal wage/super floor:** $82,830.19/year before those missing costs.
+- **Hub + full-time legal wage/super floor:** $82,840.68/year before those missing costs.
 
 ### Current lowest-risk sequence
 1. G1 white-label or Greenbox partner.
