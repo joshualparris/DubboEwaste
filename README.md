@@ -16,7 +16,7 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [docs/COSTS.md](docs/COSTS.md) | Start-up and running cost picture |
 | [docs/INTAKE-POLICY.md](docs/INTAKE-POLICY.md) | What to accept/refuse, wipe standard, safety rules |
 | [docs/CALL-SCRIPTS.md](docs/CALL-SCRIPTS.md) | Who to ring, in order, with exact questions |
-| [docs/EMAIL-DRAFTS.md](docs/EMAIL-DRAFTS.md) | Ready-to-send emails for Fair Trading, Council, EPA, Joe, Matthews and Avance |
+| [docs/EMAIL-DRAFTS.md](docs/EMAIL-DRAFTS.md) | Ready-to-send emails for Fair Trading, Council, EPA, Joe, Australian Metal Recycling and Avance |
 | [docs/SOURCES.md](docs/SOURCES.md) | Sources and confidence levels |
 | [templates/ownership-and-wipe-certificate.md](templates/ownership-and-wipe-certificate.md) | Client transfer-of-ownership and data-wipe certificate template |
 | [pilot-tracker.csv](pilot-tracker.csv) | Per-item profit tracker for the 20-30 item pilot |
@@ -30,7 +30,7 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 - Historical public trail: Whylandra -> Matthews Metals (Dubbo) -> downstream recovery. Council's 2025-2035 Waste Strategy and a late-2025 NSW Planning study name Matthews Metals in Dubbo as the e-waste processor, but Council's listed Matthews e-waste contract expired 30 June 2025.
 - **2026 update:** the strongest current evidence points to **Australian Metal Recycling (AMR), operated by Scrap Metal Services Pty Ltd (ABN 51 640 765 091), at 34 Mountbatten Drive**. NSW Police's 19 Feb 2026 Scrap Metal Industry Register lists that address under AMR registration SM-0759, while AMR calls Dubbo “Formerly Matthews Metal Management”.
 - InfraBuild still has an online Matthews Dubbo branch page and OneSteel Recycling (an InfraBuild subsidiary) still holds the Matthews Metal Management business name. A March 2025 tender listed InfraBuild Recycling and Scrap Metal Services as separate bidders, so AMR should not be treated as simply another InfraBuild brand.
-- AMR currently advertises **free e-waste recycling** and includes computers, monitors and printers, but explicitly lists **lithium batteries as not accepted**. TVs/CRTs, phones/tablets, commercial limits and downstream certificates still need direct confirmation.
+- AMR currently advertises **free e-waste recycling** and explicitly lists **TVs, computers/laptops, monitors, smart phones/tablets and printers/scanners** as accepted e-waste. Its materials list says **electronic waste excluding lithium ion**, and lithium batteries are separately listed as not accepted. CRT-specific rules, battery removal from whole devices, commercial limits and downstream certificates still need direct confirmation.
 - Full evidence trail: [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md).
 
 ## 2. The business model
