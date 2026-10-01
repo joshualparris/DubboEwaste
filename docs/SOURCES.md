@@ -97,3 +97,37 @@
 - Whether Sims still uses St Marys for these councils in 2026.
 - Reuse-versus-material-recovery rates.
 - Commercial e-waste rules and whether council contracts permit pre-recycling diversion to a local refurbisher.
+
+
+## Downstream e-waste process research — checked 2 Oct 2026
+
+**AMR / CURRENT**
+- AMR material list — TVs, computers/laptops, monitors, smart phones/tablets, printers/scanners; electronic waste excluding lithium ion: https://australianmetalrecycling.com.au/
+- AMR services — e-waste listed under free recycling: https://australianmetalrecycling.com.au/services/
+- AMR National Recycling Week 2025 — regional yards, e-waste, Rutherford consolidation for processing/onward sale: https://australianmetalrecycling.com.au/rescuing-scrap-metal-across-nsw/
+- AMR Tamworth — published equipment/capabilities, EPA-compliant transport/processing through licensed facilities, weigh tickets, traceability and certificates of recycling: https://australianmetalrecycling.com.au/scrap-metal-recycling-tamworth/
+
+**AUSTRALIAN GOVERNMENT / NTCRS**
+- DCCEEW — NTCRS is industry-funded and provides free TV/computer recycling to households and small businesses: https://www.dcceew.gov.au/environment/protection/waste/product-stewardship/television-computer-recycling-scheme
+- DCCEEW — NTCRS roles/responsibilities: https://www.dcceew.gov.au/environment/protection/waste/product-stewardship/products-schemes/television-computer-recycling-scheme
+- DCCEEW — approved co-regulatory arrangements; AS 5377 requirement and 90% material-recovery target: https://www.dcceew.gov.au/environment/protection/waste/product-stewardship/products-schemes/television-computer-recycling-scheme/coreg-arrangements
+- DCCEEW — recycler requirements / AS 5377: https://www.dcceew.gov.au/environment/protection/waste/product-stewardship/products-schemes/television-computer-recycling-scheme/recyclers
+- DCCEEW — covered products including TVs, laptops/tablets, CRT/flat monitors, printers, scanners, hard drives and peripherals: https://www.dcceew.gov.au/environment/protection/waste/consumers/recycling-drop-off
+- Federal Register — current Television and Computer Recycling Scheme Rules: https://www.legislation.gov.au/F2021L00624/latest
+
+**DOWNSTREAM EXAMPLE — NOT AMR-SPECIFIC**
+- TechCollect — first-stage Australian dismantling/shredding/sorting into glass, metals, plastics, batteries, PCBs and toner; some second-stage processing in Australia and some approved Asian facilities: https://techcollect.com.au/about-us/where-does-our-e-waste-go/
+
+**MOBILE PHONE BENCHMARK — NOT AMR-SPECIFIC**
+- MobileMuster FAQs — Sydney/Melbourne dismantling, separated material streams, some downstream processing in Singapore, >95% recovery and data destruction: https://www.mobilemuster.com.au/frequently-asked-questions/
+- MobileMuster recycling: https://www.mobilemuster.com.au/recycling/
+
+**EXPORT CONTROLS**
+- DCCEEW — e-waste export/import controls; e-waste presumed hazardous unless proven otherwise; hazardous constituents and Basel controls: https://www.dcceew.gov.au/environment/protection/hazardous-waste/control-e-waste
+
+**NOT FOUND / IMPORTANT**
+- No public source found naming AMR Dubbo's downstream e-waste processor.
+- No public proof found that AMR Dubbo is a current NTCRS collection point or contracted recycling provider.
+- No public AS 5377 certificate found for AMR Dubbo in this research.
+- No AMR public process found for NIST-style sanitisation, drive shredding or serial-numbered data-destruction certificates.
+- No AMR public material-flow report found showing its e-waste recovery percentage or overseas destinations.
