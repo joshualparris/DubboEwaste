@@ -133,6 +133,27 @@ Sources:
 
 **Important distinction:** Officeworks is a strong reason not to market Dubbo E-Waste merely as a convenient household recycling point.
 
+
+#### Clarification — Officeworks is a collection/trade-in channel, not the Dubbo processor
+
+Officeworks is relevant to the Dubbo competitor/substitute map because it gives residents another way to hand over unwanted technology.
+
+It should **not** be described as an industrial e-waste recycler operating in the Dubbo store.
+
+The accurate distinction is:
+
+- **Tech Trade-in:** eligible devices may be traded for Officeworks value/gift-card value and can enter a reuse/resale pathway.
+- **Bring it Back / recycling:** selected unwanted technology can be handed in and then sent onward through Officeworks' recycling partners.
+- **Dubbo store:** this is the local consumer handover point, not the specialist dismantling/shredding plant.
+- **National vs local acceptance:** do not assume every nationally advertised category is accepted at the Dubbo store without checking the store/program conditions.
+- Officeworks stopped in-store battery collection in February 2024.
+
+**Correct repo wording:**
+
+> **Officeworks is an existing retail trade-in / technology collection channel and disposal substitute for some Dubbo households. It is not being described as the local downstream recycler.**
+
+This matters strategically because Dubbo eWaste should not compete on "somewhere to get rid of an old laptop". It should compete on **reuse triage, documented data handling, refurbishment, asset reporting, local resale/redeployment and transparent final outcomes**.
+
 ### Dubbo Regional Council
 
 Council's A–Z recycling guide directs computers/e-waste to Council recycling/waste depots and Officeworks.
