@@ -334,3 +334,34 @@ NSW public schools should **not** be treated as an easy Phase 0 donation source.
 - downstream facility names;
 - asset outcome breakdown.
 
+
+
+---
+
+## J. Local reuse/resale gap and council barriers
+
+Detailed research:
+- `docs/DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS.md`
+- `docs/WHY-COUNCIL-ELECTRONICS-REUSE-IS-HARD.md`
+- `docs/PONYUP-SECONDBITE-DUBBO.md`
+
+### Found
+- **Dubbo/Wellington:** Council has formally planned/business-cased reuse shops, but no current official electronics-specific test/wipe/refurb/resale operation was verified.
+- **Narromine:** 2024 Garage Sale Trail delivered 47 sales/stalls and 4,231 items reused/sold. This demonstrates reuse without Council taking custody.
+- **Trangie:** current documented electronics activity is small-item recycling; no specialist reuse/resale program was found.
+- **Cessnock comparative evidence:** a 2026 NSW council report identified safety, compliance, security and financial risk as reasons councils have shifted away from operating reuse shops directly. It listed minimum two staff, security, electrical test/tag, product liability, POS, capital works and ongoing compliance among requirements.
+- **NSW EPA reuse evidence:** reuse is labour-intensive but socially valuable — 25x more jobs per tonne than recycling in the 2022–23 study.
+- **Dumping risk:** NSW EPA says bad/illegal charity donations cost millions annually.
+- **Battery risk:** NSW EPA reported 332 lithium-ion incidents in 2025 and continuing truck/waste-facility fires in 2026.
+- **PonyUp/SecondBite:** PonyUp contributes 50% of profits to SecondBite; the computers do not flow to SecondBite.
+- **Dubbo SecondBite link:** Connecting Community Services is a current SecondBite partner and separately provides free computer/internet access and basic skills help.
+
+### Unknown / direct-contact questions
+- Current status/funding/timeline of Whylandra and Wellington reuse shops.
+- Whether either planned shop would accept/test electronics.
+- Whether Council contracts allow pre-disposal diversion to a third-party refurbisher.
+- Whether Narromine would support an electronics-specific reuse pilot.
+- Exact full e-waste acceptance at Trangie versus Narromine.
+- Whether Connecting Community Services wants refurbished devices for clients.
+- Whether PonyUp currently services any Dubbo/Orana fleets.
+- Whether PonyUp, Reconnect or Laptop Initiative would use a Dubbo feeder/triage partner.
