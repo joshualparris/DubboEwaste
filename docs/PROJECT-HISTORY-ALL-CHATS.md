@@ -22,6 +22,24 @@ The current concept is described here only as a **Dubbo home/rental-site pilot**
 
 ---
 
+# 0. Prehistory — donated/low-cost computers before the business idea
+
+**PRIOR-CHAT / ARCHIVED PROJECT CONTEXT**
+
+A December 2024 Bendigo outreach request sought **five low-cost or donated laptops/desktops** for reuse rather than disposal.
+
+The use case was practical rather than commercial:
+
+- Windows preferred for LAN/game management;
+- low-spec systems were still useful;
+- older games such as Quake, Doom and Tron were viable targets.
+
+This predates the formal Bendigo/Dubbo e-waste-business research and shows that the reuse instinct came first: **find useful work for ageing computers rather than treating age alone as end-of-life.**
+
+The exact old attachment containing this request is no longer relied on as a current project source; this section preserves only the project-relevant historical fact recovered from prior-chat context.
+
+---
+
 # 1. Origin of the reuse idea — Bendigo, 2025
 
 ## September 2025: the project existed before "Dubbo E-Waste"
