@@ -27,7 +27,7 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [docs/launch-checklist.md](docs/launch-checklist.md) | Earlier lean-launch checklist retained for operational planning |
 | [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md) | Current research on the Dubbo Matthews/InfraBuild/AMR yard and e-waste outlet |
 | [docs/REGIONAL-EWASTE-PATHWAYS.md](docs/REGIONAL-EWASTE-PATHWAYS.md) | What surrounding towns do with e-waste, current drop-off pathways, downstream evidence and reuse opportunities |
-| [docs/WHAT-HAPPENS-TO-EWASTE.md](docs/WHAT-HAPPENS-TO-EWASTE.md) | **Deep downstream trace:** AMR, council routes, Parkes/Sircel, historical Sims/St Marys shredding, Coonamble/Matthews, device-to-material flows and NTCRS recovery data |
+| [docs/WHAT-HAPPENS-TO-EWASTE.md](docs/WHAT-HAPPENS-TO-EWASTE.md) | **Deep downstream trace:** AMR, council routes, Parkes/Sircel, historical Sims/St Marys shredding, Coonamble/Matthews, device-to-material flows and NTCRS recovery data |\n| [docs/SIRCEL-ITAD-REUSE-MODEL.md](docs/SIRCEL-ITAD-REUSE-MODEL.md) | **Core business-model deep dive:** Sircel triage, Blancco wiping, hardware testing, buy-back/reuse, FY24 reuse metrics and a small-scale Dubbo adaptation |
 | [docs/AMR-DUBBO-DOWNSTREAM-FORENSIC.md](docs/AMR-DUBBO-DOWNSTREAM-FORENSIC.md) | **Forensic trace:** attempts to identify the exact company/facility receiving AMR Dubbo e-waste, with candidates and evidence limits |
 
 ## 1. What happens to Dubbo e-waste today
