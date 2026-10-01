@@ -489,3 +489,40 @@ Detailed playbook:
 1. Greenbox partner pricing/rulebook.
 2. G1 white-label quote using the same 100-laptop sample job.
 3. Fliptech written terms for a Dubbo/Central West pilot.
+
+
+---
+
+## L. Branch economics — now quantified from public prices
+
+Detailed file:
+- `docs/DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS.md`
+
+### Branch economics — now quantified from public prices
+- **White-label/no-premises test:** ABN $0; business name $47/year if needed.
+- **New proprietary company:** $636 registration; $342 annual review; business name $47 if required.
+- **Dubbo business storage:** current advertised examples include 18 m² from $125/month incl. GST and 32–36 m² from $220/month incl. GST.
+- **Second-hand dealer licence if applicable:** $692 for one year.
+- **Current 200 m² Dubbo warehouse example:** $395/week + GST = $22,594/year incl. GST.
+- **Blancco SMB Select 50 current Australian reseller listing:** $982.30.
+- **Owner-operated processing hub — known public-price subtotal:** $24,315.30/year before insurance, outgoings, bond, fitout, utilities, transport and vehicle.
+- **Hub + 20h casual legal wage/super floor:** $62,811.94/year before those missing costs.
+- **Hub + full-time legal wage/super floor:** $82,830.19/year before those missing costs.
+
+### Current lowest-risk sequence
+1. G1 white-label or Greenbox partner.
+2. Prove 3–10 recurring Dubbo business accounts.
+3. Run collections with parent-company backend.
+4. Add $125–$220/month secure staging only if logistics justify it and storage terms permit the exact use.
+5. Add local sanitisation/testing only with written parent-company approval.
+6. Sign a $20k+ industrial lease only after recurring revenue supports it.
+
+### Still unknown
+- Parent-company reseller/service pricing.
+- Local operator commission or markup rights.
+- Buyback/resale revenue split.
+- Insurance premium and required cover limits.
+- Lease bond/outgoings and fitout.
+- Exact award classification for employees.
+- Whether the partner company would fund premises/equipment itself.
+- Whether geographic exclusivity is available.
