@@ -1,146 +1,89 @@
-# Dubbo eWaste
+# Dubbo E-Waste Refurb & Resale
 
-A lean Dubbo-based e-waste collection, reuse, refurbishment and responsible recycling project.
+Research notes, legal/licensing findings and a pilot plan for a **small, low-cost e-waste recovery and refurb business in Dubbo, NSW**, run from a back shed, open **Tuesdays and Saturdays**, accepting **high-quality** old laptops, phones, tablets, TVs and electronics only.
 
 > **Reuse first. Recycle second.**
 
-## Concept
+*Compiled 2 October 2026. Status: research stage. Figures marked (estimate) are not quotes. Items marked VERIFIED were read from an official source during this research; everything else needs a phone call. Not legal advice.*
 
-Dubbo eWaste is being explored as a small, low-overhead operation that starts from an existing home shed in Dubbo rather than immediately leasing commercial premises or building an industrial recycling facility.
+## What's in this repo
 
-The proposed flow is:
+| File | What it is |
+|---|---|
+| [README.md](README.md) | This summary |
+| [GAPS.md](GAPS.md) | Full list of what is known, found, and still unknown |
+| [docs/LEGAL-LICENSING.md](docs/LEGAL-LICENSING.md) | Second-hand dealer licence, council/planning, EPA, in detail |
+| [docs/COSTS.md](docs/COSTS.md) | Start-up and running cost picture |
+| [docs/INTAKE-POLICY.md](docs/INTAKE-POLICY.md) | What to accept/refuse, wipe standard, safety rules |
+| [docs/CALL-SCRIPTS.md](docs/CALL-SCRIPTS.md) | Who to ring, in order, with exact questions |
+| [docs/EMAIL-DRAFTS.md](docs/EMAIL-DRAFTS.md) | Ready-to-send emails for Fair Trading, Council, EPA, Joe, Matthews and Avance |
+| [docs/SOURCES.md](docs/SOURCES.md) | Sources and confidence levels |
+| [templates/ownership-and-wipe-certificate.md](templates/ownership-and-wipe-certificate.md) | Client transfer-of-ownership and data-wipe certificate template |
+| [pilot-tracker.csv](pilot-tracker.csv) | Per-item profit tracker for the 20-30 item pilot |
+| [docs/research.md](docs/research.md) | Earlier feasibility research retained for additional context |
+| [docs/launch-checklist.md](docs/launch-checklist.md) | Earlier lean-launch checklist retained for operational planning |
 
-1. Collect unwanted computers and other suitable electronics from households and businesses.
-2. Record each asset and its source.
-3. Securely erase data-bearing devices or physically destroy storage where erasure is not appropriate.
-4. Triage equipment into:
-   - refurbish and resell
-   - repair
-   - parts recovery
-   - redeploy/donate/experimental use
-   - downstream recycling
-5. Send genuine waste and hazardous/problem items to appropriate commercial recycling streams.
+## 1. What happens to Dubbo e-waste today
 
-The value proposition is not simply "take e-waste". It is **collection + data handling + maximum reuse + responsible downstream recycling**.
+- Dubbo Regional Council's Whylandra Waste and Recycling Centre takes household e-waste (anything with a cord or battery) free from residents. It is a Community Recycling Centre and an NTCRS participant (via DHL Drop Zone). Council also publishes a separate commercial fee schedule; the e-waste rate for business is unknown.
+- Public trail: Whylandra -> Matthews Metal Management (Dubbo) -> recycling/material recovery. A late-2025 NSW Government regional waste study names Matthews Metals in Dubbo as the e-waste processor. Matthews is now an InfraBuild operation (Mountbatten Drive).
+- Caveat: an older Council strategy listed Matthews' e-waste contract to 30 June 2025; a June 2025 Council operational document still lists them. Council doesn't publish what happens downstream after Matthews.
+- A directory listing says Matthews Dubbo does **not** take TVs, CRT monitors or printers, and is closed weekends. Verify.
 
-## Why Dubbo?
+## 2. The business model
 
-Dubbo Regional Council already accepts domestic e-waste at Whylandra, so a new operator should not try to compete merely as another household dump point.
+Not a recycling plant: **a refurb and resale business with e-waste as the supply line.**
 
-The opportunity is in **reuse and service**:
+1. **Refurbished working gear** (best margin): laptops, desktops, monitors, phones, tablets, resold online.
+2. **Parts**: RAM, SSDs, chargers, screens.
+3. **Scrap** (worst margin): only if someone takes it.
 
-- convenient collection
-- business IT clear-outs
-- asset reporting
-- secure data erasure
-- refurbishment and resale
-- parts recovery
-- donation/redeployment
-- keeping usable hardware in service longer
+Joe (Bendigo E-Waste) only takes good, sellable stuff, so he is not the outlet for junk. Filter: **anything sellable for a profit.** Anything failing that test needs a pre-agreed exit (refuse, small intake fee, Whylandra/NTCRS, Matthews).
 
-Council's waste strategy is explicitly oriented toward circular-economy outcomes and increasing resource recovery.
+## 3. The three main legal regimes
 
-## Current Dubbo e-waste pathway
+1. **EPA licence:** probably not needed at shed scale (thresholds are in the thousands of tonnes). The proposed NSW e-Waste Bill (licence over 100 t/yr) was **defeated 18 Sep 2025**. Still confirm refurb/dismantling thresholds and battery classification with EPA.
+2. **Council planning (biggest risk):** a "home business" can't do walk-in retail of goods not produced at the dwelling (online is OK), can't generate amenity-affecting traffic, and has signage/area limits. Public open days on Tue/Sat likely go beyond it. Zoning of the property is **unconfirmed**; surrounding Boundary Road land is a mix of R5/R2/R1 residential with active rezoning.
+3. **NSW second-hand dealer licence (VERIFIED from NSW Fair Trading, updated Sept 2026):**
+   - Needed to buy, sell or exchange prescribed goods, which include **electronic goods** (phones, laptops, tablets etc.).
+   - **$692** for a new 1-year licence (2026-27); **$1,574** for 3 years; **$2,456** for 5 years. Renewals from $500 (1 yr). Fees may rise with CPI each 1 July.
+   - Can be held by an individual, partnership or corporation. The **licence belongs to the legal entity**, not a brand name. A "fit and proper person" check applies to the person or each director.
+   - Must notify Fair Trading of premises used for business **and storage**; display signs; check supplier ID and get an ownership statement; keep electronic records (reported to police within 3 days); **hold regulated goods 14 days and not alter them until the hold ends**.
+   - **No licence is needed to "engage in recycling and rubbish collection programs"** (Fair Trading page). Whether a free-collection -> refurb -> resell -> recycle-the-rest model counts is **not confirmed**. Fair Trading (13 32 20) or a formal exemption application is the way to get that answer in writing.
 
-Current public evidence indicates:
+### Licence-sharing idea
 
-**Household drop-off → Whylandra Waste and Recycling Centre → Matthews Metals in Dubbo → downstream material recovery/recycling**
+Only works if Dubbo eWaste genuinely trades under the **same legal entity that holds a licence**, with the shed added as a notified premises. Branding alone does nothing. It has not been verified whether Avance or any related business holds a second-hand dealer licence. Using an employer's licence would also raise liability, conflict-of-interest and who-profits questions that need written agreement.
 
-A NSW Department of Planning regional waste infrastructure study states that Dubbo e-waste is processed by Matthews Metals in Dubbo. Dubbo Regional Council's 2025–2035 Waste Strategy lists Matthews Metals as the e-waste collection contractor, with that listed contract expiring 30 June 2025. A later state study still identifies Matthews as the processor, so the exact current Council contract should be reconfirmed.
+### Other checks retained from the earlier research
 
-Matthews Metal Management's Dubbo branch is now presented under InfraBuild.
+The earlier feasibility notes also flag:
+- possible NSW scrap-metal business registration if the operation actually deals in scrap metal;
+- the need for a legitimate commercial downstream pathway rather than assuming household Community Recycling Centre services can be used for business waste;
+- the Dubbo LEP home-business floor-area issue;
+- business-name and insurance costs.
 
-## Cheapest launch model
+See [docs/research.md](docs/research.md) and [docs/launch-checklist.md](docs/launch-checklist.md). Treat these as additional items to verify rather than resolved answers.
 
-Start as a **home-based collection/refurbishment operation**, not as a public waste depot or industrial recycler.
+## 4. Key numbers
 
-Avoid at launch:
+- Licence: $692 / $1,574 / $2,456 (1 / 3 / 5 yr), VERIFIED. **Don't budget it yet** until Fair Trading confirms whether it is needed.
+- Cheapest shed start-up otherwise: roughly $0-$1,500 (estimate) plus insurance.
+- eBay: 2026 fee rules changed. Low-volume private sellers may pay nothing, but a business reseller likely pays roughly 13% (secondary source). Verify.
+- Earlier research also records possible business-name and scrap-metal registration costs if those requirements apply.
 
-- leasing a warehouse
-- employees
-- a dedicated truck
-- industrial shredding or processing equipment
-- accepting unrestricted hazardous waste
-- large public drop-off volumes
-- stockpiling damaged lithium batteries
+## 5. Do first
 
-A minimal launch could use existing tools, shelving, transport and computing equipment, with spending focused on registration, insurance, safe storage and consumables.
+See [docs/CALL-SCRIPTS.md](docs/CALL-SCRIPTS.md). Resolve Council planning, Fair Trading, EPA, Joe, Matthews, Whylandra, insurers and Avance before spending heavily.
 
-The exact home address is intentionally **not stored in this public repository**.
+## 6. Pilot
 
-## Key legal/regulatory questions
+Run 1-2 business clients, 20-30 items, log each in [pilot-tracker.csv](pilot-tracker.csv). Price against **sold** listings. Go/no-go on real profit per item and resaleable-vs-junk share.
 
-These need to be confirmed before trading:
+## Open questions
 
-### Second-hand dealer licence
+See [GAPS.md](GAPS.md).
 
-NSW generally requires a second-hand dealer licence for a business buying, selling or exchanging prescribed second-hand goods, and **electronic goods are prescribed goods**.
+## Privacy note
 
-The 2026–27 new one-year licence fee is **$692**.
-
-However, NSW Government guidance also says a licence is **not required to "engage in recycling and rubbish collection programs."** Whether a collection → refurbish → resell → recycle model fits that exemption needs direct confirmation from NSW Fair Trading.
-
-There may also be a path to operate under another existing legal entity/business if that entity already holds the necessary authority. This must be verified rather than assumed.
-
-### Scrap metal registration
-
-If Dubbo eWaste carries on a business dealing in scrap metal, NSW Police registration may apply. Registration is currently **$260 every three years**. NSW Police guidance says there is a presumption that a person dealing in scrap metal on more than six days in a 12-month period is carrying on such a business.
-
-### Home-business planning
-
-Dubbo Regional Local Environmental Plan 2022 limits a permitted **home business** to no more than **30 m² of floor area**.
-
-Before launch, confirm the exact proposed use with Dubbo Regional Council, especially collection traffic, storage, signage, deliveries, noise, batteries and whether any development consent is required.
-
-### Business waste
-
-NSW Community Recycling Centres are for household problem waste. **Businesses are not eligible to use CRC services as their commercial waste-disposal pathway.** Dubbo eWaste therefore needs an appropriate commercial downstream arrangement for material it cannot reuse.
-
-### Lithium batteries
-
-Lithium-ion batteries are a significant fire risk. Damaged, swollen, leaking or overheating batteries should not be charged. Battery charging/storage needs hard non-combustible surfaces, working smoke/heat detection, appropriate separation and a clear downstream disposal process.
-
-## Initial cost picture
-
-Verified government fees as at October 2026:
-
-| Item | Cost |
-|---|---:|
-| ABN | $0 |
-| Business name | $47 / 1 year or $108 / 3 years |
-| Second-hand dealer licence | $692 / 1 year **if required** |
-| Scrap-metal business registration | $260 / 3 years **if required** |
-
-Other launch costs such as insurance, battery-safe storage, consumables and replacement parts need real quotes. Earlier planning estimates suggested a **very lean launch around $1,000** may be possible if existing shed space, tools, shelving and transport are used and the $692 licence exemption/coverage is confirmed.
-
-## Immediate validation work
-
-Before spending significant money:
-
-- ask NSW Fair Trading whether the recycling/rubbish-collection exemption covers this exact model
-- check whether an existing related business could legally cover the second-hand-dealing activity
-- ask Dubbo Regional Council's planning team whether the home-shed model is permissible
-- get a commercial downstream-recycling quote/process
-- get public/product liability insurance quotes
-- benchmark the model with an established regional e-waste operator
-- test demand with a small number of local business collections
-
-See [docs/research.md](docs/research.md) and [docs/launch-checklist.md](docs/launch-checklist.md).
-
-## Sources
-
-- Dubbo Regional Council – Whylandra Waste and Recycling Centre: https://www.dubbo.nsw.gov.au/Households-Residents/Rubbish-Recycling-and-Sustainability/whylandra-waste-recycling-centre
-- Dubbo Regional Council – 2025–2035 Waste Strategy: https://www.dubbo.nsw.gov.au/ArticleDocuments/242/Waste_Strategy_2025_Adopted.pdf.aspx
-- NSW DPHI – Central West Orana REZ Waste: Regional Major Infrastructure Study: https://www.planning.nsw.gov.au/sites/default/files/2025-12/central-west-orana-rez-waste-regional-major-infrastructure-study-report-for-nsw-dphi.pdf
-- InfraBuild – Matthews Metal Management Dubbo: https://www.infrabuild.com/branch/matthews-metal-management-dubbo/
-- NSW Government – Pawnbroker and second-hand dealer licences: https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/pawnbrokers-and-second-hand-dealers/pawnbroker-and-second-hand-dealer-licences
-- NSW Government – second-hand dealer fees: https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/pawnbrokers-and-second-hand-dealers/pawnbrokers-and-second-hand-dealers-fees
-- NSW Police – Scrap Metal Industry: https://www.police.nsw.gov.au/online_services/scrap_metal_industry
-- NSW EPA – Community Recycling Centres / business waste: https://www.epa.nsw.gov.au/Your-environment/Recycling-and-reuse/household-recycling-overview/find-crcs-or-hcco
-- Fire and Rescue NSW – lithium-ion battery safety: https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/battery-and-charging-safety/shop-charge-and-recycle-safely
-- business.gov.au – business name registration: https://business.gov.au/registrations/register-your-business-name
-- Dubbo Regional LEP 2022: https://www.dubbo.nsw.gov.au/ArticleDocuments/355/Dubbo%20Regional%20Local%20Environmental%20Plan%202022.pdf.aspx?Embed=Y
-
----
-
-**Status:** concept / feasibility validation. Regulatory questions marked as unresolved should be confirmed with the relevant authority before relying on them.
+This repo is public. The street address is deliberately not included.
