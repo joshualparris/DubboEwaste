@@ -717,3 +717,223 @@ Key Spotify pages:
 - https://open.spotify.com/episode/0dRi7OBHNGrL6KvQlOcicS
 - https://open.spotify.com/episode/3y88otxZzJL9qnD8CkFg9A
 - https://open.spotify.com/episode/5aYhjxim0zLV4V4NN6iWat
+
+
+---
+
+# Additional highly relevant verified picks
+
+These were added after the initial list because they map especially well to startup, social reuse, ITAD and resale questions already in the repo.
+
+## 21. Life on Planet A — “#82: E-waste Revolution with Austin Turpin”
+
+**Spotify:** https://open.spotify.com/show/2m7vWs5BoO9s1iU1HdsOcc  
+**Find in show:** **#82: E-waste Revolution with Austin Turpin**  
+**Published:** 1 May 2025  
+**Length:** ~45 min  
+**Australia:** Yes
+
+### Why it is especially relevant
+
+Austin Turpin founded Australian e-waste startup FlipTech. The episode covers the e-waste problem, Australia's regulatory landscape, founder challenges, startup milestones and building an e-waste business.
+
+### Dubbo connection
+
+This is one of the closest founder comparisons to the current Dubbo Phase 0 question:
+
+> How do you start an Australian e-waste/circular-tech business without beginning as a large recycler?
+
+Use it alongside the Bendigo early-days research.
+
+---
+
+## 22. Research Labs — “#82 Alison Canning on Reviving Laptops, Reusing Tech, Reconnecting Communities”
+
+**Spotify:** https://open.spotify.com/show/5v2xVS1uBZJ3hKXrGEMRr4  
+**Find in show:** **#82 Alison Canning on Reviving Laptops, Reusing Tech, Reconnecting Communities**  
+**Published:** 20 October 2025  
+**Length:** ~68 min
+
+### Why it is relevant
+
+Let's Get Together revives donated laptops, including with Ubuntu/open-source software, and distributes them alongside internet access and digital-literacy support.
+
+### Dubbo connection
+
+Useful for:
+- older laptops that may not be ideal Windows resale stock
+- Linux reuse
+- community refurbishment
+- social-device programs
+- connecting devices with skills/support rather than just donating hardware.
+
+This pairs particularly well with the Good360 / Device Bank research.
+
+---
+
+## 23. “Purpose beyond Profit” — THRECO founder Karan Thakkar
+
+**Spotify:** https://open.spotify.com/episode/3trnhfPhENBh0iKEmEtA27  
+**Episode:** **Creating a circular economy, one electronic device at a time**  
+**Length:** ~35 min
+
+### Why it is relevant
+
+This episode specifically discusses how a founder learned the e-waste sector and built a business from the ground up.
+
+### Dubbo connection
+
+Use it for the same question asked in the Bendigo/Joe research:
+
+> What did the founder actually do first, before the business became mature?
+
+---
+
+## 24. Marketing UnLearned — Back Market: “Breaking the 'newness' paradigm”
+
+**Spotify:** https://open.spotify.com/episode/3QmGWQ9G9T2VcH7szY3DLI  
+**Published:** 4 February 2026  
+**Length:** ~41 min
+
+### Why it is relevant
+
+Back Market's business depends on making refurbished electronics feel trustworthy and mainstream rather than “second-hand junk”.
+
+### Dubbo connection
+
+Very useful for:
+- refurbished-product language
+- customer trust
+- grading
+- warranty expectations
+- marketing
+- overcoming the belief that new is always better.
+
+This is relevant once Dubbo eWaste starts listing refurbished devices for sale.
+
+---
+
+## 25. TERRA 3rd Thursday Podcast Series
+
+**Spotify:** https://open.spotify.com/show/4HgjD5ehzc3T98gZGdIa2D
+
+### Why follow the whole show
+
+TERRA's feed is specifically aimed at **e-scrap and IT asset disposition operations**.
+
+Recurring topics include:
+- device recovery
+- IT asset management
+- logistics
+- certifications
+- operational efficiency
+- profitability
+- automation.
+
+### Dubbo connection
+
+This is probably the best ongoing technical/business feed for understanding what a mature ITAD operator worries about after Phase 0.
+
+---
+
+## 26. TradeIQ — GreenTek Solutions IT Asset Remarketing
+
+**Spotify:** https://open.spotify.com/episode/1Szz1mH5MwJGAziHw23dXJ  
+**Published:** 30 June 2026  
+**Length:** ~26 min
+
+### Why it is relevant
+
+The guest is an IT Asset Remarketing Manager at an ITAD provider. The episode covers:
+- retiring business IT
+- reselling devices
+- data protection
+- compliance
+- value recovery.
+
+### Dubbo connection
+
+This is highly relevant to the future question:
+
+> How does Dubbo eWaste make money from retired business devices without simply becoming a scrap dealer?
+
+---
+
+## 27. Pitching Progress — Molg: “Fixing the economics of tech recycling using robots”
+
+**Spotify:** https://open.spotify.com/episode/315gByKVcE7yeksly4EEy8  
+**Published:** 2 July 2026  
+**Length:** ~32 min
+
+### Why it is relevant
+
+This focuses on disassembly and the economics of recovering components/materials from electronics.
+
+### Dubbo connection
+
+This sits **after** the reuse/refurbishment stage.
+
+It helps explain why Dubbo eWaste should initially outsource industrial end-of-life processing and specialise in:
+- triage
+- secure data handling
+- testing
+- repair
+- resale
+- donor-parts recovery.
+
+---
+
+## 28. The Circular Future — “ITAD's Best Kept Secrets”
+
+**Spotify:** https://open.spotify.com/episode/4SqLmTRLcjNUkRlc0GDBjZ  
+**Length:** ~21 min
+
+### Why it is relevant
+
+Focused on what better-performing organisations do with retired technology.
+
+### Dubbo connection
+
+Useful before approaching:
+- MSPs
+- schools
+- businesses
+- institutional fleet owners.
+
+Listen for what an ITAD client expects beyond simple collection.
+
+---
+
+# Fast playlist by goal
+
+### Starting the business
+- Life on Planet A / FlipTech
+- THRECO founder episode
+- LiteHaus
+- Bendigo research in this repo
+
+### Building professional ITAD
+- All Things Circular EP59 / Foxway
+- Ticket Volume / Alicia Syx
+- TERRA
+- TradeIQ / GreenTek
+- The Circular Future
+
+### Reuse and digital inclusion
+- LiteHaus
+- Alison Canning / Research Labs
+- Good360 / Community Matters
+- ILO digital divide
+
+### Refurbished resale and trust
+- Back Market
+- Refurbed / RESET
+- Reboxed
+- Profit or Loss
+
+### Understanding the true downstream
+- Energy Forum Ep30
+- Renew IT
+- Circular Economy Show
+- Molg
+- Green IO #20
