@@ -489,3 +489,42 @@ Some older uploaded attachments referenced in historic conversations are no long
 - A visible LinkedIn profile count is not treated as an employee headcount.
 - "Shortlisted" means public evidence supports investigating a physical regional presence; it does not mean the company has announced or agreed to a Dubbo branch.
 - Companies removed from the branch shortlist may still service Dubbo remotely or partner with a local operator.
+
+
+## Dubbo ITAD branch costs / onboarding — checked 2 Oct 2026
+
+### Low-cost partner routes
+- G1 white-labelled ITAD for IT service providers: https://g1.com.au/solutions/it-service-providers/
+- G1 facilities / quote: https://g1.com.au/contact/
+- G1 regional buyback: https://g1.com.au/service/corporate-and-education-it-asset-buybacks/
+- Greenbox partner FAQ — two-page application, 12-month business plan, 3 references, 3 months credit info, 14-business-day target, mandatory LMS training, MOU/no long-term contract, preferred pricing: https://www.greenbox.com.au/faqs/
+- Greenbox partner page: https://www.greenbox.com.au/partners/
+
+### Other retained branch candidates
+- WV hubs: https://wvtech.com.au/contact/
+- WV buyback/ITAD: https://wvtech.com.au/solutions/
+- Renew IT locations: https://renew-it.com/international/
+- Renew IT current model: https://renew-it.com/
+- Shred-X NSW/regional coverage: https://www.shred-x.com.au/location/new-south-wales/
+- Shred-X reuse/buyback: https://www.shred-x.com.au/it-value-recovery/
+- Iron Mountain ACT Group acquisition: https://www.ironmountain.com/en-au/about-us/newsroom/press-releases/2025/december/iron-mountain-deepens-local-alm-practice-with-acquisition-of-act-group
+- Iron Mountain ALM: https://www.ironmountain.com/en-au/services/it-asset-lifecycle-management
+
+### Public startup cost inputs
+- ABN is free: https://business.gov.au/registrations/register-for-an-australian-business-number-abn
+- 1 July 2026 business/company fee changes — business name $47/1yr, company registration $636, proprietary-company annual review $342: https://business.gov.au/news/changes-for-businesses-from-1-july-2026
+- NSW second-hand dealer 2026–27 fees — $692/1yr, $1,574/3yr, $2,456/5yr: https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/pawnbrokers-and-second-hand-dealers/pawnbrokers-and-second-hand-dealers-fees
+- Dubbo storage — 18 m² from $125/mo incl GST; 32–36 m² from $220/mo incl GST: https://commercialdubbo.eldersrealestate.com.au/storage-sheds/
+- Current Dubbo industrial listings — 200 m² from $395/wk + GST: https://www.realcommercial.com.au/for-lease/dubbo-nsw-2830/industrial-warehouse/
+- 169 m² Capital Drive — $25,480/yr + GST, 2–5 years, outgoings extra: https://www.rhcommercial.com.au/dubbo/properties/10-1-capital-drive-dubbo-2830-new-south-wales
+- Blancco Australian reseller listing — SMB Select 50 shown at $982.30: https://shop.tech2000.com.au/brand/blancco/
+- National Minimum Wage from 1 Jul 2026 — $26.44/hr; casual award-free floor $33.05/hr: https://www.fairwork.gov.au/pay-and-wages/minimum-wages
+- 2026 wage change: https://www.fairwork.gov.au/newsroom/media-releases/2026-media-releases/july-2026/20260701-minimum-wage-increase-media-release
+- Allianz public/products liability — price depends on cover, turnover and business type; $5m/$10m/$20m limits available: https://www.allianz.com.au/business-insurance/business-pack/public-liability.html
+
+### Cost-model evidence limits
+- No shortlisted company publishes a Dubbo branch fee, franchise fee, reseller margin, local commission, regional-exclusivity price or asset-revenue split.
+- Insurance remains quote-only.
+- Storage prices do not establish permission to operate a workshop/process electronics there.
+- Warehouse listings exclude or separately charge some outgoings/bond.
+- Wage calculations use the National Minimum Wage/legal floor only; an applicable modern award may be higher.
