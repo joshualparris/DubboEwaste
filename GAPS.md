@@ -405,3 +405,33 @@ Possible progression:
 - Current reuse/resale percentage.
 - Current annual tonnes and Brookvale capacity.
 - Minimum monthly asset/tonnage threshold needed for a permanent Dubbo site.
+
+
+---
+
+## Fliptech / national ITAD regional-branch opportunity — 2 Oct 2026
+
+Full research: [docs/FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY.md](docs/FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY.md).
+
+### New findings
+- **[Found] Fliptech is a real reuse-first ITAD comparator:** current corporate/business evidence shows secure decommissioning, NIST 800-88 erasure, asset reports, reuse/resale/donation and recycling rather than simple scrap handling.
+- **[Found] Fliptech started very small:** public founder profiles describe a garage-origin business that grew into a multi-employee national-client operation.
+- **[Found] Fliptech has expanded beyond Sydney:** public staff material says it is operating in Melbourne, although no verified dedicated Melbourne processing-facility address was found.
+- **[Found] Fliptech is a Buy NSW supplier** and already works with corporate/government-facing programs.
+- **[Found] Dubbo scale is credible for a regional satellite:** Council/NSW sources describe a 125,000+ service catchment and ~5,593 active LGA businesses.
+- **[Found] Several mature ITAD firms already use the exact expansion models a Dubbo site could copy:** capital-city processing + regional logistics, drop-off depots, scheduled routes, 3PL, white-label IT-provider relationships or social-enterprise collection networks.
+- **[Found] G1 explicitly offers white-labelled ITAD to IT service providers**, making it a strong candidate for a Dubbo local-front / certified-back-end partnership.
+- **[Found] 9R Cycle IT explicitly services regional NSW via third-party logistics**, making a Western NSW local collection/triage partner a plausible logistics proposition.
+- **[Found] WorkVentures explicitly covers regional centres nationally** and offers CircularIT + Device Bank reuse pathways; its likely Dubbo fit is partnership/program delivery rather than a standard commercial branch.
+- **[Strategic conclusion]** the strongest first proposal is **not a Dubbo shredding/recycling plant**. It is a **Western NSW secure ITAD collection + triage + data + refurbishment satellite**, with true end-of-life material sent to an existing approved downstream processor.
+
+### Unanswered
+- Does Fliptech already service Dubbo/Western NSW, and at what minimum collection volume?
+- What exactly is Fliptech's Melbourne operating structure: company facility, contractor, route or logistics partnership?
+- Does Fliptech use approved regional subcontractors?
+- Would Fliptech/G1/9R/WorkVentures allow a Dubbo partner to perform only collection/serial capture, or also sanitisation/refurbishment?
+- What physical security, insurance, certification and premises requirements would a parent ITAD company impose?
+- What recurring annual volume of business refresh equipment actually exists across Dubbo/Orana?
+- How many large local organisations are already contractually tied to national ITAD providers?
+- Who owns/re-sells reusable stock and who carries ACL/warranty risk in a regional-partner model?
+- Can a parent company direct social-use assets to remain in Western NSW?
