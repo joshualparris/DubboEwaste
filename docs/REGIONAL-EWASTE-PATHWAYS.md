@@ -223,3 +223,19 @@ Use the same short question set so answers can be compared:
 - Commercial e-waste fees/limits at several council facilities.
 - Whether any council contract permits a third-party refurbisher to take ownership of reusable devices before recycling.
 - Annual e-waste tonnage by council and estimated proportion that is actually reusable.
+
+
+---
+
+## Deep downstream update — 2 October 2026
+
+Further research found several **named physical routes**, improving on the earlier "contractor unknown" picture.
+
+- **Parkes -> Sircel:** Parkes Shire's 2024-25 progress report says e-waste from Parkes Landfill was collected by Sircel on a circular arrangement. The 2025-26 progress report records continued investigation/delivery of an e-waste shared agreement with Sircel. Sircel operates at **55 Brolgan Road, Parkes**.
+- **What Sircel does:** loads are weighed/tracked, triaged for reuse, batteries and incompatible material separated, reusable IT assets routed through ITAD/data sanitisation, and end-of-life equipment mechanically reduced/separated down to <1 mm fractions for commodity recovery. Steel, aluminium, copper and other fractions return to manufacturing/recovery partners.
+- **Coonamble -> Matthews Dubbo:** Coonamble's February 2025 Council paper says Matthews Metals Dubbo agreed to work with Coonamble Waste for collection/disposal of e-waste and batteries. The 2026 continuation of this exact arrangement is not publicly proven.
+- **NetWaste majority -> Sims:** NetWaste's current page still says Sims Metal Management collects e-waste from the majority of member councils. Its older 2023-27 strategy explicitly described the then e-waste option as being **shredded at Sims' St Marys depot**, with an E-cycle Solutions recovery trial. That St Marys detail is historical, not confirmed as the 2026 route.
+- **Dubbo remains unresolved:** DRC's historical Matthews contract ended 30 June 2025. The current public Council pages do not identify the 2026 processor, so it is not safe to assume Whylandra material goes to AMR, Sims or Sircel without confirmation.
+- **Separate scrap-metal change:** the late-2025 NetWaste scrap-metal tender F4459 was awarded to Access Recycling by participating councils. This does not prove Access took over e-waste; NetWaste still names Sims on its current e-waste page.
+
+For the detailed device-to-material flow, data handling, NTCRS rules and real recovery numbers, see [WHAT-HAPPENS-TO-EWASTE.md](WHAT-HAPPENS-TO-EWASTE.md).
