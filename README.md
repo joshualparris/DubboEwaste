@@ -10,6 +10,11 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 
 *Compiled 2 October 2026. Status: research stage. Figures marked (estimate) are not quotes. Items marked VERIFIED were read from an official source during this research; everything else needs a phone call. Not legal advice.*
 
+Engineering principles: v5.1
+Assurance tier: 2 (maintained research and pilot-planning repository)
+Canonical repository: https://github.com/joshualparris/DubboEwaste
+Deployment: `gh-pages` is the generated GitHub Pages distribution; `main` is the canonical research source.
+
 ## What's in this repo
 
 | File | What it is |
@@ -23,6 +28,9 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md](docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md) | **NSW public-school laptop deep dive:** EDConnect/eWaste PowerApp, vendor sanitisation, Settlement Reports, C9826 suppliers, Device Bank comparison and the missing Dubbo downstream chain |
 | [GAPS.md](GAPS.md) | Full list of what is known, found, and still unknown |
 | [codexToDO.md](codexToDO.md) | **Executable closure plan:** repository work, external gates, pilot work and stop rules |
+| [docs/CURRENT-STATE.md](docs/CURRENT-STATE.md) | **Canonical current-state register:** verified, designed, externally blocked and pilot-only claims |
+| [docs/PHASE-0-LAUNCH-GATES.md](docs/PHASE-0-LAUNCH-GATES.md) | **Canonical launch sequence:** what blocks intake, resale, the pilot, and later scale-up |
+| [docs/RESEARCH-INDEX.md](docs/RESEARCH-INDEX.md) | **Canonical research index:** where each topic lives and which files are historical or superseded |
 | [docs/agyGAPS.md](docs/agyGAPS.md) | Original broad gap list covering triage, learning, competitors and sales |
 | [docs/claudeGAPS.md](docs/claudeGAPS.md) | Detailed gap register and research opportunities |
 | [docs/claudegaps-research/00-INDEX.md](docs/claudegaps-research/00-INDEX.md) | Claude research index, evidence labels and remaining call/try/learn work |
@@ -53,6 +61,7 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [docs/KRISTY-CREATIVE-MICROBUSINESS.md](docs/KRISTY-CREATIVE-MICROBUSINESS.md) | Research-backed hobby → microbusiness path for Kristy's creative/art work, modelled on The Painted Brush & Co |
 | [templates/ownership-and-wipe-certificate.md](templates/ownership-and-wipe-certificate.md) | Client transfer-of-ownership and data-wipe certificate template |
 | [templates/asset-transfer-and-chain-of-custody.md](templates/asset-transfer-and-chain-of-custody.md) | Detailed asset authority, transfer basis and custody-state record |
+| [templates/partner-validation-record.md](templates/partner-validation-record.md) | Public-safe record for validating receivers, buyers, courses and social-reuse partners |
 | [templates/data-sanitisation-certificate.md](templates/data-sanitisation-certificate.md) | Per-media sanitisation method, tool/version, verification and PASS/FAIL/DESTROY record |
 | [templates/repair-notice.md](templates/repair-notice.md) | Customer repair/data-loss notice scaffold with ACCC prescribed-wording checkpoint |
 | [templates/sale-and-recall-record.md](templates/sale-and-recall-record.md) | Sale condition, serial/buyer link and later recall-contact record |
@@ -63,6 +72,9 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [docs/TRIAGE-COMPETENCY-CHECKLIST.md](docs/TRIAGE-COMPETENCY-CHECKLIST.md) | Operator skills assessment and reassessment checklist |
 | [docs/LISTING-WARRANTY-CHECKLIST.md](docs/LISTING-WARRANTY-CHECKLIST.md) | Listing, warranty, return and recall pre-publication checks |
 | [docs/GLOSSARY.md](docs/GLOSSARY.md) | Plain-language ITAD, lock, sanitisation and stewardship terms |
+| [docs/AI-AGENT-OPERATING-SYSTEM.md](docs/AI-AGENT-OPERATING-SYSTEM.md) | What an AI agent can automate, what requires human/external evidence, and the safe handoff loop |
+| [docs/RESEARCH-AI-WORKFLOW.md](docs/RESEARCH-AI-WORKFLOW.md) | Claim-level research decomposition, source hierarchy and agent review protocol |
+| [docs/UNIT-ECONOMICS.md](docs/UNIT-ECONOMICS.md) | Per-asset contribution and labour-hour calculation specification |
 | [docs/research.md](docs/research.md) | Earlier feasibility research retained for additional context |
 | [docs/launch-checklist.md](docs/launch-checklist.md) | Earlier lean-launch checklist retained for operational planning |
 | [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md) | Current research on the Dubbo Matthews/InfraBuild/AMR yard and e-waste outlet |

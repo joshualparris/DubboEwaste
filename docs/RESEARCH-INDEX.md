@@ -1,57 +1,47 @@
-# Canonical Research & Operations Index
+# Canonical research index
 
-Start here instead of reading files chronologically.
+Use this page to find the current authority first. The repository deliberately retains older gap lists, chat syntheses and correction files for provenance; they are not automatically current merely because they are detailed.
 
-## Current operational truth
-- [CURRENT-STATE.md](CURRENT-STATE.md)
-- [PHASE-0-LAUNCH-CHECKLIST.md](PHASE-0-LAUNCH-CHECKLIST.md)
-- [DECISION-LOG.md](DECISION-LOG.md)
-- [COMPLIANCE-REGISTER.md](COMPLIANCE-REGISTER.md)
-- [RISK-REGISTER.md](RISK-REGISTER.md)
+## Start here
 
-## Intake / bench / safety
-- [FRONT-DOOR-TRIAGE-CARD.md](FRONT-DOOR-TRIAGE-CARD.md)
-- [CATEGORY-INTAKE-CARDS.md](CATEGORY-INTAKE-CARDS.md)
-- [DUBBOEWASTE-GRADING-STANDARD.md](DUBBOEWASTE-GRADING-STANDARD.md)
-- [BENCH-SOP-AND-LAYOUT.md](BENCH-SOP-AND-LAYOUT.md)
-- [SAFETY-DECISION-TREES.md](SAFETY-DECISION-TREES.md)
-- [INTAKE-AND-DATA-PAPERWORK-PACK.md](INTAKE-AND-DATA-PAPERWORK-PACK.md)
+1. [CURRENT-STATE.md](CURRENT-STATE.md) — current status and five launch gates.
+2. [PHASE-0-LAUNCH-GATES.md](PHASE-0-LAUNCH-GATES.md) — action sequence and stop rules.
+3. [RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md](RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md) — evidence maturity and next closure action.
+4. [MASTER-FINDINGS-ALL-CHATS.md](MASTER-FINDINGS-ALL-CHATS.md) — broad synthesis and corrections.
+5. [GLOSSARY.md](GLOSSARY.md) — plain-language terms.
 
-## Economics / sales / pilot
-- [REFURB-ECONOMICS.md](REFURB-ECONOMICS.md)
-- [RESALE-CHANNEL-MATRIX.md](RESALE-CHANNEL-MATRIX.md)
-- [AUCTION-ACQUISITION-SYSTEM.md](AUCTION-ACQUISITION-SYSTEM.md)
-- [AU-SHIPPING-MATRIX.md](AU-SHIPPING-MATRIX.md)
-- [PARTS-HARVEST-MATRIX.md](PARTS-HARVEST-MATRIX.md)
-- [FIRST-30-DEVICE-EXPERIMENT.md](FIRST-30-DEVICE-EXPERIMENT.md)
-- [PILOT-DASHBOARD.md](PILOT-DASHBOARD.md)
-- [PILOT-SUCCESS-SCORECARD.md](PILOT-SUCCESS-SCORECARD.md)
-- [PHASE-0-BUDGET.md](PHASE-0-BUDGET.md)
-- [LAUNCH-SCENARIOS.md](LAUNCH-SCENARIOS.md)
+## Operational documents
 
-## Outreach / confirmations
-- [EXTERNAL-CONFIRMATION-PACK.md](EXTERNAL-CONFIRMATION-PACK.md)
-- [EXTERNAL-EMAIL-DRAFTS.md](EXTERNAL-EMAIL-DRAFTS.md)
-- [SUPPLIER-TARGETS-AND-OUTREACH.md](SUPPLIER-TARGETS-AND-OUTREACH.md)
+| Need | Current document(s) |
+|---|---|
+| Front-door decision | [RESEARCH-01-FRONT-DOOR-TRIAGE.md](RESEARCH-01-FRONT-DOOR-TRIAGE.md), [triage-matrix.csv](triage-matrix.csv), [TRIAGE-COMPETENCY-CHECKLIST.md](TRIAGE-COMPETENCY-CHECKLIST.md) |
+| Bench work | [bench-test-sheet.md](bench-test-sheet.md), [RESEARCH-03-COMPETITOR-OPERATING-MECHANICS.md](RESEARCH-03-COMPETITOR-OPERATING-MECHANICS.md), [RESEARCH-06-BATTERY-ELECTRICAL-WORKSHOP-SAFETY.md](RESEARCH-06-BATTERY-ELECTRICAL-WORKSHOP-SAFETY.md) |
+| Intake/data records | [INTAKE-POLICY.md](INTAKE-POLICY.md), [RESEARCH-05-DATA-IDENTITY-PRIVACY-SOP.md](RESEARCH-05-DATA-IDENTITY-PRIVACY-SOP.md), [templates/](../templates/) |
+| Resale | [LISTING-WARRANTY-CHECKLIST.md](LISTING-WARRANTY-CHECKLIST.md), [RESEARCH-04-RESALE-PRICING-CHANNELS-RETURNS.md](RESEARCH-04-RESALE-PRICING-CHANNELS-RETURNS.md), [RESEARCH-15-TRUST-MARKETING-PILOT-CLOSURE.md](RESEARCH-15-TRUST-MARKETING-PILOT-CLOSURE.md) |
+| Pilot economics | [pilot-tracker.csv](../pilot-tracker.csv), [RESEARCH-13-FINANCE-TIME-UNIT-ECONOMICS.md](RESEARCH-13-FINANCE-TIME-UNIT-ECONOMICS.md), [RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md](RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md) |
+| Downstream | [WHAT-HAPPENS-TO-EWASTE.md](WHAT-HAPPENS-TO-EWASTE.md), [AMR-DUBBO-DOWNSTREAM-FORENSIC.md](AMR-DUBBO-DOWNSTREAM-FORENSIC.md), [RESEARCH-11-DOWNSTREAM-ENVIRONMENTAL-CHAIN-OF-CUSTODY.md](RESEARCH-11-DOWNSTREAM-ENVIRONMENTAL-CHAIN-OF-CUSTODY.md) |
+| Planning/legal | [LEGAL-LICENSING.md](LEGAL-LICENSING.md), [CALL-SCRIPTS.md](CALL-SCRIPTS.md), [PHASE-0-OPERATING-BLUEPRINT.md](PHASE-0-OPERATING-BLUEPRINT.md) |
 
-## Learning / model knowledge
-- [LEARNING-CURRICULUM.md](LEARNING-CURRICULUM.md)
-- [PRACTICAL-TRAINING-SHEETS.md](PRACTICAL-TRAINING-SHEETS.md)
-- [MODEL-FAILURE-GUIDE.md](MODEL-FAILURE-GUIDE.md)
-- [ANDROID-CHROMEBOOK-SUPPORT-LOOKUP.md](ANDROID-CHROMEBOOK-SUPPORT-LOOKUP.md)
-- `../data/model-support-lookup.csv`
+## Research series
 
-## Legal / local / downstream research
-- [MASTER-FINDINGS-ALL-CHATS.md](MASTER-FINDINGS-ALL-CHATS.md)
-- [AMR-DUBBO-DOWNSTREAM-FORENSIC.md](AMR-DUBBO-DOWNSTREAM-FORENSIC.md)
-- [NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md](NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md)
-- [GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md](GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md)
-- [RESEARCH-DELTA-2026-10-02.md](RESEARCH-DELTA-2026-10-02.md)
-- `../claudeDOCS/` for the 68-question online-research pass.
+The `RESEARCH-01` through `RESEARCH-16` files are the systematic current research series. Start with the index above, then use the individual report for claim-level evidence and open questions.
 
-## Media
-- [PODCASTS-CANONICAL.md](PODCASTS-CANONICAL.md)
+## Consolidated and comparative research
 
-## Legacy / caution
-- `../agyDOCS/` contains early AI research. Read its README/corrections first.
-- BACKLOG and RESEARCH numbered files are evidence/history; when they conflict with current-state docs, use the newer canonical document and verify the cited source.
+- [PODCASTS-CONSOLIDATED.md](PODCASTS-CONSOLIDATED.md) is the canonical navigation for overlapping podcast files.
+- [REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md](REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md) compares reuse models.
+- [EXISTING-AUSTRALIAN-EWASTE-ORGS-DUBBO-EXPANSION.md](EXISTING-AUSTRALIAN-EWASTE-ORGS-DUBBO-EXPANSION.md) covers potential partners.
+- [DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md](DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md) covers later partner/branch routes.
+
+## Historical registers and superseded material
+
+These remain useful for provenance and should not be silently deleted:
+
+- [../GAPS.md](../GAPS.md) — chronological all-chat gap register; detailed but mixed-age.
+- [agyGAPS.md](agyGAPS.md) — original broad gap register.
+- [claudeGAPS.md](claudeGAPS.md) and [claudegaps-research/00-INDEX.md](claudegaps-research/00-INDEX.md) — Claude research register and sub-index.
+- [codexGAPS.md](codexGAPS.md) — Codex audit and backlog.
+- [../agyDOCS/](../agyDOCS/) and [../claudeDOCS/](../claudeDOCS/) — source-specific research collections; corrections/caveats take priority over older claims.
+- [PROJECT-HISTORY-ALL-CHATS.md](PROJECT-HISTORY-ALL-CHATS.md) and [research.md](research.md) — historical context, not current operating authority.
+
+When a historical document conflicts with `CURRENT-STATE.md`, use the current-state evidence and retain the conflict in the relevant correction register.

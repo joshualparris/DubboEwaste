@@ -1,58 +1,62 @@
-# DubboEwaste — Current State and Launch Gates
+# DubboEwaste current-state register
 
-**Updated:** 2 Oct 2026  
-**Purpose:** canonical operational status. Older research remains evidence/history; this file tells the operator what is currently safe to rely on.
+**As at:** 2 October 2026 (AEST)  
+**Purpose:** one short, current map of what the repository can support today. This is the canonical status summary; detailed research and historical gap registers remain linked below.
 
-## Evidence labels
-- **VERIFIED** — supported by current primary/official source in repo research.
-- **PROPOSED POLICY** — DubboEwaste operating choice, not law or universal industry standard.
-- **UNRESOLVED** — requires written regulator/provider answer, account-specific evidence, or pilot data.
+## Status vocabulary
 
-## Gate A — must be resolved before public intake
-1. **Planning classification — UNRESOLVED.** Written Dubbo Regional Council confirmation needed for the actual premises/use.
-2. **Second-hand dealer/recycling exemption — UNRESOLVED.** Written NSW Fair Trading position needed for mixed free-collection → refurbish/resell → recycle-rest model.
-3. **14-day no-alteration/wiping — UNRESOLVED if licence applies.** Seek written interpretation or exemption.
-4. **Insurance — UNRESOLVED.** Policy must explicitly cover repair/refurbishment/resale, customer devices, visitors, product/public liability and lithium-battery exposure.
-5. **Employment conflict — UNRESOLVED.** Resolve any Avance conflict before approaching MSPs/clients.
-6. **Premises safety — REQUIRED.** Dry, secure, controlled access, no public unattended bin, no outdoor stockpile.
+| Label | Meaning |
+|---|---|
+| `VERIFIED` | Supported by a current primary/official source or an explicit repository test. |
+| `DESIGNED` | A policy, form, SOP, schema or experiment exists, but it has not yet been proven in live operation. |
+| `EXTERNAL-BLOCKED` | The next safe decision requires a current answer from Council, Fair Trading, EPA, an insurer or a provider. |
+| `PILOT-ONLY` | Safe only within the bounded known-authority experiment described in the Phase 0 gates. |
+| `UNKNOWN` | The repository has a research lead or question but not enough evidence to claim the fact. |
+| `HISTORICAL` | Retained for provenance; do not treat it as current without a date/current-source check. |
 
-## Gate B — must be resolved before resale
-1. Ownership/source authority recorded.
-2. Serial/IMEI recorded where present.
-3. Activation/MDM/FRP/Autopilot/enterprise locks cleared legitimately.
-4. Data-bearing media sanitised and verification recorded.
-5. Device tested against the category checklist.
-6. Known defects disclosed.
-7. Recall/safety check completed where applicable.
-8. Sale record retained for traceability.
-9. ACL-safe returns/warranty wording used.
-10. Shipping route checked against the exact carrier/service and battery configuration.
+## Current decision
 
-## Can be learned during pilot
-- actual acceptance/reject rate;
-- repair time and parts cost;
-- sell-through time;
-- returns/failure modes;
-- best channels by category;
-- scrap/parts recovery;
-- profitable acquisition ceilings;
-- which device families to stop accepting.
+**Status: research-ready and pilot-gated, not ready for general public intake.**
 
-## Phase 0 scope
-**Preferred sources:** known businesses, known individuals, small fleets with clear authority to transfer.  
-**Preferred categories:** Windows 11-capable business laptops/desktops, current supported phones/tablets, selected monitors and modern flat-screen TVs where an exit route is known.  
-**Reject/quarantine:** unsafe batteries, unresolved ownership, unresolved locks, pest/contamination, severe liquid/fire/flood damage, devices without a credible route.
+The repository has enough documented material to design a small known-source experiment. It does not yet prove that a home-site operation is lawfully classified, insured, dry/secure, commercially viable, or connected to a confirmed downstream route.
 
-## Claims not to make publicly yet
-- “certified data destruction” unless the process/provider actually supports that certification;
-- “AS 5377 certified” unless the exact entity/site/certificate is verified;
-- specific downstream recycler for AMR Dubbo until documented;
-- “Council-approved” / “licence-exempt” until written confirmation;
-- universal battery-health or age standards — these are DubboEwaste policies.
+## Five launch gates
 
-## Current highest-value next actions
-1. Send the prepared Council/Fair Trading/electrical-safety/EPA enquiries.
-2. Obtain insurer quotes from the same risk description.
-3. Resolve employment conflict before supplier outreach.
-4. Run 30-device pilot using the canonical tracker and SOP.
-5. Review launch scorecard before expanding intake.
+| Gate | Current status | Evidence needed to close it |
+|---|---|---|
+| Exact premises/planning classification | `EXTERNAL-BLOCKED` | Written Dubbo Regional Council answer for the described home-site activity, storage and online sales. |
+| Lease, workspace and insurance suitability | `EXTERNAL-BLOCKED` | Permission/lease position, dry and secure workspace evidence, and written insurer acceptance/exclusions. |
+| Fair Trading / resale controls | `EXTERNAL-BLOCKED` | Written answer on the recycling-program exemption, second-hand dealer scope and 14-day hold/wiping issue; reviewed customer paperwork. |
+| Safe data and battery workflow | `DESIGNED` / `PILOT-ONLY` | Representative-device records, conservative battery procedure, repeatable wipe/lock outcomes and a failed-device route. |
+| Downstream route for every rejected item | `EXTERNAL-BLOCKED` | Current acceptance terms, fees, exclusions and receipt/certificate fields for each stream. |
+
+## What can be done now
+
+- Build and review the paperwork, SOPs, signage and calculators in this repository.
+- Study and practise on personally owned or otherwise authorised devices without private data.
+- Run synthetic tracker/backup/decision tests.
+- Prepare structured external enquiries.
+- Design a pre-registered 20–30 item pilot using known-authority items only.
+
+## What must not be claimed yet
+
+- That the proposed home site is approved or lawful for public intake.
+- That the second-hand dealer exemption definitely applies.
+- That AMR's first downstream recipient is Sircel, ACE, Sims or any other named lead.
+- That AMR provides secure data destruction or serialised certificates.
+- That a Device Bank, Good360 or Dubbo community organisation has agreed to receive devices.
+- That the business is commercially viable before the pilot measures labour, costs, sale-through and residuals.
+- “NIST certified”, “certified destruction”, “AS 5377 certified” or partnership claims without provider-specific evidence.
+
+## Canonical supporting records
+
+- [Phase 0 launch gates](PHASE-0-LAUNCH-GATES.md) — action sequence and stop rules.
+- [Research 16 closure register](RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md) — evidence maturity and external closure requirements.
+- [Master findings](MASTER-FINDINGS-ALL-CHATS.md) — broad synthesis and corrections.
+- [GAPS.md](../GAPS.md) — dated, detailed gap register; retained as a research history, not the short current-state authority.
+- [codexToDO.md](../codexToDO.md) — executable closure backlog.
+
+## Review rule
+
+Update this file when an external answer, pilot observation, repository test or authoritative correction changes a launch gate. Keep the evidence source and date beside the changed claim. Do not silently promote `DESIGNED`, `RESEARCHED` or `PILOT-ONLY` to `VERIFIED`.
+
