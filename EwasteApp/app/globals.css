@@ -120,6 +120,15 @@ p { line-height: 1.55; }
 
 .form textarea { min-height: 110px; resize: vertical; }
 
+.lookup-panel { display: grid; gap: 8px; padding: 14px; border: 1px solid #b8d8c2; border-radius: 11px; background: #f2faf4; }
+.lookup-panel label { margin: 0; }
+.lookup-results { display: grid; gap: 5px; }
+.lookup-results button { display: grid; gap: 2px; text-align: left; border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px; background: white; cursor: pointer; }
+.lookup-results button:hover { border-color: var(--brand); background: var(--soft); }
+.lookup-results button span, .lookup-result span { color: var(--muted); font-size: 12px; }
+.lookup-result { display: grid; gap: 3px; padding: 10px 12px; border-radius: 8px; background: white; border: 1px solid var(--line); }
+.lookup-result small { color: var(--muted); }
+
 .two {
   display: grid;
   grid-template-columns: repeat(2,minmax(0,1fr));

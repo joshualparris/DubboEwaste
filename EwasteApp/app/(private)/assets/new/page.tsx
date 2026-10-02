@@ -1,4 +1,6 @@
 import { createAsset } from "../actions";
+import { ModelAutofill } from "@/components/ModelAutofill";
+import { createClient } from "@/lib/supabase/server";
 
 export default async function NewAssetPage({
   searchParams,
@@ -6,6 +8,12 @@ export default async function NewAssetPage({
   searchParams: Promise<{ error?: string }>;
 }) {
   const { error } = await searchParams;
+  const supabase = await createClient();
+  const { data: models } = await supabase
+    .from("model_support")
+    .select("manufacturer,model_name,category,support_summary,lock_risks,battery_notes,likely_route,source_checked,confidence")
+    .order("manufacturer")
+    .order("model_name");
 
   return (
     <div className="stack">
@@ -41,10 +49,7 @@ export default async function NewAssetPage({
           </label>
         </div>
 
-        <div className="two">
-          <label>Manufacturer<input name="manufacturer" placeholder="Dell" /></label>
-          <label>Model<input name="model" placeholder="Latitude 5400" /></label>
-        </div>
+        <ModelAutofill models={models ?? []} />
 
         <label>
           Serial / IMEI
