@@ -3,8 +3,9 @@ import { notFound } from "next/navigation";
 import { AssetQr } from "@/components/AssetQr";
 import { EvidenceUpload } from "@/components/EvidenceUpload";
 import { createClient } from "@/lib/supabase/server";
+import { buildAssetWorkflowContext, workflowMatches } from "@/lib/workflow";
 import { issueCertificate, recordDisposition, recordTest } from "../../operations/actions";
-import { addAssetAttribute, addMedia, createException, createRepair, harvestPart, recordGrade } from "../../processing/actions";
+import { addAssetAttribute, addMedia, applyDefect, applyWorkflowRule, createException, createRepair, harvestPart, recordGrade } from "../../processing/actions";
 
 export default async function AssetPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{error?:string}> }) {
   const { id } = await params;
@@ -13,7 +14,7 @@ export default async function AssetPage({ params, searchParams }: { params: Prom
   const [
     { data: asset }, { data: events }, { data: tests }, { data: dispositions }, { data: certs },
     { data: attributes }, { data: media }, { data: grades }, { data: evidence }, { data: exceptions },
-    { data: repairs }, { data: parts }
+    { data: repairs }, { data: parts }, { data: defectTemplates }, { data: defects }, { data: workflowRules }
   ] = await Promise.all([
     supabase.from("assets").select("*,customers(name),jobs(job_code),lots(lot_code),locations(name)").eq("id", id).single(),
     supabase.from("asset_events").select("id,event_type,created_at,details").eq("asset_id", id).order("created_at", { ascending: false }).limit(25),
@@ -27,11 +28,16 @@ export default async function AssetPage({ params, searchParams }: { params: Prom
     supabase.from("exceptions").select("*").eq("entity_type", "asset").eq("entity_id", id).order("created_at", { ascending: false }),
     supabase.from("repairs").select("*").eq("asset_id", id).order("created_at", { ascending: false }),
     supabase.from("parts").select("*").eq("origin_asset_id", id).order("created_at", { ascending: false }),
+    supabase.from("defect_templates").select("*").eq("active",true).order("name"),
+    supabase.from("asset_defects").select("*,defect_templates(name,severity)").eq("asset_id",id).order("created_at",{ascending:false}),
+    supabase.from("workflow_rules").select("*").eq("enabled",true).order("priority"),
   ]);
   if (!asset) notFound();
   const a:any=asset;
   const latestGrade:any=grades?.[0] ?? null;
   const certTypes = ["RECEIPT","RECEIVING","DISPOSITION","DEVICE_HISTORY","SANITISATION","DESTRUCTION","RECYCLING"] as const;
+  const workflowContext=buildAssetWorkflowContext(a,latestGrade);
+  const matchingRules=(workflowRules??[]).filter((rule:any)=>workflowMatches(rule.conditions,workflowContext));
 
   return <div className="stack">
     <div><div className="badge">{a.status}</div><h1>{a.asset_code}</h1><p className="muted">{[a.manufacturer,a.model].filter(Boolean).join(" ")||a.category}</p></div>
@@ -63,6 +69,12 @@ export default async function AssetPage({ params, searchParams }: { params: Prom
       <form action={harvestPart} className="card form"><h2>Harvest part</h2><input type="hidden" name="asset_id" value={a.id}/><label>Part type<input name="part_type" required placeholder="RAM / SSD / charger"/></label><div className="two"><label>Manufacturer<input name="manufacturer"/></label><label>Model<input name="model"/></label></div><label>Serial<input name="serial"/></label><label>Specification<input name="specification"/></label><div className="two"><label>Test status<input name="test_status"/></label><label>Grade<input name="grade"/></label></div><label>Estimated value<input name="estimated_value" type="number" min="0" step="0.01"/></label><button className="button secondary">Create part record</button></form>
       <form action={createException} className="card form"><h2>Open exception</h2><input type="hidden" name="entity_type" value="asset"/><input type="hidden" name="entity_id" value={a.id}/><label>Type<input name="exception_type" required placeholder="DAMAGED_BATTERY"/></label><label>Severity<select name="severity" defaultValue="MEDIUM"><option>LOW</option><option>MEDIUM</option><option>HIGH</option><option>CRITICAL</option></select></label><label>Summary<textarea name="summary" required/></label><button className="button secondary">Open exception</button></form>
     </div>
+
+    <div className="grid">
+      <form action={applyDefect} className="card form"><h2>Apply defect / devaluation</h2><input type="hidden" name="asset_id" value={a.id}/><label>Template<select name="template_id" required defaultValue=""><option value="" disabled>Select defect</option>{(defectTemplates??[]).filter((d:any)=>!d.category||d.category===a.category).map((d:any)=><option key={d.id} value={d.id}>{d.name} · {d.severity}</option>)}</select></label><label>Reference value<input name="reference_value" type="number" min="0" step="0.01" placeholder="Used for % devaluation"/></label><label>Specific notes<textarea name="description"/></label><button className="button secondary">Apply defect</button></form>
+      <section className="card"><h2>Routing recommendations</h2>{!matchingRules.length?<p className="muted">No enabled rule matches this asset.</p>:<div className="result-list">{matchingRules.map((rule:any)=><form action={applyWorkflowRule} className="result-row" key={rule.id}><input type="hidden" name="asset_id" value={a.id}/><input type="hidden" name="rule_id" value={rule.id}/><strong>{rule.name}</strong><span>{JSON.stringify(rule.action)}</span><button className="button secondary">Apply recommendation</button></form>)}</div>}</section>
+    </div>
+    <section className="card"><h2>Defects / devaluation</h2>{!(defects??[]).length?<p className="muted">No defects applied.</p>:<div className="table-wrap"><table><thead><tr><th>Defect</th><th>Severity</th><th>Grade penalty</th><th>Value penalty</th><th>Route override</th></tr></thead><tbody>{(defects??[]).map((d:any)=><tr key={d.id}><td>{d.defect_templates?.name||d.description||"Defect"}</td><td>{d.defect_templates?.severity||"—"}</td><td>{d.applied_grade_penalty}</td><td>{"$"+Number(d.applied_value_penalty||0).toFixed(2)}</td><td>{d.route_override||"—"}</td></tr>)}</tbody></table></div>}</section>
 
     <section className="card"><h2>Tests</h2>{!tests?.length?<p className="muted">No tests recorded.</p>:<div className="table-wrap"><table><thead><tr><th>Time</th><th>Test</th><th>Result</th><th>Notes</th></tr></thead><tbody>{tests.map((t:any)=><tr key={t.id}><td>{new Date(t.created_at).toLocaleString("en-AU")}</td><td>{t.test_type}</td><td><span className="badge">{t.result}</span></td><td>{t.notes||"—"}</td></tr>)}</tbody></table></div>}</section>
     <section className="card"><h2>Repair / parts / exception summary</h2><p>Repairs: {repairs?.length??0} · Harvested parts: {parts?.length??0} · Exceptions: {exceptions?.filter((x:any)=>x.status!=="RESOLVED").length??0} open</p></section>

@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
+import { buildAssetWorkflowContext, workflowMatches } from "@/lib/workflow";
 
 const optionalUuid = z.preprocess((v) => v === "" || v == null ? undefined : v, z.string().uuid().optional());
 const optionalNumber = z.preprocess((v) => v === "" || v == null ? undefined : Number(v), z.number().optional());
@@ -461,4 +462,107 @@ export async function createEnvironmentalMethodology(formData: FormData) {
     created_by: user.id,
   });
   revalidatePath("/reports");
+}
+
+
+export async function createDefectTemplate(formData: FormData) {
+  const parsed = z.object({
+    name: z.string().trim().min(2).max(160),
+    category: z.string().trim().max(80).optional(),
+    severity: z.enum(["COSMETIC","MINOR","MAJOR","CRITICAL"]),
+    grade_penalty: z.preprocess((v) => v === "" ? 0 : Number(v), z.number().int().nonnegative()),
+    value_penalty_fixed: z.preprocess((v) => v === "" ? 0 : Number(v), z.number().nonnegative()),
+    value_penalty_percent: z.preprocess((v) => v === "" ? 0 : Number(v), z.number().min(0).max(100)),
+    route_override: z.string().trim().max(80).optional(),
+  }).safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/processing?error=Check%20defect%20template%20fields");
+  const { supabase, user } = await currentUser();
+  await supabase.from("defect_templates").insert({
+    ...parsed.data,
+    category: parsed.data.category || null,
+    route_override: parsed.data.route_override || null,
+    created_by: user.id,
+  });
+  revalidatePath("/processing");
+}
+
+export async function applyDefect(formData: FormData) {
+  const parsed = z.object({
+    asset_id: z.string().uuid(),
+    template_id: z.string().uuid(),
+    reference_value: z.preprocess((v) => v === "" ? 0 : Number(v), z.number().nonnegative()),
+    description: z.string().trim().max(2000).optional(),
+  }).safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/assets");
+
+  const { supabase, user } = await currentUser();
+  const { data: template } = await supabase.from("defect_templates").select("*").eq("id", parsed.data.template_id).single();
+  if (!template) redirect("/assets/" + parsed.data.asset_id + "?error=Defect%20template%20not%20found");
+
+  const valuePenalty = Number((Number(template.value_penalty_fixed || 0) + parsed.data.reference_value * Number(template.value_penalty_percent || 0) / 100).toFixed(2));
+  await supabase.from("asset_defects").insert({
+    asset_id: parsed.data.asset_id,
+    template_id: template.id,
+    description: parsed.data.description || template.name,
+    applied_grade_penalty: template.grade_penalty,
+    applied_value_penalty: valuePenalty,
+    route_override: template.route_override,
+    created_by: user.id,
+  });
+
+  if (template.route_override && ["REFURBISH","PARTS","DONATE","RECYCLE","HOLD"].includes(template.route_override)) {
+    await supabase.from("assets").update({ initial_route: template.route_override }).eq("id", parsed.data.asset_id);
+  }
+  if (template.severity === "CRITICAL") {
+    await supabase.from("exceptions").insert({
+      entity_type: "asset",
+      entity_id: parsed.data.asset_id,
+      exception_type: "CRITICAL_DEFECT",
+      severity: "CRITICAL",
+      summary: template.name + (parsed.data.description ? ": " + parsed.data.description : ""),
+      created_by: user.id,
+    });
+  }
+  await event("asset", parsed.data.asset_id, "DEFECT_APPLIED", {
+    template: template.name,
+    grade_penalty: template.grade_penalty,
+    value_penalty: valuePenalty,
+    route_override: template.route_override,
+  });
+  revalidatePath("/assets/" + parsed.data.asset_id);
+  revalidatePath("/exceptions");
+}
+
+export async function applyWorkflowRule(formData: FormData) {
+  const parsed = z.object({
+    asset_id: z.string().uuid(),
+    rule_id: z.string().uuid(),
+  }).safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/assets");
+
+  const { supabase } = await currentUser();
+  const [{ data: asset }, { data: rule }, { data: grade }] = await Promise.all([
+    supabase.from("assets").select("*").eq("id", parsed.data.asset_id).single(),
+    supabase.from("workflow_rules").select("*").eq("id", parsed.data.rule_id).eq("enabled", true).single(),
+    supabase.from("grades").select("*").eq("asset_id", parsed.data.asset_id).order("graded_at",{ascending:false}).limit(1).maybeSingle(),
+  ]);
+  if (!asset || !rule) redirect("/assets/" + parsed.data.asset_id + "?error=Workflow%20rule%20not%20found");
+
+  const context = buildAssetWorkflowContext(asset, grade);
+  if (!workflowMatches(rule.conditions, context)) {
+    redirect("/assets/" + parsed.data.asset_id + "?error=Workflow%20rule%20no%20longer%20matches");
+  }
+
+  const action = (rule.action ?? {}) as Record<string, unknown>;
+  const update: Record<string, unknown> = {};
+  const statuses = ["INTAKE","UNWIPED_RESTRICTED","TRIAGE","SANITISATION","DIAGNOSTICS","REPAIR","READY_FOR_SALE","LISTED","SOLD","PARTS","DONATED","RECYCLED","REJECTED","HOLD"];
+  const routes = ["REFURBISH","PARTS","DONATE","RECYCLE","HOLD"];
+  if (typeof action.status === "string" && statuses.includes(action.status)) update.status = action.status;
+  if (typeof action.route === "string" && routes.includes(action.route)) update.initial_route = action.route;
+  if (!Object.keys(update).length) redirect("/assets/" + parsed.data.asset_id + "?error=Workflow%20action%20has%20no%20supported%20fields");
+
+  await supabase.from("assets").update(update).eq("id", parsed.data.asset_id);
+  await event("asset", parsed.data.asset_id, "WORKFLOW_RULE_APPLIED", { rule_id: rule.id, rule_name: rule.name, action: update });
+  revalidatePath("/assets/" + parsed.data.asset_id);
+  revalidatePath("/dashboard");
 }

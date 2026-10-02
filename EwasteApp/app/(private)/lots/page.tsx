@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { createLot } from "../operations/actions";
 import { createClient } from "@/lib/supabase/server";
 
@@ -18,6 +19,6 @@ export default async function LotsPage({searchParams}:{searchParams:Promise<{err
       <div className="two"><label>Item count<input name="item_count" type="number" min="0" /></label><label>Location<select name="location_id" defaultValue=""><option value="">Unassigned</option>{(locations??[]).map(l=><option key={l.id} value={l.id}>{l.name}</option>)}</select></label></div>
       <label>Notes<textarea name="notes" /></label><button className="button" type="submit">Create lot</button>
     </form>
-    <section className="card table-wrap"><table><thead><tr><th>Lot</th><th>Job</th><th>Commodity</th><th>Gross</th><th>Count</th><th>Status</th></tr></thead><tbody>{(lots??[]).map((l:any)=><tr key={l.id}><td><strong>{l.lot_code}</strong></td><td>{l.jobs?.job_code||"—"}</td><td>{l.commodity}</td><td>{l.gross_weight_kg??"—"} kg</td><td>{l.item_count??"—"}</td><td>{l.status}</td></tr>)}</tbody></table></section>
+    <section className="card table-wrap"><table><thead><tr><th>Lot</th><th>Job</th><th>Commodity</th><th>Gross</th><th>Count</th><th>Status</th></tr></thead><tbody>{(lots??[]).map((l:any)=><tr key={l.id}><td><Link href={"/lots/"+l.id}><strong>{l.lot_code}</strong></Link></td><td>{l.jobs?.job_code||"—"}</td><td>{l.commodity}</td><td>{l.gross_weight_kg??"—"} kg</td><td>{l.item_count??"—"}</td><td>{l.status}</td></tr>)}</tbody></table></section>
   </div>;
 }

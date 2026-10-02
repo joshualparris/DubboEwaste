@@ -16,6 +16,7 @@ export function AppNav({ fullName, role }: { fullName: string | null; role: stri
       <Link href="/repairs">Repairs</Link>
       <Link href="/resale">Resale</Link>
       <Link href="/recycling">Recycling</Link>
+      <Link href="/settlements">Settlements</Link>
       <Link href="/exceptions">Exceptions</Link>
       <Link href="/certificates">Certificates</Link>
       <Link href="/reports">Reports</Link>

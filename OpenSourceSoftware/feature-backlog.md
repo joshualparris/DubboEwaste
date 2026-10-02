@@ -58,14 +58,14 @@ A checkbox is only marked shipped when the feature is represented by real operat
 - [x] parts harvesting — traceable part records generated from an origin asset.
 - [x] component provenance — inherited origin asset/job/customer.
 - [x] cosmetic + functional grades — plus battery/completeness/marketability.
-- [ ] defect/devaluation templates — reusable defect catalogue and automatic dollar/grade impact remains.
-- [~] automatic routing recommendations — JSON workflow rules are configurable; the deterministic evaluator/preview is not yet wired into transitions.
+- [x] defect/devaluation templates — reusable severity/category templates calculate fixed + percentage value penalties, grade penalties and optional route overrides.
+- [x] automatic routing recommendations — ordered JSON conditions are evaluated against live asset/grade context and matching recommendations can be applied with an audit event.
 
 ### Bulk recycling / outbound
 
 - [x] pallets/containers — type, tare, location, customer segregation, hazard/seal/status.
-- [~] lot splitting/sorting — relationship/mass model exists; operator split/merge UI remains.
-- [~] mass balance — input/net weights and parent/child model exist; variance/tolerance engine remains.
+- [x] lot splitting/sorting — parent lots can create traceable child lots with inherited job/location context.
+- [x] mass balance — parent input, child outputs and residual/loss/outbound adjustments reconcile against configurable tolerance; variance opens/resolves exceptions automatically.
 - [x] downstream vendors — capabilities/evidence requirements and contact details.
 - [x] outbound orders — destination/carrier/BOL/weight/status.
 - [~] downstream evidence — generic hashed evidence model accepts outbound evidence; dedicated receipt-evidence panel remains.
@@ -79,8 +79,8 @@ A checkbox is only marked shipped when the feature is represented by real operat
 ### Workflow / workstation automation
 
 - [ ] visual workflow editor — JSON rule editor exists, but not a visual node editor.
-- [~] rules engine — persisted ordered rules exist; execution/preview engine remains.
-- [ ] automatic routing — requires the rules evaluator and conflict/override UI.
+- [x] rules engine — deterministic equality/in/not/exists/range/contains/all/any condition evaluator is live.
+- [~] automatic routing — matching rules are evaluated automatically, but route changes still require a human Apply action so conflicting rules remain visible and auditable.
 - [x] configurable workstation profiles — receiving/wipe/diagnostics/repair/grading/parts profiles.
 - [ ] local processing agent — **External workstation component** still required.
 - [ ] scale integration — **External hardware adapter**.
@@ -90,13 +90,13 @@ A checkbox is only marked shipped when the feature is represented by real operat
 
 ### Resale / commercial
 
-- [ ] automated pricing — pricing observations/rules are not yet implemented.
+- [x] automated pricing — configurable category/grade pricing rules with minimums; matching market-observation median is used as fallback when no manual asking price is supplied.
 - [x] resale qualification gate — ownership + cleared/non-data-bearing state + grade are required before listing.
 - [ ] eBay API — **External credentials/API approval**; listing model is ready for an adapter.
 - [x] sale/fees/freight — sale events record sold value, marketplace fees and freight.
-- [ ] returns/RMA.
-- [~] settlement — settlement data model exists; calculation/approval UI remains.
-- [~] consignment/revenue share — settlement model can represent customer share; policy calculator remains.
+- [x] returns/RMA — sale-linked returns can be opened, held, costed and resolved as refunded/repaired/replaced/closed/rejected.
+- [x] settlement — job settlement calculator automatically pulls resale revenue, marketplace fees, freight and repair parts, then combines service/material/scrap/labour inputs.
+- [x] consignment/revenue share — customer share is calculated as a configurable percentage of positive contribution and stored in the settlement evidence.
 
 ### Reporting / portal / API
 
@@ -162,11 +162,11 @@ Database migrations:
 The highest-value remaining work is:
 
 1. Native nwipe/ShredOS + smartmontools parsers.
-2. Lot split/merge and mass-balance tolerance/exception engine.
-3. Deterministic workflow-rule evaluator with route preview/override.
+2. Merge/consolidation UI and outbound content loading on top of the shipped split/mass-balance engine.
+3. Automatic rule execution policies and conflict/override approval on top of the shipped deterministic evaluator.
 4. Local processing agent for hardware discovery, printers/scales and tool report ingestion.
-5. Defect/devaluation templates + repair economics automation.
-6. Settlement calculator and consignment/revenue-share approval.
+5. Repair approval thresholds and actual-vs-estimate economics on top of shipped defect/devaluation templates.
+6. Settlement approval/finalisation and accounting export on top of the shipped calculator.
 7. eBay adapter once Production Buy/Sell API credentials and approvals are available.
 8. Customer portal with customer-scoped RLS, then token-authenticated API/webhooks.
 9. Asymmetric certificate signing/key management.
