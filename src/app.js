@@ -170,9 +170,10 @@ function route() {
 window.addEventListener("hashchange", route);
 $("#railToggle").addEventListener("click", () => { const r = $("#rail"); r.classList.toggle("open"); $("#railToggle").setAttribute("aria-expanded", r.classList.contains("open")); });
 $("#settingsToggle").addEventListener("click", () => { const p = $("#settingsPanel"), open = p.hidden; p.hidden = !open; $("#settingsToggle").setAttribute("aria-expanded", open); });
+$("#settingsClose").addEventListener("click", () => { $("#settingsPanel").hidden = true; $("#settingsToggle").setAttribute("aria-expanded", "false"); });
 $("#glossaryHints").checked = glossaryHints;
 $("#glossaryHints").addEventListener("change", e => { glossaryHints = e.target.checked; try { localStorage.setItem(GLOSSARY_SETTINGS_KEY, glossaryHints ? "on" : "off"); } catch {} $("#jargonPopover").hidden = true; route(); });
-document.addEventListener("click", e => { const b = e.target.closest(".jargon"); if (b) { e.stopPropagation(); showJargon(b); } else if (!e.target.closest(".jargon-popover")) $("#jargonPopover").hidden = true; });
+document.addEventListener("click", e => { const b = e.target.closest(".jargon"); if (b) { e.stopPropagation(); showJargon(b); } else if (!e.target.closest(".jargon-popover")) $("#jargonPopover").hidden = true; const p = $("#settingsPanel"); if (p && !p.hidden && !e.target.closest("#settingsPanel, #settingsToggle")) { p.hidden = true; $("#settingsToggle").setAttribute("aria-expanded", "false"); } });
 document.addEventListener("keydown", e => { if (e.key === "Escape") { $("#jargonPopover").hidden = true; $("#settingsPanel").hidden = true; } });
 $("#globalSearch").addEventListener("keydown", e => { if (e.key === "Enter" && e.target.value.trim()) { lastQuery = e.target.value.trim(); const h = "search-" + lastQuery.replace(/\s+/g, "_").replace(/[^A-Za-z0-9._~-]/g, ""); if (location.hash === "#" + h) route(); else location.hash = h; } });
 let lastQuery = "";
