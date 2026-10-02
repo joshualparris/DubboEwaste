@@ -2,6 +2,9 @@ name: Export repo for NotebookLM
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/notebooklm-export.yml'
 
 permissions:
   contents: read
