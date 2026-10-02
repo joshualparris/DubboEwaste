@@ -33,6 +33,7 @@ The `RESEARCH-01` through `RESEARCH-16` files are the systematic current researc
 - [REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md](REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md) compares reuse models.
 - [EXISTING-AUSTRALIAN-EWASTE-ORGS-DUBBO-EXPANSION.md](EXISTING-AUSTRALIAN-EWASTE-ORGS-DUBBO-EXPANSION.md) covers potential partners.
 - [DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md](DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md) covers later partner/branch routes.
+- [AUSTRALIAN-EWASTE-ITAD-MAJOR-PLAYERS.md](AUSTRALIAN-EWASTE-ITAD-MAJOR-PLAYERS.md) is the current market map of major Australian ITAD, e-waste, stewardship, reuse, digital-inclusion and collection organisations.
 
 ## Historical registers and superseded material
 
