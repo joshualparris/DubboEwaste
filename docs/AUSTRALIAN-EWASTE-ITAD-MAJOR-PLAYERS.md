@@ -13,6 +13,7 @@
 | Sircel | https://sircel.com/ | Large Australian end-to-end e-waste processor with ITAD, asset recovery, repurposing, data sanitisation, recycling and multiple Australian sites. |
 | Greenbox | https://www.greenbox.com.au/ | Major Australian IT asset lifecycle and ITAD operator covering collection, secure data sanitisation/destruction, asset recovery, remarketing and recycling. |
 | Sims Lifecycle Services | https://www.simslifecycle.com/ | Global ITAD/data-centre operator with Australian operations, including a dedicated Sydney/Villawood ITAD facility. |
+| Iron Mountain Asset Lifecycle Management / ACT Group | https://www.ironmountain.com/en-au/services/it-asset-lifecycle-management | Major enterprise ITAD/lifecycle operator in Australia. Iron Mountain has acquired Australian ITAD group ACT Group, including ACT Logistics, ACT Networks and Australian Computer Traders. |
 | Close the Loop | https://closetheloop.com.au/ | Large Australian circular-economy group now offering ITAD, secure asset recovery, refurbishment and e-waste processing as well as product-stewardship programs. |
 | WorkVentures | https://workventures.com.au/ | Major Australian IT social enterprise combining ITAD, refurbishment, secure data destruction, reuse, donation and digital inclusion. |
 | Renew IT | https://renew-it.com/ | Enterprise IT lifecycle / ITAD operator with buyback, secure data destruction, refurbishment, remarketing and recycling pathways. |
@@ -94,19 +95,20 @@ The strongest omissions were:
 
 1. **Greenbox** — one of the clearest Australian enterprise ITAD benchmarks.
 2. **Sims Lifecycle Services** — major global ITAD/data-centre player with Australian processing capability.
-3. **Close the Loop** — large Australian circular-economy group with ITAD/refurb/e-waste capability.
-4. **Ecocycle** — current NTCRS co-regulatory arrangement and national recycler.
-5. **Sustainable Product Stewards Australia (SPS)** — current NTCRS co-regulatory arrangement.
-6. **ANZRP** — the legal/operator entity behind TechCollect.
-7. **Activ Group Solutions** — the legal/operator entity behind Ecoactiv and a current NTCRS co-regulatory arrangement.
-8. **Total Green Recycling** — major WA e-waste processor.
-9. **Shred-X** — national secure data-destruction and e-waste operator.
-10. **Electronic Recycling Australia** — important social-enterprise recycler in South Australia.
-11. **CompNow** — large corporate technology lifecycle/refurbishment operator.
-12. **Substation33** — significant social-enterprise repair/reuse/recycling operator in Queensland.
-13. **B-cycle** — essential national battery-stewardship infrastructure.
-14. **Envirostream Australia** — specialist Australian battery processor relevant to safe e-waste downstream handling.
-15. **Officeworks Bring it Back** — major national front-door collection/trade-in channel.
+3. **Iron Mountain Asset Lifecycle Management / ACT Group** — major enterprise ITAD player in Australia, strengthened by Iron Mountain's acquisition of ACT Group / Australian Computer Traders.
+4. **Close the Loop** — large Australian circular-economy group with ITAD/refurb/e-waste capability.
+5. **Ecocycle** — current NTCRS co-regulatory arrangement and national recycler.
+6. **Sustainable Product Stewards Australia (SPS)** — current NTCRS co-regulatory arrangement.
+7. **ANZRP** — the legal/operator entity behind TechCollect.
+8. **Activ Group Solutions** — the legal/operator entity behind Ecoactiv and a current NTCRS co-regulatory arrangement.
+9. **Total Green Recycling** — major WA e-waste processor.
+10. **Shred-X** — national secure data-destruction and e-waste operator.
+11. **Electronic Recycling Australia** — important social-enterprise recycler in South Australia.
+12. **CompNow** — large corporate technology lifecycle/refurbishment operator.
+13. **Substation33** — significant social-enterprise repair/reuse/recycling operator in Queensland.
+14. **B-cycle** — essential national battery-stewardship infrastructure.
+15. **Envirostream Australia** — specialist Australian battery processor relevant to safe e-waste downstream handling.
+16. **Officeworks Bring it Back** — major national front-door collection/trade-in channel.
 
 ## 8. What not to treat as equivalent competitors
 
@@ -127,6 +129,7 @@ DubboEwaste should therefore benchmark each organisation for the specific capabi
 - Sircel services: https://sircel.com/services/
 - Greenbox IT lifecycle / asset recovery: https://www.greenbox.com.au/services/
 - Sims Lifecycle Services Australia: https://www.simslifecycle.com/
+- Iron Mountain Asset Lifecycle Management Australia: https://www.ironmountain.com/en-au/services/it-asset-lifecycle-management
 - Close the Loop: https://closetheloop.com.au/
 - Total Green Recycling: https://www.totalgreenrecycling.com.au/
 - Shred-X e-waste: https://www.shred-x.com.au/e-waste/
