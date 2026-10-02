@@ -64,6 +64,73 @@ function modelName(label: string, manufacturer: string) {
   return stripped || label;
 }
 
+type RealmeData = Record<string, Record<string, string>>;
+
+async function searchRealmeOpenData(query: string) {
+  const response = await fetch(
+    "https://raw.githubusercontent.com/agam778/realmebot-api/main/data.json",
+    {
+      headers: {
+        Accept: "application/json",
+        "User-Agent": "DubboEwaste/0.1 (https://github.com/joshualparris/DubboEwaste)",
+      },
+      next: { revalidate: 86400 },
+    },
+  );
+  if (!response.ok) throw new Error(`Realme open dataset returned ${response.status}`);
+
+  const data = (await response.json()) as RealmeData;
+  const needle = query.toLowerCase().replace(/[^a-z0-9+]+/g, " ").trim();
+  const tokens = needle.split(/\s+/).filter(Boolean);
+
+  const rows: Array<{
+    manufacturer: string;
+    model_name: string;
+    category: string;
+    support_summary: string;
+    lock_risks: string;
+    battery_notes: string;
+    likely_route: string;
+    source_url: string;
+    source_checked: string;
+    confidence: string;
+    external_source: string;
+    source_id: string;
+    identifiers: string[];
+  }> = [];
+
+  for (const [series, devices] of Object.entries(data)) {
+    for (const [identifiersRaw, fullModel] of Object.entries(devices)) {
+      const haystack = `${series} ${identifiersRaw} ${fullModel}`.toLowerCase();
+      if (!tokens.every((token) => haystack.includes(token))) continue;
+
+      const identifiers = identifiersRaw
+        .split("/")
+        .map((value) => value.trim())
+        .filter(Boolean);
+
+      rows.push({
+        manufacturer: "Realme",
+        model_name: fullModel.replace(/^realme\s+/i, "").trim(),
+        category: "phone",
+        support_summary:
+          `Open Realme device database match from ${series}. Verify the printed RMX model/codename and current OS/security support before reuse.`,
+        lock_risks: "Check Google/FRP lock, screen lock, MDM, carrier/blacklist state and ownership.",
+        battery_notes: "Inspect battery health, swelling, heat and charging before reuse.",
+        likely_route: "Hold / further triage until exact model, lock state and condition are verified.",
+        source_url: "https://github.com/agam778/realmebot-api",
+        source_checked: new Date().toISOString().slice(0, 10),
+        confidence: "RESEARCH LEAD",
+        external_source: "RealmeBot open device DB",
+        source_id: `realme:${identifiersRaw}:${fullModel}`,
+        identifiers,
+      });
+    }
+  }
+
+  return rows.slice(0, 20);
+}
+
 async function searchWikidata(term: string) {
   const url = new URL("https://www.wikidata.org/w/api.php");
   url.searchParams.set("action", "wbsearchentities");
@@ -96,13 +163,31 @@ export async function GET(request: NextRequest) {
     : [query, `${query} smartphone`, `${query} laptop`, `${query} tablet`];
 
   try {
-    const batches = await Promise.all(terms.map(searchWikidata));
-    const seen = new Set<string>();
-    const rows = batches
+    const [wikidataSettled, realmeSettled] = await Promise.all([
+      Promise.allSettled(terms.map(searchWikidata)),
+      /realme|rmx\d+/i.test(query)
+        ? searchRealmeOpenData(query).then(
+            (value) => ({ status: "fulfilled" as const, value }),
+            (reason) => ({ status: "rejected" as const, reason }),
+          )
+        : Promise.resolve({ status: "fulfilled" as const, value: [] }),
+    ]);
+
+    const realmeRows =
+      realmeSettled.status === "fulfilled" ? realmeSettled.value : [];
+
+    const batches = wikidataSettled
+      .filter((item): item is PromiseFulfilledResult<WikidataSearchItem[]> => item.status === "fulfilled")
+      .map((item) => item.value);
+
+    const seen = new Set<string>(
+      realmeRows.map((row) => `${row.manufacturer}:${row.model_name}`.toLowerCase()),
+    );
+
+    const wikidataRows = batches
       .flat()
       .filter((item) => {
-        if (!item.id || seen.has(item.id)) return false;
-        seen.add(item.id);
+        if (!item.id) return false;
         const text = `${item.label ?? ""} ${item.description ?? ""}`;
         return DEVICE_WORDS.test(text);
       })
@@ -133,10 +218,17 @@ export async function GET(request: NextRequest) {
         };
       })
       .filter((row) => row.model_name.length > 1)
-      .slice(0, 12);
+      .filter((row) => {
+        const key = `${row.manufacturer}:${row.model_name}`.toLowerCase();
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+
+    const rows = [...realmeRows, ...wikidataRows].slice(0, 20);
 
     return NextResponse.json(
-      { results: rows },
+      { results: rows, providers: ["RealmeBot open device DB", "Wikidata"] },
       { headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400" } },
     );
   } catch (error) {
