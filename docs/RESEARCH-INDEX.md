@@ -5,7 +5,7 @@ Use this page to find the current authority first. The repository deliberately r
 ## Start here
 
 1. [CURRENT-STATE.md](CURRENT-STATE.md) — current status and five launch gates.
-2. [PHASE-0-LAUNCH-GATES.md](PHASE-0-LAUNCH-GATES.md) — action sequence and stop rules.
+2. [PHASE-0-LAUNCH-GATES.md](PHASE-0-LAUNCH-GATES.md) — detailed I01–I09 intake criteria, closure evidence, item decisions and resale/pilot boundaries; use the [readiness/capacity record](../templates/phase-0-readiness-and-capacity-record.md).
 3. [RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md](RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md) — evidence maturity and next closure action.
 4. [MASTER-FINDINGS-ALL-CHATS.md](MASTER-FINDINGS-ALL-CHATS.md) — broad synthesis and corrections.
 5. [GLOSSARY.md](GLOSSARY.md) — plain-language terms.

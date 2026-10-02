@@ -33,6 +33,8 @@ Do not turn `RESEARCHED` or `DESIGNED` into `CONFIRMED-EXTERNAL` by repetition.
 
 ## 2. Closure matrix
 
+Use [the expanded P0 gates](PHASE-0-LAUNCH-GATES.md) for operation-level criteria I01–I09 and item-level stop decisions. Fill a private copy of the [readiness/capacity record](../templates/phase-0-readiness-and-capacity-record.md) with the exact scope, evidence, shelf limits, routes and first-batch reservations. The template is designed; no external gate is closed by this expansion.
+
 | Gap/closure item | Current state | Strong evidence still required | Next action |
 |---|---|---|---|
 | Council activity classification | `RESEARCHED`/`DESIGNED` | written response for exact premises, storage, testing, online sale and waste activity | send the Phase 0 description to Dubbo Regional Council planning |

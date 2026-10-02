@@ -507,3 +507,165 @@
   confidence: Medium
   notes: Verified company statement only; site-level current accreditation, levels and individual defence-contract
     suitability were not independently checked.
+
+# Expanded P0 launch-gate sources and proposed policies — 2 October 2026
+- id: EVD-P0-001
+  claim: NSW Planning Portal describes conditional exempt-development pathways for home-based enterprises, including
+    attached or detached premises.
+  type: Verified Fact
+  source: S01 — NSW Planning Portal home-based enterprises
+  url: https://www.planningportal.nsw.gov.au/development-and-assessment/planning-approval-pathways/exempt-development/home-based-enterprises
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: General framework only; not a determination for the proposed e-waste site. Exact floor area and land-use
+    conditions must be checked.
+- id: EVD-P0-002
+  claim: Dubbo Regional Council offers general duty-planner advice and a formal written-planning-advice enquiry
+    route.
+  type: Verified Fact
+  source: S02 — Dubbo Council planning advice
+  url: https://www.dubbo.nsw.gov.au/builders-developers/overview-of-application-process/understanding-the-da-process
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Written-advice route also indexed at https://eservice.dubbo.nsw.gov.au/eservice/councilLink.do?resource=PlanningadviceTerms.html
+    . Advice is not development consent; no enquiry was sent.
+- id: EVD-P0-003
+  claim: NSW Small Business Commissioner advises rental-property businesses to check the rental agreement and obtain
+    necessary Council approvals.
+  type: Verified Fact
+  source: S03 — NSW Small Business Commissioner rental businesses
+  url: https://www.smallbusiness.nsw.gov.au/help/common-questions/running-a-home-business-from-your-rental-property
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Does not establish this particular lease permits the activity, or that every model needs a lease variation.
+- id: EVD-P0-004
+  claim: SafeWork NSW guidance requires businesses to identify, eliminate or minimise, and review workplace hazards
+    and risks.
+  type: Verified Fact
+  source: S04 — SafeWork NSW managing hazards and risks
+  url: https://www.safework.nsw.gov.au/legal-obligations/employer-business-obligations/managing-hazards-and-risks
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Supports the risk-assessment process, not a certification of the proposed workspace or any illustrative
+    capacity.
+- id: EVD-P0-005
+  claim: Business.gov.au says standard home insurance policies often do not cover business activities and visitor-related
+    liability may require business cover.
+  type: Verified Fact
+  source: S05 — Business.gov.au home-based businesses
+  url: https://business.gov.au/planning/business-structures-and-types/home-based-businesses
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Relevant policy cover must be confirmed for actual activities; proposed exposure checklist is not a statement
+    that every cover type is mandatory by law.
+- id: EVD-P0-006
+  claim: NSW second-hand dealer guidance includes electronic goods, a recycling/rubbish-program exemption and a
+    prohibition on prescribed-goods trading while a required application is being assessed.
+  type: Verified Fact
+  source: S06 — NSW dealer licensing
+  url: https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/pawnbrokers-and-second-hand-dealers/pawnbroker-and-second-hand-dealer-licences
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Application of the exemption to this refurb/resale model remains unresolved. No licence or external applicability
+    answer is claimed.
+- id: EVD-P0-007
+  claim: NSW dealer guidance says regulated goods must generally be held for 14 days without alteration on notified
+    premises, with stated exceptions.
+  type: Verified Fact
+  source: S07 — NSW dealer business obligations
+  url: https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/pawnbrokers-and-second-hand-dealers
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: General regulator guidance, not a conclusion that all proposed devices require a hold. Exact timing and
+    permitted inspection/wipe/repair/return actions remain for Fair Trading confirmation.
+- id: EVD-P0-008
+  claim: FRNSW lists battery damage flags and says damaged batteries must not be used or charged, put in regular
+    waste/recycling, or taken to ordinary battery recycling points.
+  type: Verified Fact
+  source: S08 — FRNSW damaged batteries
+  url: https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/battery-and-charging-safety/what-should-i-do-if-my-battery-is-damaged
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Supports conservative refusal and specialist escalation. Does not prescribe a universal workshop quarantine
+    container or make donor transport safe.
+- id: EVD-P0-009
+  claim: FRNSW Charge Safe emergency guidance directs people to evacuate, stay out and call Triple Zero.
+  type: Verified Fact
+  source: S09 — FRNSW Charge Safe
+  url: https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/battery-and-charging-safety/files/chargesafe.pdf
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Official indexed PDF guidance; no live-battery handling or firefighting drill performed.
+- id: EVD-P0-010
+  claim: NSW EPA says businesses are not eligible to use household Community Recycling Centres and should contact
+    waste-disposal services.
+  type: Verified Fact
+  source: S10 — NSW EPA Community Recycling Centres
+  url: https://www.epa.nsw.gov.au/Your-environment/Recycling-and-reuse/household-recycling-overview/community-recycling-centres
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Does not establish acceptance or exclusion at a separate commercial service offered by a particular facility.
+    Exact business stream requires current terms.
+- id: EVD-P0-011
+  claim: ACSC secure-disposal guidance distinguishes devices and media, recommends manufacturer guidance for SSDs
+    and escalation for sensitive or difficult-to-erase data.
+  type: Verified Fact
+  source: S11 — ACSC secure device disposal
+  url: https://www.cyber.gov.au/protect-yourself/securing-your-devices/how-secure-your-device/how-dispose-your-device-securely
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: General device guidance; not proof an operator has sanitised a device or achieved third-party certification.
+- id: EVD-P0-012
+  claim: Business.gov.au advises understanding policy coverage, exclusions, conditions and disclosure duties and
+    reviewing insurance when the business changes.
+  type: Verified Fact
+  source: S05 — Business.gov.au insurance management
+  url: https://business.gov.au/risk-management/insurance/manage-your-business-insurance
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Supports insurer exposure-to-cover review; no policy was obtained or confirmed.
+- id: EVD-P0-013
+  claim: P0 requires nine operation-level intake gates with scoped closure evidence and separate item-level accept/refuse/hold/emergency
+    decisions.
+  type: Proposed Policy
+  source: P0-I01–I09 — expanded launch-gate design
+  url: https://github.com/joshualparris/DubboEwaste/blob/main/docs/PHASE-0-LAUNCH-GATES.md
+  date_checked: '2026-10-02'
+  verification_method: Industry inference
+  confidence: Medium
+  notes: Proposed project policy and blank readiness template, not law or external approval. All current external
+    blockers remain open. Administrative holds do not authorise unsafe-item intake.
+- id: EVD-P0-014
+  claim: P0 separates intake approval from unit-level resale/donation release and accounts for removed media, lawful
+    locks, safe tests and private traceability.
+  type: Proposed Policy
+  source: P0 release and records design
+  url: https://github.com/joshualparris/DubboEwaste/blob/main/docs/PHASE-0-LAUNCH-GATES.md
+  date_checked: '2026-10-02'
+  verification_method: Industry inference
+  confidence: Medium
+  notes: Proposed control design consistent with existing data/bench/resale SOPs; no live-unit release or erasure
+    result demonstrated.
+- id: EVD-P0-015
+  claim: The 20–30 item P0 sample is cumulative; each batch must fit measured capacity, legal/data holds, supervision
+    and current outbound routes, with reviews at 5/10/20/30.
+  type: Proposed Policy
+  source: P0 capacity, pilot and scope-review design
+  url: https://github.com/joshualparris/DubboEwaste/blob/main/docs/PHASE-0-LAUNCH-GATES.md
+  date_checked: '2026-10-02'
+  verification_method: Industry inference
+  confidence: Medium
+  notes: Proposed policy, not a measured site limit. Illustrative six-slot example is not a recommended capacity.
+    Blank template requires actual values and evidence; changes reopen affected gates.
