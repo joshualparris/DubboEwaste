@@ -1,0 +1,22 @@
+[
+  {
+    "asset_id": "SYN-LAPTOP-001",
+    "device_category": "laptop",
+    "transfer_authority_recorded": true,
+    "battery_condition": "healthy",
+    "account_lock_mdm_status": "cleared",
+    "data_bearing": true,
+    "sanitisation_result": "PASS",
+    "final_route": "reuse/refurbish"
+  },
+  {
+    "asset_id": "SYN-PHONE-002",
+    "device_category": "phone/tablet",
+    "transfer_authority_recorded": true,
+    "battery_condition": "unknown",
+    "account_lock_mdm_status": "not checked",
+    "data_bearing": true,
+    "sanitisation_result": "",
+    "final_route": ""
+  }
+]

@@ -6,6 +6,10 @@ on:
     paths:
       - 'data/evidence.yaml'
       - 'scripts/validate_evidence.py'
+      - 'scripts/validate_pilot_tracker.py'
+      - 'scripts/triage_intake.py'
+      - 'scripts/analyse_pilot.py'
+      - 'examples/synthetic-intake.json'
       - '.github/workflows/evidence-validation.yml'
   pull_request:
     branches: [ "main" ]
@@ -27,3 +31,8 @@ jobs:
         run: python scripts/validate_evidence.py
       - name: Run pilot tracker validator
         run: python scripts/validate_pilot_tracker.py
+      - name: Compile and smoke-test agent tools
+        run: |
+          python -m py_compile scripts/*.py
+          python scripts/triage_intake.py examples/synthetic-intake.json > /tmp/triage.json
+          python scripts/analyse_pilot.py pilot-tracker.csv > /tmp/pilot-summary.json

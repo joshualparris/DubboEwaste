@@ -73,3 +73,56 @@ The ready-to-use scripts and evidence fields are in:
 ## Stop rule
 
 Do not open general public intake, accept unknown commercial mixed loads, handle damaged lithium batteries, or make claims of certification/partnership/downstream destination until the applicable P0 evidence is written and current.
+
+## AI-agent work package
+
+This section captures the wider set of useful work an AI coding/research agent can do. The checked items are repository deliverables; unchecked items require external access, real equipment, or operator judgment.
+
+### A. Operating system and intake desk
+
+- [x] Document the AI-agent operating model, permissions, evidence boundaries and hand-off rules.
+- [x] Add a deterministic intake decision tool that emits ACCEPT, HOLD or REJECT with reasons and required evidence.
+- [x] Add a pilot-analysis tool for time, margin, sell-through, rejection and route metrics.
+- [x] Add a public-safety/redaction checker for reports and exports.
+- [x] Add synthetic examples so the tools can be exercised without personal data or real device identifiers.
+- [ ] Convert the intake tool into a local browser form with barcode/QR asset IDs and photo attachments.
+- [ ] Test a physical diagnostic/sanitisation USB kit on representative equipment.
+- [ ] Perform real backup/restore and retention testing with the operator's chosen storage system.
+
+### B. Inventory, resale and technical workflows
+
+- [x] Define the inventory fields needed for provenance, triage, sanitisation, labour, route and sale economics.
+- [x] Add a repeatable unit-economics calculation specification.
+- [x] Add listing, warranty, returns, recall and repair-notice workflow links.
+- [x] Add category-specific triage and route rules.
+- [ ] Import actual sold-price observations from approved marketplace exports or manual research.
+- [ ] Validate repair and wipe scripts on real devices; never infer a wipe from a software exit code alone.
+- [ ] Establish real parts, wholesale and downstream quotes.
+
+### C. Research and evidence production
+
+- [x] Add an AI research workflow with claim-level citations and evidence labels.
+- [x] Add a research backlog covering legal, safety, competitors, courses, resale, community and downstream questions.
+- [x] Add source freshness and unresolved-claim review guidance.
+- [ ] Recheck time-sensitive sources and record new date-checked evidence.
+- [ ] Conduct operator, MSP, school, repairer, recycler and social-recipient interviews.
+- [ ] Obtain current course, insurance, premises, Council, Fair Trading and receiver quotes or written answers.
+
+### D. Business development and communications
+
+- [x] Maintain ready-to-review call scripts, email drafts, partner questions and capability-document structure.
+- [x] Add a partner/recipient validation checklist and no-claim rules.
+- [ ] Send outreach through an approved account and record replies in the evidence register.
+- [ ] Prepare grant, sponsorship, collection and community-impact applications using verified figures only.
+
+### E. Safety, privacy and governance
+
+- [x] Keep raw personal data, device identifiers and private session outputs out of the public repository.
+- [x] Define safe handling boundaries for batteries, data-bearing devices, ownership and downstream claims.
+- [x] Add deterministic validation to CI for evidence and pilot schemas.
+- [ ] Complete site-specific battery, fire, electrical, insurance, privacy and incident drills.
+- [ ] Obtain qualified advice where legal, accounting, electrical, battery or WHS decisions are material.
+
+### AI completion boundary
+
+Codex can create documents, schemas, checklists, validators, calculations, synthetic tests, research drafts and reviewable communications. It cannot honestly complete a physical inspection, regulatory approval, insurance placement, external interview, real sale, device wipe, downstream handoff or safety drill without the operator and the relevant external party. Those remain explicitly gated above.
