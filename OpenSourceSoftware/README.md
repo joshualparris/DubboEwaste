@@ -86,3 +86,38 @@ See:
 - [sources.md](sources.md)
 
 Research captured 2 October 2026.
+
+
+## Detailed AssetFlow specification
+
+The vendor reverse-engineering pass added a much more complete target design:
+
+- [vendor-workflow-reconstruction.md](vendor-workflow-reconstruction.md) — public MAKOR/RazorERP/Blancco/Phonecheck workflow reconstruction
+- [assetflow-software-specification.md](assetflow-software-specification.md) — complete functional specification
+- [screen-map.md](screen-map.md) — proposed operator, admin and client screens
+- [data-model.md](data-model.md) — conceptual entities and relationships
+- [feature-backlog.md](feature-backlog.md) — P0–P3 implementation backlog
+
+### Important additions from this research
+
+AssetFlow now explicitly includes:
+
+- both bulk **lots** and serialized **assets**
+- individual **media/drive records** under parent devices
+- lot sorting and **mass balance**
+- configurable **workstation/station processing**
+- customer-specific sanitisation and routing policies
+- wipe evidence preservation and hashing
+- separate functional/cosmetic grading
+- devaluation templates
+- automatic/conditional routing
+- repair economics
+- part harvesting with provenance
+- pallets/containers
+- outbound/downstream tracking
+- settlement and revenue-share workflows
+- client Asset Vision / device history
+- certificate register and verification
+- environmental reporting with explicit methodology
+- exception queues
+- a visual workflow/rules engine roadmap
