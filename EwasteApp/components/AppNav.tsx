@@ -22,6 +22,8 @@ export function AppNav({ fullName, role }: { fullName: string | null; role: stri
       <Link href="/reports">Reports</Link>
       <Link href="/customers">Customers</Link>
       <Link href="/locations">Locations</Link>
+      {role === "admin" ? <Link href="/admin/data">Admin Data</Link> : null}
+      {role === "admin" ? <Link href="/admin/permissions">Permissions</Link> : null}
     </nav>
     <form action={logout}><button className="button secondary" type="submit">Sign out</button></form>
   </header>;
