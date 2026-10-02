@@ -1,0 +1,26 @@
+target_type,organisation,location_or_scope,priority,known_route_or_role,conflict_or_gate,public_source,status,next_question
+MSP,Avance Business Technology,Dubbo,HIGH,Managed IT/software/cloud/cyber,EMPLOYMENT CONFLICT - resolve before outreach,https://avance.technology/solutions,BLOCKED,What happens to retired client hardware?
+MSP,Hi Tech ITworX,Dubbo,HIGH,Workshop in Dubbo; remote and onsite support,,https://htw.net.au/locations/managed-it-dubbo/,NOT CONTACTED,Current refresh/disposal route and annual device volume?
+MSP,Dubbo ITS,Dubbo/HIGH,HIGH,Managed IT for Dubbo and Central West,,https://dubboits.com.au/it-support-dubbo/,NOT CONTACTED,Current refresh/disposal route and annual device volume?
+MSP,Gravity IT,Dubbo,HIGH,Local technicians,,https://gravityit.com.au/dubbo/,NOT CONTACTED,Current refresh/disposal route and annual device volume?
+MSP,Toim,Dubbo,HIGH,Dubbo team,,https://toim.com.au/toim-dubbo,NOT CONTACTED,Current refresh/disposal route and annual device volume?
+MSP,TechSend,Dubbo,MEDIUM,Same-day onsite support,,https://www.techsend.com.au/locations/sydney/dubbo/,NOT CONTACTED,Do you handle client hardware refresh/disposal locally?
+MSP,Colton Computer Technologies,Orange/Bathurst/Dubbo,HIGH,Managed IT services regional,,https://coltoncomputers.com.au/managed-it-services/,NOT CONTACTED,Current refresh/disposal route and annual device volume?
+MSP,CBM Computers,Dubbo,MEDIUM,Local IT provider,,Localsearch Dubbo IT listing,NOT CONTACTED,Do you handle business fleet retirement?
+MSP,Revelation I.T. Solutions,Dubbo,MEDIUM,Local IT provider,,https://www.localsearch.com.au/find/it-services-support/dubbo-nsw,NOT CONTACTED,Do you handle business fleet retirement?
+MSP,Tech Exe,Dubbo,MEDIUM,Local IT provider,,https://www.localsearch.com.au/find/it-services-support/dubbo-nsw,NOT CONTACTED,Do you handle business fleet retirement?
+MSP,Viatek Central West NSW Pty Ltd,Dubbo,HIGH,Regional managed print/IT provider,,https://www.localsearch.com.au/find/it-services-support/dubbo-nsw,NOT CONTACTED,Current device refresh/disposal pathway?
+MSP,R & R Communications,Dubbo,MEDIUM,Local communications/IT provider,,https://www.localsearch.com.au/find/it-services-support/dubbo-nsw,NOT CONTACTED,Do you handle business fleet retirement?
+MSP,Right Click Go,Dubbo,MEDIUM,Local IT provider,,https://www.localsearch.com.au/find/it-services-support/dubbo-nsw,NOT CONTACTED,Do you handle business fleet retirement?
+IT reseller/service,Orana Business Solutions,Dubbo,HIGH,IT services and refurbished-device resale,,https://obsolutions.com.au/refurbished-devices,NOT CONTACTED,Do you have surplus/end-of-life client stock or downstream needs?
+Repair/resale,Tech Savvy Dubbo,Dubbo,MEDIUM,Repair and refurbished-device resale,,https://www.techsavvyau.com/,NOT CONTACTED,What happens to uneconomic repair/parts stock?
+IT retail,Leading Edge Computers,Dubbo,MEDIUM,Local computer retail/service,,Existing repo competitor map,NOT CONTACTED,What happens to trade-in/retired business devices?
+Fleet owner,Western NSW Local Health District,Dubbo/Western NSW,LOW,Large government fleet; likely contracted procurement,Government contract pathway,https://www.nsw.gov.au/departments-and-agencies/wnswlhd/careers/our-communities/dubbo,DEFER,Which procurement/disposal contract controls ICT retirement?
+Fleet owner,Dubbo Regional Council,Dubbo,MEDIUM,Local government fleet and waste/planning stakeholder,Government procurement,https://www.dubbo.nsw.gov.au/,NOT CONTACTED,Who manages Council ICT disposal and e-waste contract?
+School system,Catholic Education Diocese of Bathurst,Central West,HIGH,Catholic school ICT via diocesan/CEnet structures,,https://www.bth.catholic.edu.au/contact-us/,NOT CONTACTED,What is the ICT disposal/MDM release pathway?
+School,Dubbo Christian School,Dubbo,HIGH,Independent school,,https://www.dubbocs.edu.au/,NOT CONTACTED,Who authorises retired ICT disposal and how are devices released/wiped?
+School,Macquarie Anglican Grammar School,Dubbo,HIGH,Independent school,,https://www.mags.nsw.edu.au/about-us/,NOT CONTACTED,Who authorises retired ICT disposal and how are devices released/wiped?
+School,Central West Leadership Academy,Dubbo,HIGH,Independent school with Chromebook fleet,,https://theacademy.nsw.edu.au/,NOT CONTACTED,What happens to retired Chromebooks and enterprise enrolment?
+School,Wellington Christian School,Wellington,MEDIUM,Independent school,,https://wellingtoncs.com.au/,NOT CONTACTED,Who authorises retired ICT disposal and how are devices released/wiped?
+Community partner,WorkVentures NSW Device Bank,NSW,MEDIUM,Device Bank delivery/reuse pathway,,https://workventures.com.au/nswdb-eoi/,NOT CONTACTED,Is there a Dubbo/Orana partner or EOI pathway?
+Community partner,Good360 Australia,Australia,MEDIUM,Charity/school device distribution,,https://good360.org.au/digital-divide/,NOT CONTACTED,Any Dubbo/Orana device distributions or eligible partners?
