@@ -204,6 +204,10 @@ export async function recordSanitisation(formData: FormData) {
 
   if (parsed.data.status === "PASSED") {
     await supabase.from("media").update({ data_state: "VERIFIED_CLEARED" }).eq("id", parsed.data.media_id);
+  } else if (parsed.data.status === "DESTROYED") {
+    await supabase.from("media").update({ data_state: "VERIFIED_CLEARED", final_route: "DESTROYED" }).eq("id", parsed.data.media_id);
+  } else if (parsed.data.status === "NOT_REQUIRED") {
+    await supabase.from("media").update({ data_state: "NON_DATA_BEARING", final_route: "NOT_REQUIRED" }).eq("id", parsed.data.media_id);
   } else if (parsed.data.status === "FAILED") {
     await supabase.from("media").update({ data_state: "SANITISATION_FAILED" }).eq("id", parsed.data.media_id);
     await supabase.from("exceptions").insert({
@@ -618,7 +622,7 @@ export async function applyWorkflowRule(formData: FormData) {
 
   const action = (rule.action ?? {}) as Record<string, unknown>;
   const update: Record<string, unknown> = {};
-  const statuses = ["INTAKE","UNWIPED_RESTRICTED","TRIAGE","SANITISATION","DIAGNOSTICS","REPAIR","READY_FOR_SALE","LISTED","SOLD","PARTS","DONATED","RECYCLED","REJECTED","HOLD"];
+  const statuses = ["INTAKE","UNWIPED_RESTRICTED","TRIAGE","SANITISATION","DIAGNOSTICS","REPAIR","READY_FOR_SALE","LISTED","SOLD","PARTS","DONATED","READY_FOR_RECYCLING","OUTBOUND","RECYCLED","REJECTED","HOLD"];
   const routes = ["REFURBISH","PARTS","DONATE","RECYCLE","HOLD"];
   if (typeof action.status === "string" && statuses.includes(action.status)) update.status = action.status;
   if (typeof action.route === "string" && routes.includes(action.route)) update.initial_route = action.route;

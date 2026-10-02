@@ -399,7 +399,7 @@ export async function recordDisposition(formData: FormData) {
   if (!error) {
     const statusMap: Record<string,string> = {
       REFURBISH: "TRIAGE", SELL: "READY_FOR_SALE", DONATE: "DONATED", PARTS: "PARTS",
-      RECYCLE: "RECYCLED", RETURN: "HOLD", HOLD: "HOLD", REJECT: "REJECTED",
+      RECYCLE: "READY_FOR_RECYCLING", RETURN: "HOLD", HOLD: "HOLD", REJECT: "REJECTED",
     };
     await supabase.from("assets").update({ status: statusMap[parsed.data.disposition_type] }).eq("id", parsed.data.asset_id);
     await appendEvent(supabase, user.id, "asset", parsed.data.asset_id, "DISPOSITION_RECORDED", parsed.data);
@@ -418,26 +418,166 @@ export async function issueCertificate(formData: FormData) {
   if (!parsed.success) redirect("/certificates");
   const { supabase, user } = await currentUser();
 
-  const [{ data: asset }, { data: tests }, { data: dispositions }, { data: media }, { data: grades }, { data: evidence }] = await Promise.all([
+  const [
+    { data: asset },
+    { data: tests },
+    { data: dispositions },
+    { data: media },
+    { data: grades },
+    { data: evidence },
+    { data: authority },
+    { data: triage },
+    { data: quarantines },
+    { data: outbound },
+    { data: methodologies },
+  ] = await Promise.all([
     supabase.from("assets").select("*").eq("id", parsed.data.asset_id).single(),
     supabase.from("asset_tests").select("test_type,result,notes,created_at").eq("asset_id", parsed.data.asset_id).order("created_at"),
     supabase.from("dispositions").select("disposition_type,destination,notes,decided_at").eq("asset_id", parsed.data.asset_id).order("decided_at", { ascending: false }),
-    supabase.from("media").select("id,media_code,media_type,serial,capacity_bytes,data_state,sanitisation_tasks(status,tool_name,tool_version,method,verification_result,raw_report_hash,completed_at)").eq("parent_asset_id", parsed.data.asset_id),
+    supabase.from("media").select("id,media_code,media_type,serial,capacity_bytes,data_state,final_route,sanitisation_tasks(status,tool_name,tool_version,method,verification_result,raw_report_hash,completed_at)").eq("parent_asset_id", parsed.data.asset_id),
     supabase.from("grades").select("functional_grade,cosmetic_grade,battery_grade,completeness_grade,marketability_grade,final_grade,graded_at").eq("asset_id", parsed.data.asset_id).order("graded_at",{ascending:false}),
     supabase.from("evidence").select("evidence_type,filename,mime_type,sha256,captured_at").eq("entity_type","asset").eq("entity_id",parsed.data.asset_id).order("captured_at"),
+    supabase.from("asset_authority_records").select("authority_type,source_party,reference,evidence_id,notes,created_at").eq("asset_id",parsed.data.asset_id).order("created_at"),
+    supabase.from("asset_triage_assessments").select("safety_state,battery_state,lock_state,physical_state,decision,notes,created_at").eq("asset_id",parsed.data.asset_id).order("created_at"),
+    supabase.from("asset_quarantines").select("reason_type,reason,status,opened_at,released_at,release_notes").eq("asset_id",parsed.data.asset_id).order("opened_at"),
+    supabase.from("outbound_contents").select("weight_kg,outbound_orders(outbound_code,status,destination,carrier,bol_reference,scale_weight_kg,received_confirmation,downstream_vendors(name,abn,certifications,ntcrs_relationship,first_downstream_facility,last_confirmed_at))").eq("entity_type","ASSET").eq("entity_id",parsed.data.asset_id),
+    supabase.from("environmental_methodologies").select("name,version,description,source_url").eq("active",true),
   ]);
   if (!asset) redirect("/certificates?error=Asset%20not%20found");
 
-  const snapshot = {
+  let outboundRecords:any[] = outbound ?? [];
+  const {data:palletMemberships}=await supabase.from("pallet_contents")
+    .select("pallet_id")
+    .eq("entity_type","ASSET")
+    .eq("entity_id",asset.id)
+    .is("removed_at",null);
+  const palletIds=(palletMemberships??[]).map((x:any)=>x.pallet_id);
+  if(palletIds.length){
+    const {data:palletOutbound}=await supabase.from("outbound_contents")
+      .select("weight_kg,outbound_orders(outbound_code,status,destination,carrier,bol_reference,scale_weight_kg,received_confirmation,downstream_vendors(name,abn,certifications,ntcrs_relationship,first_downstream_facility,last_confirmed_at))")
+      .eq("entity_type","PALLET")
+      .in("entity_id",palletIds);
+    outboundRecords=[...outboundRecords,...(palletOutbound??[])];
+  }
+
+  const latestDisposition = dispositions?.find((d) => !["HOLD","REFURBISH"].includes(String(d.disposition_type))) ?? dispositions?.[0] ?? null;
+  const latestGrade = grades?.[0] ?? null;
+  const latestTriage = triage?.[triage.length - 1] ?? null;
+  const hasDestroyedMedia = (media ?? []).some((m:any)=>
+    (m.sanitisation_tasks ?? []).some((t:any)=>t.status === "DESTROYED")
+    || String(m.final_route ?? "").toUpperCase().includes("DESTROY")
+  );
+
+  if (["RECEIPT","RECEIVING"].includes(parsed.data.certificate_type) && !(authority?.length)) {
+    redirect("/assets/" + asset.id + "?error=Record%20ownership%2Fauthority%20before%20issuing%20a%20receiving%20certificate");
+  }
+  if (parsed.data.certificate_type === "SANITISATION") {
+    if (!asset.data_bearing) redirect("/assets/" + asset.id + "?error=Asset%20is%20not%20recorded%20as%20data-bearing");
+    if (asset.data_state !== "VERIFIED_CLEARED") redirect("/assets/" + asset.id + "?error=Sanitisation%20certificate%20requires%20VERIFIED_CLEARED%20data%20state");
+    if (!(media ?? []).length) redirect("/assets/" + asset.id + "?error=Track%20the%20data-bearing%20media%20before%20issuing%20sanitisation%20evidence");
+  }
+  if (parsed.data.certificate_type === "DESTRUCTION" && !hasDestroyedMedia) {
+    redirect("/assets/" + asset.id + "?error=Destruction%20certificate%20requires%20a%20recorded%20DESTROYED%20media%20outcome");
+  }
+  if (parsed.data.certificate_type === "DISPOSITION" && !latestDisposition) {
+    redirect("/assets/" + asset.id + "?error=Record%20a%20final%20disposition%20first");
+  }
+  if (parsed.data.certificate_type === "RECYCLING") {
+    if (latestDisposition?.disposition_type !== "RECYCLE" || asset.status !== "RECYCLED") {
+      redirect("/assets/" + asset.id + "?error=Recycling%20certificate%20requires%20RECYCLE%20disposition%20and%20completed%20downstream%20receipt");
+    }
+    const completedOutbound = outboundRecords.some((o:any)=>["RECEIVED","COMPLETED"].includes(String(o.outbound_orders?.status)));
+    if (!completedOutbound) redirect("/assets/" + asset.id + "?error=No%20completed%20outbound%20recycling%20record%20is%20attached");
+  }
+  if (parsed.data.certificate_type === "ENVIRONMENTAL" && !(methodologies?.length)) {
+    redirect("/assets/" + asset.id + "?error=Environmental%20certificate%20requires%20an%20active%20versioned%20methodology");
+  }
+
+  const common = {
     generated_at: new Date().toISOString(),
-    asset,
-    tests: tests ?? [],
-    disposition: dispositions?.[0] ?? null,
-    disposition_history: dispositions ?? [],
-    media: media ?? [],
-    grade: grades?.[0] ?? null,
-    evidence: evidence ?? [],
+    certificate_type: parsed.data.certificate_type,
+    asset: {
+      id: asset.id,
+      asset_code: asset.asset_code,
+      category: asset.category,
+      manufacturer: asset.manufacturer,
+      model: asset.model,
+      serial_imei: asset.serial_imei,
+      customer_id: asset.customer_id,
+      job_id: asset.job_id,
+      lot_id: asset.lot_id,
+      received_at: asset.received_at,
+      ownership_verified: asset.ownership_verified,
+      data_bearing: asset.data_bearing,
+      data_state: asset.data_state,
+      status: asset.status,
+    },
   };
+
+  let snapshot: Record<string, unknown>;
+  switch (parsed.data.certificate_type) {
+    case "RECEIPT":
+    case "RECEIVING":
+      snapshot = {
+        ...common,
+        authority: authority ?? [],
+        triage: latestTriage,
+        quarantines: quarantines ?? [],
+        evidence: evidence ?? [],
+      };
+      break;
+    case "SANITISATION":
+    case "DESTRUCTION":
+      snapshot = {
+        ...common,
+        authority: authority ?? [],
+        media: media ?? [],
+        evidence: evidence ?? [],
+      };
+      break;
+    case "DISPOSITION":
+      snapshot = {
+        ...common,
+        disposition: latestDisposition,
+        disposition_history: dispositions ?? [],
+        grade: latestGrade,
+        tests: tests ?? [],
+        evidence: evidence ?? [],
+      };
+      break;
+    case "RECYCLING":
+      snapshot = {
+        ...common,
+        disposition: latestDisposition,
+        outbound: outboundRecords,
+        evidence: evidence ?? [],
+      };
+      break;
+    case "ENVIRONMENTAL":
+      snapshot = {
+        ...common,
+        disposition: latestDisposition,
+        outbound: outboundRecords,
+        methodologies: methodologies ?? [],
+        evidence: evidence ?? [],
+      };
+      break;
+    default:
+      snapshot = {
+        ...common,
+        authority: authority ?? [],
+        triage: triage ?? [],
+        quarantines: quarantines ?? [],
+        tests: tests ?? [],
+        disposition: latestDisposition,
+        disposition_history: dispositions ?? [],
+        media: media ?? [],
+        grade: latestGrade,
+        outbound: outboundRecords,
+        evidence: evidence ?? [],
+      };
+  }
+
   const snapshotSha256 = createHash("sha256").update(JSON.stringify(snapshot)).digest("hex");
   const { data, error } = await supabase.from("certificates").insert({
     certificate_type: parsed.data.certificate_type,
@@ -446,6 +586,7 @@ export async function issueCertificate(formData: FormData) {
     snapshot,
     snapshot_sha256: snapshotSha256,
     issued_by: user.id,
+    template_version: "2",
   }).select("id,certificate_code,verification_token,issued_at,status").single();
   if (error || !data) redirect("/assets/" + asset.id + "?error=Could%20not%20issue%20certificate");
 
@@ -458,6 +599,7 @@ export async function issueCertificate(formData: FormData) {
     snapshot_sha256: snapshotSha256,
     public_summary: { asset_code: asset.asset_code, category: asset.category },
   });
+
 
   const { data: previousVault } = await supabase.from("certificate_vault_records")
     .select("chain_sha256").order("created_at", { ascending: false }).limit(1).maybeSingle();
@@ -475,7 +617,10 @@ export async function issueCertificate(formData: FormData) {
     certificate_code: data.certificate_code,
     certificate_type: parsed.data.certificate_type,
     snapshot_sha256: snapshotSha256,
+    template_version: "2",
   });
   revalidatePath("/certificates");
+  revalidatePath("/workflow");
   redirect("/certificates/" + data.id);
 }
+

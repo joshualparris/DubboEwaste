@@ -15,6 +15,10 @@ The application is separate from the public research material and the GitHub Pag
 - Vercel
 - server-side actions for operational writes
 
+## Lifecycle
+
+The evidence-driven end-to-end workflow is documented in [../docs/ASSETFLOW-LIFECYCLE.md](../docs/ASSETFLOW-LIFECYCLE.md). Staff can use `/workflow` to see every asset's next action and blockers.
+
 ## Current capability
 
 AssetFlow now includes:
@@ -81,6 +85,7 @@ Open http://localhost:3000/login.
 
 ```bash
 npm run typecheck
+npm run test:workflow
 npm run build
 ```
 

@@ -25,8 +25,15 @@ export default async function NewAssetPage({ searchParams }: { searchParams: Pro
       <label>One-off source / supplier<input name="source_name" placeholder="Optional free-text source" /></label></div>
       <ModelAutofill models={models ?? []} />
       <label>Serial / IMEI<input name="serial_imei" placeholder="Record before the device moves further" /></label>
-      <div className="two"><label>Ownership / authority verified?<select name="ownership_verified" required defaultValue="yes"><option value="yes">Yes</option><option value="no">No — do not accept</option></select></label>
-      <label>Data-bearing?<select name="data_bearing" required defaultValue="yes"><option value="yes">Yes / assume yes</option><option value="no">No</option></select></label></div>
+      <section className="card form">
+        <h2>Ownership / authority</h2>
+        <p className="muted small">Do not accept the device unless there is a legitimate basis for DubboEwaste to hold and process it.</p>
+        <div className="two"><label>Verified?<select name="ownership_verified" required defaultValue="yes"><option value="yes">Yes</option><option value="no">No — do not accept</option></select></label>
+        <label>Authority basis<select name="authority_type" required defaultValue="OWNER_TRANSFER"><option>OWNER_TRANSFER</option><option>DONATION</option><option>BUSINESS_DISPOSAL_AUTHORITY</option><option>REPAIR_CUSTODY</option><option>PERSONAL_PROPERTY</option><option>OTHER</option></select></label></div>
+        <div className="two"><label>Source party<input name="authority_source_party" placeholder="Owner / business / donor"/></label><label>Reference<input name="authority_reference" placeholder="Transfer form / email / job ref"/></label></div>
+        <label>Authority notes<textarea name="authority_notes" placeholder="Scope of authority, transfer context, restrictions"/></label>
+      </section>
+      <label>Data-bearing?<select name="data_bearing" required defaultValue="yes"><option value="yes">Yes / assume yes</option><option value="no">No</option></select></label>
       <label>Initial route<select name="initial_route" required defaultValue="HOLD"><option value="HOLD">Hold / further triage</option><option value="REFURBISH">Refurbish candidate</option><option value="PARTS">Parts candidate</option><option value="DONATE">Donation candidate</option><option value="RECYCLE">Recycle candidate</option></select></label>
       <label>Notes<textarea name="notes" placeholder="Visible damage, accessories, source context, immediate observations" /></label>
       <button className="button" type="submit">Accept and create asset</button>
