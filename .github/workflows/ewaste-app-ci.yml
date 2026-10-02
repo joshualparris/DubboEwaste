@@ -1,0 +1,32 @@
+name: EwasteApp CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'EwasteApp/**'
+      - '.github/workflows/ewaste-app-ci.yml'
+  pull_request:
+    paths:
+      - 'EwasteApp/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: EwasteApp
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: test-placeholder-key
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: EwasteApp/package-lock.json
+      - run: npm install --package-lock-only
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
