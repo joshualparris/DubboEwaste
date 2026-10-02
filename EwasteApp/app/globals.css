@@ -197,3 +197,11 @@ th { font-size: 13px; color: var(--muted); }
   .topbar { align-items: flex-start; flex-direction: column; }
   .two { grid-template-columns: 1fr; }
 }
+
+.success {
+  padding: 10px 12px;
+  border-radius: 9px;
+  color: #14532d;
+  background: #dcfce7;
+  border: 1px solid #bbf7d0;
+}

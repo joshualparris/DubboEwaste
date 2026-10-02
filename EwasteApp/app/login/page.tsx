@@ -1,11 +1,12 @@
+import Link from "next/link";
 import { login } from "./actions";
 
 export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; message?: string }>;
 }) {
-  const { error } = await searchParams;
+  const { error, message } = await searchParams;
 
   return (
     <main className="login-wrap">
@@ -17,6 +18,7 @@ export default async function LoginPage({
         </div>
 
         {error ? <div className="error">{error}</div> : null}
+        {message ? <div className="success">{message}</div> : null}
 
         <form action={login} className="form">
           <label>
@@ -31,7 +33,7 @@ export default async function LoginPage({
         </form>
 
         <p className="muted small">
-          Accounts are created by an administrator. There is no public sign-up.
+          New staff or volunteers can <Link href="/signup"><strong>create an account</strong></Link> with the current access code.
         </p>
       </section>
     </main>
