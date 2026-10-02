@@ -29,6 +29,7 @@ The live Supabase project has also had some changes applied directly through SQL
 10. `008_assetflow_crm.sql`
 11. `009_assetflow_crm_sales.sql`
 12. `009_sanitisation_diagnostics_integrations.sql`
+13. `010_asset_lifecycle.sql` — authority/ownership records, intake triage, quarantine, structured downstream-provider terms, and READY_FOR_RECYCLING/OUTBOUND states
 
 This list documents intent; it is **not yet a fresh-install guarantee**.
 

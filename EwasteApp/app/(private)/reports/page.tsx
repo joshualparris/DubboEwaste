@@ -4,7 +4,7 @@ import { createEnvironmentalMethodology } from "../processing/actions";
 export default async function ReportsPage({searchParams}:{searchParams:Promise<{error?:string}>}) {
   const params=await searchParams;
   const supabase=await createClient();
-  const [assets,dispositions,lots,tests,repairs,certs,methodologies] = await Promise.all([
+  const [assets,dispositions,lots,tests,repairs,certs,methodologies,authority,triage,quarantines,vendors,outbound] = await Promise.all([
     supabase.from("assets").select("id,status,data_state,created_at"),
     supabase.from("dispositions").select("disposition_type,decided_at"),
     supabase.from("lots").select("gross_weight_kg,tare_weight_kg,status"),
@@ -12,6 +12,11 @@ export default async function ReportsPage({searchParams}:{searchParams:Promise<{
     supabase.from("repairs").select("status"),
     supabase.from("certificates").select("certificate_type,status"),
     supabase.from("environmental_methodologies").select("*").order("created_at",{ascending:false}),
+    supabase.from("asset_authority_records").select("asset_id"),
+    supabase.from("asset_triage_assessments").select("asset_id,decision"),
+    supabase.from("asset_quarantines").select("asset_id,status"),
+    supabase.from("downstream_vendors").select("id,verification_status"),
+    supabase.from("outbound_orders").select("id,status"),
   ]);
   const assetRows=assets.data??[];
   const disp=dispositions.data??[];
@@ -26,9 +31,16 @@ export default async function ReportsPage({searchParams}:{searchParams:Promise<{
   const passes=testRows.filter((t:any)=>t.result==="PASS").length;
   const tested=testRows.filter((t:any)=>["PASS","FAIL"].includes(t.result)).length;
   const stageCounts=assetRows.reduce((acc:Record<string,number>,a:any)=>{acc[a.status]=(acc[a.status]||0)+1;return acc;},{});
+  const authorityAssets=new Set((authority.data??[]).map((x:any)=>x.asset_id)).size;
+  const triagedAssets=new Set((triage.data??[]).map((x:any)=>x.asset_id)).size;
+  const authorityCoverage=assetRows.length?Math.round(authorityAssets/assetRows.length*100):0;
+  const triageCoverage=assetRows.length?Math.round(triagedAssets/assetRows.length*100):0;
+  const openQuarantine=(quarantines.data??[]).filter((x:any)=>x.status==="OPEN").length;
+  const confirmedProviders=(vendors.data??[]).filter((x:any)=>x.verification_status==="CONFIRMED").length;
+  const outboundPending=(outbound.data??[]).filter((x:any)=>!["RECEIVED","COMPLETED","CANCELLED"].includes(x.status)).length;
   return <div className="stack"><div><div className="badge">Reports</div><h1>Operational & environmental reporting</h1><p className="muted">Only measured operational data is shown. No emissions-avoidance claim is calculated unless an explicit versioned methodology is configured.</p></div>
     {params.error?<div className="error">{params.error}</div>:null}
-    <div className="grid"><div className="card"><div className="muted">Assets</div><div className="metric">{assetRows.length}</div></div><div className="card"><div className="muted">Reuse-route decisions</div><div className="metric">{reuse}</div></div><div className="card"><div className="muted">Recycle decisions</div><div className="metric">{recycled}</div></div><div className="card"><div className="muted">Tracked lot net mass</div><div className="metric">{netKg.toFixed(1)} kg</div></div><div className="card"><div className="muted">Average open WIP age</div><div className="metric">{avgAge} d</div></div><div className="card"><div className="muted">Test pass rate</div><div className="metric">{tested?Math.round(passes/tested*100):0}%</div></div></div>
+    <div className="grid"><div className="card"><div className="muted">Assets</div><div className="metric">{assetRows.length}</div></div><div className="card"><div className="muted">Authority-record coverage</div><div className="metric">{authorityCoverage}%</div></div><div className="card"><div className="muted">Triage coverage</div><div className="metric">{triageCoverage}%</div></div><div className="card"><div className="muted">Open quarantine</div><div className="metric">{openQuarantine}</div></div><div className="card"><div className="muted">Confirmed downstream providers</div><div className="metric">{confirmedProviders}</div></div><div className="card"><div className="muted">Outbound awaiting closure</div><div className="metric">{outboundPending}</div></div><div className="card"><div className="muted">Reuse-route decisions</div><div className="metric">{reuse}</div></div><div className="card"><div className="muted">Recycle decisions</div><div className="metric">{recycled}</div></div><div className="card"><div className="muted">Tracked lot net mass</div><div className="metric">{netKg.toFixed(1)} kg</div></div><div className="card"><div className="muted">Average open WIP age</div><div className="metric">{avgAge} d</div></div><div className="card"><div className="muted">Test pass rate</div><div className="metric">{tested?Math.round(passes/tested*100):0}%</div></div></div>
     <section className="card"><h2>Stage counts</h2><div className="tag-cloud">{Object.entries(stageCounts).map(([k,v])=><span className="badge" key={k}>{k}: {v}</span>)}</div></section>
     <form action={createEnvironmentalMethodology} className="card form"><h2>Register sustainability methodology</h2><p className="muted">This registry prevents invented or silently changing sustainability claims.</p><div className="two"><label>Name<input name="name" required/></label><label>Version<input name="version" required/></label></div><label>Description<textarea name="description" required/></label><label>Source URL<input name="source_url"/></label><button className="button">Register methodology</button></form>
     <section className="card"><h2>Methodologies</h2>{!(methodologies.data??[]).length?<p className="muted">None configured. AssetFlow will not estimate avoided emissions.</p>:<div className="table-wrap"><table><thead><tr><th>Name</th><th>Version</th><th>Description</th><th>Source</th></tr></thead><tbody>{(methodologies.data??[]).map((m:any)=><tr key={m.id}><td>{m.name}</td><td>{m.version}</td><td>{m.description}</td><td>{m.source_url?<a href={m.source_url} target="_blank" rel="noreferrer">Source</a>:"—"}</td></tr>)}</tbody></table></div>}</section>

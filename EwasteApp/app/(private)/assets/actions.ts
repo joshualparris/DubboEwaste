@@ -18,6 +18,10 @@ const intakeSchema = z.object({
   lot_id: optionalUuid,
   location_id: optionalUuid,
   ownership_verified: z.enum(["yes","no"]),
+  authority_type: z.enum(["OWNER_TRANSFER","DONATION","BUSINESS_DISPOSAL_AUTHORITY","REPAIR_CUSTODY","PERSONAL_PROPERTY","OTHER"]),
+  authority_source_party: z.string().trim().max(240).optional(),
+  authority_reference: z.string().trim().max(240).optional(),
+  authority_notes: z.string().trim().max(3000).optional(),
   data_bearing: z.enum(["yes","no"]),
   initial_route: z.enum(["REFURBISH","PARTS","DONATE","RECYCLE","HOLD"]),
   notes: z.string().trim().max(4000).optional(),
@@ -35,6 +39,10 @@ export async function createAsset(formData: FormData) {
     lot_id: formData.get("lot_id"),
     location_id: formData.get("location_id"),
     ownership_verified: formData.get("ownership_verified"),
+    authority_type: formData.get("authority_type"),
+    authority_source_party: formData.get("authority_source_party") || undefined,
+    authority_reference: formData.get("authority_reference") || undefined,
+    authority_notes: formData.get("authority_notes") || undefined,
     data_bearing: formData.get("data_bearing"),
     initial_route: formData.get("initial_route"),
     notes: formData.get("notes") || undefined,
@@ -68,16 +76,32 @@ export async function createAsset(formData: FormData) {
 
   if (error || !data) redirect("/assets/new?error=Could%20not%20create%20asset");
 
+  const { error: authorityError } = await supabase.from("asset_authority_records").insert({
+    asset_id: data.id,
+    authority_type: parsed.data.authority_type,
+    source_party: parsed.data.authority_source_party || parsed.data.source_name || null,
+    reference: parsed.data.authority_reference || null,
+    notes: parsed.data.authority_notes || null,
+    created_by: user.id,
+  });
+  if (authorityError) redirect("/assets/" + data.id + "?error=" + encodeURIComponent("Asset created but authority record failed: " + authorityError.message));
+
   await supabase.from("operational_events").insert({
     entity_type: "asset",
     entity_id: data.id,
     event_type: "ASSET_RECEIVED",
     actor_id: user.id,
-    details: { asset_code: data.asset_code, job_id: parsed.data.job_id || null, lot_id: parsed.data.lot_id || null },
+    details: {
+      asset_code: data.asset_code,
+      job_id: parsed.data.job_id || null,
+      lot_id: parsed.data.lot_id || null,
+      authority_type: parsed.data.authority_type,
+    },
   });
 
   revalidatePath("/dashboard");
   revalidatePath("/assets");
+  revalidatePath("/workflow");
   if (parsed.data.job_id) revalidatePath(`/jobs/${parsed.data.job_id}`);
   redirect(`/assets/${data.id}`);
 }
