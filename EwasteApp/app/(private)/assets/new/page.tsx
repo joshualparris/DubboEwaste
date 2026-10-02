@@ -11,7 +11,7 @@ export default async function NewAssetPage({
   const supabase = await createClient();
   const { data: models } = await supabase
     .from("model_support")
-    .select("manufacturer,model_name,category,support_summary,lock_risks,battery_notes,likely_route,source_checked,confidence")
+    .select("manufacturer,model_name,aliases,identifiers,category,support_summary,lock_risks,battery_notes,likely_route,source_url,source_checked,confidence")
     .order("manufacturer")
     .order("model_name");
 

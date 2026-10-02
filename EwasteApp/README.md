@@ -44,11 +44,12 @@ Private customer, supplier, asset and chain-of-custody data must never be commit
 1. Create a Supabase project.
 2. Run `supabase/migrations/001_initial.sql` in the SQL editor or with the Supabase CLI.
 3. Run `supabase/migrations/002_model_support.sql` after the first migration.
-4. Copy `.env.example` to `.env.local`.
-5. Add the project URL and publishable/anon key.
-6. Create the first staff user in Supabase Auth.
-7. Promote that profile to `admin` in the database.
-8. Install and run:
+4. Run `supabase/migrations/003_lookup_events.sql` after the model catalogue.
+5. Copy `.env.example` to `.env.local`.
+6. Add the project URL and publishable/anon key.
+7. Create the first staff user in Supabase Auth.
+8. Promote that profile to `admin` in the database.
+9. Install and run:
 
 ```bash
 npm install
@@ -56,6 +57,22 @@ npm run dev
 ```
 
 Open http://localhost:3000/login.
+
+## Lookup behaviour
+
+The intake lookup ranks exact names, approved aliases and known identifiers before
+falling back to token matching. Selecting a result fills the editable manufacturer,
+model, category and initial-route fields, but always labels the result as a candidate
+to verify. A broad term such as `Intel Core i5` cannot identify a laptop: the exact
+processor, manufacturer/model, serial/service tag or an on-device observation is
+still required.
+
+The catalogue is deliberately source-dated rather than populated from an
+uncontrolled “free device API”. The next resolver steps are an internal Dubbo asset
+QR/barcode, a camera/Bluetooth scanner, and a diagnostic observation from the device
+(SMBIOS or platform settings). `lookup_events` records the method and redacted query
+for a future audit trail without storing raw IMEI or serial values. The current
+pilot UI does not yet write lookup events.
 
 ## Security model
 
