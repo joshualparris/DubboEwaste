@@ -18,7 +18,7 @@ jobs:
         working-directory: EwasteApp
     env:
       NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
-      NEXT_PUBLIC_SUPABASE_ANON_KEY: test-placeholder-key
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: test-placeholder-key
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
