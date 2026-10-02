@@ -1,0 +1,40 @@
+name: Export repo for NotebookLM
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export-notebooklm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build NotebookLM export
+        run: |
+          npx --yes repomix@latest . \
+            --style markdown \
+            --output DubboEwaste-NotebookLM.md
+
+      - name: Show export size
+        run: |
+          ls -lh DubboEwaste-NotebookLM.md
+          wc -w DubboEwaste-NotebookLM.md
+
+      - name: Upload NotebookLM file
+        uses: actions/upload-artifact@v4
+        with:
+          name: DubboEwaste-NotebookLM
+          path: DubboEwaste-NotebookLM.md
+          retention-days: 1
+          if-no-files-found: error
