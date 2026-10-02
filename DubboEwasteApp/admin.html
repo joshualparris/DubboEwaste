@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DubboEwaste Admin</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root{--bg:#f4f7f4;--panel:#fff;--ink:#17231b;--muted:#637168;--line:#dce5de;--brand:#17633a;--brand-dark:#0d4828;--soft:#eaf4ed}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif}button,input,select,textarea{font:inherit}.hidden{display:none!important}
+    .top{background:#10271a;color:#fff;padding:14px 20px;display:flex;gap:14px;justify-content:space-between;align-items:center;flex-wrap:wrap}.brand{font-weight:800}.userline{font-size:13px;color:#cfe4d4}.top-actions,.tabs,.actions{display:flex;gap:8px;flex-wrap:wrap}
+    .wrap{max-width:1440px;margin:0 auto;padding:24px 18px 70px}.stack{display:grid;gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 3px 14px rgba(0,0,0,.035)}
+    .button{border:0;border-radius:9px;padding:10px 14px;background:var(--brand);color:#fff;cursor:pointer;font-weight:700;text-decoration:none}.button.secondary{background:#e7eee9;color:var(--ink)}.button.danger{background:#8a1c1c}.button.small{padding:7px 10px;font-size:13px}
+    label{display:grid;gap:6px;font-weight:700}.form{display:grid;gap:12px}.form input,.form select,.form textarea,.inline input,.inline select,.inline textarea{width:100%;border:1px solid #bfcac2;border-radius:8px;padding:9px 10px;background:#fff}textarea.code{min-height:150px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px}
+    .inline{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.inline label{display:flex;align-items:center;gap:5px;font-weight:600}.inline input[type=checkbox]{width:auto}.muted{color:var(--muted)}.small{font-size:12px}.badge{display:inline-block;background:var(--soft);color:var(--brand-dark);padding:4px 8px;border-radius:999px;font-size:12px;font-weight:800}
+    .error,.success{padding:10px 12px;border-radius:9px}.error{background:#fee2e2;color:#7f1d1d}.success{background:#dcfce7;color:#14532d}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;background:#fff}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-size:12px;color:var(--muted);position:sticky;top:0;background:#fff}
+    details summary{cursor:pointer}.record pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;max-height:260px;overflow:auto;background:#f7f9f7;padding:10px;border-radius:8px}.tri{min-width:92px}.login{max-width:440px;margin:8vh auto}.section-title{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    @media(max-width:760px){.top{align-items:flex-start}.inline{align-items:stretch;flex-direction:column}.inline label{display:grid}.tri{min-width:100%}}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div><div class="brand">DubboEwaste · GitHub Pages Admin</div><div class="userline" id="userline">Not signed in</div></div>
+    <div class="top-actions"><a class="button secondary small" href="./">Gateway</a><a class="button secondary small" href="https://dubbo-ewaste-app.vercel.app/login">Production app</a><button id="signout" class="button secondary small hidden" type="button">Sign out</button></div>
+  </header>
+  <main class="wrap">
+    <section id="login-panel" class="card login stack">
+      <div><div class="badge">Admin authentication</div><h1>Sign in</h1><p class="muted">Uses the same Supabase account as the production app.</p></div>
+      <div id="login-message"></div>
+      <form id="login-form" class="form"><label>Email<input id="email" type="email" autocomplete="email" required></label><label>Password<input id="password" type="password" autocomplete="current-password" required></label><button class="button" type="submit">Sign in</button></form>
+    </section>
+    <section id="admin-panel" class="stack hidden">
+      <div class="section-title"><div><div class="badge">Admin</div><h1>Operations administration</h1><p class="muted">CRUD, role permissions and per-user overrides enforced by Supabase RLS.</p></div><div class="tabs"><button class="button secondary" data-tab="data" type="button">Admin Data</button><button class="button secondary" data-tab="roles" type="button">Role permissions</button><button class="button secondary" data-tab="users" type="button">Staff & overrides</button></div></div>
+      <div id="app-message"></div><div id="view"></div>
+    </section>
+  </main>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

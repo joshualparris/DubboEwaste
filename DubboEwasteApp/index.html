@@ -4,12 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>DubboEwaste Staff Operations</title>
-  <meta http-equiv="refresh" content="0; url=https://dubbo-ewaste-app.vercel.app/login">
-  <link rel="canonical" href="https://dubbo-ewaste-app.vercel.app/login">
-  <script>location.replace("https://dubbo-ewaste-app.vercel.app/login");</script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body{min-height:100vh;display:grid;place-items:center;padding:24px;background:#f4f7f4;color:#17231b;font-family:Arial,Helvetica,sans-serif}
+    .gateway{width:min(720px,100%);background:#fff;border:1px solid #dce5de;border-radius:18px;padding:28px;box-shadow:0 8px 28px rgba(0,0,0,.06)}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+    .button{display:inline-flex;padding:11px 16px;border-radius:9px;background:#17633a;color:#fff;text-decoration:none;font-weight:700}
+    .button.secondary{background:#e7eee9;color:#17231b}
+    .muted{color:#637168}.badge{display:inline-block;border-radius:999px;background:#eaf4ed;color:#0d4828;padding:4px 8px;font-size:12px;font-weight:800}
+  </style>
 </head>
 <body>
-  <p>Opening the secure DubboEwaste staff app…</p>
-  <p><a href="https://dubbo-ewaste-app.vercel.app/login">Continue to Staff Login</a></p>
+  <main class="gateway">
+    <div class="badge">DubboEwaste · AssetFlow</div>
+    <h1>Staff operations</h1>
+    <p class="muted">Choose the production app or the GitHub Pages admin console. Both use the same Supabase database and row-level permissions.</p>
+    <div class="actions">
+      <a class="button" href="admin.html">Open GitHub Pages Admin</a>
+      <a class="button secondary" href="https://dubbo-ewaste-app.vercel.app/login">Open Production App</a>
+    </div>
+  </main>
 </body>
 </html>
