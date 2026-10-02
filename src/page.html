@@ -33,11 +33,18 @@
         <input id="globalSearch" type="search" placeholder="Search all research" autocomplete="off">
       </label>
       <div class="sync" id="sync" role="status"></div>
+      <button class="settings-btn" id="settingsToggle" type="button" aria-expanded="false" aria-controls="settingsPanel">⚙ Settings</button>
     </div>
   </aside>
   <main id="main" tabindex="-1"></main>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<div class="settings-panel" id="settingsPanel" hidden>
+  <div class="eyebrow">Reading settings</div>
+  <label class="settings-check"><input id="glossaryHints" type="checkbox" checked> <span><b>Glossary hints</b><small>Underline jargon and explain it on hover or click.</small></span></label>
+  <a class="btn small" href="glossary.html">Open full glossary →</a>
+</div>
+<div class="jargon-popover" id="jargonPopover" role="dialog" aria-live="polite" hidden></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>

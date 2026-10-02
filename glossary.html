@@ -91,6 +91,20 @@ nav a[aria-current="page"] .pad { background: #d48a52; }
 .sync { font-family: var(--mono); font-size: 11px; color: var(--rail-muted); display: flex; align-items: center; gap: 7px; line-height: 1.35; }
 .sync::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--rail-muted); flex: none; }
 .sync.cloud::before { background: #6fcf97; }
+.settings-btn { border: 1px solid rgba(255,255,255,.22); background: transparent; color: var(--rail-ink); border-radius: 8px; padding: 7px 10px; cursor: pointer; text-align: left; font-size: 13px; }
+.settings-btn:hover { background: rgba(255,255,255,.08); }
+.settings-panel { position: fixed; z-index: 40; left: 18px; bottom: 18px; width: min(310px, calc(100vw - 36px)); padding: 16px; display: flex; flex-direction: column; gap: 12px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); }
+.settings-check { display: flex; gap: 9px; align-items: flex-start; cursor: pointer; font-size: 14px; }
+.settings-check input { margin-top: 4px; accent-color: var(--copper); }
+.settings-check span { display: flex; flex-direction: column; gap: 2px; }
+.settings-check small { color: var(--muted); line-height: 1.35; }
+.jargon { appearance: none; border: 0; border-bottom: 1px dotted var(--copper); background: transparent; color: inherit; cursor: help; font: inherit; padding: 0 1px; position: relative; }
+.jargon:hover, .jargon:focus-visible { color: var(--copper); }
+.jargon:hover::after, .jargon:focus-visible::after { content: attr(data-tip); position: absolute; z-index: 30; left: 0; bottom: calc(100% + 8px); width: min(340px, 75vw); padding: 9px 11px; background: var(--ink); color: var(--bg); border-radius: 7px; box-shadow: var(--shadow); font-family: var(--display); font-size: 12px; line-height: 1.4; text-align: left; pointer-events: none; }
+.jargon-popover { position: fixed; z-index: 45; width: min(360px, calc(100vw - 28px)); padding: 14px; background: var(--surface); color: var(--ink); border: 1px solid var(--copper); border-radius: 9px; box-shadow: var(--shadow); }
+.jargon-popover h3 { font-size: 16px; margin-bottom: 5px; }
+.jargon-popover p { color: var(--muted); font-family: var(--body); font-size: 14px; line-height: 1.5; }
+.jargon-popover a { display: inline-block; margin-top: 9px; font-size: 13px; font-weight: 600; }
 
 main { min-width: 0; padding-block: 36px 80px; padding-inline: clamp(16px, 4vw, 56px); outline: none; }
 .page { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 34px; }

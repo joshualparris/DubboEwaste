@@ -12,6 +12,22 @@ const KEY = "dubbo-ewaste-field-school-v1";
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+const GLOSSARY_SETTINGS_KEY = "dubbo-ewaste-glossary-hints";
+let glossaryHints = (() => { try { return localStorage.getItem(GLOSSARY_SETTINGS_KEY) !== "off"; } catch { return true; } })();
+const glossarySlug = s => "term-" + s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const jargonTerms = (() => {
+  const out = new Map();
+  const add = (alias, term, def) => { if (alias && !out.has(alias.toLowerCase())) out.set(alias.toLowerCase(), {term, def}); };
+  C.glossary.forEach(([term, def]) => {
+    add(term, term, def);
+    term.split("/").forEach(x => add(x.trim(), term, def));
+    if (term.includes(":")) add(term.split(":")[0].trim(), term, def);
+  });
+  const extra = {"ANZRP": "ANZRP / TechCollect", "AS 5377": "AS 5377:2022", "CRT": "CRT / CRTs", "CRTs": "CRT / CRTs", "certificate": "Certificate of recycling / sanitisation certificate", "certificates": "Certificate of recycling / sanitisation certificate", "sanitisation certificate": "Certificate of recycling / sanitisation certificate", "recycling certificate": "Certificate of recycling / sanitisation certificate"};
+  Object.entries(extra).forEach(([alias, term]) => { const item = C.glossary.find(x => x[0] === term); if (item) add(alias, item[0], item[1]); });
+  return [...out.entries()].sort((a, b) => b[0].length - a[0].length);
+})();
+const jargonPattern = jargonTerms.length ? new RegExp(`\\b(?:${jargonTerms.map(([x]) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})\\b`, "gi") : null;
 const money = (n, dp = 0) => (n < 0 ? "−" : "") + "$" + Math.abs(n).toLocaleString("en-AU", {minimumFractionDigits: dp, maximumFractionDigits: dp});
 const readMins = d => Math.max(1, Math.round(d.words / 230));
 const today = () => new Date().toISOString().slice(0, 10);
@@ -23,6 +39,33 @@ function linkHtml(l) {
   return `<a href="${esc(l.u)}" target="_blank" rel="noopener">${esc(l.t)}</a>`;
 }
 function docLink(id, label) { const d = BY_ID[id]; return d ? `<a class="int" href="#doc-${esc(id)}">${esc(label || d.title)}</a>` : ""; }
+function enhanceJargon() {
+  document.body.classList.toggle("glossary-off", !glossaryHints);
+  if (!glossaryHints || !jargonPattern) return;
+  const walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT);
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (!node.nodeValue.trim() || node.parentElement.closest("a,button,input,textarea,select,code,pre,script,style,.jargon-popover")) return;
+    jargonPattern.lastIndex = 0;
+    if (!jargonPattern.test(node.nodeValue)) return;
+    jargonPattern.lastIndex = 0;
+    const frag = document.createDocumentFragment(); let last = 0;
+    for (const match of node.nodeValue.matchAll(jargonPattern)) {
+      const alias = match[0], item = jargonTerms.find(([x]) => x.toLowerCase() === alias.toLowerCase())?.[1]?.term;
+      if (!item) continue;
+      const def = C.glossary.find(x => x[0] === item); if (!def) continue;
+      frag.append(document.createTextNode(node.nodeValue.slice(last, match.index)));
+      const b = document.createElement("button"); b.type = "button"; b.className = "jargon"; b.dataset.term = item; b.dataset.tip = def[1]; b.setAttribute("aria-label", `Explain ${alias}`); b.textContent = alias;
+      frag.append(b); last = match.index + alias.length;
+    }
+    frag.append(document.createTextNode(node.nodeValue.slice(last))); node.replaceWith(frag);
+  });
+}
+function showJargon(button) {
+  const item = C.glossary.find(x => x[0] === button.dataset.term); const pop = $("#jargonPopover"); if (!item || !pop) return;
+  pop.innerHTML = `<h3>${esc(item[0])}</h3><p>${esc(item[1])}</p><a href="glossary.html#${glossarySlug(item[0])}">Open in glossary →</a>`;
+  pop.hidden = false; const r = button.getBoundingClientRect(); pop.style.left = `${Math.max(14, Math.min(r.left, innerWidth - pop.offsetWidth - 14))}px`; pop.style.top = `${Math.min(innerHeight - pop.offsetHeight - 14, r.bottom + 10)}px`;
+}
 async function copyText(text, btn) {
   try { await navigator.clipboard.writeText(text); toast("Copied"); }
   catch { const r = document.createRange(); const el = btn?.previousElementSibling; if (el) { r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast("Selected. Press Ctrl+C to copy"); } }
@@ -122,9 +165,15 @@ function route() {
   $$("nav a").forEach(a => { if (a.dataset.nav === (VIEWS[navKey] ? navKey : "home")) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
   $("#rail").classList.remove("open"); $("#railToggle").setAttribute("aria-expanded", "false");
   if (!h.includes("~sec-")) window.scrollTo(0, 0);
+  enhanceJargon();
 }
 window.addEventListener("hashchange", route);
 $("#railToggle").addEventListener("click", () => { const r = $("#rail"); r.classList.toggle("open"); $("#railToggle").setAttribute("aria-expanded", r.classList.contains("open")); });
+$("#settingsToggle").addEventListener("click", () => { const p = $("#settingsPanel"), open = p.hidden; p.hidden = !open; $("#settingsToggle").setAttribute("aria-expanded", open); });
+$("#glossaryHints").checked = glossaryHints;
+$("#glossaryHints").addEventListener("change", e => { glossaryHints = e.target.checked; try { localStorage.setItem(GLOSSARY_SETTINGS_KEY, glossaryHints ? "on" : "off"); } catch {} $("#jargonPopover").hidden = true; route(); });
+document.addEventListener("click", e => { const b = e.target.closest(".jargon"); if (b) { e.stopPropagation(); showJargon(b); } else if (!e.target.closest(".jargon-popover")) $("#jargonPopover").hidden = true; });
+document.addEventListener("keydown", e => { if (e.key === "Escape") { $("#jargonPopover").hidden = true; $("#settingsPanel").hidden = true; } });
 $("#globalSearch").addEventListener("keydown", e => { if (e.key === "Enter" && e.target.value.trim()) { lastQuery = e.target.value.trim(); const h = "search-" + lastQuery.replace(/\s+/g, "_").replace(/[^A-Za-z0-9._~-]/g, ""); if (location.hash === "#" + h) route(); else location.hash = h; } });
 let lastQuery = "";
 window.addEventListener("resize", () => { if (typeof drawFlow === "function" && $(".flow")) drawFlow(); });
