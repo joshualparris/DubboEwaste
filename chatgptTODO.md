@@ -1,5 +1,8 @@
 # ChatGPT TODO — DubboEwaste
 
+> **Completed execution log / historical.** This is not the active project backlog. Current external and pilot closure work lives in [codexToDO.md](codexToDO.md), while current project status lives in [docs/CURRENT-STATE.md](docs/CURRENT-STATE.md).
+
+
 **Created:** 2 Oct 2026  
 **Scope:** work ChatGPT can materially progress in-repo or through online research.  
 **Status:** ⬜ not started · 🔄 in progress · ✅ done · 🟡 all available online/repo work completed; remaining proof requires an external party, authenticated account, or real-world evidence · ⛔ blocked.

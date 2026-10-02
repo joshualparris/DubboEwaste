@@ -1,35 +1,38 @@
-# Dubbo E-Waste App MVP
+# DubboEwasteApp static prototype
 
-This folder contains a working, dependency-free prototype of the volunteer-facing operations app described in `../codexToDO.md`.
+This directory on **`main` is an older dependency-free prototype** of the operations UI.
 
-The production database, role and audit design is documented in [`ARCHITECTURE.md`](ARCHITECTURE.md).
+It is **not the current production app**.
 
-## Run it
+## Current production app
 
-From the repository root:
+Use [../EwasteApp/](../EwasteApp/) for current development.
 
-```bash
-python3 -m http.server 4173 --directory DubboEwasteApp
-```
+Production: https://dubbo-ewaste-app.vercel.app/
 
-Open <http://localhost:4173>.
+## GitHub Pages warning
 
-Demo login: enter any email and the password `demo`.
+The published `gh-pages` branch has evolved separately and currently contains a gateway plus a Supabase-backed GitHub Pages admin console.
 
-## Included in this MVP
+That means:
 
-- staff login boundary and role selector;
-- dashboard with intake, inventory, route and margin summaries;
-- one-page triage workflow with ownership, battery, lock, condition and route gates;
-- category-specific guidance for laptops, Macs, mobile devices, Chromebooks, desktops, monitors, TVs and networking gear;
-- model lookup records with support, lock, battery and route fields;
-- local inventory records and audit events;
-- unit-economics calculator;
-- listing-draft generator;
-- responsive layout suitable for a shed tablet or laptop.
+- `main/DubboEwasteApp/` = old static prototype source;
+- `gh-pages/DubboEwasteApp/` = current published Pages gateway/admin assets;
+- `main/EwasteApp/` = production Next.js/Supabase application source.
 
-## Security boundary
+Do not assume the files in this directory are identical to what is live on GitHub Pages.
 
-This is a front-end prototype. Its demo login and `localStorage` records are not secure authentication or a private database. Do not enter real names, addresses, IMEIs, serial numbers, ownership documents or customer data.
+## Prototype behaviour
 
-Production deployment requires a server-backed identity provider, role-based access control, encrypted database, row-level permissions, audit logging, backups, retention rules and redacted exports. The UI is deliberately structured so those services can replace the demo adapters without changing the operating workflows.
+This `main` version:
+
+- uses a demonstration password;
+- stores demo data in browser `localStorage`;
+- is not suitable for real customer/device data;
+- exists for historical/prototype reference.
+
+## Privacy
+
+Never enter real names, addresses, IMEIs, serial numbers, ownership documents or customer information into this old prototype.
+
+The production application uses Supabase authentication, RLS and private database storage.

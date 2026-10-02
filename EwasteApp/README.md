@@ -1,105 +1,100 @@
 # DubboEwaste Operations App
 
-Private operations app for DubboEwaste staff and volunteers.
+This is the **production private operations application** for DubboEwaste staff and volunteers.
 
-The existing GitHub Pages research/training site remains public. This folder is a separate authenticated application for private operational data.
+Production: https://dubbo-ewaste-app.vercel.app/
 
-## First slice
+The application is separate from the public research material and the GitHub Pages gateway/admin console.
 
-This initial slice includes:
+## Stack
 
-- Supabase email/password authentication
-- role profiles: `admin`, `manager`, `technician`, `volunteer`, `auditor`
-- protected staff routes
-- PostgreSQL/Supabase schema with Row Level Security
-- asset register
-- automatic asset IDs such as `DEW-2026-000001`
-- asset audit/event history
-- new-asset intake form
-- QR code on each asset page
-- dashboard and inventory list
-- source-dated model/support lookup backed by Supabase
-- CI build workflow
+- Next.js
+- Supabase Auth
+- PostgreSQL
+- Row Level Security
+- Vercel
+- server-side actions for operational writes
 
-## Architecture
+## Current capability
 
-```text
-Existing public GitHub Pages site
-        |
-        +-- public research/training
+AssetFlow now includes:
 
-EwasteApp (Next.js)
-        |
-        +-- Supabase Auth
-        +-- PostgreSQL
-        +-- Row Level Security
-        +-- audit log
-        +-- staff UI
-```
+- access-code staff signup plus email confirmation
+- staff roles: `admin`, `manager`, `technician`, `volunteer`, `auditor`
+- role-level CRUD permissions and per-user overrides
+- customers / sources
+- jobs
+- lots and lot relationships
+- serialized assets
+- QR labels
+- locations
+- evidence and photos
+- model lookup
+- attributes, tests and grading
+- media and sanitisation workflows
+- repairs and parts
+- pallets and outbound orders
+- resale listings and sales
+- recycling/downstream records
+- exceptions
+- certificates and public verification
+- reports
+- admin data console
+- audit/event records
 
-Private customer, supplier, asset and chain-of-custody data must never be committed to the public Git repository.
+## Security model
+
+- private routes require Supabase authentication
+- new users require the configured signup access code and email confirmation
+- profiles can be active/inactive
+- Supabase RLS is the final database authorization boundary
+- admins can configure role and individual table permissions
+- audit/history records are intentionally more restrictive than ordinary operational tables
+- attribution fields such as `created_by` are protected
+- private customer/device information must never be committed to the public Git repository
 
 ## Local setup
 
-1. Create a Supabase project.
-2. Run `supabase/migrations/001_initial.sql` in the SQL editor or with the Supabase CLI.
-3. Run `supabase/migrations/002_model_support.sql` after the first migration.
-4. Run `supabase/migrations/003_lookup_events.sql` after the model catalogue.
-5. Copy `.env.example` to `.env.local`.
-6. Add the project URL and publishable/anon key.
-7. Create the first staff user in Supabase Auth.
-8. Promote that profile to `admin` in the database.
-9. Install and run:
+1. Install dependencies:
 
 ```bash
 npm install
+```
+
+2. Copy `.env.example` to `.env.local`.
+3. Configure the Supabase project URL and publishable key.
+4. Apply the database migrations in the order documented in [supabase/migrations/README.md](supabase/migrations/README.md).
+5. Run:
+
+```bash
 npm run dev
 ```
 
 Open http://localhost:3000/login.
 
-## Lookup behaviour
+## Development checks
 
-The intake lookup ranks exact names, approved aliases and known identifiers before
-falling back to token matching. Selecting a result fills the editable manufacturer,
-model, category and initial-route fields, but always labels the result as a candidate
-to verify. A broad term such as `Intel Core i5` cannot identify a laptop: the exact
-processor, manufacturer/model, serial/service tag or an on-device observation is
-still required.
+```bash
+npm run typecheck
+npm run build
+```
 
-The catalogue is deliberately source-dated rather than populated from an
-uncontrolled “free device API”. The next resolver steps are an internal Dubbo asset
-QR/barcode, a camera/Bluetooth scanner, and a diagnostic observation from the device
-(SMBIOS or platform settings). `lookup_events` records the method and redacted query
-for a future audit trail without storing raw IMEI or serial values. The current
-pilot UI does not yet write lookup events.
+GitHub Actions runs both checks for application pull requests.
 
-## Security model
+## Important folders
 
-- no public sign-up page
-- authentication is required for private routes
-- inactive profiles are blocked
-- RLS remains the final database security boundary
-- volunteers can work with assets but cannot administer users
-- auditors are read-only
-- important asset changes are recorded in `asset_events`
-- secrets belong in deployment environment variables, never Git
+| Path | Purpose |
+|---|---|
+| `app/(private)/` | authenticated screens and operations |
+| `app/api/` | API routes |
+| `components/` | reusable UI |
+| `lib/` | Supabase/admin/workflow helpers |
+| `supabase/migrations/` | database schema and policy history |
 
-## Next slices
+## Product specification / backlog
 
-1. Interactive front-door triage wizard
-2. Category-specific intake flows
-3. richer model/support imports and source review
-4. diagnostics and sanitisation workflow
-5. inventory/economics/route recommendations
-6. listing/invoice/report generation
-7. marketplace and bench-tool integrations
+See [../OpenSourceSoftware/README.md](../OpenSourceSoftware/README.md) and [../OpenSourceSoftware/feature-backlog.md](../OpenSourceSoftware/feature-backlog.md).
 
+## GitHub Pages distinction
 
-## AssetFlow P0 status — 2 Oct 2026
-
-P0 is implemented end-to-end: customers, inbound jobs, work instructions, bulk lots, serialized assets, QR labels, locations, evidence/photos with SHA-256, dynamic attributes, separate media records, manual sanitisation evidence, diagnostics, grading, disposition, certificates, global search, exception queue and RLS role permissions.
-
-P1 foundations now also include repair tickets, harvested-part provenance, sanitisation policies/tasks, pallets, downstream vendors, outbound orders, resale qualification/listings/sales, environmental reporting, workstation profiles and configurable workflow rules.
-
-See OpenSourceSoftware/feature-backlog.md for the authoritative shipped/foundation/backlog matrix.
+`../DubboEwasteApp/` on `main` is an older static prototype source. The published `gh-pages` branch now contains a separate gateway/admin experience. Do not treat the old static prototype as the production application.
