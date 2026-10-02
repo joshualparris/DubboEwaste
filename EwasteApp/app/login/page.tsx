@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { login } from "./actions";
+import { login, resendConfirmation } from "./actions";
 
 export default async function LoginPage({
   searchParams,
@@ -31,6 +31,17 @@ export default async function LoginPage({
           </label>
           <button className="button" type="submit">Sign in</button>
         </form>
+
+        <details>
+          <summary><strong>Didn't get a working confirmation email?</strong></summary>
+          <form action={resendConfirmation} className="form" style={{ marginTop: "0.75rem" }}>
+            <label>
+              Email
+              <input name="email" type="email" autoComplete="email" required />
+            </label>
+            <button className="button secondary" type="submit">Resend confirmation email</button>
+          </form>
+        </details>
 
         <p className="muted small">
           New staff or volunteers can <Link href="/signup"><strong>create an account</strong></Link> with the current access code.
