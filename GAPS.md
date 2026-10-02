@@ -1,5 +1,7 @@
 # Gaps research: Dubbo e-waste refurb, back-shed, open Tuesdays & Saturdays
 
+**Section-note:** duplicate I/J/L headings were renumbered to unique A–R headings on 2 Oct 2026; older research files may refer to the former duplicate letters by heading name.
+
 Operating model being tested: accept **high-quality** old laptops, phones, tablets, TVs and electronics only; refurb and resell; open Tuesdays and Saturdays from a back shed.
 
 Confidence key: **[Found]** = seen in an official/primary source this session. **[Secondary]** = directory/third-party page, verify. **[Unknown]** = couldn't establish, needs a phone call.
@@ -222,7 +224,7 @@ Full research: [docs/SIRCEL-REUSE-PARTNERS-WHERE-DOES-IT-GO.md](docs/SIRCEL-REUS
 
 ---
 
-## I. Reuse-first benchmark models
+## J. Reuse-first benchmark models
 
 Detailed research: `docs/REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md`.
 
@@ -236,7 +238,7 @@ Detailed research: `docs/REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md`.
 
 ---
 
-## Good360 / Compnow / National Device Bank / Dubbo — deep-dive findings
+## K. Good360 / Compnow / National Device Bank / Dubbo — deep-dive findings
 
 Full research: [docs/GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md](docs/GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md).
 
@@ -268,7 +270,7 @@ Full research: [docs/GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md](docs/GOOD360
 
 ---
 
-## Five biggest unresolved questions after all-chat synthesis — 2 Oct 2026
+## L. Five biggest unresolved questions after all-chat synthesis — 2 Oct 2026
 
 Full synthesis: [docs/MASTER-FINDINGS-ALL-CHATS.md](docs/MASTER-FINDINGS-ALL-CHATS.md).
 
@@ -290,7 +292,7 @@ Full synthesis: [docs/MASTER-FINDINGS-ALL-CHATS.md](docs/MASTER-FINDINGS-ALL-CHA
 
 ---
 
-## J. NSW public-school eWaste / EDConnect gap — researched 2 Oct 2026
+## M. NSW public-school eWaste / EDConnect gap — researched 2 Oct 2026
 
 Full deep dive: [docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md](docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md).
 
@@ -338,7 +340,7 @@ NSW public schools should **not** be treated as an easy Phase 0 donation source.
 
 ---
 
-## J. Local reuse/resale gap and council barriers
+## N. Local reuse/resale gap and council barriers
 
 Detailed research:
 - `docs/DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS.md`
@@ -369,7 +371,7 @@ Detailed research:
 
 ---
 
-## K. Fliptech regional-hub feasibility
+## O. Fliptech regional-hub feasibility
 
 Detailed research:
 - `docs/FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md`
@@ -409,7 +411,7 @@ Possible progression:
 
 ---
 
-## Physical Dubbo ITAD branch / hub shortlist — 2 Oct 2026
+## P. Physical Dubbo ITAD branch / hub shortlist — 2 Oct 2026
 
 Full staffing and branch-pattern evidence:
 [docs/AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md](docs/AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md)
@@ -447,7 +449,7 @@ This does **not** mean they would refuse Dubbo work. It means their public opera
 
 ---
 
-## L. Branch-entry commercial unknowns
+## Q. Branch-entry commercial unknowns
 
 Detailed playbook:
 - `docs/DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md`
@@ -493,7 +495,7 @@ Detailed playbook:
 
 ---
 
-## L. Branch economics — now quantified from public prices
+## R. Branch economics — now quantified from public prices
 
 Detailed file:
 - `docs/DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS.md`
