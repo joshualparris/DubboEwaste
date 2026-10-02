@@ -80,12 +80,15 @@ This section captures the wider set of useful work an AI coding/research agent c
 
 ### A. Operating system and intake desk
 
+- [x] Add `DubboEwasteApp/`, a responsive interactive MVP for staff login boundary, triage, inventory, model lookup and economics.
+- [x] Add the production security/database handoff so the MVP is not mistaken for secure private storage.
 - [x] Document the AI-agent operating model, permissions, evidence boundaries and hand-off rules.
 - [x] Add a deterministic intake decision tool that emits ACCEPT, HOLD or REJECT with reasons and required evidence.
 - [x] Add a pilot-analysis tool for time, margin, sell-through, rejection and route metrics.
 - [x] Add a public-safety/redaction checker for reports and exports.
 - [x] Add synthetic examples so the tools can be exercised without personal data or real device identifiers.
 - [ ] Convert the intake tool into a local browser form with barcode/QR asset IDs and photo attachments.
+- [ ] Replace the MVP demo login and `localStorage` with managed authentication, server-side permissions, encrypted private storage, audit logging and backups.
 - [ ] Test a physical diagnostic/sanitisation USB kit on representative equipment.
 - [ ] Perform real backup/restore and retention testing with the operator's chosen storage system.
 

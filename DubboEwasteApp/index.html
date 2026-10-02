@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dubbo E-Waste operations app prototype">
+  <title>Dubbo E-Waste | Operations Desk</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="login-screen" class="login-shell">
+    <div class="login-card">
+      <div class="brand-mark">DE</div>
+      <p class="eyebrow">Dubbo E-Waste · operations desk</p>
+      <h1>Make the right call at the front door.</h1>
+      <p class="lede">Triage, test, route and sell useful equipment without improvising.</p>
+      <form id="login-form" class="stack-form">
+        <label>Email<input id="login-email" type="email" placeholder="volunteer@example.org" required></label>
+        <label>Password<input id="login-password" type="password" placeholder="demo" required></label>
+        <button class="button button-primary" type="submit">Enter operations desk</button>
+        <p id="login-message" class="form-message" role="status"></p>
+      </form>
+      <p class="demo-note">Prototype mode: use any email and <code>demo</code> as the password. Never use real private data in this demo.</p>
+    </div>
+  </div>
+
+  <div id="app-shell" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="brand-lockup"><div class="brand-mark small">DE</div><div><strong>Dubbo E-Waste</strong><span>operations desk</span></div></div>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <button class="nav-item active" data-view="overview"><span>◈</span> Overview</button>
+        <button class="nav-item" data-view="intake"><span>＋</span> New intake</button>
+        <button class="nav-item" data-view="inventory"><span>▦</span> Inventory</button>
+        <button class="nav-item" data-view="models"><span>⌕</span> Model lookup</button>
+        <button class="nav-item" data-view="economics"><span>↗</span> Economics</button>
+      </nav>
+      <div class="sidebar-footer"><span class="status-dot"></span><span>Demo workspace</span><button id="logout-button" class="text-button">Sign out</button></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><div><p class="eyebrow">Tuesday · Phase 0 workspace</p><h2 id="page-title">Overview</h2></div><div class="user-chip"><span id="user-initial">V</span><span id="user-email">volunteer</span><span class="role-pill">Operator</span></div></header>
+      <div class="security-banner"><span>▣</span><strong>Prototype privacy boundary:</strong> local demo storage only. No real customer or device identifiers.</div>
+
+      <section class="view active" id="view-overview">
+        <div class="hero-panel"><div><p class="eyebrow light">Today’s operating picture</p><h1>Clear the good gear. Catch the risky gear.</h1><p>Every accepted item should have authority, a safe route and a reason to believe the work will pay back.</p></div><button class="button button-light" data-go="intake">Start an intake <span>→</span></button></div>
+        <div class="metric-grid"><article class="metric-card"><span class="metric-label">In workspace</span><strong id="metric-inventory">0</strong><small>assets logged</small></article><article class="metric-card"><span class="metric-label">Needs action</span><strong id="metric-holds">0</strong><small>held or missing evidence</small></article><article class="metric-card"><span class="metric-label">Route value</span><strong id="metric-value">$0</strong><small>estimated resale</small></article><article class="metric-card"><span class="metric-label">Avg. triage</span><strong id="metric-time">0m</strong><small>recorded minutes</small></article></div>
+        <div class="dashboard-grid"><article class="panel"><div class="panel-heading"><div><p class="eyebrow">Front-door discipline</p><h3>Before anything enters stock</h3></div><span class="panel-icon">✓</span></div><ul class="check-list"><li><span>01</span><div><strong>Authority recorded</strong><small>Know who owns it and why it is here.</small></div></li><li><span>02</span><div><strong>Battery and physical safety</strong><small>Stop at swelling, heat, leakage or impact damage.</small></div></li><li><span>03</span><div><strong>Locks cleared</strong><small>BIOS, MDM, Activation Lock, FRP and Autopilot.</small></div></li><li><span>04</span><div><strong>Route exists</strong><small>Reuse, parts or an approved downstream receiver.</small></div></li></ul></article><article class="panel"><div class="panel-heading"><div><p class="eyebrow">Recent activity</p><h3>Audit trail</h3></div><button class="text-button" data-go="inventory">View inventory</button></div><div id="recent-activity" class="activity-list"><p class="empty-state">No activity yet. Start with a known-source item.</p></div></article></div>
+      </section>
+
+      <section class="view" id="view-intake">
+        <div class="section-intro"><div><p class="eyebrow">Front-door triage card</p><h1>Can we safely take this on?</h1><p>Answer the gates in order. A missing answer creates a hold, not a guess.</p></div><div class="decision-badge neutral" id="decision-badge">Awaiting assessment</div></div>
+        <div class="intake-layout"><form id="intake-form" class="panel intake-form"><div class="form-section"><div class="section-number">01</div><div class="form-section-content"><h3>Identity and authority</h3><p class="helper">Record the minimum needed to establish a legitimate transfer.</p><div class="field-grid"><label>Asset ID<input id="asset-id" name="assetId" placeholder="DE-2026-001" required></label><label>Category<select id="device-category" name="category" required><option value="laptop">Windows laptop</option><option value="mac">Mac</option><option value="phone">iPhone / iPad</option><option value="android">Android phone / tablet</option><option value="chromebook">Chromebook</option><option value="desktop">Desktop / mini-PC</option><option value="monitor">Monitor</option><option value="tv">TV</option><option value="networking">Networking gear</option></select></label><label>Make and model<input id="device-model" name="model" placeholder="e.g. ThinkPad T14 Gen 2" required></label><label>Approx. age<select name="age"><option value="0-3">0–3 years</option><option value="4-6">4–6 years</option><option value="7+">7+ years</option><option value="unknown">Unknown</option></select></label></div><label class="checkbox-row"><input id="authority" name="authority" type="checkbox"> Transfer authority / ownership evidence recorded</label></div></div>
+          <div class="form-section"><div class="section-number">02</div><div class="form-section-content"><h3>Safety and condition</h3><p class="helper">If it looks unsafe, stop. Do not power it on to find out.</p><div class="field-grid"><label>Battery<select id="battery" name="battery"><option value="healthy">Healthy / no visible issue</option><option value="unknown">Unknown / not checked</option><option value="swollen">Swollen / damaged / hot</option><option value="missing">Missing / removed</option></select></label><label>Physical condition<select id="condition" name="condition"><option value="good">Good — cosmetic wear only</option><option value="fair">Fair — repairable wear</option><option value="poor">Poor — major damage</option><option value="unsafe">Unsafe / sharp / wet / contaminated</option></select></label><label>Estimated resale value<input name="value" type="number" min="0" step="1" placeholder="0"></label><label>Initial triage minutes<input name="minutes" type="number" min="0" step="1" value="5"></label></div></div></div>
+          <div class="form-section"><div class="section-number">03</div><div class="form-section-content"><h3>Locks and data</h3><p class="helper">A powered-on device is not necessarily usable or safe to resell.</p><div class="field-grid"><label>Lock status<select id="lock-status" name="lock"><option value="cleared">Cleared / verified</option><option value="unknown">Unknown / not checked</option><option value="locked">Locked: BIOS, MDM, Activation Lock, FRP or Autopilot</option></select></label><label>Data-bearing?<select name="data"><option value="yes">Yes</option><option value="no">No / storage removed</option></select></label></div></div></div>
+          <div class="form-section"><div class="section-number">04</div><div class="form-section-content"><h3>Route and decision</h3><p class="helper">Choose a likely route now; a route can be refined after bench testing.</p><div class="field-grid"><label>Likely route<select id="route" name="route"><option value="reuse/refurbish">Reuse / refurbish</option><option value="parts">Parts / donor</option><option value="social reuse">Approved social reuse</option><option value="recycle">Verified recycling</option><option value="unknown">Unknown / no route yet</option></select></label><label>Serial / IMEI<input name="identifier" placeholder="Do not use real data in demo"></label></div><div class="decision-actions"><button class="button button-primary" type="button" id="assess-button">Assess item</button><button class="button button-secondary" type="reset">Clear</button></div><div id="triage-result" class="triage-result hidden"></div></div></div>
+        </form><aside class="panel category-guide"><p class="eyebrow">Category guide</p><h3 id="guide-title">Windows laptop</h3><p id="guide-copy">Check Windows 11 eligibility, battery, charger, display, keyboard, ports, storage, memory and lock state.</p><div id="guide-checks" class="guide-checks"></div><div class="route-note"><strong>Operator rule</strong><p>ACCEPT is not a promise to sell. It means the item passed the front-door gates and can move to bench testing.</p></div></aside></div>
+      </section>
+
+      <section class="view" id="view-inventory"><div class="section-intro"><div><p class="eyebrow">Stock control</p><h1>Inventory with a reason.</h1><p>Every item should have a next action, not become anonymous shelf weight.</p></div><button class="button button-primary" data-go="intake">＋ New intake</button></div><div class="panel table-panel"><div class="table-tools"><input id="inventory-search" type="search" placeholder="Search asset, model or route"><span id="inventory-count" class="muted"></span></div><div class="table-wrap"><table><thead><tr><th>Asset</th><th>Device</th><th>Decision</th><th>Route</th><th>Value</th><th>Next action</th></tr></thead><tbody id="inventory-body"></tbody></table></div></div></section>
+
+      <section class="view" id="view-models"><div class="section-intro"><div><p class="eyebrow">Knowledge base</p><h1>Model lookup.</h1><p>Use evidence-backed model records as a starting point, then verify the actual device.</p></div><span class="source-tag">Demo records · date checked 2026</span></div><div class="model-tools"><input id="model-search" type="search" placeholder="Search ThinkPad, iPhone, Chromebook…"><select id="model-category"><option value="all">All categories</option><option value="laptop">Laptops</option><option value="mac">Macs</option><option value="phone">Mobile</option><option value="chromebook">Chromebooks</option><option value="desktop">Desktops</option><option value="monitor">Monitors</option><option value="networking">Networking</option></select></div><div id="model-grid" class="model-grid"></div></section>
+
+      <section class="view" id="view-economics"><div class="section-intro"><div><p class="eyebrow">Decision support</p><h1>Does the work pay back?</h1><p>Estimate contribution before scarce bench time and storage are committed.</p></div><span class="source-tag">Estimates are not quotes</span></div><div class="economics-layout"><form id="economics-form" class="panel stack-form"><label>Expected sale price<input name="sale" type="number" value="250" min="0"></label><label>Acquisition cost<input name="acquisition" type="number" value="0" min="0"></label><label>Parts cost<input name="parts" type="number" value="30" min="0"></label><label>Platform, postage and other costs<input name="costs" type="number" value="35" min="0"></label><label>Total labour minutes<input name="labour" type="number" value="90" min="0"></label><label>Target labour rate / hour<input name="rate" type="number" value="35" min="0"></label></form><div class="panel economics-result"><p class="eyebrow">Estimated contribution</p><strong id="contribution">$185</strong><div class="econ-row"><span>Labour cost</span><strong id="labour-cost">$53</strong></div><div class="econ-row"><span>Contribution after labour</span><strong id="after-labour">$132</strong></div><div class="econ-row"><span>Contribution / labour hour</span><strong id="per-hour">$88/hr</strong></div><div id="econ-message" class="route-note"><strong>Interpretation</strong><p>Positive contribution is not enough if safety, storage or route evidence is weak.</p></div></div></div></section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

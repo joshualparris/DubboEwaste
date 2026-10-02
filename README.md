@@ -28,6 +28,7 @@ Deployment: `gh-pages` is the generated GitHub Pages distribution; `main` is the
 | [docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md](docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md) | **NSW public-school laptop deep dive:** EDConnect/eWaste PowerApp, vendor sanitisation, Settlement Reports, C9826 suppliers, Device Bank comparison and the missing Dubbo downstream chain |
 | [GAPS.md](GAPS.md) | Full list of what is known, found, and still unknown |
 | [codexToDO.md](codexToDO.md) | **Executable closure plan:** repository work, external gates, pilot work and stop rules |
+| [DubboEwasteApp/](DubboEwasteApp/) | **Interactive MVP:** staff login boundary, triage, model lookup, inventory, economics and listing drafts |
 | [docs/CURRENT-STATE.md](docs/CURRENT-STATE.md) | **Canonical current-state register:** verified, designed, externally blocked and pilot-only claims |
 | [docs/PHASE-0-LAUNCH-GATES.md](docs/PHASE-0-LAUNCH-GATES.md) | **Canonical launch sequence:** what blocks intake, resale, the pilot, and later scale-up |
 | [docs/RESEARCH-INDEX.md](docs/RESEARCH-INDEX.md) | **Canonical research index:** where each topic lives and which files are historical or superseded |
