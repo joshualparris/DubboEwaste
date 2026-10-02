@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type ModelRecord = {
   manufacturer: string;
@@ -15,19 +15,23 @@ type ModelRecord = {
   source_url: string;
   source_checked: string;
   confidence: string;
+  external_source?: string;
+  source_id?: string;
 };
 
-const categoryOptions = [
-  ["LAPTOP", "Windows/Mac laptop"], ["DESKTOP", "Desktop"], ["PHONE", "Phone"],
-  ["TABLET", "Tablet"], ["CHROMEBOOK", "Chromebook"], ["MONITOR", "Monitor"],
-  ["TV", "TV"], ["NETWORKING", "Networking"], ["PRINTER", "Printer"],
-  ["PARTS", "Parts"], ["OTHER", "Other"],
-];
+type Match = {
+  model: ModelRecord;
+  score: number;
+  method: "exact" | "alias" | "text" | "live";
+};
 
 function categoryFor(record: ModelRecord): string {
   if (record.category === "mac") return "LAPTOP";
   if (record.category === "android") return "PHONE";
-  return record.category.toUpperCase();
+  const value = record.category.toUpperCase();
+  return ["LAPTOP","DESKTOP","PHONE","TABLET","CHROMEBOOK","MONITOR","TV","NETWORKING","PRINTER","PARTS","OTHER"].includes(value)
+    ? value
+    : "OTHER";
 }
 
 function routeFor(route: string): string {
@@ -57,10 +61,18 @@ function scoreModel(model: ModelRecord, query: string): { score: number; method:
   return { score: tokens.length ? Math.round((hits / tokens.length) * 80) : 0, method: "text" };
 }
 
+function keyFor(model: ModelRecord) {
+  return normalise(`${model.manufacturer} ${model.model_name}`);
+}
+
 export function ModelAutofill({ models }: { models: ModelRecord[] }) {
   const [lookup, setLookup] = useState("");
   const [selected, setSelected] = useState<ModelRecord | null>(null);
-  const matches = useMemo(() => {
+  const [liveModels, setLiveModels] = useState<ModelRecord[]>([]);
+  const [liveLoading, setLiveLoading] = useState(false);
+  const [liveError, setLiveError] = useState("");
+
+  const localMatches = useMemo<Match[]>(() => {
     const value = lookup.trim().toLowerCase();
     if (!value) return models.slice(0, 8).map((model) => ({ model, score: 0, method: "text" as const }));
     return models
@@ -69,6 +81,50 @@ export function ModelAutofill({ models }: { models: ModelRecord[] }) {
       .sort((a, b) => b.score - a.score)
       .slice(0, 8);
   }, [lookup, models]);
+
+  useEffect(() => {
+    const q = lookup.trim();
+    if (q.length < 2 || selected) {
+      setLiveModels([]);
+      setLiveLoading(false);
+      setLiveError("");
+      return;
+    }
+
+    const controller = new AbortController();
+    const timer = window.setTimeout(async () => {
+      setLiveLoading(true);
+      setLiveError("");
+      try {
+        const response = await fetch(`/api/model-search?q=${encodeURIComponent(q)}`, {
+          signal: controller.signal,
+        });
+        if (!response.ok) throw new Error(`Lookup failed (${response.status})`);
+        const body = (await response.json()) as { results?: ModelRecord[] };
+        setLiveModels(body.results ?? []);
+      } catch (error) {
+        if ((error as Error).name !== "AbortError") {
+          setLiveModels([]);
+          setLiveError("Live lookup temporarily unavailable.");
+        }
+      } finally {
+        if (!controller.signal.aborted) setLiveLoading(false);
+      }
+    }, 450);
+
+    return () => {
+      window.clearTimeout(timer);
+      controller.abort();
+    };
+  }, [lookup, selected]);
+
+  const matches = useMemo<Match[]>(() => {
+    const localKeys = new Set(localMatches.map(({ model }) => keyFor(model)));
+    const remote = liveModels
+      .filter((model) => !localKeys.has(keyFor(model)))
+      .map((model) => ({ model, score: 30, method: "live" as const }));
+    return [...localMatches, ...remote].slice(0, 12);
+  }, [localMatches, liveModels]);
 
   function choose(model: ModelRecord) {
     setLookup(`${model.manufacturer} ${model.model_name}`);
@@ -83,33 +139,93 @@ export function ModelAutofill({ models }: { models: ModelRecord[] }) {
     <>
       <div className="lookup-panel">
         <label>
-          Find model in catalogue
+          Find model
           <input
             id="model-lookup"
             value={lookup}
             onChange={(event) => { setLookup(event.target.value); setSelected(null); }}
-            onKeyDown={(event) => { if (event.key === "Enter" && matches[0]) { event.preventDefault(); choose(matches[0].model); } }}
-            placeholder="Try ThinkPad, iPhone, Chromebook — not just Intel Core i5"
+            onKeyDown={(event) => {
+              if (event.key === "Enter" && matches[0]) {
+                event.preventDefault();
+                choose(matches[0].model);
+              }
+            }}
+            placeholder="Try realme, Latitude 5420, ThinkPad T14, iPhone 11"
             autoComplete="off"
           />
         </label>
+
+        <p className="muted small">
+          Searches the DubboEwaste verified catalogue first, then the free Wikidata device database.
+        </p>
+
         {lookup && !selected ? (
           <div className="lookup-results" role="listbox" aria-label="Model matches">
-            {matches.length ? matches.map(({ model, method }) => (
-              <button type="button" key={`${model.manufacturer}-${model.model_name}`} onClick={() => choose(model)}>
-                <strong>{model.manufacturer} {model.model_name}</strong><span>{method === "exact" ? "Exact model" : method === "alias" ? "Known alias / identifier" : "Text candidate"} · {model.category} · {model.confidence}</span>
+            {matches.map(({ model, method }) => (
+              <button
+                type="button"
+                key={model.source_id ?? `${model.manufacturer}-${model.model_name}`}
+                onClick={() => choose(model)}
+              >
+                <strong>{model.manufacturer} {model.model_name}</strong>
+                <span>
+                  {method === "exact"
+                    ? "Exact local model"
+                    : method === "alias"
+                      ? "Known local alias / identifier"
+                      : method === "live"
+                        ? "Live Wikidata result"
+                        : "Local text candidate"}
+                  {" · "}{model.category}{" · "}{model.confidence}
+                </span>
               </button>
-            )) : <p className="muted small">No exact catalogue match. Enter the manufacturer and exact model manually.</p>}
+            ))}
+            {liveLoading ? <p className="muted small">Searching Wikidata…</p> : null}
+            {!liveLoading && !matches.length && !liveError ? (
+              <p className="muted small">No model found locally or in Wikidata. Enter the manufacturer and exact model manually.</p>
+            ) : null}
+            {liveError ? <p className="error small">{liveError}</p> : null}
           </div>
         ) : null}
-        {selected ? <div className="lookup-result"><strong>Candidate selected — verify on the device</strong><span>Source checked {selected.source_checked} · catalogue confidence {selected.confidence}</span><small>{selected.support_summary}</small><a href={selected.source_url} target="_blank" rel="noreferrer">Open supporting source</a></div> : null}
+
+        {selected ? (
+          <div className="lookup-result">
+            <strong>Candidate selected — verify on the device</strong>
+            <span>
+              Source: {selected.external_source ?? "DubboEwaste catalogue"} · checked {selected.source_checked} · {selected.confidence}
+            </span>
+            <small>{selected.support_summary}</small>
+            <a href={selected.source_url} target="_blank" rel="noreferrer">Open supporting source ↗</a>
+          </div>
+        ) : null}
       </div>
 
       <div className="two">
-        <label>Manufacturer<input name="manufacturer" defaultValue={selected?.manufacturer || ""} placeholder="Dell" key={`manufacturer-${selected?.model_name || "blank"}`} /></label>
-        <label>Exact model<input name="model" defaultValue={selected?.model_name || ""} placeholder="Latitude 5400" key={`model-${selected?.model_name || "blank"}`} required /></label>
+        <label>
+          Manufacturer
+          <input
+            name="manufacturer"
+            defaultValue={selected?.manufacturer || ""}
+            placeholder="Dell"
+            key={`manufacturer-${selected?.source_id ?? selected?.model_name ?? "blank"}`}
+          />
+        </label>
+        <label>
+          Exact model
+          <input
+            name="model"
+            defaultValue={selected?.model_name || ""}
+            placeholder="Latitude 5400"
+            key={`model-${selected?.source_id ?? selected?.model_name ?? "blank"}`}
+            required
+          />
+        </label>
       </div>
-      {selected ? <div className="callout info"><strong>Verify before accepting:</strong> {selected.lock_risks} {selected.battery_notes}</div> : null}
+      {selected ? (
+        <div className="callout info">
+          <strong>Verify before accepting:</strong> {selected.lock_risks} {selected.battery_notes}
+        </div>
+      ) : null}
     </>
   );
 }
