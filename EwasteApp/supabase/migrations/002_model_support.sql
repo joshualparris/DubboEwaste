@@ -28,17 +28,17 @@ alter table public.model_support enable row level security;
 create policy "active staff read model support"
 on public.model_support for select
 to authenticated
-using (public.is_active_staff() and active = true);
+using (private.is_active_staff() and active = true);
 
 create policy "admins and managers manage model support"
 on public.model_support for all
 to authenticated
-using (public.current_staff_role() in ('admin','manager'))
-with check (public.current_staff_role() in ('admin','manager'));
+using (private.current_staff_role() in ('admin','manager'))
+with check (private.current_staff_role() in ('admin','manager'));
 
 create trigger model_support_set_updated_at
 before update on public.model_support
-for each row execute procedure public.set_updated_at();
+for each row execute procedure private.set_updated_at();
 
 insert into public.model_support
   (manufacturer, model_name, category, support_summary, lock_risks, battery_notes, likely_route, source_url, source_checked, confidence)

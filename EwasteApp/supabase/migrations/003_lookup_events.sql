@@ -23,7 +23,15 @@ update public.model_support set
     when 'Apple:iPhone 11' then '{"iphone12,1","a2111","a2221","a2223"}'::text[]
     when 'Google/Lenovo:Lenovo 300e Chromebook' then '{"81h0","81h1"}'::text[]
     when 'Ubiquiti:UniFi AP AC Lite' then '{"uap-ac-lite"}'::text[]
-    else identifiers end;
+    else identifiers end
+where (manufacturer, model_name) in (
+  ('Lenovo', 'ThinkPad T14 Gen 2'),
+  ('Dell', 'Latitude 5420'),
+  ('Apple', 'MacBook Air M1'),
+  ('Apple', 'iPhone 11'),
+  ('Google/Lenovo', 'Lenovo 300e Chromebook'),
+  ('Ubiquiti', 'UniFi AP AC Lite')
+);
 
 create table public.lookup_events (
   id uuid primary key default gen_random_uuid(),
@@ -40,9 +48,9 @@ alter table public.lookup_events enable row level security;
 create policy "active staff read lookup events"
 on public.lookup_events for select
 to authenticated
-using (public.is_active_staff());
+using (private.is_active_staff());
 
 create policy "active staff create lookup events"
 on public.lookup_events for insert
 to authenticated
-with check (public.is_active_staff() and created_by = auth.uid());
+with check (private.is_active_staff() and created_by = auth.uid());
