@@ -41,6 +41,11 @@ AssetFlow now includes:
 - reports
 - admin data console
 - audit/event records
+- sanitisation capability matrix for SATA, SCSI, SAS, USB, NVMe and OPAL media
+- NIST SP 800-88 / legacy DoD method selection with HPA, DCO, OPAL and freeze-lock preflight capture
+- structured diagnostic runs for manual, local-agent, boot-media and external-report execution
+- controlled deployment profiles and planned runs for Blancco, ServiceNow, Microsoft Endpoint Manager and PXE/netboot
+- hash-chained certificate audit-vault records with explicit unsigned/signature status
 
 ## Security model
 
@@ -94,6 +99,8 @@ GitHub Actions runs both checks for application pull requests.
 ## Product specification / backlog
 
 See [../OpenSourceSoftware/README.md](../OpenSourceSoftware/README.md) and [../OpenSourceSoftware/feature-backlog.md](../OpenSourceSoftware/feature-backlog.md).
+
+The boundary and remaining workstation/enterprise integration work are documented in [../docs/ASSETFLOW-ERASURE-DIAGNOSTICS-INTEGRATIONS.md](../docs/ASSETFLOW-ERASURE-DIAGNOSTICS-INTEGRATIONS.md).
 
 ## GitHub Pages distinction
 

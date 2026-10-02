@@ -26,6 +26,9 @@ The live Supabase project has also had some changes applied directly through SQL
 7. `006_assetflow_certificate_verification_and_integrations.sql`
 8. `007_assetflow_internal_automation.sql`
 9. `007_admin_permissions.sql`
+10. `008_assetflow_crm.sql`
+11. `009_assetflow_crm_sales.sql`
+12. `009_sanitisation_diagnostics_integrations.sql`
 
 This list documents intent; it is **not yet a fresh-install guarantee**.
 

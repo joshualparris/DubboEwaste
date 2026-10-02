@@ -117,6 +117,112 @@ export async function addLeadActivity(formData: FormData) {
   redirect("/crm?success=Activity%20recorded");
 }
 
+export async function createQuote(formData: FormData) {
+  const schema = z.object({
+    lead_id: optionalUuid,
+    customer_id: optionalUuid,
+    scope: z.string().trim().min(3).max(6000),
+    notes: z.string().trim().max(4000).optional(),
+    valid_until: z.string().trim().optional(),
+    items_json: z.string().trim().min(2).max(12000),
+  });
+  const parsed = schema.safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/crm/quotes?error=Please%20check%20the%20quote%20fields");
+  let rawItems: unknown;
+  try { rawItems = JSON.parse(parsed.data.items_json); } catch { redirect("/crm/quotes?error=Quote%20items%20must%20be%20valid%20JSON"); }
+  const items = z.array(z.object({ description: z.string().trim().min(2).max(500), quantity: z.number().positive().max(100000), unit_price: z.number().nonnegative().max(1000000) })).min(1).safeParse(rawItems);
+  if (!items.success) redirect("/crm/quotes?error=Add%20at%20least%20one%20valid%20quote%20item");
+  const { supabase, user } = await currentUser();
+  const subtotal = items.data.reduce((sum, item) => sum + item.quantity * item.unit_price, 0);
+  const { data: quote, error } = await supabase.from("crm_quotes").insert({ lead_id: parsed.data.lead_id || null, customer_id: parsed.data.customer_id || null, valid_until: parsed.data.valid_until || null, created_by: user.id }).select("id,quote_number").single();
+  if (error || !quote) redirect("/crm/quotes?error=Could%20not%20create%20quote");
+  const { data: version, error: versionError } = await supabase.from("crm_quote_versions").insert({ quote_id: quote.id, version_number: 1, scope: parsed.data.scope, notes: parsed.data.notes || null, subtotal: Number(subtotal.toFixed(2)), total: Number(subtotal.toFixed(2)), created_by: user.id }).select("id").single();
+  if (versionError || !version) redirect("/crm/quotes?error=Could%20not%20create%20quote%20version");
+  const { error: itemError } = await supabase.from("crm_quote_items").insert(items.data.map(item => ({ version_id: version.id, description: item.description, quantity: item.quantity, unit_price: item.unit_price, line_total: Number((item.quantity * item.unit_price).toFixed(2)) })));
+  if (itemError) redirect("/crm/quotes?error=Could%20not%20save%20quote%20items");
+  if (parsed.data.lead_id) await supabase.from("crm_activities").insert({ lead_id: parsed.data.lead_id, activity_type: "QUOTE", summary: `Quote ${quote.quote_number} created`, created_by: user.id });
+  await appendEvent(supabase, user.id, "crm_quote", quote.id, "CRM_QUOTE_CREATED", { quote_number: quote.quote_number, total: Number(subtotal.toFixed(2)) });
+  revalidatePath("/crm"); revalidatePath("/crm/quotes");
+  redirect(`/crm/quotes?success=Quote%20${encodeURIComponent(quote.quote_number)}%20created`);
+}
+
+export async function createQuoteVersion(formData: FormData) {
+  const schema = z.object({ quote_id: z.string().uuid(), scope: z.string().trim().min(3).max(6000), notes: z.string().trim().max(4000).optional(), items_json: z.string().trim().min(2).max(12000) });
+  const parsed = schema.safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/crm/quotes?error=Please%20check%20the%20new%20version");
+  let rawItems: unknown;
+  try { rawItems = JSON.parse(parsed.data.items_json); } catch { redirect("/crm/quotes?error=Quote%20items%20must%20be%20valid%20JSON"); }
+  const items = z.array(z.object({ description: z.string().trim().min(2).max(500), quantity: z.number().positive().max(100000), unit_price: z.number().nonnegative().max(1000000) })).min(1).safeParse(rawItems);
+  if (!items.success) redirect("/crm/quotes?error=Add%20at%20least%20one%20valid%20quote%20item");
+  const { supabase, user } = await currentUser();
+  const { data: quote } = await supabase.from("crm_quotes").select("id,current_version,lead_id,quote_number").eq("id", parsed.data.quote_id).single();
+  if (!quote) redirect("/crm/quotes?error=Quote%20not%20found");
+  const versionNumber = Number(quote.current_version) + 1;
+  const subtotal = items.data.reduce((sum, item) => sum + item.quantity * item.unit_price, 0);
+  const { data: version, error } = await supabase.from("crm_quote_versions").insert({ quote_id: quote.id, version_number: versionNumber, scope: parsed.data.scope, notes: parsed.data.notes || null, subtotal: Number(subtotal.toFixed(2)), total: Number(subtotal.toFixed(2)), created_by: user.id }).select("id").single();
+  if (error || !version) redirect("/crm/quotes?error=Could%20not%20create%20quote%20version");
+  await supabase.from("crm_quote_items").insert(items.data.map(item => ({ version_id: version.id, description: item.description, quantity: item.quantity, unit_price: item.unit_price, line_total: Number((item.quantity * item.unit_price).toFixed(2)) })));
+  await supabase.from("crm_quotes").update({ current_version: versionNumber, status: "DRAFT" }).eq("id", quote.id);
+  if (quote.lead_id) await supabase.from("crm_activities").insert({ lead_id: quote.lead_id, activity_type: "QUOTE", summary: `Quote ${quote.quote_number} version ${versionNumber} created`, created_by: user.id });
+  revalidatePath("/crm/quotes"); redirect("/crm/quotes?success=New%20quote%20version%20created");
+}
+
+export async function convertQuoteToJob(formData: FormData) {
+  const schema = z.object({ quote_id: z.string().uuid(), source_site: z.string().trim().max(200).optional(), work_instructions: z.string().trim().max(6000).optional() });
+  const parsed = schema.safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/crm/quotes?error=Please%20check%20the%20job%20conversion");
+  const { supabase, user } = await currentUser();
+  const { data: quote } = await supabase.from("crm_quotes").select("*,crm_leads(name,organisation),crm_quote_versions(total)").eq("id", parsed.data.quote_id).single();
+  if (!quote || !["ACCEPTED", "ISSUED"].includes(quote.status)) redirect("/crm/quotes?error=Only%20issued%20or%20accepted%20quotes%20can%20be%20converted");
+  const lead = quote.crm_leads;
+  const { data: job, error } = await supabase.from("jobs").insert({ customer_id: quote.customer_id || null, source_site: parsed.data.source_site || lead?.organisation || null, contact_name: lead?.name || null, status: "DRAFT", work_instructions: parsed.data.work_instructions || `Created from ${quote.quote_number}`, created_by: user.id }).select("id,job_code").single();
+  if (error || !job) redirect("/crm/quotes?error=Could%20not%20create%20job");
+  await supabase.from("crm_quotes").update({ status: "CONVERTED", converted_job_id: job.id, accepted_at: new Date().toISOString() }).eq("id", quote.id);
+  if (quote.lead_id) {
+    await supabase.from("crm_leads").update({ stage: "WON" }).eq("id", quote.lead_id);
+    await supabase.from("crm_activities").insert({ lead_id: quote.lead_id, activity_type: "STAGE_CHANGE", summary: `Quote ${quote.quote_number} converted to ${job.job_code}`, created_by: user.id });
+  }
+  await appendEvent(supabase, user.id, "job", job.id, "JOB_CREATED_FROM_QUOTE", { quote_id: quote.id, quote_number: quote.quote_number });
+  revalidatePath("/crm"); revalidatePath("/crm/quotes"); revalidatePath("/jobs");
+  redirect(`/jobs/${job.id}`);
+}
+
+export async function updateQuoteStatus(formData: FormData) {
+  const schema = z.object({ quote_id: z.string().uuid(), status: z.enum(["DRAFT","ISSUED","ACCEPTED","DECLINED","EXPIRED"]) });
+  const parsed = schema.safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/crm/quotes?error=Please%20check%20the%20quote%20status");
+  const { supabase, user } = await currentUser();
+  const { data: quote } = await supabase.from("crm_quotes").select("lead_id,quote_number").eq("id", parsed.data.quote_id).single();
+  if (!quote) redirect("/crm/quotes?error=Quote%20not%20found");
+  const { error } = await supabase.from("crm_quotes").update({ status: parsed.data.status, accepted_at: parsed.data.status === "ACCEPTED" ? new Date().toISOString() : null }).eq("id", parsed.data.quote_id);
+  if (error) redirect("/crm/quotes?error=Could%20not%20update%20quote");
+  if (quote.lead_id) await supabase.from("crm_activities").insert({ lead_id: quote.lead_id, activity_type: "QUOTE", summary: `Quote ${quote.quote_number} marked ${parsed.data.status}`, created_by: user.id });
+  revalidatePath("/crm/quotes"); redirect("/crm/quotes?success=Quote%20status%20updated");
+}
+
+export async function createEmailTemplate(formData: FormData) {
+  const schema = z.object({ name: z.string().trim().min(2).max(160), subject: z.string().trim().min(2).max(250), purpose: z.string().trim().min(2).max(300), body: z.string().trim().min(2).max(12000) });
+  const parsed = schema.safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/crm/campaigns?error=Please%20check%20the%20template");
+  const { supabase, user } = await currentUser();
+  const { error } = await supabase.from("crm_email_templates").insert({ ...parsed.data, created_by: user.id });
+  if (error) redirect("/crm/campaigns?error=Could%20not%20create%20template");
+  revalidatePath("/crm/campaigns"); redirect("/crm/campaigns?success=Template%20created");
+}
+
+export async function createCampaign(formData: FormData) {
+  const schema = z.object({ name: z.string().trim().min(2).max(160), template_id: optionalUuid, audience_description: z.string().trim().min(2).max(1000) });
+  const parsed = schema.safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/crm/campaigns?error=Please%20check%20the%20campaign");
+  const { supabase, user } = await currentUser();
+  const { data: campaign, error } = await supabase.from("crm_campaigns").insert({ ...parsed.data, template_id: parsed.data.template_id || null, created_by: user.id }).select("id").single();
+  if (error || !campaign) redirect("/crm/campaigns?error=Could%20not%20create%20campaign");
+  const { data: recipients } = await supabase.from("crm_leads").select("id,consent_status").eq("consent_status", "MARKETING_OPT_IN");
+  if (recipients?.length) await supabase.from("crm_campaign_recipients").insert(recipients.map(recipient => ({ campaign_id: campaign.id, lead_id: recipient.id, consent_status: recipient.consent_status })));
+  await supabase.from("crm_campaigns").update({ status: "READY", consent_snapshot_at: new Date().toISOString() }).eq("id", campaign.id);
+  revalidatePath("/crm/campaigns"); redirect("/crm/campaigns?success=Campaign%20created%20with%20consent-safe%20audience");
+}
+
 export async function createLocation(formData: FormData) {
   const schema = z.object({
     name: z.string().trim().min(2).max(160),
@@ -216,6 +322,63 @@ export async function recordTest(formData: FormData) {
   redirect(`/assets/${parsed.data.asset_id}`);
 }
 
+export async function recordDiagnosticRun(formData: FormData) {
+  const schema = z.object({
+    asset_id: z.string().uuid(),
+    profile_id: optionalUuid,
+    execution_mode: z.enum(["MANUAL", "LOCAL_AGENT", "BOOT_MEDIA", "EXTERNAL_REPORT"]),
+    status: z.enum(["QUEUED", "RUNNING", "PASSED", "FAILED", "REVIEW", "CANCELLED"]),
+    results: z.string().trim().min(2).max(30000),
+    notes: z.string().trim().max(3000).optional(),
+  });
+  const parsed = schema.safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/processing?error=Check%20diagnostic%20run%20fields");
+  let results: Array<{ test_type: string; result: "PASS" | "FAIL" | "NOT_PRESENT" | "NOT_TESTED" | "REVIEW"; notes?: string }>;
+  try {
+    const value = JSON.parse(parsed.data.results);
+    if (!Array.isArray(value)) throw new Error("results must be an array");
+    results = value.map((item) => ({
+      test_type: String(item.test_type ?? "").trim(),
+      result: item.result,
+      notes: item.notes ? String(item.notes).slice(0, 2000) : undefined,
+    }));
+    if (!results.length || results.some((item) => !item.test_type || !["PASS", "FAIL", "NOT_PRESENT", "NOT_TESTED", "REVIEW"].includes(item.result))) throw new Error("invalid test result");
+  } catch {
+    redirect("/processing?error=Results%20must%20be%20valid%20JSON%20test%20objects");
+  }
+  const { supabase, user } = await currentUser();
+  const passCount = results.filter((result) => result.result === "PASS").length;
+  const failCount = results.filter((result) => result.result === "FAIL").length;
+  const { data: run, error } = await supabase.from("diagnostic_runs").insert({
+    asset_id: parsed.data.asset_id,
+    profile_id: parsed.data.profile_id || null,
+    execution_mode: parsed.data.execution_mode,
+    status: parsed.data.status,
+    test_count: results.length,
+    pass_count: passCount,
+    fail_count: failCount,
+    operator_id: user.id,
+    notes: parsed.data.notes || null,
+    started_at: ["RUNNING", "PASSED", "FAILED", "REVIEW"].includes(parsed.data.status) ? new Date().toISOString() : null,
+    completed_at: ["PASSED", "FAILED", "REVIEW", "CANCELLED"].includes(parsed.data.status) ? new Date().toISOString() : null,
+  }).select("id").single();
+  if (error || !run) redirect("/processing?error=Could%20not%20record%20diagnostic%20run");
+  const { error: testsError } = await supabase.from("asset_tests").insert(results.map((result) => ({
+    asset_id: parsed.data.asset_id,
+    test_type: result.test_type,
+    result: result.result,
+    notes: result.notes || null,
+    created_by: user.id,
+  })));
+  if (testsError) redirect("/processing?error=Run%20saved%20but%20test%20records%20failed");
+  await appendEvent(supabase, user.id, "asset", parsed.data.asset_id, "DIAGNOSTIC_RUN_RECORDED", {
+    run_id: run.id, test_count: results.length, pass_count: passCount, fail_count: failCount,
+  });
+  revalidatePath(`/assets/${parsed.data.asset_id}`);
+  revalidatePath("/processing");
+  redirect(`/assets/${parsed.data.asset_id}`);
+}
+
 export async function recordDisposition(formData: FormData) {
   const schema = z.object({
     asset_id: z.string().uuid(),
@@ -294,6 +457,18 @@ export async function issueCertificate(formData: FormData) {
     status: data.status,
     snapshot_sha256: snapshotSha256,
     public_summary: { asset_code: asset.asset_code, category: asset.category },
+  });
+
+  const { data: previousVault } = await supabase.from("certificate_vault_records")
+    .select("chain_sha256").order("created_at", { ascending: false }).limit(1).maybeSingle();
+  const previousRecordSha256 = previousVault?.chain_sha256 || null;
+  const chainSha256 = createHash("sha256").update(`${snapshotSha256}:${previousRecordSha256 || "GENESIS"}`).digest("hex");
+  await supabase.from("certificate_vault_records").insert({
+    certificate_id: data.id,
+    canonical_sha256: snapshotSha256,
+    previous_record_sha256: previousRecordSha256,
+    chain_sha256: chainSha256,
+    created_by: user.id,
   });
 
   await appendEvent(supabase, user.id, "asset", asset.id, "CERTIFICATE_ISSUED", {

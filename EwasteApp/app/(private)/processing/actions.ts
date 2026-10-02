@@ -96,6 +96,42 @@ export async function createSanitisationPolicy(formData: FormData) {
   revalidatePath("/media");
 }
 
+export async function createDeploymentProfile(formData: FormData) {
+  const parsed = z.object({
+    name: z.string().trim().min(2).max(120),
+    provider: z.enum(["BLANCCO", "SERVICE_NOW", "MICROSOFT_ENDPOINT_MANAGER", "PXE_NETBOOT", "OTHER"]),
+    package_reference: z.string().trim().max(500).optional(),
+    command_reference: z.string().trim().max(1000).optional(),
+    target_environment: z.string().trim().max(240).optional(),
+  }).safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/processing?error=Check%20deployment%20profile%20fields");
+  const { supabase, user } = await currentUser();
+  const { error } = await supabase.from("deployment_profiles").insert({
+    ...parsed.data,
+    package_reference: parsed.data.package_reference || null,
+    command_reference: parsed.data.command_reference || null,
+    target_environment: parsed.data.target_environment || null,
+    created_by: user.id,
+  });
+  if (error) redirect("/processing?error=Could%20not%20save%20deployment%20profile");
+  revalidatePath("/processing");
+}
+
+export async function planDeploymentRun(formData: FormData) {
+  const parsed = z.object({ profile_id: z.string().uuid(), asset_id: optionalUuid, job_id: optionalUuid, notes: z.string().trim().max(2000).optional() }).safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/processing?error=Check%20deployment%20run%20fields");
+  const { supabase, user } = await currentUser();
+  const { error } = await supabase.from("deployment_runs").insert({
+    profile_id: parsed.data.profile_id,
+    asset_id: parsed.data.asset_id || null,
+    job_id: parsed.data.job_id || null,
+    requested_by: user.id,
+    notes: parsed.data.notes || null,
+  });
+  if (error) redirect("/processing?error=Could%20not%20plan%20deployment");
+  revalidatePath("/processing");
+}
+
 export async function recordSanitisation(formData: FormData) {
   const parsed = z.object({
     media_id: z.string().uuid(),
@@ -106,12 +142,34 @@ export async function recordSanitisation(formData: FormData) {
     tool_version: z.string().trim().max(80).optional(),
     method: z.string().trim().max(160).optional(),
     verification_result: z.string().trim().max(160).optional(),
+    standard: z.string().trim().max(160).optional(),
+    operation: z.string().trim().max(160).optional(),
+    report_format: z.enum(["PDF", "XML", "JSON", "CSV", "TEXT", "OTHER"]).optional(),
+    freeze_lock_state: z.enum(["UNKNOWN", "NOT_PRESENT", "PRESENT", "CLEARED", "UNABLE_TO_CLEAR"]).optional(),
+    hpa_state: z.enum(["NOT_CHECKED", "NOT_PRESENT", "PRESENT", "REMOVED", "UNABLE_TO_CHECK"]).optional(),
+    dco_state: z.enum(["NOT_CHECKED", "NOT_PRESENT", "PRESENT", "REMOVED", "UNABLE_TO_CHECK"]).optional(),
+    opal_state: z.enum(["UNKNOWN", "NOT_PRESENT", "LOCKED", "UNLOCKED", "PSID_REQUIRED", "UNABLE_TO_CHECK"]).optional(),
     raw_report_hash: z.string().trim().max(128).optional(),
     workstation: z.string().trim().max(120).optional(),
     notes: z.string().trim().max(2000).optional(),
   }).safeParse(Object.fromEntries(formData));
   if (!parsed.success) redirect("/media?error=Check%20sanitisation%20fields");
   const { supabase, user } = await currentUser();
+
+  const preflight = {
+    freeze_lock_state: parsed.data.freeze_lock_state || "UNKNOWN",
+    hpa_state: parsed.data.hpa_state || "NOT_CHECKED",
+    dco_state: parsed.data.dco_state || "NOT_CHECKED",
+    opal_state: parsed.data.opal_state || "UNKNOWN",
+  };
+  if (parsed.data.asset_id) {
+    await supabase.from("media").update({
+      freeze_lock_state: preflight.freeze_lock_state,
+      hpa_state: preflight.hpa_state,
+      dco_state: preflight.dco_state,
+      opal_state: preflight.opal_state,
+    }).eq("id", parsed.data.media_id);
+  }
 
   const { data: evidence } = await supabase.from("evidence")
     .select("id,sha256")
@@ -129,7 +187,12 @@ export async function recordSanitisation(formData: FormData) {
     tool_name: parsed.data.tool_name || null,
     tool_version: parsed.data.tool_version || null,
     method: parsed.data.method || null,
+    standard: parsed.data.standard || null,
+    operation: parsed.data.operation || null,
     verification_result: parsed.data.verification_result || null,
+    report_format: parsed.data.report_format || null,
+    preflight_snapshot: preflight,
+    capability_snapshot: { recorded_by_operator: true, interface_checks: ["SATA", "SCSI", "SAS", "USB", "NVMe", "OPAL"] },
     raw_report_hash: parsed.data.raw_report_hash || evidence?.sha256 || null,
     report_evidence_id: evidence?.id || null,
     operator_id: user.id,

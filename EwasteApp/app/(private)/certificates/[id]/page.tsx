@@ -6,7 +6,7 @@ import { PrintButton } from "@/components/PrintButton";
 export default async function CertificatePage({params}:{params:Promise<{id:string}>}) {
   const {id}=await params;
   const supabase=await createClient();
-  const {data:cert}=await supabase.from("certificates").select("*").eq("id",id).single();
+  const {data:cert}=await supabase.from("certificates").select("*,certificate_vault_records(*)").eq("id",id).single();
   if(!cert) notFound();
   const snap:any=cert.snapshot || {};
   const asset=snap.asset || {};
@@ -32,6 +32,7 @@ export default async function CertificatePage({params}:{params:Promise<{id:strin
       <p>{snap.disposition ? String(snap.disposition.disposition_type)+(snap.disposition.destination ? " → "+snap.disposition.destination : "") : "No disposition recorded at issue time."}</p>
       <hr />
       <p className="small"><strong>Snapshot SHA-256:</strong> {cert.snapshot_sha256||"Not recorded"}</p>
+      {cert.certificate_vault_records ? <p className="small"><strong>Audit vault chain:</strong> {cert.certificate_vault_records.chain_sha256} · {cert.certificate_vault_records.vault_status} · signature {cert.certificate_vault_records.signature_status}</p> : <p className="small"><strong>Audit vault:</strong> Not recorded</p>}
       <p className="small muted">This is a tamper-evident snapshot hash, not an asymmetric digital signature. Third-party erase/destruction claims are only represented when the underlying evidence is attached to the operational record.</p>
     </section>
   </div>;
