@@ -1,0 +1,30 @@
+family,model_or_generation,platform,status,notes,source
+Dell Latitude 5000,5480/5580,Intel 7th gen,REJECT_NORMAL_WIN11,Not on current Win11 24H2 supported Core list; inspect for Linux/parts,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Dell Latitude 5000,5490/5590,Intel 8th gen,ACCEPT_CANDIDATE,Generally Win11 eligible subject TPM/Secure Boot and exact CPU,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Dell Latitude 5000,5300/5400/5500,Intel 8th gen,ACCEPT_CANDIDATE,Generally Win11 eligible,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Dell Latitude 5000,5310/5410/5510,Intel 10th gen,ACCEPT_CANDIDATE,Win11 era fleet,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Dell Latitude 5000,5320/5420/5520,Intel 11th gen,ACCEPT_CANDIDATE,Win11 era fleet,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Dell Latitude 7000,7280/7480,Intel 7th gen,REJECT_NORMAL_WIN11,Older platform,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Dell Latitude 7000,7290/7390/7490,Intel 8th gen,ACCEPT_CANDIDATE,Verify exact CPU,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Lenovo ThinkPad T,T470/T470s,Intel 7th gen,REJECT_NORMAL_WIN11,Older platform,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Lenovo ThinkPad T,T480/T480s,Intel 8th gen,ACCEPT_CANDIDATE,Strong common refurb candidate,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Lenovo ThinkPad T,T490/T490s,Intel 8th gen,ACCEPT_CANDIDATE,Verify exact CPU/config,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Lenovo ThinkPad T,T14 Gen 1 Intel,Intel 10th gen,ACCEPT_CANDIDATE,Current-enough business fleet,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Lenovo ThinkPad T,T14 Gen 2 Intel,Intel 11th gen,ACCEPT_CANDIDATE,Current-enough business fleet,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Lenovo ThinkPad X,X270,Intel 7th gen,REJECT_NORMAL_WIN11,Older platform,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Lenovo ThinkPad X,X280/X390,Intel 8th gen,ACCEPT_CANDIDATE,Verify exact CPU/config,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+ThinkPad X1 Carbon,Gen 5,Intel 7th gen,REJECT_NORMAL_WIN11,Older platform,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+ThinkPad X1 Carbon,Gen 6/7,Intel 8th gen,ACCEPT_CANDIDATE,Verify exact CPU/config,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+HP EliteBook 840,G4,Intel 7th gen,REJECT_NORMAL_WIN11,Older platform,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+HP EliteBook 840,G5/G6,Intel 8th gen,ACCEPT_CANDIDATE,Common fleet target,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+HP EliteBook 840,G7,Intel 10th gen,ACCEPT_CANDIDATE,Common fleet target,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+HP EliteBook 840,G8,Intel 11th gen,ACCEPT_CANDIDATE,Common fleet target,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Microsoft Surface Pro,2017/Pro 5,Intel 7th gen,REJECT_NORMAL_WIN11,Older platform and repairability risk,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Microsoft Surface Pro,Pro 6,Intel 8th gen,INSPECT,Win11 eligible but battery/repairability economics matter,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Microsoft Surface Pro,Pro 7,Intel 10th gen,INSPECT,Check battery/screen and repairability,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Apple Mac,Apple silicon M1+,Apple silicon,ACCEPT_CANDIDATE,Current macOS family subject Activation Lock/MDM,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Apple Mac,Intel 2019-2020 top models,Intel,INSPECT,macOS 26 ceiling; price for shortening support horizon,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Apple Mac,Intel 2018 or older,Intel,PARTS_DONATION,Older Apple support/service position,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Apple iPhone,iPhone 11 or newer,iOS,ACCEPT_CANDIDATE,Check exact current support and Activation Lock/IMEI,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Apple iPhone,SE 2/3,iOS,ACCEPT_CANDIDATE,Check battery/support/lock,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
+Apple iPad,iPad 9th gen+,iPadOS,ACCEPT_CANDIDATE,Check exact support/Activation Lock,claudeDOCS/A-TRIAGE-SPECS-LOCKS.md
