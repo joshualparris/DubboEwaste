@@ -1,5 +1,8 @@
 # Gaps research: Dubbo e-waste refurb, back-shed, open Tuesdays & Saturdays
 
+> **Historical/provenance register.** This file is intentionally detailed and mixed-age. For current project truth, start with [docs/CURRENT-STATE.md](docs/CURRENT-STATE.md), [docs/PHASE-0-LAUNCH-GATES.md](docs/PHASE-0-LAUNCH-GATES.md), and [docs/RESEARCH-INDEX.md](docs/RESEARCH-INDEX.md). Do not treat an older item below as current merely because it is detailed.
+
+
 **Section-note:** duplicate I/J/L headings were renumbered to unique A–R headings on 2 Oct 2026; older research files may refer to the former duplicate letters by heading name.
 
 Operating model being tested: accept **high-quality** old laptops, phones, tablets, TVs and electronics only; refurb and resell; open Tuesdays and Saturdays from a back shed.
