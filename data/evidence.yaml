@@ -239,3 +239,271 @@
   verification_method: Primary source
   confidence: High
   notes: Training relationship only; not a TAFE disposal contract. PDF downloaded and text searched.
+
+# National ITAD and local independent-operator research — 2 October 2026
+- id: EVD-ITAD-001
+  claim: Greenbox advertises more than 100 full-time employees across Australia and New Zealand.
+  type: Verified Fact
+  source: N01 — Greenbox FAQ
+  url: https://www.greenbox.com.au/faqs/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Undated website figure; not a verified post-acquisition combined headcount.
+- id: EVD-ITAD-002
+  claim: Greenbox contact information lists four Australian and three New Zealand locations.
+  type: Verified Fact
+  source: N02 — Greenbox contact
+  url: https://www.greenbox.com.au/contact/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: 'Official indexed locations: Brisbane, Sydney, Canberra/Queanbeyan, Melbourne, Auckland, Christchurch and
+    Wellington. No Dubbo location listed; not a claim about service exclusion.'
+- id: EVD-ITAD-003
+  claim: EraseIT states it is a wholly owned subsidiary of Greenbox; the acquisition was publicly announced in 2025.
+  type: Verified Fact
+  source: N03–N04 — Interactive acquisition announcement and EraseIT about
+  url: https://www.eraseit.com.au/about-us/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Former owner announcement published 8 October 2025. Count ownership group separately from brands.
+- id: EVD-ITAD-004
+  claim: Sims reports SLS FY26 sales revenue of A$757.0 million, underlying EBIT of A$172.7 million and 16.8 million
+    processed repurposed units.
+  type: Verified Fact
+  source: N07 — Sims FY26 results, 18 August 2026
+  url: https://www.simsltd.com/news/2026/sims-limited-announces-fiscal-2026-full-year-results/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Global SLS segment figures, not Australia or Dubbo totals. Unit measure includes component/data-centre
+    activity; not a whole-laptop count.
+- id: EVD-ITAD-005
+  claim: Renew IT company LinkedIn lists an employee band of 51–200.
+  type: Verified Fact
+  source: N09 — Renew IT company LinkedIn
+  url: https://au.linkedin.com/company/renewitgroup
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Self-reported range; not an audited exact headcount or revenue figure.
+- id: EVD-ITAD-006
+  claim: Renew IT advertises a 70,000-square-foot Sydney facility.
+  type: Verified Fact
+  source: N10 — Renew IT about
+  url: https://renew-it.com/about-us/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Company facility-area claim, about 6,500 square metres; does not determine annual output.
+- id: EVD-ITAD-007
+  claim: The Missing Link says its partner Renew IT processes more than 500,000 assets annually across six R2v3-certified
+    facilities.
+  type: Verified Fact
+  source: N13 — The Missing Link buyback partnership
+  url: https://www.themissinglink.com.au/news/unlock-value-from-unused-it-hardware
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Commercial partner claim on page dated 8 December 2025; reporting year, facility-level scopes and throughput
+    not independently audited.
+- id: EVD-ITAD-008
+  claim: SLS lists Australian lifecycle-service centres in Villawood, Sydney and Cranbourne West, Melbourne.
+  type: Verified Fact
+  source: N08 — SLS locations
+  url: https://www.simslifecycle.com/locations/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: No Dubbo SLS facility listed. Sims Metal footer facility counts are not SLS counts; collection coverage
+    is a separate question.
+- id: EVD-ITAD-009
+  claim: Renew IT advertises organising collections anywhere in Australia.
+  type: Verified Fact
+  source: N12 — Renew IT services
+  url: https://renew-it.com/services/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Geographically includes Dubbo, but not a confirmed pickup, minimum batch, price or turnaround for postcode
+    2830.
+- id: EVD-ITAD-010
+  claim: Greenbox advertises collection, recording, sorting/testing, sanitisation or destruction, and reuse, remarketing
+    or recycling.
+  type: Verified Fact
+  source: N05 — Greenbox lifecycle services
+  url: https://www.greenbox.com.au/services/it-lifecycle/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Advertised process options, not evidence of a particular Dubbo consignment or a defence contract approval.
+- id: EVD-ITAD-011
+  claim: EraseIT advertises sanitised hardware resale through brokers and wholesale dealers and a staff-purchase
+    programme.
+  type: Verified Fact
+  source: N14 — EraseIT sales and remarketing
+  url: https://www.eraseit.com.au/sales-and-remarketing-services/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Company description includes Australian/international second-hand markets; no actual Dubbo load traced.
+- id: EVD-ITAD-012
+  claim: SLS advertises resale recovery of used IT equipment as well as material recycling of obsolete hardware.
+  type: Verified Fact
+  source: N15–N17 — SLS process pages
+  url: https://www.simslifecycle.com/business/it-asset-recovery/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: 'General service/process account; not a local reuse percentage or downstream trace. Recycling explanation:
+    https://www.simslifecycle.com/business/how-is-e-waste-recycled/'
+- id: EVD-ITAD-013
+  claim: Renew IT advertises bulk buyback, serial-number reporting, data erasure on request with certificates, and
+    reuse or recycling.
+  type: Verified Fact
+  source: N12 — Renew IT services
+  url: https://renew-it.com/services/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Data erasure described as on request for purchased assets; do not assume it is included automatically.
+    Drive-destruction record retention advertised for ten years.
+- id: EVD-ITAD-014
+  claim: EraseIT historically claimed to be the first Australian-owned ITAD provider to join NAID.
+  type: Verified Fact
+  source: N18 — EraseIT NAID announcement
+  url: https://www.eraseit.com.au/eraseit-is-the-first-in-its-field-to-join-global-secure-destruction-association-2/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Membership claim, not proof of inventing a certification or current independently checked certification
+    scope.
+- id: EVD-LOCAL-001
+  claim: CBM Computers publicly names Nasser and Farzaneh Sedghi as its owners and managers.
+  type: Verified Fact
+  source: L01 — CBM Computers
+  url: https://cbmcomputers.com.au/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Public business association on current retrieved site; no claim of backyard operation or personal handling
+    of each device.
+- id: EVD-LOCAL-002
+  claim: CBM Computers advertises customer drop-off of end-of-life technology and says items are broken down for
+    reuse as secondary raw material.
+  type: Verified Fact
+  source: L02 — CBM environmental responsibilities
+  url: https://cbmcomputers.com.au/environment-and-social-responsibilities/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Direct primary retrieval. Downstream recycler, dismantling location, fees and device acceptance limits
+    not named or confirmed; no test delivery performed.
+- id: EVD-LOCAL-003
+  claim: Custom Computer Creations names Brendan Riley as contact and advertises repair, upgrades, custom builds
+    and data recovery in Dubbo.
+  type: Verified Fact
+  source: L03 — Custom Computer Creations
+  url: https://www.customcomputercreations.com.au/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Current official location is a business-park shop by appointment. No unwanted-device collection, data destruction
+    or backyard recovery service established.
+- id: EVD-LOCAL-004
+  claim: Orana Business Solutions advertises inspecting, repairing and upgrading preloved devices.
+  type: Verified Fact
+  source: L04 — Orana refurbished devices
+  url: https://obsolutions.com.au/refurbished-devices
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Device categories and source of stock unspecified; do not infer laptop/phone collection or erasure services.
+- id: EVD-LOCAL-005
+  claim: Public sources identify Matt Hoyle with Orana Business Solutions; its website names Matt as contact and
+    his professional profile lists managing director.
+  type: Verified Fact
+  source: L05–L07 — Orana contact, public professional profile and Cobar Weekly
+  url: https://obsolutions.com.au/contact-us
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Surname/role indexed at https://au.linkedin.com/in/matt-hoyle-b96544186 ; direct profile blocked with 999.
+    Cobar Weekly independently names Matt Hoyle from the business in a 22 November 2023 report. Full role not independently
+    audited.
+- id: EVD-LOCAL-006
+  claim: Tech Savvy Dubbo advertises phone/tablet/laptop repairs and second-hand/refurbished device sales with a
+    12-month device warranty.
+  type: Verified Fact
+  source: L08 — Tech Savvy Dubbo
+  url: https://www.techsavvyau.com/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Shopping-centre business. Owner identity, local stock origin, in-house refurbishment, collection and downstream
+    route unverified.
+- id: EVD-LOCAL-007
+  claim: An older Best in Australia article describes Dubbo Computer Repairs collecting old laptops, gadgets and
+    computers.
+  type: Research Lead
+  source: L09 — Best in Australia computer-repair article
+  url: https://bestinau.com.au/computer-repair-in-dubbo/
+  date_checked: '2026-10-02'
+  verification_method: Independent secondary source
+  confidence: Low
+  notes: Historical indexed secondary lead; exact publication date unconfirmed and direct article returned 403.
+    Current operator, current collection and connection to later partnership not established.
+- id: EVD-LOCAL-008
+  claim: ABN history for 30 552 723 640 names D.M COLLISON & T.J IRELAND, with Dubbo Computer Repairs business name
+    11 March 2022–11 April 2024, tech exe 6 December 2021–15 January 2026 and ABN cancelled from 30 June 2026.
+  type: Verified Fact
+  source: L10 — ABN Lookup historical record
+  url: https://abr.business.gov.au/AbnHistory/View?id=30552723640
+  date_checked: '2026-10-02'
+  verification_method: Public registry
+  confidence: High
+  notes: Registry extract dated 2 October 2026. Do not expand initials, connect an earlier article to this entity
+    without evidence, or infer neither person trades under any other entity.
+- id: EVD-LOCAL-009
+  claim: Gravity IT resources identify Glenn Chapman as founder.
+  type: Verified Fact
+  source: L11 — Gravity IT resources
+  url: https://gravityit.com.au/resources/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Public business role, not an identification as a backyard collector.
+- id: EVD-LOCAL-010
+  claim: Gravity IT describes taking old client hardware during upgrades and repurposing computers for Safe Haven
+    in the Philippines; the same page lists a Dubbo office.
+  type: Verified Fact
+  source: L12 — Gravity repurposing old computers
+  url: https://gravityit.com.au/how-we-repurpose-old-computers/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Group practice; no Dubbo-origin consignment, public drop-off or final recycler established. Safe Haven
+    is not described as a Dubbo charity.
+- id: EVD-ITAD-015
+  claim: Greenbox advertises national service capacity across Australia and New Zealand.
+  type: Verified Fact
+  source: N01 — Greenbox FAQ
+  url: https://www.greenbox.com.au/faqs/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Advertised scope includes Dubbo geographically, but a particular postcode 2830 pickup, minimum batch, price
+    and timeline are unconfirmed.
+- id: EVD-ITAD-016
+  claim: Greenbox FAQ states its Australian facilities in Brisbane, Sydney, Canberra and Melbourne are approved
+    under the Defence Industry Security Program.
+  type: Verified Fact
+  source: N01 — Greenbox FAQ
+  url: https://www.greenbox.com.au/faqs/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Verified company statement only; site-level current accreditation, levels and individual defence-contract
+    suitability were not independently checked.
