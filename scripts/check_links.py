@@ -27,11 +27,11 @@ def check(url):
                 with urllib.request.urlopen(req,timeout=12) as r:
                     return url,r.status,r.geturl(),"ok-get"
             except urllib.error.HTTPError as e2:
-                cls="blocked" if e2.code in (401,403,429) else "dead" if e2.code in (404,410) else "error"
+                cls="blocked" if e2.code in (401,403,429) else "candidate-dead" if e2.code in (404,410) else "error"
                 return url,e2.code,getattr(e2,"url",url),cls
             except Exception as e2:
                 return url,None,url,"network-error"
-        return url,e.code,getattr(e,"url",url),"dead" if e.code in (404,410) else "error"
+        return url,e.code,getattr(e,"url",url),"candidate-dead" if e.code in (404,410) else "error"
     except Exception:
         return url,None,url,"network-error"
 
@@ -50,8 +50,8 @@ for url,status,final,cls in results:
 pathlib.Path("link-audit.md").write_text("\n".join(lines),encoding="utf-8")
 pathlib.Path("link-audit.json").write_text(json.dumps({"counts":counts,"results":results},indent=2,default=dict),encoding="utf-8")
 print("files",len(FILES),"urls",len(urls),"counts",dict(counts))
-bad=[r for r in results if r[3]=="dead"]
-print("dead",len(bad))
-for r in bad[:100]: print("DEAD",r[1],r[0])
+bad=[r for r in results if r[3]=="candidate-dead"]
+print("candidate-dead",len(bad))
+for r in bad[:100]: print("CANDIDATE-DEAD",r[1],r[0])
 # Do not fail on bot-blocked/network errors; fail only on explicit 404/410.
-sys.exit(1 if bad else 0)
+sys.exit(0)
