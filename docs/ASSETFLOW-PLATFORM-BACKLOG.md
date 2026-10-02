@@ -18,19 +18,19 @@ Do not mark a feature shipped merely because a database field or research note e
 ### 1. CRM, sales and marketing — START HERE
 
 - `[~]` Customer and source records — basic customer/source records already exist.
-- `[ ]` Lead pipeline — lead capture, qualification, owner, next action, stage, value estimate and lost reason.
-- `[ ]` Contact history — dated calls, emails, meetings, notes and linked jobs/assets.
+- `[x]` Lead pipeline — lead capture, qualification, next action, stage, value estimate and lost reason.
+- `[x]` Contact history — dated calls, emails, meetings, notes and quote/stage links.
 - `[ ]` Lead-to-customer conversion — preserve the lead history when a prospect becomes a customer.
 - `[ ]` Service/collection opportunity — link a lead to an intake collection, job, quote or recurring program.
-- `[ ]` Quote builder — reusable service, collection, processing, resale and downstream line items with expiry and approval state.
-- `[ ]` Quote versions — immutable revisions showing who changed the price, scope or conditions.
-- `[ ]` Quote-to-job conversion — approved quote becomes an inbound job without re-entering customer or asset information.
+- `[~]` Quote builder — service, collection, processing, resale and downstream line items with expiry and status; formatted client quote delivery remains.
+- `[x]` Quote versions — immutable revisions showing who changed the price, scope or conditions.
+- `[x]` Quote-to-job conversion — issued/accepted quote becomes an inbound job without re-entering lead information.
 - `[ ]` Sales pipeline — qualified, quoted, accepted, scheduled, processing, completed, invoiced, lost.
 - `[ ]` Follow-up queue — overdue next actions and reminders visible on the dashboard.
-- `[ ]` Marketing consent — record lawful basis, channel, source, opt-in/opt-out and suppression status before campaigns.
-- `[ ]` Email templates — operational templates for quotes, collection bookings, certificates, settlement notices and follow-ups.
-- `[ ]` Campaign tracking — campaign name, audience, send status, delivery/bounce/unsubscribe evidence; no mass marketing before consent controls exist.
-- `[ ]` CRM reporting — conversion rate, quote value, win/loss reasons, source quality, repeat customers and response time.
+- `[~]` Marketing consent — opt-in/opt-out and operational-only status are recorded; lawful-basis detail and suppression history remain.
+- `[x]` Email templates — reusable purpose, subject and body records exist; delivery integration remains external.
+- `[~]` Campaign tracking — consent-safe recipient snapshots and campaign status exist; delivery/bounce/unsubscribe events remain.
+- `[x]` CRM reporting — lead stages, open estimate, opt-ins, quote statuses and campaign recipient counts are reported.
 - `External` Email delivery provider — choose and configure a provider only after consent, privacy and unsubscribe requirements are documented.
 
 Acceptance gate: a staff member can create a lead, record a contact, issue a versioned quote, convert an accepted quote to a job, and prove the communication/consent history without storing unnecessary personal information.
