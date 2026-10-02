@@ -117,29 +117,40 @@ as $$
   select exists(select 1 from public.profiles where id = auth.uid() and active = true)
 $$;
 
+create or replace function public.set_updated_at()
+returns trigger
+language plpgsql
+as $
+begin
+  new.updated_at = now();
+  return new;
+end;
+$;
+
+create trigger assets_set_updated_at
+before update on public.assets
+for each row execute procedure public.set_updated_at();
+
 create or replace function public.audit_asset_changes()
 returns trigger
 language plpgsql
 security definer
 set search_path = ''
-as $$
+as $
 begin
   if tg_op = 'INSERT' then
     insert into public.asset_events(asset_id,event_type,actor_id,details)
     values(new.id,'ASSET_CREATED',auth.uid(),jsonb_build_object('new',to_jsonb(new)));
-    return new;
   elsif tg_op = 'UPDATE' then
     insert into public.asset_events(asset_id,event_type,actor_id,details)
     values(new.id,'ASSET_UPDATED',auth.uid(),jsonb_build_object('old',to_jsonb(old),'new',to_jsonb(new)));
-    new.updated_at = now();
-    return new;
   end if;
   return new;
 end;
-$$;
+$;
 
 create trigger assets_audit
-before insert or update on public.assets
+after insert or update on public.assets
 for each row execute procedure public.audit_asset_changes();
 
 alter table public.profiles enable row level security;
