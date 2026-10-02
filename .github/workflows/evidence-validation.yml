@@ -25,3 +25,5 @@ jobs:
           pip install pyyaml
       - name: Run evidence validator
         run: python scripts/validate_evidence.py
+      - name: Run pilot tracker validator
+        run: python scripts/validate_pilot_tracker.py

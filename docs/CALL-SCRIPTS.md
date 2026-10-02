@@ -3,6 +3,7 @@
 ## 1. NSW Fair Trading - 13 32 20
 - "I plan to take donated, business-owned laptops, phones and tablets for free, wipe and refurbish them, resell the good ones, and recycle the rest. Is that a 'recycling and rubbish collection program' that doesn't need a second-hand dealer licence?"
 - "If I do need a licence, can I wipe or repair devices during the 14-day hold?"
+- "If a licence applies, would Fair Trading consider a limited exemption allowing data sanitisation only during the 14-day hold, while preserving serial/IMEI records, ownership evidence and police-accessible records? What conditions and supporting SOP would you require?"
 - "Does a donated item count as 'acquired'? Are game consoles covered?"
 - "Can the licence be held by a business that already has one, with my shed added as a notified premises?"
 - Ask for the answer in writing, or how to apply for an exemption (licensing.exemptions@customerservice.nsw.gov.au).

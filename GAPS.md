@@ -142,7 +142,7 @@ Confidence key: **[Found]** = seen in an official/primary source this session. *
 
 ---
 
-## I. Surrounding-town e-waste pathways — researched 2 Oct 2026
+## I-A. Surrounding-town e-waste pathways — researched 2 Oct 2026
 
 Full evidence table and sources: [docs/REGIONAL-EWASTE-PATHWAYS.md](docs/REGIONAL-EWASTE-PATHWAYS.md).
 

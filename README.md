@@ -17,9 +17,15 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [README.md](README.md) | This summary |
 | [docs/MASTER-FINDINGS-ALL-CHATS.md](docs/MASTER-FINDINGS-ALL-CHATS.md) | **Master synthesis from all project chats:** top 10 takeaways, Officeworks clarification, planning/legal, downstream, reuse/ITAD, Device Bank/Dubbo links, corrections and the five biggest unanswered questions |
 | [docs/PODCASTS-CANONICAL.md](docs/PODCASTS-CANONICAL.md) | **Canonical deduplicated podcast list:** Australia/NSW first, then ITAD, repair economics and downstream circular-economy listening |
+| [docs/SPOTIFY-PODCASTS.md](docs/SPOTIFY-PODCASTS.md) | **Curated Spotify listening list:** 20 episodes/shows covering ITAD, data sanitisation, reuse/refurbishment, repair economics, Good360/digital inclusion, circular jobs and downstream e-waste processing |
+| [docs/PODCASTS-CONSOLIDATED.md](docs/PODCASTS-CONSOLIDATED.md) | Canonical navigation and listening order for the overlapping podcast research files |
 | [docs/EXISTING-AUSTRALIAN-EWASTE-ORGS-DUBBO-EXPANSION.md](docs/EXISTING-AUSTRALIAN-EWASTE-ORGS-DUBBO-EXPANSION.md) | **Australian organisations that could expand into Dubbo:** WorkVentures, Ecoactiv, Ecycle, TechCollect, PonyUp, Renew IT, FlipTech, Device Bank, MobileMuster, SK Tes and Sircel, with realistic partnership models |
 | [docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md](docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md) | **NSW public-school laptop deep dive:** EDConnect/eWaste PowerApp, vendor sanitisation, Settlement Reports, C9826 suppliers, Device Bank comparison and the missing Dubbo downstream chain |
 | [GAPS.md](GAPS.md) | Full list of what is known, found, and still unknown |
+| [codexToDO.md](codexToDO.md) | **Executable closure plan:** repository work, external gates, pilot work and stop rules |
+| [docs/agyGAPS.md](docs/agyGAPS.md) | Original broad gap list covering triage, learning, competitors and sales |
+| [docs/claudeGAPS.md](docs/claudeGAPS.md) | Detailed gap register and research opportunities |
+| [docs/claudegaps-research/00-INDEX.md](docs/claudegaps-research/00-INDEX.md) | Claude research index, evidence labels and remaining call/try/learn work |
 | [docs/codexGAPS.md](docs/codexGAPS.md) | **Codex gap audit:** research opportunities, unanswered questions and prioritised closure backlog |
 | [docs/RESEARCH-01-FRONT-DOOR-TRIAGE.md](docs/RESEARCH-01-FRONT-DOOR-TRIAGE.md) through [docs/RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md](docs/RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md) | **Systematic Codex research series:** triage, skills, competitor mechanics, resale, privacy, safety, repair, categories, inventory, partners, downstream, premises, finance, community, trust, pilot closure and evidence maturity |
 | [docs/PROJECT-HISTORY-ALL-CHATS.md](docs/PROJECT-HISTORY-ALL-CHATS.md) | **Cross-chat project history:** Bendigo 2025 origin, 10 donated laptops, DadLAN reuse experience, Dubbo pivot, Joe/Elise lessons, decisions, corrections and unresolved real-world questions |
@@ -51,6 +57,12 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [templates/repair-notice.md](templates/repair-notice.md) | Customer repair/data-loss notice scaffold with ACCC prescribed-wording checkpoint |
 | [templates/sale-and-recall-record.md](templates/sale-and-recall-record.md) | Sale condition, serial/buyer link and later recall-contact record |
 | [pilot-tracker.csv](pilot-tracker.csv) | **Expanded 64-field pilot tracker:** provenance, support/locks, grading, sanitisation, labour, economics, returns and downstream outcome |
+| [pilot-tracker.csv](pilot-tracker.csv) | **Expanded pilot tracker:** provenance, triage, data, labour, selling costs, stock days and downstream outcome |
+| [docs/triage-matrix.csv](docs/triage-matrix.csv) | Category acceptance, hold/reject and evidence matrix |
+| [docs/bench-test-sheet.md](docs/bench-test-sheet.md) | Printable per-asset bench test and sanitisation sheet |
+| [docs/TRIAGE-COMPETENCY-CHECKLIST.md](docs/TRIAGE-COMPETENCY-CHECKLIST.md) | Operator skills assessment and reassessment checklist |
+| [docs/LISTING-WARRANTY-CHECKLIST.md](docs/LISTING-WARRANTY-CHECKLIST.md) | Listing, warranty, return and recall pre-publication checks |
+| [docs/GLOSSARY.md](docs/GLOSSARY.md) | Plain-language ITAD, lock, sanitisation and stewardship terms |
 | [docs/research.md](docs/research.md) | Earlier feasibility research retained for additional context |
 | [docs/launch-checklist.md](docs/launch-checklist.md) | Earlier lean-launch checklist retained for operational planning |
 | [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md) | Current research on the Dubbo Matthews/InfraBuild/AMR yard and e-waste outlet |

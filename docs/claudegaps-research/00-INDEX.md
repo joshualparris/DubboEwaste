@@ -29,7 +29,7 @@ The open-source "deep research agent" frameworks suggested (GPT Researcher, dzhn
 | 13 | [Safety skills](13-SAFETY-SKILLS.md) | §13 | FRNSW: don't fight a Li-ion fire; evacuate, call 000, re-ignition risk. Written drill and kit. SafeWork PCBU duties |
 | 14 | [Already-catalogued recheck](14-ALREADY-CATALOGUED-GAPS-RECHECK.md) | §14 | Legal and downstream gaps still closed only by calls. **New: Fair Trading has granted 14-day-hold exemptions to carrier trade-in programs**, so ask for a wipe-only hold exemption if a licence applies |
 
-`claudeGAPS.md` §15 (repo hygiene) and §16 (next sprint) are actions, not research; their status is in the table below.
+`claudeGAPS.md` §15 (repo hygiene) and §16 (next sprint) are actions, not research. Repository-side items completed in this pass are tracked in [`../../codexToDO.md`](../../codexToDO.md); external calls, hands-on trials and learning remain open there.
 
 ## What only a person can close now (consolidated)
 
@@ -50,5 +50,10 @@ The open-source "deep research agent" frameworks suggested (GPT Researcher, dzhn
 | LEARN | UNSW battery course → Messer A+ Core 1/2 → test-and-tag course | 05 |
 | LEARN | Starter watch list (5 videos, about 2.5 h) and podcast starter (5 eps, about 2.5 h) | 06, 07 |
 
-## Repo-hygiene items (claudeGAPS §15), not actioned
-Left for the repo owner, so as not to edit files other agents work on: renumber duplicate `GAPS.md` sections (I/J/L); merge the six podcast files; add `agyGAPS.md`, `codexGAPS.md`, `claudeGAPS.md` and this folder to the README table; add Fair Trading follow-up question 2 (see 14) to `CALL-SCRIPTS.md`.
+## Repo-hygiene items (claudeGAPS §15)
+
+- [x] Add `agyGAPS.md`, `codexGAPS.md`, `claudeGAPS.md`, this folder and the executable TODO to the README table.
+- [x] Add the Fair Trading wipe-only hold follow-up to `CALL-SCRIPTS.md`.
+- [x] Add operational triage, bench, listing, glossary and tracker-validation artifacts; see `codexToDO.md`.
+- [x] Rename duplicate `GAPS.md` section letters into unique group labels without breaking the historical letter families.
+- [x] Formally cross-link the overlapping podcast files through [`PODCASTS-CONSOLIDATED.md`](../../docs/PODCASTS-CONSOLIDATED.md); historical source files remain preserved.
