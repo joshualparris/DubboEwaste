@@ -1,3 +1,5 @@
+> **LEGACY RESEARCH:** This file is retained for provenance. For current operations use `agyDOCS/README.md`, `docs/CURRENT-STATE.md` and `docs/RESEARCH-INDEX.md`. Do not treat unverified statements here as policy or fact.
+
 > [!WARNING]
 > This document contains AI-generated policies, estimates, and generic industry practices. It has only been partly fact-checked and not every unverified claim is tagged; treat anything not marked [VERIFIED] in the corrections file as unchecked. Please refer to `00-CORRECTIONS-AND-CAVEATS.md` for full source checking.
 
