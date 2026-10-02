@@ -1,5 +1,5 @@
 -- Public access-code signup.
--- The plaintext access code is never stored in Git or in this table.
+-- The plaintext access code is never stored in Git or persisted in auth metadata.
 
 create table if not exists private.signup_config (
   singleton boolean primary key default true check (singleton = true),
@@ -9,9 +9,8 @@ create table if not exists private.signup_config (
 
 revoke all on table private.signup_config from public, anon, authenticated;
 
--- The initial hash is installed in the live Supabase migration.
--- For a fresh environment, set this value directly in Supabase rather than committing a plaintext code.
--- Example:
+-- The initial hash is installed directly in the live Supabase environment.
+-- To rotate the access code:
 -- update private.signup_config
 -- set access_code_sha256 = encode(extensions.digest('<new access code>', 'sha256'), 'hex'),
 --     updated_at = now()
@@ -24,26 +23,34 @@ security definer
 set search_path = ''
 as $$
 declare
-  submitted_digest text;
+  submitted_code text;
   expected_digest text;
+  submitted_digest text;
   meta jsonb;
 begin
   meta := coalesce(new.raw_user_meta_data, '{}'::jsonb);
-  submitted_digest := coalesce(meta ->> 'signup_code_digest', '');
+  submitted_code := coalesce(meta ->> 'signup_access_code', '');
 
   select access_code_sha256
   into expected_digest
   from private.signup_config
   where singleton = true;
 
-  meta := meta - 'signup_code_digest' - 'signup_authorized';
+  submitted_digest := case
+    when submitted_code = '' then ''
+    else encode(extensions.digest(submitted_code, 'sha256'), 'hex')
+  end;
 
-  meta := meta || jsonb_build_object(
-    'signup_authorized',
-    submitted_digest <> '' and submitted_digest = expected_digest
-  );
+  meta := meta - 'signup_access_code' - 'signup_authorized';
 
-  new.raw_user_meta_data := meta;
+  if submitted_digest = '' or submitted_digest <> expected_digest then
+    raise exception 'Invalid DubboEwaste signup access code'
+      using errcode = '28000';
+  end if;
+
+  new.raw_user_meta_data :=
+    meta || jsonb_build_object('signup_authorized', true);
+
   return new;
 end;
 $$;
@@ -70,21 +77,3 @@ begin
   return new;
 end;
 $$;
-
-create or replace function public.verify_signup_access_code(input_code text)
-returns boolean
-language sql
-stable
-security definer
-set search_path = ''
-as $$
-  select exists (
-    select 1
-    from private.signup_config
-    where singleton = true
-      and access_code_sha256 = encode(extensions.digest(input_code, 'sha256'), 'hex')
-  )
-$$;
-
-revoke all on function public.verify_signup_access_code(text) from public;
-grant execute on function public.verify_signup_access_code(text) to anon, authenticated;

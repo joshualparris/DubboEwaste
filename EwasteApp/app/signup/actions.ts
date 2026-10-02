@@ -1,6 +1,5 @@
 "use server";
 
-import { createHash } from "node:crypto";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
@@ -23,23 +22,13 @@ export async function signup(formData: FormData) {
 
   const supabase = await createClient();
 
-  const { data: validCode, error: codeError } = await supabase.rpc(
-    "verify_signup_access_code",
-    { input_code: accessCode },
-  );
-
-  if (codeError) signupError("Signup service is temporarily unavailable.");
-  if (validCode !== true) signupError("Invalid access code.");
-
-  const accessCodeDigest = createHash("sha256").update(accessCode).digest("hex");
-
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
       data: {
         full_name: fullName,
-        signup_code_digest: accessCodeDigest,
+        signup_access_code: accessCode,
       },
     },
   });
@@ -48,7 +37,7 @@ export async function signup(formData: FormData) {
     signupError(
       error.message.toLowerCase().includes("already")
         ? "An account with that email already exists."
-        : "Could not create the account. Please try again.",
+        : "Could not create the account. Check the access code and details, then try again.",
     );
   }
 
