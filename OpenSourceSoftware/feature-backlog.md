@@ -4,6 +4,8 @@ Derived from the MAKOR, RazorERP, Blancco and Phonecheck workflow research.
 
 Updated: 2 October 2026
 
+The broader vendor-feature backlog is tracked in [docs/ASSETFLOW-PLATFORM-BACKLOG.md](../docs/ASSETFLOW-PLATFORM-BACKLOG.md), including CRM, logistics, finance, certified erasure, triage platforms and integration work. This file remains the detailed implementation inventory for the shipped AssetFlow core.
+
 ## Status legend
 
 - [x] **Shipped** — implemented in the AssetFlow app/database with an operator-facing workflow.

@@ -1,5 +1,7 @@
 # EwasteApp roadmap
 
+The detailed platform backlog is maintained in [docs/ASSETFLOW-PLATFORM-BACKLOG.md](../docs/ASSETFLOW-PLATFORM-BACKLOG.md). The first active expansion is CRM, sales and marketing; existing customer/source records are the foundation, not the finished CRM.
+
 ## Slice 1 — foundation — STARTED
 - [x] Next.js app shell
 - [x] private login

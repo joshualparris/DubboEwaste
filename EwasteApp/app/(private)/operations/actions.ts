@@ -60,6 +60,63 @@ export async function createCustomer(formData: FormData) {
   redirect("/customers?success=Customer%20created");
 }
 
+export async function createLead(formData: FormData) {
+  const schema = z.object({
+    name: z.string().trim().min(2).max(200),
+    organisation: z.string().trim().max(200).optional(),
+    email: z.string().trim().email().optional().or(z.literal("")),
+    phone: z.string().trim().max(80).optional(),
+    source: z.string().trim().max(120).optional(),
+    estimated_value: z.preprocess(v => v === "" ? undefined : Number(v), z.number().nonnegative().optional()),
+    next_action: z.string().trim().max(300).optional(),
+    next_action_at: z.string().trim().optional(),
+    consent_status: z.enum(["UNKNOWN", "OPERATIONAL_ONLY", "MARKETING_OPT_IN", "MARKETING_OPT_OUT"]),
+    notes: z.string().trim().max(4000).optional(),
+  });
+  const parsed = schema.safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/crm?error=Please%20check%20the%20lead%20fields");
+  const { supabase, user } = await currentUser();
+  const { data, error } = await supabase.from("crm_leads").insert({
+    ...parsed.data,
+    organisation: parsed.data.organisation || null,
+    email: parsed.data.email || null,
+    phone: parsed.data.phone || null,
+    source: parsed.data.source || null,
+    next_action: parsed.data.next_action || null,
+    next_action_at: parsed.data.next_action_at || null,
+    notes: parsed.data.notes || null,
+    created_by: user.id,
+  }).select("id").single();
+  if (error || !data) redirect("/crm?error=Could%20not%20create%20lead");
+  await appendEvent(supabase, user.id, "crm_lead", data.id, "CRM_LEAD_CREATED", { stage: "NEW" });
+  revalidatePath("/crm");
+  redirect("/crm?success=Lead%20created");
+}
+
+export async function updateLeadStage(formData: FormData) {
+  const schema = z.object({ lead_id: z.string().uuid(), stage: z.enum(["NEW","QUALIFIED","QUOTED","WON","LOST","NURTURE"]), lost_reason: z.string().trim().max(500).optional() });
+  const parsed = schema.safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/crm?error=Please%20check%20the%20stage%20change");
+  const { supabase, user } = await currentUser();
+  const { error } = await supabase.from("crm_leads").update({ stage: parsed.data.stage, lost_reason: parsed.data.lost_reason || null }).eq("id", parsed.data.lead_id);
+  if (error) redirect("/crm?error=Could%20not%20update%20lead");
+  await supabase.from("crm_activities").insert({ lead_id: parsed.data.lead_id, activity_type: "STAGE_CHANGE", summary: `Stage changed to ${parsed.data.stage}`, created_by: user.id });
+  await appendEvent(supabase, user.id, "crm_lead", parsed.data.lead_id, "CRM_LEAD_STAGE_CHANGED", { stage: parsed.data.stage });
+  revalidatePath("/crm");
+  redirect("/crm?success=Lead%20updated");
+}
+
+export async function addLeadActivity(formData: FormData) {
+  const schema = z.object({ lead_id: z.string().uuid(), activity_type: z.enum(["NOTE","CALL","EMAIL","MEETING","QUOTE"]), summary: z.string().trim().min(2).max(2000) });
+  const parsed = schema.safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/crm?error=Please%20check%20the%20activity");
+  const { supabase, user } = await currentUser();
+  const { error } = await supabase.from("crm_activities").insert({ ...parsed.data, created_by: user.id });
+  if (error) redirect("/crm?error=Could%20not%20record%20activity");
+  revalidatePath("/crm");
+  redirect("/crm?success=Activity%20recorded");
+}
+
 export async function createLocation(formData: FormData) {
   const schema = z.object({
     name: z.string().trim().min(2).max(160),
