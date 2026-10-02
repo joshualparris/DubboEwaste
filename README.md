@@ -64,6 +64,86 @@ The `main/DubboEwasteApp/` directory is an **older static prototype source** and
 | [GAPS.md](GAPS.md) | Historical detailed gap register |
 | [codexToDO.md](codexToDO.md) | Current external/pilot closure backlog |
 | [chatgptTODO.md](chatgptTODO.md) | Completed ChatGPT execution log; historical |
+| [README.md](README.md) | This summary |
+| [docs/MASTER-FINDINGS-ALL-CHATS.md](docs/MASTER-FINDINGS-ALL-CHATS.md) | **Master synthesis from all project chats:** top 10 takeaways, Officeworks clarification, planning/legal, downstream, reuse/ITAD, Device Bank/Dubbo links, corrections and the five biggest unanswered questions |
+| [docs/PODCASTS-CANONICAL.md](docs/PODCASTS-CANONICAL.md) | **Canonical deduplicated podcast list:** Australia/NSW first, then ITAD, repair economics and downstream circular-economy listening |
+| [docs/SPOTIFY-PODCASTS.md](docs/SPOTIFY-PODCASTS.md) | **Curated Spotify listening list:** 20 episodes/shows covering ITAD, data sanitisation, reuse/refurbishment, repair economics, Good360/digital inclusion, circular jobs and downstream e-waste processing |
+| [docs/PODCASTS-CONSOLIDATED.md](docs/PODCASTS-CONSOLIDATED.md) | Canonical navigation and listening order for the overlapping podcast research files |
+| [docs/EXISTING-AUSTRALIAN-EWASTE-ORGS-DUBBO-EXPANSION.md](docs/EXISTING-AUSTRALIAN-EWASTE-ORGS-DUBBO-EXPANSION.md) | **Australian organisations that could expand into Dubbo:** WorkVentures, Ecoactiv, Ecycle, TechCollect, PonyUp, Renew IT, FlipTech, Device Bank, MobileMuster, SK Tes and Sircel, with realistic partnership models |
+| [docs/DOWNSTREAM-PROVIDER-DUBBO-COST-COMPARISON.md](docs/DOWNSTREAM-PROVIDER-DUBBO-COST-COMPARISON.md) | **Current provider comparison:** Dubbo coverage, published fees, quote-only routes, social-reuse costs and the first-call sequence |
+| [docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md](docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md) | **NSW public-school laptop deep dive:** EDConnect/eWaste PowerApp, vendor sanitisation, Settlement Reports, C9826 suppliers, Device Bank comparison and the missing Dubbo downstream chain |
+| [GAPS.md](GAPS.md) | Full list of what is known, found, and still unknown |
+| [codexToDO.md](codexToDO.md) | **Executable closure plan:** repository work, external gates, pilot work and stop rules |
+| [DubboEwasteApp/](DubboEwasteApp/) | **Interactive MVP:** staff login boundary, triage, model lookup, inventory, economics and listing drafts |
+| [docs/CURRENT-STATE.md](docs/CURRENT-STATE.md) | **Canonical current-state register:** verified, designed, externally blocked and pilot-only claims |
+| [docs/PHASE-0-LAUNCH-GATES.md](docs/PHASE-0-LAUNCH-GATES.md) | **Canonical launch sequence:** what blocks intake, resale, the pilot, and later scale-up |
+| [docs/RESEARCH-INDEX.md](docs/RESEARCH-INDEX.md) | **Canonical research index:** where each topic lives and which files are historical or superseded |
+| [docs/agyGAPS.md](docs/agyGAPS.md) | Original broad gap list covering triage, learning, competitors and sales |
+| [docs/claudeGAPS.md](docs/claudeGAPS.md) | Detailed gap register and research opportunities |
+| [docs/claudegaps-research/00-INDEX.md](docs/claudegaps-research/00-INDEX.md) | Claude research index, evidence labels and remaining call/try/learn work |
+| [docs/codexGAPS.md](docs/codexGAPS.md) | **Codex gap audit:** research opportunities, unanswered questions and prioritised closure backlog |
+| [docs/RESEARCH-01-FRONT-DOOR-TRIAGE.md](docs/RESEARCH-01-FRONT-DOOR-TRIAGE.md) through [docs/RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md](docs/RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md) | **Systematic Codex research series:** triage, skills, competitor mechanics, resale, privacy, safety, repair, categories, inventory, partners, downstream, premises, finance, community, trust, pilot closure and evidence maturity |
+| [docs/PROJECT-HISTORY-ALL-CHATS.md](docs/PROJECT-HISTORY-ALL-CHATS.md) | **Cross-chat project history:** Bendigo 2025 origin, 10 donated laptops, DadLAN reuse experience, Dubbo pivot, Joe/Elise lessons, decisions, corrections and unresolved real-world questions |
+| [docs/SPOTIFY-PODCAST-LIST.md](docs/SPOTIFY-PODCAST-LIST.md) | **Curated Spotify listening guide:** ITAD, e-waste, repair, data sanitisation, social reuse, resale economics and Kristy creative-business podcasts |
+| [docs/SPOTIFY-AUSTRALIA-NSW-EWASTE.md](docs/SPOTIFY-AUSTRALIA-NSW-EWASTE.md) | **Preferred local Spotify list:** Australia/NSW e-waste, Renew IT/UNSW, refurbishment, reuse, right-to-repair and Australian reselling |
+| [docs/PODCASTS-AUSTRALIAN-ITAD-COMPANIES.md](docs/PODCASTS-AUSTRALIAN-ITAD-COMPANIES.md) | **Company/founder podcast appearances:** FlipTech, Renew IT, Reconnect, WorkVentures, WV Technologies, Total Green, Close the Loop and Sims Lifecycle |
+| [docs/ALL-CHAT-RESEARCH-SYNTHESIS.md](docs/ALL-CHAT-RESEARCH-SYNTHESIS.md) | Extended cross-chat strategic synthesis covering Council/AMR, Officeworks, regional routes, Sircel, TechCollect, Good360/Device Banks, Education, Phase 0, legal and pilot strategy |
+| [docs/BACKLOG-01-16-INDEX.md](docs/BACKLOG-01-16-INDEX.md) | **Research handoff for backlog items 1–16, with status and remaining confirmations** |
+| [docs/BACKLOG-01-05-PLANNING-LEGAL.md](docs/BACKLOG-01-05-PLANNING-LEGAL.md) | Property planning, NSW waste law, second-hand dealer and scrap-metal research |
+| [docs/BACKLOG-06-12-DOWNSTREAM-STEWARDSHIP.md](docs/BACKLOG-06-12-DOWNSTREAM-STEWARDSHIP.md) | AMR/Council downstream, NTCRS, MobileMuster and B-cycle research |
+| [docs/BACKLOG-13-16-REGIONAL-SUPPLY.md](docs/BACKLOG-13-16-REGIONAL-SUPPLY.md) | Surrounding councils, NetWaste/Sircel, volumes and supply-source research |
+| [docs/BACKLOG-17-32-INDEX.md](docs/BACKLOG-17-32-INDEX.md) | **Research handoff for backlog items 17–32: market, costs, tax, compliance, devices, data, safety, Bendigo/Kristy, grants, templates and pilot metrics** |
+| [docs/BACKLOG-17-20-MARKET-COST-TAX.md](docs/BACKLOG-17-20-MARKET-COST-TAX.md) | Dubbo competitor map, resale channels, corrected costs and tax/accounting |
+| [docs/BACKLOG-21-25-COMPLIANCE-DATA-SAFETY.md](docs/BACKLOG-21-25-COMPLIANCE-DATA-SAFETY.md) | ACL/product safety, Windows/device viability, NIST/ASD sanitisation, WHS/lithium and postage |
+| [docs/BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md](docs/BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md) | Joe/Elise early history, Kristy creative pathway and current grant landscape |
+| [docs/BACKLOG-30-32-OPERATIONS-CORRECTIONS.md](docs/BACKLOG-30-32-OPERATIONS-CORRECTIONS.md) | Operating paperwork, expanded pilot metrics and explicit correction register |
+| [docs/PHASE-0-OPERATING-BLUEPRINT.md](docs/PHASE-0-OPERATING-BLUEPRINT.md) | **Detailed cheapest-start blueprint: Tue/Sat intake, acceptance gates, storage, wiping, resale, safety and downstream** |
+| [docs/LEGAL-LICENSING.md](docs/LEGAL-LICENSING.md) | Second-hand dealer licence, council/planning, EPA, in detail |
+| [docs/COSTS.md](docs/COSTS.md) | Start-up and running cost picture |
+| [docs/INTAKE-POLICY.md](docs/INTAKE-POLICY.md) | What to accept/refuse, wipe standard, safety rules |
+| [docs/CALL-SCRIPTS.md](docs/CALL-SCRIPTS.md) | Who to ring, in order, with exact questions |
+| [docs/EMAIL-DRAFTS.md](docs/EMAIL-DRAFTS.md) | Ready-to-send emails for Fair Trading, Council, EPA, Joe, Australian Metal Recycling and Avance |
+| [docs/SOURCES.md](docs/SOURCES.md) | Sources and confidence levels |
+| [docs/bendigo-early-days-deep-dive.md](docs/bendigo-early-days-deep-dive.md) | Deep source-led reconstruction of Joe Parker / Bendigo E-Waste's startup path |
+| [docs/KRISTY-CREATIVE-MICROBUSINESS.md](docs/KRISTY-CREATIVE-MICROBUSINESS.md) | Research-backed hobby → microbusiness path for Kristy's creative/art work, modelled on The Painted Brush & Co |
+| [templates/ownership-and-wipe-certificate.md](templates/ownership-and-wipe-certificate.md) | Client transfer-of-ownership and data-wipe certificate template |
+| [templates/asset-transfer-and-chain-of-custody.md](templates/asset-transfer-and-chain-of-custody.md) | Detailed asset authority, transfer basis and custody-state record |
+| [templates/partner-validation-record.md](templates/partner-validation-record.md) | Public-safe record for validating receivers, buyers, courses and social-reuse partners |
+| [templates/data-sanitisation-certificate.md](templates/data-sanitisation-certificate.md) | Per-media sanitisation method, tool/version, verification and PASS/FAIL/DESTROY record |
+| [templates/repair-notice.md](templates/repair-notice.md) | Customer repair/data-loss notice scaffold with ACCC prescribed-wording checkpoint |
+| [templates/sale-and-recall-record.md](templates/sale-and-recall-record.md) | Sale condition, serial/buyer link and later recall-contact record |
+| [pilot-tracker.csv](pilot-tracker.csv) | **Expanded 64-field pilot tracker:** provenance, support/locks, grading, sanitisation, labour, economics, returns and downstream outcome |
+| [pilot-tracker.csv](pilot-tracker.csv) | **Expanded pilot tracker:** provenance, triage, data, labour, selling costs, stock days and downstream outcome |
+| [docs/triage-matrix.csv](docs/triage-matrix.csv) | Category acceptance, hold/reject and evidence matrix |
+| [docs/bench-test-sheet.md](docs/bench-test-sheet.md) | Printable per-asset bench test and sanitisation sheet |
+| [docs/TRIAGE-COMPETENCY-CHECKLIST.md](docs/TRIAGE-COMPETENCY-CHECKLIST.md) | Operator skills assessment and reassessment checklist |
+| [docs/LISTING-WARRANTY-CHECKLIST.md](docs/LISTING-WARRANTY-CHECKLIST.md) | Listing, warranty, return and recall pre-publication checks |
+| [docs/GLOSSARY.md](docs/GLOSSARY.md) | Plain-language ITAD, lock, sanitisation and stewardship terms |
+| [docs/AI-AGENT-OPERATING-SYSTEM.md](docs/AI-AGENT-OPERATING-SYSTEM.md) | What an AI agent can automate, what requires human/external evidence, and the safe handoff loop |
+| [docs/RESEARCH-AI-WORKFLOW.md](docs/RESEARCH-AI-WORKFLOW.md) | Claim-level research decomposition, source hierarchy and agent review protocol |
+| [docs/UNIT-ECONOMICS.md](docs/UNIT-ECONOMICS.md) | Per-asset contribution and labour-hour calculation specification |
+| [docs/research.md](docs/research.md) | Earlier feasibility research retained for additional context |
+| [docs/launch-checklist.md](docs/launch-checklist.md) | Earlier lean-launch checklist retained for operational planning |
+| [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md) | Current research on the Dubbo Matthews/InfraBuild/AMR yard and e-waste outlet |
+| [docs/REGIONAL-EWASTE-PATHWAYS.md](docs/REGIONAL-EWASTE-PATHWAYS.md) | What surrounding towns do with e-waste, current drop-off pathways, downstream evidence and reuse opportunities |
+| [docs/WHAT-HAPPENS-TO-EWASTE.md](docs/WHAT-HAPPENS-TO-EWASTE.md) | **Deep downstream trace:** AMR, council routes, Parkes/Sircel, historical Sims/St Marys shredding, Coonamble/Matthews, device-to-material flows and NTCRS recovery data |
+| [docs/SIRCEL-ITAD-REUSE-MODEL.md](docs/SIRCEL-ITAD-REUSE-MODEL.md) | **Core business-model deep dive:** Sircel triage, Blancco wiping, hardware testing, buy-back/reuse, FY24 reuse metrics and a small-scale Dubbo adaptation |
+| [docs/SIRCEL-REUSE-PARTNERS-WHERE-DOES-IT-GO.md](docs/SIRCEL-REUSE-PARTNERS-WHERE-DOES-IT-GO.md) | **After handoff:** traces reuse partners into Good360, Compnow, National Device Bank/WorkVentures, charities, schools and end users; separates proven routes from unknown broker paths |
+| [docs/GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md](docs/GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md) | **Dubbo social-reuse ecosystem:** Good360, Compnow refurbishment, National/NSW Device Banks, WorkVentures, Good Things and the strongest specific Dubbo partner leads |
+| [docs/SPOTIFY-PODCASTS-AU-NSW-EWASTE-REUSE.md](docs/SPOTIFY-PODCASTS-AU-NSW-EWASTE-REUSE.md) | **Spotify listening list:** Australia/NSW-first episodes on e-waste, ITAD, reuse, refurbishment, resale, charitable redistribution and circular business models |
+| [docs/FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY.md](docs/FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY.md) | **Regional expansion deep dive:** Fliptech plus Renew IT, G1, WorkVentures, Compnow/SustainIT, 9R, Reconnect, ITC, LinkBytes and others; tests whether a Dubbo branch/satellite is commercially plausible |
+| [docs/AMR-DUBBO-DOWNSTREAM-FORENSIC.md](docs/AMR-DUBBO-DOWNSTREAM-FORENSIC.md) | **Forensic trace:** attempts to identify the exact company/facility receiving AMR Dubbo e-waste, with candidates and evidence limits |
+| [docs/TECHCOLLECT-REUSE-DEEP-DIVE.md](docs/TECHCOLLECT-REUSE-DEEP-DIVE.md) | **Reuse deep dive:** TechCollect's no-second-hand-reuse policy, ANZRP's separate reuse partnerships, and implications for Dubbo eWaste |
+| [docs/REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md](docs/REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md) | **Reuse-first benchmark:** PonyUp commercial ITAD/resale, Reconnect repair/refurbishment, and The Laptop Initiative direct charity redistribution |
+| [docs/NSW-FLIPTECH-EQUIVALENTS-DEEP-DIVE.md](docs/NSW-FLIPTECH-EQUIVALENTS-DEEP-DIVE.md) | **NSW FlipTech equivalents deep dive:** FlipTech, Renew IT, ITC Asset Management, Reconnect, WorkVentures and LinkBytes — origins, ITAD/refurb flows, revenue models and what Dubbo can copy |
+| [docs/WHY-COUNCIL-ELECTRONICS-REUSE-IS-HARD.md](docs/WHY-COUNCIL-ELECTRONICS-REUSE-IS-HARD.md) | **Barrier deep dive:** staffing, safety, data, batteries, dumping, retail liability, economics and regional scale |
+| [docs/DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS.md](docs/DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS.md) | **Closest-town official programs:** e-waste collection versus actual reuse/resale in Dubbo, Wellington, Narromine and Trangie |
+| [docs/PONYUP-SECONDBITE-DUBBO.md](docs/PONYUP-SECONDBITE-DUBBO.md) | **Dubbo connection deep dive:** PonyUp's profit-to-SecondBite model, Connecting Community Services' real Dubbo link, and what is/not an electronics pathway |
+| [docs/SPOTIFY-PODCASTS-EWASTE-REUSE-ITAD.md](docs/SPOTIFY-PODCASTS-EWASTE-REUSE-ITAD.md) | **Curated Spotify listening list:** ranked episodes on e-waste, reuse, refurbishment, ITAD, data wiping, right-to-repair, reverse logistics, digital inclusion and Australian circular electronics |
+| [docs/FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md](docs/FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md) | **Fliptech deep dive:** corporate ITAD/reuse model, data security, growth signals and feasibility of a Dubbo/Central West regional hub or partner operation |
+| [docs/AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md](docs/AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md) | **Filtered branch shortlist:** Australian Fliptech-style ITAD companies by public staffing signal, physical network and evidence that a Dubbo regional hub/branch is worth pursuing |
+| [docs/DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS.md](docs/DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS.md) | **How to actually establish a Dubbo ITAD presence:** ranked G1/Greenbox/Fliptech/WV/Renew/Shred-X/Iron Mountain pathways, public onboarding processes, current Dubbo premises costs, staffing floors and 90-day launch plan |
+| [docs/DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md](docs/DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md) | **Branch/partner playbook:** ranks Greenbox, G1, Fliptech, WV, Iron Mountain, Renew IT and Shred-X by ease/cost/payoff, gives public onboarding processes and current Dubbo cost benchmarks |
 
 ## Current project status
 
