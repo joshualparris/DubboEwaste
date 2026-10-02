@@ -65,20 +65,10 @@ export default async function AdminDataPage({
       {error ? <div className="error">{error.message}</div> : null}
 
       <section className="card form">
-        <label>
-          Table
-          <select
-            defaultValue={selected}
-            onChange={undefined}
-            aria-label="Admin data table"
-          >
-            {targets.map((target) => (
-              <option key={target.table_name} value={target.table_name}>
-                {target.category} · {target.label}
-              </option>
-            ))}
-          </select>
-        </label>
+        <div>
+          <strong>Table: {selectedTarget?.label ?? selected}</strong>
+          <div className="muted small">{selectedTarget?.category ?? "Operations"} · {selected}</div>
+        </div>
         <div className="actions">
           {targets.map((target) => (
             <Link
