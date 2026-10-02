@@ -1,12 +1,9 @@
 name: Deploy EwasteApp to Vercel
 
+# Vercel's native Git integration already deploys main.
+# Keep this workflow as a manual fallback so one push does not consume two deployments.
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'EwasteApp/**'
-      - '.github/workflows/deploy-ewaste-app.yml'
 
 jobs:
   deploy:
@@ -37,4 +34,4 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          vercel deploy --prod --yes --name "dubbo-ewaste-app" --token "$VERCEL_TOKEN" --scope "joshualparris-projects"
+          vercel deploy --prod --yes --token "$VERCEL_TOKEN" --scope "joshualparris-projects"
