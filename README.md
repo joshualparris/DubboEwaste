@@ -6,6 +6,8 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 
 **Master all-chat synthesis:** [docs/MASTER-FINDINGS-ALL-CHATS.md](docs/MASTER-FINDINGS-ALL-CHATS.md) now consolidates the important Dubbo eWaste findings, decisions and corrections from all project conversations while keeping private residential identifiers out of this public repo.
 
+**Start here now:** [docs/CURRENT-STATE.md](docs/CURRENT-STATE.md) is the canonical operational truth, [docs/RESEARCH-INDEX.md](docs/RESEARCH-INDEX.md) is the navigation hub, and [chatgptTODO.md](chatgptTODO.md) tracks the 58-item completion pass. Older BACKLOG/RESEARCH files are retained as evidence/history.
+
 *Compiled 2 October 2026. Status: research stage. Figures marked (estimate) are not quotes. Items marked VERIFIED were read from an official source during this research; everything else needs a phone call. Not legal advice.*
 
 ## What's in this repo
@@ -14,7 +16,7 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 |---|---|
 | [README.md](README.md) | This summary |
 | [docs/MASTER-FINDINGS-ALL-CHATS.md](docs/MASTER-FINDINGS-ALL-CHATS.md) | **Master synthesis from all project chats:** top 10 takeaways, Officeworks clarification, planning/legal, downstream, reuse/ITAD, Device Bank/Dubbo links, corrections and the five biggest unanswered questions |
-| [docs/SPOTIFY-PODCASTS.md](docs/SPOTIFY-PODCASTS.md) | **Curated Spotify listening list:** 20 episodes/shows covering ITAD, data sanitisation, reuse/refurbishment, repair economics, Good360/digital inclusion, circular jobs and downstream e-waste processing |
+| [docs/PODCASTS-CANONICAL.md](docs/PODCASTS-CANONICAL.md) | **Canonical deduplicated podcast list:** Australia/NSW first, then ITAD, repair economics and downstream circular-economy listening |
 | [docs/EXISTING-AUSTRALIAN-EWASTE-ORGS-DUBBO-EXPANSION.md](docs/EXISTING-AUSTRALIAN-EWASTE-ORGS-DUBBO-EXPANSION.md) | **Australian organisations that could expand into Dubbo:** WorkVentures, Ecoactiv, Ecycle, TechCollect, PonyUp, Renew IT, FlipTech, Device Bank, MobileMuster, SK Tes and Sircel, with realistic partnership models |
 | [docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md](docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md) | **NSW public-school laptop deep dive:** EDConnect/eWaste PowerApp, vendor sanitisation, Settlement Reports, C9826 suppliers, Device Bank comparison and the missing Dubbo downstream chain |
 | [GAPS.md](GAPS.md) | Full list of what is known, found, and still unknown |
@@ -48,7 +50,7 @@ Research notes, legal/licensing findings and a pilot plan for a **small, low-cos
 | [templates/data-sanitisation-certificate.md](templates/data-sanitisation-certificate.md) | Per-media sanitisation method, tool/version, verification and PASS/FAIL/DESTROY record |
 | [templates/repair-notice.md](templates/repair-notice.md) | Customer repair/data-loss notice scaffold with ACCC prescribed-wording checkpoint |
 | [templates/sale-and-recall-record.md](templates/sale-and-recall-record.md) | Sale condition, serial/buyer link and later recall-contact record |
-| [pilot-tracker.csv](pilot-tracker.csv) | **Expanded 47-field pilot tracker:** provenance, data, labour, selling costs, stock days and downstream outcome |
+| [pilot-tracker.csv](pilot-tracker.csv) | **Expanded 64-field pilot tracker:** provenance, support/locks, grading, sanitisation, labour, economics, returns and downstream outcome |
 | [docs/research.md](docs/research.md) | Earlier feasibility research retained for additional context |
 | [docs/launch-checklist.md](docs/launch-checklist.md) | Earlier lean-launch checklist retained for operational planning |
 | [docs/MATTHEWS-INFRABUILD-AMR.md](docs/MATTHEWS-INFRABUILD-AMR.md) | Current research on the Dubbo Matthews/InfraBuild/AMR yard and e-waste outlet |
