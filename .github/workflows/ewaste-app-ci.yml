@@ -24,9 +24,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: npm
-          cache-dependency-path: EwasteApp/package-lock.json
-      - run: npm install --package-lock-only
-      - run: npm ci
+      - run: npm install
       - run: npm run typecheck
       - run: npm run build
