@@ -24,3 +24,11 @@ a { color: inherit; text-decoration: none; } button,input,select,textarea { font
 .certificate-sheet{max-width:900px;margin:0 auto}.certificate-sheet hr{border:0;border-top:1px solid var(--line);margin:22px 0}
 @media(max-width:850px){.topbar{align-items:flex-start;flex-direction:column}.two{grid-template-columns:1fr}}
 @media print{body{background:white}.topbar,.no-print{display:none!important}.container{max-width:none;padding:0}.certificate-sheet{border:0;box-shadow:none}.card{box-shadow:none}}
+
+.search-form{display:flex;gap:10px}.search-form input{flex:1;border:1px solid #bfcac2;border-radius:9px;padding:12px}
+.result-list{display:grid;gap:8px}.result-row{display:grid;gap:3px;border:1px solid var(--line);border-radius:9px;padding:10px 12px;background:#fff}.result-row:hover{border-color:var(--brand);background:var(--soft)}.result-row span{font-size:13px;color:var(--muted)}
+.mini-form{display:grid;gap:6px;min-width:190px}.mini-form input,.mini-form select,.mini-form textarea,.inline-form input{border:1px solid #bfcac2;border-radius:7px;padding:7px 8px;max-width:100%}.mini-form textarea{min-height:58px}
+.inline-form{display:flex;gap:6px;align-items:center;min-width:260px}.inline-form input{flex:1}
+.upload-control{display:grid;gap:6px;font-weight:700}.upload-control input{max-width:100%}
+.tag-cloud{display:flex;gap:8px;flex-wrap:wrap}
+@media(max-width:720px){.search-form,.inline-form{flex-direction:column}.inline-form{align-items:stretch}}

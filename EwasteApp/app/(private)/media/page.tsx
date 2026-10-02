@@ -1,0 +1,25 @@
+import Link from "next/link";
+import { createClient } from "@/lib/supabase/server";
+import { EvidenceUpload } from "@/components/EvidenceUpload";
+import { createSanitisationPolicy, recordSanitisation } from "../processing/actions";
+
+export default async function MediaPage({searchParams}:{searchParams:Promise<{error?:string}>}) {
+  const params=await searchParams;
+  const supabase=await createClient();
+  const [{data:media},{data:policies}] = await Promise.all([
+    supabase.from("media").select("*,assets!media_parent_asset_id_fkey(id,asset_code,manufacturer,model),sanitisation_tasks(id,status,tool_name,method,completed_at,created_at)").order("created_at",{ascending:false}),
+    supabase.from("sanitisation_policies").select("*").eq("active",true).order("name"),
+  ]);
+  return <div className="stack">
+    <div><div className="badge">Media sanitisation</div><h1>Media queue</h1><p className="muted">Every data-bearing medium is its own traceable record. Upload raw tool evidence before or after recording a run.</p></div>
+    {params.error?<div className="error">{params.error}</div>:null}
+    <form action={createSanitisationPolicy} className="card form"><h2>Sanitisation policy</h2><div className="two"><label>Name<input name="name" required placeholder="Standard SSD clear"/></label><label>Standard<input name="standard" required placeholder="Organisation policy / standard"/></label></div><div className="two"><label>Method<input name="method" required placeholder="Approved erase / destroy method"/></label><label>Max retries<input name="max_retries" type="number" min="0" defaultValue="1"/></label></div><label>Fallback route<input name="fallback_route" defaultValue="SUPERVISOR_REVIEW"/></label><button className="button">Add policy</button></form>
+    <section className="card table-wrap"><table><thead><tr><th>Media</th><th>Parent</th><th>Data state</th><th>Latest task</th><th>Evidence</th><th>Record run</th></tr></thead><tbody>
+      {(media??[]).map((m:any)=>{
+        const tasks=[...(m.sanitisation_tasks??[])].sort((a:any,b:any)=>String(b.created_at).localeCompare(String(a.created_at)));
+        const latest=tasks[0];
+        return <tr key={m.id}><td><strong>{m.media_code}</strong><br/><span className="small">{m.media_type} · {m.serial||"no serial"}</span></td><td>{m.assets?<Link href={"/assets/"+m.assets.id}><strong>{m.assets.asset_code}</strong></Link>:"Detached"}</td><td>{m.data_state}</td><td>{latest?<>{latest.status}<br/><span className="small muted">{latest.tool_name||latest.method||"manual"}</span></>:"—"}</td><td><EvidenceUpload entityType="media" entityId={m.id} label="Raw report / evidence"/></td><td><form action={recordSanitisation} className="mini-form"><input type="hidden" name="media_id" value={m.id}/>{m.parent_asset_id?<input type="hidden" name="asset_id" value={m.parent_asset_id}/>:null}<select name="policy_id" defaultValue=""><option value="">No policy</option>{(policies??[]).map((p:any)=><option key={p.id} value={p.id}>{p.name}</option>)}</select><select name="status" defaultValue="PASSED"><option>PASSED</option><option>FAILED</option><option>RETRY</option><option>RUNNING</option><option>VERIFYING</option><option>DESTRUCTION_REQUIRED</option><option>DESTROYED</option><option>SUPERVISOR_REVIEW</option><option>NOT_REQUIRED</option></select><input name="tool_name" placeholder="Tool e.g. nwipe"/><input name="tool_version" placeholder="Version"/><input name="method" placeholder="Method"/><input name="verification_result" placeholder="Verification"/><textarea name="notes" placeholder="Notes"/><button className="button secondary">Record</button></form></td></tr>
+      })}
+    </tbody></table></section>
+  </div>;
+}

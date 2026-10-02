@@ -1,4 +1,4 @@
-"use server";
+"use server";\n\nimport { createHash } from "node:crypto";
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
@@ -188,16 +188,19 @@ export async function recordDisposition(formData: FormData) {
 export async function issueCertificate(formData: FormData) {
   const schema = z.object({
     asset_id: z.string().uuid(),
-    certificate_type: z.enum(["RECEIPT","DISPOSITION","DEVICE_HISTORY"]),
+    certificate_type: z.enum(["RECEIPT","RECEIVING","DISPOSITION","DEVICE_HISTORY","SANITISATION","DESTRUCTION","RECYCLING","ENVIRONMENTAL"]),
   });
   const parsed = schema.safeParse(Object.fromEntries(formData));
   if (!parsed.success) redirect("/certificates");
   const { supabase, user } = await currentUser();
 
-  const [{ data: asset }, { data: tests }, { data: dispositions }] = await Promise.all([
+  const [{ data: asset }, { data: tests }, { data: dispositions }, { data: media }, { data: grades }, { data: evidence }] = await Promise.all([
     supabase.from("assets").select("*").eq("id", parsed.data.asset_id).single(),
     supabase.from("asset_tests").select("test_type,result,notes,created_at").eq("asset_id", parsed.data.asset_id).order("created_at"),
-    supabase.from("dispositions").select("disposition_type,destination,notes,decided_at").eq("asset_id", parsed.data.asset_id).order("decided_at", { ascending: false }).limit(1),
+    supabase.from("dispositions").select("disposition_type,destination,notes,decided_at").eq("asset_id", parsed.data.asset_id).order("decided_at", { ascending: false }),
+    supabase.from("media").select("id,media_code,media_type,serial,capacity_bytes,data_state,sanitisation_tasks(status,tool_name,tool_version,method,verification_result,raw_report_hash,completed_at)").eq("parent_asset_id", parsed.data.asset_id),
+    supabase.from("grades").select("functional_grade,cosmetic_grade,battery_grade,completeness_grade,marketability_grade,final_grade,graded_at").eq("asset_id", parsed.data.asset_id).order("graded_at",{ascending:false}),
+    supabase.from("evidence").select("evidence_type,filename,mime_type,sha256,captured_at").eq("entity_type","asset").eq("entity_id",parsed.data.asset_id).order("captured_at"),
   ]);
   if (!asset) redirect("/certificates?error=Asset%20not%20found");
 
@@ -206,19 +209,37 @@ export async function issueCertificate(formData: FormData) {
     asset,
     tests: tests ?? [],
     disposition: dispositions?.[0] ?? null,
+    disposition_history: dispositions ?? [],
+    media: media ?? [],
+    grade: grades?.[0] ?? null,
+    evidence: evidence ?? [],
   };
+  const snapshotSha256 = createHash("sha256").update(JSON.stringify(snapshot)).digest("hex");
   const { data, error } = await supabase.from("certificates").insert({
     certificate_type: parsed.data.certificate_type,
     asset_id: asset.id,
     job_id: asset.job_id,
     snapshot,
+    snapshot_sha256: snapshotSha256,
     issued_by: user.id,
-  }).select("id,certificate_code").single();
-  if (error || !data) redirect(`/assets/${asset.id}?error=Could%20not%20issue%20certificate`);
+  }).select("id,certificate_code,verification_token,issued_at,status").single();
+  if (error || !data) redirect("/assets/" + asset.id + "?error=Could%20not%20issue%20certificate");
+
+  await supabase.from("public_certificate_verification").insert({
+    verification_token: data.verification_token,
+    certificate_code: data.certificate_code,
+    certificate_type: parsed.data.certificate_type,
+    issued_at: data.issued_at,
+    status: data.status,
+    snapshot_sha256: snapshotSha256,
+    public_summary: { asset_code: asset.asset_code, category: asset.category },
+  });
+
   await appendEvent(supabase, user.id, "asset", asset.id, "CERTIFICATE_ISSUED", {
     certificate_code: data.certificate_code,
     certificate_type: parsed.data.certificate_type,
+    snapshot_sha256: snapshotSha256,
   });
   revalidatePath("/certificates");
-  redirect(`/certificates/${data.id}`);
+  redirect("/certificates/" + data.id);
 }

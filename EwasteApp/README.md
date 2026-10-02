@@ -94,3 +94,12 @@ pilot UI does not yet write lookup events.
 5. inventory/economics/route recommendations
 6. listing/invoice/report generation
 7. marketplace and bench-tool integrations
+
+
+## AssetFlow P0 status — 2 Oct 2026
+
+P0 is implemented end-to-end: customers, inbound jobs, work instructions, bulk lots, serialized assets, QR labels, locations, evidence/photos with SHA-256, dynamic attributes, separate media records, manual sanitisation evidence, diagnostics, grading, disposition, certificates, global search, exception queue and RLS role permissions.
+
+P1 foundations now also include repair tickets, harvested-part provenance, sanitisation policies/tasks, pallets, downstream vendors, outbound orders, resale qualification/listings/sales, environmental reporting, workstation profiles and configurable workflow rules.
+
+See OpenSourceSoftware/feature-backlog.md for the authoritative shipped/foundation/backlog matrix.
