@@ -56,6 +56,8 @@ function enhanceJargon() {
       const def = C.glossary.find(x => x[0] === item); if (!def) continue;
       frag.append(document.createTextNode(node.nodeValue.slice(last, match.index)));
       const b = document.createElement("button"); b.type = "button"; b.className = "jargon"; b.dataset.term = item; b.dataset.tip = def[1]; b.setAttribute("aria-label", `Explain ${alias}`); b.textContent = alias;
+      const tipWidth = Math.min(340, innerWidth * .75);
+      if (node.parentElement.getBoundingClientRect().right + tipWidth > innerWidth - 14) b.classList.add("jargon-right");
       frag.append(b); last = match.index + alias.length;
     }
     frag.append(document.createTextNode(node.nodeValue.slice(last))); node.replaceWith(frag);
