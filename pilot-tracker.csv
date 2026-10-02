@@ -1,1 +1,17 @@
 asset_id,date_in,source_type,source_name,transfer_basis,transfer_authority_recorded,device_category,make_model,serial_imei,age_estimate_years,specs,os_support_status,recall_check_status,intake_condition,cosmetic_grade,functional_grade,battery_condition,battery_health_pct,account_lock_mdm_status,data_bearing,initial_route,reject_reason_code,estimated_resale_value,estimated_parts_value,estimated_scrap_floor,acquisition_cost,intake_minutes,collection_km,collection_minutes,sanitisation_required,sanitisation_method,sanitisation_tool_version,sanitisation_result,sanitisation_verification,sanitisation_date,repair_minutes,parts_cost,other_direct_cost,ready_date,list_date,list_price,sale_channel,sale_date,sale_price,platform_fee,postage_cost,packaging_cost,warranty_reserve,refund_return_cost,return_reason,downstream_provider,recycling_cost,recycling_rebate,final_route,days_in_stock,total_labour_minutes,labour_hourly_value,labour_cost,net_profit,profit_per_labour_hour,value_above_scrap_floor,accept_again,repeat_supplier,triage_minutes,triage_decision,triage_reason,reject_log_id,notes
+DADLAN-L01,,,,,,Laptop,HP ProBook x360 435 G8,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Asset name: Laptop #01. Status: Active.
+DADLAN-L02,,,,,,Laptop,Lenovo ThinkPad L480,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Asset name: Laptop #02. Status: Active.
+DADLAN-L03,,,,,,Laptop,Toshiba Satellite L850D,5C171384R,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Asset name: Laptop #03. Status: Active.
+DADLAN-L04,,,,,,Laptop,HP ProBook 4230s,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Asset name: Laptop #04. Status: Active.
+DADLAN-L05,,,,,,Laptop,Toshiba Tecra P11,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Asset name: Laptop #05. Status: Active.
+DADLAN-L06,,,,,,Laptop,Toshiba Satellite L630,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Asset name: Laptop #06. Status: Active.
+DADLAN-L07,,,,,,Laptop,ASUS X553MA / F553M,ECN0CV414937516,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Asset name: Laptop #07. Status: Active.
+DADLAN-L08,,,,,,Laptop,Toshiba C50D-A,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Asset name: Laptop #08. Status: Active.
+DADLAN-L09,,,,,,Laptop,Compaq Presario CQ56,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Asset name: Laptop #09. Status: Active.
+DADLAN-L10,,,,,,Laptop,Compaq 610,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Asset name: Laptop #10. Status: Active.
+DADLAN-L11,,,,,,Laptop,HP ProBook 11 EE G2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Asset name: Laptop #11. Status: Active.
+DADLAN-L12,,,,,,Laptop,Toshiba Satellite L50-A PSKLEA-00M001,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Asset name: Laptop #12. Status: Active.
+DADLAN-D13,,,,,,Desktop,Lenovo 7567Y2M,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Asset name: Laptop #13. Status: Active.
+DADLAN-L14,,,,,,Laptop,Apple MacBook Air Early 2015,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Asset name: Laptop #14. Status: Active.
+DADLAN-D15,,,,,,Desktop,Apple iMac Retina 5K 27-inch 2017,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Asset name: Laptop #15. Status: Active.
+DADLAN-S01,,,,,,Desktop,Custom i5-9400 / GTX 1660 6GB desktop,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Asset name: JParrisDesktop. Status: Active.
