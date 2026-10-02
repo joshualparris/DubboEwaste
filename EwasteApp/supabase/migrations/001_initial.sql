@@ -1,7 +1,9 @@
 -- DubboEwaste Operations — first slice
--- Run inside a dedicated Supabase project.
+-- Canonical schema for a fresh Supabase project.
 
 create extension if not exists pgcrypto;
+
+create schema if not exists private;
 
 create type public.staff_role as enum ('admin','manager','technician','volunteer','auditor');
 create type public.asset_status as enum (
@@ -34,6 +36,7 @@ create or replace function public.next_asset_code()
 returns text
 language sql
 volatile
+set search_path = public
 as $$
   select 'DEW-' || extract(year from now())::int || '-' || lpad(nextval('public.asset_code_seq')::text, 6, '0')
 $$;
@@ -69,6 +72,7 @@ create table public.assets (
 create index assets_serial_imei_idx on public.assets(serial_imei);
 create index assets_status_idx on public.assets(status);
 create index assets_created_at_idx on public.assets(created_at desc);
+create index assets_created_by_idx on public.assets(created_by);
 
 create table public.asset_events (
   id bigint generated always as identity primary key,
@@ -80,11 +84,13 @@ create table public.asset_events (
 );
 
 create index asset_events_asset_idx on public.asset_events(asset_id, created_at desc);
+create index asset_events_actor_id_idx on public.asset_events(actor_id);
 
-create or replace function public.handle_new_user()
+create or replace function private.handle_new_user()
 returns trigger
 language plpgsql
-security definer set search_path = ''
+security definer
+set search_path = ''
 as $$
 begin
   insert into public.profiles(id, full_name)
@@ -95,48 +101,55 @@ $$;
 
 create trigger on_auth_user_created
 after insert on auth.users
-for each row execute procedure public.handle_new_user();
+for each row execute procedure private.handle_new_user();
 
-create or replace function public.current_staff_role()
+create or replace function private.current_staff_role()
 returns public.staff_role
 language sql
 stable
 security definer
 set search_path = ''
 as $$
-  select role from public.profiles where id = auth.uid() and active = true
+  select role
+  from public.profiles
+  where id = auth.uid() and active = true
 $$;
 
-create or replace function public.is_active_staff()
+create or replace function private.is_active_staff()
 returns boolean
 language sql
 stable
 security definer
 set search_path = ''
 as $$
-  select exists(select 1 from public.profiles where id = auth.uid() and active = true)
+  select exists(
+    select 1
+    from public.profiles
+    where id = auth.uid() and active = true
+  )
 $$;
 
-create or replace function public.set_updated_at()
+create or replace function private.set_updated_at()
 returns trigger
 language plpgsql
-as $
+set search_path = ''
+as $$
 begin
   new.updated_at = now();
   return new;
 end;
-$;
+$$;
 
 create trigger assets_set_updated_at
 before update on public.assets
-for each row execute procedure public.set_updated_at();
+for each row execute procedure private.set_updated_at();
 
-create or replace function public.audit_asset_changes()
+create or replace function private.audit_asset_changes()
 returns trigger
 language plpgsql
 security definer
 set search_path = ''
-as $
+as $$
 begin
   if tg_op = 'INSERT' then
     insert into public.asset_events(asset_id,event_type,actor_id,details)
@@ -147,64 +160,68 @@ begin
   end if;
   return new;
 end;
-$;
+$$;
 
 create trigger assets_audit
 after insert or update on public.assets
-for each row execute procedure public.audit_asset_changes();
+for each row execute procedure private.audit_asset_changes();
 
 alter table public.profiles enable row level security;
 alter table public.assets enable row level security;
 alter table public.asset_events enable row level security;
 
-create policy "staff can read own profile"
+revoke all on schema private from public;
+grant usage on schema private to authenticated;
+grant execute on function private.current_staff_role() to authenticated;
+grant execute on function private.is_active_staff() to authenticated;
+
+grant usage on schema public to authenticated;
+grant select on public.profiles to authenticated;
+grant select, insert, update, delete on public.assets to authenticated;
+grant select on public.asset_events to authenticated;
+grant usage, select on sequence public.asset_code_seq to authenticated;
+
+create policy "staff can read own profile or managers can read all"
 on public.profiles for select
 to authenticated
-using (id = auth.uid() or public.current_staff_role() in ('admin','manager'));
+using (
+  id = (select auth.uid())
+  or private.current_staff_role() in ('admin','manager')
+);
 
 create policy "admins manage profiles"
-on public.profiles for all
+on public.profiles for update
 to authenticated
-using (public.current_staff_role() = 'admin')
-with check (public.current_staff_role() = 'admin');
+using (private.current_staff_role() = 'admin')
+with check (private.current_staff_role() = 'admin');
 
 create policy "active staff read assets"
 on public.assets for select
 to authenticated
-using (public.is_active_staff());
+using (private.is_active_staff());
 
 create policy "operations staff create assets"
 on public.assets for insert
 to authenticated
 with check (
-  public.current_staff_role() in ('admin','manager','technician','volunteer')
-  and created_by = auth.uid()
+  private.current_staff_role() in ('admin','manager','technician','volunteer')
+  and created_by = (select auth.uid())
 );
 
 create policy "operations staff update assets"
 on public.assets for update
 to authenticated
-using (public.current_staff_role() in ('admin','manager','technician','volunteer'))
-with check (public.current_staff_role() in ('admin','manager','technician','volunteer'));
+using (private.current_staff_role() in ('admin','manager','technician','volunteer'))
+with check (private.current_staff_role() in ('admin','manager','technician','volunteer'));
 
 create policy "admin manager delete assets"
 on public.assets for delete
 to authenticated
-using (public.current_staff_role() in ('admin','manager'));
+using (private.current_staff_role() in ('admin','manager'));
 
 create policy "active staff read asset events"
 on public.asset_events for select
 to authenticated
-using (public.is_active_staff());
+using (private.is_active_staff());
 
-create policy "operations staff add asset events"
-on public.asset_events for insert
-to authenticated
-with check (
-  public.current_staff_role() in ('admin','manager','technician','volunteer')
-  and actor_id = auth.uid()
-);
-
--- Auditors deliberately have read-only access through SELECT policies.
--- Promote the first user manually:
--- update public.profiles set role='admin' where id='<auth-user-uuid>';
+-- Audit events are trigger-generated only. Staff do not get direct INSERT/UPDATE/DELETE grants.
