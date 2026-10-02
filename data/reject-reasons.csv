@@ -1,0 +1,14 @@
+code,reason,description
+OWNERSHIP,Ownership unclear,Authority to transfer not sufficiently established
+LOCK,Account or management lock,Activation Lock FRP MDM Autopilot enterprise enrolment BIOS/supervisor unresolved
+BATTERY,Dangerous battery,Swollen leaking hot punctured crushed fire/flood affected or other immediate battery risk
+ELECTRICAL,Electrical hazard,Damaged mains lead plug PSU exposed conductor burn/liquid risk
+CONTAMINATION,Contamination,Pest biological heavy grime or unsafe contamination
+LIQUID,Liquid damage,Corrosion or material liquid ingress makes retail uneconomic/high risk
+STRUCTURAL,Structural damage,Cracked/bent chassis hinge/display damage beyond viable repair
+UNSUPPORTED,Unsupported platform,Software/security/network support inadequate for intended resale
+ECONOMICS,Uneconomic,Expected value below labour parts warranty storage and exit costs
+NO_ROUTE,No downstream route,No credible resale parts donation or lawful recycling route
+STORAGE,No safe storage,No controlled storage position available
+RECALL,Recall/safety issue,Unresolved manufacturer/product recall
+OTHER,Other,Document clearly in notes
