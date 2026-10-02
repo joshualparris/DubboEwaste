@@ -88,7 +88,7 @@ export function ModelAutofill({ models }: { models: ModelRecord[] }) {
             id="model-lookup"
             value={lookup}
             onChange={(event) => { setLookup(event.target.value); setSelected(null); }}
-            onKeyDown={(event) => { if (event.key === "Enter" && matches[0]) { event.preventDefault(); choose(matches[0]); } }}
+            onKeyDown={(event) => { if (event.key === "Enter" && matches[0]) { event.preventDefault(); choose(matches[0].model); } }}
             placeholder="Try ThinkPad, iPhone, Chromebook — not just Intel Core i5"
             autoComplete="off"
           />
