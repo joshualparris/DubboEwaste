@@ -18,6 +18,7 @@ This initial slice includes:
 - new-asset intake form
 - QR code on each asset page
 - dashboard and inventory list
+- source-dated model/support lookup backed by Supabase
 - CI build workflow
 
 ## Architecture
@@ -42,11 +43,12 @@ Private customer, supplier, asset and chain-of-custody data must never be commit
 
 1. Create a Supabase project.
 2. Run `supabase/migrations/001_initial.sql` in the SQL editor or with the Supabase CLI.
-3. Copy `.env.example` to `.env.local`.
-4. Add the project URL and publishable/anon key.
-5. Create the first staff user in Supabase Auth.
-6. Promote that profile to `admin` in the database.
-7. Install and run:
+3. Run `supabase/migrations/002_model_support.sql` after the first migration.
+4. Copy `.env.example` to `.env.local`.
+5. Add the project URL and publishable/anon key.
+6. Create the first staff user in Supabase Auth.
+7. Promote that profile to `admin` in the database.
+8. Install and run:
 
 ```bash
 npm install
@@ -70,7 +72,7 @@ Open http://localhost:3000/login.
 
 1. Interactive front-door triage wizard
 2. Category-specific intake flows
-3. model/support lookup integration
+3. richer model/support imports and source review
 4. diagnostics and sanitisation workflow
 5. inventory/economics/route recommendations
 6. listing/invoice/report generation

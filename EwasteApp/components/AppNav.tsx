@@ -18,6 +18,7 @@ export function AppNav({
         <Link href="/dashboard">Dashboard</Link>
         <Link href="/assets">Assets</Link>
         <Link href="/assets/new">New intake</Link>
+        <Link href="/model-lookup">Model lookup</Link>
       </nav>
       <form action={logout}>
         <button className="button secondary" type="submit">Sign out</button>
