@@ -669,3 +669,358 @@
   confidence: Medium
   notes: Proposed policy, not a measured site limit. Illustrative six-slot example is not a recommended capacity.
     Blank template requires actual values and evidence; changes reopen affected gates.
+
+- id: EVD-BENCH-001
+  claim: 'RecyclyERP publicly advertises: CRM and quote versions; e-signatures; collections and driver allocation;
+    barcode receiving; multiwarehouse stock; carrier rates and labels; Xero/QuickBooks payment sync; erasure integrations;
+    versioned emissions factors; customer dashboards; ecommerce; timesheets; knowledgebase; JSON-RPC and webhooks.'
+  type: Research Lead
+  source: RecyclyERP official public product material
+  url: https://recyclyerp.com/features
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. UK waste reporting
+    is jurisdiction-specific. Confirm adapter formats, Australian carriers and accounting tax behaviour. Supporting
+    URLs are in ITAD-Feature-Benchmark/products/recycly.md.
+- id: EVD-BENCH-002
+  claim: 'RazorERP publicly advertises: Cloud inventory and multichannel synchronisation; chain-of-custody recycling
+    workflows; warehouse locations; localisation and multiple currencies. Official mobile apps advertise receiving,
+    scanning, bin transfers, photos and label printing. Vendor help documents describe settlements and fair-market-value/devaluation
+    templates.'
+  type: Research Lead
+  source: RazorERP official public product material
+  url: https://www.razorerp.com/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Razor and MAKOR
+    are separate products. Confirm exact marketplace adapters, permissions and settlement calculations in a demo.
+    Supporting URLs are in ITAD-Feature-Benchmark/products/razor.md.
+- id: EVD-BENCH-003
+  claim: 'MAKOR ERP publicly advertises: Contract-enforced processing; pickup signatures and manifests; truck scheduling;
+    mass balance and scales; configurable test benches; BIOS and sanitisation integration; tracked drives and harvested
+    parts; holds; cycle counting; pricing; eBay and POS; consignment; RMA; pick validation; shipping; settlements
+    and customer profitability.'
+  type: Research Lead
+  source: MAKOR ERP official public product material
+  url: https://www.makorerp.com/the-software/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Advertised workflow
+    controls support certification processes; they do not certify the operator. Integration and throughput claims
+    require testing. Supporting URLs are in ITAD-Feature-Benchmark/products/makor.md.
+- id: EVD-BENCH-004
+  claim: 'reVESTED / The Vested Group publicly advertises: NetSuite-based modules for agreements and fee settlements,
+    receipt and condition capture, triage and lifecycle tracking, repair/refurbish decisions, warehouse handling,
+    pallet license-plate labels, destruction reporting and distribution/recycling outcome visibility.'
+  type: Research Lead
+  source: reVESTED / The Vested Group official public product material
+  url: https://blog.thevested.com/blog/revested
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Detailed module
+    article is dated 2022. Current vendor industries page still describes reVESTED; obtain current scope. Do not
+    attribute every NetSuite feature to this implementation. Supporting URLs are in ITAD-Feature-Benchmark/products/revested.md.
+- id: EVD-BENCH-005
+  claim: 'Total Recall Envision / DHS Worldwide publicly advertises: Unified ITAD scheduling, billing, workflows
+    and inventory; barcode and location tracking of individual items, pallets and bulk containers; condition/status
+    reporting. Separate shredding suite advertises recurring services, route planning, driver tracking, signatures,
+    CRM and client invoice access.'
+  type: Research Lead
+  source: Total Recall Envision / DHS Worldwide official public product material
+  url: https://www.dhsworldwide.com/asset-management.html
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Adjacent shredding
+    and records modules are not automatically included in an ITAD licence. Confirm packaging, ERP exports and erasure
+    interfaces. Supporting URLs are in ITAD-Feature-Benchmark/products/total-recall.md.
+- id: EVD-BENCH-006
+  claim: 'ITADCollect publicly advertises: Client collection amendments and live progress; downloadable certificates;
+    CRM follow-up tasks; CSV collections; collection documents and signatures; DYMO/Zebra labels; asset and individual-drive
+    tracking; erasure imports; specifications/photos/values/carbon fields; disposition; filtered resale stock; individual/bulk
+    sales and invoices.'
+  type: Research Lead
+  source: ITADCollect official public product material
+  url: https://www.itadcollect.com/features.php
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Integration logos
+    confirm advertised connections, not schemas or end-to-end reliability. Carbon fields alone do not establish
+    a validated methodology. Supporting URLs are in ITAD-Feature-Benchmark/products/itadcollect.md.
+- id: EVD-BENCH-007
+  claim: 'Blancco publicly advertises: HDD/SSD sanitisation; simultaneous drive processing; automated workflows;
+    RAID handling and identification; configurable standards; verification and digitally signed certificates. Separate
+    mobile diagnostics/erasure and management offerings extend the product family.'
+  type: Research Lead
+  source: Blancco official public product material
+  url: https://blancco.com/products/drive-eraser/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Keep exact product/version,
+    supported device and certification scope. A vendor compliance statement is not a universal legal guarantee.
+    Supporting URLs are in ITAD-Feature-Benchmark/products/blancco.md.
+- id: EVD-BENCH-008
+  claim: 'BitRaser publicly advertises: Drive erasure and diagnostics; deployment options for USB and network/PXE;
+    central reports and certificates; asset/customer tags; API and advertised MAKOR 2.0/RazorERP integration. Separate
+    mobile erasure/diagnostics products also advertise ERP connectivity.'
+  type: Research Lead
+  source: BitRaser official public product material
+  url: https://www.bitraser.com/article/erp-integrated-data-wiping-software-for-itad.php
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Capacity and device
+    support depend on edition, hardware and licence. Confirm authentic sample exports, signatures and retry semantics.
+    Supporting URLs are in ITAD-Feature-Benchmark/products/bitraser.md.
+- id: EVD-BENCH-009
+  claim: 'Ziperase publicly advertises: Array Erase processes large drive batches across multiple interfaces, with
+    hardware-dependent hot swap, central control, SMART health and reports. Quick-start documentation describes
+    offline operation, extra fields and PDF branding. Product family includes Mac/Chromebook workflows, Autopilot
+    detection and independent Verify.'
+  type: Research Lead
+  source: Ziperase official public product material
+  url: https://ziperase.com/array-erase/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Hundreds of drives
+    is an advertised scale, not a benchmark run here. Confirm SAN topology, secure-erase coverage and certificate
+    validation. Supporting URLs are in ITAD-Feature-Benchmark/products/ziperase.md.
+- id: EVD-BENCH-010
+  claim: 'YouWipe publicly advertises: Vendor describes erasure across storage/device types, portable erasure kit
+    and guided workflows. Manuals page describes live reporting before/during/after erasure and report synchronisation
+    to a local server or cloud dashboard.'
+  type: Research Lead
+  source: YouWipe official public product material
+  url: https://youwipe.com/manuals
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Certification
+    badges are vendor claims; obtain exact version and evaluation documents. Detailed API and supported-device matrix
+    remain demo questions. Supporting URLs are in ITAD-Feature-Benchmark/products/youwipe.md.
+- id: EVD-BENCH-011
+  claim: 'Certus publicly advertises: Vendor advertises laptop, server, storage and phone erasure with verifiable
+    auditable reports. Erasure Web Manager exposes account login including SSO. A separate Erasure Verification
+    Tool is described by the vendor.'
+  type: Research Lead
+  source: Certus official public product material
+  url: https://www.certustech.com/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Do not treat the
+    public 2018 manual as a current feature guarantee. Confirm user/licence/report management and verification support
+    in the current version. Supporting URLs are in ITAD-Feature-Benchmark/products/certus.md.
+- id: EVD-BENCH-012
+  claim: 'Aiken Workbench publicly advertises: Auditing, testing, erasure and disk imaging in a refurbishment workflow.
+    Auditing page lists discovery for PCs, Macs, Chromebooks, phones/tablets, monitors and printers; testing includes
+    guided keyboard and display checks. Documentation describes saving before/after computer audits.'
+  type: Research Lead
+  source: Aiken Workbench official public product material
+  url: https://aikensoftware.com/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Runs with workstation/network
+    infrastructure; not just a browser ERP. Confirm supported models and export formats. Supporting URLs are in
+    ITAD-Feature-Benchmark/products/aiken.md.
+- id: EVD-BENCH-013
+  claim: 'Ontrack / legacy Kroll Ontrack publicly advertises: Current Ontrack support lists Blancco erasure software,
+    Ontrack HostedErase and eraser degausser support. Software pages distinguish whole-drive erasure from selective
+    file/folder erasure; Hosted Erase material describes Blancco-backed delivery.'
+  type: Research Lead
+  source: Ontrack / legacy Kroll Ontrack official public product material
+  url: https://www.ontrack.com/en-au/support
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Legacy Kroll branding
+    is not proof of a separate current erasure engine. Confirm the exact underlying product before designing an
+    adapter; selective file erasure is not whole-device sanitisation. Supporting URLs are in ITAD-Feature-Benchmark/products/ontrack.md.
+- id: EVD-BENCH-014
+  claim: 'ZenAdmin publicly advertises: Procurement-to-retirement device operations; employee onboarding/offboarding;
+    retrieval, logistics and storage; inventory and reassignment; endpoint/MDM, identity, SaaS and IT support services
+    in one platform.'
+  type: Research Lead
+  source: ZenAdmin official public product material
+  url: https://www.zenadmin.ai/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Lifecycle service
+    fulfilment is different from locally operated ITAD processing. Confirm country coverage and which capabilities
+    are software versus managed services. Supporting URLs are in ITAD-Feature-Benchmark/products/zenadmin.md.
+- id: EVD-BENCH-015
+  claim: 'CellDe SmartSuite publicly advertises: Smart Diagnostics device identification, automated/interactive
+    tests and custom profiles; Smart Check lost/stolen, blocklist, SIM/memory-card and lock checks; Smart Wipe;
+    multi-device USB erasure; progress dashboard; report filtering and exports; Smart Transfer cross-platform content
+    migration.'
+  type: Research Lead
+  source: CellDe SmartSuite official public product material
+  url: https://www.cellde.com/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Content transfer
+    needs separate customer authority and privacy controls. Lock checking is not blanket authority or ability to
+    remove activation locks. Supporting URLs are in ITAD-Feature-Benchmark/products/cellde.md.
+- id: EVD-BENCH-016
+  claim: 'NSYS Group publicly advertises: Product family combines Diagnostics, Autograding, Buyback, Data Erasure
+    and Inventory. Official material describes parallel device testing, AI cosmetic assessment, trade-in processing
+    and IMEI-linked inventory; Reeva adds robotic processing.'
+  type: Research Lead
+  source: NSYS Group official public product material
+  url: https://nsysgroup.com/products/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. AI accuracy and
+    throughput claims were not independently tested. Robotic capabilities require physical systems; validate supported
+    models and local blocklist coverage. Supporting URLs are in ITAD-Feature-Benchmark/products/nsys.md.
+- id: EVD-BENCH-017
+  claim: 'Apkudo publicly advertises: Device Passport combines lifecycle events across programmes. Launch covers
+    hardware/software tests; Trade In covers consumer intake; Recover covers corporate retrieval; Process covers
+    cosmetic/functional assessment; Resell targets secondary-market value. Product menu includes automation lines,
+    standalone automation and diagnostics SDK.'
+  type: Research Lead
+  source: Apkudo official public product material
+  url: https://www.apkudo.com/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Passport trust
+    depends on evidence producers and identity reconciliation. Robotics and market access are external capabilities,
+    not features a web app alone can reproduce. Supporting URLs are in ITAD-Feature-Benchmark/products/apkudo.md.
+- id: EVD-BENCH-018
+  claim: 'FutureDial publicly advertises: SMART Capture performs device-side/in-store testing and valuation; SMART
+    Receive routes at intake; SMART Grade uses configurable visual AI inspection; SMART Test offers Lean One-Touch
+    and RADI robot workflows; cloud analytics tracks stations, throughput and alerts.'
+  type: Research Lead
+  source: FutureDial official public product material
+  url: https://www.futuredial.com/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Modular hardware/software/robotics
+    platform. Do not promise robotic functionality from a software-only prototype. Confirm ERP formats and device
+    test coverage. Supporting URLs are in ITAD-Feature-Benchmark/products/futuredial.md.
+- id: EVD-BENCH-019
+  claim: 'MobiCode publicly advertises: MobiCHECK performs blocklist and activation-lock due diligence; MobiTEST
+    guides cosmetic/functional checks; MobiWIPE provides erasure reporting; MobiONE combines processing with configurable
+    alerts and workflow blocks. Vendor also lists fraud/intelligence-sharing and unlocking services.'
+  type: Research Lead
+  source: MobiCode official public product material
+  url: https://www.mobicode.co.uk/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Network/SIM unlock
+    services must not be confused with defeating ownership locks. Confirm lawful scope, geography, data access and
+    consent. Supporting URLs are in ITAD-Feature-Benchmark/products/mobicode.md.
+- id: EVD-BENCH-020
+  claim: 'MIST Software publicly advertises: Advertised audit/test/grade/erase/image/report workflow; PC, Mac, Chromebook,
+    mobile and loose-drive coverage; lock and Autopilot checks; OEM parts verification; automatic labels; API exports;
+    driver setup and Microsoft refurbisher key injection.'
+  type: Research Lead
+  source: MIST Software official public product material
+  url: https://mistsoftware.com/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Page includes
+    a coming-soon marker and unusually broad performance claims. Treat as advertised scope pending demo and model/version
+    evidence. MIST Software is not the open-source mist.io cloud tool; no open-source licence established. Supporting
+    URLs are in ITAD-Feature-Benchmark/products/mist.md.
+- id: EVD-BENCH-021
+  claim: 'ServiceNow HAM publicly advertises: Hardware Asset Management supports disposal orders and Workflow Studio
+    disposal flows. Published documentation describes staged disposal work; HAM links procurement, deployment and
+    disposal to asset records and a CMDB.'
+  type: Research Lead
+  source: ServiceNow HAM official public product material
+  url: https://www.servicenow.com/docs/r/it-asset-management/hardware-asset-management/create-disposal-order.html
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Product capability
+    does not prove a native DubboEwaste connector. Verify customer entitlement, schema, evidence attachment and
+    permitted state transitions. Supporting URLs are in ITAD-Feature-Benchmark/products/servicenow.md.
+- id: EVD-BENCH-022
+  claim: 'Jira Service Management Assets publicly advertises: Asset/configuration repository with ownership, lifecycle
+    and operational history, relationships, reporting, scheduled imports, Data Manager bulk operations and integrations.
+    Assets can link to requests, incidents and changes.'
+  type: Research Lead
+  source: Jira Service Management Assets official public product material
+  url: https://www.atlassian.com/software/jira/service-management/features/asset-and-configuration-management
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Former Jira Service
+    Desk name is outdated. Assets entitlement and limits depend on current plan. Retired is a configured lifecycle
+    value, not a guaranteed automatic ITAD integration. Supporting URLs are in ITAD-Feature-Benchmark/products/jira.md.
+- id: EVD-BENCH-023
+  claim: 'Alloy Navigator publicly advertises: IT lifecycle tracking from acquisition to retirement; discovery,
+    financial/purchasing records, contracts and equipment checkout. Official mobile documentation describes barcode/QR
+    lookup and deploy/repair/retire actions; finance help includes a retirement date.'
+  type: Research Lead
+  source: Alloy Navigator official public product material
+  url: https://www.alloysoftware.com/it-asset-management-software/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Generic lifecycle
+    support does not establish a native erasure connector. Confirm API rights, edition and customer-specific workflow
+    mapping. Supporting URLs are in ITAD-Feature-Benchmark/products/alloy.md.
+- id: EVD-BENCH-024
+  claim: 'Ingram Micro BlueIQ publicly advertises: Official case studies describe BlueIQ asset tracking with a single
+    client reporting portal. Historical official material describes role access, scheduling, process rules, custom
+    fields and hierarchical asset relationships; partner announcement connects it with remarketing operations.'
+  type: Research Lead
+  source: Ingram Micro BlueIQ official public product material
+  url: https://www.ingrammicrolifecycle.com/resources/case-studies/secure-global-itad-solution
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Proprietary service/partner
+    platform. Older collateral is historical scope; current portal access, APIs, valuation and booking features
+    require confirmation. Not a freely available generic SaaS product. Supporting URLs are in ITAD-Feature-Benchmark/products/blueiq.md.
+- id: EVD-BENCH-025
+  claim: 'Unduit publicly advertises: Connected asset lifecycle platform with mini-apps and HR/IT/ticketing integration.
+    Global ITAD service page describes recovery, storage, resale, recycling and servicing; FAQ describes analytics;
+    ITAD pages describe custody and recovery reporting.'
+  type: Research Lead
+  source: Unduit official public product material
+  url: https://www.unduit.com/platform-2/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Public vendor claim, not tested functionality or independent certification verification. Separate advertised
+    software from managed services and country availability. Do not reuse headline value-recovery percentages as
+    Dubbo forecasts. Supporting URLs are in ITAD-Feature-Benchmark/products/unduit.md.
+- id: EVD-BENCH-026
+  claim: NIST publishes SP 800-88 Revision 2 as the final Guidelines for Media Sanitization.
+  type: Verified Fact
+  source: NIST CSRC
+  url: https://csrc.nist.gov/pubs/sp/800/88/r2/final
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Final September 2025 publication; product certification and method applicability must still be established
+    separately.
+- id: EVD-BENCH-027
+  claim: AssetFlow benchmark proposes 201 individually identified requirements across 15 domains, with acceptance
+    conditions and an implementation-status caveat.
+  type: Proposed Policy
+  source: AssetFlow competitor benchmark design
+  url: https://github.com/joshualparris/DubboEwaste/blob/main/ITAD-Feature-Benchmark/feature-catalogue.md
+  date_checked: '2026-10-02'
+  verification_method: Industry inference
+  confidence: Medium
+  notes: Proposed product ambition, not current implementation, exhaustive vendor inventory or independently measured
+    superiority.

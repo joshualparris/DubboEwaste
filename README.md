@@ -171,3 +171,7 @@ See [.github/workflows/](.github/workflows/).
 ---
 
 A snapshot of the former long-form root README is preserved at [docs/archive/README-SNAPSHOT-2026-10-02.md](docs/archive/README-SNAPSHOT-2026-10-02.md).
+
+## ITAD software feature benchmark
+
+[25-product benchmark and combined AssetFlow requirements](ITAD-Feature-Benchmark/README.md) — public-source feature profiles, prioritised acceptance criteria, integration boundaries and research gaps. These are product goals, not shipped-feature claims.
