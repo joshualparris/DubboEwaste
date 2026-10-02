@@ -1,3 +1,5 @@
+> **LEGACY RESEARCH:** This file is retained for provenance. For current operations use `agyDOCS/README.md`, `docs/CURRENT-STATE.md` and `docs/RESEARCH-INDEX.md`. Do not treat unverified statements here as policy or fact.
+
 > [!WARNING]
 > This document contains AI-generated policies, estimates, and generic industry practices. It has only been partly fact-checked and not every unverified claim is tagged; treat anything not marked [VERIFIED] in the corrections file as unchecked. Please refer to `00-CORRECTIONS-AND-CAVEATS.md` for full source checking.
 
@@ -64,9 +66,9 @@ YouTube is arguably the most valuable tool for the modern electronics flipper. I
 
 Podcasts are the perfect companion for a flipper; you can listen and learn while spending hours scrubbing thermal paste off CPUs or driving to pick up a local Gumtree haul.
 
-### **[UNVERIFIED] The Smart Flip & The Flipping Ninja**
-*   **Focus:** The business of reselling, scaling profits, and market trends.
-*   **Why Listen:** These podcasts delve into the mechanics of buying low and selling high. *The Smart Flip* (often focusing on phones and electronics) provides interviews with successful flippers, discussing how to appraise items quickly, negotiate with sellers on local marketplaces, and scale from a bedroom hustle to a warehouse operation. They teach you how to treat flipping as a data-driven business rather than a hobby.
+### **Removed unverified podcast leads**
+The earlier draft described “The Smart Flip” and “The Flipping Ninja” without sufficient verification. Use `docs/PODCASTS-CANONICAL.md` instead.
+
 
 ### **Hackaday Podcast & The Amp Hour**
 *   **Focus:** Hardware hacking, engineering principles, test equipment.
