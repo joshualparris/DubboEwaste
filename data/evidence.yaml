@@ -7,3 +7,235 @@
   verification_method: Primary source
   confidence: High
   notes: Confirmed operating hours and address from contact page.
+
+# Dubbo prospect disposal research — 2 October 2026
+- id: EVD-DISPOSAL-001
+  claim: MAAS publishes a Dubbo head-office contact.
+  type: Verified Fact
+  source: S01 — Dubbo device-disposal source register
+  url: https://maasgroup.com.au/contact
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Routing contact only; no asset availability established.
+- id: EVD-DISPOSAL-002
+  claim: Heidelberg Materials reports completion of the MAAS Construction Materials acquisition.
+  type: Verified Fact
+  source: S02 — Dubbo device-disposal source register
+  url: https://www.heidelbergmaterials.com.au/en/discover/news/media-release/heidelberg-materials-completes-maas-group-construction-materials-acquisition
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Official announcement obtained through search; do not infer a device refresh or continuing MAAS ownership
+    of acquired assets.
+- id: EVD-DISPOSAL-003
+  claim: Fletcher company history records computer-system development in 2015–16.
+  type: Verified Fact
+  source: S04 — Dubbo device-disposal source register
+  url: https://fletchint.com.au/company-history/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Historical hardware/systems clue; no disposal destination.
+- id: EVD-DISPOSAL-004
+  claim: Google describes Westhaven replacing ageing devices with 70 Chromebooks supplied through Unitech Solutions.
+  type: Verified Fact
+  source: S07 — Dubbo device-disposal source register
+  url: https://chromeenterprise.google/customers/westhaven/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Historical case associated with a migration beginning in 2019; not a current Unitech disposal contract.
+- id: EVD-DISPOSAL-005
+  claim: Westhaven publishes a 2025 annual report describing its regional organisation.
+  type: Verified Fact
+  source: S08 — Dubbo device-disposal source register
+  url: https://www.westhaven.org.au/wp-content/uploads/2025/09/WH_AnnualReport_2025_Web.pdf
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Staff scale is not a device count or estimate of surplus.
+- id: EVD-DISPOSAL-006
+  claim: An Earlyrise case study describes NCS mobile-delivery and warehouse technology.
+  type: Verified Fact
+  source: S10 — Dubbo device-disposal source register
+  url: https://www.dsdassist.com/_files/ugd/ebc3e4_f30f209859204b30b7b3a6e681e90499.pdf
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Undated historical supplier case; no device retirement outcome.
+- id: EVD-DISPOSAL-007
+  claim: Dubbo RSL publishes a general environmental sustainability policy.
+  type: Verified Fact
+  source: S14 — Dubbo device-disposal source register
+  url: https://dubborsl.com.au/wp-content/uploads/2018/06/Environmental-Sustainability-Policy.pdf
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Does not name an IT-disposal provider.
+- id: EVD-DISPOSAL-008
+  claim: Inland terms include website credits for Reliance Technology and P.S. Websites and Design Dubbo.
+  type: Verified Fact
+  source: S15 — Dubbo device-disposal source register
+  url: https://inlandpetroleum.com.au/terms-of-use
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Website credits are not evidence of fleet management or a current disposal relationship.
+- id: EVD-DISPOSAL-009
+  claim: Inland describes a locally based multi-site petroleum business.
+  type: Verified Fact
+  source: S16 — Dubbo device-disposal source register
+  url: https://inlandpetroleum.com.au/who-we-are
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Scope/context only; local release authority unknown.
+- id: EVD-DISPOSAL-010
+  claim: Dubbo City Toyota describes operating in partnership with Servco Australia.
+  type: Verified Fact
+  source: S17 — Dubbo device-disposal source register
+  url: https://www.dubbocitytoyota.com.au/about-us
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: No retired-device supplier established.
+- id: EVD-DISPOSAL-011
+  claim: ABN 41 124 473 454 identifies Servco Australia Dubbo Pty Ltd and associated dealership business names.
+  type: Verified Fact
+  source: S18 — Dubbo device-disposal source register
+  url: https://abr.business.gov.au/ABN/View/41124473454
+  date_checked: '2026-10-02'
+  verification_method: Public registry
+  confidence: High
+  notes: Registry identity, not authority to transfer devices.
+- id: EVD-DISPOSAL-012
+  claim: Bidfood publishes a Dubbo branch page also referencing Midwest Foods & Liquor.
+  type: Verified Fact
+  source: S19 — Dubbo device-disposal source register
+  url: https://www.bidfood.com.au/branch/dubbo/
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Current public branding/contact; does not date a legal acquisition.
+- id: EVD-DISPOSAL-013
+  claim: NSW Health Privacy Manual section 9.2.3.4 requires eHealth guidance and approved disposal/destruction providers.
+  type: Verified Fact
+  source: S21 — Dubbo device-disposal source register
+  url: https://www.health.nsw.gov.au/policies/manuals/documents/privacy-manual-for-health-information.pdf
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: August 2025 manual; Western NSW provider and local manifest remain unknown.
+- id: EVD-DISPOSAL-014
+  claim: eHealth publishes a 2026 account of ICT retirement activity in other LHDs.
+  type: Verified Fact
+  source: S22 — Dubbo device-disposal source register
+  url: https://www.ehealth.nsw.gov.au/news/2026/partnership-led-progress-on-sustainable-ICT
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Not evidence of Western NSW or Dubbo quantities/provider.
+- id: EVD-DISPOSAL-015
+  claim: CSU current procedure routes surplus through the Computer Shop or approved internal redeployment.
+  type: Verified Fact
+  source: S23 — Dubbo device-disposal source register
+  url: https://policy.csu.edu.au/document/view-current.php?id=410
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Part B; individual staff cannot independently donate/sell university assets.
+- id: EVD-DISPOSAL-016
+  claim: CSU Q3 2019 Computer Shop report names ALLBIDS, Industry Trading and regional recycling/donation routes.
+  type: Verified Fact
+  source: S25 — Dubbo device-disposal source register
+  url: https://cdn.csu.edu.au/__data/assets/pdf_file/0005/3329852/Computer-Shop-Report-Q3-2019.pdf
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Historical university-wide routes; current Dubbo arrangements unconfirmed.
+- id: EVD-DISPOSAL-017
+  claim: A 2023 trade report describes Dell removing displaced non-Dell equipment during a TAFE NSW refresh.
+  type: Verified Fact
+  source: S26 — Dubbo device-disposal source register
+  url: https://www.govtechreview.com.au/content/gov-tech/article/bringing-high-end-technology-to-tafe-nsw-664944459
+  date_checked: '2026-10-02'
+  verification_method: Independent secondary source
+  confidence: Medium
+  notes: Statewide historical account; not proof of the fate of every device or current Dubbo contract.
+- id: EVD-DISPOSAL-018
+  claim: A Greenbox participant project account describes TAFE legacy-device collection, sanitisation, testing and
+    remarketing with proceeds returned.
+  type: Research Lead
+  source: S27 — Dubbo device-disposal source register
+  url: https://au.linkedin.com/in/guymcphee
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: Research lead from participant self-report indexed in public search; direct profile 429. Project starts
+    May 2019; Present label does not verify a current contract.
+- id: EVD-DISPOSAL-019
+  claim: Council Whylandra page documents public e-waste acceptance.
+  type: Verified Fact
+  source: S29 — Dubbo device-disposal source register
+  url: https://www.dubbo.nsw.gov.au/Households-Residents/Rubbish-Recycling-and-Sustainability/whylandra-waste-recycling-centre
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Not evidence of the disposal route for Council-owned staff computers.
+- id: EVD-DISPOSAL-020
+  claim: Council June 2025 Laptop to Launch announcement describes digital training.
+  type: Verified Fact
+  source: S30 — Dubbo device-disposal source register
+  url: https://www.dubbo.nsw.gov.au/news-and-media/news-and-resources/council-news/2025/react-supporting-inaugural-laptop-to-launch-program
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Does not establish Council donation of old laptops.
+- id: EVD-DISPOSAL-021
+  claim: NSW C9826 information includes device disposal/sanitisation and multiple end-of-life options.
+  type: Verified Fact
+  source: S31 — Dubbo device-disposal source register
+  url: https://www.info.buy.nsw.gov.au/contracts/ict-end-user-devices-and-services
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Contract framework, not a common incumbent for all agencies or automatic coverage of specialised equipment.
+- id: EVD-DISPOSAL-022
+  claim: NSW announced a 12-month Device Bank government-surplus-laptop pilot involving WorkVentures on 21 May 2026.
+  type: Verified Fact
+  source: S32 — Dubbo device-disposal source register
+  url: https://www.nsw.gov.au/ministerial-releases/nsw-device-bank-to-help-people-and-communities-get-online
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: No universal agency participation or Dubbo allocation established.
+- id: EVD-DISPOSAL-023
+  claim: NSW Education current procedure provides a dedicated eWaste contract via EDConnect and pre-disposal wiping
+    requirements.
+  type: Verified Fact
+  source: S33 — Dubbo device-disposal source register
+  url: https://education.nsw.gov.au/policy-library/policies/pd-2024-0481-01
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Dedicated vendor not named; clarify preparation requirements against the operational guide.
+- id: EVD-DISPOSAL-024
+  claim: Education eWaste application guide describes vendor sanitisation, certification and a Settlement Report.
+  type: Verified Fact
+  source: S34 — Dubbo device-disposal source register
+  url: https://t4l.schools.nsw.gov.au/content/dam/doe/sws/schools/t/t4l/pdfs/DOE25-eWasteApplicationInstructions.pdf
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: Medium
+  notes: PDF text retrieved earlier in this research; later direct open redirected to Technology for Learning. Guide
+    school-wiping wording differs from current procedure; applicability needs Department confirmation.
+- id: EVD-DISPOSAL-025
+  claim: TAFE 2024–25 annual report describes training employees of Green Technology Recycling.
+  type: Verified Fact
+  source: S36 — Dubbo device-disposal source register
+  url: https://cd.tafensw.edu.au/api/-/media/Files/PDFs/Strategies-and-Governance/Annual-Reports/Annual-Report-2024-2025.pdf
+  date_checked: '2026-10-02'
+  verification_method: Primary source
+  confidence: High
+  notes: Training relationship only; not a TAFE disposal contract. PDF downloaded and text searched.

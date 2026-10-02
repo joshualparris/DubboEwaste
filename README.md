@@ -20,6 +20,7 @@ Deployment: `gh-pages` is the generated GitHub Pages distribution; `main` is the
 | File | What it is |
 |---|---|
 | [README.md](README.md) | This summary |
+| [docs/DUBBO-DEVICE-DISPOSAL-PROSPECTS.md](docs/DUBBO-DEVICE-DISPOSAL-PROSPECTS.md) | **Retired-device research for 14 Dubbo prospects:** documented and historical routes, unknown incumbents, decision-makers and next questions, with a [CSV tracker](docs/dubbo-device-disposal-prospects.csv) and [source register](docs/DUBBO-DEVICE-DISPOSAL-SOURCES.md) |
 | [docs/MASTER-FINDINGS-ALL-CHATS.md](docs/MASTER-FINDINGS-ALL-CHATS.md) | **Master synthesis from all project chats:** top 10 takeaways, Officeworks clarification, planning/legal, downstream, reuse/ITAD, Device Bank/Dubbo links, corrections and the five biggest unanswered questions |
 | [docs/PODCASTS-CANONICAL.md](docs/PODCASTS-CANONICAL.md) | **Canonical deduplicated podcast list:** Australia/NSW first, then ITAD, repair economics and downstream circular-economy listening |
 | [docs/SPOTIFY-PODCASTS.md](docs/SPOTIFY-PODCASTS.md) | **Curated Spotify listening list:** 20 episodes/shows covering ITAD, data sanitisation, reuse/refurbishment, repair economics, Good360/digital inclusion, circular jobs and downstream e-waste processing |

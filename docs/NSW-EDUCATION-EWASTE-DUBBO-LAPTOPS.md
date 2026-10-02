@@ -4,6 +4,8 @@
 **Scope:** NSW Department of Education public schools in Dubbo/Orana, not private or independent schools.  
 **Status:** detailed public-source trace. The current contracted vendor and physical downstream facility for Dubbo-collected school laptops remain unpublished.
 
+**2 October 2026 qualification:** the operational guide's school-wiping wording differs from the current policy's pre-disposal wiping requirement. Confirm the applicable preparation steps with Education's Digital Field/EDConnect team; the guide is not authority to override policy or release unwiped equipment. A later open of the guide URL redirected to Technology for Learning, so its current location/applicability also needs confirmation. See the [prospect research](DUBBO-DEVICE-DISPOSAL-PROSPECTS.md) and evidence `EVD-DISPOSAL-023`–`024` in [data/evidence.yaml](../data/evidence.yaml).
+
 ---
 
 ## Executive answer
@@ -18,7 +20,7 @@ The current public workflow is:
 
 Two important things follow:
 
-1. **The school itself is no longer required to wipe/destroy hard drives under the operational eWaste application guide.** The vendor performs final hard-drive sanitisation and provides evidence.
+1. **The operational guide assigns final hard-drive sanitisation and evidence to the vendor, while saying schools need not perform hard-drive wiping/destruction.** The current policy also requires pre-disposal wiping. The applicable school preparation steps therefore need Department confirmation; do not infer permission to release unwiped equipment.
 2. **The public documents do not prove that every collected laptop is destroyed.** NSW Government's current end-user-device contract allows reuse by sale/donation, reinsertion into supply chains, or recycling. But no public source currently proves which outcome is applied to Dubbo public-school laptops under the dedicated Education contract.
 
 So the most important missing link is:
@@ -115,10 +117,7 @@ Says:
 
 for the school, while the **vendor** must sanitise all collected hard drives and provide a certificate.
 
-The safest interpretation is:
-
-- the school remains accountable for authorised decommissioning and proper handling of Department configuration/data
-- the final storage-media sanitisation/destruction step in the dedicated eWaste service has shifted to the contracted vendor.
+The guide describes vendor sanitisation, but the public wording does not resolve which preparation steps the school must complete under the current policy. Confirm these with Education's Digital Field/EDConnect team before collection. The school remains accountable for authorised decommissioning and Department configuration/data handling.
 
 Do **not** interpret the operational guide as meaning schools can casually hand untracked equipment to anyone.
 
@@ -516,7 +515,7 @@ A formal GIPA request may involve the statutory application fee and processing r
 - Schools inventory equipment and coordinate collection.
 - The vendor creates cost-efficient collection schedules.
 - Quantity estimates are used to arrange the right team/truck.
-- School-side hard-drive wiping/destruction is no longer required under the operational guide.
+- The operational guide says school-side hard-drive wiping/destruction is no longer required, but its applicability and relationship to the current policy's pre-disposal wiping rule require Department clarification (`EVD-DISPOSAL-023`–`024`).
 - Vendor sanitises all collected hard drives.
 - Vendor provides sanitisation certificate.
 - Vendor provides settlement report.

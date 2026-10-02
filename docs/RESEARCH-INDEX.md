@@ -28,6 +28,7 @@ The `RESEARCH-01` through `RESEARCH-16` files are the systematic current researc
 
 ## Consolidated and comparative research
 
+- [DUBBO-DEVICE-DISPOSAL-PROSPECTS.md](DUBBO-DEVICE-DISPOSAL-PROSPECTS.md) traces retired-device arrangements for 14 Dubbo prospects, with a [qualification tracker](dubbo-device-disposal-prospects.csv) and [source/retrieval register](DUBBO-DEVICE-DISPOSAL-SOURCES.md). Unknown local incumbents and historical suppliers are explicitly distinguished.
 - [PODCASTS-CONSOLIDATED.md](PODCASTS-CONSOLIDATED.md) is the canonical navigation for overlapping podcast files.
 - [REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md](REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md) compares reuse models.
 - [EXISTING-AUSTRALIAN-EWASTE-ORGS-DUBBO-EXPANSION.md](EXISTING-AUSTRALIAN-EWASTE-ORGS-DUBBO-EXPANSION.md) covers potential partners.
