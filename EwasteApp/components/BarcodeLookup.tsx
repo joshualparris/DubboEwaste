@@ -184,6 +184,10 @@ export function BarcodeLookup({
       setCameraOpen(true);
       setOpeningCamera(false);
 
+      await new Promise<void>((resolve) => {
+        window.requestAnimationFrame(() => resolve());
+      });
+
       const video = videoRef.current;
       if (!video) {
         stopCamera();
