@@ -16,6 +16,7 @@ Use this page to find the current authority first. The repository deliberately r
 |---|---|
 | Front-door decision | [RESEARCH-01-FRONT-DOOR-TRIAGE.md](RESEARCH-01-FRONT-DOOR-TRIAGE.md), [triage-matrix.csv](triage-matrix.csv), [TRIAGE-COMPETENCY-CHECKLIST.md](TRIAGE-COMPETENCY-CHECKLIST.md) |
 | Bench work | [bench-test-sheet.md](bench-test-sheet.md), [RESEARCH-03-COMPETITOR-OPERATING-MECHANICS.md](RESEARCH-03-COMPETITOR-OPERATING-MECHANICS.md), [RESEARCH-06-BATTERY-ELECTRICAL-WORKSHOP-SAFETY.md](RESEARCH-06-BATTERY-ELECTRICAL-WORKSHOP-SAFETY.md) |
+| Shed zones / physical flow | [BENCH-SOP-AND-LAYOUT.md](BENCH-SOP-AND-LAYOUT.md), [EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md](EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md), [RESEARCH-12-PREMISES-PHYSICAL-FLOW-CAPACITY.md](RESEARCH-12-PREMISES-PHYSICAL-FLOW-CAPACITY.md) |
 | Intake/data records | [INTAKE-POLICY.md](INTAKE-POLICY.md), [RESEARCH-05-DATA-IDENTITY-PRIVACY-SOP.md](RESEARCH-05-DATA-IDENTITY-PRIVACY-SOP.md), [templates/](../templates/) |
 | Resale | [LISTING-WARRANTY-CHECKLIST.md](LISTING-WARRANTY-CHECKLIST.md), [RESEARCH-04-RESALE-PRICING-CHANNELS-RETURNS.md](RESEARCH-04-RESALE-PRICING-CHANNELS-RETURNS.md), [RESEARCH-15-TRUST-MARKETING-PILOT-CLOSURE.md](RESEARCH-15-TRUST-MARKETING-PILOT-CLOSURE.md) |
 | Pilot economics | [pilot-tracker.csv](../pilot-tracker.csv), [RESEARCH-13-FINANCE-TIME-UNIT-ECONOMICS.md](RESEARCH-13-FINANCE-TIME-UNIT-ECONOMICS.md), [RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md](RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md) |
@@ -26,11 +27,13 @@ Use this page to find the current authority first. The repository deliberately r
 
 The `RESEARCH-01` through `RESEARCH-16` files are the systematic current research series. Start with the index above, then use the individual report for claim-level evidence and open questions.
 
+The [facility-zone benchmark](EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md) is a 5 October 2026 focused extension to the premises/competitor research rather than a renumbering of the established 01–16 series.
+
 ## Consolidated and comparative research
 
+- [EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md](EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md) benchmarks the physical/security flow described by Bendigo E-Waste, FlipTech, WorkVentures, EraseIT, Greenbox, Sircel, CompNow/SustainIT, PonyUp, Reconnect and Close the Loop, then converts those controls into a small Phase 0 back-shed topology, WIP caps and AssetFlow locations.
 - [NATIONAL-ITAD-OPERATORS-DUBBO-COVERAGE.md](NATIONAL-ITAD-OPERATORS-DUBBO-COVERAGE.md) updates the four-company comparison: Greenbox/EraseIT ownership, supported scale, retired-device processes and Dubbo service evidence.
 - [DUBBO-INDEPENDENT-DEVICE-RECOVERY-OPERATORS.md](DUBBO-INDEPENDENT-DEVICE-RECOVERY-OPERATORS.md) identifies public local business operators and separates recycling, repair, refurbishment and historical collection. The reported backyard identities remain unresolved; see the [lead tracker](dubbo-independent-device-recovery-leads.csv).
-
 - [DUBBO-DEVICE-DISPOSAL-PROSPECTS.md](DUBBO-DEVICE-DISPOSAL-PROSPECTS.md) traces retired-device arrangements for 14 Dubbo prospects, with a [qualification tracker](dubbo-device-disposal-prospects.csv) and [source/retrieval register](DUBBO-DEVICE-DISPOSAL-SOURCES.md). Unknown local incumbents and historical suppliers are explicitly distinguished.
 - [PODCASTS-CONSOLIDATED.md](PODCASTS-CONSOLIDATED.md) is the canonical navigation for overlapping podcast files.
 - [REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md](REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md) compares reuse models.
