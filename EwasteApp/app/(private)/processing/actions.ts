@@ -549,6 +549,158 @@ export async function createDefectTemplate(formData: FormData) {
   revalidatePath("/processing");
 }
 
+
+export async function updateWorkflowRule(formData: FormData) {
+  const parsed = z.object({
+    rule_id: z.string().uuid(),
+    name: z.string().trim().min(2).max(160),
+    priority: z.preprocess((v) => Number(v), z.number().int()),
+    conditions: z.string().trim().min(2),
+    action: z.string().trim().min(2),
+  }).safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/processing?error=Invalid%20workflow%20rule%20update");
+
+  let conditions: unknown;
+  let action: unknown;
+  try {
+    conditions = JSON.parse(parsed.data.conditions);
+    action = JSON.parse(parsed.data.action);
+  } catch {
+    redirect("/processing?error=Workflow%20conditions%20and%20action%20must%20be%20valid%20JSON");
+  }
+
+  const { supabase, user } = await currentUser();
+  const enabled = formData.get("enabled") === "on";
+  const { error } = await supabase.from("workflow_rules").update({
+    name: parsed.data.name,
+    priority: parsed.data.priority,
+    conditions,
+    action,
+    enabled,
+  }).eq("id", parsed.data.rule_id);
+
+  if (error) redirect("/processing?error=" + encodeURIComponent(error.message));
+
+  await supabase.from("operational_events").insert({
+    entity_type: "workflow_rule",
+    entity_id: parsed.data.rule_id,
+    event_type: "WORKFLOW_RULE_UPDATED",
+    actor_id: user.id,
+    details: { name: parsed.data.name, priority: parsed.data.priority, enabled },
+  });
+
+  revalidatePath("/processing");
+  redirect("/processing?success=Workflow%20rule%20updated");
+}
+
+export async function deleteWorkflowRule(formData: FormData) {
+  const parsed = z.object({ rule_id: z.string().uuid() }).safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/processing?error=Invalid%20workflow%20rule");
+
+  const { supabase } = await currentUser();
+  const { error } = await supabase.from("workflow_rules").delete().eq("id", parsed.data.rule_id);
+  if (error) redirect("/processing?error=" + encodeURIComponent(error.message));
+
+  revalidatePath("/processing");
+  redirect("/processing?success=Workflow%20rule%20deleted");
+}
+
+export async function updateWorkstation(formData: FormData) {
+  const parsed = z.object({
+    workstation_id: z.string().uuid(),
+    name: z.string().trim().min(2).max(160),
+    profile_type: z.enum(["RECEIVING","WIPE","DIAGNOSTICS","REPAIR","GRADING","PARTS","OTHER"]),
+    location_id: optionalUuid,
+  }).safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/processing?error=Invalid%20workstation%20update");
+
+  const { supabase, user } = await currentUser();
+  const active = formData.get("active") === "on";
+  const { error } = await supabase.from("workstations").update({
+    name: parsed.data.name,
+    profile_type: parsed.data.profile_type,
+    location_id: parsed.data.location_id || null,
+    active,
+  }).eq("id", parsed.data.workstation_id);
+
+  if (error) redirect("/processing?error=" + encodeURIComponent(error.message));
+
+  await supabase.from("operational_events").insert({
+    entity_type: "workstation",
+    entity_id: parsed.data.workstation_id,
+    event_type: "WORKSTATION_UPDATED",
+    actor_id: user.id,
+    details: { name: parsed.data.name, profile_type: parsed.data.profile_type, active },
+  });
+
+  revalidatePath("/processing");
+  redirect("/processing?success=Workstation%20updated");
+}
+
+export async function deleteWorkstation(formData: FormData) {
+  const parsed = z.object({ workstation_id: z.string().uuid() }).safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/processing?error=Invalid%20workstation");
+
+  const { supabase } = await currentUser();
+  const { error } = await supabase.from("workstations").delete().eq("id", parsed.data.workstation_id);
+  if (error) redirect("/processing?error=" + encodeURIComponent(error.message));
+
+  revalidatePath("/processing");
+  redirect("/processing?success=Workstation%20deleted");
+}
+
+export async function updateDefectTemplate(formData: FormData) {
+  const parsed = z.object({
+    template_id: z.string().uuid(),
+    name: z.string().trim().min(2).max(160),
+    category: z.string().trim().max(80).optional(),
+    severity: z.enum(["COSMETIC","MINOR","MAJOR","CRITICAL"]),
+    grade_penalty: z.preprocess((v) => v === "" ? 0 : Number(v), z.number().int().nonnegative()),
+    value_penalty_fixed: z.preprocess((v) => v === "" ? 0 : Number(v), z.number().nonnegative()),
+    value_penalty_percent: z.preprocess((v) => v === "" ? 0 : Number(v), z.number().min(0).max(100)),
+    route_override: z.string().trim().max(80).optional(),
+  }).safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/processing?error=Check%20defect%20template%20fields");
+
+  const { supabase, user } = await currentUser();
+  const active = formData.get("active") === "on";
+  const { error } = await supabase.from("defect_templates").update({
+    name: parsed.data.name,
+    category: parsed.data.category || null,
+    severity: parsed.data.severity,
+    grade_penalty: parsed.data.grade_penalty,
+    value_penalty_fixed: parsed.data.value_penalty_fixed,
+    value_penalty_percent: parsed.data.value_penalty_percent,
+    route_override: parsed.data.route_override || null,
+    active,
+  }).eq("id", parsed.data.template_id);
+
+  if (error) redirect("/processing?error=" + encodeURIComponent(error.message));
+
+  await supabase.from("operational_events").insert({
+    entity_type: "defect_template",
+    entity_id: parsed.data.template_id,
+    event_type: "DEFECT_TEMPLATE_UPDATED",
+    actor_id: user.id,
+    details: { name: parsed.data.name, severity: parsed.data.severity, active },
+  });
+
+  revalidatePath("/processing");
+  redirect("/processing?success=Defect%20template%20updated");
+}
+
+export async function deleteDefectTemplate(formData: FormData) {
+  const parsed = z.object({ template_id: z.string().uuid() }).safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/processing?error=Invalid%20defect%20template");
+
+  const { supabase } = await currentUser();
+  const { error } = await supabase.from("defect_templates").delete().eq("id", parsed.data.template_id);
+  if (error) redirect("/processing?error=" + encodeURIComponent(error.message));
+
+  revalidatePath("/processing");
+  redirect("/processing?success=Defect%20template%20deleted");
+}
+
 export async function applyDefect(formData: FormData) {
   const parsed = z.object({
     asset_id: z.string().uuid(),
