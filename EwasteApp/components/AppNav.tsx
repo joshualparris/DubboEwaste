@@ -11,6 +11,7 @@ export function AppNav({ fullName, role }: { fullName: string | null; role: stri
       <Link href="/lots">Lots</Link>
       <Link href="/assets">Assets</Link>
       <Link href="/assets/new">Receive</Link>
+      <Link href="/triage">Triage</Link>
       <Link href="/processing">Processing</Link>
       <Link href="/media">Sanitisation</Link>
       <Link href="/repairs">Repairs</Link>
@@ -22,6 +23,7 @@ export function AppNav({ fullName, role }: { fullName: string | null; role: stri
       <Link href="/reports">Reports</Link>
       <Link href="/customers">Customers</Link>
       <Link href="/crm">CRM</Link>
+      <Link href="/crm/opportunities">Pipeline</Link>
       <Link href="/crm/quotes">Quotes</Link>
       <Link href="/locations">Locations</Link>
       <Link href="/documents">Documents</Link>
