@@ -245,6 +245,10 @@ export async function GET(request: NextRequest) {
   }
 
   const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) {
+    return NextResponse.json({ error: "Sign in to use barcode lookup." }, { status: 401 });
+  }
 
   const assetIdFromUrl = parseAssetUrl(raw);
   if (assetIdFromUrl) {
