@@ -10,7 +10,7 @@ const actorColumn: Record<string, string> = {
   asset_defects: "created_by",
   asset_tests: "created_by",
   assets: "created_by",
-  customers: "created_by",
+  customers: "created_by",\n  crm_opportunities: "created_by",
   defect_templates: "created_by",
   dispositions: "decided_by",
   downstream_vendors: "created_by",
