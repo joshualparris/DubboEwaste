@@ -101,7 +101,16 @@ Acceptance gate: a staff member can create a lead, record a contact, issue a ver
 ## Category 3 — device management and triage
 
 - `[x]` Triage, lithium/physical/lock evidence and route decisions — guided deterministic triage is live and can save an asset assessment.
-- `[~]` Model lookup and support catalogue.
+- `[x]` Multi-source model/device lookup foundation — local verified catalogue plus ranked public-source lookup with provider provenance and graceful provider failure.
+- `[x]` Google Play supported-device catalogue adapter — marketing name, device codename and model code lookup from the public Google CSV.
+- `[x]` FCC Equipment Authorization adapter — explicit FCC ID lookup through the FCC OET Laboratory API.
+- `[x]` PCI ID Repository adapter — explicit PCI vendor/device lookup for components.
+- `[x]` USB ID Repository adapter — explicit USB VID/PID lookup for peripherals/components.
+- `[x]` LVFS/fwupd metadata adapter — explicit LVFS/GUID lookup for firmware-supported hardware evidence.
+- `[x]` Lenovo PSREF adapter — official PSREF product-page resolution for Lenovo model-family verification.
+- `[~]` Open Icecat adapter — GTIN and explicit brand+MPN lookup is implemented; a dedicated free Open Icecat username should be configured for sustained production use and coverage remains limited to Open Icecat brands.
+- `[~]` Rich Google Play device-spec import — public device identity lookup is live; richer RAM/SoC/GPU/display/SDK columns require a Play Console device-catalog export.
+- `[~]` Model lookup and support catalogue — device identity coverage is now broad; deeper vendor-specific specifications and lifecycle/support enrichment remain ongoing. See [ASSETFLOW-DEVICE-DATA-SOURCES.md](ASSETFLOW-DEVICE-DATA-SOURCES.md).
 - `[x]` Asset, media, QR/barcode and audit history foundations.
 - `[x]` Functional, cosmetic, battery, completeness and marketability grade records.
 - `[ ]` Guided category-specific triage wizard for laptops, phones, tablets, Chromebooks, TVs, monitors, networking and printers.
