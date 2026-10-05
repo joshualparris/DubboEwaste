@@ -7,6 +7,82 @@ import { createClient } from "@/lib/supabase/server";
 
 const statuses = ["DRAFT","SCHEDULED","DELIVERED","PARTIALLY_RECEIVED","RECEIVED","PROCESSING","READY_TO_CLOSE","CLOSED","CANCELLED"] as const;
 
+const optionalUuid = z.preprocess(
+  (value) => value === "" || value == null ? undefined : value,
+  z.string().uuid().optional(),
+);
+
+export async function updateJobDetails(formData: FormData) {
+  const parsed = z.object({
+    job_id: z.string().uuid(),
+    customer_id: optionalUuid,
+    source_site: z.string().trim().max(200).optional(),
+    contact_name: z.string().trim().max(160).optional(),
+    expected_asset_count: z.preprocess(
+      (value) => value === "" ? undefined : Number(value),
+      z.number().int().nonnegative().optional(),
+    ),
+    expected_weight_kg: z.preprocess(
+      (value) => value === "" ? undefined : Number(value),
+      z.number().nonnegative().optional(),
+    ),
+    work_instructions: z.string().trim().max(6000).optional(),
+  }).safeParse(Object.fromEntries(formData));
+
+  if (!parsed.success) {
+    const jobId = String(formData.get("job_id") ?? "");
+    redirect("/jobs/" + jobId + "/edit?error=Please%20check%20the%20job%20fields");
+  }
+
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) redirect("/login");
+
+  const { data: current } = await supabase
+    .from("jobs")
+    .select("customer_id,source_site,contact_name,expected_asset_count,expected_weight_kg,work_instructions")
+    .eq("id", parsed.data.job_id)
+    .single();
+
+  if (!current) redirect("/jobs");
+
+  const update = {
+    customer_id: parsed.data.customer_id || null,
+    source_site: parsed.data.source_site || null,
+    contact_name: parsed.data.contact_name || null,
+    expected_asset_count: parsed.data.expected_asset_count ?? null,
+    expected_weight_kg: parsed.data.expected_weight_kg ?? null,
+    work_instructions: parsed.data.work_instructions || null,
+  };
+
+  const { error } = await supabase
+    .from("jobs")
+    .update(update)
+    .eq("id", parsed.data.job_id);
+
+  if (error) {
+    redirect("/jobs/" + parsed.data.job_id + "/edit?error=" + encodeURIComponent(error.message));
+  }
+
+  const changed = Object.fromEntries(
+    Object.entries(update).filter(([key, value]) => current[key as keyof typeof current] !== value),
+  );
+
+  await supabase.from("operational_events").insert({
+    entity_type: "job",
+    entity_id: parsed.data.job_id,
+    event_type: "JOB_DETAILS_UPDATED",
+    actor_id: user.id,
+    details: { changed },
+  });
+
+  revalidatePath("/jobs");
+  revalidatePath("/jobs/" + parsed.data.job_id);
+  revalidatePath("/jobs/" + parsed.data.job_id + "/edit");
+  revalidatePath("/dashboard");
+  redirect("/jobs/" + parsed.data.job_id + "?success=Job%20details%20updated");
+}
+
 export async function updateJobLifecycle(formData: FormData) {
   const parsed = z.object({
     job_id: z.string().uuid(),
