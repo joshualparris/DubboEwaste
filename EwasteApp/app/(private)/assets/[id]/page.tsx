@@ -48,7 +48,26 @@ export default async function AssetPage({ params, searchParams }: { params: Prom
       <section className="card"><h2>Intake state</h2><p><strong>Category:</strong> {a.category}</p><p><strong>Serial / IMEI:</strong> {a.serial_imei||"—"}</p><p><strong>Ownership verified:</strong> {a.ownership_verified?"Yes":"No"}</p><p><strong>Data state:</strong> {a.data_state}</p><p><strong>Initial route:</strong> {a.initial_route||"—"}</p><p><strong>Grade:</strong> {latestGrade?.final_grade||"Not graded"}</p></section>
     </div>
 
-    <section className="card"><h2>Evidence / photos</h2><EvidenceUpload entityType="asset" entityId={a.id} /><div className="result-list">{(evidence??[]).map((e:any)=><a className="result-row" href={"/api/evidence/"+e.id+"/download"} key={e.id}><strong>{e.filename}</strong><span>{e.evidence_type} · SHA-256 {e.sha256?.slice(0,16)||"—"}… · {new Date(e.captured_at).toLocaleString("en-AU")}</span></a>)}</div></section>
+    <section className="card">
+      <h2>Evidence / photos</h2>
+      <EvidenceUpload entityType="asset" entityId={a.id} />
+      {!(evidence??[]).length ? <p className="muted">No evidence or photos attached yet.</p> : (
+        <>
+          <div className="evidence-gallery">
+            {(evidence??[]).filter((e:any) => /^image\//i.test(e.mime_type||"") || /\.(?:jpe?g|png|gif|webp|heic|heif)$/i.test(e.filename||"")).map((e:any) => {
+              const href = "/api/evidence/" + e.id + "/download";
+              return <a className="evidence-thumb" href={href} target="_blank" rel="noreferrer" key={e.id} title={"Open " + e.filename + " full size"}>
+                <img src={href} alt={e.filename || "Asset evidence photo"} loading="lazy" />
+                <span><strong>{e.filename}</strong><small>{new Date(e.captured_at).toLocaleString("en-AU")}</small></span>
+              </a>;
+            })}
+          </div>
+          <div className="result-list evidence-files">
+            {(evidence??[]).filter((e:any) => !(/^image\//i.test(e.mime_type||"") || /\.(?:jpe?g|png|gif|webp|heic|heif)$/i.test(e.filename||""))).map((e:any)=><a className="result-row" href={"/api/evidence/"+e.id+"/download"} target="_blank" rel="noreferrer" key={e.id}><strong>{e.filename}</strong><span>{e.evidence_type} · SHA-256 {e.sha256?.slice(0,16)||"—"}… · {new Date(e.captured_at).toLocaleString("en-AU")}</span></a>)}
+          </div>
+        </>
+      )}
+    </section>
 
     <div className="grid">
       <form action={addAssetAttribute} className="card form"><h2>Dynamic attribute</h2><input type="hidden" name="asset_id" value={a.id}/><label>Key<input name="attribute_key" required placeholder="RAM"/></label><label>Value<input name="attribute_value" placeholder="16 GB"/></label><button className="button secondary">Save attribute</button></form>
