@@ -1,6 +1,6 @@
 # Bench SOP and Physical Workflow
 
-**Benchmark reference:** [EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md](EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md) compares Bendigo E-Waste, FlipTech, WorkVentures, EraseIT, Greenbox, Sircel, CompNow/SustainIT, PonyUp, Reconnect and Close the Loop, plus R2/SERI, ANZRP and NSW safety guidance. The zones below are the canonical Phase 0 workflow; the exact shed wall/shelf map still requires a measured private site plan.
+**Actual shed placement:** [SHED-ZONE-PLAN.md](SHED-ZONE-PLAN.md) maps these controls onto the photographed Phase 0 shed without publishing the private site photographs.\n\n**Benchmark reference:** [EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md](EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md) compares Bendigo E-Waste, FlipTech, WorkVentures, EraseIT, Greenbox, Sircel, CompNow/SustainIT, PonyUp, Reconnect and Close the Loop, plus R2/SERI, ANZRP and NSW safety guidance. The zones below are the canonical Phase 0 workflow; the exact shed wall/shelf map still requires a measured private site plan.
 
 ## Zones
 
