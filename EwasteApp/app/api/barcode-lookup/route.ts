@@ -104,6 +104,46 @@ async function safeLookup(
   }
 }
 
+async function lookupIcecat(code: string): Promise<ProductMatch[]> {
+  const url = new URL("https://live.icecat.biz/api/");
+  url.searchParams.set("UserName", process.env.ICECAT_USERNAME || "openIcecat-live");
+  url.searchParams.set("Language", "en");
+  url.searchParams.set("GTIN", code);
+
+  const response = await fetch(url, {
+    headers: {
+      Accept: "application/json",
+      "User-Agent": "DubboEwaste AssetFlow/0.1",
+    },
+    next: { revalidate: 86400 },
+  });
+  if (!response.ok) return [];
+
+  const body = (await response.json()) as any;
+  const info = body?.data?.GeneralInfo;
+  if (!info) return [];
+
+  const manufacturer =
+    info?.Brand || info?.BrandInfo?.BrandName || info?.BrandInfo?.Brand || "Unknown";
+  const title =
+    info?.ProductName ||
+    info?.TitleInfo?.GeneratedIntTitle ||
+    info?.TitleInfo?.BrandLocalTitle?.Value ||
+    "";
+  const partCode = info?.BrandPartCode || info?.BrandProductCode || "";
+  if (!title && !partCode) return [];
+
+  return [{
+    manufacturer,
+    model_name: stripBrand(title || partCode, manufacturer),
+    category: categoryFromText(`${title} ${info?.Category?.Name?.Value ?? ""}`),
+    source: "Open Icecat",
+    source_url: "https://icecat.com/content-subscription/",
+    barcode: code,
+    confidence: "EXACT BARCODE",
+  }];
+}
+
 async function lookupOpenProductsFacts(code: string): Promise<ProductMatch[]> {
   const url = new URL(`https://world.openfoodfacts.org/api/v3/product/${encodeURIComponent(code)}`);
   url.searchParams.set("product_type", "all");
@@ -329,16 +369,17 @@ export async function GET(request: NextRequest) {
     });
   }
 
-  const [openFacts, wikidata] = await Promise.all([
+  const [icecat, openFacts, wikidata] = await Promise.all([
+    safeLookup("Open Icecat", () => lookupIcecat(code)),
     safeLookup("Open Products Facts", () => lookupOpenProductsFacts(code)),
     safeLookup("Wikidata GTIN", () => lookupWikidataGtin(code)),
   ]);
 
   let upcItemDb: ProductMatch[] = [];
-  if (!openFacts.length) {
+  if (!icecat.length && !openFacts.length) {
     upcItemDb = await safeLookup("UPCitemdb", () => lookupUpcItemDb(code));
   }
-  const products = [...openFacts, ...upcItemDb, ...wikidata];
+  const products = [...icecat, ...openFacts, ...upcItemDb, ...wikidata];
   const seen = new Set<string>();
   const uniqueProducts = products.filter((product) => {
     const key = productKey(product);
@@ -355,6 +396,7 @@ export async function GET(request: NextRequest) {
       products: [],
       providers_checked: [
         "DubboEwaste catalogue",
+        "Open Icecat",
         "Open Products Facts",
         "UPCitemdb",
         "Wikidata GTIN",
@@ -370,8 +412,9 @@ export async function GET(request: NextRequest) {
     products: uniqueProducts,
     providers_checked: [
       "DubboEwaste catalogue",
+      "Open Icecat",
       "Open Products Facts",
-      ...(openFacts.length ? [] : ["UPCitemdb"]),
+      ...(icecat.length || openFacts.length ? [] : ["UPCitemdb"]),
       "Wikidata GTIN",
     ],
   });
