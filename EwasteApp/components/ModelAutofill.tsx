@@ -99,7 +99,7 @@ export function ModelAutofill({ models }: { models: ModelRecord[] }) {
     if (!value) return models.slice(0, 8).map((model) => ({ model, score: 0, method: "text" as const }));
     return models
       .map((model) => ({ model, ...scoreModel(model, value) }))
-      .filter(({ score }) => score >= 35)
+      .filter(({ score }) => score >= 55)
       .sort((a, b) => b.score - a.score)
       .slice(0, 8);
   }, [lookup, models]);
@@ -197,9 +197,11 @@ export function ModelAutofill({ models }: { models: ModelRecord[] }) {
                     ? "Exact local model"
                     : method === "alias"
                       ? "Known local alias / identifier"
-                      : method === "live"
-                        ? `Live ${model.external_source ?? "public catalogue"} result`
-                        : "Local text candidate"}
+                      : method === "live" && model.external_source === "Entered model text"
+                        ? "Use exact text entered · not externally verified"
+                        : method === "live"
+                          ? `Live ${model.external_source ?? "public catalogue"} result`
+                          : "Local text candidate"}
                   {" · "}{model.category}{" · "}{model.confidence}
                 </span>
               </button>
@@ -219,7 +221,9 @@ export function ModelAutofill({ models }: { models: ModelRecord[] }) {
               Source: {selected.external_source ?? "DubboEwaste catalogue"} · checked {selected.source_checked} · {selected.confidence}
             </span>
             <small>{selected.support_summary}</small>
-            <a href={selected.source_url} target="_blank" rel="noreferrer">Open supporting source ↗</a>
+            {selected.source_url ? (
+              <a href={selected.source_url} target="_blank" rel="noreferrer">Open supporting source ↗</a>
+            ) : null}
           </div>
         ) : null}
       </div>
