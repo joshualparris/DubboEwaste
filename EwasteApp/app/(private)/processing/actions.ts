@@ -483,14 +483,16 @@ export async function createWorkflowRule(formData: FormData) {
     redirect("/processing?error=Workflow%20conditions%20and%20action%20must%20be%20valid%20JSON");
   }
   const { supabase, user } = await currentUser();
-  await supabase.from("workflow_rules").insert({
+  const { error } = await supabase.from("workflow_rules").insert({
     name: parsed.data.name,
     priority: parsed.data.priority,
     conditions,
     action,
     created_by: user.id,
   });
+  if (error) redirect("/processing?error=" + encodeURIComponent(error.message));
   revalidatePath("/processing");
+  redirect("/processing?success=Workflow%20rule%20saved");
 }
 
 export async function createWorkstation(formData: FormData) {
@@ -501,13 +503,15 @@ export async function createWorkstation(formData: FormData) {
   }).safeParse(Object.fromEntries(formData));
   if (!parsed.success) redirect("/processing?error=Invalid%20workstation");
   const { supabase, user } = await currentUser();
-  await supabase.from("workstations").insert({
+  const { error } = await supabase.from("workstations").insert({
     name: parsed.data.name,
     profile_type: parsed.data.profile_type,
     location_id: parsed.data.location_id || null,
     created_by: user.id,
   });
+  if (error) redirect("/processing?error=" + encodeURIComponent(error.message));
   revalidatePath("/processing");
+  redirect("/processing?success=Workstation%20saved");
 }
 
 export async function createEnvironmentalMethodology(formData: FormData) {
