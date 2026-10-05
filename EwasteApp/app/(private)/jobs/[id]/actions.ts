@@ -73,8 +73,8 @@ export async function deleteJob(formData: FormData) {
   if (!user) redirect("/login");
 
   const { data: profile } = await supabase.from("profiles").select("role,active").eq("id", user.id).single();
-  if (!profile?.active || !["admin","manager"].includes(profile.role)) {
-    redirect("/jobs/" + parsed.data.job_id + "?error=Only%20admins%20or%20managers%20can%20delete%20jobs");
+  if (!profile?.active || profile.role !== "admin") {
+    redirect("/jobs/" + parsed.data.job_id + "?error=Only%20admins%20can%20delete%20jobs");
   }
 
   const [
