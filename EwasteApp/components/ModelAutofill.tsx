@@ -156,7 +156,7 @@ export function ModelAutofill({ models }: { models: ModelRecord[] }) {
         </label>
 
         <p className="muted small">
-          Searches the DubboEwaste verified catalogue first, then the free Wikidata device database.
+          Searches the DubboEwaste verified catalogue first, then multiple free public device sources including Wikidata and Wikipedia.
         </p>
 
         {lookup && !selected ? (
@@ -174,15 +174,15 @@ export function ModelAutofill({ models }: { models: ModelRecord[] }) {
                     : method === "alias"
                       ? "Known local alias / identifier"
                       : method === "live"
-                        ? "Live Wikidata result"
+                        ? `Live ${model.external_source ?? "public catalogue"} result`
                         : "Local text candidate"}
                   {" · "}{model.category}{" · "}{model.confidence}
                 </span>
               </button>
             ))}
-            {liveLoading ? <p className="muted small">Searching Wikidata…</p> : null}
+            {liveLoading ? <p className="muted small">Searching public device databases…</p> : null}
             {!liveLoading && !matches.length && !liveError ? (
-              <p className="muted small">No model found locally or in Wikidata. Enter the manufacturer and exact model manually.</p>
+              <p className="muted small">No model found in the local or public catalogues. Enter the manufacturer and exact model manually.</p>
             ) : null}
             {liveError ? <p className="error small">{liveError}</p> : null}
           </div>
