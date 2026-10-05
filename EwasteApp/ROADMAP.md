@@ -71,6 +71,7 @@ The detailed long-range platform backlog remains in [docs/ASSETFLOW-PLATFORM-BAC
 - [x] printable / PDF-ready client quote layout
 - [x] quote-to-job conversion
 - [x] job lifecycle updates
+- [x] safe deletion of empty/test jobs; jobs with operational history are cancelled instead
 - [x] resale listings and sales
 - [x] returns/RMA
 - [x] recall/audit traceability through customer → job → asset → sale records
