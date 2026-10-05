@@ -63,7 +63,7 @@ RLS is mandatory even when UI navigation also hides restricted functions.
 - downstream dispositions
 - documents / generated certificates
 - recalls
-- settings / policy versions
+- settings / policy versions\n- editable operations library (repo-seeded documents with private working overrides)
 
 ## Security rules
 
