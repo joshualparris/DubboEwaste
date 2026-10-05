@@ -87,8 +87,8 @@ This section captures the wider set of useful work an AI coding/research agent c
 - [x] Add a pilot-analysis tool for time, margin, sell-through, rejection and route metrics.
 - [x] Add a public-safety/redaction checker for reports and exports.
 - [x] Add synthetic examples so the tools can be exercised without personal data or real device identifiers.
-- [ ] Convert the intake tool into a local browser form with barcode/QR asset IDs and photo attachments.
-- [ ] Replace the MVP demo login and `localStorage` with managed authentication, server-side permissions, encrypted private storage, audit logging and backups.
+- [x] Convert the intake tool into the production browser app with guided triage, QR asset IDs and private evidence/photo attachments.
+- [x] Replace the MVP demo login/local storage model with Supabase Auth, server-side/RLS permissions, private Storage evidence, audit logging and the production database.
 - [ ] Test a physical diagnostic/sanitisation USB kit on representative equipment.
 - [ ] Perform real backup/restore and retention testing with the operator's chosen storage system.
 
