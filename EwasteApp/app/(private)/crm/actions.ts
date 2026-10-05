@@ -6,7 +6,7 @@ import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 
 function crmRedirect(key: "error" | "success", message: string): never {
-  redirect(\`/crm?\${key}=\${encodeURIComponent(message)}\`);
+  redirect("/crm?" + key + "=" + encodeURIComponent(message));
 }
 
 async function currentUser() {
@@ -36,7 +36,7 @@ export async function convertLeadToCustomer(formData: FormData) {
     contact_name: lead.organisation ? lead.name : null,
     contact_email: lead.email || null,
     contact_phone: lead.phone || null,
-    notes: [\`Converted from CRM lead \${lead.id}.\`, lead.notes || ""].filter(Boolean).join("\\n\\n"),
+    notes: ["Converted from CRM lead " + lead.id + ".", lead.notes || ""].filter(Boolean).join("\n\n"),
     created_by: user.id,
   }).select("id").single();
 
@@ -52,7 +52,7 @@ export async function convertLeadToCustomer(formData: FormData) {
   await supabase.from("crm_activities").insert({
     lead_id: lead.id,
     activity_type: "NOTE",
-    summary: \`Converted to customer: \${customerName}\`,
+    summary: "Converted to customer: " + customerName,
     created_by: user.id,
   });
 
@@ -87,12 +87,14 @@ export async function updateLeadFollowUp(formData: FormData) {
 
   if (error) crmRedirect("error", error.message);
 
+  const summary = parsed.data.next_action
+    ? "Follow-up set: " + parsed.data.next_action + (parsed.data.next_action_at ? " due " + parsed.data.next_action_at : "")
+    : "Follow-up cleared";
+
   await supabase.from("crm_activities").insert({
     lead_id: parsed.data.lead_id,
     activity_type: "NOTE",
-    summary: parsed.data.next_action
-      ? \`Follow-up set: \${parsed.data.next_action}\${parsed.data.next_action_at ? \` due \${parsed.data.next_action_at}\` : ""}\`
-      : "Follow-up cleared",
+    summary,
     created_by: user.id,
   });
 
