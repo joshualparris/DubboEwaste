@@ -11,12 +11,55 @@ type WikidataSearchResponse = {
 };
 
 const DEVICE_WORDS =
-  /smartphone|mobile phone|cell phone|tablet|laptop|notebook|chromebook|personal computer|desktop computer|workstation|computer model|electronic device|router|wireless access point|network switch|monitor|display|printer|iphone|macbook/i;
+  /smartphone|mobile phone|cell phone|tablet|laptop|notebook|chromebook|personal computer|desktop computer|workstation|computer model|electronic device|router|wireless access point|network switch|monitor|display|printer|iphone|ipad|imac|macbook|latitude|thinkpad|elitebook|probook|surface|galaxy|pixel|optiplex|precision/i;
 
 const BRANDS = [
   "Apple", "Samsung", "Google", "Dell", "Lenovo", "HP", "Hewlett-Packard",
   "Acer", "ASUS", "Microsoft", "Realme", "OPPO", "OnePlus", "Xiaomi",
   "Motorola", "Nokia", "Huawei", "Toshiba", "Sony", "LG", "Ubiquiti", "Cisco",
+];
+
+const FAMILY_BRANDS: Array<[RegExp, string]> = [
+  [/\\bimac\\b|\\bmacbook\\b|\\biphone\\b|\\bipad\\b/i, "Apple"],
+  [/\\blatitude\\b|\\boptiplex\\b|\\bprecision\\b|\\bxps\\b/i, "Dell"],
+  [/\\bthinkpad\\b|\\bthinkcentre\\b|\\bideapad\\b/i, "Lenovo"],
+  [/\\belitebook\\b|\\bprobook\\b|\\bzbook\\b|\\belitedesk\\b|\\bprodesk\\b/i, "HP"],
+  [/\\bsurface\\b/i, "Microsoft"],
+  [/\\bgalaxy\\b/i, "Samsung"],
+  [/\\bpixel\\b/i, "Google"],
+];
+
+const CURATED_MODELS = [
+  {
+    manufacturer: "Dell",
+    model_name: "Latitude 5400",
+    aliases: ["Dell Latitude 5400", "Latitude 5400", "Dell 5400"],
+    category: "laptop",
+    support_summary: "DubboEwaste already documents the Latitude 5400 as an 8th-generation Latitude 5000 reuse candidate. Verify the installed CPU, TPM/Secure Boot and actual condition before routing.",
+    lock_risks: "Check BIOS password, Autopilot/MDM and organisation ownership.",
+    battery_notes: "Inspect battery health, swelling, charger and USB-C charging.",
+    likely_route: "Reuse/refurbish if unlocked and tested; parts or recycling if repair economics fail.",
+    source_url: "https://www.dell.com/support/product-details/en-au/product/latitude-14-5400-laptop/resources/manuals",
+    source_checked: "2026-10-05",
+    confidence: "RESEARCH LEAD",
+    external_source: "DubboEwaste curated catalogue",
+    source_id: "curated:dell-latitude-5400",
+  },
+  {
+    manufacturer: "Apple",
+    model_name: "iMac Retina 5K 27-inch 2017",
+    aliases: ["iMac 2017", "2017 iMac", "iMac 27 2017", "iMac Retina 5K 2017"],
+    category: "desktop",
+    support_summary: "DubboEwaste has this exact 2017 27-inch Retina 5K iMac in its documented equipment history. Verify the serial, exact configuration and current macOS support before reuse.",
+    lock_risks: "Check Activation Lock/Find My status and confirm legitimate ownership.",
+    battery_notes: "No main battery; inspect display, storage, thermals, ports and power supply.",
+    likely_route: "Reuse/refurbish if unlocked and tested; otherwise parts or verified recycling.",
+    source_url: "https://github.com/joshualparris/DubboEwaste/blob/main/pilot-tracker.csv",
+    source_checked: "2026-10-05",
+    confidence: "RESEARCH LEAD",
+    external_source: "DubboEwaste curated catalogue",
+    source_id: "curated:apple-imac-27-2017",
+  },
 ];
 
 function titleCase(value: string) {
@@ -28,6 +71,9 @@ function titleCase(value: string) {
 }
 
 function inferManufacturer(label: string, query: string) {
+  const family = FAMILY_BRANDS.find(([pattern]) => pattern.test(`${label} ${query}`))?.[1];
+  if (family) return family;
+
   const brand = BRANDS.find((item) =>
     label.toLowerCase().startsWith(item.toLowerCase() + " ") ||
     label.toLowerCase() === item.toLowerCase()
@@ -157,14 +203,22 @@ export async function GET(request: NextRequest) {
   const query = (request.nextUrl.searchParams.get("q") ?? "").trim().slice(0, 80);
   if (query.length < 2) return NextResponse.json({ results: [] });
 
-  const generic = /smartphone|phone|tablet|laptop|notebook|chromebook|computer|router|monitor|printer/i.test(query);
-  const terms = generic
-    ? [query]
-    : [query, `${query} smartphone`, `${query} laptop`, `${query} tablet`];
+  const terms = new Set<string>([query]);
+  const familyBrand = FAMILY_BRANDS.find(([pattern]) => pattern.test(query))?.[1] ?? "";
+  if (familyBrand && !query.toLowerCase().includes(familyBrand.toLowerCase())) {
+    terms.add(familyBrand + " " + query);
+  }
+  const withoutYear = query.replace(/\\b(?:19|20)\\d{2}\\b/g, " ").replace(/\\s+/g, " ").trim();
+  if (withoutYear.length >= 2 && withoutYear !== query) {
+    terms.add(withoutYear);
+    if (familyBrand && !withoutYear.toLowerCase().includes(familyBrand.toLowerCase())) {
+      terms.add(familyBrand + " " + withoutYear);
+    }
+  }
 
   try {
     const [wikidataSettled, realmeSettled] = await Promise.all([
-      Promise.allSettled(terms.map(searchWikidata)),
+      Promise.allSettled([...terms].map(searchWikidata)),
       /realme|rmx\d+/i.test(query)
         ? searchRealmeOpenData(query).then(
             (value) => ({ status: "fulfilled" as const, value }),
@@ -180,8 +234,16 @@ export async function GET(request: NextRequest) {
       .filter((item): item is PromiseFulfilledResult<WikidataSearchItem[]> => item.status === "fulfilled")
       .map((item) => item.value);
 
+    const needle = query.toLowerCase();
+    const curatedRows = CURATED_MODELS
+      .filter((row) => {
+        const haystack = [row.manufacturer, row.model_name, ...(row.aliases ?? [])].join(" ").toLowerCase();
+        const tokens = needle.split(/\\s+/).filter(Boolean);
+        return tokens.length > 0 && tokens.every((token) => haystack.includes(token));
+      });
+
     const seen = new Set<string>(
-      realmeRows.map((row) => `${row.manufacturer}:${row.model_name}`.toLowerCase()),
+      [...curatedRows, ...realmeRows].map((row) => `${row.manufacturer}:${row.model_name}`.toLowerCase()),
     );
 
     const wikidataRows = batches
@@ -225,10 +287,10 @@ export async function GET(request: NextRequest) {
         return true;
       });
 
-    const rows = [...realmeRows, ...wikidataRows].slice(0, 20);
+    const rows = [...curatedRows, ...realmeRows, ...wikidataRows].slice(0, 20);
 
     return NextResponse.json(
-      { results: rows, providers: ["RealmeBot open device DB", "Wikidata"] },
+      { results: rows, providers: ["DubboEwaste curated catalogue", "RealmeBot open device DB", "Wikidata"] },
       { headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400" } },
     );
   } catch (error) {
