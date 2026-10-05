@@ -134,12 +134,14 @@ For business and government equipment, reuse is impossible unless the former own
 
 Sircel's solution is **Blancco Drive Eraser**.
 
-Its current ITAD page says clients can select erasure standards including:
+Its current ITAD page says clients can select erasure methods/standards labelled:
 
 - NIST Clear / Purge;
 - DoD 5220.22-M / ECE;
 - BSI-GS/GSE;
 - IEEE 2883-2022.
+
+**Correction note (6 Oct 2026):** the presence of a “DoD 5220.22-M” option is a vendor/service method label, not evidence that DoD 5220.22-M remains a current sanitisation compliance standard. DubboEwaste should use NIST SP 800-88 Rev. 2 / IEEE 2883 terminology for its own current policy.
 
 It says each erasure is verified and generates a digitally signed data-erasure certificate.
 
