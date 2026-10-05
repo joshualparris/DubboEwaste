@@ -83,6 +83,7 @@ export function BarcodeLookup({
   const [openingCamera, setOpeningCamera] = useState(false);
   const [cameraOpen, setCameraOpen] = useState(false);
   const [response, setResponse] = useState<LookupResponse | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<BarcodeProduct | null>(null);
   const [error, setError] = useState("");
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
@@ -114,6 +115,7 @@ export function BarcodeLookup({
     setLoading(true);
     setError("");
     setResponse(null);
+    setSelectedProduct(null);
 
     try {
       const result = await fetch(`/api/barcode-lookup?code=${encodeURIComponent(scanned)}`, {
@@ -124,6 +126,7 @@ export function BarcodeLookup({
       setResponse(body);
 
       if (body.kind === "product" && body.products?.length === 1) {
+        setSelectedProduct(body.products[0]);
         onProduct(body.products[0]);
       }
     } catch (lookupError) {
@@ -229,6 +232,11 @@ export function BarcodeLookup({
     }
   }
 
+  function selectProduct(product: BarcodeProduct) {
+    setSelectedProduct(product);
+    onProduct(product);
+  }
+
   function useAsSerial() {
     const value = response?.scanned || code.trim();
     if (!value) return;
@@ -239,6 +247,9 @@ export function BarcodeLookup({
 
   return (
     <div className="barcode-panel">
+      <input type="hidden" name="product_barcode" value={selectedProduct?.barcode ?? ""} />
+      <input type="hidden" name="barcode_lookup_source" value={selectedProduct?.source ?? ""} />
+      <input type="hidden" name="barcode_lookup_url" value={selectedProduct?.source_url ?? ""} />
       <div className="barcode-heading">
         <div>
           <strong>Scan manufacturer barcode</strong>
@@ -316,7 +327,7 @@ export function BarcodeLookup({
             <button
               type="button"
               key={`${product.source}-${product.barcode}-${index}`}
-              onClick={() => onProduct(product)}
+              onClick={() => selectProduct(product)}
             >
               <strong>{product.manufacturer} {product.model_name}</strong>
               <span>
