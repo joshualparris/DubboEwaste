@@ -113,8 +113,9 @@ export async function createDeploymentProfile(formData: FormData) {
     target_environment: parsed.data.target_environment || null,
     created_by: user.id,
   });
-  if (error) redirect("/processing?error=Could%20not%20save%20deployment%20profile");
+  if (error) redirect("/processing?error=" + encodeURIComponent(error.message));
   revalidatePath("/processing");
+  redirect("/processing?success=Deployment%20hook%20saved");
 }
 
 export async function planDeploymentRun(formData: FormData) {
@@ -128,8 +129,9 @@ export async function planDeploymentRun(formData: FormData) {
     requested_by: user.id,
     notes: parsed.data.notes || null,
   });
-  if (error) redirect("/processing?error=Could%20not%20plan%20deployment");
+  if (error) redirect("/processing?error=" + encodeURIComponent(error.message));
   revalidatePath("/processing");
+  redirect("/processing?success=Deployment%20run%20planned");
 }
 
 export async function recordSanitisation(formData: FormData) {
