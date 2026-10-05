@@ -12,6 +12,9 @@ const intakeSchema = z.object({
   manufacturer: z.string().trim().max(100).optional(),
   model: z.string().trim().max(160).optional(),
   serial_imei: z.string().trim().max(160).optional(),
+  product_barcode: z.string().trim().max(180).optional(),
+  barcode_lookup_source: z.string().trim().max(120).optional(),
+  barcode_lookup_url: z.string().trim().max(600).optional(),
   source_name: z.string().trim().max(200).optional(),
   customer_id: optionalUuid,
   job_id: optionalUuid,
@@ -29,6 +32,9 @@ export async function createAsset(formData: FormData) {
     manufacturer: formData.get("manufacturer") || undefined,
     model: formData.get("model") || undefined,
     serial_imei: formData.get("serial_imei") || undefined,
+    product_barcode: formData.get("product_barcode") || undefined,
+    barcode_lookup_source: formData.get("barcode_lookup_source") || undefined,
+    barcode_lookup_url: formData.get("barcode_lookup_url") || undefined,
     source_name: formData.get("source_name") || undefined,
     customer_id: formData.get("customer_id"),
     job_id: formData.get("job_id"),
@@ -68,12 +74,45 @@ export async function createAsset(formData: FormData) {
 
   if (error || !data) redirect("/assets/new?error=Could%20not%20create%20asset");
 
+  if (parsed.data.product_barcode) {
+    const attributes = [
+      {
+        asset_id: data.id,
+        attribute_key: "product_barcode",
+        attribute_value: parsed.data.product_barcode,
+        source: "LOOKUP",
+        created_by: user.id,
+      },
+      ...(parsed.data.barcode_lookup_source ? [{
+        asset_id: data.id,
+        attribute_key: "barcode_lookup_source",
+        attribute_value: parsed.data.barcode_lookup_source,
+        source: "LOOKUP",
+        created_by: user.id,
+      }] : []),
+      ...(parsed.data.barcode_lookup_url ? [{
+        asset_id: data.id,
+        attribute_key: "barcode_lookup_url",
+        attribute_value: parsed.data.barcode_lookup_url,
+        source: "LOOKUP",
+        created_by: user.id,
+      }] : []),
+    ];
+    await supabase.from("asset_attributes").insert(attributes);
+  }
+
   await supabase.from("operational_events").insert({
     entity_type: "asset",
     entity_id: data.id,
     event_type: "ASSET_RECEIVED",
     actor_id: user.id,
-    details: { asset_code: data.asset_code, job_id: parsed.data.job_id || null, lot_id: parsed.data.lot_id || null },
+    details: {
+      asset_code: data.asset_code,
+      job_id: parsed.data.job_id || null,
+      lot_id: parsed.data.lot_id || null,
+      product_barcode: parsed.data.product_barcode || null,
+      barcode_lookup_source: parsed.data.barcode_lookup_source || null,
+    },
   });
 
   revalidatePath("/dashboard");
