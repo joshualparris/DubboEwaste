@@ -20,13 +20,13 @@ const BRANDS = [
 ];
 
 const FAMILY_BRANDS: Array<[RegExp, string]> = [
-  [/\\bimac\\b|\\bmacbook\\b|\\biphone\\b|\\bipad\\b/i, "Apple"],
-  [/\\blatitude\\b|\\boptiplex\\b|\\bprecision\\b|\\bxps\\b/i, "Dell"],
-  [/\\bthinkpad\\b|\\bthinkcentre\\b|\\bideapad\\b/i, "Lenovo"],
-  [/\\belitebook\\b|\\bprobook\\b|\\bzbook\\b|\\belitedesk\\b|\\bprodesk\\b/i, "HP"],
-  [/\\bsurface\\b/i, "Microsoft"],
-  [/\\bgalaxy\\b/i, "Samsung"],
-  [/\\bpixel\\b/i, "Google"],
+  [/\bimac\b|\bmacbook\b|\biphone\b|\bipad\b/i, "Apple"],
+  [/\blatitude\b|\boptiplex\b|\bprecision\b|\bxps\b/i, "Dell"],
+  [/\bthinkpad\b|\bthinkcentre\b|\bideapad\b/i, "Lenovo"],
+  [/\belitebook\b|\bprobook\b|\bzbook\b|\belitedesk\b|\bprodesk\b/i, "HP"],
+  [/\bsurface\b/i, "Microsoft"],
+  [/\bgalaxy\b/i, "Samsung"],
+  [/\bpixel\b/i, "Google"],
 ];
 
 const CURATED_MODELS = [
@@ -208,7 +208,7 @@ export async function GET(request: NextRequest) {
   if (familyBrand && !query.toLowerCase().includes(familyBrand.toLowerCase())) {
     terms.add(familyBrand + " " + query);
   }
-  const withoutYear = query.replace(/\\b(?:19|20)\\d{2}\\b/g, " ").replace(/\\s+/g, " ").trim();
+  const withoutYear = query.replace(/\b(?:19|20)\d{2}\b/g, " ").replace(/\s+/g, " ").trim();
   if (withoutYear.length >= 2 && withoutYear !== query) {
     terms.add(withoutYear);
     if (familyBrand && !withoutYear.toLowerCase().includes(familyBrand.toLowerCase())) {
@@ -238,7 +238,7 @@ export async function GET(request: NextRequest) {
     const curatedRows = CURATED_MODELS
       .filter((row) => {
         const haystack = [row.manufacturer, row.model_name, ...(row.aliases ?? [])].join(" ").toLowerCase();
-        const tokens = needle.split(/\\s+/).filter(Boolean);
+        const tokens = needle.split(/\s+/).filter(Boolean);
         return tokens.length > 0 && tokens.every((token) => haystack.includes(token));
       });
 
