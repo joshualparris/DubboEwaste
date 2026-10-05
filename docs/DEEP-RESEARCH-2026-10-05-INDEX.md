@@ -11,6 +11,12 @@ The private practitioner remains anonymous in all public repository material.
 
 # Start here
 
+## 0. NotebookLM ITAD fact check — 6 Oct 2026
+
+[FACT-CHECK-NOTEBOOKLM-ITAD-2026-10-06.md](FACT-CHECK-NOTEBOOKLM-ITAD-2026-10-06.md)
+
+Use this when comparing the repo with the NotebookLM “Regional IT Asset Disposition Business Guide”. It corrects the main NIST/DoD, SSD/NVMe, nwipe, Blancco pricing/product, battery, lock, licensing and pilot-size overstatements and records the current source-led operating wording.
+
 ## 1. Executive synthesis
 
 [DEEP-RESEARCH-2026-10-05-EXECUTIVE-SYNTHESIS.md](DEEP-RESEARCH-2026-10-05-EXECUTIVE-SYNTHESIS.md)

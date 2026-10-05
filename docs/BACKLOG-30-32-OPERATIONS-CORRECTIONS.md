@@ -547,6 +547,33 @@ Do not buy grey-market Windows keys. Investigate a legitimate MAR/TPR route only
 
 Do not claim generic "Privacy Act compliant" status without checking the entity/activity/client. Treat unwiped data as sensitive regardless.
 
+## Correction 21 — NotebookLM ITAD guide and older wipe-tool shorthand
+
+**OLD risk:** AI-generated summaries and some earlier repo research used shorthand such as:
+
+- “DoD 5220.22-M or NIST” as equivalent current standards;
+- “one-pass HDD / secure-erase SSD” as a universal NIST recipe;
+- “ShredOS + nvme-cli = fully NIST compliant”;
+- stable nwipe already having native ATA/NVMe secure erase;
+- A$19.65 as a stable Blancco per-erasure price;
+- locked devices/motherboards being “bricked”.
+
+**CURRENT:** these claims are corrected in:
+
+- [FACT-CHECK-NOTEBOOKLM-ITAD-2026-10-06.md](FACT-CHECK-NOTEBOOKLM-ITAD-2026-10-06.md)
+- [claudegaps-research/03-BENCH-TOOLKIT.md](claudegaps-research/03-BENCH-TOOLKIT.md)
+- [DEEP-RESEARCH-2026-10-05-EXECUTIVE-SYNTHESIS.md](DEEP-RESEARCH-2026-10-05-EXECUTIVE-SYNTHESIS.md)
+
+### Action
+
+Use NIST SP 800-88 Rev. 2 **Clear / Purge / Destroy** terminology; prefer Purge over Clear where appropriate; use media/device-specific current guidance; retain verification/validation evidence; and never infer compliance from a tool name or completed command alone.
+
+DoD 5220.22-M may appear as a legacy overwrite-pattern label or vendor option but is **not** the current sanitisation compliance baseline.
+
+The project’s **20–30 item pilot** and **Phase 0 damaged-lithium rejection** remain deliberate conservative local policies, not universal industry thresholds.
+
+---
+
 ---
 
 # Remaining web limits from 17–32

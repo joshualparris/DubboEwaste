@@ -37,7 +37,7 @@ Only after serialized capture is an internal 1D/2D tracking barcode applied to t
 
 ## 2. Data Sanitization Tooling & Eradication
 
-Eradicating sensitive corporate data is the non-negotiable core of ITAD. While physical destruction (shredding, degaussing) is used for failed drives, functional storage media must be cryptographically or structurally wiped to NIST 800-88 guidelines to preserve residual hardware value. Commercial ITADs employ specialized enterprise tooling for this task.
+Protecting data is a core ITAD control, but the method must be selected for the actual media, risk and intended disposition. Current NIST SP 800-88 Rev. 2 uses **Clear, Purge and Destroy** outcomes and points to technology-specific guidance such as IEEE 2883. Functional media is not automatically assigned one universal wiping command, and a tool completing successfully does not by itself make the process “NIST compliant”.
 
 ### Blancco (The Enterprise Standard)
 Blancco is the undisputed industry heavyweight for highly regulated environments (finance, government, healthcare).
@@ -49,11 +49,11 @@ Blancco is the undisputed industry heavyweight for highly regulated environments
 For mid-sized ITADs looking to maximize throughput while controlling variable costs, KillDisk is a powerful alternative.
 * **Mechanics:** Offers an Industrial version that allows for massive parallel erasure of up to 100+ disks simultaneously using custom-built wiping arrays or drive carts. 
 * **Licensing & Costs:** KillDisk is typically sold via a perpetual license (one-time fee per server/station, roughly ranging from $149.95 for Corporate single-PC, $3,999 for Site license, and $5,999 for Enterprise [VERIFIED]). There are no "per-wipe" fees, making it highly attractive for low-margin, high-volume consumer electronics processing.
-* **Certificates:** Generates fully customizable PDF/XML certificates of destruction that comply with DoD 5220.22-M and NIST standards.
+* **Certificates:** KillDisk can generate PDF/XML reports/certificates. Treat any vendor claim about “DoD 5220.22-M” or NIST compliance as a product/method claim requiring review against the current sanitisation policy. **DoD 5220.22-M is not a current sanitisation compliance standard**, and a certificate alone does not establish NIST SP 800-88 Rev. 2 compliance.
 
 ### PartedMagic (The Technician's Multi-Tool)
 PartedMagic is a lightweight, bootable Linux environment utilized for diagnostic and targeted erasure tasks.
-* **Mechanics:** Deployed via USB or PXE, it utilizes the native ATA Secure Erase commands built into modern drives (especially crucial for SSDs where standard overwriting degrades the flash memory). 
+* **Mechanics:** Deployed via USB or PXE, it exposes device-native ATA/NVMe/SCSI/SAS/OPAL sanitisation tooling. For flash media, ordinary host overwriting may not reach remapped/over-provisioned locations and adds writes; choose the actual device-native technique only after checking media capabilities and the approved sanitisation policy.
 * **Licensing & Costs:** Very low cost—[UNVERIFIED] commercial licences are available for under $100 per user/technician (prices vary by source; a one-off "Forever" licence is reported at about US$199; check https://partedmagic.com/store/), with no recurring per-wipe fees.
 * **Certificates:** While it can export basic PDF wipe logs and certificates, it lacks the enterprise API centralization and signed validation of Blancco, making it better suited for small-scale bench repairs or secondary verification rather than automated industrial compliance.
 
@@ -73,8 +73,8 @@ Cosmetic grading assesses the physical exterior.
 
 ### Functional and Software Restrictions
 Cosmetics mean nothing without functionality. Devices are graded on a dual-axis (e.g., a "C-Grade Cosmetic, A-Grade Functional" laptop).
-* **Battery Health:** ITADs utilize diagnostic software (like PhoneCheck or PC-Doctor) to read the battery's charge cycle count and capacity. A device must generally hold >80% of its original design capacity to pass as functionally viable for retail.
-* **The "Locked" Death Sentence:** A physically pristine Grade A device that is bound to Apple iCloud Activation Lock, Absolute Computrace, or a corporate Mobile Device Management (MDM) profile (like Microsoft Autopilot) is instantly downgraded to Grade D or non-saleable. Without the client releasing the lock, the motherboard is essentially bricked, relegating the device to parts harvesting or e-waste recycling.
+* **Battery Health:** ITADs use diagnostic software (for example Phonecheck or PC-Doctor) to read charge cycle count and capacity. **There is no universal ITAD rule that retail viability requires >80% design capacity.** Battery thresholds should be an explicit channel/business policy and the measured condition should be disclosed.
+* **Account / management locks:** Activation Lock, FRP, Absolute/Computrace, MDM and Windows Autopilot can block normal resale or redeployment. The correct first action is **HOLD / CLIENT OR OWNER-ADMIN RELEASE REQUIRED**, not to describe the motherboard as “bricked”. If legitimate release cannot be obtained, the unit may become parts-only or recycling stock according to value and policy.
 
 ---
 
