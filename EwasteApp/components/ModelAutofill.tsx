@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { BarcodeLookup, type BarcodeProduct } from "@/components/BarcodeLookup";
 
 type ModelRecord = {
   manufacturer: string;
@@ -63,6 +64,27 @@ function scoreModel(model: ModelRecord, query: string): { score: number; method:
 
 function keyFor(model: ModelRecord) {
   return normalise(`${model.manufacturer} ${model.model_name}`);
+}
+
+function modelFromBarcode(product: BarcodeProduct): ModelRecord {
+  return {
+    manufacturer: product.manufacturer,
+    model_name: product.model_name,
+    identifiers: [product.barcode],
+    category: product.category,
+    support_summary:
+      `Barcode ${product.barcode} matched via ${product.source}. Verify the exact printed model, serial/IMEI, ownership and support status before accepting the device.`,
+    lock_risks:
+      "A retail barcode identifies a product model, not ownership or lock state. Check BIOS/MDM/Activation Lock/FRP as applicable.",
+    battery_notes:
+      "Inspect battery, power, charging and physical condition as applicable before reuse.",
+    likely_route: "Hold / further triage until exact model and condition are verified.",
+    source_url: product.source_url,
+    source_checked: new Date().toISOString().slice(0, 10),
+    confidence: product.confidence,
+    external_source: product.source,
+    source_id: `barcode:${product.source}:${product.barcode}`,
+  };
 }
 
 export function ModelAutofill({ models }: { models: ModelRecord[] }) {
@@ -137,6 +159,8 @@ export function ModelAutofill({ models }: { models: ModelRecord[] }) {
 
   return (
     <>
+      <BarcodeLookup onProduct={(product) => choose(modelFromBarcode(product))} />
+
       <div className="lookup-panel">
         <label>
           Find model
@@ -156,7 +180,7 @@ export function ModelAutofill({ models }: { models: ModelRecord[] }) {
         </label>
 
         <p className="muted small">
-          Searches the DubboEwaste verified catalogue first, then multiple free public device sources including Wikidata and Wikipedia.
+          Type a model name to search the DubboEwaste catalogue and multiple free public device sources, or scan a manufacturer barcode above.
         </p>
 
         {lookup && !selected ? (
