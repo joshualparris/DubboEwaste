@@ -2,6 +2,8 @@
 
 Goal: validate Dubbo eWaste from an existing home shed with the least possible capital and regulatory risk.
 
+For the physical shed itself, use [MINIMUM-PHYSICAL-SHED-SETUP-CHECKLIST.md](MINIMUM-PHYSICAL-SHED-SETUP-CHECKLIST.md) as the single minimum-setup checklist.
+
 ## Before accepting equipment
 
 - [ ] Read and use [PHASE-0-OPERATING-BLUEPRINT.md](PHASE-0-OPERATING-BLUEPRINT.md) as the current Phase 0 design.
