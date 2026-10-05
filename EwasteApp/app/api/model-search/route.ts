@@ -43,6 +43,21 @@ const FAMILY_BRANDS: Array<[RegExp, string]> = [
 
 const CURATED_MODELS = [
   {
+    manufacturer: "Lenovo",
+    model_name: "ThinkPad T61",
+    aliases: ["Lenovo T61", "ThinkPad T61", "Lenovo ThinkPad T61", "IBM T61", "IBM ThinkPad T61", "T61"],
+    category: "laptop",
+    support_summary: "Lenovo support documentation identifies the ThinkPad T61/T61p family. Verify the machine type/model label and installed configuration because the T61 was sold in multiple variants.",
+    lock_risks: "Check supervisor/BIOS passwords and confirm legitimate ownership before reuse.",
+    battery_notes: "Inspect the removable battery for age, swelling and runtime; verify the correct AC adapter and charging.",
+    likely_route: "Reuse/refurbish only if condition and intended use justify an older Core 2-era platform; otherwise parts or recycling.",
+    source_url: "https://support.lenovo.com/au/en/downloads/ds003943-access-help-online-users-guide-thinkpad-r61-r61e-r61i-t61-t61p",
+    source_checked: "2026-10-05",
+    confidence: "VERIFIED MODEL",
+    external_source: "Lenovo Support",
+    source_id: "curated:lenovo-thinkpad-t61",
+  },
+  {
     manufacturer: "Dell",
     model_name: "Latitude 5400",
     aliases: ["Dell Latitude 5400", "Latitude 5400", "Dell 5400"],
