@@ -20,13 +20,13 @@ Do not mark a feature shipped merely because a database field or research note e
 - `[~]` Customer and source records — basic customer/source records already exist.
 - `[x]` Lead pipeline — lead capture, qualification, next action, stage, value estimate and lost reason.
 - `[x]` Contact history — dated calls, emails, meetings, notes and quote/stage links.
-- `[ ]` Lead-to-customer conversion — preserve the lead history when a prospect becomes a customer.
-- `[ ]` Service/collection opportunity — link a lead to an intake collection, job, quote or recurring program.
-- `[~]` Quote builder — service, collection, processing, resale and downstream line items with expiry and status; formatted client quote delivery remains.
+- `[x]` Lead-to-customer conversion — creates the customer and preserves/link the CRM lead and activity history.
+- `[x]` Service/collection opportunity — opportunity pipeline links leads, customers, quotes and jobs with service type, expected size, value and follow-up.
+- `[x]` Quote builder — versioned service/collection/processing line items, expiry/status and a printable/PDF-ready client quote layout.
 - `[x]` Quote versions — immutable revisions showing who changed the price, scope or conditions.
 - `[x]` Quote-to-job conversion — issued/accepted quote becomes an inbound job without re-entering lead information.
-- `[ ]` Sales pipeline — qualified, quoted, accepted, scheduled, processing, completed, invoiced, lost.
-- `[ ]` Follow-up queue — overdue next actions and reminders visible on the dashboard.
+- `[x]` Sales pipeline — qualified, quoted, accepted, scheduled, processing, completed, invoiced and lost stages are operator-facing.
+- `[x]` Follow-up queue — overdue lead/opportunity actions are visible on the dashboard and editable in CRM.
 - `[~]` Marketing consent — opt-in/opt-out and operational-only status are recorded; lawful-basis detail and suppression history remain.
 - `[x]` Email templates — reusable purpose, subject and body records exist; delivery integration remains external.
 - `[~]` Campaign tracking — consent-safe recipient snapshots and campaign status exist; delivery/bounce/unsubscribe events remain.
@@ -100,7 +100,7 @@ Acceptance gate: a staff member can create a lead, record a contact, issue a ver
 
 ## Category 3 — device management and triage
 
-- `[~]` Triage, lithium/physical/lock evidence and route decisions.
+- `[x]` Triage, lithium/physical/lock evidence and route decisions — guided deterministic triage is live and can save an asset assessment.
 - `[~]` Model lookup and support catalogue.
 - `[x]` Asset, media, QR/barcode and audit history foundations.
 - `[x]` Functional, cosmetic, battery, completeness and marketability grade records.
