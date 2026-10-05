@@ -17,7 +17,7 @@ Sources: https://www.pc-doctor.com/the-pc-doctor-blog/toolbox-is-now-free-on-up-
 
 | Product (AU reseller pricing, AUD) | Price |
 |---|---|
-| **SMB Select 50 bundle** (50 Drive Eraser licences + Management Portal) | **A$982.30** (≈ A$19.65/erasure; already in repo) |
+| **SMB Select 50 bundle** (historical reseller snapshot) | **Do not treat A$982.30 / A$19.65 per erase as current universal pricing. Obtain a current AU reseller/vendor quote.** |
 | Drive Eraser Enterprise Edition, 1-yr subscription, 50–499 units | **A$42.24 per licence** |
 | … 500–999 units | A$20.90 |
 | … 1,000–4,999 units | A$8.80 |
@@ -25,7 +25,7 @@ Sources: https://www.pc-doctor.com/the-pc-doctor-blog/toolbox-is-now-free-on-up-
 | Blancco Eraser for Apple Devices | separate product, price not found |
 
 Sources: AU distributor/reseller listings via https://au.ingrammicro.com/site/productdetail?id=A001-000000000004494774 ; https://au.ingrammicro.com/site/productdetail?id=A001-000000000004495080 ; https://acquireit.com.au/p/blancco/blancco-drive-eraser-subscription-1yr-licence-de-ee-20-9164049 ; Blancco pricing page https://blancco.com/blancco-cost-bundles-pricing/
-**No sub-50 bundle was found.** The SMB Select 50 is the entry point. **[Derived]:** at Phase 0 volume, use the free tools or KillDisk/Parted Magic. Buy SMB Select 50 only when a B2B client requires Blancco-branded certificates (then it's about A$20 per device, recoverable in the service fee).
+**Historical note:** the 2 Oct 2026 research found a 50-unit reseller bundle, but Blancco pricing varies by edition, volume, reseller and date. Do **not** budget a fixed A$20 per device. At Phase 0 volume, use validated free/low-cost tooling unless a client contract requires a named commercial platform, then obtain a current quote and price the service accordingly.
 
 ## Q20. iPad battery health: coconutBattery / 3uTools ✅
 
