@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AssetBatchTable } from "@/components/AssetBatchTable";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function AssetsPage() {
@@ -16,26 +17,7 @@ export default async function AssetsPage() {
         <p className="muted">The canonical operational inventory.</p>
       </div>
       <div className="actions"><Link className="button" href="/assets/new">New intake</Link></div>
-      <section className="card table-wrap">
-        <table>
-          <thead>
-            <tr><th>Asset</th><th>Category</th><th>Device</th><th>Serial / IMEI</th><th>Status</th><th>Data</th><th>Route</th></tr>
-          </thead>
-          <tbody>
-            {(assets ?? []).map((asset) => (
-              <tr key={asset.id}>
-                <td><Link href={`/assets/${asset.id}`}><strong>{asset.asset_code}</strong></Link></td>
-                <td>{asset.category}</td>
-                <td>{[asset.manufacturer, asset.model].filter(Boolean).join(" ") || "—"}</td>
-                <td>{asset.serial_imei || "—"}</td>
-                <td><span className="badge">{asset.status}</span></td>
-                <td>{asset.data_state}</td>
-                <td>{asset.initial_route || "—"}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+      <AssetBatchTable assets={assets ?? []} />
     </div>
   );
 }
