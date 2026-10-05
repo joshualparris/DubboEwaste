@@ -36,6 +36,8 @@ The detailed long-range platform backlog remains in [docs/ASSETFLOW-PLATFORM-BAC
 - [x] account-lock / MDM / Autopilot gate
 - [~] category-specific lanes — Phase 0 categories are covered; deeper model/category playbooks remain ongoing
 - [x] support/model lookup
+- [x] multi-source device intelligence: Google Play devices, Open Icecat adapter, Lenovo PSREF, FCC, PCI/USB IDs, LVFS, Wikidata and Wikipedia fallback
+- [~] rich vendor/specification enrichment — identity lookup is live; deeper per-model CPU/RAM/storage/display/support data will continue to expand
 - [x] route selection and final-route gate
 - [x] reason / required-evidence output
 - [x] optional saved triage assessment against an existing asset
