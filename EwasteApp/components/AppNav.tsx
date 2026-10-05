@@ -6,7 +6,7 @@ export function AppNav({ fullName, role }: { fullName: string | null; role: stri
     <div><div className="brand">DubboEwaste · AssetFlow</div><div className="userline">{fullName || "Staff"} · {role}</div></div>
     <nav className="nav" aria-label="Staff navigation">
       <Link href="/dashboard">Dashboard</Link>
-      <Link href="/search">Search</Link>
+      <Link href="/search">Search / Scan</Link>
       <Link href="/jobs">Jobs</Link>
       <Link href="/lots">Lots</Link>
       <Link href="/assets">Assets</Link>
