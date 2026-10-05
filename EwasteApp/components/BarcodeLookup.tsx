@@ -143,6 +143,7 @@ export function BarcodeLookup({
   async function startCamera() {
     setError("");
     setResponse(null);
+    setSelectedProduct(null);
 
     if (!navigator.mediaDevices?.getUserMedia) {
       setError("Camera scanning is not available in this browser. Enter the barcode below or use a USB/Bluetooth scanner.");
@@ -277,7 +278,10 @@ export function BarcodeLookup({
       <div className="barcode-entry">
         <input
           value={code}
-          onChange={(event) => setCode(event.target.value)}
+          onChange={(event) => {
+            setCode(event.target.value);
+            setSelectedProduct(null);
+          }}
           onKeyDown={(event) => {
             if (event.key === "Enter") {
               event.preventDefault();
