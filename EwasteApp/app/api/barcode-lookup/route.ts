@@ -110,8 +110,8 @@ async function lookupOpenProductsFacts(code: string): Promise<ProductMatch[]> {
   });
   if (!response.ok) return [];
 
-  const body = (await response.json()) as { status?: number; product?: OpenProduct };
-  if (body.status !== 1 || !body.product) return [];
+  const body = (await response.json()) as { status?: number | string; product?: OpenProduct };
+  if (!body.product) return [];
 
   const product = body.product;
   const title =
@@ -262,6 +262,7 @@ export async function GET(request: NextRequest) {
       .from("assets")
       .select("id,asset_code,manufacturer,model,serial_imei")
       .eq("serial_imei", code)
+      .limit(1)
       .maybeSingle(),
     supabase
       .from("model_support")
