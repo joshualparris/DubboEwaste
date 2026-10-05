@@ -62,3 +62,51 @@ export async function updateJobLifecycle(formData: FormData) {
   revalidatePath("/dashboard");
   redirect("/jobs/"+parsed.data.job_id+"?success=Job%20status%20updated");
 }
+
+
+export async function deleteJob(formData: FormData) {
+  const parsed = z.object({ job_id: z.string().uuid() }).safeParse(Object.fromEntries(formData));
+  if (!parsed.success) redirect("/jobs?error=Invalid%20job");
+
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) redirect("/login");
+
+  const { data: profile } = await supabase.from("profiles").select("role,active").eq("id", user.id).single();
+  if (!profile?.active || !["admin","manager"].includes(profile.role)) {
+    redirect("/jobs/" + parsed.data.job_id + "?error=Only%20admins%20or%20managers%20can%20delete%20jobs");
+  }
+
+  const [
+    { count: assets },
+    { count: lots },
+    { count: certificates },
+    { count: deployments },
+    { count: settlements },
+    { count: parts },
+    { count: quotes },
+    { count: opportunities },
+  ] = await Promise.all([
+    supabase.from("assets").select("*",{count:"exact",head:true}).eq("job_id", parsed.data.job_id),
+    supabase.from("lots").select("*",{count:"exact",head:true}).eq("job_id", parsed.data.job_id),
+    supabase.from("certificates").select("*",{count:"exact",head:true}).eq("job_id", parsed.data.job_id),
+    supabase.from("deployment_runs").select("*",{count:"exact",head:true}).eq("job_id", parsed.data.job_id),
+    supabase.from("settlements").select("*",{count:"exact",head:true}).eq("job_id", parsed.data.job_id),
+    supabase.from("parts").select("*",{count:"exact",head:true}).eq("origin_job_id", parsed.data.job_id),
+    supabase.from("crm_quotes").select("*",{count:"exact",head:true}).eq("converted_job_id", parsed.data.job_id),
+    supabase.from("crm_opportunities").select("*",{count:"exact",head:true}).eq("job_id", parsed.data.job_id),
+  ]);
+
+  const linked = (assets??0)+(lots??0)+(certificates??0)+(deployments??0)+(settlements??0)+(parts??0)+(quotes??0)+(opportunities??0);
+  if (linked > 0) {
+    redirect("/jobs/" + parsed.data.job_id + "?error=This%20job%20has%20linked%20records%20and%20cannot%20be%20deleted.%20Cancel%20it%20instead.");
+  }
+
+  await supabase.from("operational_events").delete().eq("entity_type","job").eq("entity_id",parsed.data.job_id);
+  const { error } = await supabase.from("jobs").delete().eq("id", parsed.data.job_id);
+  if (error) redirect("/jobs/" + parsed.data.job_id + "?error=" + encodeURIComponent(error.message));
+
+  revalidatePath("/jobs");
+  revalidatePath("/dashboard");
+  redirect("/jobs?success=Job%20deleted");
+}
