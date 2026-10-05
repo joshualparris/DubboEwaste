@@ -178,12 +178,13 @@ export async function convertQuoteToJob(formData: FormData) {
   const { data: job, error } = await supabase.from("jobs").insert({ customer_id: quote.customer_id || null, source_site: parsed.data.source_site || lead?.organisation || null, contact_name: lead?.name || null, status: "DRAFT", work_instructions: parsed.data.work_instructions || `Created from ${quote.quote_number}`, created_by: user.id }).select("id,job_code").single();
   if (error || !job) redirect("/crm/quotes?error=Could%20not%20create%20job");
   await supabase.from("crm_quotes").update({ status: "CONVERTED", converted_job_id: job.id, accepted_at: new Date().toISOString() }).eq("id", quote.id);
+  await supabase.from("crm_opportunities").update({ job_id: job.id, stage: "ACCEPTED" }).eq("quote_id", quote.id);
   if (quote.lead_id) {
     await supabase.from("crm_leads").update({ stage: "WON" }).eq("id", quote.lead_id);
     await supabase.from("crm_activities").insert({ lead_id: quote.lead_id, activity_type: "STAGE_CHANGE", summary: `Quote ${quote.quote_number} converted to ${job.job_code}`, created_by: user.id });
   }
   await appendEvent(supabase, user.id, "job", job.id, "JOB_CREATED_FROM_QUOTE", { quote_id: quote.id, quote_number: quote.quote_number });
-  revalidatePath("/crm"); revalidatePath("/crm/quotes"); revalidatePath("/jobs");
+  revalidatePath("/crm"); revalidatePath("/crm/quotes"); revalidatePath("/crm/opportunities"); revalidatePath("/jobs"); revalidatePath("/dashboard");
   redirect(`/jobs/${job.id}`);
 }
 
@@ -197,7 +198,9 @@ export async function updateQuoteStatus(formData: FormData) {
   const { error } = await supabase.from("crm_quotes").update({ status: parsed.data.status, accepted_at: parsed.data.status === "ACCEPTED" ? new Date().toISOString() : null }).eq("id", parsed.data.quote_id);
   if (error) redirect("/crm/quotes?error=Could%20not%20update%20quote");
   if (quote.lead_id) await supabase.from("crm_activities").insert({ lead_id: quote.lead_id, activity_type: "QUOTE", summary: `Quote ${quote.quote_number} marked ${parsed.data.status}`, created_by: user.id });
-  revalidatePath("/crm/quotes"); redirect("/crm/quotes?success=Quote%20status%20updated");
+  const opportunityStage = parsed.data.status === "ISSUED" ? "QUOTED" : parsed.data.status === "ACCEPTED" ? "ACCEPTED" : ["DECLINED","EXPIRED"].includes(parsed.data.status) ? "LOST" : null;
+  if (opportunityStage) await supabase.from("crm_opportunities").update({ stage: opportunityStage, lost_reason: opportunityStage === "LOST" ? `Quote ${parsed.data.status.toLowerCase()}` : null }).eq("quote_id", parsed.data.quote_id);
+  revalidatePath("/crm/quotes"); revalidatePath("/crm/opportunities"); revalidatePath("/dashboard"); redirect("/crm/quotes?success=Quote%20status%20updated");
 }
 
 export async function createEmailTemplate(formData: FormData) {
