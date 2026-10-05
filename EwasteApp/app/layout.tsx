@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { FormSubmitFeedback } from "@/components/FormSubmitFeedback";
 
 export const metadata: Metadata = {
   title: "DubboEwaste Operations",
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body><FormSubmitFeedback />{children}</body>
     </html>
   );
 }
