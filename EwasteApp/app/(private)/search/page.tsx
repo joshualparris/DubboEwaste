@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AssetQrScanner } from "@/components/AssetQrScanner";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function SearchPage({ searchParams }: { searchParams: Promise<{ q?: string }> }) {
@@ -29,7 +30,8 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
   const total = results ? Object.values(results).reduce((n: number, rows: any) => n + rows.length, 0) : 0;
   return <div className="stack">
     <div><div className="badge">Global search</div><h1>Find anything</h1><p className="muted">Asset IDs, serials, media, sanitisation capabilities, jobs, lots, certificates, customers, parts, BOLs and outbound orders.</p></div>
-    <form className="card search-form"><input name="q" defaultValue={q} autoFocus placeholder="Scan or type an ID, serial, job, lot..." /><button className="button">Search</button></form>
+    <AssetQrScanner />
+    <form className="card search-form"><input name="q" defaultValue={q} autoFocus placeholder="Type an asset ID, serial, job, lot..." /><button className="button">Search</button></form>
     {term ? <p className="muted">{total} result{total === 1 ? "" : "s"} for <strong>{term}</strong></p> : null}
     {results ? <>
       <Result title="Assets">{results.assets.map((r:any)=><Link className="result-row" key={r.id} href={`/assets/${r.id}`}><strong>{r.asset_code}</strong><span>{[r.manufacturer,r.model].filter(Boolean).join(" ")||"Asset"} · {r.serial_imei||"no serial"} · {r.status}</span></Link>)}</Result>
