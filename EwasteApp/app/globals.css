@@ -48,3 +48,11 @@ a { color: inherit; text-decoration: none; } button,input,select,textarea { font
 @media print{.quote-sheet{max-width:none;padding:0;border:0}.quote-header{display:flex;flex-direction:row}.quote-sheet .badge{border:1px solid #bbb}}
 
 .button.danger{background:#b91c1c;color:#fff;border-color:#b91c1c}.button.danger:hover{background:#991b1b;border-color:#991b1b}.danger-zone{border-color:#fecaca;background:#fffafa}.danger-zone summary{cursor:pointer;color:#991b1b}
+
+form[aria-busy="true"]{position:relative}
+button[type="submit"]:disabled,input[type="submit"]:disabled{cursor:wait;opacity:.72}
+.button.is-pending{display:inline-flex;align-items:center;gap:8px}
+.button.is-pending::before{content:"";width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:submit-spin .75s linear infinite;flex:0 0 auto}
+.form-pending-message{margin-top:10px;font-size:13px;font-weight:700;color:var(--brand-dark)}
+@keyframes submit-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.button.is-pending::before{animation:none}}
