@@ -26,6 +26,12 @@ type Match = {
   method: "exact" | "alias" | "text" | "live";
 };
 
+type ProviderStatus = {
+  name: string;
+  status: "ok" | "unavailable";
+  matches: number;
+};
+
 function categoryFor(record: ModelRecord): string {
   if (record.category === "mac") return "LAPTOP";
   if (record.category === "android") return "PHONE";
@@ -66,6 +72,23 @@ function keyFor(model: ModelRecord) {
   return normalise(`${model.manufacturer} ${model.model_name}`);
 }
 
+function liveScore(model: ModelRecord) {
+  const confidence = model.confidence.toUpperCase();
+  const source = model.external_source ?? "";
+
+  if (confidence.includes("EXACT GTIN") || confidence.includes("EXACT BRAND + MPN")) return 99;
+  if (confidence.includes("VERIFIED") || confidence.includes("OFFICIAL PSREF")) return 98;
+  if (confidence.includes("EXACT IDENTIFIER")) return 97;
+  if (confidence.includes("EXACT FCC") || confidence.includes("EXACT PCI") || confidence.includes("EXACT USB")) return 96;
+  if (source === "Google Play supported devices") return 94;
+  if (source === "Open Icecat") return 94;
+  if (source === "Linux Vendor Firmware Service") return 88;
+  if (source === "Wikidata") return 70;
+  if (source === "Wikipedia") return 56;
+  if (source === "Entered model text") return 25;
+  return 65;
+}
+
 function modelFromBarcode(product: BarcodeProduct): ModelRecord {
   return {
     manufacturer: product.manufacturer,
@@ -91,6 +114,7 @@ export function ModelAutofill({ models }: { models: ModelRecord[] }) {
   const [lookup, setLookup] = useState("");
   const [selected, setSelected] = useState<ModelRecord | null>(null);
   const [liveModels, setLiveModels] = useState<ModelRecord[]>([]);
+  const [liveProviders, setLiveProviders] = useState<ProviderStatus[]>([]);
   const [liveLoading, setLiveLoading] = useState(false);
   const [liveError, setLiveError] = useState("");
 
@@ -108,6 +132,7 @@ export function ModelAutofill({ models }: { models: ModelRecord[] }) {
     const q = lookup.trim();
     if (q.length < 2 || selected) {
       setLiveModels([]);
+      setLiveProviders([]);
       setLiveLoading(false);
       setLiveError("");
       return;
@@ -118,15 +143,46 @@ export function ModelAutofill({ models }: { models: ModelRecord[] }) {
       setLiveLoading(true);
       setLiveError("");
       try {
-        const response = await fetch(`/api/model-search?q=${encodeURIComponent(q)}`, {
-          signal: controller.signal,
-        });
-        if (!response.ok) throw new Error(`Lookup failed (${response.status})`);
-        const body = (await response.json()) as { results?: ModelRecord[] };
-        setLiveModels(body.results ?? []);
+        const [modelResponse, referenceResponse] = await Promise.all([
+          fetch(`/api/model-search?q=${encodeURIComponent(q)}`, {
+            signal: controller.signal,
+          }),
+          fetch(`/api/device-reference?q=${encodeURIComponent(q)}`, {
+            signal: controller.signal,
+          }),
+        ]);
+
+        if (!modelResponse.ok && !referenceResponse.ok) {
+          throw new Error(`Lookup failed (${modelResponse.status}/${referenceResponse.status})`);
+        }
+
+        const modelBody = modelResponse.ok
+          ? ((await modelResponse.json()) as { results?: ModelRecord[]; providers?: string[] })
+          : { results: [] as ModelRecord[], providers: [] as string[] };
+
+        const referenceBody = referenceResponse.ok
+          ? ((await referenceResponse.json()) as { results?: ModelRecord[]; providers?: ProviderStatus[] })
+          : { results: [] as ModelRecord[], providers: [] as ProviderStatus[] };
+
+        const mergedProviders: ProviderStatus[] = [
+          ...(modelBody.providers ?? []).map((name) => ({
+            name,
+            status: "ok" as const,
+            matches: (modelBody.results ?? []).filter((model) =>
+              (model.external_source ?? "").includes(name.replace("DubboEwaste curated catalogue", "DubboEwaste")),
+            ).length,
+          })),
+          ...(referenceBody.providers ?? []),
+        ];
+
+        setLiveProviders(
+          [...new Map(mergedProviders.map((provider) => [provider.name, provider])).values()],
+        );
+        setLiveModels([...(modelBody.results ?? []), ...(referenceBody.results ?? [])]);
       } catch (error) {
         if ((error as Error).name !== "AbortError") {
           setLiveModels([]);
+          setLiveProviders([]);
           setLiveError("Live lookup temporarily unavailable.");
         }
       } finally {
@@ -141,11 +197,24 @@ export function ModelAutofill({ models }: { models: ModelRecord[] }) {
   }, [lookup, selected]);
 
   const matches = useMemo<Match[]>(() => {
-    const localKeys = new Set(localMatches.map(({ model }) => keyFor(model)));
-    const remote = liveModels
-      .filter((model) => !localKeys.has(keyFor(model)))
-      .map((model) => ({ model, score: 30, method: "live" as const }));
-    return [...localMatches, ...remote].slice(0, 12);
+    const candidates: Match[] = [
+      ...localMatches,
+      ...liveModels.map((model) => ({
+        model,
+        score: liveScore(model),
+        method: "live" as const,
+      })),
+    ].sort((a, b) => b.score - a.score);
+
+    const seen = new Set<string>();
+    return candidates
+      .filter(({ model }) => {
+        const key = keyFor(model);
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      })
+      .slice(0, 14);
   }, [localMatches, liveModels]);
 
   function choose(model: ModelRecord) {
@@ -174,13 +243,16 @@ export function ModelAutofill({ models }: { models: ModelRecord[] }) {
                 choose(matches[0].model);
               }
             }}
-            placeholder="Try realme, Latitude 5420, ThinkPad T14, iPhone 11"
+            placeholder="Model, GTIN, FCC ID, PCI/USB ID, LVFS GUID…"
             autoComplete="off"
           />
         </label>
 
         <p className="muted small">
-          Type a model name to search the DubboEwaste catalogue and multiple free public device sources, or scan a manufacturer barcode above.
+          Searches AssetFlow plus Google Play devices, Open Icecat, Lenovo PSREF, FCC, PCI/USB IDs, LVFS, Wikidata and Wikipedia. You can also scan a manufacturer barcode above.
+        </p>
+        <p className="muted small">
+          Identifier examples: <code>GTIN 0194253405605</code>, <code>FCC ID BCG-E8431A</code>, <code>PCI:8086:15be</code>, <code>USB:046d:c534</code>, or <code>LVFS:&lt;GUID&gt;</code>.
         </p>
 
         {lookup && !selected ? (
@@ -207,6 +279,15 @@ export function ModelAutofill({ models }: { models: ModelRecord[] }) {
               </button>
             ))}
             {liveLoading ? <p className="muted small">Searching public device databases…</p> : null}
+            {!liveLoading && liveProviders.length ? (
+              <p className="muted small">
+                Checked: {liveProviders.map((provider) =>
+                  provider.status === "ok"
+                    ? `${provider.name}${provider.matches ? ` (${provider.matches})` : ""}`
+                    : `${provider.name} (temporarily unavailable)`
+                ).join(" · ")}
+              </p>
+            ) : null}
             {!liveLoading && !matches.length && !liveError ? (
               <p className="muted small">No model found in the local or public catalogues. Enter the manufacturer and exact model manually.</p>
             ) : null}
