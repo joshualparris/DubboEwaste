@@ -2,7 +2,15 @@
 
 import { QRCodeSVG } from "qrcode.react";
 
-export function AssetQr({ assetCode, assetId }: { assetCode: string; assetId: string }) {
+export function AssetQr({
+  assetCode,
+  assetId,
+  productName,
+}: {
+  assetCode: string;
+  assetId: string;
+  productName?: string | null;
+}) {
   const value = typeof window === "undefined"
     ? assetCode
     : `${window.location.origin}/assets/${assetId}`;
@@ -23,6 +31,7 @@ export function AssetQr({ assetCode, assetId }: { assetCode: string; assetId: st
       <div className="qr asset-label-print-area">
         <QRCodeSVG value={value} size={150} marginSize={1} />
         <strong>{assetCode}</strong>
+        {productName ? <span className="asset-label-product">{productName}</span> : null}
       </div>
       <button
         className="button no-print"
