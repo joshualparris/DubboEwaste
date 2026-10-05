@@ -13,7 +13,7 @@ create table if not exists public.operational_document_overrides (
   updated_at timestamptz not null default now()
 );
 
-alter table public.operational_document_overrides enable row level security;
+create index if not exists operational_document_overrides_updated_by_idx on public.operational_document_overrides(updated_by);\n\nalter table public.operational_document_overrides enable row level security;
 
 revoke all on table public.operational_document_overrides from anon;
 grant select, insert, update, delete on table public.operational_document_overrides to authenticated;
