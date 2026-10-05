@@ -43,7 +43,7 @@ export default async function AssetPage({ params, searchParams }: { params: Prom
     <div><div className="badge">{a.status}</div><h1>{a.asset_code}</h1><p className="muted">{[a.manufacturer,a.model].filter(Boolean).join(" ")||a.category}</p></div>
     {query.error ? <div className="error">{query.error}</div> : null}
     <div className="grid">
-      <section className="card"><h2>Asset label</h2><AssetQr assetCode={a.asset_code} assetId={a.id} /></section>
+      <section className="card"><h2>Asset label</h2><AssetQr assetCode={a.asset_code} assetId={a.id} productName={[a.manufacturer,a.model].filter(Boolean).join(" ")||a.category} /></section>
       <section className="card"><h2>Custody</h2><p><strong>Customer:</strong> {a.customers?.name||a.source_name||"—"}</p><p><strong>Job:</strong> {a.jobs?.job_code||"—"}</p><p><strong>Origin lot:</strong> {a.lots?.lot_code||"—"}</p><p><strong>Location:</strong> {a.locations?.name||"—"}</p><p><strong>Received:</strong> {new Date(a.received_at).toLocaleString("en-AU")}</p></section>
       <section className="card"><h2>Intake state</h2><p><strong>Category:</strong> {a.category}</p><p><strong>Serial / IMEI:</strong> {a.serial_imei||"—"}</p><p><strong>Ownership verified:</strong> {a.ownership_verified?"Yes":"No"}</p><p><strong>Data state:</strong> {a.data_state}</p><p><strong>Initial route:</strong> {a.initial_route||"—"}</p><p><strong>Grade:</strong> {latestGrade?.final_grade||"Not graded"}</p></section>
     </div>
