@@ -29,6 +29,7 @@ The live Supabase project has also had some changes applied directly through SQL
 10. `008_assetflow_crm.sql`
 11. `009_assetflow_crm_sales.sql`
 12. `009_sanitisation_diagnostics_integrations.sql`\n13. `010_operational_documents.sql`\n14. `011_crm_completion.sql`
+15. `012_job_submission_idempotency.sql`
 
 This list documents intent; it is **not yet a fresh-install guarantee**.
 
