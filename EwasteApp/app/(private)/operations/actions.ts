@@ -247,6 +247,7 @@ export async function createLocation(formData: FormData) {
 
 export async function createJob(formData: FormData) {
   const schema = z.object({
+    submission_key: z.string().uuid(),
     customer_id: optionalUuid,
     source_site: z.string().trim().max(200).optional(),
     contact_name: z.string().trim().max(160).optional(),
@@ -258,6 +259,14 @@ export async function createJob(formData: FormData) {
   const parsed = schema.safeParse(Object.fromEntries(formData));
   if (!parsed.success) redirect("/jobs/new?error=Please%20check%20the%20job%20fields");
   const { supabase, user } = await currentUser();
+
+  const { data: existing } = await supabase
+    .from("jobs")
+    .select("id")
+    .eq("submission_key", parsed.data.submission_key)
+    .maybeSingle();
+  if (existing) redirect("/jobs/" + existing.id);
+
   const { data, error } = await supabase.from("jobs").insert({
     ...parsed.data,
     customer_id: parsed.data.customer_id || null,
@@ -266,7 +275,17 @@ export async function createJob(formData: FormData) {
     work_instructions: parsed.data.work_instructions || null,
     created_by: user.id,
   }).select("id,job_code").single();
-  if (error || !data) redirect("/jobs/new?error=Could%20not%20create%20job");
+  if (error || !data) {
+    if (error?.code === "23505") {
+      const { data: duplicate } = await supabase
+        .from("jobs")
+        .select("id")
+        .eq("submission_key", parsed.data.submission_key)
+        .maybeSingle();
+      if (duplicate) redirect("/jobs/" + duplicate.id);
+    }
+    redirect("/jobs/new?error=Could%20not%20create%20job");
+  }
   await appendEvent(supabase, user.id, "job", data.id, "JOB_CREATED", { job_code: data.job_code });
   revalidatePath("/jobs");
   revalidatePath("/dashboard");
