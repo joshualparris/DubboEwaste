@@ -10,6 +10,18 @@ type WikidataSearchResponse = {
   search?: WikidataSearchItem[];
 };
 
+type WikipediaSearchPage = {
+  id?: number;
+  key?: string;
+  title?: string;
+  excerpt?: string;
+  description?: string | null;
+};
+
+type WikipediaSearchResponse = {
+  pages?: WikipediaSearchPage[];
+};
+
 const DEVICE_WORDS =
   /smartphone|mobile phone|cell phone|tablet|laptop|notebook|chromebook|personal computer|desktop computer|workstation|computer model|electronic device|router|wireless access point|network switch|monitor|display|printer|iphone|ipad|imac|macbook|latitude|thinkpad|elitebook|probook|surface|galaxy|pixel|optiplex|precision/i;
 
@@ -61,6 +73,54 @@ const CURATED_MODELS = [
     source_id: "curated:apple-imac-27-2017",
   },
 ];
+
+
+function stripHtml(value: string) {
+  return value.replace(/<[^>]+>/g, " ").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
+}
+
+function queryVariants(query: string) {
+  const variants = new Set<string>([query.trim()]);
+  const compact = query.trim().replace(/\s+/g, " ");
+  const withoutBrand = compact.replace(/^(lenovo|ibm|dell|hp|hewlett[- ]packard|acer|asus|apple|toshiba|sony|samsung|microsoft)\s+/i, "").trim();
+  if (withoutBrand.length >= 2) variants.add(withoutBrand);
+
+  const lenovoCode = withoutBrand.match(/^([txwlr])\s*([0-9]{2,4}[a-z]?)$/i);
+  if (/^(lenovo|ibm)\b/i.test(compact) && lenovoCode) {
+    variants.add("ThinkPad " + lenovoCode[1].toUpperCase() + lenovoCode[2]);
+    variants.add("Lenovo ThinkPad " + lenovoCode[1].toUpperCase() + lenovoCode[2]);
+  }
+
+  const dellCode = withoutBrand.match(/^(?:latitude\s+)?([0-9]{4})$/i);
+  if (/^dell\b/i.test(compact) && dellCode) {
+    variants.add("Dell Latitude " + dellCode[1]);
+    variants.add("Latitude " + dellCode[1]);
+  }
+
+  const hpCode = withoutBrand.match(/^(?:elitebook|probook|zbook)?\s*([0-9]{3,4}[a-z0-9-]*)$/i);
+  if (/^(hp|hewlett[- ]packard)\b/i.test(compact) && hpCode) {
+    variants.add("HP EliteBook " + hpCode[1]);
+    variants.add("HP ProBook " + hpCode[1]);
+  }
+
+  return [...variants].filter((value) => value.length >= 2).slice(0, 8);
+}
+
+async function searchWikipedia(term: string) {
+  const url = new URL("https://en.wikipedia.org/w/rest.php/v1/search/page");
+  url.searchParams.set("q", term);
+  url.searchParams.set("limit", "10");
+
+  const response = await fetch(url, {
+    headers: {
+      Accept: "application/json",
+      "User-Agent": "DubboEwaste/0.1 (https://github.com/joshualparris/DubboEwaste)",
+    },
+    next: { revalidate: 3600 },
+  });
+  if (!response.ok) throw new Error(`Wikipedia returned ${response.status}`);
+  return (await response.json()) as WikipediaSearchResponse;
+}
 
 function titleCase(value: string) {
   return value
@@ -203,7 +263,7 @@ export async function GET(request: NextRequest) {
   const query = (request.nextUrl.searchParams.get("q") ?? "").trim().slice(0, 80);
   if (query.length < 2) return NextResponse.json({ results: [] });
 
-  const terms = new Set<string>([query]);
+  const terms = new Set<string>(queryVariants(query));
   const familyBrand = FAMILY_BRANDS.find(([pattern]) => pattern.test(query))?.[1] ?? "";
   if (familyBrand && !query.toLowerCase().includes(familyBrand.toLowerCase())) {
     terms.add(familyBrand + " " + query);
@@ -217,8 +277,9 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const [wikidataSettled, realmeSettled] = await Promise.all([
+    const [wikidataSettled, wikipediaSettled, realmeSettled] = await Promise.all([
       Promise.allSettled([...terms].map(searchWikidata)),
+      Promise.allSettled([...terms].map(searchWikipedia)),
       /realme|rmx\d+/i.test(query)
         ? searchRealmeOpenData(query).then(
             (value) => ({ status: "fulfilled" as const, value }),
@@ -233,6 +294,10 @@ export async function GET(request: NextRequest) {
     const batches = wikidataSettled
       .filter((item): item is PromiseFulfilledResult<WikidataSearchItem[]> => item.status === "fulfilled")
       .map((item) => item.value);
+
+    const wikipediaBatches = wikipediaSettled
+      .filter((item): item is PromiseFulfilledResult<WikipediaSearchResponse> => item.status === "fulfilled")
+      .map((item) => item.value.pages ?? []);
 
     const needle = query.toLowerCase();
     const curatedRows = CURATED_MODELS
@@ -287,10 +352,53 @@ export async function GET(request: NextRequest) {
         return true;
       });
 
-    const rows = [...curatedRows, ...realmeRows, ...wikidataRows].slice(0, 20);
+    const wikipediaRows = wikipediaBatches
+      .flat()
+      .filter((item) => {
+        const title = item.title ?? "";
+        const description = item.description ?? "";
+        const excerpt = stripHtml(item.excerpt ?? "");
+        return DEVICE_WORDS.test(`${title} ${description} ${excerpt}`);
+      })
+      .map((item) => {
+        const label = item.title ?? item.key ?? "Wikipedia device";
+        const description = item.description || stripHtml(item.excerpt ?? "") || "Wikipedia device record";
+        const manufacturer = inferManufacturer(label, query);
+        const category = inferCategory(label, description);
+        const key = item.key || encodeURIComponent(label.replace(/ /g, "_"));
+        return {
+          manufacturer: manufacturer || "Unknown",
+          model_name: modelName(label, manufacturer),
+          category,
+          support_summary: `Wikipedia match: ${description}. Verify the exact machine label, type/model code and installed hardware before routing.`,
+          lock_risks:
+            category === "phone" || category === "tablet"
+              ? "Check activation/account lock, MDM and blacklist/carrier status."
+              : "Check firmware/BIOS password, MDM/Autopilot and organisation ownership.",
+          battery_notes:
+            ["phone", "tablet", "laptop", "chromebook"].includes(category)
+              ? "Inspect battery health, swelling, heat and charging before reuse."
+              : "Check power supply, ports and electrical condition.",
+          likely_route: "Hold / further triage until exact model and condition are verified.",
+          source_url: `https://en.wikipedia.org/wiki/${key}`,
+          source_checked: new Date().toISOString().slice(0, 10),
+          confidence: "RESEARCH LEAD",
+          external_source: "Wikipedia",
+          source_id: `wikipedia:${item.id ?? key}`,
+        };
+      })
+      .filter((row) => row.model_name.length > 1)
+      .filter((row) => {
+        const key = `${row.manufacturer}:${row.model_name}`.toLowerCase();
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+
+    const rows = [...curatedRows, ...realmeRows, ...wikidataRows, ...wikipediaRows].slice(0, 24);
 
     return NextResponse.json(
-      { results: rows, providers: ["DubboEwaste curated catalogue", "RealmeBot open device DB", "Wikidata"] },
+      { results: rows, providers: ["DubboEwaste curated catalogue", "RealmeBot open device DB", "Wikidata", "Wikipedia"] },
       { headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400" } },
     );
   } catch (error) {
