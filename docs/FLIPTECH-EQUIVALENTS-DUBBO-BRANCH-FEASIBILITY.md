@@ -79,14 +79,14 @@ Source:
 
 A current Konica Minolta e-recycling program identifies Fliptech as the provider for:
 
-- **NIST 800-88 data erasure**
+- **NIST 800-88-labelled data erasure**
 - erasure certificates
 - asset reports
 - refurbishment/reuse
 - donation
 - official resale channels.
 
-This is strong evidence that Fliptech now performs a proper ITAD/value-recovery function rather than only moving equipment to a recycler.
+This is strong evidence that Fliptech now performs an ITAD/value-recovery function rather than only moving equipment to a recycler. It is **not, by itself, an independent audit of the exact sanitisation procedure or proof of NIST SP 800-88 Rev. 2 compliance for every device**.
 
 Source:
 - https://www.konicaminolta.com.au/promotions/rethink-e-recycling-2026
