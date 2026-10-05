@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { AssetBatchTable } from "@/components/AssetBatchTable";\nimport { createClient } from "@/lib/supabase/server";
+import { AssetBatchTable } from "@/components/AssetBatchTable";
+import { createClient } from "@/lib/supabase/server";
 
 export default async function AssetsPage() {
   const supabase = await createClient();
