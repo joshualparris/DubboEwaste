@@ -92,6 +92,18 @@ function productKey(product: ProductMatch) {
   ].join("|");
 }
 
+async function safeLookup(
+  provider: string,
+  lookup: () => Promise<ProductMatch[]>,
+): Promise<ProductMatch[]> {
+  try {
+    return await lookup();
+  } catch (error) {
+    console.warn(`Barcode provider ${provider} unavailable`, error);
+    return [];
+  }
+}
+
 async function lookupOpenProductsFacts(code: string): Promise<ProductMatch[]> {
   const url = new URL(`https://world.openfoodfacts.org/api/v3/product/${encodeURIComponent(code)}`);
   url.searchParams.set("product_type", "all");
@@ -313,15 +325,15 @@ export async function GET(request: NextRequest) {
     });
   }
 
-  const openFacts = await lookupOpenProductsFacts(code);
-  const wikidataPromise = lookupWikidataGtin(code);
+  const [openFacts, wikidata] = await Promise.all([
+    safeLookup("Open Products Facts", () => lookupOpenProductsFacts(code)),
+    safeLookup("Wikidata GTIN", () => lookupWikidataGtin(code)),
+  ]);
 
   let upcItemDb: ProductMatch[] = [];
   if (!openFacts.length) {
-    upcItemDb = await lookupUpcItemDb(code);
+    upcItemDb = await safeLookup("UPCitemdb", () => lookupUpcItemDb(code));
   }
-
-  const wikidata = await wikidataPromise;
   const products = [...openFacts, ...upcItemDb, ...wikidata];
   const seen = new Set<string>();
   const uniqueProducts = products.filter((product) => {
