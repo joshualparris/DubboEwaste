@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: assetflow-backup
+    runtime: node
+    plan: free
+    region: singapore
+    repo: https://github.com/joshualparris/DubboEwaste
+    branch: main
+    rootDir: EwasteApp
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+        sync: false
