@@ -6,6 +6,7 @@ type Target = {
   table_name: string;
   label: string;
   category: string;
+  mutable: boolean;
 };
 
 function editableRecord(row: Record<string, unknown>) {
@@ -29,8 +30,7 @@ export default async function AdminDataPage({
 
   const { data: targetData } = await supabase
     .from("permission_targets")
-    .select("table_name,label,category")
-    .eq("mutable", true)
+    .select("table_name,label,category,mutable")
     .neq("table_name", "operational_document_overrides")
     .order("category")
     .order("label");
@@ -51,10 +51,10 @@ export default async function AdminDataPage({
   return (
     <div className="stack">
       <div>
-        <div className="badge">Admin · CRUD console</div>
-        <h1>Admin Data</h1>
+        <div className="badge">Admin · Manage everything</div>
+        <h1>Manage Data</h1>
         <p className="muted">
-          Direct CRUD for mutable operational tables. Audit/history tables are intentionally excluded.
+          Create, view, edit and delete operational records across AssetFlow. Protected audit tables are visible here but stay read-only so certificates, evidence and chain-of-custody history cannot be silently destroyed.
         </p>
         <div className="actions">
           <Link className="button secondary" href="/admin/permissions">Roles & permissions</Link>
@@ -77,23 +77,30 @@ export default async function AdminDataPage({
               className="button secondary"
               href={`/admin/data?table=${encodeURIComponent(target.table_name)}`}
             >
-              {target.label}
+              {target.label}{target.mutable ? "" : " · read only"}
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="card form">
-        <h2>Create in {selectedTarget?.label ?? selected}</h2>
-        <p className="muted small">
-          Enter a JSON object containing the fields for the new record. Actor fields such as created_by are filled automatically.
-        </p>
-        <form action={createAdminRecord} className="form">
-          <input type="hidden" name="table_name" value={selected} />
-          <textarea name="json" defaultValue={"{}"} spellCheck={false} required />
-          <button className="button" type="submit">Create record</button>
-        </form>
-      </section>
+      {selectedTarget?.mutable ? (
+        <section className="card form">
+          <h2>Add record to {selectedTarget?.label ?? selected}</h2>
+          <p className="muted small">
+            Enter the record fields as JSON. Generated IDs, timestamps and actor fields can be omitted.
+          </p>
+          <form action={createAdminRecord} className="form">
+            <input type="hidden" name="table_name" value={selected} />
+            <textarea name="json" defaultValue={"{}"} spellCheck={false} required />
+            <button className="button" type="submit">Add record</button>
+          </form>
+        </section>
+      ) : (
+        <section className="card">
+          <h2>Protected audit data</h2>
+          <p className="muted">This table is intentionally read-only. Records can be inspected here, but AssetFlow will not allow them to be edited or deleted through the CRUD console.</p>
+        </section>
+      )}
 
       <section className="stack">
         <div><h2>Latest records</h2><p className="muted small">Showing up to 50 rows.</p></div>
@@ -106,7 +113,7 @@ export default async function AdminDataPage({
               <pre style={{ whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}>
                 {JSON.stringify(row, null, 2)}
               </pre>
-              {id ? (
+              {id && selectedTarget?.mutable ? (
                 <div className="stack">
                   <form action={updateAdminRecord} className="form">
                     <input type="hidden" name="table_name" value={selected} />
@@ -125,7 +132,7 @@ export default async function AdminDataPage({
                   <form action={deleteAdminRecord}>
                     <input type="hidden" name="table_name" value={selected} />
                     <input type="hidden" name="id" value={id} />
-                    <button className="button secondary" type="submit">Delete record</button>
+                    <button className="button danger" type="submit">Delete record</button>
                   </form>
                 </div>
               ) : null}
