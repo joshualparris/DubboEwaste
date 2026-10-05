@@ -10,7 +10,7 @@ const stages = ["QUALIFIED","QUOTED","ACCEPTED","SCHEDULED","PROCESSING","COMPLE
 const serviceTypes = ["COLLECTION","DROP_OFF","ITAD","REFURBISHMENT","DATA_SANITISATION","REUSE_PROGRAM","OTHER"] as const;
 
 function go(key: "error" | "success", message: string): never {
-  redirect(\`/crm/opportunities?\${key}=\${encodeURIComponent(message)}\`);
+  redirect("/crm/opportunities?" + key + "=" + encodeURIComponent(message));
 }
 
 async function currentUser() {
@@ -63,7 +63,7 @@ export async function createOpportunity(formData: FormData) {
     await supabase.from("crm_activities").insert({
       lead_id: parsed.data.lead_id,
       activity_type: "NOTE",
-      summary: \`Opportunity created: \${parsed.data.name}\`,
+      summary: "Opportunity created: " + parsed.data.name,
       created_by: user.id,
     });
   }
@@ -117,7 +117,7 @@ export async function updateOpportunity(formData: FormData) {
     await supabase.from("crm_activities").insert({
       lead_id: previous.lead_id,
       activity_type: "STAGE_CHANGE",
-      summary: \`Opportunity \${previous.name} changed from \${previous.stage} to \${parsed.data.stage}\`,
+      summary: "Opportunity " + previous.name + " changed from " + previous.stage + " to " + parsed.data.stage,
       created_by: user.id,
     });
   }
