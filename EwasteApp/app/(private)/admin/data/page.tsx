@@ -31,6 +31,7 @@ export default async function AdminDataPage({
     .from("permission_targets")
     .select("table_name,label,category")
     .eq("mutable", true)
+    .neq("table_name", "operational_document_overrides")
     .order("category")
     .order("label");
 
