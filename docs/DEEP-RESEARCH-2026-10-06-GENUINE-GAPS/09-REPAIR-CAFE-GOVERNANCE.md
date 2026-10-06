@@ -158,3 +158,34 @@ Pitch to Council:
 If the program develops a volunteer leadership group and regular attendance, revisit incorporation after 6 months.
 
 Do not create a new association merely because a form exists. Governance should solve a real problem.
+
+
+## Dubbo Council funding fit
+
+Dubbo Regional Council's current Community Funding Program handbook is useful for governance design because it explicitly excludes projects undertaken for **personal or commercial profit**. That makes a documented firewall from Dubbo ITAD important if Council funding, venue support or auspicing is sought.
+
+Council's grants page describes an annual Community Funding Program budget of **$250,000** across its program. Funding rounds, dates and eligibility should be rechecked at the time of application rather than assumed from this research date.
+
+Source:
+- https://www.dubbo.nsw.gov.au/ArticleDocuments/10671/Community%20Funding%20Program%20-%20Applicant%20Handbook.pdf.aspx
+- https://www.dubbo.nsw.gov.au/News-and-Media/News-and-Resources/grants-and-funding
+
+### Auspicing
+
+NSW grant guidance uses “auspice” for arrangements where an eligible incorporated/not-for-profit body applies for or administers funding on behalf of an unincorporated or otherwise ineligible community group. The exact legal/financial responsibilities depend on the funding program and written auspice agreement.
+
+For a first Dubbo Computer Repair Café pilot, auspicing can be cleaner than immediately creating a new association because it allows an established host to hold funds and governance while the repair group proves demand.
+
+A written auspice/host agreement should still make clear:
+
+- which organisation is the grant recipient;
+- who owns grant-funded tools/equipment;
+- who carries insurance;
+- who supervises volunteers;
+- who holds participant/volunteer information;
+- who reports outcomes to Council/funder;
+- what happens to assets/funds if the pilot ends;
+- that Dubbo ITAD receives no automatic commercial benefit.
+
+Examples of NSW Government auspice guidance:
+- https://www.nsw.gov.au/grants-and-funding/spontaneous-volunteers-support-program/frequently-asked-questions
