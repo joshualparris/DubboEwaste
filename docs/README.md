@@ -97,6 +97,12 @@ Then use:
 - [DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/SOURCES.md](DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/SOURCES.md) — primary/current source register.
 - Individual reports 01–11 cover market size, procurement, tax, transport, cybersecurity, electrical/parts compliance, recalls, parts supply, Repair Café governance, environmental claims and right to repair.
 
+## Field validation / real-world closure
+
+- [FIELD-VALIDATION-UNKNOWN-CLOSURE-SYSTEM.md](FIELD-VALIDATION-UNKNOWN-CLOSURE-SYSTEM.md) — exact plan for AMR downstream, Council contract/weights, Education vendor, institutional disposal routes, supply willingness, Repair Café demand, private commercial terms and local pilot economics.
+- Operational request/interview/survey templates: [../templates/](../templates/).
+- Private captured results live in AssetFlow **/validation**, not in the public repository.
+
 ## NotebookLM research pack
 
 - [../notebooklm/2026-10-06-100-pdf-pack/README.md](../notebooklm/2026-10-06-100-pdf-pack/README.md) — corrected 100-PDF pack.
