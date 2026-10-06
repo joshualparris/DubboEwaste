@@ -69,7 +69,7 @@ This is the privacy-safe public index joining the DadLAN fleet with verified tec
 | 42 | IBM ThinkPad Type 2656 | 2656-EM7 | — | Map machine type to marketing model/HMM |
 | 43 | Dell Dimension 3100 | 3100/E310 | [Dell service manual](https://www.dell.com/support/product-details/en-ca/product/dimension-3100/resources/manuals) | Record motherboard DP/N if retained |
 
-## Purchase-derived devices/accessories
+## Other currently evidenced home tech\n\n- **Samsung Galaxy A55 5G** — Samsung and Google device sign-in records from August 2024 establish an A55 5G in use. Samsung publishes an English repair guide for the SM-A556B family, and iFixit lists A55 models including SM-A556E. Confirm the exact model number in Settings > About phone before treating a regional repair guide as an exact match: https://www.ifixit.com/Device/Samsung_Galaxy_A55 and https://www.samsung.com/nl/support/model/SM-A556BLVAEUB/\n\n## Purchase-derived devices/accessories
 
 - **HP laptop sold as “HP PROBOOK 11 G2”** — eBay order confirmation, 9 Sep 2026; i3-6100U, 4GB, 128GB. The listing name needs physical verification before a schematic is assigned.
 - **Fitbit Inspire 3** — two eBay charging-cable orders in Jul 2026. [Fitbit user manuals](https://support.google.com/googlehealth/answer/14253977?hl=en-AU).
