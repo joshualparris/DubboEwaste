@@ -2,8 +2,10 @@
 
 **Status:** draft for the first 20–30 item pilot.  
 **Model:** selective electronics reuse/refurbishment, not general waste collection.  
-**Intake days:** Tuesday and Saturday only, **pre-approval required**.  
+**Intake cadence:** appointment-only and **pre-approval required**. The earlier standing Tuesday/Saturday model is under capacity review; Phase 0 should begin with a capped Tuesday block (initially fortnightly) and no standing Saturday commercial intake.  
 **Public walk-in intake starts only after Council, Fair Trading, tenancy/landlord and insurance questions are resolved.**
+
+**Family-capacity gate:** do not advertise every-Saturday commercial intake during Phase 0. If a community Repair Café launches, begin monthly and keep it structurally separate from commercial ITAD stock, money and intake. See [FAMILY-CAPACITY-ITAD-REPAIR-CAFE.md](FAMILY-CAPACITY-ITAD-REPAIR-CAFE.md).
 
 See [PHASE-0-OPERATING-BLUEPRINT.md](PHASE-0-OPERATING-BLUEPRINT.md) for the research behind these rules.
 
