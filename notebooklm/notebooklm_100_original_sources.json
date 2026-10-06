@@ -62,18 +62,6 @@
       "url": "https://www.itu.int/dms_pub/itu-d/opb/gen/D-GEN-E_WASTE.01-2024-PDF-E.pdf"
     },
     {
-      "title": "WHO - Children and Digital Dumpsites Full Report",
-      "url": "https://iris.who.int/bitstream/handle/10665/341718/9789240023901-eng.pdf?sequence=1"
-    },
-    {
-      "title": "WHO - Children and Digital Dumpsites Summary",
-      "url": "https://iris.who.int/bitstream/handle/10665/341730/9789240024557-eng.pdf"
-    },
-    {
-      "title": "WHO - Children and Digital Dumpsites Web Annex",
-      "url": "https://iris.who.int/bitstream/handle/10665/341696/9789240024106-eng.pdf"
-    },
-    {
       "title": "Basel Convention COP16 - Technical Guidelines on E-waste",
       "url": "https://www.basel.int/Portals/4/download.aspx?d=UNEP-CHW-COP.16-BC-16-5.English.pdf"
     },
@@ -84,14 +72,6 @@
     {
       "title": "Open Repair Alliance - The Rise of Community Repair 2024",
       "url": "https://openrepair.org/wp-content/uploads/2024/10/ORA-report-2024-The-rise-of-community-repair.pdf"
-    },
-    {
-      "title": "RepairMonitor 2024 Factsheet",
-      "url": "https://www.repaircafe.org/wp-content/uploads/2025/04/Factsheet_RepairMonitor_2024_EN.pdf"
-    },
-    {
-      "title": "Repair Cafe International Annual Report 2024",
-      "url": "https://www.repaircafe.org/wp-content/uploads/2025/05/RC_jaarverslag_2024_web.pdf"
     },
     {
       "title": "Productivity Commission - Right to Repair Inquiry Report",
@@ -150,124 +130,144 @@
       "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0005/272696/sub107-repair.pdf"
     },
     {
-      "title": "Review of the Product Stewardship Act 2011",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/product-stewardship-act-review.pdf"
-    },
-    {
-      "title": "NTCRS Compliance Framework",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/ntcrs-compliance-framework_0.pdf"
-    },
-    {
-      "title": "NTCRS Evaluation Report",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/ntcrs-evaluation-report.pdf"
-    },
-    {
-      "title": "NTCRS Material Recovery Measurement and Reporting Methodology",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/material-recovery-measurement-reporting-methodology.pdf"
-    },
-    {
-      "title": "NTCRS Alternative Trajectories",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/ntcrs-alternative-trajectories.pdf"
-    },
-    {
-      "title": "NTCRS Targets and Trajectories",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/ntcrs-targets.pdf"
-    },
-    {
-      "title": "NTCRS Material Recovery Regulatory Impact Statement",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/material-recovery-ris.pdf"
-    },
-    {
-      "title": "NTCRS Thresholds",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/ntcrs-thresholds.pdf"
-    },
-    {
-      "title": "NTCRS Outcomes 2014-15",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/national-television-and-computer-recycling-scheme-outcomes-2014-15.pdf"
-    },
-    {
-      "title": "NTCRS Outcomes 2013-14",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/national-television-and-computer-recycling-scheme-outcomes-2013-14.pdf"
-    },
-    {
-      "title": "NTCRS Outcomes 2012-13",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/scheme-outcomes-2012-13.pdf"
-    },
-    {
-      "title": "ANZRP Annual Report 2023-24",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/anzrp-annual-report-2024.pdf"
-    },
-    {
-      "title": "Ecycle Solutions Annual Report 2023-24",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/e-cycle-solutions-annual-report-2024.pdf"
-    },
-    {
-      "title": "Activ Group Annual Report 2023-24",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/activ-group-annual-report-23-24.pdf"
-    },
-    {
-      "title": "ANZRP Annual Report 2022-23",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/anz-rp-annual-report-2022-23.pdf"
-    },
-    {
-      "title": "Ecycle Solutions Annual Report 2022-23",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/ecycle-solutions-annual-report-2022-23.pdf"
-    },
-    {
-      "title": "Activ Group Solutions Annual Report 2022-23",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/activ-group-solutions-annual-report-2022-23.pdf"
-    },
-    {
-      "title": "SPS Annual Report 2022-23",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/sps-annual-report-2022-23.pdf"
-    },
-    {
-      "title": "ANZRP Annual Report 2021-22",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/anz-rp-annual-report-2021-22.pdf"
-    },
-    {
-      "title": "Ecycle Solutions Annual Report 2021-22",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/ecycle-solutions-annual-report-2021-22.pdf"
-    },
-    {
-      "title": "Activ Group Solutions Annual Report 2021-22",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/activ-group-solutions-annual-report-2021-22.pdf"
-    },
-    {
-      "title": "SPS Annual Report 2021-22",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/sps-annual-report-2021-22.pdf"
-    },
-    {
-      "title": "ANZRP Annual Report 2020-21",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/anz-rp-annual-report-2020-21.pdf"
-    },
-    {
-      "title": "Ecycle Solutions Annual Report 2018-19",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/ecycle-solutions-annual-report-2018-19.pdf"
-    },
-    {
-      "title": "National Waste Report 2022",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/national-waste-report-2022.pdf"
-    },
-    {
-      "title": "National Waste Policy 2018",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/national-waste-policy-2018.pdf"
-    },
-    {
-      "title": "National Waste Policy Action Plan 2019",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/national-waste-policy-action-plan-2019.pdf"
-    },
-    {
-      "title": "National Waste Policy Action Plan 2024",
-      "url": "https://www.dcceew.gov.au/sites/default/files/documents/national-waste-policy-action-plan-2024.pdf"
-    },
-    {
       "title": "NSW Circular Economy Policy Statement",
       "url": "https://www.epa.nsw.gov.au/sites/default/files/19p1379-circular-economy-policy-final.pdf"
     },
     {
       "title": "NSW Waste and Sustainable Materials Strategy 2041",
       "url": "https://www.epa.nsw.gov.au/sites/default/files/nsw-waste-and-sustainable-materials-strategy-2041.pdf"
+    },
+    {
+      "title": "Productivity Commission - Brunswick Tool Library Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0005/272462/sub077-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Australian Local Government Association Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0008/272465/sub079-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Product Stewardship Centre of Excellence Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0005/272984/sub123-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Shaun Scallan and John Gertsakis Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0020/273008/sub125-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - CHOICE Initial Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0013/273010/sub126-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Australian Information Industry Association Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0007/273229/sub127-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Nathan Proctor Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0017/273230/sub128-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Australian Mobile Telecommunications Association Initial Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0009/273294/sub130-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Shane Rattenbury MLA Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0007/273382/sub133-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Consumer Electronics Suppliers Association Supplementary Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0010/273835/sub135-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - TCO Development Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0007/273895/sub137-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Jeremy Barr-Hyde Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0004/277159/subdr147-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Genius Bar Appointment Attachment",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0006/277161/subdr147-repair-attachment1.pdf"
+    },
+    {
+      "title": "Productivity Commission - iPad Service and Repair Attachment",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0007/277162/subdr147-repair-attachment2.pdf"
+    },
+    {
+      "title": "Productivity Commission - Samsung Service Authorisation Notice",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0005/277196/subdr148-repair-attachment1.pdf"
+    },
+    {
+      "title": "Productivity Commission - Interactive Pty Ltd Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0003/279183/subdr175-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Interactive Games and Entertainment Association Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0003/279210/subdr180-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Australian Mobile Telecommunications Association Post-Draft Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0004/279211/subdr181-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Waste Management and Resource Recovery Association Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0006/279213/subdr183-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Repair Cafe Redcliffe Peninsula Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0007/279214/subdr184-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - South Australian Repair Cafe Coordinators Post-Draft Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0005/279221/subdr187-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Port Phillip EcoCentre Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0008/279224/subdr190-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - NSW Young Lawyers Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0011/279605/subdr220-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Ewaste Watch Institute Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0003/279606/subdr221-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Good Environmental Choice Australia Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0004/279661/subdr222-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Australian Small Business and Family Enterprise Ombudsman Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0005/279698/subdr225-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Consumer Action Law Centre Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0010/279766/subdr229-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Digital Rights Watch and Electronic Frontiers Australia Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0011/279767/subdr230-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - CHOICE Post-Draft Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0012/279849/subdr232-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Zero Waste Victoria Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0012/279948/subdr235-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Australian Industry Group Supplementary Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0012/280101/subdr238-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Consumers Federation of Australia and CHOICE Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0018/280350/subdr242-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - EcoWaste Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0008/278657/subdr158-repair.pdf"
     }
   ]
 }
