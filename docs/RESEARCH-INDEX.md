@@ -47,6 +47,13 @@ The [facility-zone benchmark](EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md)
 - [DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md](DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md) covers later partner/branch routes.
 - [AUSTRALIAN-EWASTE-ITAD-MAJOR-PLAYERS.md](AUSTRALIAN-EWASTE-ITAD-MAJOR-PLAYERS.md) is the current market map of major Australian ITAD, e-waste, stewardship, reuse, digital-inclusion and collection organisations.
 
+## 6 October 2026 genuine-gap research extension
+
+- [DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/00-INDEX-31-QUESTIONS.md](DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/00-INDEX-31-QUESTIONS.md) is the current focused extension covering 31 questions that remained materially under-researched after the earlier systematic passes.
+- [DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/31-QUESTION-REGISTER.csv](DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/31-QUESTION-REGISTER.csv) records each question's evidence state and the real-world evidence still required.
+- [DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/SOURCES.md](DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/SOURCES.md) is the source register.
+- The pack does **not** supersede the P0 launch gates: online research cannot replace Council/Fair Trading/insurer/provider answers or pilot observations.
+
 ## Historical registers and superseded material
 
 These remain useful for provenance and should not be silently deleted:
