@@ -54,6 +54,11 @@ The [facility-zone benchmark](EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md)
 - [DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/SOURCES.md](DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/SOURCES.md) is the source register.
 - The pack does **not** supersede the P0 launch gates: online research cannot replace Council/Fair Trading/insurer/provider answers or pilot observations.
 
+## Field validation / remaining ground truth
+
+- [FIELD-VALIDATION-UNKNOWN-CLOSURE-SYSTEM.md](FIELD-VALIDATION-UNKNOWN-CLOSURE-SYSTEM.md) is the current authority for converting unresolved real-world questions into GIPA/informal requests, interviews, surveys, private quotes and measured pilot evidence.
+- The private AssetFlow **/validation** screen stores those results. This is intentionally not a public-data feature.
+
 ## Historical registers and superseded material
 
 These remain useful for provenance and should not be silently deleted:
