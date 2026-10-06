@@ -17,7 +17,54 @@ permissions:
   contents: write
 
 jobs:
+  validate-notebooklm-pack:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate pack definition without downloading 55 publisher PDFs
+        run: |
+          python -m py_compile scripts/build_notebooklm_original_pdf_pack.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          config_path = Path("notebooklm/notebooklm_100_original_sources.json")
+          config = json.loads(config_path.read_text(encoding="utf-8"))
+
+          repo_docs = config["repo_documents"]
+          sources = config["external_sources"]
+
+          assert len(repo_docs) == 44, f"Expected 44 repo documents, got {len(repo_docs)}"
+          assert len(sources) == 55, f"Expected 55 external PDFs, got {len(sources)}"
+
+          missing = [path for path in repo_docs if not Path(path).is_file()]
+          assert not missing, f"Missing repository documents: {missing}"
+
+          urls = []
+          for source in sources:
+              assert source.get("title"), f"Missing title: {source}"
+              url = source.get("url", "")
+              parsed = urlparse(url)
+              assert parsed.scheme == "https" and parsed.netloc, f"Invalid HTTPS source URL: {url}"
+              urls.append(url)
+
+          assert len(urls) == len(set(urls)), "Duplicate external source URL found"
+          print("NotebookLM definition valid: 44 repo documents + 55 publisher PDFs + 1 generated index = 100 PDFs.")
+          PY
+
   build-notebooklm-pack:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 45
 
@@ -42,14 +89,16 @@ jobs:
           python - <<'PY'
           import json, zipfile
           from pathlib import Path
-          root=Path("notebooklm/2026-10-06-100-pdf-pack")
-          manifest=json.loads((root/"manifest.json").read_text())
+
+          root = Path("notebooklm/2026-10-06-100-pdf-pack")
+          manifest = json.loads((root / "manifest.json").read_text())
           assert manifest["pdf_count"] == 100
           assert manifest["repo_document_count"] == 44
           assert manifest["original_online_pdf_count"] == 55
-          with zipfile.ZipFile(root/"DubboEwaste-NotebookLM-100-PDF-Pack.zip") as z:
-              pdfs=[n for n in z.namelist() if n.lower().endswith(".pdf")]
-          assert len(pdfs)==100, len(pdfs)
+
+          with zipfile.ZipFile(root / "DubboEwaste-NotebookLM-100-PDF-Pack.zip") as z:
+              pdfs = [name for name in z.namelist() if name.lower().endswith(".pdf")]
+          assert len(pdfs) == 100, len(pdfs)
           print("Verified corrected ZIP: exactly 100 PDFs, including 55 original publisher PDFs.")
           PY
 
@@ -64,12 +113,3 @@ jobs:
             git commit -m "Replace NotebookLM summaries with original source PDFs [skip ci]"
             git push
           fi
-
-      - name: Upload short-lived verified download artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: DubboEwaste-NotebookLM-100-PDF-Pack-CORRECTED
-          path: notebooklm/2026-10-06-100-pdf-pack/pdfs/*.pdf
-          retention-days: 1
-          if-no-files-found: error
-          compression-level: 6
