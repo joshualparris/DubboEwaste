@@ -22,7 +22,8 @@ For the complete documentation map, use **[docs/README.md](docs/README.md)**.
 - [Dubbo independent operators](docs/DUBBO-INDEPENDENT-DEVICE-RECOVERY-OPERATORS.md) — publicly named businesses, recycling/refurbishment offers and unresolved backyard identities, with a [lead tracker](docs/dubbo-independent-device-recovery-leads.csv).
 - [Dubbo disposal prospects](docs/DUBBO-DEVICE-DISPOSAL-PROSPECTS.md) — retired-device arrangements and open questions for 14 local prospects.
 - [Dubbo non-government school ITAD research](docs/DUBBO-NON-GOVERNMENT-SCHOOL-IT-ASSET-EWASTE-2026-10-06.md) — school-by-school device ownership clues, BYOD versus institutional fleets, CEDB governance, NSW not-for-profit disposal rules and the current direct-contact gaps, with a [prospect tracker](data/dubbo-non-government-school-itad-prospects.csv).
-- [Family-capacity review: ITAD + Repair Café](docs/FAMILY-CAPACITY-ITAD-REPAIR-CAFE.md) — evidence-led scheduling recommendation: capped fortnightly ITAD plus a monthly Repair Café for an 8–12 week pilot, with family-protection and stop/reduce rules.\n- [Device schematics & repair library](docs/DEVICE-SCHEMATICS-LIBRARY.md) — DadLAN/home-tech inventory, purchase-derived device evidence, official service manuals, board-schematic leads and exact-model/PCB checks.
+- [Family-capacity review: ITAD + Repair Café](docs/FAMILY-CAPACITY-ITAD-REPAIR-CAFE.md) — evidence-led scheduling recommendation: capped fortnightly ITAD plus a monthly Repair Café for an 8–12 week pilot, with family-protection and stop/reduce rules.
+- [Device schematics & repair library](docs/DEVICE-SCHEMATICS-LIBRARY.md) — DadLAN/home-tech inventory, purchase-derived device evidence, official service manuals, board-schematic leads and exact-model/PCB checks.
 
 ## Software
 
