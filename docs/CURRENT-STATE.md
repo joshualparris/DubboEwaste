@@ -43,6 +43,8 @@ Since the previous 2 October snapshot, the repository has added substantial sour
 - a corrected 100-PDF NotebookLM research pack using 55 original publisher PDFs.
 - a focused 6 October deep-research pack covering 31 previously under-researched online questions: market size, procurement entry, second-hand tax/accounting, secure transport, cyber controls, electrical/parts compliance, recall screening, repair-parts supply, Repair Café governance, environmental claims and right to repair.
 
+- a private field-validation system and request/survey templates for closing the remaining AMR, Council, Education, institutional, market-demand, commercial-term and pilot-economics unknowns.
+
 These additions improve evidence, tooling and prospecting. **They do not by themselves close any of the external launch gates above.**
 
 ## What can be done now
