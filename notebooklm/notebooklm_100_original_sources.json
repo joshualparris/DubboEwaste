@@ -1,0 +1,273 @@
+{
+  "pack_name": "Dubbo eWaste NotebookLM 100 PDF Research Pack - ORIGINAL SOURCES",
+  "pack_date": "2026-10-06",
+  "composition": "1 master index + 44 full DubboEwaste repo documents + 55 genuine original online PDFs",
+  "repo_documents": [
+    "README.md",
+    "START-HERE.md",
+    "EVIDENCE-SCHEMA.md",
+    "OpenSourceSoftware/assetflow-concept.md",
+    "OpenSourceSoftware/assetflow-software-specification.md",
+    "OpenSourceSoftware/data-model.md",
+    "OpenSourceSoftware/software-landscape.md",
+    "OpenSourceSoftware/vendor-workflow-reconstruction.md",
+    "docs/ALL-CHAT-RESEARCH-SYNTHESIS.md",
+    "docs/AMR-DUBBO-DOWNSTREAM-FORENSIC.md",
+    "docs/ASSETFLOW-DEVICE-DATA-SOURCES.md",
+    "docs/ASSETFLOW-ERASURE-DIAGNOSTICS-INTEGRATIONS.md",
+    "docs/AU-SHIPPING-MATRIX.md",
+    "docs/AUSTRALIAN-EWASTE-ITAD-MAJOR-PLAYERS.md",
+    "docs/AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md",
+    "docs/BENCH-SOP-AND-LAYOUT.md",
+    "docs/CATEGORY-INTAKE-CARDS.md",
+    "docs/COMPLIANCE-REGISTER.md",
+    "docs/DEEP-RESEARCH-2026-10-05-COMPLIANCE-DATA-SAFETY.md",
+    "docs/DEEP-RESEARCH-2026-10-05-EXECUTIVE-SYNTHESIS.md",
+    "docs/DEEP-RESEARCH-2026-10-05-OPERATIONS-ROUTING-CAPACITY.md",
+    "docs/DEEP-RESEARCH-2026-10-05-REFURB-SKILLS-REPAIR.md",
+    "docs/DEEP-RESEARCH-2026-10-05-SOFTWARE-ASSETFLOW-AUTOMATION.md",
+    "docs/DEEP-RESEARCH-2026-10-05-SOURCING-PARTNERSHIPS-BUSINESS.md",
+    "docs/DOWNSTREAM-PROVIDER-DUBBO-COST-COMPARISON.md",
+    "docs/DUBBO-COMPUTER-REPAIR-REUSE-EWASTE-DIRECTORY-2026-10-06.md",
+    "docs/DUBBO-DEVICE-DISPOSAL-PROSPECTS.md",
+    "docs/DUBBO-DEVICE-DISPOSAL-SOURCES.md",
+    "docs/DUBBO-INDEPENDENT-DEVICE-RECOVERY-OPERATORS.md",
+    "docs/DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md",
+    "docs/DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS.md",
+    "docs/DUBBO-ITAD-DEEP-RESEARCH-2026.md",
+    "docs/DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS.md",
+    "docs/EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md",
+    "docs/FACT-CHECK-NOTEBOOKLM-ITAD-2026-10-06.md",
+    "docs/FIRST-30-DEVICE-EXPERIMENT.md",
+    "docs/GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md",
+    "docs/INTAKE-POLICY.md",
+    "docs/LEGAL-LICENSING.md",
+    "docs/NATIONAL-ITAD-OPERATORS-DUBBO-COVERAGE.md",
+    "docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md",
+    "docs/PHASE-0-LAUNCH-GATES.md",
+    "docs/PHASE-0-OPERATING-BLUEPRINT.md",
+    "docs/REGIONAL-EWASTE-PATHWAYS.md"
+  ],
+  "external_sources": [
+    {
+      "title": "NIST SP 800-88 Rev 2 - Guidelines for Media Sanitization",
+      "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r2.pdf"
+    },
+    {
+      "title": "Australian Signals Directorate - Information Security Manual March 2026",
+      "url": "https://www.cyber.gov.au/sites/default/files/2026-03/Information%20security%20manual%20%28March%202026%29.pdf"
+    },
+    {
+      "title": "Global E-waste Monitor 2024",
+      "url": "https://www.itu.int/dms_pub/itu-d/opb/gen/D-GEN-E_WASTE.01-2024-PDF-E.pdf"
+    },
+    {
+      "title": "WHO - Children and Digital Dumpsites Full Report",
+      "url": "https://iris.who.int/bitstream/handle/10665/341718/9789240023901-eng.pdf?sequence=1"
+    },
+    {
+      "title": "WHO - Children and Digital Dumpsites Summary",
+      "url": "https://iris.who.int/bitstream/handle/10665/341730/9789240024557-eng.pdf"
+    },
+    {
+      "title": "WHO - Children and Digital Dumpsites Web Annex",
+      "url": "https://iris.who.int/bitstream/handle/10665/341696/9789240024106-eng.pdf"
+    },
+    {
+      "title": "Basel Convention COP16 - Technical Guidelines on E-waste",
+      "url": "https://www.basel.int/Portals/4/download.aspx?d=UNEP-CHW-COP.16-BC-16-5.English.pdf"
+    },
+    {
+      "title": "Basel Convention - Used and End-of-Life Computing Equipment Guidance",
+      "url": "https://www.basel.int/Portals/4/download.aspx?d=UNEP-CHW.11-INF-13-Rev.1.English.pdf"
+    },
+    {
+      "title": "Open Repair Alliance - The Rise of Community Repair 2024",
+      "url": "https://openrepair.org/wp-content/uploads/2024/10/ORA-report-2024-The-rise-of-community-repair.pdf"
+    },
+    {
+      "title": "RepairMonitor 2024 Factsheet",
+      "url": "https://www.repaircafe.org/wp-content/uploads/2025/04/Factsheet_RepairMonitor_2024_EN.pdf"
+    },
+    {
+      "title": "Repair Cafe International Annual Report 2024",
+      "url": "https://www.repaircafe.org/wp-content/uploads/2025/05/RC_jaarverslag_2024_web.pdf"
+    },
+    {
+      "title": "Productivity Commission - Right to Repair Inquiry Report",
+      "url": "https://assets.pc.gov.au/inquiries/completed/repair/report/repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Right to Repair Overview",
+      "url": "https://assets.pc.gov.au/inquiries/completed/repair/report/repair-overview.pdf"
+    },
+    {
+      "title": "Productivity Commission - Repair Cafe Hobart Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0006/271770/sub014-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Consumer Electronics Suppliers Association Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0017/272024/sub025-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - IT Professionals Australia Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0020/272027/sub026-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Repair Cafe Woolloongabba Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0003/272316/sub042-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - South Australian Repair Cafe Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0020/272324/sub046-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - ANZRP Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0005/272336/sub056-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - NSW Circular Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0008/272627/sub093-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - BehaviourWorks Australia Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0010/272629/sub095-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Mend It Australia Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0009/272637/sub101-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - Wiseman and Kariyawasam Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0005/272660/sub105-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - ACCC Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0007/272662/sub106-repair.pdf"
+    },
+    {
+      "title": "Productivity Commission - iFixit Submission",
+      "url": "https://assets.pc.gov.au/__data/assets/pdf_file/0005/272696/sub107-repair.pdf"
+    },
+    {
+      "title": "Review of the Product Stewardship Act 2011",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/product-stewardship-act-review.pdf"
+    },
+    {
+      "title": "NTCRS Compliance Framework",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/ntcrs-compliance-framework_0.pdf"
+    },
+    {
+      "title": "NTCRS Evaluation Report",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/ntcrs-evaluation-report.pdf"
+    },
+    {
+      "title": "NTCRS Material Recovery Measurement and Reporting Methodology",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/material-recovery-measurement-reporting-methodology.pdf"
+    },
+    {
+      "title": "NTCRS Alternative Trajectories",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/ntcrs-alternative-trajectories.pdf"
+    },
+    {
+      "title": "NTCRS Targets and Trajectories",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/ntcrs-targets.pdf"
+    },
+    {
+      "title": "NTCRS Material Recovery Regulatory Impact Statement",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/material-recovery-ris.pdf"
+    },
+    {
+      "title": "NTCRS Thresholds",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/ntcrs-thresholds.pdf"
+    },
+    {
+      "title": "NTCRS Outcomes 2014-15",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/national-television-and-computer-recycling-scheme-outcomes-2014-15.pdf"
+    },
+    {
+      "title": "NTCRS Outcomes 2013-14",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/national-television-and-computer-recycling-scheme-outcomes-2013-14.pdf"
+    },
+    {
+      "title": "NTCRS Outcomes 2012-13",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/scheme-outcomes-2012-13.pdf"
+    },
+    {
+      "title": "ANZRP Annual Report 2023-24",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/anzrp-annual-report-2024.pdf"
+    },
+    {
+      "title": "Ecycle Solutions Annual Report 2023-24",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/e-cycle-solutions-annual-report-2024.pdf"
+    },
+    {
+      "title": "Activ Group Annual Report 2023-24",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/activ-group-annual-report-23-24.pdf"
+    },
+    {
+      "title": "ANZRP Annual Report 2022-23",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/anz-rp-annual-report-2022-23.pdf"
+    },
+    {
+      "title": "Ecycle Solutions Annual Report 2022-23",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/ecycle-solutions-annual-report-2022-23.pdf"
+    },
+    {
+      "title": "Activ Group Solutions Annual Report 2022-23",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/activ-group-solutions-annual-report-2022-23.pdf"
+    },
+    {
+      "title": "SPS Annual Report 2022-23",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/sps-annual-report-2022-23.pdf"
+    },
+    {
+      "title": "ANZRP Annual Report 2021-22",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/anz-rp-annual-report-2021-22.pdf"
+    },
+    {
+      "title": "Ecycle Solutions Annual Report 2021-22",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/ecycle-solutions-annual-report-2021-22.pdf"
+    },
+    {
+      "title": "Activ Group Solutions Annual Report 2021-22",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/activ-group-solutions-annual-report-2021-22.pdf"
+    },
+    {
+      "title": "SPS Annual Report 2021-22",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/sps-annual-report-2021-22.pdf"
+    },
+    {
+      "title": "ANZRP Annual Report 2020-21",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/anz-rp-annual-report-2020-21.pdf"
+    },
+    {
+      "title": "Ecycle Solutions Annual Report 2018-19",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/ecycle-solutions-annual-report-2018-19.pdf"
+    },
+    {
+      "title": "National Waste Report 2022",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/national-waste-report-2022.pdf"
+    },
+    {
+      "title": "National Waste Policy 2018",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/national-waste-policy-2018.pdf"
+    },
+    {
+      "title": "National Waste Policy Action Plan 2019",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/national-waste-policy-action-plan-2019.pdf"
+    },
+    {
+      "title": "National Waste Policy Action Plan 2024",
+      "url": "https://www.dcceew.gov.au/sites/default/files/documents/national-waste-policy-action-plan-2024.pdf"
+    },
+    {
+      "title": "NSW Circular Economy Policy Statement",
+      "url": "https://www.epa.nsw.gov.au/sites/default/files/19p1379-circular-economy-policy-final.pdf"
+    },
+    {
+      "title": "NSW Waste and Sustainable Materials Strategy 2041",
+      "url": "https://www.epa.nsw.gov.au/sites/default/files/nsw-waste-and-sustainable-materials-strategy-2041.pdf"
+    }
+  ]
+}
