@@ -58,6 +58,14 @@ AssetFlow now includes:
 - attribution fields such as `created_by` are protected
 - private customer/device information must never be committed to the public Git repository
 
+## Deployment model
+
+- Production URL: https://dubbo-ewaste-app.vercel.app/
+- Automatic Vercel Git deployment is intentionally disabled because rapid research/docs commits were hitting the Hobby-plan build-rate limit.
+- GitHub Actions continues to run typecheck/build validation.
+- Production Vercel deployment is deliberate/manual via [../.github/workflows/deploy-ewaste-app.yml](../.github/workflows/deploy-ewaste-app.yml).
+- [../render.yaml](../render.yaml) defines the Render backup deployment from this same `EwasteApp` root.
+
 ## Local setup
 
 1. Install dependencies:
