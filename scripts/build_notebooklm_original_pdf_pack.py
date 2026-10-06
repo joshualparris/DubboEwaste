@@ -242,9 +242,9 @@ def download_pdf(url: str, dest: Path):
         "Accept": "application/pdf,application/octet-stream;q=0.9,*/*;q=0.5",
     }
     last_error = None
-    for attempt in range(1, 4):
+    for attempt in range(1, 3):
         try:
-            with requests.get(url, headers=headers, timeout=90, allow_redirects=True, stream=True) as r:
+            with requests.get(url, headers=headers, timeout=(20, 35), allow_redirects=True, stream=True) as r:
                 r.raise_for_status()
                 with dest.open("wb") as f:
                     for chunk in r.iter_content(1024 * 256):
@@ -263,12 +263,12 @@ def download_pdf(url: str, dest: Path):
             time.sleep(attempt * 2)
 
     cmd = [
-        "curl", "-L", "--fail", "--retry", "3", "--retry-delay", "2",
+        "curl", "--http1.1", "-L", "--fail", "--retry", "2", "--retry-delay", "2", "--max-time", "75",
         "-A", headers["User-Agent"], "-H", "Accept: application/pdf,*/*;q=0.8",
         "-o", str(dest), url,
     ]
     try:
-        subprocess.run(cmd, check=True, timeout=240)
+        subprocess.run(cmd, check=True, timeout=90)
         if dest.stat().st_size < 3000 or dest.read_bytes()[:5] != b"%PDF-":
             raise RuntimeError("curl fallback did not produce a valid PDF")
         pdf_info(dest)
@@ -340,27 +340,35 @@ def main():
         })
         number += 1
 
+    failures = []
     for source in external:
         title, url = source["title"], source["url"]
         filename = f"{number:03d}-original-{slug(title)}.pdf"
         temp = DOWNLOAD_DIR / filename
         out = PDF_DIR / filename
         print(f"Downloading {number:03d}: {title}", flush=True)
-        download_pdf(url, temp)
-        shutil.move(str(temp), str(out))
-        pages, encrypted = pdf_info(out)
-        entries.append({
-            "number": number,
-            "filename": filename,
-            "title": title,
-            "kind": "Original publisher PDF",
-            "source": url,
-            "pages": pages,
-            "encrypted": encrypted,
-            "sha256": sha256(out),
-            "bytes": out.stat().st_size,
-        })
+        try:
+            download_pdf(url, temp)
+            shutil.move(str(temp), str(out))
+            pages, encrypted = pdf_info(out)
+            entries.append({
+                "number": number,
+                "filename": filename,
+                "title": title,
+                "kind": "Original publisher PDF",
+                "source": url,
+                "pages": pages,
+                "encrypted": encrypted,
+                "sha256": sha256(out),
+                "bytes": out.stat().st_size,
+            })
+        except Exception as exc:
+            failures.append(f"{number:03d} {title} | {url} | {exc}")
+            print(f"FAILED {number:03d}: {exc}", flush=True)
         number += 1
+
+    if failures:
+        raise RuntimeError("Original PDF download failures:\n" + "\n\n".join(failures))
 
     index = PDF_DIR / "001-MASTER-INDEX-CORRECTED-ORIGINAL-SOURCES.pdf"
     all_entries = [{
