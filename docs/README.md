@@ -76,6 +76,25 @@ Then use:
 - [FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md](FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md)
 - [FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY.md](FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY.md)
 
+## Supply / device sourcing
+
+- [DUBBO-SME-DEVICE-SOURCING-DEEP-RESEARCH-2026-10-06.md](DUBBO-SME-DEVICE-SOURCING-DEEP-RESEARCH-2026-10-06.md) — ranked Dubbo SME sourcing prospects; companion [CSV](../data/dubbo-sme-device-sourcing-prospects-2026-10-06.csv).
+- [DUBBO-NON-GOVERNMENT-SCHOOL-IT-ASSET-EWASTE-2026-10-06.md](DUBBO-NON-GOVERNMENT-SCHOOL-IT-ASSET-EWASTE-2026-10-06.md) — independent/Catholic school asset-retirement research; companion [CSV](../data/dubbo-non-government-school-itad-prospects.csv).
+- [DUBBO-DEVICE-DISPOSAL-PROSPECTS.md](DUBBO-DEVICE-DISPOSAL-PROSPECTS.md) — broader local retired-device prospects and open questions.
+- [DEEP-RESEARCH-2026-10-05-SOURCING-PARTNERSHIPS-BUSINESS.md](DEEP-RESEARCH-2026-10-05-SOURCING-PARTNERSHIPS-BUSINESS.md) — channel and partnership strategy.
+
+## Repair, reuse and device knowledge
+
+- [DUBBO-COMPUTER-REPAIR-REUSE-EWASTE-DIRECTORY-2026-10-06.md](DUBBO-COMPUTER-REPAIR-REUSE-EWASTE-DIRECTORY-2026-10-06.md)
+- [FAMILY-CAPACITY-ITAD-REPAIR-CAFE.md](FAMILY-CAPACITY-ITAD-REPAIR-CAFE.md)
+- [DEVICE-SCHEMATICS-LIBRARY.md](DEVICE-SCHEMATICS-LIBRARY.md)
+- [DEEP-RESEARCH-2026-10-05-REFURB-SKILLS-REPAIR.md](DEEP-RESEARCH-2026-10-05-REFURB-SKILLS-REPAIR.md)
+
+## NotebookLM research pack
+
+- [../notebooklm/2026-10-06-100-pdf-pack/README.md](../notebooklm/2026-10-06-100-pdf-pack/README.md) — corrected 100-PDF pack.
+- [../notebooklm/2026-10-06-100-pdf-pack/manifest.json](../notebooklm/2026-10-06-100-pdf-pack/manifest.json) — source URLs, page counts and SHA-256 hashes.
+
 ## Dubbo / Central West downstream
 
 - [WHAT-HAPPENS-TO-EWASTE.md](WHAT-HAPPENS-TO-EWASTE.md)
