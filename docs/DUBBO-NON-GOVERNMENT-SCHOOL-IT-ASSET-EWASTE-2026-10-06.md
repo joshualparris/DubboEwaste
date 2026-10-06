@@ -9,7 +9,7 @@
 
 1. **No current retired-IT contractor or last-batch destination was publicly established for any Dubbo non-government school or school system.** This is a public-evidence gap, not proof that the schools lack contracts.
 2. Dubbo has **five independent school organisations/campuses relevant to this research**: Dubbo Christian School, Macquarie Anglican Grammar School, Central West Leadership Academy, Burrabadine Christian Community School and Skillset Senior College – Dubbo. Vista Lodge is a Macquarie boarding campus, not a separate procurement/disposal prospect.
-3. Dubbo also has **five Catholic systemic schools**: St Johns College, St John's Catholic Primary, St Laurence's Catholic Primary, St Mary's Catholic Primary and St Pius X Catholic Primary. They should be treated first as **one Catholic Education Diocese of Bathurst (CEDB) ICT/procurement opportunity**, not five unrelated cold leads.
+3. Dubbo also has **five Catholic systemic schools**: St Johns College, St John's Catholic Primary, St Laurence's Catholic Primary, St Mary's Catholic Primary and St Pius X Catholic Primary. They should be treated first as **one Catholic Education Diocese of Bathurst (CEDB) ICT/procurement opportunity**, not five unrelated cold leads. A current ManageEngine customer case study reports a centrally managed estate of about **17,000 endpoints across five operating systems**, including organisation-owned and BYOD devices; that is a management-estate figure, not a count of disposal-eligible school-owned devices.
 4. **Macquarie is a weaker student-device source than raw enrolment suggests.** Its public One-to-One Learning material says Years 5–12 bring devices that comply with purchase specifications. Student BYOD therefore should not be counted as school-owned retirement stock.
 5. **Central West Leadership Academy is similar:** its current fee/about material says all students are required to **purchase a Chromebook**. Those student Chromebooks are not a credible school-owned ITAD pool unless the school separately owns loaners/admin/staff devices.
 6. **Burrabadine is materially different.** Its current site advertises “Chromebooks for every student”, one-to-one Chromebook use and student access to laptops; its 2022 annual report recorded MacBook Airs being rolled out to teachers and Year 7. This is strong evidence of a school-managed fleet, although legal ownership and the current refresh/disposal route remain unverified.
@@ -281,6 +281,10 @@ A CEDB School Technical Support Officer position description establishes a centr
 
 CEnet’s current member directory confirms **Catholic Education, Diocese of Bathurst** as a member.
 
+A current ManageEngine case study adds much stronger fleet-scale evidence. It says CEDB centrally manages about **17,000 endpoints across five operating systems** — MacBooks, iMacs, Windows devices, Chromebooks, iPads and interactive displays — with a mix of organisation-owned and BYOD devices. It also describes central hardware/software inventory, licence tracking, MDM, imaging and compliance reporting. The case study quotes different campus/student totals from current CEDB recruitment material, so use its endpoint figures as vendor-reported fleet evidence rather than as the authoritative school-count source.
+
+CEDB also operates a current central eProcurement portal, and a 2026 tender listing shows a system-level Request for Tender for network and infrastructure management. That is not an ITAD contract, but it reinforces that major ICT services are procured centrally.
+
 St John’s Catholic Primary also says publicly that **Chromebooks are readily available**, providing a concrete device-fleet clue within the Dubbo system.
 
 ### Disposal finding
@@ -389,7 +393,7 @@ See also the repo’s NIST SP 800-88 Rev.2 sanitisation work.
 | Rank | Prospect | Rating | Why | Main blocker |
 |---:|---|---|---|---|
 | 1 | Skillset Senior College / Skillset relationship | **HIGH** | School-provided computers + documented historic e-waste activity | Current provider/process unknown |
-| 2 | CEDB system (5 Dubbo Catholic schools) | **HIGH strategic / MEDIUM direct** | Largest combined system opportunity; central ICT pathway established | Central procurement/incumbent may control everything |
+| 2 | CEDB system (5 Dubbo Catholic schools) | **HIGH strategic / MEDIUM direct** | Current vendor case study reports ~17,000 centrally managed mixed-ownership endpoints; central ICT pathway established | Central procurement/incumbent may control everything; not all managed endpoints are disposal-eligible school assets |
 | 3 | Dubbo Christian School | **HIGH potential** | Large K–12 staff/institutional estate + internal ICT function | No public retirement route |
 | 4 | Burrabadine Christian Community School | **MEDIUM–HIGH** | Public one-to-one Chromebook fleet + historical Mac rollout | Smaller volume; ownership/refresh route unknown |
 | 5 | Macquarie Anglican Grammar School | **MEDIUM** | Large school and staff/infrastructure fleet | Years 5–12 BYOD; Corporation governance may centralise disposal |
@@ -570,6 +574,8 @@ For **every** Dubbo non-government school/system:
 | S19 | https://www.nsw.gov.au/education-and-training/nesa/not-for-profit-school-regulation/not-for-profit-guidelines/b5 | Donation of depreciated/redundant equipment guidance | Current 2026 |
 | S20 | https://legislation.nsw.gov.au/view/pdf/asmade/sl-2025-664 | 2025 regulation text for depreciated/redundant equipment donation | Primary legislation |
 | S21 | https://www.oaic.gov.au/privacy/australian-privacy-principles/australian-privacy-principles-guidelines/chapter-11-app-11-security-of-personal-information | Electronic personal-information sanitisation/destruction principle | Current |
+| S22 | https://www.manageengine.com/au/products/desktop-central/case-study/catholic-education-casestudy.html | CEDB central management of ~17,000 mixed-OS endpoints; asset inventory, MDM, imaging and BYOD/organisation-owned mix | Current vendor case study |
+| S23 | https://portal.tenderlink.com/bth.catholic/ | CEDB uses central eProcurement/tendering | Current |
 
 ---
 
