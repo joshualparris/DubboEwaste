@@ -1,733 +1,1065 @@
 {
-  "pack_name": "Dubbo eWaste NotebookLM 100 PDF Research Pack",
-  "pack_date": "2026-10-06",
-  "source_commit": "c2103b6090c8",
+  "pack_name": "Dubbo eWaste NotebookLM 100 PDF Research Pack - ORIGINAL SOURCES",
+  "generated": "6 October 2026",
+  "source_commit": "77fee57f8ae6",
   "pdf_count": 100,
+  "repo_document_count": 44,
+  "original_online_pdf_count": 55,
   "entries": [
     {
       "number": 1,
-      "filename": "001-MASTER-INDEX-Dubbo-eWaste-NotebookLM-Research-Pack.pdf",
+      "filename": "001-MASTER-INDEX-CORRECTED-ORIGINAL-SOURCES.pdf",
       "title": "Dubbo eWaste NotebookLM Research Pack - Master Index",
       "kind": "Pack index",
-      "source": "Curated from DubboEwaste repo + listed primary sources"
+      "source": "This repository",
+      "pages": 4,
+      "encrypted": false,
+      "sha256": "a178e164e8f3ec1b0e7f80715d46d34d414a153e69d9da2ee1786e49df25ac95"
     },
     {
       "number": 2,
       "filename": "002-repo-README-md.pdf",
       "title": "Readme",
-      "kind": "Repository document",
-      "source": "README.md"
+      "kind": "Full repository document",
+      "source": "README.md",
+      "pages": 5,
+      "encrypted": false,
+      "sha256": "c744613fe1b12a20762679df6fea1d22a23076dba9190274c1d434906f37f618"
     },
     {
       "number": 3,
       "filename": "003-repo-START-HERE-md.pdf",
       "title": "Start Here",
-      "kind": "Repository document",
-      "source": "START-HERE.md"
+      "kind": "Full repository document",
+      "source": "START-HERE.md",
+      "pages": 3,
+      "encrypted": false,
+      "sha256": "6d2cd64d669194c99f7d71d442201fffad963db0c53098f84398f635390cf5ed"
     },
     {
       "number": 4,
       "filename": "004-repo-EVIDENCE-SCHEMA-md.pdf",
       "title": "Evidence Schema",
-      "kind": "Repository document",
-      "source": "EVIDENCE-SCHEMA.md"
+      "kind": "Full repository document",
+      "source": "EVIDENCE-SCHEMA.md",
+      "pages": 1,
+      "encrypted": false,
+      "sha256": "28531fdf15642ac07de2c41bbe6234aeabb6514ec72fce3b85793c87977dc667"
     },
     {
       "number": 5,
-      "filename": "005-repo-GAPS-md.pdf",
-      "title": "Gaps",
-      "kind": "Repository document",
-      "source": "GAPS.md"
+      "filename": "005-repo-OpenSourceSoftware-assetflow-concept-md.pdf",
+      "title": "Assetflow Concept",
+      "kind": "Full repository document",
+      "source": "OpenSourceSoftware/assetflow-concept.md",
+      "pages": 6,
+      "encrypted": false,
+      "sha256": "eb2a7430f9c3ced2307e2bdc92c1b65afed542dca9df1ef1b0f8578d5bacb463"
     },
     {
       "number": 6,
-      "filename": "006-repo-OpenSourceSoftware-README-md.pdf",
-      "title": "Opensourcesoftware   Readme",
-      "kind": "Repository document",
-      "source": "OpenSourceSoftware/README.md"
+      "filename": "006-repo-OpenSourceSoftware-assetflow-software-specification-md.pdf",
+      "title": "Assetflow Software Specification",
+      "kind": "Full repository document",
+      "source": "OpenSourceSoftware/assetflow-software-specification.md",
+      "pages": 20,
+      "encrypted": false,
+      "sha256": "14284e70742d6c1a388e05c1cf1381bc20fccd87b7ddf3b510da0819fca9df45"
     },
     {
       "number": 7,
-      "filename": "007-repo-OpenSourceSoftware-assetflow-concept-md.pdf",
-      "title": "Assetflow Concept",
-      "kind": "Repository document",
-      "source": "OpenSourceSoftware/assetflow-concept.md"
+      "filename": "007-repo-OpenSourceSoftware-data-model-md.pdf",
+      "title": "Data Model",
+      "kind": "Full repository document",
+      "source": "OpenSourceSoftware/data-model.md",
+      "pages": 4,
+      "encrypted": false,
+      "sha256": "c65789f19b83ecb4bef751d995807197e448f3509d1ab38655049d65e95592e6"
     },
     {
       "number": 8,
-      "filename": "008-repo-OpenSourceSoftware-assetflow-software-specification-md.pdf",
-      "title": "Assetflow Software Specification",
-      "kind": "Repository document",
-      "source": "OpenSourceSoftware/assetflow-software-specification.md"
+      "filename": "008-repo-OpenSourceSoftware-software-landscape-md.pdf",
+      "title": "Software Landscape",
+      "kind": "Full repository document",
+      "source": "OpenSourceSoftware/software-landscape.md",
+      "pages": 6,
+      "encrypted": false,
+      "sha256": "97558b7ed99c600280316e442e3997d88f5166a3f9223e4160c1b1cefbc92d70"
     },
     {
       "number": 9,
-      "filename": "009-repo-OpenSourceSoftware-data-model-md.pdf",
-      "title": "Data Model",
-      "kind": "Repository document",
-      "source": "OpenSourceSoftware/data-model.md"
+      "filename": "009-repo-OpenSourceSoftware-vendor-workflow-reconstruction-md.pdf",
+      "title": "Vendor Workflow Reconstruction",
+      "kind": "Full repository document",
+      "source": "OpenSourceSoftware/vendor-workflow-reconstruction.md",
+      "pages": 16,
+      "encrypted": false,
+      "sha256": "453b04f893f9333e0da4745eddad44b3d895a800563fd03ca92f27bf8ce7ed0c"
     },
     {
       "number": 10,
-      "filename": "010-repo-OpenSourceSoftware-software-landscape-md.pdf",
-      "title": "Software Landscape",
-      "kind": "Repository document",
-      "source": "OpenSourceSoftware/software-landscape.md"
+      "filename": "010-repo-docs-ALL-CHAT-RESEARCH-SYNTHESIS-md.pdf",
+      "title": "All Chat Research Synthesis",
+      "kind": "Full repository document",
+      "source": "docs/ALL-CHAT-RESEARCH-SYNTHESIS.md",
+      "pages": 20,
+      "encrypted": false,
+      "sha256": "07029b29312496dac5fc521956495acc443859f160d02b2e82b231f2c32bd89e"
     },
     {
       "number": 11,
-      "filename": "011-repo-OpenSourceSoftware-vendor-workflow-reconstruction-md.pdf",
-      "title": "Vendor Workflow Reconstruction",
-      "kind": "Repository document",
-      "source": "OpenSourceSoftware/vendor-workflow-reconstruction.md"
+      "filename": "011-repo-docs-AMR-DUBBO-DOWNSTREAM-FORENSIC-md.pdf",
+      "title": "Amr Dubbo Downstream Forensic",
+      "kind": "Full repository document",
+      "source": "docs/AMR-DUBBO-DOWNSTREAM-FORENSIC.md",
+      "pages": 10,
+      "encrypted": false,
+      "sha256": "d6239ad90fd4de14f16147e53490d3a49f856bfb2ace502e0447a99926e2d564"
     },
     {
       "number": 12,
-      "filename": "012-repo-agyDOCS-ITAD-Operations-Blueprint-md.pdf",
-      "title": "Itad Operations Blueprint",
-      "kind": "Repository document",
-      "source": "agyDOCS/ITAD-Operations-Blueprint.md"
+      "filename": "012-repo-docs-ASSETFLOW-DEVICE-DATA-SOURCES-md.pdf",
+      "title": "Assetflow Device Data Sources",
+      "kind": "Full repository document",
+      "source": "docs/ASSETFLOW-DEVICE-DATA-SOURCES.md",
+      "pages": 2,
+      "encrypted": false,
+      "sha256": "1605f614762ebe276152487cff50aec68d8a5e10527c1fddab227843fbbf425a"
     },
     {
       "number": 13,
-      "filename": "013-repo-agyDOCS-NSW-Market-Sales-Channels-md.pdf",
-      "title": "Nsw Market Sales Channels",
-      "kind": "Repository document",
-      "source": "agyDOCS/NSW-Market-Sales-Channels.md"
+      "filename": "013-repo-docs-ASSETFLOW-ERASURE-DIAGNOSTICS-INTEGRATIONS-md.pdf",
+      "title": "Assetflow Erasure Diagnostics Integrations",
+      "kind": "Full repository document",
+      "source": "docs/ASSETFLOW-ERASURE-DIAGNOSTICS-INTEGRATIONS.md",
+      "pages": 2,
+      "encrypted": false,
+      "sha256": "c7b577e8500c70b640e4ee845f1b033dc16358dd36f9b10e157cf1092ae35d2a"
     },
     {
       "number": 14,
-      "filename": "014-repo-agyDOCS-Triage-Skills-Guide-md.pdf",
-      "title": "Triage Skills Guide",
-      "kind": "Repository document",
-      "source": "agyDOCS/Triage-Skills-Guide.md"
+      "filename": "014-repo-docs-AU-SHIPPING-MATRIX-md.pdf",
+      "title": "Au Shipping Matrix",
+      "kind": "Full repository document",
+      "source": "docs/AU-SHIPPING-MATRIX.md",
+      "pages": 1,
+      "encrypted": false,
+      "sha256": "94349ff63bacd00255287cbcbfb9a198de67e35c3d44fed5571bcb642fe53c6d"
     },
     {
       "number": 15,
-      "filename": "015-repo-docs-ALL-CHAT-RESEARCH-SYNTHESIS-md.pdf",
-      "title": "All Chat Research Synthesis",
-      "kind": "Repository document",
-      "source": "docs/ALL-CHAT-RESEARCH-SYNTHESIS.md"
+      "filename": "015-repo-docs-AUSTRALIAN-EWASTE-ITAD-MAJOR-PLAYERS-md.pdf",
+      "title": "Australian Ewaste Itad Major Players",
+      "kind": "Full repository document",
+      "source": "docs/AUSTRALIAN-EWASTE-ITAD-MAJOR-PLAYERS.md",
+      "pages": 4,
+      "encrypted": false,
+      "sha256": "cfae922a9db8e81aeacd24d9819e449f2943cc03f5c282b874e765c2af3fa3d0"
     },
     {
       "number": 16,
-      "filename": "016-repo-docs-AMR-DUBBO-DOWNSTREAM-FORENSIC-md.pdf",
-      "title": "Amr Dubbo Downstream Forensic",
-      "kind": "Repository document",
-      "source": "docs/AMR-DUBBO-DOWNSTREAM-FORENSIC.md"
+      "filename": "016-repo-docs-AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST-md.pdf",
+      "title": "Australian Itad Staffing Dubbo Branch Shortlist",
+      "kind": "Full repository document",
+      "source": "docs/AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md",
+      "pages": 14,
+      "encrypted": false,
+      "sha256": "32661730a9ad58c8e27b0e0436e46992aa22a5b6e7fd1a7ab19d194796250261"
     },
     {
       "number": 17,
-      "filename": "017-repo-docs-ASSETFLOW-DEVICE-DATA-SOURCES-md.pdf",
-      "title": "Assetflow Device Data Sources",
-      "kind": "Repository document",
-      "source": "docs/ASSETFLOW-DEVICE-DATA-SOURCES.md"
+      "filename": "017-repo-docs-BENCH-SOP-AND-LAYOUT-md.pdf",
+      "title": "Bench Sop And Layout",
+      "kind": "Full repository document",
+      "source": "docs/BENCH-SOP-AND-LAYOUT.md",
+      "pages": 5,
+      "encrypted": false,
+      "sha256": "efe575c1b605e004937870a073d82cced9e768a1b28c7acfd8f414f320ac86f8"
     },
     {
       "number": 18,
-      "filename": "018-repo-docs-ASSETFLOW-ERASURE-DIAGNOSTICS-INTEGRATIONS-md.pdf",
-      "title": "Assetflow Erasure Diagnostics Integrations",
-      "kind": "Repository document",
-      "source": "docs/ASSETFLOW-ERASURE-DIAGNOSTICS-INTEGRATIONS.md"
+      "filename": "018-repo-docs-CATEGORY-INTAKE-CARDS-md.pdf",
+      "title": "Category Intake Cards",
+      "kind": "Full repository document",
+      "source": "docs/CATEGORY-INTAKE-CARDS.md",
+      "pages": 2,
+      "encrypted": false,
+      "sha256": "e965efc976363a20f779f43ceaaad2a57ca19b2d9e98fbf98f4ede0d679104f8"
     },
     {
       "number": 19,
-      "filename": "019-repo-docs-AU-SHIPPING-MATRIX-md.pdf",
-      "title": "Au Shipping Matrix",
-      "kind": "Repository document",
-      "source": "docs/AU-SHIPPING-MATRIX.md"
+      "filename": "019-repo-docs-COMPLIANCE-REGISTER-md.pdf",
+      "title": "Compliance Register",
+      "kind": "Full repository document",
+      "source": "docs/COMPLIANCE-REGISTER.md",
+      "pages": 1,
+      "encrypted": false,
+      "sha256": "92c8959f7a3cf4c1a645306bdb078ccf80bd014c84f9b536579b06204b2ddd15"
     },
     {
       "number": 20,
-      "filename": "020-repo-docs-AUSTRALIAN-EWASTE-ITAD-MAJOR-PLAYERS-md.pdf",
-      "title": "Australian Ewaste Itad Major Players",
-      "kind": "Repository document",
-      "source": "docs/AUSTRALIAN-EWASTE-ITAD-MAJOR-PLAYERS.md"
+      "filename": "020-repo-docs-DEEP-RESEARCH-2026-10-05-COMPLIANCE-DATA-SAFETY-md.pdf",
+      "title": "Deep Research 2026 10 05 Compliance Data Safety",
+      "kind": "Full repository document",
+      "source": "docs/DEEP-RESEARCH-2026-10-05-COMPLIANCE-DATA-SAFETY.md",
+      "pages": 13,
+      "encrypted": false,
+      "sha256": "0dccd28ed1b407e86d49a8da78420f018257dc99c6118464629ef8eec382c41f"
     },
     {
       "number": 21,
-      "filename": "021-repo-docs-AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST-md.pdf",
-      "title": "Australian Itad Staffing Dubbo Branch Shortlist",
-      "kind": "Repository document",
-      "source": "docs/AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md"
+      "filename": "021-repo-docs-DEEP-RESEARCH-2026-10-05-EXECUTIVE-SYNTHESIS-md.pdf",
+      "title": "Deep Research 2026 10 05 Executive Synthesis",
+      "kind": "Full repository document",
+      "source": "docs/DEEP-RESEARCH-2026-10-05-EXECUTIVE-SYNTHESIS.md",
+      "pages": 10,
+      "encrypted": false,
+      "sha256": "fb30dff6659894a04480d4b96bc8c6c6314aea7dd90395b95930bc09ce211f64"
     },
     {
       "number": 22,
-      "filename": "022-repo-docs-BACKLOG-01-05-PLANNING-LEGAL-md.pdf",
-      "title": "Backlog 01 05 Planning Legal",
-      "kind": "Repository document",
-      "source": "docs/BACKLOG-01-05-PLANNING-LEGAL.md"
+      "filename": "022-repo-docs-DEEP-RESEARCH-2026-10-05-OPERATIONS-ROUTING-CAPACITY-md.pdf",
+      "title": "Deep Research 2026 10 05 Operations Routing Capacity",
+      "kind": "Full repository document",
+      "source": "docs/DEEP-RESEARCH-2026-10-05-OPERATIONS-ROUTING-CAPACITY.md",
+      "pages": 15,
+      "encrypted": false,
+      "sha256": "a66c2111512099e9b0b94b744c4d21a345bd020e75f64edecd2b1209a22ff8ff"
     },
     {
       "number": 23,
-      "filename": "023-repo-docs-BACKLOG-06-12-DOWNSTREAM-STEWARDSHIP-md.pdf",
-      "title": "Backlog 06 12 Downstream Stewardship",
-      "kind": "Repository document",
-      "source": "docs/BACKLOG-06-12-DOWNSTREAM-STEWARDSHIP.md"
+      "filename": "023-repo-docs-DEEP-RESEARCH-2026-10-05-REFURB-SKILLS-REPAIR-md.pdf",
+      "title": "Deep Research 2026 10 05 Refurb Skills Repair",
+      "kind": "Full repository document",
+      "source": "docs/DEEP-RESEARCH-2026-10-05-REFURB-SKILLS-REPAIR.md",
+      "pages": 11,
+      "encrypted": false,
+      "sha256": "f998752978bf054d20871334e5e746e0cb6ed027e6e4dd5af6ec360b060aa2fb"
     },
     {
       "number": 24,
-      "filename": "024-repo-docs-BACKLOG-13-16-REGIONAL-SUPPLY-md.pdf",
-      "title": "Backlog 13 16 Regional Supply",
-      "kind": "Repository document",
-      "source": "docs/BACKLOG-13-16-REGIONAL-SUPPLY.md"
+      "filename": "024-repo-docs-DEEP-RESEARCH-2026-10-05-SOFTWARE-ASSETFLOW-AUTOMATION-md.pdf",
+      "title": "Deep Research 2026 10 05 Software Assetflow Automation",
+      "kind": "Full repository document",
+      "source": "docs/DEEP-RESEARCH-2026-10-05-SOFTWARE-ASSETFLOW-AUTOMATION.md",
+      "pages": 10,
+      "encrypted": false,
+      "sha256": "dc9728ec4616e54a03ad0dfbc98a51f6a3bd195c4fcfe131ba5725030b3277e3"
     },
     {
       "number": 25,
-      "filename": "025-repo-docs-BACKLOG-17-20-MARKET-COST-TAX-md.pdf",
-      "title": "Backlog 17 20 Market Cost Tax",
-      "kind": "Repository document",
-      "source": "docs/BACKLOG-17-20-MARKET-COST-TAX.md"
+      "filename": "025-repo-docs-DEEP-RESEARCH-2026-10-05-SOURCING-PARTNERSHIPS-BUSINESS-md.pdf",
+      "title": "Deep Research 2026 10 05 Sourcing Partnerships Business",
+      "kind": "Full repository document",
+      "source": "docs/DEEP-RESEARCH-2026-10-05-SOURCING-PARTNERSHIPS-BUSINESS.md",
+      "pages": 14,
+      "encrypted": false,
+      "sha256": "1098e85bb3eee77db8966ec921ff924dfafa1d4a33d22b47092dd498faf0350b"
     },
     {
       "number": 26,
-      "filename": "026-repo-docs-BACKLOG-21-25-COMPLIANCE-DATA-SAFETY-md.pdf",
-      "title": "Backlog 21 25 Compliance Data Safety",
-      "kind": "Repository document",
-      "source": "docs/BACKLOG-21-25-COMPLIANCE-DATA-SAFETY.md"
+      "filename": "026-repo-docs-DOWNSTREAM-PROVIDER-DUBBO-COST-COMPARISON-md.pdf",
+      "title": "Downstream Provider Dubbo Cost Comparison",
+      "kind": "Full repository document",
+      "source": "docs/DOWNSTREAM-PROVIDER-DUBBO-COST-COMPARISON.md",
+      "pages": 3,
+      "encrypted": false,
+      "sha256": "551d09e7423206793f8e4e655f5d4965fb777f08ea28d7ff845566e168aaf539"
     },
     {
       "number": 27,
-      "filename": "027-repo-docs-BACKLOG-30-32-OPERATIONS-CORRECTIONS-md.pdf",
-      "title": "Backlog 30 32 Operations Corrections",
-      "kind": "Repository document",
-      "source": "docs/BACKLOG-30-32-OPERATIONS-CORRECTIONS.md"
+      "filename": "027-repo-docs-DUBBO-COMPUTER-REPAIR-REUSE-EWASTE-DIRECTORY-2026-10-06-md.pdf",
+      "title": "Dubbo Computer Repair Reuse Ewaste Directory 2026 10 06",
+      "kind": "Full repository document",
+      "source": "docs/DUBBO-COMPUTER-REPAIR-REUSE-EWASTE-DIRECTORY-2026-10-06.md",
+      "pages": 10,
+      "encrypted": false,
+      "sha256": "9081468936a5dcccdbf15bea8128ac94b78b3f1ff5e41274f025898f84e0726e"
     },
     {
       "number": 28,
-      "filename": "028-repo-docs-BENCH-SOP-AND-LAYOUT-md.pdf",
-      "title": "Bench Sop And Layout",
-      "kind": "Repository document",
-      "source": "docs/BENCH-SOP-AND-LAYOUT.md"
+      "filename": "028-repo-docs-DUBBO-DEVICE-DISPOSAL-PROSPECTS-md.pdf",
+      "title": "Dubbo Device Disposal Prospects",
+      "kind": "Full repository document",
+      "source": "docs/DUBBO-DEVICE-DISPOSAL-PROSPECTS.md",
+      "pages": 6,
+      "encrypted": false,
+      "sha256": "b709cae2208405f2e83c4c6b934d79a16c2f9604222400b2d785912f0eea807c"
     },
     {
       "number": 29,
-      "filename": "029-repo-docs-CATEGORY-INTAKE-CARDS-md.pdf",
-      "title": "Category Intake Cards",
-      "kind": "Repository document",
-      "source": "docs/CATEGORY-INTAKE-CARDS.md"
+      "filename": "029-repo-docs-DUBBO-DEVICE-DISPOSAL-SOURCES-md.pdf",
+      "title": "Dubbo Device Disposal Sources",
+      "kind": "Full repository document",
+      "source": "docs/DUBBO-DEVICE-DISPOSAL-SOURCES.md",
+      "pages": 3,
+      "encrypted": false,
+      "sha256": "020c3f33e57f6e091239884dd1357553a5cdf07e3919e1edc13e16fa0b69e954"
     },
     {
       "number": 30,
-      "filename": "030-repo-docs-COMPLIANCE-REGISTER-md.pdf",
-      "title": "Compliance Register",
-      "kind": "Repository document",
-      "source": "docs/COMPLIANCE-REGISTER.md"
+      "filename": "030-repo-docs-DUBBO-INDEPENDENT-DEVICE-RECOVERY-OPERATORS-md.pdf",
+      "title": "Dubbo Independent Device Recovery Operators",
+      "kind": "Full repository document",
+      "source": "docs/DUBBO-INDEPENDENT-DEVICE-RECOVERY-OPERATORS.md",
+      "pages": 4,
+      "encrypted": false,
+      "sha256": "e6503e3a389035d38816ad92ff359f5da0599e313e9afa25f3db488f69e993e7"
     },
     {
       "number": 31,
-      "filename": "031-repo-docs-DEEP-RESEARCH-2026-10-05-COMPLIANCE-DATA-SAFETY-md.pdf",
-      "title": "Deep Research 2026 10 05 Compliance Data Safety",
-      "kind": "Repository document",
-      "source": "docs/DEEP-RESEARCH-2026-10-05-COMPLIANCE-DATA-SAFETY.md"
+      "filename": "031-repo-docs-DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK-md.pdf",
+      "title": "Dubbo Itad Branch Entry Playbook",
+      "kind": "Full repository document",
+      "source": "docs/DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md",
+      "pages": 26,
+      "encrypted": false,
+      "sha256": "ae935712451d52ad0e00151549452229934dfe178c34e87d0d1b1e5f6078aec3"
     },
     {
       "number": 32,
-      "filename": "032-repo-docs-DEEP-RESEARCH-2026-10-05-EXECUTIVE-SYNTHESIS-md.pdf",
-      "title": "Deep Research 2026 10 05 Executive Synthesis",
-      "kind": "Repository document",
-      "source": "docs/DEEP-RESEARCH-2026-10-05-EXECUTIVE-SYNTHESIS.md"
+      "filename": "032-repo-docs-DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS-md.pdf",
+      "title": "Dubbo Itad Branch Pathways Costs Process",
+      "kind": "Full repository document",
+      "source": "docs/DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS.md",
+      "pages": 26,
+      "encrypted": false,
+      "sha256": "dcbbbe733e324bdfebf9964bf50378db8a2161c88f8067c1436d027decb5bed6"
     },
     {
       "number": 33,
-      "filename": "033-repo-docs-DEEP-RESEARCH-2026-10-05-OPERATIONS-ROUTING-CAPACITY-md.pdf",
-      "title": "Deep Research 2026 10 05 Operations Routing Capacity",
-      "kind": "Repository document",
-      "source": "docs/DEEP-RESEARCH-2026-10-05-OPERATIONS-ROUTING-CAPACITY.md"
+      "filename": "033-repo-docs-DUBBO-ITAD-DEEP-RESEARCH-2026-md.pdf",
+      "title": "Dubbo Itad Deep Research 2026",
+      "kind": "Full repository document",
+      "source": "docs/DUBBO-ITAD-DEEP-RESEARCH-2026.md",
+      "pages": 37,
+      "encrypted": false,
+      "sha256": "54cd3f66f128a951737496562fee92df7ba0ec59eea6c9217b5924d1d835e218"
     },
     {
       "number": 34,
-      "filename": "034-repo-docs-DEEP-RESEARCH-2026-10-05-REFURB-SKILLS-REPAIR-md.pdf",
-      "title": "Deep Research 2026 10 05 Refurb Skills Repair",
-      "kind": "Repository document",
-      "source": "docs/DEEP-RESEARCH-2026-10-05-REFURB-SKILLS-REPAIR.md"
+      "filename": "034-repo-docs-DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS-md.pdf",
+      "title": "Dubbo Wellington Narromine Trangie Reuse Programs",
+      "kind": "Full repository document",
+      "source": "docs/DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS.md",
+      "pages": 6,
+      "encrypted": false,
+      "sha256": "442a0a3742e73baf66d712b051234cc11f4943e0a966e0a5292157de318f6f59"
     },
     {
       "number": 35,
-      "filename": "035-repo-docs-DEEP-RESEARCH-2026-10-05-SOFTWARE-ASSETFLOW-AUTOMATION-md.pdf",
-      "title": "Deep Research 2026 10 05 Software Assetflow Automation",
-      "kind": "Repository document",
-      "source": "docs/DEEP-RESEARCH-2026-10-05-SOFTWARE-ASSETFLOW-AUTOMATION.md"
+      "filename": "035-repo-docs-EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN-md.pdf",
+      "title": "Ewaste Facility Zone Benchmark And Shed Design",
+      "kind": "Full repository document",
+      "source": "docs/EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md",
+      "pages": 19,
+      "encrypted": false,
+      "sha256": "a0fe808347e393339f2317ded7a00eb80c6fc3016bc5a0a78b907bb450fee74f"
     },
     {
       "number": 36,
-      "filename": "036-repo-docs-DEEP-RESEARCH-2026-10-05-SOURCING-PARTNERSHIPS-BUSINESS-md.pdf",
-      "title": "Deep Research 2026 10 05 Sourcing Partnerships Business",
-      "kind": "Repository document",
-      "source": "docs/DEEP-RESEARCH-2026-10-05-SOURCING-PARTNERSHIPS-BUSINESS.md"
+      "filename": "036-repo-docs-FACT-CHECK-NOTEBOOKLM-ITAD-2026-10-06-md.pdf",
+      "title": "Fact Check Notebooklm Itad 2026 10 06",
+      "kind": "Full repository document",
+      "source": "docs/FACT-CHECK-NOTEBOOKLM-ITAD-2026-10-06.md",
+      "pages": 5,
+      "encrypted": false,
+      "sha256": "077439530201c2e44b645f450a59604af81c8123656baee0e97e7d3a19a1becf"
     },
     {
       "number": 37,
-      "filename": "037-repo-docs-DOWNSTREAM-PROVIDER-DUBBO-COST-COMPARISON-md.pdf",
-      "title": "Downstream Provider Dubbo Cost Comparison",
-      "kind": "Repository document",
-      "source": "docs/DOWNSTREAM-PROVIDER-DUBBO-COST-COMPARISON.md"
+      "filename": "037-repo-docs-FIRST-30-DEVICE-EXPERIMENT-md.pdf",
+      "title": "First 30 Device Experiment",
+      "kind": "Full repository document",
+      "source": "docs/FIRST-30-DEVICE-EXPERIMENT.md",
+      "pages": 2,
+      "encrypted": false,
+      "sha256": "258b23fab9a603cf67255f9c34e48f190d2f76b71ca24e2d0926b663c126290b"
     },
     {
       "number": 38,
-      "filename": "038-repo-docs-DUBBO-COMPUTER-REPAIR-REUSE-EWASTE-DIRECTORY-2026-10-06-md.pdf",
-      "title": "Dubbo Computer Repair Reuse Ewaste Directory 2026 10 06",
-      "kind": "Repository document",
-      "source": "docs/DUBBO-COMPUTER-REPAIR-REUSE-EWASTE-DIRECTORY-2026-10-06.md"
+      "filename": "038-repo-docs-GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO-md.pdf",
+      "title": "Good360 Compnow National Device Bank Dubbo",
+      "kind": "Full repository document",
+      "source": "docs/GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md",
+      "pages": 27,
+      "encrypted": false,
+      "sha256": "55ae641e08d33827b01266ad3e879daf6b8c86102b32e60daefab229a6a6f8af"
     },
     {
       "number": 39,
-      "filename": "039-repo-docs-DUBBO-DEVICE-DISPOSAL-PROSPECTS-md.pdf",
-      "title": "Dubbo Device Disposal Prospects",
-      "kind": "Repository document",
-      "source": "docs/DUBBO-DEVICE-DISPOSAL-PROSPECTS.md"
+      "filename": "039-repo-docs-INTAKE-POLICY-md.pdf",
+      "title": "Intake Policy",
+      "kind": "Full repository document",
+      "source": "docs/INTAKE-POLICY.md",
+      "pages": 7,
+      "encrypted": false,
+      "sha256": "769ca6097c39732e2b1d04856c6288761d53b08e409b4e15335e747e4613bd8e"
     },
     {
       "number": 40,
-      "filename": "040-repo-docs-DUBBO-DEVICE-DISPOSAL-SOURCES-md.pdf",
-      "title": "Dubbo Device Disposal Sources",
-      "kind": "Repository document",
-      "source": "docs/DUBBO-DEVICE-DISPOSAL-SOURCES.md"
+      "filename": "040-repo-docs-LEGAL-LICENSING-md.pdf",
+      "title": "Legal Licensing",
+      "kind": "Full repository document",
+      "source": "docs/LEGAL-LICENSING.md",
+      "pages": 2,
+      "encrypted": false,
+      "sha256": "607aecb7e64a86dd91e351d389d2242d45042fc85e6897c2b8f9b002e62c5e32"
     },
     {
       "number": 41,
-      "filename": "041-repo-docs-DUBBO-INDEPENDENT-DEVICE-RECOVERY-OPERATORS-md.pdf",
-      "title": "Dubbo Independent Device Recovery Operators",
-      "kind": "Repository document",
-      "source": "docs/DUBBO-INDEPENDENT-DEVICE-RECOVERY-OPERATORS.md"
+      "filename": "041-repo-docs-NATIONAL-ITAD-OPERATORS-DUBBO-COVERAGE-md.pdf",
+      "title": "National Itad Operators Dubbo Coverage",
+      "kind": "Full repository document",
+      "source": "docs/NATIONAL-ITAD-OPERATORS-DUBBO-COVERAGE.md",
+      "pages": 3,
+      "encrypted": false,
+      "sha256": "feadea78cf49599b38c7a605c546a4c5912bd5683d47c9d4dac4b703ea51d91a"
     },
     {
       "number": 42,
-      "filename": "042-repo-docs-DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK-md.pdf",
-      "title": "Dubbo Itad Branch Entry Playbook",
-      "kind": "Repository document",
-      "source": "docs/DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md"
+      "filename": "042-repo-docs-NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS-md.pdf",
+      "title": "Nsw Education Ewaste Dubbo Laptops",
+      "kind": "Full repository document",
+      "source": "docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md",
+      "pages": 13,
+      "encrypted": false,
+      "sha256": "f48ac7be0aec5311f71ea9b96fb14cf2c8b4eebe85687d137844c31124e23bb4"
     },
     {
       "number": 43,
-      "filename": "043-repo-docs-DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS-md.pdf",
-      "title": "Dubbo Itad Branch Pathways Costs Process",
-      "kind": "Repository document",
-      "source": "docs/DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS.md"
+      "filename": "043-repo-docs-PHASE-0-LAUNCH-GATES-md.pdf",
+      "title": "Phase 0 Launch Gates",
+      "kind": "Full repository document",
+      "source": "docs/PHASE-0-LAUNCH-GATES.md",
+      "pages": 7,
+      "encrypted": false,
+      "sha256": "139a14169eb55b8295250ef77eb21c640b9cedad6bcec934fa93fb28f3582bf6"
     },
     {
       "number": 44,
-      "filename": "044-repo-docs-DUBBO-ITAD-DEEP-RESEARCH-2026-md.pdf",
-      "title": "Dubbo Itad Deep Research 2026",
-      "kind": "Repository document",
-      "source": "docs/DUBBO-ITAD-DEEP-RESEARCH-2026.md"
+      "filename": "044-repo-docs-PHASE-0-OPERATING-BLUEPRINT-md.pdf",
+      "title": "Phase 0 Operating Blueprint",
+      "kind": "Full repository document",
+      "source": "docs/PHASE-0-OPERATING-BLUEPRINT.md",
+      "pages": 31,
+      "encrypted": false,
+      "sha256": "e9f01db2812d485b27c562e209282056d6f2e274989728c8acb5380177f25db8"
     },
     {
       "number": 45,
-      "filename": "045-repo-docs-DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS-md.pdf",
-      "title": "Dubbo Wellington Narromine Trangie Reuse Programs",
-      "kind": "Repository document",
-      "source": "docs/DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS.md"
+      "filename": "045-repo-docs-REGIONAL-EWASTE-PATHWAYS-md.pdf",
+      "title": "Regional Ewaste Pathways",
+      "kind": "Full repository document",
+      "source": "docs/REGIONAL-EWASTE-PATHWAYS.md",
+      "pages": 7,
+      "encrypted": false,
+      "sha256": "a1b956da68dcf7e8e8d71d4ca0568c36bfa8b0daf81293e2dc8d52ec894bdde7"
     },
     {
       "number": 46,
-      "filename": "046-repo-docs-EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN-md.pdf",
-      "title": "Ewaste Facility Zone Benchmark And Shed Design",
-      "kind": "Repository document",
-      "source": "docs/EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md"
+      "filename": "046-original-NIST-SP-800-88-Rev-2-Guidelines-for-Media-Sanitization.pdf",
+      "title": "NIST SP 800-88 Rev 2 - Guidelines for Media Sanitization",
+      "kind": "Original publisher PDF",
+      "source": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r2.pdf",
+      "pages": 48,
+      "encrypted": false,
+      "sha256": "39bb805c72723ed74f08e5806cd8463ca2554a62abb4f97b9d19c0398a8a7c55",
+      "bytes": 983677
     },
     {
       "number": 47,
-      "filename": "047-repo-docs-EXISTING-AUSTRALIAN-EWASTE-ORGS-DUBBO-EXPANSION-md.pdf",
-      "title": "Existing Australian Ewaste Orgs Dubbo Expansion",
-      "kind": "Repository document",
-      "source": "docs/EXISTING-AUSTRALIAN-EWASTE-ORGS-DUBBO-EXPANSION.md"
+      "filename": "047-original-NSW-EPA-Waste-Delivery-Plan.pdf",
+      "title": "NSW EPA - Waste Delivery Plan",
+      "kind": "Original publisher PDF",
+      "source": "https://www.epa.nsw.gov.au/sites/default/files/21p3399-waste-delivery-plan.pdf",
+      "pages": 32,
+      "encrypted": false,
+      "sha256": "0a4d537f81e1783b419695b687df7ee12c172b691d40780682b2f98566f7a2ad",
+      "bytes": 4880596
     },
     {
       "number": 48,
-      "filename": "048-repo-docs-FACT-CHECK-NOTEBOOKLM-ITAD-2026-10-06-md.pdf",
-      "title": "Fact Check Notebooklm Itad 2026 10 06",
-      "kind": "Repository document",
-      "source": "docs/FACT-CHECK-NOTEBOOKLM-ITAD-2026-10-06.md"
+      "filename": "048-original-Global-E-waste-Monitor-2024.pdf",
+      "title": "Global E-waste Monitor 2024",
+      "kind": "Original publisher PDF",
+      "source": "https://www.itu.int/dms_pub/itu-d/opb/gen/D-GEN-E_WASTE.01-2024-PDF-E.pdf",
+      "pages": 150,
+      "encrypted": false,
+      "sha256": "8a500e594fca2132b1c26cd67587e60d825bf901a11775296740727b64989d7a",
+      "bytes": 15892603
     },
     {
       "number": 49,
-      "filename": "049-repo-docs-FIRST-30-DEVICE-EXPERIMENT-md.pdf",
-      "title": "First 30 Device Experiment",
-      "kind": "Repository document",
-      "source": "docs/FIRST-30-DEVICE-EXPERIMENT.md"
+      "filename": "049-original-Basel-Convention-COP16-Technical-Guidelines-on-E-waste.pdf",
+      "title": "Basel Convention COP16 - Technical Guidelines on E-waste",
+      "kind": "Original publisher PDF",
+      "source": "https://www.basel.int/Portals/4/download.aspx?d=UNEP-CHW-COP.16-BC-16-5.English.pdf",
+      "pages": 1,
+      "encrypted": false,
+      "sha256": "818a8c267fd651dc4d561c15f0fa3848f56b22e1ac93c365a5c35fdd0252f90d",
+      "bytes": 137693
     },
     {
       "number": 50,
-      "filename": "050-repo-docs-FLIPTECH-DUBBO-BRANCH-FEASIBILITY-md.pdf",
-      "title": "Fliptech Dubbo Branch Feasibility",
-      "kind": "Repository document",
-      "source": "docs/FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md"
+      "filename": "050-original-Basel-Convention-Used-and-End-of-Life-Computing-Equipment-Guidance.pdf",
+      "title": "Basel Convention - Used and End-of-Life Computing Equipment Guidance",
+      "kind": "Original publisher PDF",
+      "source": "https://www.basel.int/Portals/4/download.aspx?d=UNEP-CHW.11-INF-13-Rev.1.English.pdf",
+      "pages": 65,
+      "encrypted": false,
+      "sha256": "eba4deba8aa7310f48577ffb6b377bef17d0bc514f70eb1ef4969daf8d5b1ea8",
+      "bytes": 1102042
     },
     {
       "number": 51,
-      "filename": "051-repo-docs-FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY-md.pdf",
-      "title": "Fliptech Equivalents Dubbo Branch Feasibility",
-      "kind": "Repository document",
-      "source": "docs/FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY.md"
+      "filename": "051-original-Open-Repair-Alliance-The-Rise-of-Community-Repair-2024.pdf",
+      "title": "Open Repair Alliance - The Rise of Community Repair 2024",
+      "kind": "Original publisher PDF",
+      "source": "https://openrepair.org/wp-content/uploads/2024/10/ORA-report-2024-The-rise-of-community-repair.pdf",
+      "pages": 35,
+      "encrypted": false,
+      "sha256": "02d1fea4b5540228d55b097fcd7350e4b4d3665df88cb25f8488c3d7cf4806ea",
+      "bytes": 4011468
     },
     {
       "number": 52,
-      "filename": "052-repo-docs-GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO-md.pdf",
-      "title": "Good360 Compnow National Device Bank Dubbo",
-      "kind": "Repository document",
-      "source": "docs/GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md"
+      "filename": "052-original-Productivity-Commission-Right-to-Repair-Inquiry-Report.pdf",
+      "title": "Productivity Commission - Right to Repair Inquiry Report",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/inquiries/completed/repair/report/repair.pdf",
+      "pages": 395,
+      "encrypted": false,
+      "sha256": "ab89e282c5acd0a72db4c26666de48dab7e3f2afa391aa271d00dfc162d2d4d5",
+      "bytes": 4522553
     },
     {
       "number": 53,
-      "filename": "053-repo-docs-INTAKE-POLICY-md.pdf",
-      "title": "Intake Policy",
-      "kind": "Repository document",
-      "source": "docs/INTAKE-POLICY.md"
+      "filename": "053-original-Productivity-Commission-Right-to-Repair-Overview.pdf",
+      "title": "Productivity Commission - Right to Repair Overview",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/inquiries/completed/repair/report/repair-overview.pdf",
+      "pages": 43,
+      "encrypted": false,
+      "sha256": "0fcca1847ca8f057042b8f7a76ca564137c40bd254f63f6b8f3334b854435007",
+      "bytes": 562241
     },
     {
       "number": 54,
-      "filename": "054-repo-docs-LEGAL-LICENSING-md.pdf",
-      "title": "Legal Licensing",
-      "kind": "Repository document",
-      "source": "docs/LEGAL-LICENSING.md"
+      "filename": "054-original-Productivity-Commission-Repair-Cafe-Hobart-Submission.pdf",
+      "title": "Productivity Commission - Repair Cafe Hobart Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0006/271770/sub014-repair.pdf",
+      "pages": 2,
+      "encrypted": false,
+      "sha256": "72e5fb2e9932592aca15c5d3c3dafda544463d8b4ca8f748c180de22611bdede",
+      "bytes": 142236
     },
     {
       "number": 55,
-      "filename": "055-repo-docs-MASTER-FINDINGS-ALL-CHATS-md.pdf",
-      "title": "Master Findings All Chats",
-      "kind": "Repository document",
-      "source": "docs/MASTER-FINDINGS-ALL-CHATS.md"
+      "filename": "055-original-Productivity-Commission-Consumer-Electronics-Suppliers-Association-Submission.pdf",
+      "title": "Productivity Commission - Consumer Electronics Suppliers Association Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0017/272024/sub025-repair.pdf",
+      "pages": 7,
+      "encrypted": false,
+      "sha256": "d6cce1069ea7ca3e0dacb84cf43a36ead48f88d8a5ce024e33bad0b0ae75ac03",
+      "bytes": 161515
     },
     {
       "number": 56,
-      "filename": "056-repo-docs-MATTHEWS-INFRABUILD-AMR-md.pdf",
-      "title": "Matthews Infrabuild Amr",
-      "kind": "Repository document",
-      "source": "docs/MATTHEWS-INFRABUILD-AMR.md"
+      "filename": "056-original-Productivity-Commission-IT-Professionals-Australia-Submission.pdf",
+      "title": "Productivity Commission - IT Professionals Australia Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0020/272027/sub026-repair.pdf",
+      "pages": 11,
+      "encrypted": false,
+      "sha256": "a66a2293aacc1b1848cfbedbbc83da386943a15e82b0f769edd28c4e8e6416a6",
+      "bytes": 2765754
     },
     {
       "number": 57,
-      "filename": "057-repo-docs-MINIMUM-PHYSICAL-SHED-SETUP-CHECKLIST-md.pdf",
-      "title": "Minimum Physical Shed Setup Checklist",
-      "kind": "Repository document",
-      "source": "docs/MINIMUM-PHYSICAL-SHED-SETUP-CHECKLIST.md"
+      "filename": "057-original-Productivity-Commission-Repair-Cafe-Woolloongabba-Submission.pdf",
+      "title": "Productivity Commission - Repair Cafe Woolloongabba Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0003/272316/sub042-repair.pdf",
+      "pages": 3,
+      "encrypted": false,
+      "sha256": "0ef5bec2866eefc28738a8cdf81f557b29ee344e11d31ba919e82d51ea389973",
+      "bytes": 183727
     },
     {
       "number": 58,
-      "filename": "058-repo-docs-NATIONAL-ITAD-OPERATORS-DUBBO-COVERAGE-md.pdf",
-      "title": "National Itad Operators Dubbo Coverage",
-      "kind": "Repository document",
-      "source": "docs/NATIONAL-ITAD-OPERATORS-DUBBO-COVERAGE.md"
+      "filename": "058-original-Productivity-Commission-South-Australian-Repair-Cafe-Submission.pdf",
+      "title": "Productivity Commission - South Australian Repair Cafe Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0020/272324/sub046-repair.pdf",
+      "pages": 19,
+      "encrypted": false,
+      "sha256": "402572c41b6b2c5e40a3500c2b2f07bf863825228744148c7156bfe107e7a543",
+      "bytes": 627030
     },
     {
       "number": 59,
-      "filename": "059-repo-docs-NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS-md.pdf",
-      "title": "Nsw Education Ewaste Dubbo Laptops",
-      "kind": "Repository document",
-      "source": "docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md"
+      "filename": "059-original-Productivity-Commission-ANZRP-Submission.pdf",
+      "title": "Productivity Commission - ANZRP Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0005/272336/sub056-repair.pdf",
+      "pages": 7,
+      "encrypted": false,
+      "sha256": "f31094653e4e0989de8ea18b256e6c44c3fcbbd50354c7378de7b29e36c7afe2",
+      "bytes": 278224
     },
     {
       "number": 60,
-      "filename": "060-repo-docs-NSW-FLIPTECH-EQUIVALENTS-DEEP-DIVE-md.pdf",
-      "title": "Nsw Fliptech Equivalents Deep Dive",
-      "kind": "Repository document",
-      "source": "docs/NSW-FLIPTECH-EQUIVALENTS-DEEP-DIVE.md"
+      "filename": "060-original-Productivity-Commission-NSW-Circular-Submission.pdf",
+      "title": "Productivity Commission - NSW Circular Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0008/272627/sub093-repair.pdf",
+      "pages": 3,
+      "encrypted": false,
+      "sha256": "ff40dbecff5d22a4dd919c36edd0a63d09eba6e829b1a56d99e9820f85d77323",
+      "bytes": 717285
     },
     {
       "number": 61,
-      "filename": "061-repo-docs-PHASE-0-LAUNCH-GATES-md.pdf",
-      "title": "Phase 0 Launch Gates",
-      "kind": "Repository document",
-      "source": "docs/PHASE-0-LAUNCH-GATES.md"
+      "filename": "061-original-Productivity-Commission-BehaviourWorks-Australia-Submission.pdf",
+      "title": "Productivity Commission - BehaviourWorks Australia Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0010/272629/sub095-repair.pdf",
+      "pages": 6,
+      "encrypted": false,
+      "sha256": "c1133f23e32865dbe1606e1dd664deb71c35dd87e1f7ab268ed4009af6ba6074",
+      "bytes": 342230
     },
     {
       "number": 62,
-      "filename": "062-repo-docs-PHASE-0-OPERATING-BLUEPRINT-md.pdf",
-      "title": "Phase 0 Operating Blueprint",
-      "kind": "Repository document",
-      "source": "docs/PHASE-0-OPERATING-BLUEPRINT.md"
+      "filename": "062-original-Productivity-Commission-Mend-It-Australia-Submission.pdf",
+      "title": "Productivity Commission - Mend It Australia Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0009/272637/sub101-repair.pdf",
+      "pages": 9,
+      "encrypted": false,
+      "sha256": "55aa12243573be131d8d2e74300b8f7e9d17eda60edd4f2de8e3ae87a011036e",
+      "bytes": 765592
     },
     {
       "number": 63,
-      "filename": "063-repo-docs-PONYUP-SECONDBITE-DUBBO-md.pdf",
-      "title": "Ponyup Secondbite Dubbo",
-      "kind": "Repository document",
-      "source": "docs/PONYUP-SECONDBITE-DUBBO.md"
+      "filename": "063-original-Productivity-Commission-Wiseman-and-Kariyawasam-Submission.pdf",
+      "title": "Productivity Commission - Wiseman and Kariyawasam Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0005/272660/sub105-repair.pdf",
+      "pages": 17,
+      "encrypted": false,
+      "sha256": "f3dfbedc20762a52105b3f6df4da171673595058cad9785dbb334a8f7ece8def",
+      "bytes": 320922
     },
     {
       "number": 64,
-      "filename": "064-repo-docs-REGIONAL-EWASTE-PATHWAYS-md.pdf",
-      "title": "Regional Ewaste Pathways",
-      "kind": "Repository document",
-      "source": "docs/REGIONAL-EWASTE-PATHWAYS.md"
+      "filename": "064-original-Productivity-Commission-ACCC-Submission.pdf",
+      "title": "Productivity Commission - ACCC Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0007/272662/sub106-repair.pdf",
+      "pages": 9,
+      "encrypted": false,
+      "sha256": "d4b5046cbd1b6fc94a28db73c5d94a82292c4ce9970b4bf30589c512e97073d4",
+      "bytes": 263167
     },
     {
       "number": 65,
-      "filename": "065-repo-docs-REGIONAL-ITAD-PRACTITIONER-FIELD-GUIDE-md.pdf",
-      "title": "Regional Itad Practitioner Field Guide",
-      "kind": "Repository document",
-      "source": "docs/REGIONAL-ITAD-PRACTITIONER-FIELD-GUIDE.md"
+      "filename": "065-original-Productivity-Commission-iFixit-Submission.pdf",
+      "title": "Productivity Commission - iFixit Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0005/272696/sub107-repair.pdf",
+      "pages": 32,
+      "encrypted": false,
+      "sha256": "c769d368eacb7eab749c8fecc788c62401d21c752d15aa8d52b3880f8669caae",
+      "bytes": 466914
     },
     {
       "number": 66,
-      "filename": "066-repo-docs-RESEARCH-01-FRONT-DOOR-TRIAGE-md.pdf",
-      "title": "Research 01 Front Door Triage",
-      "kind": "Repository document",
-      "source": "docs/RESEARCH-01-FRONT-DOOR-TRIAGE.md"
+      "filename": "066-original-NSW-Circular-Economy-Policy-Statement.pdf",
+      "title": "NSW Circular Economy Policy Statement",
+      "kind": "Original publisher PDF",
+      "source": "https://www.epa.nsw.gov.au/sites/default/files/19p1379-circular-economy-policy-final.pdf",
+      "pages": 10,
+      "encrypted": false,
+      "sha256": "94ae83e223eaa56c9917fe677b1c65e46a497deaa6cb70e012d5a0df7a302292",
+      "bytes": 228890
     },
     {
       "number": 67,
-      "filename": "067-repo-docs-RESEARCH-03-COMPETITOR-OPERATING-MECHANICS-md.pdf",
-      "title": "Research 03 Competitor Operating Mechanics",
-      "kind": "Repository document",
-      "source": "docs/RESEARCH-03-COMPETITOR-OPERATING-MECHANICS.md"
+      "filename": "067-original-NSW-Waste-and-Sustainable-Materials-Strategy-2041.pdf",
+      "title": "NSW Waste and Sustainable Materials Strategy 2041",
+      "kind": "Original publisher PDF",
+      "source": "https://www.epa.nsw.gov.au/sites/default/files/nsw-waste-and-sustainable-materials-strategy-2041.pdf",
+      "pages": 44,
+      "encrypted": false,
+      "sha256": "3ad14cde22c3a4fa06acbc1486f0cfba6314220b4f1dc5eb8a6e7f04ffff6923",
+      "bytes": 2199232
     },
     {
       "number": 68,
-      "filename": "068-repo-docs-RESEARCH-05-DATA-IDENTITY-PRIVACY-SOP-md.pdf",
-      "title": "Research 05 Data Identity Privacy Sop",
-      "kind": "Repository document",
-      "source": "docs/RESEARCH-05-DATA-IDENTITY-PRIVACY-SOP.md"
+      "filename": "068-original-Productivity-Commission-Brunswick-Tool-Library-Submission.pdf",
+      "title": "Productivity Commission - Brunswick Tool Library Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0005/272462/sub077-repair.pdf",
+      "pages": 5,
+      "encrypted": false,
+      "sha256": "1a5a99448e5085fe17f437b5a62de2eca95edb6ddc255dc13e11b9cd6578804a",
+      "bytes": 59468
     },
     {
       "number": 69,
-      "filename": "069-repo-docs-RESEARCH-06-BATTERY-ELECTRICAL-WORKSHOP-SAFETY-md.pdf",
-      "title": "Research 06 Battery Electrical Workshop Safety",
-      "kind": "Repository document",
-      "source": "docs/RESEARCH-06-BATTERY-ELECTRICAL-WORKSHOP-SAFETY.md"
+      "filename": "069-original-Productivity-Commission-Australian-Local-Government-Association-Submission.pdf",
+      "title": "Productivity Commission - Australian Local Government Association Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0008/272465/sub079-repair.pdf",
+      "pages": 3,
+      "encrypted": false,
+      "sha256": "dff462862c5319719da2d0d4a719dcfefe12b72fee7dfeca834f614e23eb3656",
+      "bytes": 1445966
     },
     {
       "number": 70,
-      "filename": "070-repo-docs-RESEARCH-07-REPAIR-ECONOMICS-PARTS-STRATEGY-md.pdf",
-      "title": "Research 07 Repair Economics Parts Strategy",
-      "kind": "Repository document",
-      "source": "docs/RESEARCH-07-REPAIR-ECONOMICS-PARTS-STRATEGY.md"
+      "filename": "070-original-Productivity-Commission-Product-Stewardship-Centre-of-Excellence-Submission.pdf",
+      "title": "Productivity Commission - Product Stewardship Centre of Excellence Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0005/272984/sub123-repair.pdf",
+      "pages": 3,
+      "encrypted": false,
+      "sha256": "f91b27707da3e155aa398183e44d1d0a93698b4f7cd88f5c723f1546be4d4e79",
+      "bytes": 111332
     },
     {
       "number": 71,
-      "filename": "071-repo-docs-RESEARCH-10-SUPPLY-DEMAND-PARTNER-VALIDATION-md.pdf",
-      "title": "Research 10 Supply Demand Partner Validation",
-      "kind": "Repository document",
-      "source": "docs/RESEARCH-10-SUPPLY-DEMAND-PARTNER-VALIDATION.md"
+      "filename": "071-original-Productivity-Commission-Shaun-Scallan-and-John-Gertsakis-Submission.pdf",
+      "title": "Productivity Commission - Shaun Scallan and John Gertsakis Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0020/273008/sub125-repair.pdf",
+      "pages": 16,
+      "encrypted": false,
+      "sha256": "351ede6fdd70cce07b853121eeb73e421a89f6e7f2f452330b70cd7973cd3087",
+      "bytes": 765658
     },
     {
       "number": 72,
-      "filename": "072-repo-docs-RESEARCH-11-DOWNSTREAM-ENVIRONMENTAL-CHAIN-OF-CUSTODY-md.pdf",
-      "title": "Research 11 Downstream Environmental Chain Of Custody",
-      "kind": "Repository document",
-      "source": "docs/RESEARCH-11-DOWNSTREAM-ENVIRONMENTAL-CHAIN-OF-CUSTODY.md"
+      "filename": "072-original-Productivity-Commission-CHOICE-Initial-Submission.pdf",
+      "title": "Productivity Commission - CHOICE Initial Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0013/273010/sub126-repair.pdf",
+      "pages": 25,
+      "encrypted": false,
+      "sha256": "693c4eade1f30a1798ac325da09e79037d27e44e63cf18e28fa674109f59219b",
+      "bytes": 7159644
     },
     {
       "number": 73,
-      "filename": "073-repo-docs-REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE-md.pdf",
-      "title": "Reuse Models Ponyup Reconnect Laptop Initiative",
-      "kind": "Repository document",
-      "source": "docs/REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md"
+      "filename": "073-original-Productivity-Commission-Australian-Information-Industry-Association-Submission.pdf",
+      "title": "Productivity Commission - Australian Information Industry Association Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0007/273229/sub127-repair.pdf",
+      "pages": 24,
+      "encrypted": false,
+      "sha256": "411225facfda1a5448c40552d08ca1e5d1dea9a5cfb48a41f85a0d9107546d25",
+      "bytes": 249398
     },
     {
       "number": 74,
-      "filename": "074-repo-docs-SIRCEL-ITAD-REUSE-MODEL-md.pdf",
-      "title": "Sircel Itad Reuse Model",
-      "kind": "Repository document",
-      "source": "docs/SIRCEL-ITAD-REUSE-MODEL.md"
+      "filename": "074-original-Productivity-Commission-Nathan-Proctor-Submission.pdf",
+      "title": "Productivity Commission - Nathan Proctor Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0017/273230/sub128-repair.pdf",
+      "pages": 2,
+      "encrypted": false,
+      "sha256": "416ee75e65770d3579a65cf36dcf0f5499dd2ff3ec2147c08f74803aa98c2310",
+      "bytes": 141959
     },
     {
       "number": 75,
-      "filename": "075-repo-docs-WHAT-HAPPENS-TO-EWASTE-md.pdf",
-      "title": "What Happens To Ewaste",
-      "kind": "Repository document",
-      "source": "docs/WHAT-HAPPENS-TO-EWASTE.md"
+      "filename": "075-original-Productivity-Commission-Australian-Mobile-Telecommunications-Association-Initial-Submission.pdf",
+      "title": "Productivity Commission - Australian Mobile Telecommunications Association Initial Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0009/273294/sub130-repair.pdf",
+      "pages": 10,
+      "encrypted": false,
+      "sha256": "3716034f1e509fd5490ba7f934315a51deab3d9161969b06775c70215cf8b4d9",
+      "bytes": 260526
     },
     {
       "number": 76,
-      "filename": "076-external-Repair-Cafe-International-Starting-a-Repair-Cafe.pdf",
-      "title": "Repair Cafe International - Starting a Repair Cafe",
-      "kind": "External source brief",
-      "source": "https://www.repaircafe.org/en/join/start-your-own/",
-      "category": "Repair Cafe / community repair"
+      "filename": "076-original-Productivity-Commission-Shane-Rattenbury-MLA-Submission.pdf",
+      "title": "Productivity Commission - Shane Rattenbury MLA Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0007/273382/sub133-repair.pdf",
+      "pages": 13,
+      "encrypted": false,
+      "sha256": "ec6c53b5c9677bd9563bbdf5962ed3f622d045c289bc6b977954bdcf5e0f778c",
+      "bytes": 491979
     },
     {
       "number": 77,
-      "filename": "077-external-Repair-Cafe-International-Organiser-FAQ.pdf",
-      "title": "Repair Cafe International - Organiser FAQ",
-      "kind": "External source brief",
-      "source": "https://www.repaircafe.org/en/faq/",
-      "category": "Repair Cafe / community repair"
+      "filename": "077-original-Productivity-Commission-Consumer-Electronics-Suppliers-Association-Supplementary-Submission.pdf",
+      "title": "Productivity Commission - Consumer Electronics Suppliers Association Supplementary Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0010/273835/sub135-repair.pdf",
+      "pages": 2,
+      "encrypted": false,
+      "sha256": "19ca814a31412d3cf9c4931d15f9bf1dd2b402baa60f886002f4ccd67e2660f4",
+      "bytes": 114492
     },
     {
       "number": 78,
-      "filename": "078-external-Waverley-Council-Repair-Cafe-Computer-and-Phone-Repair-Operating-Model.pdf",
-      "title": "Waverley Council Repair Cafe - Computer and Phone Repair Operating Model",
-      "kind": "External source brief",
-      "source": "https://www.waverley.nsw.gov.au/recreation/events/events/repair_cafe3",
-      "category": "Repair Cafe / practical model"
+      "filename": "078-original-Productivity-Commission-TCO-Development-Submission.pdf",
+      "title": "Productivity Commission - TCO Development Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0007/273895/sub137-repair.pdf",
+      "pages": 6,
+      "encrypted": false,
+      "sha256": "a487458e65771f1116c4dd656bb600327d20d2e2aba9df17b66a14a8362c4381",
+      "bytes": 184126
     },
     {
       "number": 79,
-      "filename": "079-external-Open-Repair-Alliance-Open-Repair-Data-Standard.pdf",
-      "title": "Open Repair Alliance - Open Repair Data Standard",
-      "kind": "External source brief",
-      "source": "https://openrepair.org/open-data/open-standard/",
-      "category": "Repair data / measurement"
+      "filename": "079-original-Productivity-Commission-Jeremy-Barr-Hyde-Submission.pdf",
+      "title": "Productivity Commission - Jeremy Barr-Hyde Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0004/277159/subdr147-repair.pdf",
+      "pages": 2,
+      "encrypted": false,
+      "sha256": "9600523f07f3bc95991c2c9265f723882ec5291372d7ddf739507235bde16c0b",
+      "bytes": 76355
     },
     {
       "number": 80,
-      "filename": "080-external-Open-Repair-Alliance-Global-Repair-Dataset.pdf",
-      "title": "Open Repair Alliance - Global Repair Dataset",
-      "kind": "External source brief",
-      "source": "https://openrepair.org/open-data/downloads/",
-      "category": "Repair data / benchmarking"
+      "filename": "080-original-Productivity-Commission-Genius-Bar-Appointment-Attachment.pdf",
+      "title": "Productivity Commission - Genius Bar Appointment Attachment",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0006/277161/subdr147-repair-attachment1.pdf",
+      "pages": 2,
+      "encrypted": false,
+      "sha256": "115e18d18c36c7d21352ef8876ad6115c6cec24afbbb7d09d71ceca7c83d9443",
+      "bytes": 94212
     },
     {
       "number": 81,
-      "filename": "081-external-Open-Repair-Alliance-How-to-Record-Repairs.pdf",
-      "title": "Open Repair Alliance - How to Record Repairs",
-      "kind": "External source brief",
-      "source": "https://openrepair.org/open-data/how-to-get-started/",
-      "category": "Repair data / operations"
+      "filename": "081-original-Productivity-Commission-iPad-Service-and-Repair-Attachment.pdf",
+      "title": "Productivity Commission - iPad Service and Repair Attachment",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0007/277162/subdr147-repair-attachment2.pdf",
+      "pages": 5,
+      "encrypted": false,
+      "sha256": "b63085f07546f4e550e2b7447b26b49fa2af88d059fd44a33dbc469c5962f634",
+      "bytes": 177514
     },
     {
       "number": 82,
-      "filename": "082-external-Productivity-Commission-Right-to-Repair-Inquiry-Report.pdf",
-      "title": "Productivity Commission - Right to Repair Inquiry Report",
-      "kind": "External source brief",
-      "source": "https://www.pc.gov.au/inquiries-and-research/repair/report/",
-      "category": "Repair policy"
+      "filename": "082-original-Productivity-Commission-Samsung-Service-Authorisation-Notice.pdf",
+      "title": "Productivity Commission - Samsung Service Authorisation Notice",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0005/277196/subdr148-repair-attachment1.pdf",
+      "pages": 3,
+      "encrypted": false,
+      "sha256": "202160d9a1536976c682dfa8b3fe0fae3ec41dfb9a5128e038184bfb55d3089b",
+      "bytes": 229202
     },
     {
       "number": 83,
-      "filename": "083-external-NIST-SP-800-88-Rev-2-Guidelines-for-Media-Sanitization.pdf",
-      "title": "NIST SP 800-88 Rev. 2 - Guidelines for Media Sanitization",
-      "kind": "External source brief",
-      "source": "https://csrc.nist.gov/pubs/sp/800/88/r2/final",
-      "category": "Data sanitisation / ITAD"
+      "filename": "083-original-Productivity-Commission-Interactive-Pty-Ltd-Submission.pdf",
+      "title": "Productivity Commission - Interactive Pty Ltd Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0003/279183/subdr175-repair.pdf",
+      "pages": 5,
+      "encrypted": false,
+      "sha256": "597b8c6a2020b0ed2df727280c04a83a550605144e4337942067f4534537092b",
+      "bytes": 154383
     },
     {
       "number": 84,
-      "filename": "084-external-ASD-ACSC-Guidelines-for-Media-September-2026.pdf",
-      "title": "ASD/ACSC - Guidelines for Media (September 2026)",
-      "kind": "External source brief",
-      "source": "https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/ism/cyber-security-guidelines/guidelines-for-media",
-      "category": "Cyber security / media handling"
+      "filename": "084-original-Productivity-Commission-Interactive-Games-and-Entertainment-Association-Submission.pdf",
+      "title": "Productivity Commission - Interactive Games and Entertainment Association Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0003/279210/subdr180-repair.pdf",
+      "pages": 17,
+      "encrypted": false,
+      "sha256": "604c48cf27ea41a8f22a6734cdf50a431e3e07006ad16167f6a86788a2c7b9d1",
+      "bytes": 450471
     },
     {
       "number": 85,
-      "filename": "085-external-DCCEEW-E-Stewardship-in-Australia.pdf",
-      "title": "DCCEEW - E-Stewardship in Australia",
-      "kind": "External source brief",
-      "source": "https://www.dcceew.gov.au/environment/protection/waste/e-waste",
-      "category": "Australian e-waste policy"
+      "filename": "085-original-Productivity-Commission-Australian-Mobile-Telecommunications-Association-Post-Draft-Submission.pdf",
+      "title": "Productivity Commission - Australian Mobile Telecommunications Association Post-Draft Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0004/279211/subdr181-repair.pdf",
+      "pages": 8,
+      "encrypted": false,
+      "sha256": "a09bd4974ec7115d5b5dcd4eacff9c4eea15247659c20f01c43644dbf92e0562",
+      "bytes": 201750
     },
     {
       "number": 86,
-      "filename": "086-external-DCCEEW-National-Television-and-Computer-Recycling-Scheme.pdf",
-      "title": "DCCEEW - National Television and Computer Recycling Scheme",
-      "kind": "External source brief",
-      "source": "https://www.dcceew.gov.au/environment/protection/waste/product-stewardship/television-computer-recycling-scheme",
-      "category": "Australian e-waste regulation"
+      "filename": "086-original-Productivity-Commission-Waste-Management-and-Resource-Recovery-Association-Submission.pdf",
+      "title": "Productivity Commission - Waste Management and Resource Recovery Association Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0006/279213/subdr183-repair.pdf",
+      "pages": 12,
+      "encrypted": false,
+      "sha256": "e79d138ef4bb5f648e67bae3ce00f0a438c9360f7c5f6b5bbbbb3c66a157c4b3",
+      "bytes": 759474
     },
     {
       "number": 87,
-      "filename": "087-external-DCCEEW-NTCRS-Roles-and-Responsibilities.pdf",
-      "title": "DCCEEW - NTCRS Roles and Responsibilities",
-      "kind": "External source brief",
-      "source": "https://www.dcceew.gov.au/environment/protection/waste/product-stewardship/products-schemes/television-computer-recycling-scheme",
-      "category": "Australian e-waste regulation"
+      "filename": "087-original-Productivity-Commission-Repair-Cafe-Redcliffe-Peninsula-Submission.pdf",
+      "title": "Productivity Commission - Repair Cafe Redcliffe Peninsula Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0007/279214/subdr184-repair.pdf",
+      "pages": 2,
+      "encrypted": false,
+      "sha256": "dd56ce050e1b7ae09d68a7098891ce1a23c1fbaa8d52d6affcfd30465a901778",
+      "bytes": 230767
     },
     {
       "number": 88,
-      "filename": "088-external-DCCEEW-Product-Stewardship-in-Australia.pdf",
-      "title": "DCCEEW - Product Stewardship in Australia",
-      "kind": "External source brief",
-      "source": "https://www.dcceew.gov.au/environment/protection/waste/product-stewardship",
-      "category": "Product stewardship"
+      "filename": "088-original-Productivity-Commission-South-Australian-Repair-Cafe-Coordinators-Post-Draft-Submission.pdf",
+      "title": "Productivity Commission - South Australian Repair Cafe Coordinators Post-Draft Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0005/279221/subdr187-repair.pdf",
+      "pages": 5,
+      "encrypted": false,
+      "sha256": "27e046bfd4604d8119cacaa6980f5a7c26e21c09e028d94d023e5246cd5c7f97",
+      "bytes": 271470
     },
     {
       "number": 89,
-      "filename": "089-external-NSW-EPA-E-waste-Guidance.pdf",
-      "title": "NSW EPA - E-waste Guidance",
-      "kind": "External source brief",
-      "source": "https://www.epa.nsw.gov.au/Your-environment/Recycling-and-reuse/warr-strategy/product-stewardship-schemes/ewaste",
-      "category": "NSW e-waste / reuse"
+      "filename": "089-original-Productivity-Commission-Port-Phillip-EcoCentre-Submission.pdf",
+      "title": "Productivity Commission - Port Phillip EcoCentre Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0008/279224/subdr190-repair.pdf",
+      "pages": 6,
+      "encrypted": false,
+      "sha256": "d2bb5f08b018cf42810de9baee3db7ee5715b9d74426cddc5a3dccf879bb5c31",
+      "bytes": 664826
     },
     {
       "number": 90,
-      "filename": "090-external-NSW-EPA-Circular-Economy-and-Local-Government.pdf",
-      "title": "NSW EPA - Circular Economy and Local Government",
-      "kind": "External source brief",
-      "source": "https://www.epa.nsw.gov.au/Working-together/For-local-government/Circular-economy",
-      "category": "Circular economy / local government"
+      "filename": "090-original-Productivity-Commission-NSW-Young-Lawyers-Submission.pdf",
+      "title": "Productivity Commission - NSW Young Lawyers Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0011/279605/subdr220-repair.pdf",
+      "pages": 17,
+      "encrypted": false,
+      "sha256": "6032c44eae93fbd169eb484a62fd8fa9e24d84f4e95ba0d38b70bfd687caf79d",
+      "bytes": 318114
     },
     {
       "number": 91,
-      "filename": "091-external-Dubbo-Regional-Council-Waste-Facilities-and-E-waste.pdf",
-      "title": "Dubbo Regional Council - Waste Facilities and E-waste",
-      "kind": "External source brief",
-      "source": "https://www.dubbo.nsw.gov.au/Households-Residents/Rubbish-Recycling-and-Sustainability/council-waste-facilities",
-      "category": "Dubbo local infrastructure"
+      "filename": "091-original-Productivity-Commission-Ewaste-Watch-Institute-Submission.pdf",
+      "title": "Productivity Commission - Ewaste Watch Institute Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0003/279606/subdr221-repair.pdf",
+      "pages": 4,
+      "encrypted": false,
+      "sha256": "63fd2b51a68ef69290302b5f4210b1792df1087be3b1e81b46cbda0278d8e1f6",
+      "bytes": 105731
     },
     {
       "number": 92,
-      "filename": "092-external-NSW-Department-of-Education-Technology-in-Schools-Procedures.pdf",
-      "title": "NSW Department of Education - Technology in Schools Procedures",
-      "kind": "External source brief",
-      "source": "https://education.nsw.gov.au/policy-library/policies/pd-2024-0481-01",
-      "category": "School device sourcing / disposal"
+      "filename": "092-original-Productivity-Commission-Good-Environmental-Choice-Australia-Submission.pdf",
+      "title": "Productivity Commission - Good Environmental Choice Australia Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0004/279661/subdr222-repair.pdf",
+      "pages": 4,
+      "encrypted": false,
+      "sha256": "a6c0094eb0d6087d4535a099136efba47a01685d3bf4bfd3bc05564fe1249f84",
+      "bytes": 164851
     },
     {
       "number": 93,
-      "filename": "093-external-SafeWork-NSW-Lithium-ion-Battery-Workplace-Safety.pdf",
-      "title": "SafeWork NSW - Lithium-ion Battery Workplace Safety",
-      "kind": "External source brief",
-      "source": "https://www.safework.nsw.gov.au/hazards-a-z/lithium-ion-batteries",
-      "category": "Battery / workshop safety"
+      "filename": "093-original-Productivity-Commission-Australian-Small-Business-and-Family-Enterprise-Ombudsman-Submission.pdf",
+      "title": "Productivity Commission - Australian Small Business and Family Enterprise Ombudsman Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0005/279698/subdr225-repair.pdf",
+      "pages": 1,
+      "encrypted": false,
+      "sha256": "cc536e941efe679f3aa04463446608a449645d146ffed357cd4bd02c16a0c985",
+      "bytes": 101848
     },
     {
       "number": 94,
-      "filename": "094-external-Fire-and-Rescue-NSW-Battery-and-Charging-Safety.pdf",
-      "title": "Fire and Rescue NSW - Battery and Charging Safety",
-      "kind": "External source brief",
-      "source": "https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/battery-and-charging-safety",
-      "category": "Battery / fire safety"
+      "filename": "094-original-Productivity-Commission-Consumer-Action-Law-Centre-Submission.pdf",
+      "title": "Productivity Commission - Consumer Action Law Centre Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0010/279766/subdr229-repair.pdf",
+      "pages": 18,
+      "encrypted": false,
+      "sha256": "a4684285abc820e40247b5f3e40e68768b3e4eae7af05b686f8bd9b5a483a85c",
+      "bytes": 577345
     },
     {
       "number": 95,
-      "filename": "095-external-Fire-and-Rescue-NSW-Shop-Charge-and-Recycle-Lithium-ion-Batteries-Safely.pdf",
-      "title": "Fire and Rescue NSW - Shop, Charge and Recycle Lithium-ion Batteries Safely",
-      "kind": "External source brief",
-      "source": "https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/topics/shop-charge-and-recycle-safely",
-      "category": "Battery / fire safety"
+      "filename": "095-original-Productivity-Commission-Digital-Rights-Watch-and-Electronic-Frontiers-Australia-Submission.pdf",
+      "title": "Productivity Commission - Digital Rights Watch and Electronic Frontiers Australia Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0011/279767/subdr230-repair.pdf",
+      "pages": 10,
+      "encrypted": false,
+      "sha256": "dc63e827134d49b6fa303f0d95981fd6409cf9382b29e2072b83047b7ee07bd2",
+      "bytes": 435586
     },
     {
       "number": 96,
-      "filename": "096-external-MobileMuster-Reuse-and-Data-Management.pdf",
-      "title": "MobileMuster - Reuse and Data Management",
-      "kind": "External source brief",
-      "source": "https://www.mobilemuster.com.au/reuse/",
-      "category": "Mobile reuse / recycling"
+      "filename": "096-original-Productivity-Commission-CHOICE-Post-Draft-Submission.pdf",
+      "title": "Productivity Commission - CHOICE Post-Draft Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0012/279849/subdr232-repair.pdf",
+      "pages": 33,
+      "encrypted": false,
+      "sha256": "aae39bedad75e5403b69a49400ed232fdf2f0370d6f449b33a14c916f4cb09a9",
+      "bytes": 918210
     },
     {
       "number": 97,
-      "filename": "097-external-TechCollect-Where-E-waste-Goes.pdf",
-      "title": "TechCollect - Where E-waste Goes",
-      "kind": "External source brief",
-      "source": "https://techcollect.com.au/about-us/where-does-our-e-waste-go/",
-      "category": "Downstream recycling"
+      "filename": "097-original-Productivity-Commission-Zero-Waste-Victoria-Submission.pdf",
+      "title": "Productivity Commission - Zero Waste Victoria Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0012/279948/subdr235-repair.pdf",
+      "pages": 7,
+      "encrypted": false,
+      "sha256": "13c20b801422aa84044055403c66645af5330711a436adfcd4b2fdede81412b2",
+      "bytes": 334559
     },
     {
       "number": 98,
-      "filename": "098-external-ACCC-Repair-Notice-Requirements.pdf",
-      "title": "ACCC - Repair Notice Requirements",
-      "kind": "External source brief",
-      "source": "https://www.accc.gov.au/consumers/problem-with-a-product-or-service-you-bought/repair-notices",
-      "category": "Australian Consumer Law / repair"
+      "filename": "098-original-Productivity-Commission-Australian-Industry-Group-Supplementary-Submission.pdf",
+      "title": "Productivity Commission - Australian Industry Group Supplementary Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0012/280101/subdr238-repair.pdf",
+      "pages": 3,
+      "encrypted": false,
+      "sha256": "df2ccd27bf6ca5f3ca1db8cab828d8523db8189f4bc11f03ee551e2fa0966ee4",
+      "bytes": 241138
     },
     {
       "number": 99,
-      "filename": "099-external-Good360-Australia-Digital-Divide-and-Device-Reuse.pdf",
-      "title": "Good360 Australia - Digital Divide and Device Reuse",
-      "kind": "External source brief",
-      "source": "https://good360.org.au/digital-divide/",
-      "category": "Social reuse / digital inclusion"
+      "filename": "099-original-Productivity-Commission-Consumers-Federation-of-Australia-and-CHOICE-Submission.pdf",
+      "title": "Productivity Commission - Consumers Federation of Australia and CHOICE Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0018/280350/subdr242-repair.pdf",
+      "pages": 4,
+      "encrypted": false,
+      "sha256": "68a8c44c3861e0e3489f4a98817626f9c8abfac54cb700cf9185be0421bafbab",
+      "bytes": 214849
     },
     {
       "number": 100,
-      "filename": "100-external-WorkVentures-Laptop-Refurbishment-Process.pdf",
-      "title": "WorkVentures - Laptop Refurbishment Process",
-      "kind": "External source brief",
-      "source": "https://workventures.com.au/refurbishment/",
-      "category": "Social enterprise ITAD / refurbishment"
+      "filename": "100-original-Productivity-Commission-EcoWaste-Submission.pdf",
+      "title": "Productivity Commission - EcoWaste Submission",
+      "kind": "Original publisher PDF",
+      "source": "https://assets.pc.gov.au/__data/assets/pdf_file/0008/278657/subdr158-repair.pdf",
+      "pages": 8,
+      "encrypted": false,
+      "sha256": "75eb47ba1cb5204eb606156ce636a08541ae24d46cec5a5e111de25cc9ba2f8f",
+      "bytes": 182425
     }
   ]
 }
