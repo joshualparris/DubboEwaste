@@ -64,7 +64,9 @@ jobs:
           PY
 
   build-notebooklm-pack:
-    if: github.event_name == 'workflow_dispatch'
+    # One-time push build is enabled here to produce the requested corrected pack now.
+    # The generated commit includes [skip ci], preventing a build loop.
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 45
 
