@@ -9,6 +9,10 @@ on:
       - 'notebooklm/notebooklm_100_original_sources.json'
       - '.github/workflows/notebooklm-export.yml'
 
+concurrency:
+  group: notebooklm-original-pack
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
