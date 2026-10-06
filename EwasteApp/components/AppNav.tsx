@@ -28,6 +28,7 @@ export function AppNav({ fullName, role }: { fullName: string | null; role: stri
       <Link href="/crm/opportunities">Pipeline</Link>
       <Link href="/crm/quotes">Quotes</Link>
       <Link href="/locations">Locations</Link>
+      <Link href="/workshop-inventory">Workshop Inventory</Link>
       <Link href="/documents">Documents</Link>
       <Link href="/dubbo-repair-ewaste">Dubbo Repair Guide</Link>
       <Link href="/regional-computer-experts">Regional Experts</Link>
