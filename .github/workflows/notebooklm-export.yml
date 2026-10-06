@@ -5,8 +5,8 @@ on:
   push:
     branches: [main]
     paths:
-      - 'scripts/build_notebooklm_100_pdf_pack.py'
-      - 'notebooklm/notebooklm_100_sources.json'
+      - 'scripts/build_notebooklm_original_pdf_pack.py'
+      - 'notebooklm/notebooklm_100_original_sources.json'
       - '.github/workflows/notebooklm-export.yml'
 
 permissions:
@@ -15,7 +15,7 @@ permissions:
 jobs:
   build-notebooklm-pack:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
       - name: Check out repository
@@ -29,39 +29,43 @@ jobs:
           python-version: '3.12'
 
       - name: Install PDF build dependencies
-        run: python -m pip install --disable-pip-version-check reportlab pypdf
+        run: python -m pip install --disable-pip-version-check requests reportlab pypdf
 
-      - name: Build and verify 100-PDF pack
+      - name: Build corrected pack from original online PDFs
         run: |
-          python scripts/build_notebooklm_100_pdf_pack.py
+          python scripts/build_notebooklm_original_pdf_pack.py
           test "$(find notebooklm/2026-10-06-100-pdf-pack/pdfs -maxdepth 1 -type f -name '*.pdf' | wc -l | tr -d ' ')" = "100"
           python - <<'PY'
-          import zipfile
+          import json, zipfile
           from pathlib import Path
-          p=Path("notebooklm/2026-10-06-100-pdf-pack/DubboEwaste-NotebookLM-100-PDF-Pack.zip")
-          with zipfile.ZipFile(p) as z:
+          root=Path("notebooklm/2026-10-06-100-pdf-pack")
+          manifest=json.loads((root/"manifest.json").read_text())
+          assert manifest["pdf_count"] == 100
+          assert manifest["repo_document_count"] == 44
+          assert manifest["original_online_pdf_count"] == 55
+          with zipfile.ZipFile(root/"DubboEwaste-NotebookLM-100-PDF-Pack.zip") as z:
               pdfs=[n for n in z.namelist() if n.lower().endswith(".pdf")]
           assert len(pdfs)==100, len(pdfs)
-          print("Verified ZIP contains exactly 100 PDFs")
+          print("Verified corrected ZIP: exactly 100 PDFs, including 55 original publisher PDFs.")
           PY
 
-      - name: Commit generated research pack
+      - name: Commit corrected research pack
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add notebooklm/2026-10-06-100-pdf-pack
+          git add -A notebooklm/2026-10-06-100-pdf-pack
           if git diff --cached --quiet; then
-            echo "Generated pack already matches repository."
+            echo "Corrected pack already matches repository."
           else
-            git commit -m "Build NotebookLM 100-PDF Dubbo eWaste research pack [skip ci]"
+            git commit -m "Replace NotebookLM summaries with original source PDFs [skip ci]"
             git push
           fi
 
-      - name: Upload short-lived download artifact
+      - name: Upload short-lived verified download artifact
         uses: actions/upload-artifact@v4
         with:
-          name: DubboEwaste-NotebookLM-100-PDF-Pack
+          name: DubboEwaste-NotebookLM-100-PDF-Pack-CORRECTED
           path: notebooklm/2026-10-06-100-pdf-pack/pdfs/*.pdf
           retention-days: 1
           if-no-files-found: error
-          compression-level: 9
+          compression-level: 6
