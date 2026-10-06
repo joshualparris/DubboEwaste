@@ -536,6 +536,7 @@ The highest-value next research is no longer more web searching. It is **ten con
 - Bob Berry privacy: https://www.bobberry.com.au/about-us/privacy-policy/
 - Ray White Dubbo team/about: https://raywhitedubbo.com.au/about
 - Western Plains Real Estate team: https://wpre.com.au/about/our-agents
+- Elders Real Estate Dubbo: https://dubbo.eldersrealestate.com.au/
 
 ## Accounting
 - Martel Wheatley team: https://martelwheatley.com.au/team
@@ -554,11 +555,12 @@ The highest-value next research is no longer more web searching. It is **ten con
 - NKH Dubbo: https://www.nkhsols.com/lawyers-in-dubbo
 - Wilsons: https://www.wilsons.legal/
 - Booth Brown: https://boothbrown.com.au/about-us/
+- D.P. O'Keefe Macquarie Law: https://www.macquarielaw.com.au/Content/About_us.html
 
 ## Agribusiness
 - Peter Milling & Company: https://petermilling.com.au/company/
 - IMAG Consulting: https://au.linkedin.com/company/imag-consulting-pty-ltd
-- Dubbo Regional Livestock Markets / agents: https://www.dubbo.nsw.gov.au/households-residents/rangers-compliance-and-animals/dubbo-regional-livestock-markets
+- Dubbo Regional Livestock Markets / agents, including C. Olsen Agencies and Barlow & Peadon: https://www.dubbo.nsw.gov.au/households-residents/rangers-compliance-and-animals/dubbo-regional-livestock-markets
 - Elders Dubbo: https://elders.com.au/our-services/our-branches/nsw/elders-dubbo/
 - Hutcheon & Pearce Dubbo: https://www.hutcheonandpearce.com.au/locations/dubbo/
 - Delta Agribusiness: https://au.linkedin.com/company/delta-agribusiness
@@ -571,6 +573,7 @@ The highest-value next research is no longer more web searching. It is **ten con
 - Dubbo Dental: https://www.dubbodental.com.au/about
 - Parkside Dental: https://parksidedentaldubbo.com.au/about-us/
 - Dubbo Medical & Allied Health Group: https://www.dmahg.com.au/
+- National Dental Care Dubbo-specific page: https://www.nationaldentalcare.com.au/dubbo/teeth-whitening-offer
 
 ---
 
