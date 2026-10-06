@@ -217,7 +217,7 @@ The repo has excellent *corporate* profiles and long question lists for FlipTech
 - **Dubbo MSP / IT-provider list.** The repo names Orana Business Solutions, Tech Savvy and CBM, but no full list of Dubbo/Orana MSPs exists, and nobody has asked what they currently do with clients' retired fleets. MSPs are the strongest repeat-supply channel. DESK + CALL. P1
 - **Fleet-refresh calendars:** when do Dubbo's big employers (council, health district, mines, agribusiness, banks, law/accounting firms) refresh, and who controls disposal (head office vs local)? CALL. P2
 - **The Windows 10 → 11 refresh wave:** businesses forced to retire Win10-only hardware before October 2027 ESU end. Quantify the local opportunity and the timing. DESK. P1
-- **Catholic and independent schools** (outside the Department's EDConnect contract): their disposal processes haven't been researched. CALL. P2
+- **Catholic and independent schools** (outside the Department's EDConnect contract): **desk research completed 6 Oct 2026** in `DUBBO-NON-GOVERNMENT-SCHOOL-IT-ASSET-EWASTE-2026-10-06.md`. Device-ownership/governance clues are mapped, but the current disposal provider, most recent retired batch, sanitisation evidence, residual-value treatment and next refresh still require direct confirmation. CALL. P2
 - **Pre-screen conversion rate:** of people who enquire, how many have acceptable gear? Only measurable with the rejection log (§1.8). TRY. P2
 
 ---
