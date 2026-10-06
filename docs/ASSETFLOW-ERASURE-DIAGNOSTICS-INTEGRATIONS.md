@@ -1,6 +1,6 @@
 # AssetFlow erasure, diagnostics and deployment capability boundary
 
-Updated 2 October 2026.
+Updated 6 October 2026.
 
 AssetFlow now records the control plane for these capabilities. It does not claim that a browser can safely overwrite a disk, alter firmware, execute a vendor MSI, boot a PXE fleet, or produce a legally binding digital signature without a separately approved workstation or enterprise integration.
 
@@ -15,6 +15,25 @@ AssetFlow now records the control plane for these capabilities. It does not clai
 | 12+ automated hardware tests | Integrated as diagnostic runs and test records | Runs can be recorded from manual, local-agent, boot-media or external-report execution. A local agent is still needed for automatic measurement. |
 | PDF/XML certificate evidence | Integrated as evidence metadata | Upload the vendor report and record its hash/format. PDF/XML generation and vendor certificate authenticity remain external until a tested adapter exists. |
 | Tamper-evident audit vault | Integrated | Certificate snapshots are hash-chained in `certificate_vault_records`, with public verification and evidence links. This is not an asymmetric signature or immutable third-party archive. |
+
+## Sanitisation release gate
+
+AssetFlow now fails safe when an operator attempts to record **PASSED**:
+
+- the operation must be **CLEAR** or **PURGE**;
+- NIST-labelled records must explicitly identify **NIST SP 800-88 Rev. 2**;
+- the selected standard and Clear/Purge operation must agree;
+- tool name, tool version and method/profile must be recorded;
+- verification must explicitly be **PASS**;
+- hashed raw evidence must already exist for the media record;
+- the media interface must match an active sanitisation capability record;
+- the selected Clear/Purge operation must be supported for that interface;
+- required HPA/DCO checks must be resolved where the capability requires them;
+- blocking freeze-lock or OPAL states prevent release.
+
+The UI defaults a new record to **QUEUED**, never **PASSED**. A **DESTROYED** result also requires a destruction operation, recorded method and hashed destruction evidence.
+
+This gate controls AssetFlow's release decision only. It does not turn the browser into an erasure engine and does not by itself prove that an external tool's implementation is conformant.
 
 ## Safe rollout order
 
