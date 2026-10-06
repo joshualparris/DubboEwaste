@@ -173,13 +173,80 @@ export async function recordSanitisation(formData: FormData) {
     }).eq("id", parsed.data.media_id);
   }
 
-  const { data: evidence } = await supabase.from("evidence")
-    .select("id,sha256")
-    .eq("entity_type", "media")
-    .eq("entity_id", parsed.data.media_id)
-    .order("captured_at", { ascending: false })
-    .limit(1)
-    .maybeSingle();
+  const [{ data: evidence }, { data: mediaRecord }, { data: capabilities }] = await Promise.all([
+    supabase.from("evidence")
+      .select("id,sha256")
+      .eq("entity_type", "media")
+      .eq("entity_id", parsed.data.media_id)
+      .order("captured_at", { ascending: false })
+      .limit(1)
+      .maybeSingle(),
+    supabase.from("media")
+      .select("id,media_type,interface")
+      .eq("id", parsed.data.media_id)
+      .maybeSingle(),
+    supabase.from("sanitisation_capabilities")
+      .select("interface,clear_supported,purge_supported,hpa_dco_check_supported")
+      .eq("active", true),
+  ]);
+
+  const reportHash = parsed.data.raw_report_hash || evidence?.sha256 || null;
+
+  if (parsed.data.status === "PASSED") {
+    const blockers: string[] = [];
+    const operation = (parsed.data.operation || "").toUpperCase();
+    const standard = parsed.data.standard || "";
+    const verification = (parsed.data.verification_result || "").toUpperCase();
+    const mediaInterface = String(mediaRecord?.interface || "").trim().toUpperCase();
+    const capability = (capabilities || []).find((item: any) =>
+      String(item.interface || "").trim().toUpperCase() === mediaInterface
+    );
+
+    if (!["CLEAR", "PURGE"].includes(operation)) blockers.push("operation must be CLEAR or PURGE");
+    if (!standard) blockers.push("standard / approved procedure is required");
+    if (/NIST SP 800-88/i.test(standard) && !/REV\.?\s*2/i.test(standard)) blockers.push("NIST records must identify Rev. 2");
+    if (/CLEAR/i.test(standard) && operation !== "CLEAR") blockers.push("selected standard and operation disagree");
+    if (/PURGE/i.test(standard) && operation !== "PURGE") blockers.push("selected standard and operation disagree");
+    if (!parsed.data.tool_name) blockers.push("tool name is required");
+    if (!parsed.data.tool_version) blockers.push("tool version is required");
+    if (!parsed.data.method) blockers.push("method / profile is required");
+    if (verification !== "PASS") blockers.push("verification result must be PASS");
+    if (!reportHash) blockers.push("raw report / evidence with a SHA-256 hash is required");
+
+    if (!mediaInterface) {
+      blockers.push("media interface must be identified");
+    } else if (!capability) {
+      blockers.push("media interface has no approved sanitisation capability record");
+    } else {
+      if (operation === "CLEAR" && !capability.clear_supported) blockers.push("CLEAR is not approved for this interface");
+      if (operation === "PURGE" && !capability.purge_supported) blockers.push("PURGE is not approved for this interface");
+      if (capability.hpa_dco_check_supported) {
+        if (["NOT_CHECKED", "PRESENT", "UNABLE_TO_CHECK"].includes(preflight.hpa_state)) blockers.push("HPA state is unresolved");
+        if (["NOT_CHECKED", "PRESENT", "UNABLE_TO_CHECK"].includes(preflight.dco_state)) blockers.push("DCO state is unresolved");
+      }
+    }
+
+    if (operation === "PURGE" && ["PRESENT", "UNABLE_TO_CLEAR"].includes(preflight.freeze_lock_state)) {
+      blockers.push("freeze-lock state blocks a purge result");
+    }
+    if (["LOCKED", "PSID_REQUIRED", "UNABLE_TO_CHECK"].includes(preflight.opal_state)) {
+      blockers.push("OPAL state requires review before release");
+    }
+
+    if (blockers.length) {
+      redirect("/media?error=" + encodeURIComponent("Cannot mark PASSED: " + blockers.join("; ")));
+    }
+  }
+
+  if (parsed.data.status === "DESTROYED") {
+    const blockers: string[] = [];
+    if ((parsed.data.operation || "").toUpperCase() !== "DESTROY") blockers.push("operation must be DESTROY");
+    if (!parsed.data.method) blockers.push("destruction method is required");
+    if (!reportHash) blockers.push("destruction evidence with a SHA-256 hash is required");
+    if (blockers.length) {
+      redirect("/media?error=" + encodeURIComponent("Cannot mark DESTROYED: " + blockers.join("; ")));
+    }
+  }
 
   const terminal = ["PASSED","FAILED","DESTROYED","NOT_REQUIRED"].includes(parsed.data.status);
   await supabase.from("sanitisation_tasks").insert({
@@ -195,7 +262,7 @@ export async function recordSanitisation(formData: FormData) {
     report_format: parsed.data.report_format || null,
     preflight_snapshot: preflight,
     capability_snapshot: { recorded_by_operator: true, interface_checks: ["SATA", "SCSI", "SAS", "USB", "NVMe", "OPAL"] },
-    raw_report_hash: parsed.data.raw_report_hash || evidence?.sha256 || null,
+    raw_report_hash: reportHash,
     report_evidence_id: evidence?.id || null,
     operator_id: user.id,
     workstation: parsed.data.workstation || null,
