@@ -1,7 +1,7 @@
 name: Deploy EwasteApp to Vercel
 
-# Vercel's native Git integration already deploys main.
-# Keep this workflow as a manual fallback so one push does not consume two deployments.
+# Automatic Vercel Git deployment is intentionally disabled.
+# This is the deliberate production-deployment path so research/docs commit bursts do not hit Vercel Hobby build-rate limits.
 on:
   workflow_dispatch:
 
