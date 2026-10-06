@@ -24,6 +24,7 @@ For the complete documentation map, use **[docs/README.md](docs/README.md)**.
 - [Dubbo non-government school ITAD research](docs/DUBBO-NON-GOVERNMENT-SCHOOL-IT-ASSET-EWASTE-2026-10-06.md) — school-by-school device ownership clues, BYOD versus institutional fleets, CEDB governance, NSW not-for-profit disposal rules and the current direct-contact gaps, with a [prospect tracker](data/dubbo-non-government-school-itad-prospects.csv).
 - [Family-capacity review: ITAD + Repair Café](docs/FAMILY-CAPACITY-ITAD-REPAIR-CAFE.md) — evidence-led scheduling recommendation: capped fortnightly ITAD plus a monthly Repair Café for an 8–12 week pilot, with family-protection and stop/reduce rules.
 - [Device schematics & repair library](docs/DEVICE-SCHEMATICS-LIBRARY.md) — DadLAN/home-tech inventory, purchase-derived device evidence, official service manuals, board-schematic leads and exact-model/PCB checks.
+- [31 genuine-gap deep-research pack](docs/DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/00-INDEX-31-QUESTIONS.md) — 31 previously under-researched questions covering market size, procurement, tax, secure transport, cyber, electrical/parts compliance, recalls, Repair Café governance, environmental claims and right to repair; includes a structured closure register and source register.
 
 ## Software
 
