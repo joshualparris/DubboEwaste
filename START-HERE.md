@@ -129,6 +129,26 @@ Use:
 - [OpenSourceSoftware/README.md](OpenSourceSoftware/README.md) — AssetFlow product specification/backlog.
 - [ITAD-Feature-Benchmark/README.md](ITAD-Feature-Benchmark/README.md) — 25-product ITAD software benchmark and requirements.
 
+## I want the 31 genuine-gap deep-research pack
+
+Use [docs/DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/00-INDEX-31-QUESTIONS.md](docs/DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/00-INDEX-31-QUESTIONS.md).
+
+This 6 October 2026 pack was created only after checking the current repository for duplication. It answers 31 previously under-researched online questions across:
+
+- Dubbo computer/repair market sizing;
+- NSW procurement entry for regional SMEs;
+- second-hand GST/trading-stock/accounting issues;
+- secure IT-asset transport and chain of custody;
+- cybersecurity and AssetFlow controls;
+- battery/charger/parts compliance;
+- product-recall screening;
+- Australian repair-parts supply;
+- Repair Café governance and commercial separation;
+- environmental impact / green claims; and
+- the current Australian electronics right-to-repair position.
+
+Use the [31-question closure register](docs/DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/31-QUESTION-REGISTER.csv) to see which questions were researched online, which remain scenario estimates, and what still requires real-world closure.
+
 ## I want the NotebookLM research pack
 
 Open [notebooklm/2026-10-06-100-pdf-pack/README.md](notebooklm/2026-10-06-100-pdf-pack/README.md).
