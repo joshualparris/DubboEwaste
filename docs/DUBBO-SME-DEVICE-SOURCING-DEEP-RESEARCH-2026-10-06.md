@@ -96,8 +96,8 @@ Data burden matters: accounting, legal and especially medical records should pus
 | 13 | Luka Group | Accounting | About 22 named people across Dubbo/Broken Hill/Cobar/Gilgandra | 15-25 | 3-9 | 80 | A |
 | 14 | Pearce Martin Group | Accounting | 4 public team members | 4-6 | 1-2 | 80 | C |
 | 15 | Ray White Dubbo | Real estate | About 16 names on current local team page | 15-21 | 3-7 | 80 | A |
-| 16 | Olsen C. Agencies | Real estate / livestock | Local agency; exact headcount not public | 3-7 | 1-3 | 80 | C |
-| 17 | Macquarie Law | Law | Current local practice; reliable current team count not established | 3-8 | 1-3 | 79 | B |
+| 16 | Olsen C. Agencies | Real estate / livestock | Current Council livestock-agent listing; exact headcount not public | 3-7 | 1-3 | 80 | C |
+| 17 | D.P. O'Keefe Macquarie Law | Law | Long-established Dubbo legal office; exact current staff count not public | 3-8 | 1-3 | 79 | B |
 | 18 | Nelson Keane & Hemingway | Law | 17 employees stated firm-wide; multiple offices | 10-16 | 2-6 | 78 | B |
 | 19 | Paula O'Leary Physiotherapy | Allied health | Local allied-health clinic; exact count not public | 3-7 | 1-3 | 77 | D |
 | 20 | DubboCare Family Practice | Medical | 10 named clinical/reception staff on public team page | 8-14 | 2-5 | 77 | D |
@@ -106,9 +106,9 @@ Data burden matters: accounting, legal and especially medical records should pus
 | 23 | Ryan & Rankmore | Accounting | 25+ staff across Wellington/Gilgandra/Dubbo | 8-15 | 2-5 | 75 | B |
 | 24 | Hutcheon & Pearce Dubbo | Agribusiness / ag machinery | Current Dubbo branch; full local headcount not public | 10-20 | 2-7 | 71 | D |
 | 25 | Dubbo Medical & Allied Health Group | Medical / allied health | Two clinic sites plus visiting specialists; employee/device ownership unclear | 15-30 | 3-10 | 65 | D |
-| 26 | Elders Dubbo | Agribusiness | 10 local team members publicly listed | 10-15 | 2-5 | 58 | D |
-| 27 | Delta Agribusiness Dubbo | Agribusiness | National company-size evidence 201-500; local headcount not public; Elders acquisition announced | 8-15 | 2-5 | 58 | D |
-| 28 | Elders Real Estate Dubbo | Real estate | Local branch; exact public staff count not established | 6-12 | 1-4 | 58 | D |
+| 26 | Elders Real Estate Dubbo | Real estate | Current local page states a team of 17 professionals | 15-20 | 3-7 | 62 | D |
+| 27 | Elders Dubbo | Agribusiness | 10 local team members publicly listed | 10-15 | 2-5 | 58 | D |
+| 28 | Delta Agribusiness Dubbo | Agribusiness | National company-size evidence 201-500; local headcount not public; Elders acquisition announced | 8-15 | 2-5 | 58 | D |
 | 29 | National Dental Care Dubbo | Dental | Corporate dental practice; local staff count not established | 6-12 | 1-4 | 49 | D |
 | 30 | Rabobank Dubbo | Agribusiness banking | 14 employees stated for Dubbo branch | 14-18 | 3-6 | 49 | D |
 
