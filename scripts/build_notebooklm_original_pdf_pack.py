@@ -21,9 +21,11 @@ import re
 import shutil
 import subprocess
 import textwrap
+import threading
 import time
 import zipfile
 from pathlib import Path
+from urllib.parse import urlparse
 
 import requests
 from pypdf import PdfReader
@@ -369,8 +371,27 @@ def main():
             "bytes": out.stat().st_size,
         }
 
-    with ThreadPoolExecutor(max_workers=20) as pool:
-        future_map = {pool.submit(fetch_original, task): task for task in tasks}
+    # Be polite to publisher sites. In particular, dcceew.gov.au throttles or stalls
+    # when a GitHub-hosted runner opens many PDF requests at once. Limit concurrency
+    # per host while still allowing unrelated publishers to download in parallel.
+    hosts = {urlparse(task[2]).hostname or "" for task in tasks}
+    host_limits = {
+        "www.dcceew.gov.au": 1,
+        "assets.pc.gov.au": 2,
+        "iris.who.int": 2,
+    }
+    host_semaphores = {
+        host: threading.Semaphore(host_limits.get(host, 3))
+        for host in hosts
+    }
+
+    def fetch_with_host_limit(task):
+        host = urlparse(task[2]).hostname or ""
+        with host_semaphores[host]:
+            return fetch_original(task)
+
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        future_map = {pool.submit(fetch_with_host_limit, task): task for task in tasks}
         for future in as_completed(future_map):
             n, title, url, _ = future_map[future]
             try:
