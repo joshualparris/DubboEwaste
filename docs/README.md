@@ -90,6 +90,13 @@ Then use:
 - [DEVICE-SCHEMATICS-LIBRARY.md](DEVICE-SCHEMATICS-LIBRARY.md)
 - [DEEP-RESEARCH-2026-10-05-REFURB-SKILLS-REPAIR.md](DEEP-RESEARCH-2026-10-05-REFURB-SKILLS-REPAIR.md)
 
+## 31 genuine-gap deep-research pack
+
+- [DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/00-INDEX-31-QUESTIONS.md](DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/00-INDEX-31-QUESTIONS.md) — master index and executive findings.
+- [DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/31-QUESTION-REGISTER.csv](DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/31-QUESTION-REGISTER.csv) — question-by-question evidence status and remaining closure.
+- [DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/SOURCES.md](DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/SOURCES.md) — primary/current source register.
+- Individual reports 01–11 cover market size, procurement, tax, transport, cybersecurity, electrical/parts compliance, recalls, parts supply, Repair Café governance, environmental claims and right to repair.
+
 ## NotebookLM research pack
 
 - [../notebooklm/2026-10-06-100-pdf-pack/README.md](../notebooklm/2026-10-06-100-pdf-pack/README.md) — corrected 100-PDF pack.
