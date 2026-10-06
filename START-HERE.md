@@ -40,6 +40,14 @@ Current application work includes intake/model lookup, camera barcode/QR scannin
 - `DubboEwasteApp/` is an older static prototype and is **not** the production Next.js app.
 - The published `gh-pages` branch is a separate public gateway/admin experience.
 
+## I want to close the remaining real-world unknowns
+
+Use [docs/FIELD-VALIDATION-UNKNOWN-CLOSURE-SYSTEM.md](docs/FIELD-VALIDATION-UNKNOWN-CLOSURE-SYSTEM.md).
+
+The private AssetFlow **Field Validation** screen records GIPA/informal responses, organisation disposal interviews, Repair Café demand, private commercial terms and measured per-device economics. It is deliberately separate from the public repository so private correspondence/quotes do not leak.
+
+Key request/survey templates are in [templates/](templates/).
+
 ## I want the business / Phase 0 operating plan
 
 Start with:
