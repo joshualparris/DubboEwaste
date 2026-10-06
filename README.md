@@ -21,7 +21,7 @@ For the complete documentation map, use **[docs/README.md](docs/README.md)**.
 - [National ITAD comparison](docs/NATIONAL-ITAD-OPERATORS-DUBBO-COVERAGE.md) — Greenbox, EraseIT, SLS and Renew IT: size, retired-device routes and advertised Dubbo coverage.
 - [Dubbo independent operators](docs/DUBBO-INDEPENDENT-DEVICE-RECOVERY-OPERATORS.md) — publicly named businesses, recycling/refurbishment offers and unresolved backyard identities, with a [lead tracker](docs/dubbo-independent-device-recovery-leads.csv).
 - [Dubbo disposal prospects](docs/DUBBO-DEVICE-DISPOSAL-PROSPECTS.md) — retired-device arrangements and open questions for 14 local prospects.
-- [Family-capacity review: ITAD + Repair Café](docs/FAMILY-CAPACITY-ITAD-REPAIR-CAFE.md) — evidence-led scheduling recommendation: capped fortnightly ITAD plus a monthly Repair Café for an 8–12 week pilot, with family-protection and stop/reduce rules.
+- [Family-capacity review: ITAD + Repair Café](docs/FAMILY-CAPACITY-ITAD-REPAIR-CAFE.md) — evidence-led scheduling recommendation: capped fortnightly ITAD plus a monthly Repair Café for an 8–12 week pilot, with family-protection and stop/reduce rules.\n- [Device schematics & repair library](docs/DEVICE-SCHEMATICS-LIBRARY.md) — DadLAN/home-tech inventory, purchase-derived device evidence, official service manuals, board-schematic leads and exact-model/PCB checks.
 
 ## Software
 
