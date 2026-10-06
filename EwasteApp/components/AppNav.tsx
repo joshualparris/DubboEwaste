@@ -28,6 +28,7 @@ export function AppNav({ fullName, role }: { fullName: string | null; role: stri
       <Link href="/locations">Locations</Link>
       <Link href="/documents">Documents</Link>
       <Link href="/dubbo-repair-ewaste">Dubbo Repair Guide</Link>
+      <Link href="/regional-computer-experts">Regional Experts</Link>
       {role === "admin" ? <Link href="/admin/data">Manage Data</Link> : null}
       {role === "admin" ? <Link href="/admin/permissions">Permissions</Link> : null}
     </nav>
