@@ -1,0 +1,259 @@
+{
+  "pack_name": "Dubbo eWaste NotebookLM 100 PDF Research Pack",
+  "pack_date": "2026-10-06",
+  "generated_for": "Dubbo eWaste / AssetFlow",
+  "selection_note": "Exactly 100 PDFs: 1 index, 74 curated DubboEwaste repository documents, and 25 current external-source research briefs.",
+  "repo_documents": [
+    "README.md",
+    "START-HERE.md",
+    "EVIDENCE-SCHEMA.md",
+    "GAPS.md",
+    "OpenSourceSoftware/README.md",
+    "OpenSourceSoftware/assetflow-concept.md",
+    "OpenSourceSoftware/assetflow-software-specification.md",
+    "OpenSourceSoftware/data-model.md",
+    "OpenSourceSoftware/software-landscape.md",
+    "OpenSourceSoftware/vendor-workflow-reconstruction.md",
+    "agyDOCS/ITAD-Operations-Blueprint.md",
+    "agyDOCS/NSW-Market-Sales-Channels.md",
+    "agyDOCS/Triage-Skills-Guide.md",
+    "docs/ALL-CHAT-RESEARCH-SYNTHESIS.md",
+    "docs/AMR-DUBBO-DOWNSTREAM-FORENSIC.md",
+    "docs/ASSETFLOW-DEVICE-DATA-SOURCES.md",
+    "docs/ASSETFLOW-ERASURE-DIAGNOSTICS-INTEGRATIONS.md",
+    "docs/AU-SHIPPING-MATRIX.md",
+    "docs/AUSTRALIAN-EWASTE-ITAD-MAJOR-PLAYERS.md",
+    "docs/AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md",
+    "docs/BACKLOG-01-05-PLANNING-LEGAL.md",
+    "docs/BACKLOG-06-12-DOWNSTREAM-STEWARDSHIP.md",
+    "docs/BACKLOG-13-16-REGIONAL-SUPPLY.md",
+    "docs/BACKLOG-17-20-MARKET-COST-TAX.md",
+    "docs/BACKLOG-21-25-COMPLIANCE-DATA-SAFETY.md",
+    "docs/BACKLOG-30-32-OPERATIONS-CORRECTIONS.md",
+    "docs/BENCH-SOP-AND-LAYOUT.md",
+    "docs/CATEGORY-INTAKE-CARDS.md",
+    "docs/COMPLIANCE-REGISTER.md",
+    "docs/DEEP-RESEARCH-2026-10-05-COMPLIANCE-DATA-SAFETY.md",
+    "docs/DEEP-RESEARCH-2026-10-05-EXECUTIVE-SYNTHESIS.md",
+    "docs/DEEP-RESEARCH-2026-10-05-OPERATIONS-ROUTING-CAPACITY.md",
+    "docs/DEEP-RESEARCH-2026-10-05-REFURB-SKILLS-REPAIR.md",
+    "docs/DEEP-RESEARCH-2026-10-05-SOFTWARE-ASSETFLOW-AUTOMATION.md",
+    "docs/DEEP-RESEARCH-2026-10-05-SOURCING-PARTNERSHIPS-BUSINESS.md",
+    "docs/DOWNSTREAM-PROVIDER-DUBBO-COST-COMPARISON.md",
+    "docs/DUBBO-COMPUTER-REPAIR-REUSE-EWASTE-DIRECTORY-2026-10-06.md",
+    "docs/DUBBO-DEVICE-DISPOSAL-PROSPECTS.md",
+    "docs/DUBBO-DEVICE-DISPOSAL-SOURCES.md",
+    "docs/DUBBO-INDEPENDENT-DEVICE-RECOVERY-OPERATORS.md",
+    "docs/DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md",
+    "docs/DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS.md",
+    "docs/DUBBO-ITAD-DEEP-RESEARCH-2026.md",
+    "docs/DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS.md",
+    "docs/EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md",
+    "docs/EXISTING-AUSTRALIAN-EWASTE-ORGS-DUBBO-EXPANSION.md",
+    "docs/FACT-CHECK-NOTEBOOKLM-ITAD-2026-10-06.md",
+    "docs/FIRST-30-DEVICE-EXPERIMENT.md",
+    "docs/FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md",
+    "docs/FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY.md",
+    "docs/GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md",
+    "docs/INTAKE-POLICY.md",
+    "docs/LEGAL-LICENSING.md",
+    "docs/MASTER-FINDINGS-ALL-CHATS.md",
+    "docs/MATTHEWS-INFRABUILD-AMR.md",
+    "docs/MINIMUM-PHYSICAL-SHED-SETUP-CHECKLIST.md",
+    "docs/NATIONAL-ITAD-OPERATORS-DUBBO-COVERAGE.md",
+    "docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md",
+    "docs/NSW-FLIPTECH-EQUIVALENTS-DEEP-DIVE.md",
+    "docs/PHASE-0-LAUNCH-GATES.md",
+    "docs/PHASE-0-OPERATING-BLUEPRINT.md",
+    "docs/PONYUP-SECONDBITE-DUBBO.md",
+    "docs/REGIONAL-EWASTE-PATHWAYS.md",
+    "docs/REGIONAL-ITAD-PRACTITIONER-FIELD-GUIDE.md",
+    "docs/RESEARCH-01-FRONT-DOOR-TRIAGE.md",
+    "docs/RESEARCH-03-COMPETITOR-OPERATING-MECHANICS.md",
+    "docs/RESEARCH-05-DATA-IDENTITY-PRIVACY-SOP.md",
+    "docs/RESEARCH-06-BATTERY-ELECTRICAL-WORKSHOP-SAFETY.md",
+    "docs/RESEARCH-07-REPAIR-ECONOMICS-PARTS-STRATEGY.md",
+    "docs/RESEARCH-10-SUPPLY-DEMAND-PARTNER-VALIDATION.md",
+    "docs/RESEARCH-11-DOWNSTREAM-ENVIRONMENTAL-CHAIN-OF-CUSTODY.md",
+    "docs/REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md",
+    "docs/SIRCEL-ITAD-REUSE-MODEL.md",
+    "docs/WHAT-HAPPENS-TO-EWASTE.md"
+  ],
+  "external_briefs": [
+    {
+      "title": "Repair Cafe International - Starting a Repair Cafe",
+      "category": "Repair Cafe / community repair",
+      "url": "https://www.repaircafe.org/en/join/start-your-own/",
+      "summary": "Repair Cafe International's organiser guidance explains the operating model for a volunteer, non-commercial Repair Cafe. Its starter materials cover finding repair experts and a venue, tools and materials, publicity, funding, registration forms, safety, continuity and participation in the RepairMonitor. For Dubbo, it is the clearest reference point for deciding whether a community repair event should use the formal Repair Cafe model or a locally branded repair-and-reuse clinic.",
+      "why_it_matters": "Useful for volunteer structure, event design, liability paperwork, venue planning, tool lists and community-repair governance."
+    },
+    {
+      "title": "Repair Cafe International - Organiser FAQ",
+      "category": "Repair Cafe / community repair",
+      "url": "https://www.repaircafe.org/en/faq/",
+      "summary": "The organiser FAQ explains how new groups coordinate with Repair Cafe International, how the Repair Cafe name and network are used, and how existing local repair initiatives can connect with the movement. It is helpful for understanding the distinction between a formally affiliated Repair Cafe and a repair event operating under another name.",
+      "why_it_matters": "Helps Dubbo choose branding, affiliation and network participation without accidentally presenting an independent event as an official Repair Cafe."
+    },
+    {
+      "title": "Waverley Council Repair Cafe - Computer and Phone Repair Operating Model",
+      "category": "Repair Cafe / practical model",
+      "url": "https://www.waverley.nsw.gov.au/recreation/events/events/repair_cafe3",
+      "summary": "Waverley Council's Repair Cafe shows a current NSW council-run model that includes computers, phones and electronics. It sets visitor expectations around backups, passwords/PINs, bringing chargers and upgrade parts, and a roughly 30-minute repair slot; it also offers diagnostics, hardware checks, RAM/SSD installs and tag-and-test services depending on volunteers. This is a useful practical benchmark for a Dubbo computer-focused repair event.",
+      "why_it_matters": "Provides a real NSW example of scope boundaries, visitor preparation, time-boxing and the mix of technical services volunteers can safely offer."
+    },
+    {
+      "title": "Open Repair Alliance - Open Repair Data Standard",
+      "category": "Repair data / measurement",
+      "url": "https://openrepair.org/open-data/open-standard/",
+      "summary": "The Open Repair Data Standard (ORDS) defines a common structure for recording community electronics repair attempts. Version 0.3 groups data into product, repair and session information, including product category, brand, age, problem, repair status, repair barrier, event date and group identifier. Using compatible fields would make a Dubbo repair initiative easier to measure and compare with wider repair data.",
+      "why_it_matters": "A strong basis for AssetFlow fields and Repair Cafe reporting, especially if Dubbo wants evidence about common faults, successful repairs and barriers."
+    },
+    {
+      "title": "Open Repair Alliance - Global Repair Dataset",
+      "category": "Repair data / benchmarking",
+      "url": "https://openrepair.org/open-data/downloads/",
+      "summary": "The Open Repair Alliance publishes an openly licensed aggregate dataset of repair attempts from community repair groups. The page reports more than 305,000 electrical and electronic repair records in the October 2025 release, structured to ORDS v0.3 and licensed CC BY-SA 4.0. This creates a valuable benchmark dataset for analysing common product types, repair outcomes and barriers.",
+      "why_it_matters": "Could be used later to compare Dubbo repair outcomes with international patterns and to inform which tools, parts and skills are most useful."
+    },
+    {
+      "title": "Open Repair Alliance - How to Record Repairs",
+      "category": "Repair data / operations",
+      "url": "https://openrepair.org/open-data/how-to-get-started/",
+      "summary": "This guide reduces repair-event data collection to a practical minimum: session/group and event date; product type, brand and estimated age; and the problem, repair outcome and main repair barrier. It is a useful model for keeping volunteer data entry short while still producing meaningful evidence.",
+      "why_it_matters": "Ideal for designing a lightweight Repair Cafe intake form in AssetFlow without overloading volunteers."
+    },
+    {
+      "title": "Productivity Commission - Right to Repair Inquiry Report",
+      "category": "Repair policy",
+      "url": "https://www.pc.gov.au/inquiries-and-research/repair/report/",
+      "summary": "The Productivity Commission's 2021 Right to Repair inquiry found significant and unnecessary barriers to repair for some products and examined competition, access to repair information, embedded software, premature obsolescence and e-waste. Although not a current statute, the report remains a major Australian policy reference for understanding the economic and consumer-policy case for repair.",
+      "why_it_matters": "Provides Australian policy context for why regional repair/refurbishment capability matters and where barriers such as parts, software and information arise."
+    },
+    {
+      "title": "NIST SP 800-88 Rev. 2 - Guidelines for Media Sanitization",
+      "category": "Data sanitisation / ITAD",
+      "url": "https://csrc.nist.gov/pubs/sp/800/88/r2/final",
+      "summary": "NIST SP 800-88 Rev. 2, published in September 2025, reframes sanitisation around an organisation-wide media sanitisation program rather than a simple list of wipe recipes. It emphasises appropriate Clear, Purge or Destroy outcomes, validation, vendor trust, cryptographic erase and use of current standards such as IEEE 2883 or an organisation-approved procedure.",
+      "why_it_matters": "Core reference for Dubbo ITAD's media sanitisation policy, evidence requirements, release gates and client-facing assurance."
+    },
+    {
+      "title": "ASD/ACSC - Guidelines for Media (September 2026)",
+      "category": "Cyber security / media handling",
+      "url": "https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/ism/cyber-security-guidelines/guidelines-for-media",
+      "summary": "The Australian Signals Directorate's September 2026 media guidelines cover media management, secure handling, sanitisation before reuse or movement between security domains, and media-specific sanitisation considerations. The guidance is written for government and larger organisations but provides a current Australian security reference for handling data-bearing equipment.",
+      "why_it_matters": "Complements NIST with an Australian government security perspective and helps shape policies for business, school and government-sourced equipment."
+    },
+    {
+      "title": "DCCEEW - E-Stewardship in Australia",
+      "category": "Australian e-waste policy",
+      "url": "https://www.dcceew.gov.au/environment/protection/waste/e-waste",
+      "summary": "DCCEEW describes e-stewardship as shared lifecycle responsibility for electrical and electronic products and highlights the scale of Australia's e-waste challenge. The department reports 511,000 tonnes of Australian e-waste in 2019 and projects significant growth by 2030, while noting lost material value and hazardous constituents.",
+      "why_it_matters": "Provides federal context for positioning reuse and refurbishment as part of a broader stewardship and circular-economy problem."
+    },
+    {
+      "title": "DCCEEW - National Television and Computer Recycling Scheme",
+      "category": "Australian e-waste regulation",
+      "url": "https://www.dcceew.gov.au/environment/protection/waste/product-stewardship/television-computer-recycling-scheme",
+      "summary": "The NTCRS provides households and small businesses with industry-funded access to recycling for televisions, computers, printers, parts and peripherals. It operates under the Recycling and Waste Reduction Act 2020 and associated rules, with co-regulatory arrangements funding and organising collection and recycling.",
+      "why_it_matters": "Essential for understanding where a reuse-first Dubbo operation fits alongside the regulated national recycling system and why NTCRS material cannot simply be treated as free resale stock."
+    },
+    {
+      "title": "DCCEEW - NTCRS Roles and Responsibilities",
+      "category": "Australian e-waste regulation",
+      "url": "https://www.dcceew.gov.au/environment/protection/waste/product-stewardship/products-schemes/television-computer-recycling-scheme",
+      "summary": "This DCCEEW guidance maps the roles of local government, households and small businesses, collection services, state regulators, recyclers, co-regulatory arrangements and liable importers/manufacturers. It also sets out the import/manufacture thresholds that trigger liable-party responsibilities.",
+      "why_it_matters": "Useful for partnership design with council, approved recyclers and scheme participants, and for avoiding confusion about who has authority over different e-waste streams."
+    },
+    {
+      "title": "DCCEEW - Product Stewardship in Australia",
+      "category": "Product stewardship",
+      "url": "https://www.dcceew.gov.au/environment/protection/waste/product-stewardship",
+      "summary": "The Australian Government frames product stewardship as shared responsibility among importers, designers, producers, sellers, users and disposers to reduce environmental and health impacts across a product's life. Schemes may be voluntary, mandatory or co-regulatory.",
+      "why_it_matters": "Provides the policy language for explaining why Dubbo ITAD should connect reuse, responsible recycling, data protection and downstream accountability."
+    },
+    {
+      "title": "NSW EPA - E-waste Guidance",
+      "category": "NSW e-waste / reuse",
+      "url": "https://www.epa.nsw.gov.au/Your-environment/Recycling-and-reuse/warr-strategy/product-stewardship-schemes/ewaste",
+      "summary": "NSW EPA guidance supports the NTCRS and explicitly suggests reuse pathways for working equipment before recycling, such as second-hand shops, charities, friends or family. It also points councils, social enterprises, e-waste recyclers and collection partners to NSW-specific guidance.",
+      "why_it_matters": "Strong NSW support for a reuse-before-recycling hierarchy, while reinforcing that recycling pathways still need to be legitimate and documented."
+    },
+    {
+      "title": "NSW EPA - Circular Economy and Local Government",
+      "category": "Circular economy / local government",
+      "url": "https://www.epa.nsw.gov.au/Working-together/For-local-government/Circular-economy",
+      "summary": "NSW EPA places avoidance and reduction first in the waste hierarchy, followed by reuse, then recycling. It specifically identifies repair and reuse before disposal as circular-economy actions and notes local government's ability to influence markets, community behaviour, investment and jobs.",
+      "why_it_matters": "Useful policy basis for pitching a Dubbo reuse/repair pilot to council as local circular-economy infrastructure rather than merely a recycling service."
+    },
+    {
+      "title": "Dubbo Regional Council - Waste Facilities and E-waste",
+      "category": "Dubbo local infrastructure",
+      "url": "https://www.dubbo.nsw.gov.au/Households-Residents/Rubbish-Recycling-and-Sustainability/council-waste-facilities",
+      "summary": "Dubbo Regional Council lists Whylandra Waste and Recycling Centre and Wellington Waste Transfer Station as local waste facilities and identifies e-waste and old TVs among accepted Community Recycling Centre streams. It also lists smaller drop-off stations for batteries, mobile phones/electronic accessories, smoke detectors and ink cartridges.",
+      "why_it_matters": "Primary local source for understanding Dubbo's existing public disposal network and where a reuse-first pilot would need to complement, not confuse, council recycling services."
+    },
+    {
+      "title": "NSW Department of Education - Technology in Schools Procedures",
+      "category": "School device sourcing / disposal",
+      "url": "https://education.nsw.gov.au/policy-library/policies/pd-2024-0481-01",
+      "summary": "NSW public schools must maintain asset records, decommission unsupported equipment, keep disposal/deactivation records, securely wipe configuration and storage, and use the department's dedicated e-waste process for digital assets. The procedure is a key constraint on any attempt to source public-school devices outside approved channels.",
+      "why_it_matters": "Clarifies that NSW government-school equipment cannot simply be collected informally; any Dubbo sourcing model must respect departmental asset and disposal controls."
+    },
+    {
+      "title": "SafeWork NSW - Lithium-ion Battery Workplace Safety",
+      "category": "Battery / workshop safety",
+      "url": "https://www.safework.nsw.gov.au/hazards-a-z/lithium-ion-batteries",
+      "summary": "SafeWork NSW identifies fire, explosion, chemical exposure, electrical and storage risks from lithium-ion batteries and expects PCBUs to assess risks, establish safe systems of work, train workers, manage charging/storage and plan for emergencies. Damaged or swollen batteries require special caution and should not be used or charged.",
+      "why_it_matters": "Directly relevant to laptop and mobile intake, quarantine, charging, storage and emergency procedures in a home-shed or small workshop."
+    },
+    {
+      "title": "Fire and Rescue NSW - Battery and Charging Safety",
+      "category": "Battery / fire safety",
+      "url": "https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/battery-and-charging-safety",
+      "summary": "Fire and Rescue NSW describes lithium-ion batteries as a rapidly growing fire risk and explains common failure causes including overcharging, overheating, physical damage, short circuits and manufacturing defects. The guidance emphasises safe charging, condition checks and appropriate recycling.",
+      "why_it_matters": "A practical fire-safety reference for designing battery inspection, charging and storage rules around refurbished laptops and mobile devices."
+    },
+    {
+      "title": "Fire and Rescue NSW - Shop, Charge and Recycle Lithium-ion Batteries Safely",
+      "category": "Battery / fire safety",
+      "url": "https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/topics/shop-charge-and-recycle-safely",
+      "summary": "FRNSW provides lifecycle guidance for buying, charging, inspecting and recycling lithium-ion batteries. It warns against damaged, swollen, leaking, wet or overheated batteries, says batteries should never be placed in ordinary bins, and gives separation and disposal advice for damaged batteries.",
+      "why_it_matters": "Useful for a visible workshop SOP and intake rejection/quarantine rules, especially where damaged laptop batteries may arrive mixed with reusable equipment."
+    },
+    {
+      "title": "MobileMuster - Reuse and Data Management",
+      "category": "Mobile reuse / recycling",
+      "url": "https://www.mobilemuster.com.au/reuse/",
+      "summary": "MobileMuster encourages extending phone life through reuse, trade-in and repair when devices remain viable, while directing end-of-life phones to responsible recycling. Its consumer guidance emphasises backing up information, signing out of accounts, factory resetting devices and removing SIM/external storage before transfer.",
+      "why_it_matters": "Provides an Australian product-stewardship model for separating viable mobile reuse from end-of-life recycling and highlights the importance of account/data release before reuse."
+    },
+    {
+      "title": "TechCollect - Where E-waste Goes",
+      "category": "Downstream recycling",
+      "url": "https://techcollect.com.au/about-us/where-does-our-e-waste-go/",
+      "summary": "TechCollect states that collected e-waste is sent to approved Australian recycling partners that operate under environmental and work-health-and-safety controls and relevant certification. It describes first-stage recycling as dismantling, shredding and sorting devices into material streams such as metals, plastics, glass, batteries and circuit boards.",
+      "why_it_matters": "Useful for understanding the downstream recycling alternative when Dubbo equipment is not suitable for reuse and for keeping recycling claims separate from refurbishment claims."
+    },
+    {
+      "title": "ACCC - Repair Notice Requirements",
+      "category": "Australian Consumer Law / repair",
+      "url": "https://www.accc.gov.au/consumers/problem-with-a-product-or-service-you-bought/repair-notices",
+      "summary": "ACCC guidance says businesses accepting products for repair must give a repair notice where the product can store user data, warning that repair may cause data loss. Where refurbished goods or parts may be used, specific prescribed wording is required.",
+      "why_it_matters": "Directly relevant if the Dubbo operation expands from donated/refurbished stock into customer repair work."
+    },
+    {
+      "title": "Good360 Australia - Digital Divide and Device Reuse",
+      "category": "Social reuse / digital inclusion",
+      "url": "https://good360.org.au/digital-divide/",
+      "summary": "Good360's digital inclusion model reclaims used laptops, phones and tablets, has refurbishment partners securely wipe and prepare them, and redistributes devices through charities and schools. The organisation also promotes a National Device Bank model to keep suitable retired devices in Australia for social reuse.",
+      "why_it_matters": "A strong potential destination/partnership model for devices that are technically viable but better suited to donation than commercial resale."
+    },
+    {
+      "title": "WorkVentures - Laptop Refurbishment Process",
+      "category": "Social enterprise ITAD / refurbishment",
+      "url": "https://workventures.com.au/refurbishment/",
+      "summary": "WorkVentures describes an end-to-end refurbishment flow covering customer coordination, secure collection, data destruction, compliance evidence, assessment, recycling of non-viable equipment, reuse of suitable devices and sustainability reporting. Its model links corporate device retirement directly to digital inclusion.",
+      "why_it_matters": "A mature Australian benchmark for how a reuse-first ITAD workflow can combine data assurance, triage, refurbishment, downstream recycling and social outcomes."
+    }
+  ]
+}
