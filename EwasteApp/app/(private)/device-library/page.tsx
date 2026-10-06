@@ -4,7 +4,7 @@ const schematicLeads = [
   "Toshiba Satellite P750 — LA-6831P / LA-6832P variants",
   "Toshiba Satellite C50-B PSCMLA-03200S — LA-B301P Rev 1.0",
   "ASUS F5R — Rev 2.0 electrical schematic",
-  "ASUS X205TA — schematic plus BoardView package",
+  "ASUS X205TA — schematic plus BoardView package",\n  "Samsung Galaxy A55 5G — Samsung repair guide found; confirm exact SM-A556 regional submodel",
 ] as const;
 
 const officialManuals = [
@@ -60,7 +60,7 @@ export default function DeviceLibraryPage() {
     </section>
     <section className="card">
       <h2>Purchase-derived tech added</h2>
-      <p>Evidence adds an eBay HP laptop listing, Fitbit Inspire 3, TP-Link Archer AX53, TP-Link Archer VR2100, Toshiba Canvio 1TB drive, Logitech H110 headset and Nintendo Wii accessories. Private receipt details are not published here.</p>
+      <p>Evidence adds a Samsung Galaxy A55 5G in use, an eBay HP laptop listing, Fitbit Inspire 3, TP-Link Archer AX53, TP-Link Archer VR2100, Toshiba Canvio 1TB drive, Logitech H110 headset and Nintendo Wii accessories. Private receipt details are not published here.</p>
     </section>
   </div>;
 }
