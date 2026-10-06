@@ -1,40 +1,88 @@
 import Link from "next/link";
 import { logout } from "@/app/login/actions";
 
+const groups = [
+  {
+    title: "Operations",
+    links: [
+      ["/jobs", "Jobs"],
+      ["/lots", "Lots"],
+      ["/assets", "Assets"],
+      ["/triage", "Triage"],
+      ["/processing", "Processing"],
+      ["/media", "Sanitisation"],
+      ["/repairs", "Repairs"],
+      ["/resale", "Resale"],
+      ["/recycling", "Recycling"],
+    ],
+  },
+  {
+    title: "Customers & commercial",
+    links: [
+      ["/customers", "Customers"],
+      ["/crm", "CRM"],
+      ["/crm/opportunities", "Pipeline"],
+      ["/crm/quotes", "Quotes"],
+      ["/settlements", "Settlements"],
+    ],
+  },
+  {
+    title: "Records & workshop",
+    links: [
+      ["/certificates", "Certificates"],
+      ["/reports", "Reports"],
+      ["/exceptions", "Exceptions"],
+      ["/locations", "Locations"],
+      ["/workshop-inventory", "Workshop Inventory"],
+      ["/device-library", "Device Library"],
+      ["/documents", "Documents"],
+    ],
+  },
+  {
+    title: "Research & validation",
+    links: [
+      ["/validation", "Field Validation"],
+      ["/dubbo-repair-ewaste", "Dubbo Repair Guide"],
+      ["/regional-computer-experts", "Regional Experts"],
+    ],
+  },
+] as const;
+
 export function AppNav({ fullName, role }: { fullName: string | null; role: string }) {
   return <header className="topbar">
-    <div><div className="brand">DubboEwaste · AssetFlow</div><div className="userline">{fullName || "Staff"} · {role}</div></div>
-    <nav className="nav" aria-label="Staff navigation">
+    <div className="topbar-identity">
+      <div className="brand">DubboEwaste · AssetFlow</div>
+      <div className="userline">{fullName || "Staff"} · {role}</div>
+    </div>
+
+    <nav className="nav-quick" aria-label="Quick navigation">
       <Link href="/dashboard">Dashboard</Link>
       <Link href="/search">Search / Scan</Link>
-      <Link href="/jobs">Jobs</Link>
-      <Link href="/lots">Lots</Link>
-      <Link href="/assets">Assets</Link>
       <Link href="/assets/new">Receive</Link>
-      <Link href="/triage">Triage</Link>
-      <Link href="/processing">Processing</Link>
-      <Link href="/media">Sanitisation</Link>
-      <Link href="/repairs">Repairs</Link>
-      <Link href="/device-library">Device Library</Link>
-      <Link href="/resale">Resale</Link>
-      <Link href="/recycling">Recycling</Link>
-      <Link href="/settlements">Settlements</Link>
-      <Link href="/exceptions">Exceptions</Link>
-      <Link href="/certificates">Certificates</Link>
-      <Link href="/reports">Reports</Link>
-      <Link href="/customers">Customers</Link>
-      <Link href="/crm">CRM</Link>
-      <Link href="/validation">Field Validation</Link>
-      <Link href="/crm/opportunities">Pipeline</Link>
-      <Link href="/crm/quotes">Quotes</Link>
-      <Link href="/locations">Locations</Link>
-      <Link href="/workshop-inventory">Workshop Inventory</Link>
-      <Link href="/documents">Documents</Link>
-      <Link href="/dubbo-repair-ewaste">Dubbo Repair Guide</Link>
-      <Link href="/regional-computer-experts">Regional Experts</Link>
-      {role === "admin" ? <Link href="/admin/data">Manage Data</Link> : null}
-      {role === "admin" ? <Link href="/admin/permissions">Permissions</Link> : null}
     </nav>
-    <form action={logout}><button className="button secondary" type="submit">Sign out</button></form>
+
+    <details className="nav-menu">
+      <summary>Menu</summary>
+      <div className="nav-panel">
+        {groups.map((group) => <section className="nav-group" key={group.title}>
+          <h2>{group.title}</h2>
+          <div className="nav-group-links">
+            {group.links.map(([href, label]) => <Link href={href} key={href}>{label}</Link>)}
+          </div>
+        </section>)}
+
+        {role === "admin" ? <section className="nav-group">
+          <h2>Administration</h2>
+          <div className="nav-group-links">
+            <Link href="/admin/data">Manage Data</Link>
+            <Link href="/admin/permissions">Permissions</Link>
+          </div>
+        </section> : null}
+      </div>
+    </details>
+
+    <form action={logout} className="topbar-signout">
+      <button className="button secondary" type="submit">Sign out</button>
+    </form>
   </header>;
 }
