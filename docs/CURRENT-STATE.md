@@ -1,6 +1,6 @@
 # DubboEwaste current-state register
 
-**As at:** 2 October 2026 (AEST)  
+**As at:** 6 October 2026 (AEDT)  
 **Purpose:** one short, current map of what the repository can support today. This is the canonical status summary; detailed research and historical gap registers remain linked below.
 
 ## Status vocabulary
@@ -29,6 +29,20 @@ The repository has enough documented material to design a small known-source exp
 | Fair Trading / resale controls | `EXTERNAL-BLOCKED` | Written answer on the recycling-program exemption, second-hand dealer scope and 14-day hold/wiping issue; reviewed customer paperwork. |
 | Safe data and battery workflow | `DESIGNED` / `PILOT-ONLY` | Representative-device records, conservative battery procedure, repeatable wipe/lock outcomes and a failed-device route. |
 | Downstream route for every rejected item | `EXTERNAL-BLOCKED` | Current acceptance terms, fees, exclusions and receipt/certificate fields for each stream. |
+
+## Recent repository additions that do not close the gates
+
+Since the previous 2 October snapshot, the repository has added substantial sourcing, repair and software evidence, including:
+
+- Dubbo SME device-sourcing rankings and a structured prospect register;
+- Dubbo non-government-school ITAD research and a school prospect tracker;
+- a Dubbo/Central West computer repair, reuse and e-waste directory;
+- a family-capacity review recommending a bounded ITAD + monthly Repair Café pilot rather than two standing weekly commitments;
+- a device schematic/service-manual library and an AssetFlow device-library screen;
+- broader device-intelligence lookup, QR/barcode scanning, batch label printing and processing/admin CRUD work;
+- a corrected 100-PDF NotebookLM research pack using 55 original publisher PDFs.
+
+These additions improve evidence, tooling and prospecting. **They do not by themselves close any of the external launch gates above.**
 
 ## What can be done now
 
