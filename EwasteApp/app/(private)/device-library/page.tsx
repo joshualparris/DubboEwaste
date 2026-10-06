@@ -4,7 +4,8 @@ const schematicLeads = [
   "Toshiba Satellite P750 — LA-6831P / LA-6832P variants",
   "Toshiba Satellite C50-B PSCMLA-03200S — LA-B301P Rev 1.0",
   "ASUS F5R — Rev 2.0 electrical schematic",
-  "ASUS X205TA — schematic plus BoardView package",\n  "Samsung Galaxy A55 5G — Samsung repair guide found; confirm exact SM-A556 regional submodel",
+  "ASUS X205TA — schematic plus BoardView package",
+  "Samsung Galaxy A55 5G — Samsung repair guide found; confirm exact SM-A556 regional submodel",
 ] as const;
 
 const officialManuals = [
