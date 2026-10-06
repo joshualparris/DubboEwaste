@@ -12,6 +12,7 @@ with summaries or rewritten one-page briefs.
 
 from __future__ import annotations
 
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import hashlib
 import html
 import json
@@ -341,34 +342,48 @@ def main():
         number += 1
 
     failures = []
+    tasks = []
     for source in external:
         title, url = source["title"], source["url"]
         filename = f"{number:03d}-original-{slug(title)}.pdf"
-        temp = DOWNLOAD_DIR / filename
-        out = PDF_DIR / filename
-        print(f"Downloading {number:03d}: {title}", flush=True)
-        try:
-            download_pdf(url, temp)
-            shutil.move(str(temp), str(out))
-            pages, encrypted = pdf_info(out)
-            entries.append({
-                "number": number,
-                "filename": filename,
-                "title": title,
-                "kind": "Original publisher PDF",
-                "source": url,
-                "pages": pages,
-                "encrypted": encrypted,
-                "sha256": sha256(out),
-                "bytes": out.stat().st_size,
-            })
-        except Exception as exc:
-            failures.append(f"{number:03d} {title} | {url} | {exc}")
-            print(f"FAILED {number:03d}: {exc}", flush=True)
+        tasks.append((number, title, url, filename))
         number += 1
 
+    def fetch_original(task):
+        n, title, url, filename = task
+        temp = DOWNLOAD_DIR / filename
+        out = PDF_DIR / filename
+        print(f"Downloading {n:03d}: {title}", flush=True)
+        download_pdf(url, temp)
+        shutil.move(str(temp), str(out))
+        pages, encrypted = pdf_info(out)
+        return {
+            "number": n,
+            "filename": filename,
+            "title": title,
+            "kind": "Original publisher PDF",
+            "source": url,
+            "pages": pages,
+            "encrypted": encrypted,
+            "sha256": sha256(out),
+            "bytes": out.stat().st_size,
+        }
+
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        future_map = {pool.submit(fetch_original, task): task for task in tasks}
+        for future in as_completed(future_map):
+            n, title, url, _ = future_map[future]
+            try:
+                entries.append(future.result())
+                print(f"OK {n:03d}: {title}", flush=True)
+            except Exception as exc:
+                failures.append(f"{n:03d} {title} | {url} | {exc}")
+                print(f"FAILED {n:03d}: {exc}", flush=True)
+
     if failures:
-        raise RuntimeError("Original PDF download failures:\n" + "\n\n".join(failures))
+        raise RuntimeError("Original PDF download failures:\n" + "\n\n".join(sorted(failures)))
+
+    entries.sort(key=lambda item: item["number"])
 
     index = PDF_DIR / "001-MASTER-INDEX-CORRECTED-ORIGINAL-SOURCES.pdf"
     all_entries = [{
