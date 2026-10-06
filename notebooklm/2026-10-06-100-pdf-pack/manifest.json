@@ -1,0 +1,733 @@
+{
+  "pack_name": "Dubbo eWaste NotebookLM 100 PDF Research Pack",
+  "pack_date": "2026-10-06",
+  "source_commit": "c2103b6090c8",
+  "pdf_count": 100,
+  "entries": [
+    {
+      "number": 1,
+      "filename": "001-MASTER-INDEX-Dubbo-eWaste-NotebookLM-Research-Pack.pdf",
+      "title": "Dubbo eWaste NotebookLM Research Pack - Master Index",
+      "kind": "Pack index",
+      "source": "Curated from DubboEwaste repo + listed primary sources"
+    },
+    {
+      "number": 2,
+      "filename": "002-repo-README-md.pdf",
+      "title": "Readme",
+      "kind": "Repository document",
+      "source": "README.md"
+    },
+    {
+      "number": 3,
+      "filename": "003-repo-START-HERE-md.pdf",
+      "title": "Start Here",
+      "kind": "Repository document",
+      "source": "START-HERE.md"
+    },
+    {
+      "number": 4,
+      "filename": "004-repo-EVIDENCE-SCHEMA-md.pdf",
+      "title": "Evidence Schema",
+      "kind": "Repository document",
+      "source": "EVIDENCE-SCHEMA.md"
+    },
+    {
+      "number": 5,
+      "filename": "005-repo-GAPS-md.pdf",
+      "title": "Gaps",
+      "kind": "Repository document",
+      "source": "GAPS.md"
+    },
+    {
+      "number": 6,
+      "filename": "006-repo-OpenSourceSoftware-README-md.pdf",
+      "title": "Opensourcesoftware   Readme",
+      "kind": "Repository document",
+      "source": "OpenSourceSoftware/README.md"
+    },
+    {
+      "number": 7,
+      "filename": "007-repo-OpenSourceSoftware-assetflow-concept-md.pdf",
+      "title": "Assetflow Concept",
+      "kind": "Repository document",
+      "source": "OpenSourceSoftware/assetflow-concept.md"
+    },
+    {
+      "number": 8,
+      "filename": "008-repo-OpenSourceSoftware-assetflow-software-specification-md.pdf",
+      "title": "Assetflow Software Specification",
+      "kind": "Repository document",
+      "source": "OpenSourceSoftware/assetflow-software-specification.md"
+    },
+    {
+      "number": 9,
+      "filename": "009-repo-OpenSourceSoftware-data-model-md.pdf",
+      "title": "Data Model",
+      "kind": "Repository document",
+      "source": "OpenSourceSoftware/data-model.md"
+    },
+    {
+      "number": 10,
+      "filename": "010-repo-OpenSourceSoftware-software-landscape-md.pdf",
+      "title": "Software Landscape",
+      "kind": "Repository document",
+      "source": "OpenSourceSoftware/software-landscape.md"
+    },
+    {
+      "number": 11,
+      "filename": "011-repo-OpenSourceSoftware-vendor-workflow-reconstruction-md.pdf",
+      "title": "Vendor Workflow Reconstruction",
+      "kind": "Repository document",
+      "source": "OpenSourceSoftware/vendor-workflow-reconstruction.md"
+    },
+    {
+      "number": 12,
+      "filename": "012-repo-agyDOCS-ITAD-Operations-Blueprint-md.pdf",
+      "title": "Itad Operations Blueprint",
+      "kind": "Repository document",
+      "source": "agyDOCS/ITAD-Operations-Blueprint.md"
+    },
+    {
+      "number": 13,
+      "filename": "013-repo-agyDOCS-NSW-Market-Sales-Channels-md.pdf",
+      "title": "Nsw Market Sales Channels",
+      "kind": "Repository document",
+      "source": "agyDOCS/NSW-Market-Sales-Channels.md"
+    },
+    {
+      "number": 14,
+      "filename": "014-repo-agyDOCS-Triage-Skills-Guide-md.pdf",
+      "title": "Triage Skills Guide",
+      "kind": "Repository document",
+      "source": "agyDOCS/Triage-Skills-Guide.md"
+    },
+    {
+      "number": 15,
+      "filename": "015-repo-docs-ALL-CHAT-RESEARCH-SYNTHESIS-md.pdf",
+      "title": "All Chat Research Synthesis",
+      "kind": "Repository document",
+      "source": "docs/ALL-CHAT-RESEARCH-SYNTHESIS.md"
+    },
+    {
+      "number": 16,
+      "filename": "016-repo-docs-AMR-DUBBO-DOWNSTREAM-FORENSIC-md.pdf",
+      "title": "Amr Dubbo Downstream Forensic",
+      "kind": "Repository document",
+      "source": "docs/AMR-DUBBO-DOWNSTREAM-FORENSIC.md"
+    },
+    {
+      "number": 17,
+      "filename": "017-repo-docs-ASSETFLOW-DEVICE-DATA-SOURCES-md.pdf",
+      "title": "Assetflow Device Data Sources",
+      "kind": "Repository document",
+      "source": "docs/ASSETFLOW-DEVICE-DATA-SOURCES.md"
+    },
+    {
+      "number": 18,
+      "filename": "018-repo-docs-ASSETFLOW-ERASURE-DIAGNOSTICS-INTEGRATIONS-md.pdf",
+      "title": "Assetflow Erasure Diagnostics Integrations",
+      "kind": "Repository document",
+      "source": "docs/ASSETFLOW-ERASURE-DIAGNOSTICS-INTEGRATIONS.md"
+    },
+    {
+      "number": 19,
+      "filename": "019-repo-docs-AU-SHIPPING-MATRIX-md.pdf",
+      "title": "Au Shipping Matrix",
+      "kind": "Repository document",
+      "source": "docs/AU-SHIPPING-MATRIX.md"
+    },
+    {
+      "number": 20,
+      "filename": "020-repo-docs-AUSTRALIAN-EWASTE-ITAD-MAJOR-PLAYERS-md.pdf",
+      "title": "Australian Ewaste Itad Major Players",
+      "kind": "Repository document",
+      "source": "docs/AUSTRALIAN-EWASTE-ITAD-MAJOR-PLAYERS.md"
+    },
+    {
+      "number": 21,
+      "filename": "021-repo-docs-AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST-md.pdf",
+      "title": "Australian Itad Staffing Dubbo Branch Shortlist",
+      "kind": "Repository document",
+      "source": "docs/AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md"
+    },
+    {
+      "number": 22,
+      "filename": "022-repo-docs-BACKLOG-01-05-PLANNING-LEGAL-md.pdf",
+      "title": "Backlog 01 05 Planning Legal",
+      "kind": "Repository document",
+      "source": "docs/BACKLOG-01-05-PLANNING-LEGAL.md"
+    },
+    {
+      "number": 23,
+      "filename": "023-repo-docs-BACKLOG-06-12-DOWNSTREAM-STEWARDSHIP-md.pdf",
+      "title": "Backlog 06 12 Downstream Stewardship",
+      "kind": "Repository document",
+      "source": "docs/BACKLOG-06-12-DOWNSTREAM-STEWARDSHIP.md"
+    },
+    {
+      "number": 24,
+      "filename": "024-repo-docs-BACKLOG-13-16-REGIONAL-SUPPLY-md.pdf",
+      "title": "Backlog 13 16 Regional Supply",
+      "kind": "Repository document",
+      "source": "docs/BACKLOG-13-16-REGIONAL-SUPPLY.md"
+    },
+    {
+      "number": 25,
+      "filename": "025-repo-docs-BACKLOG-17-20-MARKET-COST-TAX-md.pdf",
+      "title": "Backlog 17 20 Market Cost Tax",
+      "kind": "Repository document",
+      "source": "docs/BACKLOG-17-20-MARKET-COST-TAX.md"
+    },
+    {
+      "number": 26,
+      "filename": "026-repo-docs-BACKLOG-21-25-COMPLIANCE-DATA-SAFETY-md.pdf",
+      "title": "Backlog 21 25 Compliance Data Safety",
+      "kind": "Repository document",
+      "source": "docs/BACKLOG-21-25-COMPLIANCE-DATA-SAFETY.md"
+    },
+    {
+      "number": 27,
+      "filename": "027-repo-docs-BACKLOG-30-32-OPERATIONS-CORRECTIONS-md.pdf",
+      "title": "Backlog 30 32 Operations Corrections",
+      "kind": "Repository document",
+      "source": "docs/BACKLOG-30-32-OPERATIONS-CORRECTIONS.md"
+    },
+    {
+      "number": 28,
+      "filename": "028-repo-docs-BENCH-SOP-AND-LAYOUT-md.pdf",
+      "title": "Bench Sop And Layout",
+      "kind": "Repository document",
+      "source": "docs/BENCH-SOP-AND-LAYOUT.md"
+    },
+    {
+      "number": 29,
+      "filename": "029-repo-docs-CATEGORY-INTAKE-CARDS-md.pdf",
+      "title": "Category Intake Cards",
+      "kind": "Repository document",
+      "source": "docs/CATEGORY-INTAKE-CARDS.md"
+    },
+    {
+      "number": 30,
+      "filename": "030-repo-docs-COMPLIANCE-REGISTER-md.pdf",
+      "title": "Compliance Register",
+      "kind": "Repository document",
+      "source": "docs/COMPLIANCE-REGISTER.md"
+    },
+    {
+      "number": 31,
+      "filename": "031-repo-docs-DEEP-RESEARCH-2026-10-05-COMPLIANCE-DATA-SAFETY-md.pdf",
+      "title": "Deep Research 2026 10 05 Compliance Data Safety",
+      "kind": "Repository document",
+      "source": "docs/DEEP-RESEARCH-2026-10-05-COMPLIANCE-DATA-SAFETY.md"
+    },
+    {
+      "number": 32,
+      "filename": "032-repo-docs-DEEP-RESEARCH-2026-10-05-EXECUTIVE-SYNTHESIS-md.pdf",
+      "title": "Deep Research 2026 10 05 Executive Synthesis",
+      "kind": "Repository document",
+      "source": "docs/DEEP-RESEARCH-2026-10-05-EXECUTIVE-SYNTHESIS.md"
+    },
+    {
+      "number": 33,
+      "filename": "033-repo-docs-DEEP-RESEARCH-2026-10-05-OPERATIONS-ROUTING-CAPACITY-md.pdf",
+      "title": "Deep Research 2026 10 05 Operations Routing Capacity",
+      "kind": "Repository document",
+      "source": "docs/DEEP-RESEARCH-2026-10-05-OPERATIONS-ROUTING-CAPACITY.md"
+    },
+    {
+      "number": 34,
+      "filename": "034-repo-docs-DEEP-RESEARCH-2026-10-05-REFURB-SKILLS-REPAIR-md.pdf",
+      "title": "Deep Research 2026 10 05 Refurb Skills Repair",
+      "kind": "Repository document",
+      "source": "docs/DEEP-RESEARCH-2026-10-05-REFURB-SKILLS-REPAIR.md"
+    },
+    {
+      "number": 35,
+      "filename": "035-repo-docs-DEEP-RESEARCH-2026-10-05-SOFTWARE-ASSETFLOW-AUTOMATION-md.pdf",
+      "title": "Deep Research 2026 10 05 Software Assetflow Automation",
+      "kind": "Repository document",
+      "source": "docs/DEEP-RESEARCH-2026-10-05-SOFTWARE-ASSETFLOW-AUTOMATION.md"
+    },
+    {
+      "number": 36,
+      "filename": "036-repo-docs-DEEP-RESEARCH-2026-10-05-SOURCING-PARTNERSHIPS-BUSINESS-md.pdf",
+      "title": "Deep Research 2026 10 05 Sourcing Partnerships Business",
+      "kind": "Repository document",
+      "source": "docs/DEEP-RESEARCH-2026-10-05-SOURCING-PARTNERSHIPS-BUSINESS.md"
+    },
+    {
+      "number": 37,
+      "filename": "037-repo-docs-DOWNSTREAM-PROVIDER-DUBBO-COST-COMPARISON-md.pdf",
+      "title": "Downstream Provider Dubbo Cost Comparison",
+      "kind": "Repository document",
+      "source": "docs/DOWNSTREAM-PROVIDER-DUBBO-COST-COMPARISON.md"
+    },
+    {
+      "number": 38,
+      "filename": "038-repo-docs-DUBBO-COMPUTER-REPAIR-REUSE-EWASTE-DIRECTORY-2026-10-06-md.pdf",
+      "title": "Dubbo Computer Repair Reuse Ewaste Directory 2026 10 06",
+      "kind": "Repository document",
+      "source": "docs/DUBBO-COMPUTER-REPAIR-REUSE-EWASTE-DIRECTORY-2026-10-06.md"
+    },
+    {
+      "number": 39,
+      "filename": "039-repo-docs-DUBBO-DEVICE-DISPOSAL-PROSPECTS-md.pdf",
+      "title": "Dubbo Device Disposal Prospects",
+      "kind": "Repository document",
+      "source": "docs/DUBBO-DEVICE-DISPOSAL-PROSPECTS.md"
+    },
+    {
+      "number": 40,
+      "filename": "040-repo-docs-DUBBO-DEVICE-DISPOSAL-SOURCES-md.pdf",
+      "title": "Dubbo Device Disposal Sources",
+      "kind": "Repository document",
+      "source": "docs/DUBBO-DEVICE-DISPOSAL-SOURCES.md"
+    },
+    {
+      "number": 41,
+      "filename": "041-repo-docs-DUBBO-INDEPENDENT-DEVICE-RECOVERY-OPERATORS-md.pdf",
+      "title": "Dubbo Independent Device Recovery Operators",
+      "kind": "Repository document",
+      "source": "docs/DUBBO-INDEPENDENT-DEVICE-RECOVERY-OPERATORS.md"
+    },
+    {
+      "number": 42,
+      "filename": "042-repo-docs-DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK-md.pdf",
+      "title": "Dubbo Itad Branch Entry Playbook",
+      "kind": "Repository document",
+      "source": "docs/DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md"
+    },
+    {
+      "number": 43,
+      "filename": "043-repo-docs-DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS-md.pdf",
+      "title": "Dubbo Itad Branch Pathways Costs Process",
+      "kind": "Repository document",
+      "source": "docs/DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS.md"
+    },
+    {
+      "number": 44,
+      "filename": "044-repo-docs-DUBBO-ITAD-DEEP-RESEARCH-2026-md.pdf",
+      "title": "Dubbo Itad Deep Research 2026",
+      "kind": "Repository document",
+      "source": "docs/DUBBO-ITAD-DEEP-RESEARCH-2026.md"
+    },
+    {
+      "number": 45,
+      "filename": "045-repo-docs-DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS-md.pdf",
+      "title": "Dubbo Wellington Narromine Trangie Reuse Programs",
+      "kind": "Repository document",
+      "source": "docs/DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS.md"
+    },
+    {
+      "number": 46,
+      "filename": "046-repo-docs-EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN-md.pdf",
+      "title": "Ewaste Facility Zone Benchmark And Shed Design",
+      "kind": "Repository document",
+      "source": "docs/EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md"
+    },
+    {
+      "number": 47,
+      "filename": "047-repo-docs-EXISTING-AUSTRALIAN-EWASTE-ORGS-DUBBO-EXPANSION-md.pdf",
+      "title": "Existing Australian Ewaste Orgs Dubbo Expansion",
+      "kind": "Repository document",
+      "source": "docs/EXISTING-AUSTRALIAN-EWASTE-ORGS-DUBBO-EXPANSION.md"
+    },
+    {
+      "number": 48,
+      "filename": "048-repo-docs-FACT-CHECK-NOTEBOOKLM-ITAD-2026-10-06-md.pdf",
+      "title": "Fact Check Notebooklm Itad 2026 10 06",
+      "kind": "Repository document",
+      "source": "docs/FACT-CHECK-NOTEBOOKLM-ITAD-2026-10-06.md"
+    },
+    {
+      "number": 49,
+      "filename": "049-repo-docs-FIRST-30-DEVICE-EXPERIMENT-md.pdf",
+      "title": "First 30 Device Experiment",
+      "kind": "Repository document",
+      "source": "docs/FIRST-30-DEVICE-EXPERIMENT.md"
+    },
+    {
+      "number": 50,
+      "filename": "050-repo-docs-FLIPTECH-DUBBO-BRANCH-FEASIBILITY-md.pdf",
+      "title": "Fliptech Dubbo Branch Feasibility",
+      "kind": "Repository document",
+      "source": "docs/FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md"
+    },
+    {
+      "number": 51,
+      "filename": "051-repo-docs-FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY-md.pdf",
+      "title": "Fliptech Equivalents Dubbo Branch Feasibility",
+      "kind": "Repository document",
+      "source": "docs/FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY.md"
+    },
+    {
+      "number": 52,
+      "filename": "052-repo-docs-GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO-md.pdf",
+      "title": "Good360 Compnow National Device Bank Dubbo",
+      "kind": "Repository document",
+      "source": "docs/GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md"
+    },
+    {
+      "number": 53,
+      "filename": "053-repo-docs-INTAKE-POLICY-md.pdf",
+      "title": "Intake Policy",
+      "kind": "Repository document",
+      "source": "docs/INTAKE-POLICY.md"
+    },
+    {
+      "number": 54,
+      "filename": "054-repo-docs-LEGAL-LICENSING-md.pdf",
+      "title": "Legal Licensing",
+      "kind": "Repository document",
+      "source": "docs/LEGAL-LICENSING.md"
+    },
+    {
+      "number": 55,
+      "filename": "055-repo-docs-MASTER-FINDINGS-ALL-CHATS-md.pdf",
+      "title": "Master Findings All Chats",
+      "kind": "Repository document",
+      "source": "docs/MASTER-FINDINGS-ALL-CHATS.md"
+    },
+    {
+      "number": 56,
+      "filename": "056-repo-docs-MATTHEWS-INFRABUILD-AMR-md.pdf",
+      "title": "Matthews Infrabuild Amr",
+      "kind": "Repository document",
+      "source": "docs/MATTHEWS-INFRABUILD-AMR.md"
+    },
+    {
+      "number": 57,
+      "filename": "057-repo-docs-MINIMUM-PHYSICAL-SHED-SETUP-CHECKLIST-md.pdf",
+      "title": "Minimum Physical Shed Setup Checklist",
+      "kind": "Repository document",
+      "source": "docs/MINIMUM-PHYSICAL-SHED-SETUP-CHECKLIST.md"
+    },
+    {
+      "number": 58,
+      "filename": "058-repo-docs-NATIONAL-ITAD-OPERATORS-DUBBO-COVERAGE-md.pdf",
+      "title": "National Itad Operators Dubbo Coverage",
+      "kind": "Repository document",
+      "source": "docs/NATIONAL-ITAD-OPERATORS-DUBBO-COVERAGE.md"
+    },
+    {
+      "number": 59,
+      "filename": "059-repo-docs-NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS-md.pdf",
+      "title": "Nsw Education Ewaste Dubbo Laptops",
+      "kind": "Repository document",
+      "source": "docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md"
+    },
+    {
+      "number": 60,
+      "filename": "060-repo-docs-NSW-FLIPTECH-EQUIVALENTS-DEEP-DIVE-md.pdf",
+      "title": "Nsw Fliptech Equivalents Deep Dive",
+      "kind": "Repository document",
+      "source": "docs/NSW-FLIPTECH-EQUIVALENTS-DEEP-DIVE.md"
+    },
+    {
+      "number": 61,
+      "filename": "061-repo-docs-PHASE-0-LAUNCH-GATES-md.pdf",
+      "title": "Phase 0 Launch Gates",
+      "kind": "Repository document",
+      "source": "docs/PHASE-0-LAUNCH-GATES.md"
+    },
+    {
+      "number": 62,
+      "filename": "062-repo-docs-PHASE-0-OPERATING-BLUEPRINT-md.pdf",
+      "title": "Phase 0 Operating Blueprint",
+      "kind": "Repository document",
+      "source": "docs/PHASE-0-OPERATING-BLUEPRINT.md"
+    },
+    {
+      "number": 63,
+      "filename": "063-repo-docs-PONYUP-SECONDBITE-DUBBO-md.pdf",
+      "title": "Ponyup Secondbite Dubbo",
+      "kind": "Repository document",
+      "source": "docs/PONYUP-SECONDBITE-DUBBO.md"
+    },
+    {
+      "number": 64,
+      "filename": "064-repo-docs-REGIONAL-EWASTE-PATHWAYS-md.pdf",
+      "title": "Regional Ewaste Pathways",
+      "kind": "Repository document",
+      "source": "docs/REGIONAL-EWASTE-PATHWAYS.md"
+    },
+    {
+      "number": 65,
+      "filename": "065-repo-docs-REGIONAL-ITAD-PRACTITIONER-FIELD-GUIDE-md.pdf",
+      "title": "Regional Itad Practitioner Field Guide",
+      "kind": "Repository document",
+      "source": "docs/REGIONAL-ITAD-PRACTITIONER-FIELD-GUIDE.md"
+    },
+    {
+      "number": 66,
+      "filename": "066-repo-docs-RESEARCH-01-FRONT-DOOR-TRIAGE-md.pdf",
+      "title": "Research 01 Front Door Triage",
+      "kind": "Repository document",
+      "source": "docs/RESEARCH-01-FRONT-DOOR-TRIAGE.md"
+    },
+    {
+      "number": 67,
+      "filename": "067-repo-docs-RESEARCH-03-COMPETITOR-OPERATING-MECHANICS-md.pdf",
+      "title": "Research 03 Competitor Operating Mechanics",
+      "kind": "Repository document",
+      "source": "docs/RESEARCH-03-COMPETITOR-OPERATING-MECHANICS.md"
+    },
+    {
+      "number": 68,
+      "filename": "068-repo-docs-RESEARCH-05-DATA-IDENTITY-PRIVACY-SOP-md.pdf",
+      "title": "Research 05 Data Identity Privacy Sop",
+      "kind": "Repository document",
+      "source": "docs/RESEARCH-05-DATA-IDENTITY-PRIVACY-SOP.md"
+    },
+    {
+      "number": 69,
+      "filename": "069-repo-docs-RESEARCH-06-BATTERY-ELECTRICAL-WORKSHOP-SAFETY-md.pdf",
+      "title": "Research 06 Battery Electrical Workshop Safety",
+      "kind": "Repository document",
+      "source": "docs/RESEARCH-06-BATTERY-ELECTRICAL-WORKSHOP-SAFETY.md"
+    },
+    {
+      "number": 70,
+      "filename": "070-repo-docs-RESEARCH-07-REPAIR-ECONOMICS-PARTS-STRATEGY-md.pdf",
+      "title": "Research 07 Repair Economics Parts Strategy",
+      "kind": "Repository document",
+      "source": "docs/RESEARCH-07-REPAIR-ECONOMICS-PARTS-STRATEGY.md"
+    },
+    {
+      "number": 71,
+      "filename": "071-repo-docs-RESEARCH-10-SUPPLY-DEMAND-PARTNER-VALIDATION-md.pdf",
+      "title": "Research 10 Supply Demand Partner Validation",
+      "kind": "Repository document",
+      "source": "docs/RESEARCH-10-SUPPLY-DEMAND-PARTNER-VALIDATION.md"
+    },
+    {
+      "number": 72,
+      "filename": "072-repo-docs-RESEARCH-11-DOWNSTREAM-ENVIRONMENTAL-CHAIN-OF-CUSTODY-md.pdf",
+      "title": "Research 11 Downstream Environmental Chain Of Custody",
+      "kind": "Repository document",
+      "source": "docs/RESEARCH-11-DOWNSTREAM-ENVIRONMENTAL-CHAIN-OF-CUSTODY.md"
+    },
+    {
+      "number": 73,
+      "filename": "073-repo-docs-REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE-md.pdf",
+      "title": "Reuse Models Ponyup Reconnect Laptop Initiative",
+      "kind": "Repository document",
+      "source": "docs/REUSE-MODELS-PONYUP-RECONNECT-LAPTOP-INITIATIVE.md"
+    },
+    {
+      "number": 74,
+      "filename": "074-repo-docs-SIRCEL-ITAD-REUSE-MODEL-md.pdf",
+      "title": "Sircel Itad Reuse Model",
+      "kind": "Repository document",
+      "source": "docs/SIRCEL-ITAD-REUSE-MODEL.md"
+    },
+    {
+      "number": 75,
+      "filename": "075-repo-docs-WHAT-HAPPENS-TO-EWASTE-md.pdf",
+      "title": "What Happens To Ewaste",
+      "kind": "Repository document",
+      "source": "docs/WHAT-HAPPENS-TO-EWASTE.md"
+    },
+    {
+      "number": 76,
+      "filename": "076-external-Repair-Cafe-International-Starting-a-Repair-Cafe.pdf",
+      "title": "Repair Cafe International - Starting a Repair Cafe",
+      "kind": "External source brief",
+      "source": "https://www.repaircafe.org/en/join/start-your-own/",
+      "category": "Repair Cafe / community repair"
+    },
+    {
+      "number": 77,
+      "filename": "077-external-Repair-Cafe-International-Organiser-FAQ.pdf",
+      "title": "Repair Cafe International - Organiser FAQ",
+      "kind": "External source brief",
+      "source": "https://www.repaircafe.org/en/faq/",
+      "category": "Repair Cafe / community repair"
+    },
+    {
+      "number": 78,
+      "filename": "078-external-Waverley-Council-Repair-Cafe-Computer-and-Phone-Repair-Operating-Model.pdf",
+      "title": "Waverley Council Repair Cafe - Computer and Phone Repair Operating Model",
+      "kind": "External source brief",
+      "source": "https://www.waverley.nsw.gov.au/recreation/events/events/repair_cafe3",
+      "category": "Repair Cafe / practical model"
+    },
+    {
+      "number": 79,
+      "filename": "079-external-Open-Repair-Alliance-Open-Repair-Data-Standard.pdf",
+      "title": "Open Repair Alliance - Open Repair Data Standard",
+      "kind": "External source brief",
+      "source": "https://openrepair.org/open-data/open-standard/",
+      "category": "Repair data / measurement"
+    },
+    {
+      "number": 80,
+      "filename": "080-external-Open-Repair-Alliance-Global-Repair-Dataset.pdf",
+      "title": "Open Repair Alliance - Global Repair Dataset",
+      "kind": "External source brief",
+      "source": "https://openrepair.org/open-data/downloads/",
+      "category": "Repair data / benchmarking"
+    },
+    {
+      "number": 81,
+      "filename": "081-external-Open-Repair-Alliance-How-to-Record-Repairs.pdf",
+      "title": "Open Repair Alliance - How to Record Repairs",
+      "kind": "External source brief",
+      "source": "https://openrepair.org/open-data/how-to-get-started/",
+      "category": "Repair data / operations"
+    },
+    {
+      "number": 82,
+      "filename": "082-external-Productivity-Commission-Right-to-Repair-Inquiry-Report.pdf",
+      "title": "Productivity Commission - Right to Repair Inquiry Report",
+      "kind": "External source brief",
+      "source": "https://www.pc.gov.au/inquiries-and-research/repair/report/",
+      "category": "Repair policy"
+    },
+    {
+      "number": 83,
+      "filename": "083-external-NIST-SP-800-88-Rev-2-Guidelines-for-Media-Sanitization.pdf",
+      "title": "NIST SP 800-88 Rev. 2 - Guidelines for Media Sanitization",
+      "kind": "External source brief",
+      "source": "https://csrc.nist.gov/pubs/sp/800/88/r2/final",
+      "category": "Data sanitisation / ITAD"
+    },
+    {
+      "number": 84,
+      "filename": "084-external-ASD-ACSC-Guidelines-for-Media-September-2026.pdf",
+      "title": "ASD/ACSC - Guidelines for Media (September 2026)",
+      "kind": "External source brief",
+      "source": "https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/ism/cyber-security-guidelines/guidelines-for-media",
+      "category": "Cyber security / media handling"
+    },
+    {
+      "number": 85,
+      "filename": "085-external-DCCEEW-E-Stewardship-in-Australia.pdf",
+      "title": "DCCEEW - E-Stewardship in Australia",
+      "kind": "External source brief",
+      "source": "https://www.dcceew.gov.au/environment/protection/waste/e-waste",
+      "category": "Australian e-waste policy"
+    },
+    {
+      "number": 86,
+      "filename": "086-external-DCCEEW-National-Television-and-Computer-Recycling-Scheme.pdf",
+      "title": "DCCEEW - National Television and Computer Recycling Scheme",
+      "kind": "External source brief",
+      "source": "https://www.dcceew.gov.au/environment/protection/waste/product-stewardship/television-computer-recycling-scheme",
+      "category": "Australian e-waste regulation"
+    },
+    {
+      "number": 87,
+      "filename": "087-external-DCCEEW-NTCRS-Roles-and-Responsibilities.pdf",
+      "title": "DCCEEW - NTCRS Roles and Responsibilities",
+      "kind": "External source brief",
+      "source": "https://www.dcceew.gov.au/environment/protection/waste/product-stewardship/products-schemes/television-computer-recycling-scheme",
+      "category": "Australian e-waste regulation"
+    },
+    {
+      "number": 88,
+      "filename": "088-external-DCCEEW-Product-Stewardship-in-Australia.pdf",
+      "title": "DCCEEW - Product Stewardship in Australia",
+      "kind": "External source brief",
+      "source": "https://www.dcceew.gov.au/environment/protection/waste/product-stewardship",
+      "category": "Product stewardship"
+    },
+    {
+      "number": 89,
+      "filename": "089-external-NSW-EPA-E-waste-Guidance.pdf",
+      "title": "NSW EPA - E-waste Guidance",
+      "kind": "External source brief",
+      "source": "https://www.epa.nsw.gov.au/Your-environment/Recycling-and-reuse/warr-strategy/product-stewardship-schemes/ewaste",
+      "category": "NSW e-waste / reuse"
+    },
+    {
+      "number": 90,
+      "filename": "090-external-NSW-EPA-Circular-Economy-and-Local-Government.pdf",
+      "title": "NSW EPA - Circular Economy and Local Government",
+      "kind": "External source brief",
+      "source": "https://www.epa.nsw.gov.au/Working-together/For-local-government/Circular-economy",
+      "category": "Circular economy / local government"
+    },
+    {
+      "number": 91,
+      "filename": "091-external-Dubbo-Regional-Council-Waste-Facilities-and-E-waste.pdf",
+      "title": "Dubbo Regional Council - Waste Facilities and E-waste",
+      "kind": "External source brief",
+      "source": "https://www.dubbo.nsw.gov.au/Households-Residents/Rubbish-Recycling-and-Sustainability/council-waste-facilities",
+      "category": "Dubbo local infrastructure"
+    },
+    {
+      "number": 92,
+      "filename": "092-external-NSW-Department-of-Education-Technology-in-Schools-Procedures.pdf",
+      "title": "NSW Department of Education - Technology in Schools Procedures",
+      "kind": "External source brief",
+      "source": "https://education.nsw.gov.au/policy-library/policies/pd-2024-0481-01",
+      "category": "School device sourcing / disposal"
+    },
+    {
+      "number": 93,
+      "filename": "093-external-SafeWork-NSW-Lithium-ion-Battery-Workplace-Safety.pdf",
+      "title": "SafeWork NSW - Lithium-ion Battery Workplace Safety",
+      "kind": "External source brief",
+      "source": "https://www.safework.nsw.gov.au/hazards-a-z/lithium-ion-batteries",
+      "category": "Battery / workshop safety"
+    },
+    {
+      "number": 94,
+      "filename": "094-external-Fire-and-Rescue-NSW-Battery-and-Charging-Safety.pdf",
+      "title": "Fire and Rescue NSW - Battery and Charging Safety",
+      "kind": "External source brief",
+      "source": "https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/battery-and-charging-safety",
+      "category": "Battery / fire safety"
+    },
+    {
+      "number": 95,
+      "filename": "095-external-Fire-and-Rescue-NSW-Shop-Charge-and-Recycle-Lithium-ion-Batteries-Safely.pdf",
+      "title": "Fire and Rescue NSW - Shop, Charge and Recycle Lithium-ion Batteries Safely",
+      "kind": "External source brief",
+      "source": "https://www.fire.nsw.gov.au/fire-safety/home-fire-safety/topics/shop-charge-and-recycle-safely",
+      "category": "Battery / fire safety"
+    },
+    {
+      "number": 96,
+      "filename": "096-external-MobileMuster-Reuse-and-Data-Management.pdf",
+      "title": "MobileMuster - Reuse and Data Management",
+      "kind": "External source brief",
+      "source": "https://www.mobilemuster.com.au/reuse/",
+      "category": "Mobile reuse / recycling"
+    },
+    {
+      "number": 97,
+      "filename": "097-external-TechCollect-Where-E-waste-Goes.pdf",
+      "title": "TechCollect - Where E-waste Goes",
+      "kind": "External source brief",
+      "source": "https://techcollect.com.au/about-us/where-does-our-e-waste-go/",
+      "category": "Downstream recycling"
+    },
+    {
+      "number": 98,
+      "filename": "098-external-ACCC-Repair-Notice-Requirements.pdf",
+      "title": "ACCC - Repair Notice Requirements",
+      "kind": "External source brief",
+      "source": "https://www.accc.gov.au/consumers/problem-with-a-product-or-service-you-bought/repair-notices",
+      "category": "Australian Consumer Law / repair"
+    },
+    {
+      "number": 99,
+      "filename": "099-external-Good360-Australia-Digital-Divide-and-Device-Reuse.pdf",
+      "title": "Good360 Australia - Digital Divide and Device Reuse",
+      "kind": "External source brief",
+      "source": "https://good360.org.au/digital-divide/",
+      "category": "Social reuse / digital inclusion"
+    },
+    {
+      "number": 100,
+      "filename": "100-external-WorkVentures-Laptop-Refurbishment-Process.pdf",
+      "title": "WorkVentures - Laptop Refurbishment Process",
+      "kind": "External source brief",
+      "source": "https://workventures.com.au/refurbishment/",
+      "category": "Social enterprise ITAD / refurbishment"
+    }
+  ]
+}
