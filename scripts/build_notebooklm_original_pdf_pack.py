@@ -243,9 +243,9 @@ def download_pdf(url: str, dest: Path):
         "Accept": "application/pdf,application/octet-stream;q=0.9,*/*;q=0.5",
     }
     last_error = None
-    for attempt in range(1, 3):
+    for attempt in range(1, 2):
         try:
-            with requests.get(url, headers=headers, timeout=(20, 35), allow_redirects=True, stream=True) as r:
+            with requests.get(url, headers=headers, timeout=(15, 30), allow_redirects=True, stream=True) as r:
                 r.raise_for_status()
                 with dest.open("wb") as f:
                     for chunk in r.iter_content(1024 * 256):
@@ -264,12 +264,12 @@ def download_pdf(url: str, dest: Path):
             time.sleep(attempt * 2)
 
     cmd = [
-        "curl", "--http1.1", "-L", "--fail", "--retry", "2", "--retry-delay", "2", "--max-time", "75",
+        "curl", "--http1.1", "-L", "--fail", "--retry", "2", "--retry-delay", "2", "--max-time", "60",
         "-A", headers["User-Agent"], "-H", "Accept: application/pdf,*/*;q=0.8",
         "-o", str(dest), url,
     ]
     try:
-        subprocess.run(cmd, check=True, timeout=90)
+        subprocess.run(cmd, check=True, timeout=75)
         if dest.stat().st_size < 3000 or dest.read_bytes()[:5] != b"%PDF-":
             raise RuntimeError("curl fallback did not produce a valid PDF")
         pdf_info(dest)
@@ -369,7 +369,7 @@ def main():
             "bytes": out.stat().st_size,
         }
 
-    with ThreadPoolExecutor(max_workers=8) as pool:
+    with ThreadPoolExecutor(max_workers=20) as pool:
         future_map = {pool.submit(fetch_original, task): task for task in tasks}
         for future in as_completed(future_map):
             n, title, url, _ = future_map[future]
