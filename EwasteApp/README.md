@@ -58,6 +58,18 @@ AssetFlow now includes:
 - attribution fields such as `created_by` are protected
 - private customer/device information must never be committed to the public Git repository
 
+## Field Validation
+
+The private route **/validation** is the evidence-capture workspace for the project's remaining real-world unknowns. It stores:
+
+- official/public-source evidence and GIPA/informal responses;
+- organisation device-disposal interviews;
+- anonymous Repair Café demand observations;
+- private commercial quotes/terms; and
+- per-asset pilot economics.
+
+These records use Supabase RLS and must not be mirrored into the public GitHub repository when they contain private correspondence, quotes or contact-specific information.
+
 ## Deployment model
 
 - Production URL: https://dubbo-ewaste-app.vercel.app/
