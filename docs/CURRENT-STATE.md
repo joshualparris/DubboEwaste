@@ -41,6 +41,7 @@ Since the previous 2 October snapshot, the repository has added substantial sour
 - a device schematic/service-manual library and an AssetFlow device-library screen;
 - broader device-intelligence lookup, QR/barcode scanning, batch label printing and processing/admin CRUD work;
 - a corrected 100-PDF NotebookLM research pack using 55 original publisher PDFs.
+- a focused 6 October deep-research pack covering 31 previously under-researched online questions: market size, procurement entry, second-hand tax/accounting, secure transport, cyber controls, electrical/parts compliance, recall screening, repair-parts supply, Repair Café governance, environmental claims and right to repair.
 
 These additions improve evidence, tooling and prospecting. **They do not by themselves close any of the external launch gates above.**
 
