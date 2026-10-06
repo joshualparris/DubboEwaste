@@ -91,7 +91,7 @@ https://www1.health.nsw.gov.au/pds/ActivePDSDocuments/PD2026_001.pdf
 https://www.csu.edu.au/division/vcoffice/ogca/right-to-information  
 https://www.csu.edu.au/division/vcoffice/ogca/university-ombudsman/contract-register
 
-Use [../templates/institution-device-disposal-interview.md](../templates/institution-device-disposal-interview.md).
+Use [../templates/institution-device-disposal-interview.md](../templates/institution-device-disposal-interview.md) for private/non-government organisations, and [../templates/public-institution-it-disposal-information-request.md](../templates/public-institution-it-disposal-information-request.md) for TAFE NSW, WNSWLHD/eHealth NSW and Charles Sturt University.
 
 ## 5. Actual local volumes
 
@@ -122,7 +122,7 @@ After 20–30 devices calculate contribution after labour using a chosen labour 
 
 ## 7. Council / Fair Trading / insurer approval
 
-Track final written responses under **APPROVALS**.
+Track final written responses under **APPROVALS**. Use [../templates/phase-0-approval-request-pack.md](../templates/phase-0-approval-request-pack.md) for the Council planning, NSW Fair Trading and insurer/broker enquiries.
 
 Close separately:
 - Council planning/home-workshop/public visits/storage/batteries;
