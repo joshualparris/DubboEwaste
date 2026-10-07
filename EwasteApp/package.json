@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "vercel-build": "next build"
+    "vercel-build": "npm run qa:mobile && next build",
+    "qa:mobile": "node scripts/mobile-qa.mjs",
+    "prebuild": "npm run qa:mobile"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",
