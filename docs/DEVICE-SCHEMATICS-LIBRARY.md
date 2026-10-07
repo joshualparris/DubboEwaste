@@ -1,6 +1,6 @@
 # Device schematics, service manuals and repair library
 
-_Last updated: 2026-10-06_
+_Last updated: 2026-10-07_
 
 This is the privacy-safe public index joining the DadLAN fleet with verified tech-purchase evidence. Home addresses, payment details and order numbers are intentionally excluded.
 
@@ -11,6 +11,27 @@ This is the privacy-safe public index joining the DadLAN fleet with verified tec
 - This public repo and the AssetFlow site link to copyrighted manufacturer/third-party manuals rather than republishing them unless redistribution rights are clear.
 - Openly licensed files may be mirrored with the licence and attribution preserved.
 
+
+## 7 October current-fleet board match audit
+
+A dedicated board-level pass has now cross-matched Action1/WMI data, exact retail/MTM identifiers and repair-community board documentation:
+
+**[Current fleet schematic match audit — 7 October 2026](CURRENT-FLEET-SCHEMATIC-MATCHES-2026-10-07.md)**
+
+Strong board-platform matches now exist for:
+
+- Toshiba L50-A00M PSKLEA-00M001 → **Pegatron VGFTG Rev 2.1** schematic + BoardView.
+- Lenovo ThinkPad L480 20LTS0Q200 / Type 20LT → **NM-B461 Rev 0.1** schematic + BoardView.
+- HP ProBook 4230s → **Inventec JOURNEY / 6050A2406601** schematic family.
+- HP 15-db0034AU → **EPV51 LA-G078P / HP L20478-601** schematic + BoardView.
+- Toshiba L630 UMA → **BM10 / 6050A2338402-MB-A01** schematic family.
+- Compaq Presario CQ56 Intel/T3500 → **623909-001 / DAAX3MB16A1 Rev A / AX3E-DDR2** schematic.
+- HP Compaq 610 VE908PA#ABG Intel UMA → **VV09/W09 / 6050A2256501** schematic family.
+
+Board/FRU identity is also substantially resolved for the HP 435 G8 (**6050A3243801-MB-A01**), HP ProBook 11 G2 (**DUNES_SKLU_MB / 15249-x**) and ThinkPad T61 6457-BP2 (**FRU 42W7877 / NVIDIA NB8P-GL**), but a trustworthy exact circuit schematic has not yet been verified for those boards.
+
+**Final safety rule remains:** verify the printed PCB code and revision before measuring or powering a board using a schematic. "Matched platform" is stronger than a retail-model guess, but it is not a substitute for the final silkscreen check.
+
 ## Collated device inventory
 
 | Rank | Device | Model / part | Best source found | Board-level next step |
@@ -18,28 +39,28 @@ This is the privacy-safe public index joining the DadLAN fleet with verified tec
 | 1 | Gaming PC (2019) | i5-9400 / GTX 1660 / 16GB | — | Record motherboard model + PCB revision |
 | 2 | Dell Latitude 5430 | Standard 5430 assumed | — | Confirm service tag; do not use 5430 Rugged docs |
 | 3 | iMac 27-inch Retina 5K (2017) | 27-inch 2017 | [iFixit family](https://www.ifixit.com/Device/iMac_Intel_27%22_Retina_5K_Display) | Record EMC + logic-board ID |
-| 4 | Lenovo ThinkPad L480 | Type 20LS/20LT | [Lenovo HMM page](https://pcsupport.lenovo.com/ag/en/products/laptops-and-netbooks/thinkpad-l-series-laptops/thinkpad-l480-type-20ls-20lt/document-userguide) | Confirm machine type |
+| 4 | Lenovo ThinkPad L480 | 20LTS0Q200 / Type 20LT | [Lenovo HMM page](https://pcsupport.lenovo.com/ag/en/products/laptops-and-netbooks/thinkpad-l-series-laptops/thinkpad-l480-type-20ls-20lt/document-userguide) · [NM-B461 schematic + BoardView](https://eletronicabr.com/en/files/file/38759-esquema-el%C3%A9trico-e-boardview-notebook-lenovo-thinkpad-l480-l580-nm-b461-rev-01-schematic/) | Verify physical NM-B461 revision before use |
 | 5 | HP EliteBook 840 G3 | 840 G3 | [HP manuals](https://support.hp.com/au-en/product/setup-user-guides/notebook-hp-elitebook-840-g3/7815294) | Official Maintenance and Service Guide |
 | 6 | MacBook Air Early 2015 | 13-inch assumed | [iFixit guides](https://www.ifixit.com/Device/MacBook_Air_13%22_Early_2015) | Confirm A1466/A1465 + board number |
 | 7 | Toshiba Satellite P750 | P750 | [schematic index](https://www.s-manuals.com/notebook/toshiba_satellite_p750) | LA-6831P/LA-6832P variants; verify PCB |
 | 7.5 | Dell Latitude E6510 | E6510 | [Dell service manual](https://www.dell.com/support/product-details/en-au/product/latitude-e6510/resources/manuals) · [schematics](https://www.s-manuals.com/notebook/dell_latitude_e6510) | Verify LA-5571P vs LA-5573P |
 | 8 | ASUS N53Jq | N53Jq | [ASUS manuals](https://www.asus.com/supportonly/n53jq/helpdesk_manual/) | Read PCB code |
 | 9 | HP Pavilion dv7-2206TX | dv7-2206TX | — | Record product number + PCB/spare |
-| 10 | HP ProBook 4230s | 4230s | [HP manuals](https://support.hp.com/au-en/product/setup-user-guides/hp-probook-4230s-notebook-pc/5045209) | Official Maintenance and Service Guide |
+| 10 | HP ProBook 4230s | 4230s / i3-2330M | [HP manuals](https://support.hp.com/au-en/product/setup-user-guides/hp-probook-4230s-notebook-pc/5045209) · [JOURNEY schematic family](https://www.laptopschematic.com/tag/hp-probook/) | Verify 6050A2406601 revision |
 | 11 | Toshiba Satellite L850D | PSKECA-00W002 | — | Photograph PCB code |
 | 12 | Toshiba Tecra A11/P11 x4 | family | [maintenance manual](https://www.manualslib.com/manual/798381/Toshiba-Tecra-A11-Series.html) | Record each full part number |
 | 12.5 | HP EliteBook 2740p | 2740p | [HP manuals](https://support.hp.com/au-en/product/setup-user-guides/hp-elitebook-2740p-tablet-pc/model/4145452) | Official Maintenance and Service Guide |
 | 13 | ASUS N52/N52D/N52DA/N61 | family only | — | Exact underside model + PCB required |
-| 14 | Toshiba Satellite L630 | L630 | [L630/L635 manual](https://manualmachine.com/toshiba/satellitel630/204980-service-manual/) | Confirm PSK code |
+| 14 | Toshiba Satellite L630 | L630 / P6100 / Intel UMA | [L630/L635 manual](https://manualmachine.com/toshiba/satellitel630/204980-service-manual/) · [BM10 schematic](https://eletronicabr.com/en/files/file/16577-electrical-schematic-notebook-toshiba-l630-bm10-and-6050a2338402-mb-a01-board-6050a2338402-mb-a01-rev-f-schematic/) | Verify 6050A2338402-MB-A01 revision |
 | 14.5 | Gateway NE56R06a-B9604G50Mnks | exact retail model | — | Read motherboard code |
 | 15 | Toshiba Satellite L650D | L650D | — | Record full PSK number + PCB |
 | 16 | Toshiba Satellite L635 | L635 | [L630/L635 manual](https://manualmachine.com/toshiba/satellitel630/204980-service-manual/) | Confirm PSK code |
-| 17 | HP Compaq 610 | 610 | — | Record product number |
-| 17.5 | Compaq Presario CQ56 | CQ56 family | — | Record exact CQ56-xxx/product number |
+| 17 | HP Compaq 610 | VE908PA#ABG / T5870 / Intel UMA | [6050A2256501 schematic evidence](https://www.chinafix.com/thread-776228-1-1.html) | Verify VV09/W09 PCB revision |
+| 17.5 | Compaq Presario CQ56 | Intel T3500 / Mobile Intel 4-Series | [623909-001 / DAAX3MB16A1 schematic](https://www.eserviceinfo.com/index.php?searchstring=CQ56+Pavilion+G56+DAAX3MB16A1+623909-001+rev-a+AX3E-DDR2&what=search2) | Verify DAAX3MB16A1 Rev A silkscreen |
 | 18 | Toshiba Satellite L450 | L450 | [family maintenance manual](https://manuals.plus/m/4b0b13e73677483b0b3db2c3c032e9d76a76add11ee521e25a9746905d00187f) | Record PSL number |
-| 19 | HP 15-db0034AU | 15-db0034AU | — | Record product number + board ID |
+| 19 | HP 15-db0034AU | 15-db0034AU / A6-9225 | [L20478-601 exact-model compatibility](https://www.mypinnacleservice.com/l20478-601-l20478-001-a6-9225-motherboard-for-hp-laptop-15-db-15t-db-epv51-la-g078p/) · [LA-G078P schematic + BoardView](https://realschematic.com/shop/11854/desc/hp-255-g7-hp-15-db-15t-db-series-pcb-la-g078p) | Verify EPV51 LA-G078P revision |
 | 20 | Toshiba Satellite C50D-A | PSCFWA-03J00K | — | Photograph PCB code |
-| 21 | ASUS F553M | F553M family | — | Confirm suffix + PCB |
+| 21 | ASUS X553MA | Action1 WMI exact model / N3540 | [X553MA BoardView/revision evidence](https://www.elvikom.pl/post183376.html) | Verify Rev 1.2 vs 2.0 and PCB P/N |
 | 22 | Toshiba Satellite C50-B | PSCMLA-03200S | [LA-B301P schematic index](https://www.s-manuals.com/notebook/toshiba_satellite_c50-b) | Verify PCB is LA-B301P |
 | 23 | Toshiba Satellite Pro C50 | family only | — | Full PSC number + PCB required |
 | 24 | Lenovo IdeaPad 100S | 100S-11IBY likely | [Lenovo manual page](https://support.lenovo.com/au/en/solutions/pd104048/) | Confirm Type 80R2 |
