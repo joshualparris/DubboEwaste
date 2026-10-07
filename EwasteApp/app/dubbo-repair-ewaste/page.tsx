@@ -149,6 +149,7 @@ export default function DubboRepairEwasteGuide() {
       </div>
 
       <h2>Quick directory</h2>
+      <div className="table-wrap">
       <table>
         <thead><tr><th>I need to…</th><th>Best current option</th><th>Cost</th><th>What to know</th></tr></thead>
         <tbody>
@@ -157,6 +158,7 @@ export default function DubboRepairEwasteGuide() {
           ))}
         </tbody>
       </table>
+      </div>
 
       <h2>Business computers</h2>
       <p>For a business, school or organisation retiring a batch of computers, use a formal ITAD process rather than assuming household drop-off rules apply. For roughly 20+ data-bearing devices, request multiple quotes and require serialised chain of custody, media-appropriate sanitisation evidence, failed-wipe handling, reuse/remarketing terms and final disposition reporting.</p>
