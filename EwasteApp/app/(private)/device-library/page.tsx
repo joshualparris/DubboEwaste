@@ -132,7 +132,7 @@ export default function DeviceLibraryPage() {
 
     <section className="card">
       <h2>Current 15-laptop fleet</h2>
-      <div style={{overflowX: "auto"}}>
+      <div className="table-wrap">
         <table>
           <thead>
             <tr>
