@@ -2,7 +2,7 @@ const groups = [
   {
     title: "Electrical & power diagnostics",
     items: [
-      ["SCA Hobbyist Digital Multimeter", "Purchased, pending collection/first photo", "SCA Dubbo Click & Collect"],
+      ["SCA Hobbyist Digital Multimeter", "Collected · owner-confirmed 8 Oct 2026", "Picked up from SCA Dubbo · current storage not confirmed"],
       ["Lenovo 90W AC adapter", "Confirmed", "Current repair job / home work area"],
       ["Universal laptop PSU + interchangeable barrel tips", "Confirmed", "Home office · adapter box"],
       ["Laptop power bricks / chargers", "Multiple confirmed", "Home office · power tubs / media basket"],
@@ -103,7 +103,7 @@ const unconfirmed = [
 export default function WorkshopInventoryPage() {
   return <div className="stack">
     <div>
-      <div className="badge">Photo-derived baseline · 7 Oct 2026</div>
+      <div className="badge">Photo-derived baseline · updated 8 Oct 2026</div>
       <h1>Workshop inventory</h1>
       <p className="muted">Tools, test gear and workshop equipment actually observed in supplied photos. Counts are deliberately conservative; mixed tubs are not guessed.</p>
     </div>
@@ -134,6 +134,12 @@ export default function WorkshopInventoryPage() {
       <h2>Do not buy until checked</h2>
       <ul>{unconfirmed.map(item => <li key={item}>{item}</li>)}</ul>
       <p className="muted">Some of these may already be in unopened cases or mixed storage. Audit first, then buy only proven gaps.</p>
+    </section>
+
+    <section className="card">
+      <h2>Learn to use the multimeter</h2>
+      <p>The SCA multimeter has been collected. Start with low-voltage charger measurement and continuity, then desktop ATX power rails and laptop board-level diagnostics.</p>
+      <p><a href="https://github.com/joshualparris/DubboEwaste/blob/main/docs/MULTIMETER-REPAIR-TRAINING-VIDEOS.md" target="_blank" rel="noopener noreferrer">Open curated multimeter training videos and safety notes ↗</a></p>
     </section>
 
     <section className="card">
