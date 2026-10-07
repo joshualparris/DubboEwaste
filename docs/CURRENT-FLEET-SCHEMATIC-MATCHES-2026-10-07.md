@@ -20,7 +20,7 @@ Do not treat a retail model match alone as permission to use a schematic. The pr
 | Lenovo ThinkPad L480 | **20LTS0Q200 / Type 20LT**, i3-7130U | LCFC/Compal **EL480/EL580 NM-B461 Rev 0.1**; schematic + BoardView source explicitly covers L480 Types 20LS/20LT. | MATCHED PLATFORM | https://eletronicabr.com/en/files/file/38759-esquema-el%C3%A9trico-e-boardview-notebook-lenovo-thinkpad-l480-l580-nm-b461-rev-01-schematic/ |
 | Toshiba Satellite L850D | **PSKECA-00W002**, A10-4600M, Radeon HD 7500/7600-series | Pegatron **PLAC/CSAC DSC Main Board Rev 2.1** BoardView exists for L850D, but public evidence does not prove PSKECA-00W002 uses that exact PCB. | CANDIDATE ONLY | https://realschematic.com/shop/10650/desc/toshiba-satellite-l850d-satellite-l870d-satellite-l875d |
 | HP ProBook 11 G2 / EE G2 | i3-6100U, SMBIOS board **818F**, BIOS **N92** | Board family **DUNES_SKLU_MB**; public G2 material shows PCB **15249-1** and EE G2 material shows **15249-2**. 818F/N92 does not safely distinguish the physical PCB revision. No trustworthy full schematic located. | BOARD ID RESOLVED, REVISION PENDING | https://vinafix.com/threads/hp-probook-11-g2-bios-15249-1.31273/ |
-| MacBook Air Early 2015 | Early-2015 unit; 11-inch vs 13-inch still not software-confirmed | **A1465 11-inch = 820-00164** schematic + BoardView; **A1466 13-inch = 820-00165** schematic + BoardView. Run a Model Identifier check to select the exact one. | EXACT CHOICE BLOCKED BY MODEL ID | https://schematics4u.com/product/macbook-air-11-early-2015-a1465-820-00164-schematics-and-boardview/ and https://schematics4u.com/product/macbook-air-13-early-2015-a1466-820-00165-schematics-and-boardview/ |
+| MacBook Air 13-inch Early 2015 | **MacBookAir7,2**; i5-5250U; 8 GB; prior inventory identity now recovered | Independent model references map **MacBookAir7,2** to the **13-inch Early 2015 A1466, EMC 2925**. Board-repair sources map A1466 Early 2015 to **J113 / 820-00165** with schematic **051-00385** plus BoardView. | MATCHED EXACT MODEL | https://www.ifixit.com/Device/MacBook_Air_13%22_Early_2015 · https://schematics4u.com/product/macbook-air-13-early-2015-a1466-820-00165-schematics-and-boardview/ |
 | HP ProBook 4230s | i3-2330M, Intel HD 3000 | Inventec **JOURNEY / 6050A2406601**; multiple revisions exist (A01/A02 etc). Full circuit schematic sources found. Verify the actual board revision before use. | MATCHED PLATFORM | https://www.laptopschematic.com/tag/hp-probook/ |
 | Toshiba Tecra P11 | i7-620M, NVIDIA NVS 2100M | 462-page Toshiba maintenance manual includes board layout/wiring/system-unit material, but no trustworthy true motherboard circuit schematic/BoardView was found. | SERVICE MANUAL ONLY | https://www.manualslib.com/products/Toshiba-Tecra-P11-3014436.html |
 | HP 15-db0034AU | exact retail model, A6-9225 / Radeon R4 | HP spare **L20478-601 / L20478-001** maps to Compal **EPV51 LA-G078P**. The compatibility list explicitly includes **15-db0034AU**. Schematic Rev 0.3 and BoardView Rev 1.0 sources found. | MATCHED PLATFORM — strongest current match | https://www.mypinnacleservice.com/l20478-601-l20478-001-a6-9225-motherboard-for-hp-laptop-15-db-15t-db-epv51-la-g078p/ and https://realschematic.com/shop/11854/desc/hp-255-g7-hp-15-db-15t-db-series-pcb-la-g078p |
@@ -33,7 +33,7 @@ Do not treat a retail model match alone as permission to use a schematic. The pr
 
 ## What this closed
 
-The previous index said none of the 15 current laptops had an exact board schematic match. This audit materially improves that:
+The previous index said none of the 15 current laptops had an exact board schematic match. This audit materially improves that. A subsequent recovery of the previously supplied `MacBookAir7,2` identifier also closes the MacBook Air model-selection gap:
 
 ### Schematic or BoardView platform now matched strongly
 
@@ -44,6 +44,7 @@ The previous index said none of the 15 current laptops had an exact board schema
 5. Toshiba L630 — **BM10 / 6050A2338402-MB-A01**
 6. Compaq Presario CQ56 Intel — **623909-001 / DAAX3MB16A1 Rev A**
 7. HP Compaq 610 Intel UMA — **VV09/W09 / 6050A2256501**
+8. MacBook Air 13-inch Early 2015 — **A1466 / EMC 2925 / MacBookAir7,2 / J113 820-00165**
 
 These are **not** permission to skip the final PCB-code/revision check before board-level work.
 
@@ -56,7 +57,6 @@ These are **not** permission to skip the final PCB-code/revision check before bo
 
 ### Still genuinely blocked
 
-- MacBook Air Early 2015 — one software Model Identifier command selects 820-00164 vs 820-00165.
 - Toshiba L850D PSKECA-00W002 — PLAC/CSAC DSC is a strong candidate, not yet proven for this Australian suffix.
 - Toshiba C50D-A PSCFWA-03J00K — at least two board families exist; physical PCB code is needed.
 - Toshiba Tecra P11 — no trustworthy true circuit schematic found in this pass.
@@ -68,3 +68,12 @@ The public repository and AssetFlow website **link to the source pages**. They d
 ## Rejected sources
 
 Recent survey-gated “free schematic” pages for boards such as ThinkPad 42W7877 were deliberately excluded because their provenance and download behaviour were not trustworthy enough for the library.
+
+
+## MacBook Air exact-match closure — 7 October 2026
+
+An earlier user-supplied hardware inventory recorded **Model Identifier `MacBookAir7,2`**. iFixit identifies the Early-2015 `MacBookAir7,2` as the **13-inch A1466, EMC 2925**. Independent board-repair indexes identify the corresponding Early-2015 A1466 logic-board platform as **J113 / 820-00165** with schematic drawing **051-00385** and a BoardView package. The 11-inch A1465 / 820-00164 branch is therefore no longer the applicable choice for this owned machine.
+
+Identification source: https://www.ifixit.com/Device/MacBook_Air_13%22_Early_2015
+
+Board source: https://schematics4u.com/product/macbook-air-13-early-2015-a1466-820-00165-schematics-and-boardview/
