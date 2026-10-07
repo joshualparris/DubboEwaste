@@ -23,21 +23,21 @@ for (const file of pages) {
   const source = fs.readFileSync(file, "utf8");
   const routeFile = path.relative(path.resolve(here, ".."), file).replaceAll(path.sep, "/");
 
-  const hasTable = /<table\\b/.test(source);
+  const hasTable = /<table\b/.test(source);
   const hasSafeTableContainer =
     /table-wrap/.test(source) ||
-    /overflowX\\s*:\\s*["']auto/.test(source) ||
-    /table\\s*\\{[^}]*overflow-x\\s*:\\s*auto/s.test(source);
+    /overflowX\s*:\s*["']auto/.test(source) ||
+    /table\s*\{[^}]*overflow-x\s*:\s*auto/s.test(source);
 
   if (hasTable && !hasSafeTableContainer) {
     issues.push(`${routeFile}: table without a mobile overflow container`);
   }
 
-  if (/<pre\\b/.test(source) && !/(overflowWrap|overflow\\s*:|doc-code|whiteSpace:\\s*["']pre-wrap)/.test(source)) {
+  if (/<pre\b/.test(source) && !/(overflowWrap|overflow\s*:|doc-code|whiteSpace:\s*["']pre-wrap)/.test(source)) {
     issues.push(`${routeFile}: <pre> content has no overflow/wrap protection`);
   }
 
-  for (const match of source.matchAll(/(?:minWidth|width)\\s*:\\s*["'](\\d+)px["']/g)) {
+  for (const match of source.matchAll(/(?:minWidth|width)\s*:\s*["'](\d+)px["']/g)) {
     if (Number(match[1]) >= 360) {
       issues.push(`${routeFile}: inline fixed width ${match[1]}px can exceed a phone viewport`);
     }
@@ -46,12 +46,12 @@ for (const file of pages) {
 
 const css = fs.readFileSync(cssPath, "utf8");
 const requiredCss = [
-  ["root horizontal containment", /html, body[\\s\\S]*overflow-x:\\s*hidden/],
-  ["container width containment", /\\.container\\{[^}]*width:100%/],
-  ["grid child min-width reset", /\\.stack>\\*,\\.grid>\\*,\\.two>\\*\\{min-width:0\\}/],
-  ["responsive auto-fit grid", /minmax\\(min\\(220px,100%\\),1fr\\)/],
-  ["table wrapper width containment", /\\.table-wrap\\{[^}]*max-width:100%[^}]*overflow-x:auto/],
-  ["mobile container padding", /@media\\(max-width:720px\\)[\\s\\S]*\\.container\\{padding:20px 14px 48px\\}/],
+  ["root horizontal containment", /html, body[\s\S]*overflow-x:\s*hidden/],
+  ["container width containment", /\.container\{[^}]*width:100%/],
+  ["grid child min-width reset", /\.stack>\*,\.grid>\*,\.two>\*\{min-width:0\}/],
+  ["responsive auto-fit grid", /minmax\(min\(220px,100%\),1fr\)/],
+  ["table wrapper width containment", /\.table-wrap\{[^}]*max-width:100%[^}]*overflow-x:auto/],
+  ["mobile container padding", /@media\(max-width:720px\)[\s\S]*\.container\{padding:20px 14px 48px\}/],
 ];
 
 for (const [label, pattern] of requiredCss) {
@@ -68,9 +68,9 @@ for (const file of pages) {
 }
 
 if (issues.length) {
-  console.error("\\nMobile QA failed:");
+  console.error("\nMobile QA failed:");
   for (const issue of issues) console.error(`  - ${issue}`);
   process.exit(1);
 }
 
-console.log("\\nMobile QA PASS: no page-level horizontal-overflow hazards found by the source audit.");
+console.log("\nMobile QA PASS: no page-level horizontal-overflow hazards found by the source audit.");
