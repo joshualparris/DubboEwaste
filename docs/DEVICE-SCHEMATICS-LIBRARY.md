@@ -27,6 +27,7 @@ Strong board-platform matches now exist for:
 - Toshiba L630 UMA → **BM10 / 6050A2338402-MB-A01** schematic family.
 - Compaq Presario CQ56 Intel/T3500 → **623909-001 / DAAX3MB16A1 Rev A / AX3E-DDR2** schematic.
 - HP Compaq 610 VE908PA#ABG Intel UMA → **VV09/W09 / 6050A2256501** schematic family.
+- MacBook Air 13-inch Early 2015 → **MacBookAir7,2 / A1466 / EMC 2925 / J113 820-00165**, schematic drawing **051-00385** + BoardView.
 
 Board/FRU identity is also substantially resolved for the HP 435 G8 (**6050A3243801-MB-A01**), HP ProBook 11 G2 (**DUNES_SKLU_MB / 15249-x**) and ThinkPad T61 6457-BP2 (**FRU 42W7877 / NVIDIA NB8P-GL**), but a trustworthy exact circuit schematic has not yet been verified for those boards.
 
@@ -41,7 +42,7 @@ Board/FRU identity is also substantially resolved for the HP 435 G8 (**6050A3243
 | 3 | iMac 27-inch Retina 5K (2017) | 27-inch 2017 | [iFixit family](https://www.ifixit.com/Device/iMac_Intel_27%22_Retina_5K_Display) | Record EMC + logic-board ID |
 | 4 | Lenovo ThinkPad L480 | 20LTS0Q200 / Type 20LT | [Lenovo HMM page](https://pcsupport.lenovo.com/ag/en/products/laptops-and-netbooks/thinkpad-l-series-laptops/thinkpad-l480-type-20ls-20lt/document-userguide) · [NM-B461 schematic + BoardView](https://eletronicabr.com/en/files/file/38759-esquema-el%C3%A9trico-e-boardview-notebook-lenovo-thinkpad-l480-l580-nm-b461-rev-01-schematic/) | Verify physical NM-B461 revision before use |
 | 5 | HP EliteBook 840 G3 | 840 G3 | [HP manuals](https://support.hp.com/au-en/product/setup-user-guides/notebook-hp-elitebook-840-g3/7815294) | Official Maintenance and Service Guide |
-| 6 | MacBook Air Early 2015 | 13-inch assumed | [iFixit guides](https://www.ifixit.com/Device/MacBook_Air_13%22_Early_2015) | Confirm A1466/A1465 + board number |
+| 6 | MacBook Air 13-inch Early 2015 | MacBookAir7,2 / A1466 / EMC 2925 | [iFixit exact model](https://www.ifixit.com/Device/MacBook_Air_13%22_Early_2015) · [820-00165 schematic + BoardView](https://schematics4u.com/product/macbook-air-13-early-2015-a1466-820-00165-schematics-and-boardview/) | Exact platform resolved: J113 / 820-00165; verify physical board revision only before powered board work |
 | 7 | Toshiba Satellite P750 | P750 | [schematic index](https://www.s-manuals.com/notebook/toshiba_satellite_p750) | LA-6831P/LA-6832P variants; verify PCB |
 | 7.5 | Dell Latitude E6510 | E6510 | [Dell service manual](https://www.dell.com/support/product-details/en-au/product/latitude-e6510/resources/manuals) · [schematics](https://www.s-manuals.com/notebook/dell_latitude_e6510) | Verify LA-5571P vs LA-5573P |
 | 8 | ASUS N53Jq | N53Jq | [ASUS manuals](https://www.asus.com/supportonly/n53jq/helpdesk_manual/) | Read PCB code |
@@ -113,6 +114,7 @@ Board/FRU identity is also substantially resolved for the HP 435 G8 (**6050A3243
 ## Openly licensed repair PDF
 
 - MacBook Air 13-inch Early 2015 teardown, iFixit **CC BY-NC-SA**: https://documents.cdn.ifixit.com/pdf/ifixit/guide_38266_en.pdf
+- Owned machine identity is now resolved as **MacBookAir7,2 / A1466 / EMC 2925**, corresponding to the **J113 / 820-00165** board platform.
 
 ## Physical identification pass
 
