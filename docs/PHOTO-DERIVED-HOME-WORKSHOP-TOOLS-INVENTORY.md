@@ -1,6 +1,6 @@
 # Photo-derived home workshop / ITAD tool inventory
 
-**Updated:** 7 October 2026  
+**Updated:** 8 October 2026  
 **Purpose:** consolidate tools, test gear, spares and workshop infrastructure visible in Josh's ChatGPT photo history and prior photo-derived inventory notes.
 
 ## Evidence and confidence rule
@@ -29,7 +29,7 @@ Treat this as the best verified baseline and extend it as older relevant photos 
 
 | Item | Status | Qty | Observed location | Notes |
 |---|---|---:|---|---|
-| SCA Hobbyist Digital Multimeter | **Purchased** | 1 | Click & Collect, SCA Dubbo; not yet photographed as collected | $15.99 order placed 7 Oct 2026. Intended for DC PSU/charger testing, continuity and basic electronics diagnostics. |
+| SCA Hobbyist Digital Multimeter | **Collected (owner-confirmed 8 Oct 2026)** | 1 | Picked up from SCA Dubbo; current storage location not confirmed | $15.99 purchased 7 Oct 2026. Intended for low-voltage DC charger/PSU testing, continuity and basic electronics diagnostics. |
 | Lenovo 90W AC adapter / power brick | **Confirmed** | 1 | Current repair job / home work area | 20V-class Lenovo laptop/dock PSU photographed during dock troubleshooting. Keep sealed for output testing before any internal repair. |
 | Universal laptop power adapter with interchangeable DC barrel tips | **Confirmed** | 1 set | Home office, mixed adapters / Australia Post box | Useful as a controlled diagnostic supply where voltage, polarity, connector and power rating are verified first. |
 | Laptop power bricks / chargers | **Confirmed** | Multiple | Home office cable/power tubs; media/accessories basket | Mixed brands and connector types. Needs label/test pass. |
