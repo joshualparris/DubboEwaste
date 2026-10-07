@@ -1,67 +1,190 @@
-const schematicLeads = [
-  "Dell Latitude E6510 — LA-5571P / LA-5573P variants",
-  "Dell Latitude D630 — LA-3301P / LA-3302P variants",
-  "Toshiba Satellite P750 — LA-6831P / LA-6832P variants",
-  "Toshiba Satellite C50-B PSCMLA-03200S — LA-B301P Rev 1.0",
-  "ASUS F5R — Rev 2.0 electrical schematic",
-  "ASUS X205TA — schematic plus BoardView package",
-  "Samsung Galaxy A55 5G — Samsung repair guide found; confirm exact SM-A556 regional submodel",
-] as const;
+type Match = {
+  device: string;
+  identity: string;
+  board: string;
+  status: string;
+  source?: string;
+};
 
-const officialManuals = [
-  "Lenovo ThinkPad L480",
-  "HP EliteBook 840 G3",
-  "HP ProBook 4230s",
-  "HP EliteBook 2740p",
-  "Dell Latitude E6510",
-  "Dell Latitude D630",
-  "Dell Inspiron 1525",
-  "Dell Inspiron 6400",
-  "Dell Inspiron 6000",
-  "Dell Inspiron 2200",
-  "Dell Dimension 3100",
-  "ASUS N53Jq",
-] as const;
+const currentFleet: Match[] = [
+  {
+    device: "HP ProBook x360 435 G8",
+    identity: "Ryzen 5 5600U; Action1 exact WMI model",
+    board: "6050A3243801-MB-A01",
+    status: "Board identified; circuit schematic still pending",
+    source: "https://www.indiafix.in/2025/12/hp-probook-x360-435-g8-6050a3243801-mb.html",
+  },
+  {
+    device: "Toshiba Satellite L50-A00M",
+    identity: "PSKLEA-00M001; i5-3337U; GeForce GT 740M",
+    board: "Pegatron VGFTG MB Rev 2.1",
+    status: "Matched platform: schematic + BoardView found",
+    source: "https://realschematic.com/shop/10263/desc/toshiba-satellite-l50-a-series",
+  },
+  {
+    device: "Lenovo ThinkPad L480",
+    identity: "20LTS0Q200 / Type 20LT; i3-7130U",
+    board: "EL480/EL580 NM-B461 Rev 0.1",
+    status: "Matched platform: schematic + BoardView found",
+    source: "https://eletronicabr.com/en/files/file/38759-esquema-el%C3%A9trico-e-boardview-notebook-lenovo-thinkpad-l480-l580-nm-b461-rev-01-schematic/",
+  },
+  {
+    device: "Toshiba Satellite L850D",
+    identity: "PSKECA-00W002; A10-4600M; Radeon 7500/7600-series",
+    board: "PLAC/CSAC DSC Rev 2.1 candidate",
+    status: "Candidate only; exact PCB still needs physical match",
+    source: "https://realschematic.com/shop/10650/desc/toshiba-satellite-l850d-satellite-l870d-satellite-l875d",
+  },
+  {
+    device: "HP ProBook 11 G2 / EE G2",
+    identity: "i3-6100U; SMBIOS board 818F; N92 BIOS",
+    board: "DUNES_SKLU_MB / 15249-1 or 15249-2",
+    status: "Board family identified; physical revision still unresolved",
+    source: "https://vinafix.com/threads/hp-probook-11-g2-bios-15249-1.31273/",
+  },
+  {
+    device: "MacBook Air Early 2015",
+    identity: "Exact 11-inch vs 13-inch model identifier still needed",
+    board: "A1465 = 820-00164; A1466 = 820-00165",
+    status: "Both schematics found; one software Model Identifier check selects exact file",
+    source: "https://schematics4u.com/product/macbook-air-13-early-2015-a1466-820-00165-schematics-and-boardview/",
+  },
+  {
+    device: "HP ProBook 4230s",
+    identity: "i3-2330M; Intel HD 3000",
+    board: "Inventec JOURNEY / 6050A2406601",
+    status: "Matched platform: circuit schematic found; verify PCB revision",
+    source: "https://www.laptopschematic.com/tag/hp-probook/",
+  },
+  {
+    device: "Toshiba Tecra P11",
+    identity: "i7-620M; NVIDIA NVS 2100M",
+    board: "P11/FHNSY service documentation",
+    status: "Service manual only; no trustworthy true circuit schematic found",
+    source: "https://www.manualslib.com/products/Toshiba-Tecra-P11-3014436.html",
+  },
+  {
+    device: "HP 15-db0034AU",
+    identity: "A6-9225 / Radeon R4",
+    board: "HP L20478-601 / EPV51 LA-G078P",
+    status: "Strongest match: exact-model board compatibility + schematic + BoardView",
+    source: "https://realschematic.com/shop/11854/desc/hp-255-g7-hp-15-db-15t-db-series-pcb-la-g078p",
+  },
+  {
+    device: "Lenovo ThinkPad T61",
+    identity: "6457-BP2; Core 2 Duo T7500",
+    board: "FRU 42W7877; NVIDIA NB8P-GL with AMT",
+    status: "Exact FRU resolved; reputable exact 42W7877 circuit schematic still pending",
+    source: "https://thinkpads.com/support/hmm/hmm_pdf/42x3546_04.pdf",
+  },
+  {
+    device: "Toshiba Satellite L630",
+    identity: "Pentium P6100; Intel UMA",
+    board: "BM10 / 6050A2338402-MB-A01",
+    status: "Matched platform: circuit schematic found; verify revision",
+    source: "https://eletronicabr.com/en/files/file/16577-electrical-schematic-notebook-toshiba-l630-bm10-and-6050a2338402-mb-a01-board-6050a2338402-mb-a01-rev-f-schematic/",
+  },
+  {
+    device: "ASUS X553MA",
+    identity: "Action1 exact WMI model; Pentium N3540",
+    board: "X553MA Rev 1.2 / Rev 2.0; 60NB04X0-MB1B00 documented for Rev 2.0",
+    status: "BoardView available; physical revision needed; no full schematic verified",
+    source: "https://www.elvikom.pl/post183376.html",
+  },
+  {
+    device: "Toshiba Satellite C50D-A",
+    identity: "PSCFWA-03J00K; E1-2100; Radeon HD 8210",
+    board: "6050A2556901-MB-A03 or PT10AN DSC Rev 2.1",
+    status: "Multiple board families exist; physical PCB code required",
+    source: "https://realschematic.com/shop/10584/desc/toshiba-satellite-c50d-a-series-satellite-c55d-a-series",
+  },
+  {
+    device: "Compaq Presario CQ56",
+    identity: "Celeron T3500; Mobile Intel 4-Series",
+    board: "HP 623909-001 / DAAX3MB16A1 Rev A / AX3E-DDR2",
+    status: "Matched platform: exact Intel UMA board spare + circuit schematic found",
+    source: "https://www.eserviceinfo.com/index.php?searchstring=CQ56+Pavilion+G56+DAAX3MB16A1+623909-001+rev-a+AX3E-DDR2&what=search2",
+  },
+  {
+    device: "HP Compaq 610",
+    identity: "VE908PA#ABG; T5870; Intel 965/X3100",
+    board: "VV09/W09 / 6050A2256501",
+    status: "Matched platform: circuit schematic found; verify A03/A04 revision",
+    source: "https://www.chinafix.com/thread-776228-1-1.html",
+  },
+];
 
-const needsId = [
-  "Gaming PC — motherboard model and PCB revision",
-  "Dell Latitude 5430 — service tag and standard-versus-Rugged check",
-  "HP Pavilion dv7-2206TX — product number and motherboard spare/PCB",
-  "Toshiba L850D PSKECA-00W002 — motherboard PCB code",
-  "ASUS N52/N52D/N52DA/N61 — exact underside model and PCB",
-  "Gateway NE56R06a-B9604G50Mnks — motherboard code",
-  "ASUS F553M — exact suffix and PCB",
-  "HP CQ56, dv2000 and dv6000 families — exact product number and board ID",
-] as const;
+const matched = currentFleet.filter((item) => item.status.startsWith("Matched") || item.status.startsWith("Strongest"));
 
 export default function DeviceLibraryPage() {
   return <div className="stack">
     <div>
       <div className="badge">Repair intelligence</div>
       <h1>Device schematics & repair library</h1>
-      <p className="muted">DadLAN fleet research, service-manual coverage, board-schematic leads and the identifiers still needed for exact board matching.</p>
+      <p className="muted">Board-level research for the current DadLAN fleet, refreshed 7 October 2026 using Action1/WMI identity data and model-specific repair sources.</p>
     </div>
+
     <section className="card">
-      <h2>Board-matching rule</h2>
-      <p>Match the physical motherboard silkscreen and revision before using an electrical schematic or BoardView. A retail laptop model alone is often not specific enough.</p>
-      <p className="muted">Copyrighted manufacturer and third-party manuals are referenced rather than republished unless redistribution rights are clear.</p>
+      <h2>Current result</h2>
+      <p><strong>{matched.length} of {currentFleet.length}</strong> current laptops now have a strong motherboard-platform match with a schematic or BoardView source. Several others now have the board family or FRU identified even though an exact circuit schematic is still missing.</p>
+      <p className="muted">A platform match is not the final electrical-repair check. Confirm the motherboard silkscreen and PCB revision before using a schematic on a powered board.</p>
     </section>
+
     <section className="card">
-      <h2>Strongest electrical-schematic leads</h2>
-      <ul>{schematicLeads.map((item)=><li key={item}>{item}</li>)}</ul>
+      <h2>Current 15-laptop fleet</h2>
+      <div style={{overflowX: "auto"}}>
+        <table>
+          <thead>
+            <tr>
+              <th>Device</th>
+              <th>Known identity</th>
+              <th>Board / schematic</th>
+              <th>Status</th>
+              <th>Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            {currentFleet.map((item) => <tr key={item.device}>
+              <td><strong>{item.device}</strong></td>
+              <td>{item.identity}</td>
+              <td>{item.board}</td>
+              <td>{item.status}</td>
+              <td>{item.source ? <a href={item.source} target="_blank" rel="noreferrer">Open ↗</a> : "—"}</td>
+            </tr>)}
+          </tbody>
+        </table>
+      </div>
     </section>
+
     <section className="card">
-      <h2>Official service-manual coverage found</h2>
-      <div className="tag-cloud">{officialManuals.map((item)=><span className="badge" key={item}>{item}</span>)}</div>
+      <h2>Strongest newly matched boards</h2>
+      <ul>
+        <li>Toshiba L50-A00M — <strong>VGFTG Rev 2.1</strong>.</li>
+        <li>Lenovo ThinkPad L480 Type 20LT — <strong>NM-B461 Rev 0.1</strong>.</li>
+        <li>HP ProBook 4230s — <strong>JOURNEY / 6050A2406601</strong>.</li>
+        <li>HP 15-db0034AU — <strong>EPV51 LA-G078P / L20478-601</strong>.</li>
+        <li>Toshiba L630 — <strong>BM10 / 6050A2338402-MB-A01</strong>.</li>
+        <li>Compaq CQ56 Intel — <strong>623909-001 / DAAX3MB16A1 Rev A</strong>.</li>
+        <li>HP Compaq 610 Intel UMA — <strong>VV09/W09 / 6050A2256501</strong>.</li>
+      </ul>
     </section>
+
     <section className="card">
-      <h2>Needs exact model or board code</h2>
-      <ul>{needsId.map((item)=><li key={item}>{item}</li>)}</ul>
-      <p className="muted">Capture the underside model/product label, motherboard silkscreen, PCB revision, HP spare number or Dell DP/N, and full Toshiba PS*/PT* part number.</p>
+      <h2>Still blocked from an exact file</h2>
+      <ul>
+        <li><strong>MacBook Air Early 2015:</strong> run <code>system_profiler SPHardwareDataType</code> to select 11-inch 820-00164 or 13-inch 820-00165.</li>
+        <li><strong>Toshiba L850D:</strong> PLAC/CSAC DSC Rev 2.1 is a strong candidate, but the Australian PSKECA-00W002 suffix has not been tied conclusively to that PCB.</li>
+        <li><strong>HP ProBook 11 G2:</strong> 818F/N92 resolves the family, but 15249-1 versus 15249-2 still needs the printed PCB code.</li>
+        <li><strong>ThinkPad T61 6457-BP2:</strong> Lenovo maps it to FRU 42W7877 / NVIDIA NB8P-GL, but no reputable exact 42W7877 circuit schematic was found.</li>
+        <li><strong>ASUS X553MA:</strong> BoardViews exist for multiple revisions; the printed revision decides which one.</li>
+        <li><strong>Toshiba C50D-A:</strong> at least two board families exist; the printed PCB code is required.</li>
+        <li><strong>Tecra P11:</strong> excellent maintenance documentation exists, but no trustworthy true motherboard circuit schematic was found.</li>
+      </ul>
     </section>
+
     <section className="card">
-      <h2>Purchase-derived tech added</h2>
-      <p>Evidence adds a Samsung Galaxy A55 5G in use, an eBay HP laptop listing, Fitbit Inspire 3, TP-Link Archer AX53, TP-Link Archer VR2100, Toshiba Canvio 1TB drive, Logitech H110 headset and Nintendo Wii accessories. Private receipt details are not published here.</p>
+      <h2>Library policy</h2>
+      <p>Third-party or copyrighted schematic/BoardView packages are linked to their source rather than mirrored publicly unless redistribution rights are clear. The private Drive library keeps the research index and source cards.</p>
     </section>
   </div>;
 }
