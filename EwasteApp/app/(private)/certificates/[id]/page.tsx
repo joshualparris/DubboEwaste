@@ -25,9 +25,9 @@ export default async function CertificatePage({params}:{params:Promise<{id:strin
         <div><strong>Data state</strong><p>{asset.data_state || "—"}</p></div>
       </div>
       <h2>Recorded tests</h2>
-      {!snap.tests?.length?<p>No tests were present in the snapshot.</p>:<table><thead><tr><th>Test</th><th>Result</th><th>Notes</th></tr></thead><tbody>{snap.tests.map((t:any,i:number)=><tr key={i}><td>{t.test_type}</td><td>{t.result}</td><td>{t.notes||"—"}</td></tr>)}</tbody></table>}
+      {!snap.tests?.length?<p>No tests were present in the snapshot.</p>:<div className="table-wrap"><table><thead><tr><th>Test</th><th>Result</th><th>Notes</th></tr></thead><tbody>{snap.tests.map((t:any,i:number)=><tr key={i}><td>{t.test_type}</td><td>{t.result}</td><td>{t.notes||"—"}</td></tr>)}</tbody></table></div>}
       <h2>Media / sanitisation</h2>
-      {!snap.media?.length?<p>No child media records were present in the snapshot.</p>:<table><thead><tr><th>Media</th><th>Type</th><th>Data state</th><th>Evidence</th></tr></thead><tbody>{snap.media.map((m:any)=><tr key={m.id}><td>{m.media_code}</td><td>{m.media_type}</td><td>{m.data_state}</td><td>{(m.sanitisation_tasks??[]).map((t:any,i:number)=><div key={i}>{t.status} · {t.tool_name||t.method||"manual"} {t.raw_report_hash?"· hash "+String(t.raw_report_hash).slice(0,16)+"…":""}</div>)}</td></tr>)}</tbody></table>}
+      {!snap.media?.length?<p>No child media records were present in the snapshot.</p>:<div className="table-wrap"><table><thead><tr><th>Media</th><th>Type</th><th>Data state</th><th>Evidence</th></tr></thead><tbody>{snap.media.map((m:any)=><tr key={m.id}><td>{m.media_code}</td><td>{m.media_type}</td><td>{m.data_state}</td><td>{(m.sanitisation_tasks??[]).map((t:any,i:number)=><div key={i}>{t.status} · {t.tool_name||t.method||"manual"} {t.raw_report_hash?"· hash "+String(t.raw_report_hash).slice(0,16)+"…":""}</div>)}</td></tr>)}</tbody></table></div>}
       <h2>Disposition</h2>
       <p>{snap.disposition ? String(snap.disposition.disposition_type)+(snap.disposition.destination ? " → "+snap.disposition.destination : "") : "No disposition recorded at issue time."}</p>
       <hr />
