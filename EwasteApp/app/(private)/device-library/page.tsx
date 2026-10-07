@@ -43,10 +43,10 @@ const currentFleet: Match[] = [
     source: "https://vinafix.com/threads/hp-probook-11-g2-bios-15249-1.31273/",
   },
   {
-    device: "MacBook Air Early 2015",
-    identity: "Exact 11-inch vs 13-inch model identifier still needed",
-    board: "A1465 = 820-00164; A1466 = 820-00165",
-    status: "Both schematics found; one software Model Identifier check selects exact file",
+    device: "MacBook Air 13-inch Early 2015",
+    identity: "MacBookAir7,2 / A1466 / EMC 2925; i5-5250U; 8 GB",
+    board: "J113 / 820-00165; schematic drawing 051-00385",
+    status: "Matched exact model: schematic + BoardView source found",
     source: "https://schematics4u.com/product/macbook-air-13-early-2015-a1466-820-00165-schematics-and-boardview/",
   },
   {
@@ -166,13 +166,13 @@ export default function DeviceLibraryPage() {
         <li>Toshiba L630 — <strong>BM10 / 6050A2338402-MB-A01</strong>.</li>
         <li>Compaq CQ56 Intel — <strong>623909-001 / DAAX3MB16A1 Rev A</strong>.</li>
         <li>HP Compaq 610 Intel UMA — <strong>VV09/W09 / 6050A2256501</strong>.</li>
+        <li>MacBook Air 13-inch Early 2015 — <strong>MacBookAir7,2 / A1466 / EMC 2925 / J113 820-00165</strong>.</li>
       </ul>
     </section>
 
     <section className="card">
       <h2>Still blocked from an exact file</h2>
       <ul>
-        <li><strong>MacBook Air Early 2015:</strong> run <code>system_profiler SPHardwareDataType</code> to select 11-inch 820-00164 or 13-inch 820-00165.</li>
         <li><strong>Toshiba L850D:</strong> PLAC/CSAC DSC Rev 2.1 is a strong candidate, but the Australian PSKECA-00W002 suffix has not been tied conclusively to that PCB.</li>
         <li><strong>HP ProBook 11 G2:</strong> 818F/N92 resolves the family, but 15249-1 versus 15249-2 still needs the printed PCB code.</li>
         <li><strong>ThinkPad T61 6457-BP2:</strong> Lenovo maps it to FRU 42W7877 / NVIDIA NB8P-GL, but no reputable exact 42W7877 circuit schematic was found.</li>
