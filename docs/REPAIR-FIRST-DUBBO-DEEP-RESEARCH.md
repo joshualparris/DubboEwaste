@@ -2,6 +2,8 @@
 
 # How do you get people in Dubbo to repair instead of replace?
 
+> **Newest evidence:** see [REPAIR-FIRST-DUBBO-2026-EVIDENCE-UPDATE.md](REPAIR-FIRST-DUBBO-2026-EVIDENCE-UPDATE.md) for 8 October 2026 Australian household/electronics research, current Austria/France subsidy evidence, current Dubbo repair capacity and funding options.
+
 **Deep research date:** 8 October 2026  
 **Scope:** behaviour change, repair economics, local-government policy, community repair, electronics/appliances and Dubbo-specific implementation.  
 **Project relevance:** Dubbo eWaste / circular economy / reuse-before-recycling.
