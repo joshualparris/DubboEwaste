@@ -28,7 +28,7 @@ const groups = [
   },
   {
     title: "Core GitHub repositories",
-    intro: "Canonical source, research history and implementation work.",
+    intro: "Canonical source, research history and implementation work relevant to DubboEwaste and volunteer operations.",
     links: [
       { name: "DubboEwaste", url: "https://github.com/joshualparris/DubboEwaste", note: "AssetFlow, ITAD/e-waste operations and the canonical Dubbo research corpus." },
       { name: "CircularEconomyDubbo", url: "https://github.com/joshualparris/CircularEconomyDubbo", note: "Public circular-economy site plus gated volunteer/staff workspace." },
@@ -36,15 +36,13 @@ const groups = [
       { name: "DadlanControlCentre", url: "https://github.com/Parris-Tech-Services/DadlanControlCentre", note: "Device sourcing, donation and rollout research." },
       { name: "Windows Doctor", url: "https://github.com/Parris-Tech-Services/hprobooktroubleshoot", note: "Windows/network diagnostics and technician tooling for repair/refurb workflows." },
       { name: "FieldNotes", url: "https://github.com/Parris-Tech-Services/FieldNotes", note: "Structured notes for audits, interviews and technical observations." },
-      { name: "ResearchAtlas", url: "https://github.com/Parris-Tech-Services/ResearchAtlas", note: "Research navigation and evidence-discovery tooling. Repository access may require GitHub authorisation." },
     ],
   },
   {
     title: "Supporting live tools",
-    intro: "Useful tools when doing repair, evidence gathering or research.",
+    intro: "Useful tools when doing repair, evidence gathering or volunteer operations.",
     links: [
       { name: "FieldNotes", url: "https://field-notes-two.vercel.app/", note: "Structured field/incident notes. Do not store passwords or sensitive personal information." },
-      { name: "ResearchAtlas", url: "https://research-atlas-phi.vercel.app/", note: "Research library/navigation tool." },
       { name: "Windows Doctor latest release", url: "https://github.com/Parris-Tech-Services/hprobooktroubleshoot/releases/tag/windows-crash-doctor-desktop-latest", note: "Current Windows Doctor desktop preview release." },
     ],
   },
