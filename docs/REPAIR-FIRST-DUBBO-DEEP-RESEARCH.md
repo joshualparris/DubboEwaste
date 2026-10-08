@@ -1,3 +1,5 @@
+> **8 October 2026 funding correction:** Dubbo Regional Council is outside NSW's Metropolitan and Regional Waste Levy Areas. The Local Government Waste Solutions Fund that funded SSROC's Let's Fix It Sydney project is for levy-paying councils/regional waste groups, so it should **not** be treated as a straightforward DRC-led funding source. The SSROC repair-rebate design is still highly relevant as a model. More realistic Dubbo channels are Council's adopted Circularity Cooperative/Circular Economy Roadmap work, NetWaste/regional collaboration, future eligible NSW/Commonwealth circular-economy grants, producer/product-stewardship funding and local sponsors. See [REPAIR-FIRST-DUBBO-IMPLEMENTATION-PLAN.md](REPAIR-FIRST-DUBBO-IMPLEMENTATION-PLAN.md) for the corrected implementation plan.
+
 # How do you get people in Dubbo to repair instead of replace?
 
 **Deep research date:** 8 October 2026  
