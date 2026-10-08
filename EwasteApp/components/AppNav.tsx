@@ -43,6 +43,7 @@ const groups = [
     links: [
       ["/validation", "Field Validation"],
       ["/dubbo-repair-ewaste", "Dubbo Repair Guide"],
+      ["/dubbo-circular-economy", "Circular Economy"],
       ["/regional-computer-experts", "Regional Experts"],
     ],
   },
