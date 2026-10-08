@@ -3,7 +3,7 @@ const groups = [
     title: "Core internal workspaces",
     intro: "Authenticated places for day-to-day ITAD, circular-economy and Repair Café work.",
     links: [
-      { name: "Dubbo Circular Learning · All courses", url: "https://dubbo-ewaste-app.vercel.app/learn", note: "Enrolments, progress and 26 short courses for volunteers across three programmes." },
+      { name: "Dubbo Circular Learning · All courses", url: "https://dubbo-ewaste-app.vercel.app/learn", note: "Enrolments, progress and 28 short courses for volunteers across three programmes." },
       { name: "DubboEwaste · AssetFlow", url: "https://dubbo-ewaste-app.vercel.app/dashboard", note: "ITAD operations, assets, media, sanitisation, repair, resale, recycling and records." },
       { name: "DubboEwaste · Field Validation", url: "https://dubbo-ewaste-app.vercel.app/validation", note: "Private evidence records for contracts, organisations, demand and pilot economics." },
       { name: "DubboEwaste · Repair Café Volunteer Hub", url: "https://dubbo-ewaste-app.vercel.app/repair-cafe-volunteers", note: "Repair Café operational material inside the AssetFlow staff system." },
