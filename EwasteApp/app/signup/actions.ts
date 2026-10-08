@@ -48,9 +48,10 @@ export async function signup(formData: FormData) {
       .eq("user_id", data.user.id);
 
     const programs = new Set((access ?? []).map((row) => row.program));
-    if (programs.has("repair_cafe") && programs.has("dubbo_ewaste")) redirect("/access");
+    if (programs.size > 1) redirect("/access");
     if (programs.has("repair_cafe")) redirect("/repair-cafe-volunteers");
     if (programs.has("dubbo_ewaste")) redirect("/dashboard");
+    if (programs.has("library_of_things")) redirect("/learn");
   }
 
   redirect(
