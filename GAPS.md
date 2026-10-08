@@ -531,3 +531,33 @@ Detailed file:
 - Exact award classification for employees.
 - Whether the partner company would fund premises/equipment itself.
 - Whether geographic exclusivity is available.
+
+
+---
+
+## S. Circular economy in practice — 8 October 2026 cross-sector gap audit
+
+Current detailed research: [docs/DUBBO-CIRCULAR-ECONOMY-IN-PRACTICE-2026-10-08.md](docs/DUBBO-CIRCULAR-ECONOMY-IN-PRACTICE-2026-10-08.md).
+
+### Strongest finding
+
+Dubbo does **not** lack repair activity. Automotive, farm machinery, power tools, bikes, clothing, furniture and computers all have functioning repair markets. The structural gap is the **handoff into waste**: once an owner uses bulky collection, Whylandra or a normal recycling take-back, the public system is primarily designed to sort/recover materials rather than establish whether the product itself can remain in use.
+
+### Highest-priority unresolved evidence
+
+1. **Whylandra product-level reuse triage:** does any formal or informal reusable-item screening occur before recycling/disposal?
+2. **Reuse-shop status:** obtain the 2024 business case and current Whylandra/Wellington implementation decision.
+3. **Whylandra Master Plan:** the 2025 progress report said it would go to the March 2026 meeting, but the published outcome summary does not show adoption. Obtain the actual report/decision/current status.
+4. **Condition audit:** what proportion of bulky/self-haul products are working, simple-repair, substantial-repair, parts-only, material-recycling or landfill?
+5. **C&D reuse:** of the large C&D stream, how much is preserved as reusable products versus crushed/material-recycled?
+6. **Charity rejection:** tonnes and final destinations of furniture, electrical goods and household donations rejected by Dubbo op shops.
+7. **Textile downstream:** exact contractor, processing destination, export/recycling/residual split.
+8. **Repair economics:** local diagnosis costs, labour time, parts constraints and "repairable but uneconomic" rates by category.
+9. **Business/institutional reuse:** actual last-batch outcomes for Council, schools, CSU, TAFE, health and private employers.
+10. **Circular jobs:** reliable Dubbo count of repair, reuse, second-hand, refurbishment and material-recovery FTEs.
+11. **Right to repair:** practical local effects of current motor-vehicle scheme and any future agricultural-machinery reform.
+12. **Repair Café demand:** actual attendance, item mix, fixes, referrals and counterfactual disposal behaviour from a three-month pilot.
+
+### Best next evidence collection
+
+Ask Council to support a **supervised condition audit** of bulky/self-haul goods and a **three-month Repair Café / repair-triage pilot**. These two small tests would produce local evidence that internet research cannot: the reusable share of discarded goods and the actual demand for repair assistance.
