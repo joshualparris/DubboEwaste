@@ -187,3 +187,5 @@ A snapshot of the former long-form root README is preserved at [docs/archive/REA
 ## ITAD software feature benchmark
 
 [25-product benchmark and combined AssetFlow requirements](ITAD-Feature-Benchmark/README.md) — public-source feature profiles, prioritised acceptance criteria, integration boundaries and research gaps. These are product goals, not shipped-feature claims.
+
+| [docs/REPAIR-FIRST-DUBBO-IMPLEMENTATION-PLAN.md](docs/REPAIR-FIRST-DUBBO-IMPLEMENTATION-PLAN.md) | **Repair First Dubbo:** evidence-based plan for free diagnosis, instant repair incentives, Repair Café, local repair network, funding, behaviour change and measurement |
