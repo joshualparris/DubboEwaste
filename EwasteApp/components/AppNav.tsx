@@ -45,6 +45,7 @@ const groups = [
       ["/dubbo-repair-ewaste", "Dubbo Repair Guide"],
       ["/dubbo-circular-economy", "Circular Economy"],
       ["/regional-computer-experts", "Regional Experts"],
+      ["/repair-cafe-dubbo", "Repair Café Dubbo"],
     ],
   },
 ] as const;
@@ -71,6 +72,13 @@ export function AppNav({ fullName, role }: { fullName: string | null; role: stri
             {group.links.map(([href, label]) => <Link href={href} key={href}>{label}</Link>)}
           </div>
         </section>)}
+
+        {role === "admin" || role === "manager" ? <section className="nav-group">
+          <h2>Planning</h2>
+          <div className="nav-group-links">
+            <Link href="/repair-cafe-feedback">Repair Café Feedback</Link>
+          </div>
+        </section> : null}
 
         {role === "admin" ? <section className="nav-group">
           <h2>Administration</h2>

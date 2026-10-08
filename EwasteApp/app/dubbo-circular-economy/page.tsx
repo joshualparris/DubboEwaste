@@ -115,7 +115,7 @@ export default function DubboCircularEconomyPage() {
 
       <h2>Best next experiment</h2>
       <div className="callout key">
-        <strong>Run two measurements together:</strong> a three-month repair/triage pilot, and a Council-approved condition audit of bulky/self-haul goods before disposal. The first tests demand for repair help. The second tests whether reusable/repairable goods are actually leaking into the waste stream.
+        <strong>Run two measurements together:</strong> a three-month repair/triage pilot, and a Council-approved condition audit of bulky/self-haul goods before disposal. The first tests demand for repair help. The second tests whether reusable/repairable goods are actually leaking into the waste stream.<br/><br/><a className="button" href="/repair-cafe-dubbo">Help shape Repair Café Dubbo →</a>
       </div>
 
       <p>
