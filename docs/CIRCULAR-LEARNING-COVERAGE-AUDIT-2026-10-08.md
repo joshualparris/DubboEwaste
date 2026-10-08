@@ -7,7 +7,7 @@ Comparison baseline: internal pages checked by source, particularly CircularEcon
 Yes. The main repo has a documented curriculum and extensive source research. Some internal pages contain summaries, links or operational documents, but neither main-tree web app had an enrolment-based LMS with saved learner progress, short lessons and learning checks before this change.
 
 ## Implemented starter catalogue
-EwasteApp/lib/learning/catalog.ts: 26 version-controlled starter courses across four pathways, each with three short lessons, practice and a knowledge check at the end.
+EwasteApp/lib/learning/catalog.ts: 28 version-controlled starter courses across four pathways, each with three short lessons, practice and a knowledge check at the end.
 They use source links and self-paced completion; they do not credential a person for unsafe work.
 
 - Shared: circular economy, volunteer welcome, workshop safety, privacy/consent, accessible communication, evidence and field notes, repair-first decisions.
