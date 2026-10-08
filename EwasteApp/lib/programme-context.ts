@@ -4,6 +4,8 @@ import type { ProgrammeContext } from "./programmes";
 
 export async function getProgrammeContext() {
   const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return {supabase,context:null};
   const { data, error } = await supabase.rpc("programme_context");
   if (error) throw new Error("Programme access could not be loaded. Please try again.");
   return { supabase, context: data as ProgrammeContext | null };
