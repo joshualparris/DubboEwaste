@@ -112,7 +112,7 @@ export function AppNav({ fullName, role, programme = null, globalAdmin = role ==
           </div>
         </section> : null}
 
-        {allowed("/learn") ? <section className="nav-group"><h2>Learning & development</h2><div className="nav-group-links"><Link href="/learn">Shared learning hub</Link>{programme === "library_of_things" ? <Link href="/learn?track=library_of_things">Library training pathway</Link> : null}</div></section> : null}
+        {allowed("/learn") ? <section className="nav-group"><h2>Learning & development</h2><div className="nav-group-links"><Link href="/learn">Shared learning hub</Link><Link href="/learn/manage">Supervisor desk</Link><Link href="/circular-access">Circular economy research</Link>{programme === "library_of_things" ? <Link href="/learn?track=library_of_things">Library training pathway</Link> : null}</div></section> : null}
         {allowed("/projects") ? <section className="nav-group"><h2>Connected projects</h2><div className="nav-group-links"><Link href="/projects">Project network</Link></div></section> : null}
         {globalAdmin ? <section className="nav-group">
           <h2>Administration</h2>

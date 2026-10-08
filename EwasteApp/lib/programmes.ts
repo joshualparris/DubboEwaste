@@ -18,7 +18,7 @@ export function programmeHeader(value: string | undefined): Record<string,string
 }
 export function canVisit(path: string, programme: ProgrammeContext["selected"], globalAdmin: boolean, role: string | null): boolean {
   const section = path.split("/").filter(Boolean)[0] || "dashboard";
-  if (["programmes","access"].includes(section)) return true;
+  if (["programmes","access","circular-access"].includes(section)) return true;
   if (section === "admin") return path.startsWith("/admin/programmes") ? globalAdmin || role === "admin" : globalAdmin;
   if (programme === "__denied__") return false;
   if (globalAdmin && programme === null) return true;

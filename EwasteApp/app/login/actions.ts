@@ -42,7 +42,10 @@ export async function login(formData: FormData) {
   }
 
   (await cookies()).delete(PROGRAMME_COOKIE);
-  redirect(await destinationForUser());
+  const destination = await destinationForUser();
+  if (destination.startsWith("/login")) redirect(destination);
+  if (formData.get("next") === "/circular-access") redirect("/circular-access");
+  redirect(destination);
 }
 
 export async function resendConfirmation(formData: FormData) {

@@ -11,13 +11,17 @@ export default async function LearningHome({
   const { track, error } = await searchParams;
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  const [membership, enrolments, completions] = await Promise.all([
-    supabase.from("program_access").select("program").eq("user_id", user!.id),
+  const [membership, enrolments, completions, assignments, profile] = await Promise.all([
+    supabase.from("program_access").select("program,programme_role").eq("user_id", user!.id),
     supabase.from("learning_enrolments").select("course_slug").eq("user_id", user!.id),
     supabase.from("learning_progress").select("course_slug,lesson_slug").eq("user_id", user!.id),
+    supabase.from("learning_assignments").select("course_slug,programme,due_date").eq("user_id", user!.id),
+    supabase.from("profiles").select("role").eq("id", user!.id).maybeSingle(),
   ]);
   const assigned = new Set((membership.data ?? []).map(x => x.program));
   const joined = new Set((enrolments.data ?? []).map(x => x.course_slug));
+  const assignedCourses = new Set((assignments.data ?? []).map(x=>x.course_slug));
+  const canManage = profile.data?.role === "admin" || (membership.data??[]).some(x => x.programme_role === "admin");
   const done = completions.data ?? [];
   const chosen = programmes.some(p => p.id === track) ? track as Programme : "all";
   const visible = courses.filter(c => chosen === "all" || c.programme === chosen);
@@ -37,6 +41,8 @@ export default async function LearningHome({
       </div>
     </header>
     {error ? <p role="alert" className={styles.notice}>{error}</p> : null}
+    {canManage ? <div className={styles.sourcePanel}><strong>Supervisor tools</strong><p>Assign learning, review practical work and manage Library of Things access if authorised.</p><Link className={styles.secondaryLink} href="/learn/manage">Open supervisor desk →</Link></div> : null}
+    {assignedCourses.size > 0 ? <section className={styles.section}><h2>Assigned to you</h2><div className={styles.catalogue}>{courses.filter(x=>assignedCourses.has(x.id)).map(x=><article key={x.id} className={styles.courseCard}><span className={styles.track}>Assigned learning</span><h3>{x.title}</h3><p>{x.summary}</p><Link className={styles.primaryLink} href={"/learn/"+x.id}>Open course →</Link></article>)}</div></section>:null}
     <section className={styles.section} aria-labelledby="pathways">
       <h2 id="pathways">Explore a learning pathway</h2>
       <nav aria-label="Filter courses by programme" className={styles.filters}>
@@ -53,7 +59,7 @@ export default async function LearningHome({
         return <article className={styles.courseCard} key={c.id}>
           <div className={styles.courseMeta}>
             <span className={styles.track}>{programmes.find(p => p.id === c.programme)?.icon} {programmes.find(p => p.id === c.programme)?.label}</span>
-            {recommendedIds.has(c.id) ? <span className={styles.recommended}>Your team</span> : null}
+            {assignedCourses.has(c.id) ? <span className={styles.recommended}>Assigned</span> : recommendedIds.has(c.id) ? <span className={styles.recommended}>Your team</span> : null}
           </div>
           <h3><Link href={"/learn/" + c.id}>{c.title}</Link></h3>
           <p>{c.summary}</p>
