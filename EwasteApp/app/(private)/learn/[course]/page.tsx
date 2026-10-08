@@ -52,6 +52,7 @@ export default async function CourseOverview({
     <aside className={styles.sourcePanel}>
       <h2>Go deeper</h2>
       <p>Adapted from project research. Follow the primary notes for more detail and check the relevant procedures before any real-world work.</p>
+      {course.id === "multimeter-low-voltage" ? <p><a href="https://joshualparris.github.io/DubboEwaste/multimeter-training.html" target="_blank" rel="noreferrer">Explore the curated video tutorials ↗</a></p> : null}
       <a href={"https://github.com/joshualparris/DubboEwaste/blob/main/" + course.source}
         target="_blank" rel="noreferrer">Read the original project guide ↗</a>
     </aside>
