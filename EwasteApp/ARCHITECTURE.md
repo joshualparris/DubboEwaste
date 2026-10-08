@@ -74,3 +74,33 @@ RLS is mandatory even when UI navigation also hides restricted functions.
 - High-risk actions need explicit roles.
 - Soft deletion/archiving is preferred over silent destructive deletion for operational records.
 - Customer/supplier personal data should be minimised to what operations, warranty, legal or recall needs justify.
+
+
+## Programme access
+
+Authentication is shared, but application access is programme-scoped.
+
+A profile has:
+- one authority role in `public.profiles.role`;
+- zero, one or more programme memberships in `public.program_access`.
+
+Current programmes:
+- `dubbo_ewaste` — AssetFlow operations;
+- `repair_cafe` — Repair Café Volunteer Hub.
+
+Signup access codes map to programmes in the private `signup_access_codes` table. Plaintext codes are never stored in Git or retained in auth metadata.
+
+Default signup mapping:
+- DubboEwaste code → `volunteer` role + `dubbo_ewaste`;
+- Repair Café code → `repair_volunteer` role + `repair_cafe`.
+
+The `repair_volunteer` role exists as defense-in-depth: it is deliberately absent from legacy AssetFlow write-role lists. AssetFlow's broad `is_active_staff()` and table-permission helpers additionally require `dubbo_ewaste` membership.
+
+An account can hold both programme memberships. Admin/manager accounts were seeded with both; future volunteers can be granted an additional programme without creating a second identity.
+
+Login destinations:
+- DubboEwaste only → `/dashboard`;
+- Repair Café only → `/repair-cafe-volunteers`;
+- both → `/access`.
+
+The edge proxy redirects Repair Café-only accounts away from AssetFlow routes even before page rendering. Database RLS remains the final authorization boundary.
