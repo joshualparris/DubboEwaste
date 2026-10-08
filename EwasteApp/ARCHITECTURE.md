@@ -78,29 +78,12 @@ RLS is mandatory even when UI navigation also hides restricted functions.
 
 ## Programme access
 
-Authentication is shared, but application access is programme-scoped.
+Authentication is shared across Dubbo E-waste, Dubbo Library of Things and Dubbo Repair Café. Each membership in `public.program_access` has its own `programme_role` and active flag. The legacy profile `admin` role is explicitly global; programme admins keep ordinary profile roles and receive an admin membership only for their programme.
 
-A profile has:
-- one authority role in `public.profiles.role`;
-- zero, one or more programme memberships in `public.program_access`.
+An untrusted programme request header selects the working area; database helpers always validate it against active profile/membership records. The selector cookie conveys context only and never grants authority. Global admins can select `all`; other users cannot. SQL RLS applies restrictive programme and module gates to operational rows. Related FK and polymorphic attachments must have matching programmes. Evidence storage reads and uploads validate the same entity scope.
 
-Current programmes:
-- `dubbo_ewaste` — AssetFlow operations;
-- `repair_cafe` — Repair Café Volunteer Hub.
+Signup codes are verified inside the database and only create volunteer membership in the matched programme. New programme assignments use trusted app metadata established by the signup trigger, never user-editable metadata for authorization. Existing E-waste/Repair Café codes are retained; programme admins can set or rotate their code in `/admin/programmes`.
 
-Signup access codes map to programmes in the private `signup_access_codes` table. Plaintext codes are never stored in Git or retained in auth metadata.
+`/programmes` selects a working programme, `/dashboard` adapts its content, and `/admin/programmes` manages scoped roles. The previous `/access` chooser redirects to `/programmes`. Navigation, the request proxy and database RLS enforce section boundaries. Global account and permission-template administration remains global-admin-only.
 
-Default signup mapping:
-- DubboEwaste code → `volunteer` role + `dubbo_ewaste`;
-- Repair Café code → `repair_volunteer` role + `repair_cafe`.
-
-The `repair_volunteer` role exists as defense-in-depth: it is deliberately absent from legacy AssetFlow write-role lists. AssetFlow's broad `is_active_staff()` and table-permission helpers additionally require `dubbo_ewaste` membership.
-
-An account can hold both programme memberships. Admin/manager accounts were seeded with both; future volunteers can be granted an additional programme without creating a second identity.
-
-Login destinations:
-- DubboEwaste only → `/dashboard`;
-- Repair Café only → `/repair-cafe-volunteers`;
-- both → `/access`.
-
-The edge proxy redirects Repair Café-only accounts away from AssetFlow routes even before page rendering. Database RLS remains the final authorization boundary.
+See [programme access notes](docs/programmes/README.md) for transfers, loans, implementation scope and the rollback-only security test suites.

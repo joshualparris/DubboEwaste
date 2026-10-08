@@ -2,12 +2,14 @@
 
 import { ResponsiveTable } from "@/components/ResponsiveTable";
 
+import { PROGRAMMES, type Programme } from "@/lib/programmes";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
 
 type AssetRow = {
   id: string;
+  programme?: Programme;
   asset_code: string;
   category: string;
   manufacturer: string | null;
@@ -94,6 +96,7 @@ export function AssetBatchTable({ assets }: { assets: AssetRow[] }) {
                   />
                 </th>
                 <th>Asset</th>
+                <th>Programme</th>
                 <th>Category</th>
                 <th>Device</th>
                 <th>Serial / IMEI</th>
@@ -115,6 +118,7 @@ export function AssetBatchTable({ assets }: { assets: AssetRow[] }) {
                     />
                   </td>
                   <td><Link href={`/assets/${asset.id}`}><strong>{asset.asset_code}</strong></Link></td>
+                  <td>{asset.programme ? PROGRAMMES[asset.programme] : "Dubbo E-waste"}</td>
                   <td>{asset.category}</td>
                   <td>{productName(asset)}</td>
                   <td>{asset.serial_imei || "—"}</td>

@@ -1,5 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 import { logout } from "@/app/login/actions";
+
+import { PROGRAMMES, canVisit, type ProgrammeContext } from "@/lib/programmes";
 
 const groups = [
   {
@@ -49,62 +55,55 @@ const groups = [
   },
 ] as const;
 
-function roleLabel(role: string) {
-  if (role === "repair_volunteer") return "Repair Café volunteer";
-  if (role === "volunteer") return "DubboEwaste volunteer";
-  return role;
-}
+export function AppNav({ fullName, role, programme = null, globalAdmin = role === "admin" }: { fullName: string | null; role: string; programme?: ProgrammeContext["selected"]; globalAdmin?: boolean }) {
+  const allowed = (path: string) => canVisit(path, programme, globalAdmin, role);
+  const visibleGroups = groups.map(group => ({ ...group, links: group.links.filter(([href]) => allowed(href)) })).filter(group => group.links.length);
+  const pathname = usePathname();
+  const menu = useRef<HTMLDetailsElement>(null);
 
-export function AppNav({
-  fullName,
-  role,
-  programs,
-}: {
-  fullName: string | null;
-  role: string;
-  programs: string[];
-}) {
-  const hasEwaste = programs.includes("dubbo_ewaste");
-  const hasRepairCafe = programs.includes("repair_cafe");
-  const hasLibrary = programs.includes("library_of_things");
-  const both = hasEwaste && hasRepairCafe;
-
-  const brand = both
-    ? "DubboEwaste & Repair Café"
-    : hasRepairCafe
-      ? "Repair Café Dubbo"
-      : hasEwaste ? "DubboEwaste · AssetFlow" : hasLibrary ? "Library of Things" : "Volunteer workspace";
-
+  useEffect(() => { if (menu.current) menu.current.open = false; }, [pathname]);
+  useEffect(() => {
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape" && menu.current?.open) {
+        menu.current.open = false;
+        menu.current.querySelector("summary")?.focus();
+      }
+    }
+    function closeOutside(event: PointerEvent) {
+      if (event.target instanceof Node && menu.current?.open && !menu.current.contains(event.target)) menu.current.open = false;
+    }
+    document.addEventListener("keydown", closeOnEscape);
+    document.addEventListener("pointerdown", closeOutside);
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
+      document.removeEventListener("pointerdown", closeOutside);
+    };
+  }, []);
   return <header className="topbar">
     <div className="topbar-identity">
-      <div className="brand">{brand}</div>
-      <div className="userline">{fullName || "Volunteer"} · {roleLabel(role)}</div>
+      <div className="brand">AssetFlow</div>
+      <div className="userline">{fullName || "Staff"} · {role}<br />{programme && programme !== "__denied__" ? PROGRAMMES[programme] : globalAdmin ? "All programmes" : "Choose programme"}</div>
     </div>
 
     <nav className="nav-quick" aria-label="Quick navigation">
-      {both ? <Link href="/access">Areas</Link> : null}
-      <Link href="/learn">Learning hub</Link>
-      {hasEwaste ? <Link href="/dashboard">Dashboard</Link> : null}
-      {hasEwaste ? <Link href="/search">Search / Scan</Link> : null}
-      {hasEwaste ? <Link href="/assets/new">Receive</Link> : null}
-      {hasRepairCafe ? <Link href="/repair-cafe-volunteers">Volunteer Hub</Link> : null}
-      {!hasEwaste && hasRepairCafe ? <Link href="/repair-cafe-dubbo">Public Page</Link> : null}
+      <Link href="/dashboard">Dashboard</Link>
+      <Link href="/search">Search / Scan</Link>
+      <Link href="/assets/new">Receive</Link>
     </nav>
 
-    <details className="nav-menu">
+    <details className="nav-menu" ref={menu}>
       <summary>Menu</summary>
-      <div className="nav-panel">
-        <section className="nav-group"><h2>Learning & development</h2><div className="nav-group-links"><Link href="/learn">My learning · All courses</Link></div></section>
-        {hasEwaste ? groups.map((group) => <section className="nav-group" key={group.title}>
+      <nav className="nav-panel" aria-label="All navigation" onClick={(event) => {
+        if ((event.target as HTMLElement).closest("a") && menu.current) menu.current.open = false;
+      }}>
+        {visibleGroups.map((group) => <section className="nav-group" key={group.title}>
           <h2>{group.title}</h2>
           <div className="nav-group-links">
             {group.links.map(([href, label]) => <Link href={href} key={href}>{label}</Link>)}
           </div>
-        </section>) : null}
+        </section>)}
 
-        {hasLibrary ? <section className="nav-group"><h2>Library of Things</h2><div className="nav-group-links"><Link href="/learn?track=library_of_things">Learning pathway</Link><a href="https://circular-economy-dubbo.vercel.app/internal/library-of-things">Pilot workspace ↗</a></div></section> : null}
-
-        {hasRepairCafe ? <section className="nav-group">
+        {allowed("/repair-cafe-volunteers") ? <section className="nav-group">
           <h2>Repair Café</h2>
           <div className="nav-group-links">
             <Link href="/repair-cafe-volunteers">Volunteer Hub</Link>
@@ -113,25 +112,24 @@ export function AppNav({
           </div>
         </section> : null}
 
-        <section className="nav-group">
-          <h2>Connected projects</h2>
-          <div className="nav-group-links">
-            <Link href="/projects">Project network</Link>
-          </div>
-        </section>
-
-        {role === "admin" && hasEwaste ? <section className="nav-group">
+        {allowed("/learn") ? <section className="nav-group"><h2>Learning & development</h2><div className="nav-group-links"><Link href="/learn">Shared learning hub</Link>{programme === "library_of_things" ? <Link href="/learn?track=library_of_things">Library training pathway</Link> : null}</div></section> : null}
+        {allowed("/projects") ? <section className="nav-group"><h2>Connected projects</h2><div className="nav-group-links"><Link href="/projects">Project network</Link></div></section> : null}
+        {globalAdmin ? <section className="nav-group">
           <h2>Administration</h2>
           <div className="nav-group-links">
             <Link href="/admin/data">Manage Data</Link>
             <Link href="/admin/permissions">Permissions</Link>
           </div>
         </section> : null}
-      </div>
+        <section className="nav-group"><h2>Programme</h2><div className="nav-group-links">
+          <Link href="/programmes">Switch programme</Link>
+          {allowed("/lending") ? <Link href="/lending">Loans & returns</Link> : null}
+          {globalAdmin || role === "admin" ? <Link href="/admin/programmes">Programme memberships</Link> : null}
+        </div></section>
+        <form action={logout} className="topbar-signout">
+          <button className="button secondary" type="submit">Sign out</button>
+        </form>
+      </nav>
     </details>
-
-    <form action={logout} className="topbar-signout">
-      <button className="button secondary" type="submit">Sign out</button>
-    </form>
   </header>;
 }

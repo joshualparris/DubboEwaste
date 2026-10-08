@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { createHash } from "node:crypto";
 import os from "node:os";
 import path from "node:path";
 import { createRequire } from "node:module";
@@ -25,21 +26,24 @@ const mocks = {
   setup(b) {
     b.onResolve({ filter: /^next\/(link|navigation)$/ }, (args) => ({ path: args.path, namespace: "next-fixture" }));
     b.onLoad({ filter: /.*/, namespace: "next-fixture" }, () => ({ contents: mockNext, loader: "js", resolveDir: root }));
-    b.onResolve({ filter: /(?:^|\/)actions$/ }, () => ({ path: "actions", namespace: "actions-fixture" }));
+    b.onResolve({ filter: /(?:^|\/)[^/]*actions$/ }, () => ({ path: "actions", namespace: "actions-fixture" }));
     b.onLoad({ filter: /.*/, namespace: "actions-fixture" }, () => ({ contents: [...actionNames].map((name) => `export function ${name}(){throw new Error('Layout test must not execute server actions')}`).join("\n"), loader: "js" }));
     b.onResolve({ filter: /^@\/lib\/supabase\/(server|browser)$/ }, () => ({ path: path.join(here, "mobile-fixtures.mjs") }));
     b.onLoad({ filter: /\.module\.css$/ }, (args) => {
       const css = fs.readFileSync(args.path, "utf8");
       const names = [...css.matchAll(/\.([a-zA-Z][\w-]*)/g)].map((m) => m[1]);
-      cssModules.set(args.path, css);
-      return { contents: `export default ${JSON.stringify(Object.fromEntries(names.map((n) => [n, n])))}`, loader: "js" };
+      const prefix="fixture_"+createHash("sha256").update(args.path).digest("hex").slice(0,8)+"_";
+      cssModules.set(args.path, css.replace(/\.([a-zA-Z][\w-]*)/g,(_,name)=>"."+prefix+name));
+      return { contents: `export default ${JSON.stringify(Object.fromEntries(names.map((n) => [n, prefix+n])))}`, loader: "js" };
     });
   },
 };
 const entry = pages.map((f, i) => `import Page${i} from ${JSON.stringify(f)};`).join("\n") + `
 import {AppNav} from './components/AppNav';
 export {AppNav};
-export {assets,setEmpty} from './scripts/mobile-fixtures.mjs';
+export {assets,setEmpty,setProgramme,setAccess} from './scripts/mobile-fixtures.mjs';
+export {courses} from "./lib/learning/catalog";
+export {canVisit} from "./lib/programmes";
 export {OPERATIONAL_DOCUMENTS} from './lib/operational-documents';
 export const pages=[${pages.map((f, i) => `{file:${JSON.stringify(path.relative(root, f))},component:Page${i}}`).join(",")}];`;
 const bundle = path.join(output, "fixtures.cjs");
@@ -59,12 +63,12 @@ for (const empty of [false, true]) {
     const detail = /\[/.test(page.file);
     if (empty && detail) continue; // Detail pages require a record; list/form empty states are exercised.
     try {
-      const component = await page.component({ params: Promise.resolve({ id: "fixture-1", token: "fixture-token", slug: fixtures.OPERATIONAL_DOCUMENTS[0].slug }), searchParams: Promise.resolve({ q: "DEW", error: empty ? "Synthetic error notice for layout verification" : undefined }) });
+      const component = await page.component({ params: Promise.resolve({ id: "fixture-1", token: "fixture-token", slug: fixtures.OPERATIONAL_DOCUMENTS[0].slug, course: fixtures.courses[0].id, lesson: fixtures.courses[0].lessons[0].id }), searchParams: Promise.resolve({ q: "DEW", error: empty ? "Synthetic error notice for layout verification" : undefined }) });
       const privateRoute = page.file.includes("(private)");
       const html = renderToStaticMarkup(React.createElement(React.Fragment, null, privateRoute && React.createElement(fixtures.AppNav, { fullName: "Synthetic Operator", role: "admin" }), privateRoute ? React.createElement("main", { className: "container" }, component) : component));
       rendered.push({ file: page.file, empty, html });
     } catch (error) {
-      if (page.file === "app/page.tsx" && error.message.startsWith("REDIRECT:")) rendered.push({ file: page.file, empty, redirect: error.message });
+      if (["app/page.tsx","app/(private)/access/page.tsx"].includes(page.file) && error.message.startsWith("REDIRECT:")) rendered.push({ file: page.file, empty, redirect: error.message });
       else failures.push(`${page.file} render: ${error.stack}`);
     }
   }
@@ -76,6 +80,22 @@ for (const doc of fixtures.OPERATIONAL_DOCUMENTS) {
   const component = await documentPage.component({ params: Promise.resolve({ slug: doc.slug }), searchParams: Promise.resolve({}) });
   rendered.push({ file: `document:${doc.slug}`, empty: false, html: renderToStaticMarkup(React.createElement("main", { className: "container" }, component)) });
 }
+// Programme-specific screens and navigation, using the same real components and synthetic boundaries.
+for (const programme of ["dubbo_ewaste","library_of_things","repair_cafe"]) {
+  fixtures.setProgramme(programme);
+  for (const role of ["volunteer","admin"]) {
+    fixtures.setAccess({global_admin:false,role,memberships:[{program:programme,role}]});
+    const nav=renderToStaticMarkup(React.createElement(fixtures.AppNav,{fullName:"Synthetic Operator",role,programme,globalAdmin:false}));
+    for (const match of nav.matchAll(/href="([^"?#]+)"/g)) {
+      if(match[1].startsWith("/")&&!match[1].startsWith("/repair-cafe-dubbo")&&!fixtures.canVisit(match[1],programme,false,role)) failures.push(`Navigation exposes forbidden section: ${programme}/${role} ${match[1]}`);
+    }
+    for (const file of ["app/(private)/dashboard/page.tsx","app/(private)/assets/new/page.tsx",...(role==="admin"?["app/(private)/admin/programmes/page.tsx"]:[])]) {
+      const component=await fixtures.pages.find(p=>p.file===file).component({searchParams:Promise.resolve({})});
+      rendered.push({file:`${programme}/${role}:${file}`,empty:false,html:nav+renderToStaticMarkup(React.createElement("main",{className:"container"},component))});
+    }
+  }
+}
+fixtures.setProgramme(null);fixtures.setAccess({});
 let executablePath = process.env.MOBILE_CHROMIUM_PATH;
 let args = [];
 if (process.env.MOBILE_CHROMIUM_MODULE) {
@@ -91,7 +111,7 @@ try {
     await page.setViewportSize({ width, height: 844 });
     for (const record of rendered) {
       if (record.redirect) { results.push({ ...record, width }); continue; }
-      const styles = record.file.includes("repair-cafe") ? [...cssModules.values()].join("\n") : "";
+      const styles = [...cssModules.values()].join("\n");
       await page.setContent(`<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>${css}</style><style>${styles}</style></head><body>${record.html}</body></html>`);
       const errors = await page.evaluate(() => {
         const errors = [];
@@ -101,7 +121,7 @@ try {
         if (document.documentElement.scrollWidth > innerWidth + 1) errors.push(`document overflow ${document.documentElement.scrollWidth}/${innerWidth}`);
         for (const el of document.querySelectorAll(".card,input:not([type=hidden]),select,textarea,button,.nav-menu")) {
           const r = el.getBoundingClientRect();
-          if (!r.width || !r.height || el.closest(".asset-batch-print-area, .trap")) continue;
+          if (!r.width || !r.height || el.closest(".asset-batch-print-area, [aria-hidden=true]")) continue;
           const scroller = el.closest(".table-wrap");
           if (scroller && scroller.scrollWidth > scroller.clientWidth + 1) continue;
           if (r.right > innerWidth + 1 || r.left < -1) errors.push(`outside viewport: ${el.tagName}.${el.className}`);

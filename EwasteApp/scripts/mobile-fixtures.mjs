@@ -47,11 +47,13 @@ const row = {
   public_summary: { asset_code: common.asset_code },
 };
 function records(table) {
+  if (table === "asset_programme_transfers") return [];
+  if (table === "program_access") return [{user_id:"fixture-user",program:"dubbo_ewaste",programme_role:"admin",active:true}];
   if (table === "profiles") return [row];
   if (table === "operational_document_overrides") return [];
   if (empty) return [];
   if (table === "assets") return assets.map((a) => ({ ...row, ...a }));
-  return [{ ...row, id: `${table}-1` }];
+  return [{ ...row, programme:"dubbo_ewaste", owner_kind:"PROGRAMME", id: `${table}-1` }];
 }
 function query(table) {
   let single = false;
@@ -64,7 +66,12 @@ function query(table) {
   });
   return proxy;
 }
+let programme = null;
+let access = {};
+export function setAccess(value) { access=value; }
+export function setProgramme(value) { programme = value; }
 export const client = {
+  rpc: async () => ({data: {id:"fixture-user",full_name:"Synthetic Operator",global_admin:true,selected:programme,role:"admin",memberships:[{program:"dubbo_ewaste",role:"admin"},{program:"library_of_things",role:"admin"},{program:"repair_cafe",role:"admin"}],...access},error:null}),
   from: query,
   auth: { getUser: async () => ({ data: { user: { id: "fixture-user" } }, error: null }) },
   storage: { from: () => ({ createSignedUrl: async () => ({ data: { signedUrl: "https://example.invalid/fixture.jpg" }, error: null }) }) },

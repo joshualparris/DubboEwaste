@@ -62,31 +62,11 @@ const roles = [
   ["Comms / impact", "Photos with consent, local promotion and recording repair outcomes."],
 ];
 
+import { requireProgrammeContext } from "@/lib/programme-context";
+
 export default async function RepairCafeVolunteerHub() {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect("/login");
-
-  const [{ data: profile }, { data: access }] = await Promise.all([
-    supabase
-      .from("profiles")
-      .select("role,full_name,active")
-      .eq("id", user.id)
-      .single(),
-    supabase
-      .from("program_access")
-      .select("program")
-      .eq("user_id", user.id),
-  ]);
-
-  if (!profile?.active) redirect("/login?error=Account%20inactive");
-
-  const programs = new Set((access ?? []).map((row) => row.program));
-  if (!programs.has("repair_cafe")) {
-    redirect(programs.has("dubbo_ewaste") ? "/dashboard" : "/login?error=No%20Repair%20Cafe%20access");
-  }
-
-  const canSeeFeedback = ["admin","manager"].includes(profile.role);
+  const { context } = await requireProgrammeContext();
+  const canSeeFeedback = context.global_admin || ["admin","manager"].includes(context.role || "");
 
   return (
     <div className={styles.page}>

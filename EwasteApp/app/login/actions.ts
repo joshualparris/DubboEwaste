@@ -1,5 +1,7 @@
 "use server";
 
+import { cookies } from "next/headers";
+import { PROGRAMME_COOKIE, type ProgrammeContext } from "@/lib/programmes";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
@@ -18,23 +20,10 @@ async function destinationForUser() {
 
   if (!profile?.active) return "/login?error=Account%20inactive";
 
-  const { data: access } = await supabase
-    .from("program_access")
-    .select("program")
-    .eq("user_id", user.id);
-
-  const programs = new Set((access ?? []).map((row) => row.program));
-  const ewaste = programs.has("dubbo_ewaste");
-  const repairCafe = programs.has("repair_cafe");
-  const library = programs.has("library_of_things");
-
-  if ([ewaste, repairCafe, library].filter(Boolean).length > 1) return "/access";
-  if (repairCafe) return "/repair-cafe-volunteers";
-  if (ewaste) return "/dashboard";
-  if (library) return "/learn";
-
-  await supabase.auth.signOut();
-  return "/login?error=Your%20account%20does%20not%20have%20an%20active%20volunteer%20area.";
+  const {data} = await supabase.rpc("programme_context");
+  const context = data as ProgrammeContext | null;
+  if (context?.global_admin || context?.memberships.length) return "/dashboard";
+  return "/programmes";
 }
 
 export async function login(formData: FormData) {
@@ -52,6 +41,7 @@ export async function login(formData: FormData) {
     redirect("/login?error=Invalid%20email%20or%20password");
   }
 
+  (await cookies()).delete(PROGRAMME_COOKIE);
   redirect(await destinationForUser());
 }
 
@@ -80,6 +70,7 @@ export async function resendConfirmation(formData: FormData) {
 
 export async function logout() {
   const supabase = await createClient();
+  (await cookies()).delete(PROGRAMME_COOKIE);
   await supabase.auth.signOut();
   redirect("/login");
 }

@@ -1,0 +1,14 @@
+import { PROGRAMMES, type Programme } from "@/lib/programmes";
+import { updateAssetOwner, transferAsset } from "@/app/(private)/assets/programme-actions";
+
+type Asset = { id:string; programme:Programme; owner_kind:string; owner_name:string|null };
+import type { ProgrammeContext } from "@/lib/programmes";
+export function AssetProgrammeDetails({asset,context,history}:{asset:Asset;context:ProgrammeContext;history:any[]|null}) {
+  const ownsAdmin=context.global_admin||context.memberships.some(m=>m.program===asset.programme&&m.role==="admin");
+  const targets=Object.entries(PROGRAMMES).filter(([p])=>p!==asset.programme&&(context.global_admin||context.memberships.some(m=>m.program===p&&m.role==="admin")));
+  return <section className="card stack"><h2>Programme & ownership</h2><p><strong>Programme:</strong> {PROGRAMMES[asset.programme]}<br/><strong>Owner:</strong> {asset.owner_name||asset.owner_kind||"Unconfirmed"}</p>
+    {context.role!=="auditor"?<details><summary>Update ownership</summary><form className="form" action={updateAssetOwner}><input type="hidden" name="asset_id" value={asset.id}/><label>Owner type<select name="owner_kind" defaultValue={asset.owner_kind||"UNCONFIRMED"}><option value="UNCONFIRMED">Unconfirmed</option><option value="PROGRAMME">Programme-owned</option><option value="CUSTOMER">Customer-owned</option><option value="THIRD_PARTY">Other owner</option></select></label><label>Owner name<input name="owner_name" defaultValue={asset.owner_name||""} maxLength={200}/></label><p className="muted small">Programme membership does not establish ownership. Record the actual owner and any authority or consent in the item's evidence.</p><button className="button secondary">Save ownership</button></form></details>:null}
+    {ownsAdmin&&targets.length?<details><summary>Transfer to another programme</summary><form className="form" action={transferAsset}><input type="hidden" name="asset_id" value={asset.id}/><label>Destination<select name="target_programme">{targets.map(([p,label])=><option key={p} value={p}>{label}</option>)}</select></label><label>Reason / authority<textarea name="reason" required minLength={5} maxLength={2000}/></label><p className="muted small">Keeps the asset ID and attached history. Previous customer, job, lot and location links are recorded in the transfer log and cleared from the current item. Ownership stays unchanged. Admin access to both programmes is required.</p><button className="button secondary">Record transfer</button></form></details>:null}
+    <h3>Programme transfer history</h3>{!history?.length?<p className="muted">No programme transfers.</p>:history.map(h=><div className="result-row" key={h.id}><strong>{PROGRAMMES[h.from_programme as Programme]} → {PROGRAMMES[h.to_programme as Programme]}</strong><span>{h.reason} · {new Date(h.transferred_at).toLocaleString("en-AU")}</span></div>)}
+  </section>;
+}

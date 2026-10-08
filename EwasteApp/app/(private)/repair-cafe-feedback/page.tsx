@@ -1,5 +1,5 @@
 import { ResponsiveTable } from "@/components/ResponsiveTable";
-import { createClient } from "@/lib/supabase/server";
+import { requireProgrammeContext } from "@/lib/programme-context";
 
 function counts(rows: any[], key: string) {
   const map = new Map<string, number>();
@@ -11,19 +11,8 @@ function counts(rows: any[], key: string) {
 }
 
 export default async function RepairCafeFeedbackPage() {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return <div className="error">Sign in required.</div>;
-
-  const [{ data: profile }, { data: access }] = await Promise.all([
-    supabase.from("profiles").select("role").eq("id", user.id).maybeSingle(),
-    supabase.from("program_access").select("program").eq("user_id", user.id),
-  ]);
-
-  const programs = new Set((access ?? []).map((row) => row.program));
-  if (!profile || !["admin","manager"].includes(profile.role) || !programs.has("repair_cafe")) {
-    return <div className="error">Repair Café public feedback is limited to Repair Café managers and administrators.</div>;
-  }
+  const {supabase,context} = await requireProgrammeContext();
+  if (!context.global_admin && (context.selected !== "repair_cafe" || !["admin","manager"].includes(context.role || ""))) return <div className="error">Repair Café feedback is limited to its managers and administrators.</div>;
 
   const { data, error } = await supabase
     .from("repair_cafe_public_feedback")

@@ -6,7 +6,7 @@ export default async function AssetsPage() {
   const supabase = await createClient();
   const { data: assets } = await supabase
     .from("assets")
-    .select("id,asset_code,category,manufacturer,model,serial_imei,status,data_state,initial_route,created_at")
+    .select("id,programme,asset_code,category,manufacturer,model,serial_imei,status,data_state,initial_route,created_at")
     .order("created_at", { ascending: false })
     .limit(100);
 

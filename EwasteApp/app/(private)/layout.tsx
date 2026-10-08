@@ -1,34 +1,15 @@
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { AppNav } from "@/components/AppNav";
-import { createClient } from "@/lib/supabase/server";
+import { requireProgrammeContext } from "@/lib/programme-context";
+import { canVisit } from "@/lib/programmes";
 
 export default async function PrivateLayout({ children }: { children: React.ReactNode }) {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-
-  if (!user) redirect("/login");
-
-  const [{ data: profile }, { data: access }] = await Promise.all([
-    supabase
-      .from("profiles")
-      .select("full_name, role, active")
-      .eq("id", user.id)
-      .single(),
-    supabase
-      .from("program_access")
-      .select("program")
-      .eq("user_id", user.id),
-  ]);
-
-  if (!profile?.active) redirect("/login?error=Account%20inactive");
-
-  const programs = (access ?? []).map((row) => row.program);
-  if (programs.length === 0) redirect("/login?error=No%20active%20volunteer%20area%20is%20assigned.");
-
-  return (
-    <div className="shell">
-      <AppNav fullName={profile.full_name} role={profile.role} programs={programs} />
-      <main className="container">{children}</main>
-    </div>
-  );
+  const { context } = await requireProgrammeContext();
+  const pathname = (await headers()).get("x-assetflow-path") || "/dashboard";
+  if (!canVisit(pathname, context.selected, context.global_admin, context.role)) redirect("/programmes?error=Choose%20an%20authorised%20programme%20for%20that%20section");
+  return <div className="shell">
+    <AppNav fullName={context.full_name} role={context.role || "volunteer"} programme={context.selected} globalAdmin={context.global_admin} />
+    <main className="container">{children}</main>
+  </div>;
 }

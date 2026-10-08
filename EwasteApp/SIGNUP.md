@@ -1,52 +1,7 @@
-# Volunteer signup with programme access codes
+# Programme volunteer signup
 
-The shared portal supports two separate volunteer programmes:
+The portal supports Dubbo E-waste (`dubbo_ewaste`), Library of Things (`library_of_things`) and Repair Café (`repair_cafe`). A coordinator supplies a programme-specific access code. The database verifies its SHA-256 digest against `private.signup_access_codes`, strips the submitted code, and creates volunteer membership in that programme only. Signup never grants admin privileges.
 
-- **DubboEwaste** — AssetFlow / e-waste operations.
-- **Repair Café Dubbo** — Repair Café Volunteer Hub only.
+Existing E-waste and Repair Café codes are retained. A Library of Things admin must set its signup code before distributing it. Go to **Menu → Programme memberships**, expand the programme and use **Set or rotate volunteer signup code**. Codes need at least 10 characters and are never committed to Git or returned by the app. Existing memberships remain unchanged when a code rotates.
 
-## Behaviour
-
-- login page: `/login`
-- signup page: `/signup`
-- the volunteer enters the access code supplied by their coordinator
-- the server compares a SHA-256 digest against private Supabase configuration
-- plaintext access codes are never committed to Git
-- the plaintext code is removed from auth metadata before the user row is stored
-- the verified code automatically assigns the correct programme
-- DubboEwaste signups receive the `volunteer` role + `dubbo_ewaste` programme
-- Repair Café signups receive the restricted `repair_volunteer` role + `repair_cafe` programme
-- direct/bypassed signups without a valid code remain unauthorised
-- admins/managers can hold both programme memberships
-
-## Login routing
-
-- DubboEwaste only → `/dashboard`
-- Repair Café only → `/repair-cafe-volunteers`
-- both → `/access` area chooser
-
-Repair Café-only accounts are also blocked at the route and database layers from AssetFlow operational data.
-
-## Access-code storage
-
-Hashes are held in:
-
-`private.signup_access_codes`
-
-The legacy DubboEwaste code was migrated from `private.signup_config` without exposing its plaintext.
-
-The Repair Café code hash is installed directly in the live Supabase environment and is intentionally not present in this public repository.
-
-## Rotating either code
-
-Run against the private Supabase environment:
-
-```sql
-update private.signup_access_codes
-set access_code_sha256 = encode(extensions.digest('<new access code>', 'sha256'), 'hex'),
-    active = true,
-    updated_at = now()
-where program = '<dubbo_ewaste or repair_cafe>';
-```
-
-Do not commit plaintext access codes to this repository.
+One account can hold multiple memberships with independent roles. Programme admins can manage their own team; global admins can manage all three. Logging in opens the relevant dashboard, with a programme chooser for switching areas. Changing accounts clears the previous programme-selection cookie.

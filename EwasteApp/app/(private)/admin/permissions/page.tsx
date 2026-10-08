@@ -52,9 +52,10 @@ export default async function PermissionsPage({
         <div className="badge">Admin</div>
         <h1>Roles & permissions</h1>
         <p className="muted">
-          Role permissions are enforced by Supabase RLS. Individual overrides take precedence over the role.
+          Programme roles and record access are managed separately. The admin account role here is global across all three programmes. Table permission templates and individual overrides cannot expand programme access.
         </p>
         <div className="actions">
+          <Link className="button secondary" href="/admin/programmes">Programme memberships</Link>
           <Link className="button secondary" href="/admin/data">Open Admin Data</Link>
         </div>
       </div>

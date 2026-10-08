@@ -1,34 +1,24 @@
 import { createServerClient } from "@supabase/ssr";
+import { PROGRAMME_COOKIE, programmeHeader, canVisit, type ProgrammeContext } from "@/lib/programmes";
 import { NextResponse, type NextRequest } from "next/server";
 
-function repairCafeOnlyPathAllowed(pathname: string) {
-  return (
-    pathname === "/" ||
-    pathname.startsWith("/repair-cafe-dubbo") ||
-    pathname.startsWith("/repair-cafe-volunteers") ||
-    pathname.startsWith("/learn") ||
-    pathname.startsWith("/projects") ||
-    pathname.startsWith("/access") ||
-    pathname.startsWith("/login") ||
-    pathname.startsWith("/signup") ||
-    pathname.startsWith("/api/repair-cafe-feedback")
-  );
-}
-
 export async function proxy(request: NextRequest) {
-  let response = NextResponse.next({ request });
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-assetflow-path", request.nextUrl.pathname);
+  let response = NextResponse.next({ request: { headers: requestHeaders } });
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
     {
+      global: { headers: programmeHeader(request.cookies.get(PROGRAMME_COOKIE)?.value) },
       cookies: {
         getAll() {
           return request.cookies.getAll();
         },
         setAll(cookiesToSet) {
           cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
-          response = NextResponse.next({ request });
+          response = NextResponse.next({ request: { headers: requestHeaders } });
           cookiesToSet.forEach(({ name, value, options }) => response.cookies.set(name, value, options));
         },
       },
@@ -36,36 +26,17 @@ export async function proxy(request: NextRequest) {
   );
 
   const { data: { user } } = await supabase.auth.getUser();
-
-  if (user) {
-    const { data: access } = await supabase
-      .from("program_access")
-      .select("program")
-      .eq("user_id", user.id);
-
-    const programs = new Set((access ?? []).map((row) => row.program));
-    const hasEwaste = programs.has("dubbo_ewaste");
-    const hasRepairCafe = programs.has("repair_cafe");
-    const hasLibrary = programs.has("library_of_things");
-
-    if (hasRepairCafe && !hasEwaste && !repairCafeOnlyPathAllowed(request.nextUrl.pathname)) {
-      return NextResponse.redirect(new URL("/repair-cafe-volunteers", request.url));
-    }
-
-    if (hasLibrary && !hasEwaste && !hasRepairCafe && !(
-      request.nextUrl.pathname === "/" ||
-      request.nextUrl.pathname.startsWith("/learn") ||
-      request.nextUrl.pathname.startsWith("/projects") ||
-      request.nextUrl.pathname.startsWith("/access") ||
-      request.nextUrl.pathname.startsWith("/login") ||
-      request.nextUrl.pathname.startsWith("/signup")
-    )) return NextResponse.redirect(new URL("/learn", request.url));
-
-    if (!hasRepairCafe && !hasEwaste && !hasLibrary && !request.nextUrl.pathname.startsWith("/login") && !request.nextUrl.pathname.startsWith("/signup")) {
-      return NextResponse.redirect(new URL("/login?error=No%20active%20volunteer%20area%20is%20assigned.", request.url));
+  const publicRoutes = ["/", "/login", "/signup", "/repair-cafe-dubbo", "/dubbo-repair-ewaste", "/dubbo-circular-economy", "/regional-computer-experts"];
+  const privateRoute = !publicRoutes.includes(request.nextUrl.pathname) && !request.nextUrl.pathname.startsWith("/api/") && !request.nextUrl.pathname.startsWith("/verify/") && !request.nextUrl.pathname.startsWith("/_next/");
+  if (user && privateRoute) {
+    const { data } = await supabase.rpc("programme_context");
+    const context = data as ProgrammeContext | null;
+    if (context && !canVisit(request.nextUrl.pathname, context.selected, context.global_admin, context.role)) {
+      const denied = NextResponse.redirect(new URL("/programmes?error=That%20section%20is%20not%20available%20in%20your%20programme", request.url));
+      response.cookies.getAll().forEach(cookie => denied.cookies.set(cookie));
+      return denied;
     }
   }
-
   return response;
 }
 

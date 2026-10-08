@@ -1,0 +1,3429 @@
+{
+  "scope": "Isolated SSR of real page/component code with synthetic DB/action/Next boundaries; not live authenticated data or backend testing",
+  "routeCount": 58,
+  "documents": 23,
+  "results": [
+    {
+      "file": "app/(private)/access/page.tsx",
+      "empty": false,
+      "redirect": "REDIRECT:/programmes",
+      "width": 320
+    },
+    {
+      "file": "app/(private)/admin/data/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/permissions/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/permissions/users/[id]/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/programmes/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/[id]/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/certificates/[id]/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/certificates/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/campaigns/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/opportunities/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/quotes/[id]/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/quotes/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/report/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/customers/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/device-library/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/documents/[slug]/edit/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/documents/[slug]/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/documents/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/exceptions/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/[id]/edit/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/[id]/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/new/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/learn/[course]/[lesson]/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/learn/[course]/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/learn/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lending/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/locations/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lots/[id]/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lots/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/media/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/model-lookup/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/processing/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/programmes/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/projects/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/recycling/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repair-cafe-feedback/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repair-cafe-volunteers/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repairs/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/reports/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/resale/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/search/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/settlements/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/triage/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/validation/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/workshop-inventory/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/dubbo-circular-economy/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/dubbo-repair-ewaste/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/login/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/page.tsx",
+      "empty": false,
+      "redirect": "REDIRECT:/dashboard",
+      "width": 320
+    },
+    {
+      "file": "app/regional-computer-experts/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/repair-cafe-dubbo/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/signup/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/verify/[token]/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/access/page.tsx",
+      "empty": true,
+      "redirect": "REDIRECT:/programmes",
+      "width": 320
+    },
+    {
+      "file": "app/(private)/admin/data/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/permissions/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/programmes/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/new/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/certificates/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/campaigns/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/opportunities/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/quotes/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/report/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/customers/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/dashboard/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/device-library/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/documents/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/exceptions/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/new/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/learn/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lending/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/locations/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lots/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/media/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/model-lookup/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/processing/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/programmes/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/projects/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/recycling/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repair-cafe-feedback/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repair-cafe-volunteers/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repairs/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/reports/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/resale/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/search/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/settlements/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/triage/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/validation/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/workshop-inventory/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/dubbo-circular-economy/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/dubbo-repair-ewaste/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/login/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/page.tsx",
+      "empty": true,
+      "redirect": "REDIRECT:/dashboard",
+      "width": 320
+    },
+    {
+      "file": "app/regional-computer-experts/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/repair-cafe-dubbo/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/signup/page.tsx",
+      "empty": true,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:minimum-shed-setup",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:lean-launch-checklist",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:phase-0-launch-gates",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:phase-0-operating-blueprint",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:actual-shed-zone-plan",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:shed-zone-map",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:premises-flow-capacity",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:facility-zone-benchmark",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:intake-policy",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:front-door-triage",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:data-identity-privacy",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:battery-workshop-safety",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:regional-itad-practitioner-field-guide",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-regional-itad-practitioner-advice",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-index",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-executive-synthesis",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-compliance-data-safety",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-operations-routing-capacity",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-sourcing-partnerships",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-refurb-skills-repair",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-software-assetflow",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-media-curriculum",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-evidence-register",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/volunteer:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/volunteer:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/admin:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/admin:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/admin:app/(private)/admin/programmes/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/volunteer:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/volunteer:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/admin:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/admin:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/admin:app/(private)/admin/programmes/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/volunteer:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/volunteer:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/admin:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/admin:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/admin:app/(private)/admin/programmes/page.tsx",
+      "empty": false,
+      "width": 320,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/access/page.tsx",
+      "empty": false,
+      "redirect": "REDIRECT:/programmes",
+      "width": 390
+    },
+    {
+      "file": "app/(private)/admin/data/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/permissions/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/permissions/users/[id]/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/programmes/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/[id]/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/certificates/[id]/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/certificates/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/campaigns/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/opportunities/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/quotes/[id]/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/quotes/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/report/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/customers/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/device-library/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/documents/[slug]/edit/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/documents/[slug]/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/documents/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/exceptions/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/[id]/edit/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/[id]/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/new/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/learn/[course]/[lesson]/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/learn/[course]/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/learn/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lending/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/locations/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lots/[id]/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lots/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/media/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/model-lookup/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/processing/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/programmes/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/projects/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/recycling/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repair-cafe-feedback/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repair-cafe-volunteers/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repairs/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/reports/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/resale/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/search/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/settlements/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/triage/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/validation/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/workshop-inventory/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/dubbo-circular-economy/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/dubbo-repair-ewaste/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/login/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/page.tsx",
+      "empty": false,
+      "redirect": "REDIRECT:/dashboard",
+      "width": 390
+    },
+    {
+      "file": "app/regional-computer-experts/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/repair-cafe-dubbo/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/signup/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/verify/[token]/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/access/page.tsx",
+      "empty": true,
+      "redirect": "REDIRECT:/programmes",
+      "width": 390
+    },
+    {
+      "file": "app/(private)/admin/data/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/permissions/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/programmes/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/new/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/certificates/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/campaigns/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/opportunities/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/quotes/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/report/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/customers/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/dashboard/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/device-library/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/documents/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/exceptions/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/new/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/learn/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lending/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/locations/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lots/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/media/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/model-lookup/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/processing/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/programmes/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/projects/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/recycling/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repair-cafe-feedback/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repair-cafe-volunteers/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repairs/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/reports/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/resale/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/search/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/settlements/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/triage/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/validation/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/workshop-inventory/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/dubbo-circular-economy/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/dubbo-repair-ewaste/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/login/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/page.tsx",
+      "empty": true,
+      "redirect": "REDIRECT:/dashboard",
+      "width": 390
+    },
+    {
+      "file": "app/regional-computer-experts/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/repair-cafe-dubbo/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/signup/page.tsx",
+      "empty": true,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:minimum-shed-setup",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:lean-launch-checklist",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:phase-0-launch-gates",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:phase-0-operating-blueprint",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:actual-shed-zone-plan",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:shed-zone-map",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:premises-flow-capacity",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:facility-zone-benchmark",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:intake-policy",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:front-door-triage",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:data-identity-privacy",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:battery-workshop-safety",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:regional-itad-practitioner-field-guide",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-regional-itad-practitioner-advice",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-index",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-executive-synthesis",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-compliance-data-safety",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-operations-routing-capacity",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-sourcing-partnerships",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-refurb-skills-repair",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-software-assetflow",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-media-curriculum",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-evidence-register",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/volunteer:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/volunteer:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/admin:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/admin:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/admin:app/(private)/admin/programmes/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/volunteer:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/volunteer:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/admin:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/admin:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/admin:app/(private)/admin/programmes/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/volunteer:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/volunteer:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/admin:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/admin:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/admin:app/(private)/admin/programmes/page.tsx",
+      "empty": false,
+      "width": 390,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/access/page.tsx",
+      "empty": false,
+      "redirect": "REDIRECT:/programmes",
+      "width": 768
+    },
+    {
+      "file": "app/(private)/admin/data/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/permissions/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/permissions/users/[id]/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/programmes/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/[id]/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/certificates/[id]/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/certificates/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/campaigns/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/opportunities/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/quotes/[id]/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/quotes/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/report/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/customers/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/device-library/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/documents/[slug]/edit/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/documents/[slug]/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/documents/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/exceptions/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/[id]/edit/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/[id]/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/new/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/learn/[course]/[lesson]/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/learn/[course]/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/learn/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lending/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/locations/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lots/[id]/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lots/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/media/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/model-lookup/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/processing/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/programmes/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/projects/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/recycling/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repair-cafe-feedback/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repair-cafe-volunteers/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repairs/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/reports/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/resale/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/search/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/settlements/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/triage/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/validation/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/workshop-inventory/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/dubbo-circular-economy/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/dubbo-repair-ewaste/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/login/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/page.tsx",
+      "empty": false,
+      "redirect": "REDIRECT:/dashboard",
+      "width": 768
+    },
+    {
+      "file": "app/regional-computer-experts/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/repair-cafe-dubbo/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/signup/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/verify/[token]/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/access/page.tsx",
+      "empty": true,
+      "redirect": "REDIRECT:/programmes",
+      "width": 768
+    },
+    {
+      "file": "app/(private)/admin/data/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/permissions/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/programmes/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/new/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/certificates/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/campaigns/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/opportunities/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/quotes/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/report/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/customers/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/dashboard/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/device-library/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/documents/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/exceptions/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/new/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/learn/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lending/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/locations/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lots/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/media/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/model-lookup/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/processing/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/programmes/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/projects/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/recycling/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repair-cafe-feedback/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repair-cafe-volunteers/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repairs/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/reports/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/resale/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/search/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/settlements/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/triage/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/validation/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/workshop-inventory/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/dubbo-circular-economy/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/dubbo-repair-ewaste/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/login/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/page.tsx",
+      "empty": true,
+      "redirect": "REDIRECT:/dashboard",
+      "width": 768
+    },
+    {
+      "file": "app/regional-computer-experts/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/repair-cafe-dubbo/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/signup/page.tsx",
+      "empty": true,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:minimum-shed-setup",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:lean-launch-checklist",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:phase-0-launch-gates",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:phase-0-operating-blueprint",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:actual-shed-zone-plan",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:shed-zone-map",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:premises-flow-capacity",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:facility-zone-benchmark",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:intake-policy",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:front-door-triage",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:data-identity-privacy",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:battery-workshop-safety",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:regional-itad-practitioner-field-guide",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-regional-itad-practitioner-advice",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-index",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-executive-synthesis",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-compliance-data-safety",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-operations-routing-capacity",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-sourcing-partnerships",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-refurb-skills-repair",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-software-assetflow",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-media-curriculum",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-evidence-register",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/volunteer:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/volunteer:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/admin:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/admin:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/admin:app/(private)/admin/programmes/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/volunteer:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/volunteer:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/admin:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/admin:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/admin:app/(private)/admin/programmes/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/volunteer:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/volunteer:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/admin:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/admin:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/admin:app/(private)/admin/programmes/page.tsx",
+      "empty": false,
+      "width": 768,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/access/page.tsx",
+      "empty": false,
+      "redirect": "REDIRECT:/programmes",
+      "width": 1280
+    },
+    {
+      "file": "app/(private)/admin/data/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/permissions/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/permissions/users/[id]/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/programmes/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/[id]/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/certificates/[id]/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/certificates/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/campaigns/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/opportunities/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/quotes/[id]/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/quotes/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/report/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/customers/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/device-library/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/documents/[slug]/edit/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/documents/[slug]/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/documents/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/exceptions/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/[id]/edit/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/[id]/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/new/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/learn/[course]/[lesson]/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/learn/[course]/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/learn/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lending/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/locations/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lots/[id]/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lots/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/media/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/model-lookup/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/processing/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/programmes/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/projects/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/recycling/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repair-cafe-feedback/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repair-cafe-volunteers/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repairs/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/reports/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/resale/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/search/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/settlements/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/triage/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/validation/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/workshop-inventory/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/dubbo-circular-economy/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/dubbo-repair-ewaste/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/login/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/page.tsx",
+      "empty": false,
+      "redirect": "REDIRECT:/dashboard",
+      "width": 1280
+    },
+    {
+      "file": "app/regional-computer-experts/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/repair-cafe-dubbo/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/signup/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/verify/[token]/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/access/page.tsx",
+      "empty": true,
+      "redirect": "REDIRECT:/programmes",
+      "width": 1280
+    },
+    {
+      "file": "app/(private)/admin/data/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/permissions/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/admin/programmes/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/new/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/assets/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/certificates/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/campaigns/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/opportunities/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/quotes/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/crm/report/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/customers/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/dashboard/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/device-library/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/documents/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/exceptions/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/new/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/jobs/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/learn/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lending/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/locations/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/lots/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/media/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/model-lookup/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/processing/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/programmes/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/projects/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/recycling/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repair-cafe-feedback/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repair-cafe-volunteers/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/repairs/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/reports/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/resale/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/search/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/settlements/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/triage/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/validation/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/(private)/workshop-inventory/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/dubbo-circular-economy/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/dubbo-repair-ewaste/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/login/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/page.tsx",
+      "empty": true,
+      "redirect": "REDIRECT:/dashboard",
+      "width": 1280
+    },
+    {
+      "file": "app/regional-computer-experts/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/repair-cafe-dubbo/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "app/signup/page.tsx",
+      "empty": true,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:minimum-shed-setup",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:lean-launch-checklist",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:phase-0-launch-gates",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:phase-0-operating-blueprint",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:actual-shed-zone-plan",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:shed-zone-map",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:premises-flow-capacity",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:facility-zone-benchmark",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:intake-policy",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:front-door-triage",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:data-identity-privacy",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:battery-workshop-safety",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:regional-itad-practitioner-field-guide",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-regional-itad-practitioner-advice",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-index",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-executive-synthesis",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-compliance-data-safety",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-operations-routing-capacity",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-sourcing-partnerships",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-refurb-skills-repair",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-software-assetflow",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-media-curriculum",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "document:deep-research-2026-evidence-register",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/volunteer:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/volunteer:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/admin:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/admin:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "dubbo_ewaste/admin:app/(private)/admin/programmes/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/volunteer:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/volunteer:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/admin:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/admin:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "library_of_things/admin:app/(private)/admin/programmes/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/volunteer:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/volunteer:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/admin:app/(private)/dashboard/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/admin:app/(private)/assets/new/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "repair_cafe/admin:app/(private)/admin/programmes/page.tsx",
+      "empty": false,
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "file": "client interactions",
+      "width": 390,
+      "checks": [
+        "select all",
+        "QR label count",
+        "print cleanup",
+        "clear selection",
+        "bounded menu",
+        "Escape",
+        "navigation close"
+      ]
+    }
+  ],
+  "failures": []
+}

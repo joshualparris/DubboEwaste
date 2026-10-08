@@ -12,11 +12,9 @@ export default async function LoginPage({
     <main className="login-wrap">
       <section className="login-card stack">
         <div>
-          <div className="badge">Volunteer & staff portal</div>
-          <h1>Dubbo Circular Learning & volunteer portals</h1>
-          <p className="muted">
-            One account for the learning hub, DubboEwaste, Repair Café and Library of Things access you have been granted.
-          </p>
+          <div className="badge">Private staff system</div>
+          <h1>Dubbo community programmes</h1>
+          <p className="muted">One login for Circular Learning, E-waste, Library of Things and Repair Café staff and volunteers. Your membership determines which items and sections you can access.</p>
         </div>
 
         {error ? <div className="error">{error}</div> : null}
@@ -46,8 +44,7 @@ export default async function LoginPage({
         </details>
 
         <p className="muted small">
-          New volunteers and Library of Things team members can{" "}
-          <Link href="/signup"><strong>create an account</strong></Link> using the access code supplied for their team.
+          New staff or volunteers can <Link href="/signup"><strong>create an account</strong></Link> with the current access code.
         </p>
       </section>
     </main>

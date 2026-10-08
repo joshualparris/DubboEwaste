@@ -1,9 +1,24 @@
 import { ResponsiveTable } from "@/components/ResponsiveTable";
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/server";
+
+import { requireProgrammeContext } from "@/lib/programme-context";
+import { PROGRAMMES } from "@/lib/programmes";
 
 export default async function DashboardPage() {
-  const supabase = await createClient();
+  const { supabase, context } = await requireProgrammeContext();
+  if (context.selected === "__denied__") return <section className="card"><h1>Programme access required</h1><Link href="/programmes">Choose your programme</Link></section>;
+  if (context.selected && context.selected !== "dubbo_ewaste") {
+    const [{ count: items }, { count: openRepairs }, { data: recent }] = await Promise.all([
+      supabase.from("assets").select("id", { count:"exact",head:true }),
+      supabase.from("repairs").select("id", { count:"exact",head:true }).in("status",["OPEN","APPROVED","IN_PROGRESS","WAITING_PARTS"]),
+      supabase.from("assets").select("id,asset_code,category,manufacturer,model").order("created_at",{ascending:false}).limit(8)
+    ]);
+    return <div className="stack"><div><div className="badge">{context.role}</div><h1>{PROGRAMMES[context.selected]}</h1><p className="muted">Your programme's items and daily work.</p></div>
+      <div className="grid"><section className="card"><h2>Tracked items</h2><div className="metric">{items||0}</div></section><section className="card"><h2>Open repairs</h2><div className="metric">{openRepairs||0}</div></section></div>
+      <div className="actions"><Link href="/assets" className="button">View items</Link><Link href="/assets/new" className="button secondary">{context.selected === "repair_cafe" ? "Check in item" : "Catalogue item"}</Link><Link href={context.selected === "library_of_things" ? "/lending" : "/repair-cafe-volunteers"} className="button secondary">{context.selected === "library_of_things" ? "Loans & returns" : "Volunteer Hub"}</Link></div>
+      <section className="card"><h2>Recent items</h2>{!recent?.length?<p className="muted">No items recorded yet.</p>:<div className="result-list">{recent.map(a=><Link className="result-row" key={a.id} href={"/assets/"+a.id}><strong>{a.asset_code}</strong><span>{[a.manufacturer,a.model].filter(Boolean).join(" ")||a.category}</span></Link>)}</div>}</section>
+    </div>;
+  }
   const now = new Date().toISOString();
   const [
     {count:all},{count:unwiped},{count:ready},{count:jobs},{count:lots},{count:certs},

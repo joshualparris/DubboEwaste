@@ -8,6 +8,9 @@ import { createClient } from "@/lib/supabase/server";
 const optionalUuid = z.preprocess((v) => v === "" || v == null ? undefined : v, z.string().uuid().optional());
 
 const intakeSchema = z.object({
+  programme: z.enum(["dubbo_ewaste","library_of_things","repair_cafe"]),
+  owner_kind: z.enum(["UNCONFIRMED","PROGRAMME","CUSTOMER","THIRD_PARTY"]),
+  owner_name: z.string().trim().max(200).optional(),
   category: z.enum(["LAPTOP","DESKTOP","PHONE","TABLET","CHROMEBOOK","MONITOR","TV","NETWORKING","PRINTER","PARTS","OTHER"]),
   manufacturer: z.string().trim().max(100).optional(),
   model: z.string().trim().max(160).optional(),
@@ -28,6 +31,9 @@ const intakeSchema = z.object({
 
 export async function createAsset(formData: FormData) {
   const parsed = intakeSchema.safeParse({
+    programme: formData.get("programme"),
+    owner_kind: formData.get("owner_kind"),
+    owner_name: formData.get("owner_name") || undefined,
     category: formData.get("category"),
     manufacturer: formData.get("manufacturer") || undefined,
     model: formData.get("model") || undefined,
@@ -54,6 +60,9 @@ export async function createAsset(formData: FormData) {
   if (!user) redirect("/login");
 
   const { data, error } = await supabase.from("assets").insert({
+    programme: parsed.data.programme,
+    owner_kind: parsed.data.owner_kind,
+    owner_name: parsed.data.owner_name || null,
     category: parsed.data.category,
     manufacturer: parsed.data.manufacturer || null,
     model: parsed.data.model || null,
@@ -72,7 +81,7 @@ export async function createAsset(formData: FormData) {
     created_by: user.id,
   }).select("id,asset_code").single();
 
-  if (error || !data) redirect("/assets/new?error=Could%20not%20create%20asset");
+  if (error || !data) redirect("/assets/new?error="+encodeURIComponent(error?.message || "Could not create asset"));
 
   if (parsed.data.product_barcode) {
     const attributes = [

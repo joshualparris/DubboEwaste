@@ -1,4 +1,5 @@
 import { createServerClient } from "@supabase/ssr";
+import { PROGRAMME_COOKIE, programmeHeader } from "@/lib/programmes";
 import { cookies } from "next/headers";
 
 export async function createClient() {
@@ -8,6 +9,7 @@ export async function createClient() {
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
     {
+      global: { headers: programmeHeader(cookieStore.get(PROGRAMME_COOKIE)?.value) },
       cookies: {
         getAll() {
           return cookieStore.getAll();
