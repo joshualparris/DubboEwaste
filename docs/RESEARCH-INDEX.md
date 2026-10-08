@@ -34,6 +34,9 @@ The [facility-zone benchmark](EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md)
 
 ## Consolidated and comparative research
 
+- [DUBBO-REPAIR-CAFE-VENUE-RESEARCH-2026-10-08.md](DUBBO-REPAIR-CAFE-VENUE-RESEARCH-2026-10-08.md) ranks current Dubbo venue leads for an inclusive Repair Café and records every site-inspection / insurance / access unknown still requiring direct confirmation.
+- [REPAIR-CAFE-WEBSITE-ENGAGEMENT-BENCHMARK-2026-10-08.md](REPAIR-CAFE-WEBSITE-ENGAGEMENT-BENCHMARK-2026-10-08.md) extracts practical engagement patterns from current Repair Café sites with strong participation signals.
+- [DUBBO-REPAIR-CAFE-PUBLIC-SITE-SPEC-2026-10-08.md](DUBBO-REPAIR-CAFE-PUBLIC-SITE-SPEC-2026-10-08.md) defines the public community site and persisted feedback/volunteer form.
 - [DUBBO-CIRCULAR-ECONOMY-IN-PRACTICE-2026-10-08.md](DUBBO-CIRCULAR-ECONOMY-IN-PRACTICE-2026-10-08.md) is the 8 October 2026 cross-sector audit of how Dubbo actually keeps products/materials in use before recycling or landfill. It covers repair economies, Whylandra, bulky waste, charities, C&D, automotive/agriculture, right-to-repair, circularity scoring, leakage points, Repair Café fit and explicit field-validation questions for every section.
 - [REPAIR-FIRST-DUBBO-DEEP-RESEARCH.md](REPAIR-FIRST-DUBBO-DEEP-RESEARCH.md) is the 8 October 2026 deep research on why people repair or replace, Australian/NSW repair incentives, Repair Café evidence, repair vouchers, trust/convenience barriers and a Dubbo-specific incentive strategy.
 - [REPAIR-FIRST-DUBBO-PILOT.md](REPAIR-FIRST-DUBBO-PILOT.md) converts that evidence into a testable six-month Repair First Dubbo pilot with Repair Checks, capped rebates, a monthly Repair Café, local repair directory, loan pool, parts bank and evaluation metrics.
