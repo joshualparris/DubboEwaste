@@ -48,7 +48,7 @@ export async function proxy(request: NextRequest) {
     const hasRepairCafe = programs.has("repair_cafe");
     const hasLibrary = programs.has("library_of_things");
 
-    if (hasRepairCafe && !hasEwaste && !hasLibrary && !repairCafeOnlyPathAllowed(request.nextUrl.pathname)) {
+    if (hasRepairCafe && !hasEwaste && !repairCafeOnlyPathAllowed(request.nextUrl.pathname)) {
       return NextResponse.redirect(new URL("/repair-cafe-volunteers", request.url));
     }
 
