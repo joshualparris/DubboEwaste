@@ -18,7 +18,7 @@ export async function signup(formData: FormData) {
   if (!email || !email.includes("@") || email.length > 254) signupError("Enter a valid email address.");
   if (password.length < 10) signupError("Password must be at least 10 characters.");
   if (password !== confirmPassword) signupError("Passwords do not match.");
-  if (!accessCode) signupError("Enter the DubboEwaste access code.");
+  if (!accessCode) signupError("Enter the volunteer access code you were given.");
 
   const supabase = await createClient();
 
@@ -41,8 +41,16 @@ export async function signup(formData: FormData) {
     );
   }
 
-  if (data.session) {
-    redirect("/dashboard");
+  if (data.session && data.user) {
+    const { data: access } = await supabase
+      .from("program_access")
+      .select("program")
+      .eq("user_id", data.user.id);
+
+    const programs = new Set((access ?? []).map((row) => row.program));
+    if (programs.has("repair_cafe") && programs.has("dubbo_ewaste")) redirect("/access");
+    if (programs.has("repair_cafe")) redirect("/repair-cafe-volunteers");
+    if (programs.has("dubbo_ewaste")) redirect("/dashboard");
   }
 
   redirect(
