@@ -1010,3 +1010,653 @@ For Dubbo, the most useful first public promise is still:
 
 > **Before you replace it, get one repair check.**
 
+
+
+---
+
+## 18. Behaviour-change model: repair is a capability + opportunity + motivation problem
+
+A 2026 New Zealand study applied the **COM-B** behaviour-change model to repair.
+
+Study 1 surveyed **1,512 consumers**. Study 2 examined repair-café participants. The results found that:
+
+- **motivation** strongly predicts repair intention;
+- **social opportunity** matters — repair is easier to choose when people around you, local services and institutions make it normal and accessible;
+- for collaborative repair, **physical capability and physical opportunity** also matter;
+- different groups need different interventions depending on how often they already repair.
+
+Source:
+https://doi.org/10.1108/JCM-01-2025-7575
+
+### Dubbo implication
+
+There is no single “repair consumer”.
+
+Segment the program:
+
+### Group A — already repairs
+Needs:
+- easier parts;
+- trusted directory;
+- donor parts;
+- occasional subsidy;
+- specialist referrals.
+
+Avoid spending most subsidy money here if they would have repaired anyway.
+
+### Group B — persuadable but uncertain
+This is the strongest behaviour-change target.
+
+Needs:
+- one repair check;
+- price range;
+- repair success estimate;
+- warranty;
+- quick booking;
+- modest instant discount.
+
+### Group C — replacement-default
+Needs:
+- repair to become socially normal;
+- visible local examples;
+- low-friction first experience;
+- Repair Café exposure;
+- repairability information when buying the next product.
+
+This is why the best Dubbo program is a **system**, not a slogan.
+
+---
+
+## 19. Uncertainty itself is a repair barrier — and it can be reduced cheaply
+
+A 2025 Journal of Industrial Ecology experiment with **237 consumers** tested repair offers with different levels of information.
+
+The results are unusually actionable.
+
+When a repair offer provided **no information** on repair cost or repair success:
+
+- only **27.7%** chose the repair offer;
+- **72.3%** chose the outside option, such as replacement.
+
+When even a very broad repair-cost range was provided:
+
+- repair preference rose to **53.2%**.
+
+That is nearly double.
+
+The study also found:
+
+1. **total repair cost** was the most important service attribute;
+2. **warranty** was second;
+3. **repair success rate** was close behind;
+4. shorter repair times were preferred;
+5. a **regional repair service** was preferred over a nationwide network;
+6. people with prior repair experience were, on average, about **11% more likely** to choose repair.
+
+Source:
+https://link.springer.com/article/10.1111/jiec.70064
+
+### Dubbo implications
+
+The Repair Check should provide, where reasonably possible:
+
+- likely cost or cost range;
+- likely success / whether the fault is normally repairable;
+- turnaround;
+- warranty;
+- replacement comparison.
+
+Even imperfect information is better than:
+
+> “Leave it with us and we’ll tell you later.”
+
+This also gives a powerful local-business advantage:
+
+> **local + transparent + warrantied**
+
+can compete with “just order a new one online”.
+
+---
+
+## 20. Do not use one rigid repair-vs-replace percentage
+
+European policy work often cites an average acceptable repair price around **20% of original purchase price**, and price relative to replacement is consistently a leading barrier.
+
+Source:
+https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:52023SC0059
+
+But current research also shows willingness varies substantially by:
+
+- product value;
+- age;
+- expected remaining life;
+- urgency;
+- attachment;
+- availability of replacement;
+- confidence in the repair;
+- repair warranty.
+
+A 2025 choice experiment around a three-year-old washing machine found a much higher average willingness to pay under a transparent, credible service scenario.
+
+Source:
+https://link.springer.com/article/10.1111/jiec.70064
+
+### Dubbo rule
+
+Do not create a policy saying:
+
+> “Only repair if quote is under 20% of new price.”
+
+Instead use a **repair-value conversation**:
+
+- repair cost;
+- cost of a like-for-like replacement;
+- expected extra life;
+- warranty;
+- condition of the rest of the item;
+- energy/safety implications;
+- customer preference.
+
+For a low-value toaster, replacement may rationally win.
+
+For a $1,200 laptop with a $180 fault, repair may be obvious.
+
+---
+
+## 21. Repair experience creates a positive feedback loop
+
+The same 2025 repair-choice research found people with recent paid repair experience were substantially more likely to choose repair again.
+
+This suggests the first successful repair has value beyond the saved item.
+
+### Dubbo implication
+
+A Repair Café, Repair Check or voucher can create:
+
+> **one good repair experience → higher chance of repairing the next thing**
+
+That makes the first-contact experience critical.
+
+Measure:
+
+- first-ever repair customer?
+- previous repair in last five years?
+- would they repair again?
+- did they subsequently repair another item?
+
+The pilot should therefore value **confidence-building**, not just kilograms diverted.
+
+---
+
+## 22. Financial incentives work best when awareness, design and repair capacity work together
+
+A September 2026 peer-reviewed study of Austria's repair voucher found three broad responses:
+
+1. **no effect** where people did not know about the scheme or non-financial barriers dominated;
+2. **nudge effect** where the incentive made repair enter consideration;
+3. **behaviour change** where people repaired more often, repaired more product categories, or changed repair provider.
+
+It also found:
+
+- some subsidy goes to people who would have repaired anyway;
+- awareness/marketing is essential;
+- funding level must make sense relative to repair price and product value;
+- long-term habit persistence after a subsidy ends is not guaranteed.
+
+Source:
+https://researchportal.northumbria.ac.uk/en/publications/consumer-perceptions-of-financial-incentives-for-repair-informati/
+
+### OECD evidence on Austria
+
+The OECD reports Austria's scheme provided a **50% repair discount**, initially capped at €200 per repair plus support for cost estimates.
+
+By mid-2024:
+
+- **more than 1 million repair vouchers** had been used;
+- around **3,900 repair businesses** participated.
+
+Demand was strong enough that the scheme later paused when available funds were exhausted.
+
+Source:
+https://www.oecd.org/en/publications/oecd-environmental-performance-reviews-austria-2026_520533a1-en/full-report/promoting-the-circular-economy_3cdb4cb8.html
+
+### Dubbo implication
+
+A voucher must be paired with:
+
+- a visible directory;
+- repairer capacity;
+- diagnosis;
+- easy redemption;
+- publicity at the moment of failure;
+- measurement of whether the repair would have occurred anyway.
+
+---
+
+## 23. France shows both the scale and the limits of repair bonuses
+
+France's repair fund provides an instant repair discount through accredited repairers.
+
+A 2026 consumer-organisation evaluation reported **1,888,208 subsidised electrical/electronic repairs** from scheme launch through the end of 2025, across thousands of accredited repair points.
+
+But earlier official/oversight evidence also found:
+
+- funding utilisation was initially much lower than expected;
+- repairer coverage was geographically uneven;
+- some subsidies were still too small to make high-cost repairs attractive;
+- awareness and repairer accreditation were barriers.
+
+Sources:
+- https://www.clcv.org/articles/bilan-de-lobservatoire-du-fonds-reparation-des-equipements-electriques-et-electroniques-eee
+- https://www.senat.fr/questions/base/2025/qSEQ250303925.html
+
+### Dubbo lesson
+
+A rebate with no nearby repairer is almost worthless.
+
+The regional-city question is not just:
+
+> “How big should the rebate be?”
+
+It is:
+
+> “Can the resident get a trustworthy repair without a two-week wait, a trip to Sydney, or impossible parts?”
+
+That is why local capacity mapping comes first.
+
+---
+
+## 24. Repairability information changes buying behaviour too
+
+Repair policy should not begin only after something breaks.
+
+The European Commission's behavioural research found that providing repairability information can steer consumers toward more repairable products.
+
+One study found products with repairability information were selected more often than otherwise equivalent products without it.
+
+Sources:
+- https://op.europa.eu/en/publication-detail/-/publication/46076b42-669a-11eb-aeb5-01aa75ed71a1
+- https://circulareconomy.europa.eu/platform/sites/default/files/ec_circular_economy_final_report.pdf
+
+Australia's Productivity Commission has also recommended piloting repairability/durability labelling for whitegoods and consumer electronics.
+
+Source:
+https://www.pc.gov.au/inquiries-and-research/repair/report/
+
+### Dubbo opportunity
+
+Create a simple local **Repairable Choice** guide for common purchases:
+
+- phone;
+- laptop;
+- TV;
+- washing machine;
+- vacuum;
+- mower.
+
+Score practical questions:
+
+- battery replaceable?
+- common spare parts locally available?
+- local repair option?
+- repair manuals?
+- software support?
+- proprietary locks?
+- common repair cost?
+- warranty?
+
+This helps residents avoid buying tomorrow's e-waste.
+
+---
+
+## 25. Repair Cafés work best as a gateway, not as the whole system
+
+The Australian Repair Network currently describes around **110 repair cafés/community repair initiatives** across Australia.
+
+Source:
+https://www.griffith.edu.au/arts-education-law/griffith-law-school/research/australian-repair-network
+
+Repair Café International's historical RepairMonitor data found **65% of presented items were repaired** in the 2018 dataset; electrical/electronic repairs were less successful than simpler mechanical/textile repairs.
+
+Source:
+https://repaircafe.org/wp-content/uploads/2019/05/RepairMonitor_analysis_2018_ENGLISH-1.pdf
+
+A 2026 study of two scalable Repair Café adaptations found:
+
+### Weekly appointment repair hub
+- 75 sessions;
+- 234 devices;
+- **42% repaired**;
+- small user contribution;
+- paid + volunteer repairers.
+
+### Workplace Repair Cafés
+- 109 devices assessed;
+- **41% repaired**;
+- repair brought directly to employees.
+
+Source:
+https://www.sciencedirect.com/science/article/pii/S2212827126007031
+
+### Dubbo design lesson
+
+Do not make a once-a-month Repair Café carry the entire repair strategy.
+
+Use three layers:
+
+1. **Repair Café** — culture, diagnosis, simple fixes, learning;
+2. **booked Repair Hub / Repair Check** — predictable triage and referrals;
+3. **commercial repair network** — skilled, warrantied, safety-critical work.
+
+A workplace version could be piloted with a large Dubbo employer to reduce the inconvenience barrier.
+
+---
+
+## 26. Inclusion matters: do not make repair feel like a men's technical club
+
+Research on Repair Cafés has documented inclusion problems where volunteer cultures become overly male-dominated or technically intimidating.
+
+Source:
+https://link.springer.com/article/10.1186/s42854-022-00031-x
+
+### Dubbo implication
+
+Design the Repair Café deliberately around:
+
+- welcoming hosts;
+- plain language;
+- textiles/sewing as well as electronics;
+- family-friendly activities;
+- older and younger volunteers;
+- no expectation that the visitor must know tools;
+- volunteers explaining rather than showing off;
+- clear disability/accessibility consideration.
+
+The public message should be:
+
+> **You do not need to know how to repair anything to come.**
+
+---
+
+## 27. Current Dubbo capacity is broader than electronics
+
+Current October 2026 local business listings show repair capability across:
+
+- computers;
+- mobile phones;
+- televisions/electronics;
+- household appliances;
+- bicycles;
+- shoes;
+- clothing/alterations;
+- community workshop skills.
+
+Examples currently listed include:
+
+- Custom Computer Creations;
+- Tech Savvy Dubbo;
+- Page Electronics;
+- David Walters Electronic Services;
+- Macquarie Appliance Repair;
+- Central Shoe Repairs;
+- The Bike Shoppe;
+- Wheeler Cycles;
+- Dubbo Stitching Studio;
+- Dubbo Community Men's Shed;
+- South Dubbo Men's Shed.
+
+The strategic gap is therefore not simply “Dubbo needs repairers”.
+
+It is:
+
+> **Dubbo needs one visible repair pathway that makes existing repair capacity easy to discover and connects it with community repair, diagnosis, parts and incentives.**
+
+Before publishing a directory, verify each business directly:
+- active status;
+- categories;
+- pricing/diagnosis;
+- capacity;
+- warranty;
+- interest in participating.
+
+---
+
+## 28. Dubbo has current funding and policy routes — but use them accurately
+
+### Council policy fit
+
+The adopted 2025–2035 Waste Strategy includes:
+
+- community/business waste education;
+- a **Dubbo Region Circularity Cooperative**;
+- a **Circular Economy Roadmap**;
+- business/industry circular-economy collaboration;
+- a Circular Economy and Strategic Projects role.
+
+Source:
+https://www.dubbo.nsw.gov.au/ArticleDocuments/242/Waste_Strategy_2025_Adopted.pdf.aspx
+
+### Community Funding Program
+
+Council's current 2026/27 Community Funding Program has an annual **$250,000** pool for eligible community-benefit projects/programs.
+
+Current Council information says applications can be lodged throughout the year and are assessed in two rounds. The published next round covers projects commencing from 1 May 2027 and closes **28 February 2027**.
+
+Source:
+https://www.dubbo.nsw.gov.au/News-and-Media/News-and-Resources/grants-and-funding
+
+### Important NSW funding limitation
+
+Dubbo Regional Council is **not listed** in the Metropolitan or Regional Waste Levy Areas.
+
+The NSW EPA Local Government Waste Solutions Fund is led by levy-paying councils/eligible levy-area regional waste groups.
+
+Sources:
+- https://www.epa.nsw.gov.au/Your-environment/Waste/waste-levy/levy-regulated-area-and-levy-rates
+- https://www.epa.nsw.gov.au/Working-together/Grants/councils/Local-Government-Waste-Solutions-Fund
+
+Therefore the SSROC repair-incentive project is an excellent **design comparator**, but not a grant stream Dubbo should assume it can lead.
+
+---
+
+## 29. Recommended Dubbo incentive stack — evidence-ranked
+
+### Tier 1 — do first
+
+#### 1. Repair Check
+**Evidence strength: very high**
+
+Free/low-cost diagnosis with:
+- fault;
+- likely success;
+- cost/range;
+- turnaround;
+- warranty;
+- repair-vs-replace comparison.
+
+Why first:
+- directly addresses uncertainty;
+- cheap compared with full subsidy;
+- creates data;
+- creates the habit of considering repair.
+
+#### 2. Repair Dubbo directory
+**Evidence strength: high**
+
+One route into local repair.
+
+Why:
+- reduces search cost;
+- makes fragmented capacity visible.
+
+#### 3. Transparent quote + warranty standard
+**Evidence strength: very high**
+
+Participating repairers display:
+- diagnosis fee;
+- expected cost/range;
+- turnaround;
+- warranty;
+- approval threshold for extra work.
+
+Why:
+- cost information and warranty are among the highest-value attributes.
+
+### Tier 2 — pilot once capacity is mapped
+
+#### 4. Instant Repair Bonus
+**Evidence strength: high**
+
+Test:
+- 30–50% support;
+- category-specific caps;
+- immediate invoice reduction.
+
+Do not reimburse residents weeks later.
+
+#### 5. Monthly Repair Café
+**Evidence strength: high for culture/access; moderate for repair volume**
+
+Purpose:
+- simple repairs;
+- diagnosis;
+- skill-sharing;
+- social proof;
+- commercial referral.
+
+#### 6. Donor-parts network
+**Evidence strength: practical/structural**
+
+Use safe, tested recovered parts where appropriate to reduce cost and parts scarcity.
+
+### Tier 3 — add if pilot identifies the need
+
+#### 7. Loan devices
+Phones/laptops.
+
+#### 8. Workplace Repair Days
+Bring repair to residents instead of asking residents to travel.
+
+#### 9. Repairable Choice guide
+Influence purchase decisions before products become waste.
+
+#### 10. Point-of-disposal intervention
+Prompt a Repair Check before legal surrender into recycling/disposal.
+
+---
+
+## 30. What not to do
+
+### Do not lead with guilt
+“Save the planet” is supportive, not the main service proposition.
+
+Lead with:
+- save money;
+- know the price;
+- keep the thing you know;
+- support local skills.
+
+### Do not subsidise every repair
+Measure additionality.
+
+### Do not make residents pay upfront and claim later
+Friction kills uptake.
+
+### Do not launch vouchers before repairer capacity is mapped
+Demand without capacity creates long waits and teaches the wrong lesson.
+
+### Do not force every repair through volunteers
+Commercial repair businesses are part of the circular economy.
+
+### Do not promise every product should be repaired
+Some products are genuinely unsafe, obsolete or uneconomic.
+
+### Do not judge success only by kilograms diverted
+Measure:
+- behaviour;
+- confidence;
+- local spend;
+- product life;
+- repeat repair.
+
+---
+
+## 31. A practical 12-week Dubbo experiment
+
+Before a six-month citywide rebate, run a smaller behaviour experiment.
+
+### Weeks 1–4 — map + baseline
+
+Recruit 8–15 repair businesses/repairers.
+
+Collect:
+- categories;
+- diagnosis prices;
+- repair price examples;
+- wait time;
+- warranties;
+- spare-parts problems;
+- weekly spare capacity.
+
+Run baseline survey:
+
+> What would you normally do when this item breaks?
+
+### Weeks 5–8 — Repair Check
+
+Offer 50–100 subsidised/free Repair Checks.
+
+Randomly or deliberately test:
+- cost range only;
+- cost + success estimate;
+- cost + warranty.
+
+Measure repair approval.
+
+### Weeks 9–12 — add small instant bonus
+
+For eligible jobs, add a capped instant subsidy.
+
+Measure:
+
+- extra conversion caused by subsidy;
+- average subsidy per additional repair;
+- repairer workload;
+- waiting time.
+
+Run one Repair Café during the same period.
+
+### Core KPI
+
+> **How many replacement decisions were converted into sensible repairs that otherwise would not have happened?**
+
+That is more meaningful than raw voucher count.
+
+---
+
+## 32. Final answer
+
+The strongest way to incentivise Dubbo residents is not:
+
+> “Convince them to care more about waste.”
+
+It is:
+
+> **remove the reasons repair loses.**
+
+Repair loses when it is:
+- hard to find;
+- uncertain;
+- expensive;
+- slow;
+- risky;
+- socially unusual.
+
+So build the opposite:
+
+> **one trusted first check + transparent price + quick local pathway + warranty + modest instant support + visible successful repairs.**
+
+The recommended public habit remains:
+
+> **Before you replace it, get one repair check.**
+
