@@ -12,11 +12,11 @@ export default async function SignupPage({
     <main className="login-wrap">
       <section className="login-card stack">
         <div>
-          <div className="badge">Staff & volunteer signup</div>
+          <div className="badge">DubboEwaste & Repair Café volunteers</div>
           <h1>Create account</h1>
           <p className="muted">
-            Public signup is enabled, but the current DubboEwaste access code is required.
-            New accounts start with the volunteer role.
+            Enter the access code you were given. The code automatically puts your account in the correct volunteer area.
+            You do not need to choose a team yourself.
           </p>
         </div>
 
@@ -44,7 +44,7 @@ export default async function SignupPage({
           </label>
 
           <label>
-            Access code
+            Volunteer access code
             <input
               name="access_code"
               type="password"
@@ -55,7 +55,7 @@ export default async function SignupPage({
             />
           </label>
           <p id="access-help" className="muted small">
-            Ask the DubboEwaste administrator for the current access code.
+            Use the DubboEwaste code or Repair Café code supplied by the coordinator. The two codes grant different access.
           </p>
 
           <button className="button" type="submit">Create account</button>

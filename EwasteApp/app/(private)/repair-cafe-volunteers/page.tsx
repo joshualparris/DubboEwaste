@@ -67,14 +67,24 @@ export default async function RepairCafeVolunteerHub() {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/login");
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("role,full_name,active")
-    .eq("id", user.id)
-    .single();
+  const [{ data: profile }, { data: access }] = await Promise.all([
+    supabase
+      .from("profiles")
+      .select("role,full_name,active")
+      .eq("id", user.id)
+      .single(),
+    supabase
+      .from("program_access")
+      .select("program")
+      .eq("user_id", user.id),
+  ]);
 
   if (!profile?.active) redirect("/login?error=Account%20inactive");
-  if (!["admin","manager","technician","volunteer"].includes(profile.role)) redirect("/dashboard");
+
+  const programs = new Set((access ?? []).map((row) => row.program));
+  if (!programs.has("repair_cafe")) {
+    redirect(programs.has("dubbo_ewaste") ? "/dashboard" : "/login?error=No%20Repair%20Cafe%20access");
+  }
 
   const canSeeFeedback = ["admin","manager"].includes(profile.role);
 

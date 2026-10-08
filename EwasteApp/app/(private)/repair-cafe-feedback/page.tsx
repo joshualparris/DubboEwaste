@@ -15,9 +15,14 @@ export default async function RepairCafeFeedbackPage() {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return <div className="error">Sign in required.</div>;
 
-  const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).maybeSingle();
-  if (!profile || !["admin","manager"].includes(profile.role)) {
-    return <div className="error">Repair Café public feedback is limited to managers and administrators.</div>;
+  const [{ data: profile }, { data: access }] = await Promise.all([
+    supabase.from("profiles").select("role").eq("id", user.id).maybeSingle(),
+    supabase.from("program_access").select("program").eq("user_id", user.id),
+  ]);
+
+  const programs = new Set((access ?? []).map((row) => row.program));
+  if (!profile || !["admin","manager"].includes(profile.role) || !programs.has("repair_cafe")) {
+    return <div className="error">Repair Café public feedback is limited to Repair Café managers and administrators.</div>;
   }
 
   const { data, error } = await supabase

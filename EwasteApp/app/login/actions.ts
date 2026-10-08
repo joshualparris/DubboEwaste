@@ -5,6 +5,36 @@ import { createClient } from "@/lib/supabase/server";
 
 const LIVE_SITE = "https://dubbo-ewaste-app.vercel.app";
 
+async function destinationForUser() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return "/login";
+
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("active")
+    .eq("id", user.id)
+    .maybeSingle();
+
+  if (!profile?.active) return "/login?error=Account%20inactive";
+
+  const { data: access } = await supabase
+    .from("program_access")
+    .select("program")
+    .eq("user_id", user.id);
+
+  const programs = new Set((access ?? []).map((row) => row.program));
+  const ewaste = programs.has("dubbo_ewaste");
+  const repairCafe = programs.has("repair_cafe");
+
+  if (ewaste && repairCafe) return "/access";
+  if (repairCafe) return "/repair-cafe-volunteers";
+  if (ewaste) return "/dashboard";
+
+  await supabase.auth.signOut();
+  return "/login?error=Your%20account%20does%20not%20have%20an%20active%20volunteer%20area.";
+}
+
 export async function login(formData: FormData) {
   const email = String(formData.get("email") ?? "").trim();
   const password = String(formData.get("password") ?? "");
@@ -20,7 +50,7 @@ export async function login(formData: FormData) {
     redirect("/login?error=Invalid%20email%20or%20password");
   }
 
-  redirect("/dashboard");
+  redirect(await destinationForUser());
 }
 
 export async function resendConfirmation(formData: FormData) {
