@@ -32,6 +32,7 @@ The archive is retained as the provenance copy rather than silently rewriting th
 - [11-local-repair-reuse-directory-2026-10-08.md](11-local-repair-reuse-directory-2026-10-08.md) — current Dubbo repair/reuse capability map.
 - [12-comparator-models-2026-10-08.md](12-comparator-models-2026-10-08.md) — Australian reuse/repair models with concrete operating features Dubbo can copy.
 - [13-open-evidence-requests-2026-10-08.md](13-open-evidence-requests-2026-10-08.md) — questions that still require Council, contractor, charity or operator confirmation.
+- [14-deep-research-10-biggest-gaps-2026-10-08.md](14-deep-research-10-biggest-gaps-2026-10-08.md) — deep research answers to the ten biggest remaining questions, separating newly answered facts from last-mile field evidence.
 - [SOURCES-2026-10-08.md](SOURCES-2026-10-08.md) — source register.
 
 ## Evidence labels

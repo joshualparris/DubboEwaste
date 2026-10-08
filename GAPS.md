@@ -590,3 +590,32 @@ Research pack and verification: [research/circular-economy/README.md](research/c
 10. Repair Café demand measured through a real pilot.
 
 See [open evidence requests](research/circular-economy/13-open-evidence-requests-2026-10-08.md) for the exact questions and GIPA candidate wording.
+
+
+## Ten-biggest-gap deep-research result — 8 October 2026
+
+Canonical report: [research/circular-economy/14-deep-research-10-biggest-gaps-2026-10-08.md](research/circular-economy/14-deep-research-10-biggest-gaps-2026-10-08.md).
+
+### Newly answered / materially advanced
+
+- Council is publicly documented as part of a **newly-created Dubbo Region Circular Economy Hub** with Taronga Western Plains Zoo, Fletchers International and Alkane. The remaining question is governance/remit and its relationship to the Waste Strategy's Circularity Cooperative/Roadmap actions.
+- Whylandra reuse-shop provision is verified in Council planning and the Waste Strategy schedules a Resource Recovery Park / community Circular Economy Hub assessment from 2026/27. The anticipated March 2026 master-plan public milestone could not be verified in published meeting outcomes/current YourSay projects.
+- Dubbo's booked bulky-waste service completed **5,765 collections over its first two years** and Council says the model improves separation/diversion, but no local item-condition/reuse audit is published.
+- NSW's Device Bank procurement provides a hard statewide benchmark of roughly **5,300 surplus government laptops across a 12-month pilot pipeline** (2,800 in storage + ~2,500 expected), but no Dubbo allocation can be responsibly inferred.
+- A Dubbo Library of Things is not currently publicly evidenced, but Macquarie Regional Library has strong pilot-host infrastructure: free membership, community rooms free for NFPs, Makers/STEAM programming and established borrowing operations.
+- Current Dubbo C&D baseline includes **38,525 t/year of C&D waste for sorting/disposal**; local contractors publicly describe salvage/selective demolition, but product-level salvage remains unquantified.
+
+### Last-mile evidence that cannot be closed by more generic web searching
+
+1. Dubbo bulky/self-haul item condition and reusable fraction.
+2. Final/adopted Whylandra master plan, reuse-shop funding/operator/timing and electronics scope.
+3. Current post-June-2025 Council e-waste provider and exact AMR/Whylandra downstream chain.
+4. Annual retired-device volumes and last-batch outcomes from Dubbo institutions.
+5. Actual Dubbo Repair Café attendance/volunteer/item/outcome data.
+6. Actual Dubbo Library-of-Things demand and preferred inventory.
+7. Charity hardgoods reject/unsold/recycler/landfill pathway.
+8. Repair quote/approval/uneconomic-repair rates across Dubbo trades.
+9. C&D product-level salvage (doors/windows/timber/cabinetry/fixtures) rather than material recycling.
+10. Circular Economy Hub governance, public membership/contact and project pipeline.
+
+The correct next method is targeted records requests, interviews and small measured pilots, not invented estimates.

@@ -84,3 +84,5 @@ When a historical document conflicts with `CURRENT-STATE.md`, use the current-st
 - [Local repair/reuse directory](../research/circular-economy/11-local-repair-reuse-directory-2026-10-08.md) maps current publicly evidenced repair capacity.
 - [Comparator models](../research/circular-economy/12-comparator-models-2026-10-08.md) extracts operating mechanics from Bathurst, Bendigo, Ballarat, Albury, Armidale, Toowoomba, Tamworth, Wagga Wagga and Seymour.
 - [Open evidence requests](../research/circular-economy/13-open-evidence-requests-2026-10-08.md) isolates questions that now require Council/contractor/charity/operator contact or GIPA rather than more broad web research.
+
+- [10 biggest circular-economy gaps — deep research answers](../research/circular-economy/14-deep-research-10-biggest-gaps-2026-10-08.md) is the 8 October evidence update answering the ten highest-value unresolved Dubbo questions: discarded-item condition, Whylandra reuse implementation, e-waste downstream, retired-device volume, Repair Café demand, Library of Things feasibility, charity rejects, repair economics, C&D product reuse and regional coordination.
