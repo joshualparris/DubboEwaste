@@ -123,6 +123,7 @@ export default function RepairCafeDubboPage() {
       <footer className={styles.footer}>
         <strong>Repair Café Dubbo</strong>
         <span>Community interest page · Dubbo, NSW</span>
+        <a href="/repair-cafe-volunteers">Volunteer team login</a>
       </footer>
     </main>
   );
