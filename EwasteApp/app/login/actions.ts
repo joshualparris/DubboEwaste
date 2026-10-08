@@ -52,7 +52,10 @@ export async function login(formData: FormData) {
     redirect("/login?error=Invalid%20email%20or%20password");
   }
 
-  redirect(await destinationForUser());
+  const destination = await destinationForUser();
+  if (destination.startsWith("/login")) redirect(destination);
+  if (formData.get("next") === "/circular-access") redirect("/circular-access");
+  redirect(destination);
 }
 
 export async function resendConfirmation(formData: FormData) {
