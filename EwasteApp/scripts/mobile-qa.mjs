@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 const here = path.dirname(fileURLToPath(import.meta.url));
 const appDir = path.resolve(here, "../app");
 const cssPath = path.resolve(appDir, "globals.css");
+const repairCafeFormPath = path.resolve(here, "../components/RepairCafeInterestForm.tsx");
 
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -60,6 +61,11 @@ for (const [label, pattern] of requiredCss) {
 
 if (pages.length < 46) {
   issues.push(`Expected at least 46 page routes, found ${pages.length}`);
+}
+
+const repairCafeFormSource = fs.readFileSync(repairCafeFormPath, "utf8");
+if (!/data-no-pending=["']true["']/.test(repairCafeFormSource)) {
+  issues.push("RepairCafeInterestForm: custom fetch form must opt out of the global pending-form handler");
 }
 
 console.log(`Mobile QA checked ${pages.length} route pages:`);
