@@ -4,6 +4,7 @@ import {createClient} from "@/lib/supabase/server";
 import {courses,programmes} from "@/lib/learning/catalog";
 import {assignCourse,reviewPractical} from "./actions";
 import {LibraryCodeControl} from "./LibraryCodeControl";
+import {AssignmentForm} from "./AssignmentForm";
 import styles from "../learning.module.css";
 
 export default async function LearningManagement({searchParams}:{
@@ -40,20 +41,11 @@ export default async function LearningManagement({searchParams}:{
   {error?<p className={styles.notice} role="alert">{error}</p>:null}
   {message?<p className={styles.success} role="status">{message==="assigned"?"Course assigned.":message==="reviewed"?"Review saved.":message}</p>:null}
   <section className={styles.checkPanel}><h2>Assign a course</h2>
-   <form action={assignCourse} className={styles.checkForm}>
-    <label className={styles.formField}>Volunteer
-     <select name="learner" required>{people.map(p=><option value={p.id} key={p.id}>{p.full_name||p.email||p.id}</option>)}</select>
-    </label>
-    <label className={styles.formField}>Programme
-      <select name="programme" required>{allowed.map(p=><option value={p.id} key={p.id}>{p.label}</option>)}</select>
-    </label>
-    <label className={styles.formField}>Course
-     <select name="course" required>{courses.map(c=><option value={c.id} key={c.id}>{c.title} ({programmes.find(p=>p.id===c.programme)?.label})</option>)}</select>
-    </label>
-    <p className={styles.hint}>Shared foundation courses can be assigned to any programme. Specialist courses must match the programme selected and learner's membership.</p>
-    <label className={styles.formField}>Target date (optional)<input type="date" name="due"/></label>
-    <button className={styles.primaryButton} disabled={people.length===0}>Assign learning →</button>
-   </form>
+   <AssignmentForm
+    people={people.map(p=>({id:p.id,name:p.full_name||p.email||p.id,programmes:(accessResult.data??[]).filter(m=>m.user_id===p.id).map(m=>m.program)}))}
+    programmes={allowed.map(p=>({id:p.id,label:p.label}))}
+    courses={courses.map(c=>({id:c.id,title:c.title,programme:c.programme}))}
+   />
   </section>
   <section className={styles.section}><h2>Practical work awaiting review ({pending.length})</h2>
     {pending.length===0?<p className={styles.hint}>No pending submissions in your programmes.</p>:pending.map(p=><article key={p.id} className={styles.checkPanel}>
