@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/components/ResponsiveTable";
 const groups = [
   {
     title: "Electrical & power diagnostics",
@@ -116,18 +117,18 @@ export default function WorkshopInventoryPage() {
 
     {groups.map(group => <section className="card table-wrap" key={group.title}>
       <h2>{group.title}</h2>
-      <table>
+      <ResponsiveTable>
         <thead><tr><th>Item</th><th>Status</th><th>Observed location</th></tr></thead>
         <tbody>{group.items.map(([item,status,location]) => <tr key={item}><td><strong>{item}</strong></td><td>{status}</td><td>{location}</td></tr>)}</tbody>
-      </table>
+      </ResponsiveTable>
     </section>)}
 
     <section className="card table-wrap">
       <h2>Working storage map</h2>
-      <table>
+      <ResponsiveTable>
         <thead><tr><th>Zone</th><th>Observed contents</th></tr></thead>
         <tbody>{zones.map(([zone,contents]) => <tr key={zone}><td><strong>{zone}</strong></td><td>{contents}</td></tr>)}</tbody>
-      </table>
+      </ResponsiveTable>
     </section>
 
     <section className="card">

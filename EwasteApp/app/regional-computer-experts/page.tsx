@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/components/ResponsiveTable";
 export const metadata = {
   title: "Dubbo & Central West Computer Experts",
   description: "Public-evidence directory of computer repair, IT, electronics and refurbishment expertise around Dubbo and the Central West.",
@@ -140,14 +141,14 @@ export default function RegionalComputerExpertsPage() {
       <h2>All named people found</h2>
       <p className="muted">Evidence grade A is strongest. A company capability is not automatically assigned to every employee; where personal hands-on skills are not published, the entry says so.</p>
       <div className="table-wrap">
-        <table>
+        <ResponsiveTable>
           <thead><tr><th>Person</th><th>Town</th><th>Organisation</th><th>Publicly evidenced relevance</th><th>Grade</th></tr></thead>
           <tbody>
             {experts.map(([name,town,org,focus,grade]) => (
               <tr key={name}><td><strong>{name}</strong></td><td>{town}</td><td>{org}</td><td>{focus}</td><td><span className="grade">{grade}</span></td></tr>
             ))}
           </tbody>
-        </table>
+        </ResponsiveTable>
       </div>
 
       <h2>Specialist gaps to verify rather than assume</h2>

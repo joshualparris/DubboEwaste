@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/components/ResponsiveTable";
 import Link from "next/link";
 import { requireAdmin, STAFF_ROLES } from "@/lib/admin";
 import { updateRolePermission, updateStaffAccount } from "./actions";
@@ -67,7 +68,7 @@ export default async function PermissionsPage({
           <p className="muted small">Change role, activate/deactivate an account, or set individual permission overrides.</p>
         </div>
         <div className="table-wrap">
-          <table>
+          <ResponsiveTable>
             <thead><tr><th>Staff</th><th>Role / status</th><th>Individual permissions</th></tr></thead>
             <tbody>
               {staff.map((person) => (
@@ -96,7 +97,7 @@ export default async function PermissionsPage({
                 </tr>
               ))}
             </tbody>
-          </table>
+          </ResponsiveTable>
         </div>
       </section>
 
@@ -112,7 +113,7 @@ export default async function PermissionsPage({
           <details className="card" key={role} open={role === "admin"}>
             <summary><strong>{role}</strong></summary>
             <div className="table-wrap" style={{ marginTop: "12px" }}>
-              <table>
+              <ResponsiveTable>
                 <thead>
                   <tr><th>Target</th><th>Create</th><th>Read</th><th>Update</th><th>Delete</th><th></th></tr>
                 </thead>
@@ -140,7 +141,7 @@ export default async function PermissionsPage({
                     );
                   })}
                 </tbody>
-              </table>
+              </ResponsiveTable>
             </div>
           </details>
         ))}

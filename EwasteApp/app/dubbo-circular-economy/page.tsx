@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/components/ResponsiveTable";
 export const metadata = {
   title: "Dubbo Circular Economy in Practice",
   description: "Evidence-led audit of how repair, reuse, refurbishment, salvage and recycling actually work in Dubbo.",
@@ -83,10 +84,10 @@ export default function DubboCircularEconomyPage() {
 
       <h2>Biggest gaps</h2>
       <div className="table-wrap">
-        <table>
+        <ResponsiveTable>
           <thead><tr><th>Rank</th><th>Gap</th><th>Severity</th><th>Why it matters</th></tr></thead>
           <tbody>{gaps.map(([rank,gap,severity,why]) => <tr key={rank}><td>{rank}</td><td><strong>{gap}</strong></td><td>{severity}</td><td>{why}</td></tr>)}</tbody>
-        </table>
+        </ResponsiveTable>
       </div>
 
       <h2>Repair before recycling</h2>
@@ -101,10 +102,10 @@ export default function DubboCircularEconomyPage() {
       <h2>Qualitative circularity scorecard</h2>
       <p className="muted">0–5 evidence scores, not measured recovery percentages. They show relative strength of current Dubbo pathways and transparency.</p>
       <div className="table-wrap">
-        <table>
+        <ResponsiveTable>
           <thead><tr><th>Stream</th><th>Repair</th><th>Reuse</th><th>Refurbish</th><th>Parts</th><th>Recycle</th><th>Transparency</th><th>Overall</th></tr></thead>
           <tbody>{circularity.map(row => <tr key={row[0]}>{row.map((v,i)=><td key={i}>{i===0?<strong>{v}</strong>:v}</td>)}</tr>)}</tbody>
-        </table>
+        </ResponsiveTable>
       </div>
 
       <h2>Whylandra: the key structural question</h2>

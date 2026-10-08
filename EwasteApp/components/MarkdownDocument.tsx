@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/components/ResponsiveTable";
 import Link from "next/link";
 import { SOURCE_BASENAME_TO_SLUG, sourceUrl } from "@/lib/operational-documents";
 
@@ -48,10 +49,10 @@ export function MarkdownDocument({ body }: { body: string }) {
       while (i < lines.length && lines[i].trim().startsWith("|")) rows.push(cells(lines[i++]));
       out.push(
         <div className="table-wrap doc-table" key={out.length}>
-          <table>
+          <ResponsiveTable mobile="scroll">
             <thead><tr>{header.map((value, index) => <th key={index}>{inline(value)}</th>)}</tr></thead>
             <tbody>{rows.map((row, rowIndex) => <tr key={rowIndex}>{row.map((value, cellIndex) => <td key={cellIndex}>{inline(value)}</td>)}</tr>)}</tbody>
-          </table>
+          </ResponsiveTable>
         </div>,
       );
       continue;

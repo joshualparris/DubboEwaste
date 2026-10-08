@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/components/ResponsiveTable";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 
@@ -35,7 +36,7 @@ export default async function JobsPage({
       </div>
 
       <section className="card table-wrap">
-        <table>
+        <ResponsiveTable>
           <thead>
             <tr>
               <th>Job</th>
@@ -64,7 +65,7 @@ export default async function JobsPage({
               </tr>
             ))}
           </tbody>
-        </table>
+        </ResponsiveTable>
       </section>
     </div>
   );

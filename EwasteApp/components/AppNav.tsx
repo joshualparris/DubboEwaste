@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 import { logout } from "@/app/login/actions";
 
 const groups = [
@@ -50,6 +54,27 @@ const groups = [
 ] as const;
 
 export function AppNav({ fullName, role }: { fullName: string | null; role: string }) {
+  const pathname = usePathname();
+  const menu = useRef<HTMLDetailsElement>(null);
+
+  useEffect(() => { if (menu.current) menu.current.open = false; }, [pathname]);
+  useEffect(() => {
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape" && menu.current?.open) {
+        menu.current.open = false;
+        menu.current.querySelector("summary")?.focus();
+      }
+    }
+    function closeOutside(event: PointerEvent) {
+      if (event.target instanceof Node && menu.current?.open && !menu.current.contains(event.target)) menu.current.open = false;
+    }
+    document.addEventListener("keydown", closeOnEscape);
+    document.addEventListener("pointerdown", closeOutside);
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
+      document.removeEventListener("pointerdown", closeOutside);
+    };
+  }, []);
   return <header className="topbar">
     <div className="topbar-identity">
       <div className="brand">DubboEwaste · AssetFlow</div>
@@ -62,9 +87,11 @@ export function AppNav({ fullName, role }: { fullName: string | null; role: stri
       <Link href="/assets/new">Receive</Link>
     </nav>
 
-    <details className="nav-menu">
+    <details className="nav-menu" ref={menu}>
       <summary>Menu</summary>
-      <div className="nav-panel">
+      <nav className="nav-panel" aria-label="All navigation" onClick={(event) => {
+        if ((event.target as HTMLElement).closest("a") && menu.current) menu.current.open = false;
+      }}>
         {groups.map((group) => <section className="nav-group" key={group.title}>
           <h2>{group.title}</h2>
           <div className="nav-group-links">
@@ -88,11 +115,10 @@ export function AppNav({ fullName, role }: { fullName: string | null; role: stri
             <Link href="/admin/permissions">Permissions</Link>
           </div>
         </section> : null}
-      </div>
+        <form action={logout} className="topbar-signout">
+          <button className="button secondary" type="submit">Sign out</button>
+        </form>
+      </nav>
     </details>
-
-    <form action={logout} className="topbar-signout">
-      <button className="button secondary" type="submit">Sign out</button>
-    </form>
   </header>;
 }

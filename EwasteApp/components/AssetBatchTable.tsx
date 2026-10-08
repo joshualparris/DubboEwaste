@@ -1,5 +1,7 @@
 "use client";
 
+import { ResponsiveTable } from "@/components/ResponsiveTable";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
@@ -79,7 +81,7 @@ export function AssetBatchTable({ assets }: { assets: AssetRow[] }) {
         </div>
 
         <div className="table-wrap">
-          <table>
+          <ResponsiveTable>
             <thead>
               <tr>
                 <th className="asset-select-cell">
@@ -122,7 +124,7 @@ export function AssetBatchTable({ assets }: { assets: AssetRow[] }) {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </ResponsiveTable>
         </div>
       </section>
 

@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/components/ResponsiveTable";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PrintButton } from "@/components/PrintButton";
@@ -67,7 +68,7 @@ export default async function QuotePage({ params }: { params: Promise<{ id: stri
       <p className="quote-scope">{latest?.scope || "No scope recorded."}</p>
 
       <div className="table-wrap">
-        <table>
+        <ResponsiveTable mobile="scroll">
           <thead><tr><th>Description</th><th>Qty</th><th>Unit price</th><th>Total</th></tr></thead>
           <tbody>{(latest?.crm_quote_items ?? []).map((item:any)=><tr key={item.id}>
             <td>{item.description}</td>
@@ -80,7 +81,7 @@ export default async function QuotePage({ params }: { params: Promise<{ id: stri
             {Number(latest?.tax || 0) ? <tr><th colSpan={3}>Tax</th><th>{"$"+Number(latest.tax).toFixed(2)}</th></tr> : null}
             <tr><th colSpan={3}>Total AUD</th><th>{"$"+Number(latest?.total || 0).toFixed(2)}</th></tr>
           </tfoot>
-        </table>
+        </ResponsiveTable>
       </div>
 
       {latest?.notes ? <><h2>Notes</h2><p>{latest.notes}</p></> : null}

@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/components/ResponsiveTable";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { createOpportunity, updateOpportunity } from "./actions";
@@ -72,7 +73,7 @@ export default async function OpportunitiesPage({ searchParams }: { searchParams
         if(!items.length) return null;
         return <details className="card" key={stage} open={!["COMPLETED","INVOICED","LOST"].includes(stage)}>
           <summary><strong>{stage}</strong> · {items.length}</summary>
-          <div className="table-wrap" style={{marginTop:"12px"}}><table><thead><tr><th>Opportunity</th><th>Links</th><th>Value / size</th><th>Follow-up</th><th>Update</th></tr></thead><tbody>
+          <div className="table-wrap" style={{marginTop:"12px"}}><ResponsiveTable><thead><tr><th>Opportunity</th><th>Links</th><th>Value / size</th><th>Follow-up</th><th>Update</th></tr></thead><tbody>
             {items.map((o:any)=><tr key={o.id}>
               <td><strong>{o.name}</strong><br/><span className="muted small">{o.service_type} · {o.source_site||"site not set"}</span></td>
               <td><div className="small">
@@ -94,7 +95,7 @@ export default async function OpportunitiesPage({ searchParams }: { searchParams
                 <button className="button secondary" type="submit">Save</button>
               </form></td>
             </tr>)}
-          </tbody></table></div>
+          </tbody></ResponsiveTable></div>
         </details>;
       })}
     </section>

@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/components/ResponsiveTable";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { addCommercialTermsQuote, addOrganisationInterview, addPilotEconomics, addRepairCafeDemand, addValidationEvidence } from "./actions";
@@ -63,13 +64,13 @@ export default async function ValidationPage({ searchParams }: { searchParams: P
 
     <section className="card">
       <h2>Ten unresolved questions</h2>
-      <div className="table-wrap"><table><thead><tr><th>Question</th><th>Status</th><th>Evidence records</th></tr></thead><tbody>
+      <div className="table-wrap"><ResponsiveTable><thead><tr><th>Question</th><th>Status</th><th>Evidence records</th></tr></thead><tbody>
         {topics.map(topic => {
           const count=(evidence??[]).filter((x:any)=>x.topic===topic).length;
           const status=verified.has(topic)?"VERIFIED":requested.has(topic)?"IN PROGRESS":"OPEN";
           return <tr key={topic}><td>{topicLabels[topic]}</td><td><span className="badge">{status}</span></td><td>{count}</td></tr>;
         })}
-      </tbody></table></div>
+      </tbody></ResponsiveTable></div>
     </section>
 
     <details className="card" open>
@@ -150,20 +151,20 @@ export default async function ValidationPage({ searchParams }: { searchParams: P
       </form>
     </details>
 
-    <section className="card"><h2>Recent evidence</h2><div className="table-wrap"><table><thead><tr><th>Date</th><th>Topic</th><th>Subject</th><th>Status</th><th>Finding</th><th>Next</th></tr></thead><tbody>
+    <section className="card"><h2>Recent evidence</h2><div className="table-wrap"><ResponsiveTable><thead><tr><th>Date</th><th>Topic</th><th>Subject</th><th>Status</th><th>Finding</th><th>Next</th></tr></thead><tbody>
       {(evidence??[]).slice(0,50).map((x:any)=><tr key={x.id}><td>{x.evidence_date}</td><td>{topicLabels[x.topic]||x.topic}</td><td>{x.subject_name}</td><td>{x.status}</td><td>{x.answer_summary}</td><td>{x.next_action||"—"}</td></tr>)}
-    </tbody></table></div></section>
+    </tbody></ResponsiveTable></div></section>
 
-    <section className="card"><h2>Organisation interviews</h2><div className="table-wrap"><table><thead><tr><th>Organisation</th><th>Annual retired</th><th>Current route</th><th>Provider</th><th>Pilot?</th></tr></thead><tbody>
+    <section className="card"><h2>Organisation interviews</h2><div className="table-wrap"><ResponsiveTable><thead><tr><th>Organisation</th><th>Annual retired</th><th>Current route</th><th>Provider</th><th>Pilot?</th></tr></thead><tbody>
       {(interviews??[]).map((x:any)=><tr key={x.id}><td><strong>{x.organisation}</strong><br/><span className="small muted">{x.sector||"—"} · {x.respondent_role||"role not recorded"}</span></td><td>{x.annual_retired_devices??"—"}</td><td>{x.current_route||"—"}</td><td>{x.current_provider||"—"}</td><td>{x.willing_to_trial}{x.likely_trial_units!=null?" · "+x.likely_trial_units+" units":""}</td></tr>)}
-    </tbody></table></div></section>
+    </tbody></ResponsiveTable></div></section>
 
-    <section className="card"><h2>Commercial terms</h2><div className="table-wrap"><table><thead><tr><th>Provider</th><th>Service</th><th>Minimum</th><th>Fees</th><th>Key terms</th></tr></thead><tbody>
+    <section className="card"><h2>Commercial terms</h2><div className="table-wrap"><ResponsiveTable><thead><tr><th>Provider</th><th>Service</th><th>Minimum</th><th>Fees</th><th>Key terms</th></tr></thead><tbody>
       {(quotes??[]).map((x:any)=><tr key={x.id}><td>{x.provider}</td><td>{x.service_type}</td><td>{x.minimum_units??"—"} units / {x.minimum_weight_kg??"—"} kg</td><td>Pickup {x.pickup_fee!=null?dollars(Number(x.pickup_fee)):"—"} · unit {x.per_unit_fee!=null?dollars(Number(x.per_unit_fee)):"—"} · kg {x.per_kg_fee!=null?dollars(Number(x.per_kg_fee)):"—"}</td><td>{x.rebate_or_buyback||x.data_terms||x.transport_terms||"—"}</td></tr>)}
-    </tbody></table></div></section>
+    </tbody></ResponsiveTable></div></section>
 
-    <section className="card"><h2>Pilot economics observations</h2><div className="table-wrap"><table><thead><tr><th>Asset</th><th>Revenue</th><th>Cash costs</th><th>Minutes</th><th>Contribution before labour</th><th>Route</th></tr></thead><tbody>
+    <section className="card"><h2>Pilot economics observations</h2><div className="table-wrap"><ResponsiveTable><thead><tr><th>Asset</th><th>Revenue</th><th>Cash costs</th><th>Minutes</th><th>Contribution before labour</th><th>Route</th></tr></thead><tbody>
       {econRows.map((x:any)=>{const costs=["acquisition_cost","collection_freight","parts_cost","downstream_cost","marketplace_fees","outbound_freight","return_cost","other_cost"].reduce((t,k)=>t+Number(x[k]||0),0); const mins=["intake_minutes","diagnostic_minutes","sanitisation_minutes","repair_minutes","listing_admin_minutes"].reduce((t,k)=>t+Number(x[k]||0),0); return <tr key={x.id}><td>{x.assets?.asset_code||"Unlinked"}</td><td>{dollars(Number(x.realised_revenue||0))}</td><td>{dollars(costs)}</td><td>{mins}</td><td>{dollars(Number(x.realised_revenue||0)-costs)}</td><td>{x.final_route||"—"}</td></tr>})}
-    </tbody></table></div></section>
+    </tbody></ResponsiveTable></div></section>
   </div>;
 }

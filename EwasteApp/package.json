@@ -9,7 +9,8 @@
     "typecheck": "tsc --noEmit",
     "vercel-build": "npm run qa:mobile && next build",
     "qa:mobile": "node scripts/mobile-qa.mjs",
-    "prebuild": "npm run qa:mobile"
+    "prebuild": "npm run qa:mobile",
+    "qa:mobile:browser": "node scripts/mobile-browser-qa.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",
@@ -24,6 +25,8 @@
     "@types/node": "24.7.0",
     "@types/react": "19.1.16",
     "@types/react-dom": "19.1.9",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "esbuild": "0.25.10",
+    "playwright": "1.62.1"
   }
 }

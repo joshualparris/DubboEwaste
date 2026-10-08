@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/components/ResponsiveTable";
 import Link from "next/link";
 import { requireAdmin } from "@/lib/admin";
 import { clearUserPermissionOverrides, updateUserPermissionOverride } from "../../actions";
@@ -82,7 +83,7 @@ export default async function UserPermissionPage({
       {notices.success ? <div className="success">{notices.success}</div> : null}
 
       <section className="card table-wrap">
-        <table>
+        <ResponsiveTable>
           <thead>
             <tr><th>Target</th><th>Create</th><th>Read</th><th>Update</th><th>Delete</th><th>Effective</th><th></th></tr>
           </thead>
@@ -128,7 +129,7 @@ export default async function UserPermissionPage({
               );
             })}
           </tbody>
-        </table>
+        </ResponsiveTable>
       </section>
     </div>
   );

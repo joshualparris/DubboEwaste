@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/components/ResponsiveTable";
 import { createCustomer } from "../operations/actions";
 import { createClient } from "@/lib/supabase/server";
 
@@ -16,8 +17,8 @@ export default async function CustomersPage({ searchParams }: { searchParams: Pr
       <label>Notes<textarea name="notes" /></label>
       <button className="button" type="submit">Create customer</button>
     </form>
-    <section className="card table-wrap"><table><thead><tr><th>Name</th><th>Contact</th><th>Email</th><th>Phone</th></tr></thead>
+    <section className="card table-wrap"><ResponsiveTable><thead><tr><th>Name</th><th>Contact</th><th>Email</th><th>Phone</th></tr></thead>
       <tbody>{(customers ?? []).map(c => <tr key={c.id}><td><strong>{c.name}</strong></td><td>{c.contact_name || "—"}</td><td>{c.contact_email || "—"}</td><td>{c.contact_phone || "—"}</td></tr>)}</tbody>
-    </table></section>
+    </ResponsiveTable></section>
   </div>;
 }

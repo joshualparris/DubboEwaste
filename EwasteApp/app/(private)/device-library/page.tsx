@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/components/ResponsiveTable";
 type Match = {
   device: string;
   identity: string;
@@ -133,7 +134,7 @@ export default function DeviceLibraryPage() {
     <section className="card">
       <h2>Current 15-laptop fleet</h2>
       <div className="table-wrap">
-        <table>
+        <ResponsiveTable>
           <thead>
             <tr>
               <th>Device</th>
@@ -152,7 +153,7 @@ export default function DeviceLibraryPage() {
               <td>{item.source ? <a href={item.source} target="_blank" rel="noreferrer">Open ↗</a> : "—"}</td>
             </tr>)}
           </tbody>
-        </table>
+        </ResponsiveTable>
       </div>
     </section>
 

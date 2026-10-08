@@ -24,7 +24,7 @@ for (const file of pages) {
   const source = fs.readFileSync(file, "utf8");
   const routeFile = path.relative(path.resolve(here, ".."), file).replaceAll(path.sep, "/");
 
-  const hasTable = /<table\b/.test(source);
+  const hasTable = /<(?:table|ResponsiveTable)\b/.test(source);
   const hasSafeTableContainer =
     /table-wrap/.test(source) ||
     /overflowX\s*:\s*["']auto/.test(source) ||
@@ -47,7 +47,7 @@ for (const file of pages) {
 
 const css = fs.readFileSync(cssPath, "utf8");
 const requiredCss = [
-  ["root horizontal containment", /html, body[\s\S]*overflow-x:\s*hidden/],
+  ["root horizontal containment", /html, body[\s\S]*overflow-x:\s*(?:hidden|clip)/],
   ["container width containment", /\.container\{[^}]*width:100%/],
   ["grid child min-width reset", /\.stack>\*,\.grid>\*,\.two>\*\{min-width:0\}/],
   ["responsive auto-fit grid", /minmax\(min\(220px,100%\),1fr\)/],
@@ -70,7 +70,7 @@ if (!/data-no-pending=["']true["']/.test(repairCafeFormSource)) {
 
 console.log(`Mobile QA checked ${pages.length} route pages:`);
 for (const file of pages) {
-  console.log(`  PASS ${path.relative(appDir, file).replaceAll(path.sep, "/")}`);
+  console.log(`  SCANNED ${path.relative(appDir, file).replaceAll(path.sep, "/")}`);
 }
 
 if (issues.length) {
@@ -79,4 +79,4 @@ if (issues.length) {
   process.exit(1);
 }
 
-console.log("\nMobile QA PASS: no page-level horizontal-overflow hazards found by the source audit.");
+console.log("\nMobile QA PASS: source guard only; run qa:mobile:browser for rendered layout verification.");

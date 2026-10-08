@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/components/ResponsiveTable";
 export const metadata = {
   title: "Dubbo Computer Repair & E-Waste Guide",
   description: "Current Dubbo NSW options for computer repair, free digital help, affordable replacement, reuse and e-waste recycling.",
@@ -150,14 +151,14 @@ export default function DubboRepairEwasteGuide() {
 
       <h2>Quick directory</h2>
       <div className="table-wrap">
-      <table>
+      <ResponsiveTable>
         <thead><tr><th>I need to…</th><th>Best current option</th><th>Cost</th><th>What to know</th></tr></thead>
         <tbody>
           {directory.map(([need, option, cost, note]) => (
             <tr key={need}><td><strong>{need}</strong></td><td>{option}</td><td>{cost}</td><td>{note}</td></tr>
           ))}
         </tbody>
-      </table>
+      </ResponsiveTable>
       </div>
 
       <h2>Business computers</h2>

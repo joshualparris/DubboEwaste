@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/components/ResponsiveTable";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 
@@ -51,6 +52,6 @@ export default async function DashboardPage() {
       {(opportunityFollowUps??[]).map((item:any)=><Link className="result-row overdue" href="/crm/opportunities" key={"opp-"+item.id}><strong>{item.name}</strong><span>Opportunity · {item.next_action||"Follow up"} · due {new Date(item.next_action_at).toLocaleString("en-AU")}</span></Link>)}
     </div></section> : null}
 
-    <section className="card"><h2>Recent assets</h2>{!recent?.length?<p className="muted">No assets yet.</p>:<div className="table-wrap"><table><thead><tr><th>Asset</th><th>Device</th><th>Status</th></tr></thead><tbody>{recent.map((a:any)=><tr key={a.id}><td><Link href={"/assets/"+a.id}><strong>{a.asset_code}</strong></Link></td><td>{[a.manufacturer,a.model].filter(Boolean).join(" ")||a.category}</td><td><span className="badge">{a.status}</span></td></tr>)}</tbody></table></div>}</section>
+    <section className="card"><h2>Recent assets</h2>{!recent?.length?<p className="muted">No assets yet.</p>:<div className="table-wrap"><ResponsiveTable><thead><tr><th>Asset</th><th>Device</th><th>Status</th></tr></thead><tbody>{recent.map((a:any)=><tr key={a.id}><td><Link href={"/assets/"+a.id}><strong>{a.asset_code}</strong></Link></td><td>{[a.manufacturer,a.model].filter(Boolean).join(" ")||a.category}</td><td><span className="badge">{a.status}</span></td></tr>)}</tbody></ResponsiveTable></div>}</section>
   </div>;
 }

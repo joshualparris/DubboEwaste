@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/components/ResponsiveTable";
 import { createClient } from "@/lib/supabase/server";
 import { createSettlement } from "../commercial/actions";
 
@@ -21,12 +22,12 @@ export default async function SettlementsPage({searchParams}:{searchParams:Promi
       <label>Customer share of contribution %<input name="customer_share_percent" type="number" min="0" max="100" step="0.1" defaultValue="0"/></label>
       <button className="button">Calculate settlement</button>
     </form>
-    <section className="card"><h2>Settlement history</h2><div className="table-wrap"><table><thead><tr><th>Job</th><th>Customer</th><th>Revenue</th><th>Direct costs</th><th>Contribution</th><th>Customer share</th><th>Status</th></tr></thead><tbody>
+    <section className="card"><h2>Settlement history</h2><div className="table-wrap"><ResponsiveTable><thead><tr><th>Job</th><th>Customer</th><th>Revenue</th><th>Direct costs</th><th>Contribution</th><th>Customer share</th><th>Status</th></tr></thead><tbody>
       {(settlements??[]).map((s:any)=>{
         const revenue=Number(s.material_revenue)+Number(s.resale_revenue)+Number(s.service_revenue)+Number(s.scrap_value);
         const costs=Number(s.freight)+Number(s.marketplace_fees)+Number(s.parts_cost)+Number(s.labour_cost);
         return <tr key={s.id}><td><strong>{s.jobs?.job_code||"—"}</strong></td><td>{s.customers?.name||"—"}</td><td>{"$"+revenue.toFixed(2)}</td><td>{"$"+costs.toFixed(2)}</td><td>{"$"+(revenue-costs).toFixed(2)}</td><td>{"$"+Number(s.customer_share).toFixed(2)}</td><td>{s.status}</td></tr>
       })}
-    </tbody></table></div></section>
+    </tbody></ResponsiveTable></div></section>
   </div>;
 }

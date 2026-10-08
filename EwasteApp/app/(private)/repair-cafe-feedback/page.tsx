@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/components/ResponsiveTable";
 import { createClient } from "@/lib/supabase/server";
 
 function counts(rows: any[], key: string) {
@@ -52,7 +53,7 @@ export default async function RepairCafeFeedbackPage() {
     <section className="card">
       <h2>Submissions</h2>
       {rows.length === 0 ? <p className="muted">No public responses yet.</p> :
-      <div className="table-wrap"><table><thead><tr>
+      <div className="table-wrap"><ResponsiveTable><thead><tr>
         <th>Date</th><th>Name / postcode</th><th>Participation</th><th>Repair interests</th><th>Volunteer roles</th><th>Venue / timing</th><th>Ideas / access</th><th>Contact</th>
       </tr></thead><tbody>
         {rows.map((row:any)=><tr key={row.id}>
@@ -65,7 +66,7 @@ export default async function RepairCafeFeedbackPage() {
           <td>{row.ideas || "—"}{row.accessibility_notes ? <><br/><strong>Access:</strong> {row.accessibility_notes}</> : null}{row.counterfactual ? <><br/><span className="muted">Without café: {row.counterfactual}</span></> : null}</td>
           <td>{row.contact_consent && row.email ? <a href={`mailto:${row.email}`}>{row.email}</a> : <span className="muted">No follow-up requested</span>}</td>
         </tr>)}
-      </tbody></table></div>}
+      </tbody></ResponsiveTable></div>}
     </section>
   </div>;
 }
