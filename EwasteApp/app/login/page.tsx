@@ -12,9 +12,11 @@ export default async function LoginPage({
     <main className="login-wrap">
       <section className="login-card stack">
         <div>
-          <div className="badge">Private staff system</div>
-          <h1>DubboEwaste</h1>
-          <p className="muted">Sign in to intake, inventory and chain-of-custody operations.</p>
+          <div className="badge">Volunteer & staff portal</div>
+          <h1>DubboEwaste & Repair Café</h1>
+          <p className="muted">
+            Sign in to the volunteer or staff areas you have access to.
+          </p>
         </div>
 
         {error ? <div className="error">{error}</div> : null}
@@ -44,7 +46,8 @@ export default async function LoginPage({
         </details>
 
         <p className="muted small">
-          New staff or volunteers can <Link href="/signup"><strong>create an account</strong></Link> with the current access code.
+          New DubboEwaste or Repair Café volunteers can{" "}
+          <Link href="/signup"><strong>create an account</strong></Link> using the access code supplied for their team.
         </p>
       </section>
     </main>
