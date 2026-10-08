@@ -9,6 +9,7 @@ function repairCafeOnlyPathAllowed(pathname: string) {
     pathname.startsWith("/learn") ||
     pathname.startsWith("/projects") ||
     pathname.startsWith("/access") ||
+    pathname.startsWith("/circular-access") ||
     pathname.startsWith("/login") ||
     pathname.startsWith("/signup") ||
     pathname.startsWith("/api/repair-cafe-feedback")
@@ -57,6 +58,7 @@ export async function proxy(request: NextRequest) {
       request.nextUrl.pathname.startsWith("/learn") ||
       request.nextUrl.pathname.startsWith("/projects") ||
       request.nextUrl.pathname.startsWith("/access") ||
+      request.nextUrl.pathname.startsWith("/circular-access") ||
       request.nextUrl.pathname.startsWith("/login") ||
       request.nextUrl.pathname.startsWith("/signup")
     )) return NextResponse.redirect(new URL("/learn", request.url));
