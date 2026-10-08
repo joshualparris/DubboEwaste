@@ -79,3 +79,13 @@
 .success{color:#11532c;background:#e3f6e8;border:1px solid #a9d9b8}
 @media(max-width:650px){.shell{gap:22px}.hero{border-radius:18px;padding:25px 19px}.courseCard{padding:17px}.stats{gap:8px}.stats span{flex:1 1 28%;padding:10px}.lessonRow{grid-template-columns:38px minmax(0,1fr);gap:10px;padding:13px}.lessonIndex{width:36px;height:36px;font-size:16px}.lessonRow .secondaryLink,.lessonRow>.hint{grid-column:2;justify-self:start}.checkForm .primaryButton{width:100%}.lessonActions{align-items:stretch;flex-direction:column}.lessonActions .secondaryLink{width:100%}.courseHero,.lessonHero{padding:20px}}
 @media(prefers-reduced-motion:reduce){.filter,.filterSelected{transition:none}}
+
+/* Practical assessment and course assignment controls */
+.formField{display:grid;gap:8px;width:100%;font-size:14px;font-weight:700;color:#183e2d}
+.formField input,.formField select,.formField textarea{display:block;width:100%;padding:12px;border:1px solid #9fb5a6;border-radius:9px;background:#fff;color:#153424;font-size:16px;line-height:1.5}
+.formField textarea{resize:vertical;min-height:112px}
+.formField:focus-within{color:#135a39}
+.checkPanel p{margin:0;line-height:1.55}
+.checkPanel fieldset{max-width:100%}
+.courseCard form{display:grid;gap:12px}
+@media(max-width:650px){.sourcePanel,.checkPanel{padding:17px}.courseCard .secondaryLink{width:100%}.formField{width:100%}}
