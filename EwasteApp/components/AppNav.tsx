@@ -1,8 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
 import { logout } from "@/app/login/actions";
 
 const groups = [
@@ -53,53 +49,57 @@ const groups = [
   },
 ] as const;
 
-export function AppNav({ fullName, role }: { fullName: string | null; role: string }) {
-  const pathname = usePathname();
-  const menu = useRef<HTMLDetailsElement>(null);
+function roleLabel(role: string) {
+  if (role === "repair_volunteer") return "Repair Café volunteer";
+  if (role === "volunteer") return "DubboEwaste volunteer";
+  return role;
+}
 
-  useEffect(() => { if (menu.current) menu.current.open = false; }, [pathname]);
-  useEffect(() => {
-    function closeOnEscape(event: KeyboardEvent) {
-      if (event.key === "Escape" && menu.current?.open) {
-        menu.current.open = false;
-        menu.current.querySelector("summary")?.focus();
-      }
-    }
-    function closeOutside(event: PointerEvent) {
-      if (event.target instanceof Node && menu.current?.open && !menu.current.contains(event.target)) menu.current.open = false;
-    }
-    document.addEventListener("keydown", closeOnEscape);
-    document.addEventListener("pointerdown", closeOutside);
-    return () => {
-      document.removeEventListener("keydown", closeOnEscape);
-      document.removeEventListener("pointerdown", closeOutside);
-    };
-  }, []);
+export function AppNav({
+  fullName,
+  role,
+  programs,
+}: {
+  fullName: string | null;
+  role: string;
+  programs: string[];
+}) {
+  const hasEwaste = programs.includes("dubbo_ewaste");
+  const hasRepairCafe = programs.includes("repair_cafe");
+  const both = hasEwaste && hasRepairCafe;
+
+  const brand = both
+    ? "DubboEwaste & Repair Café"
+    : hasRepairCafe
+      ? "Repair Café Dubbo"
+      : "DubboEwaste · AssetFlow";
+
   return <header className="topbar">
     <div className="topbar-identity">
-      <div className="brand">DubboEwaste · AssetFlow</div>
-      <div className="userline">{fullName || "Staff"} · {role}</div>
+      <div className="brand">{brand}</div>
+      <div className="userline">{fullName || "Volunteer"} · {roleLabel(role)}</div>
     </div>
 
     <nav className="nav-quick" aria-label="Quick navigation">
-      <Link href="/dashboard">Dashboard</Link>
-      <Link href="/search">Search / Scan</Link>
-      <Link href="/assets/new">Receive</Link>
+      {both ? <Link href="/access">Areas</Link> : null}
+      {hasEwaste ? <Link href="/dashboard">Dashboard</Link> : null}
+      {hasEwaste ? <Link href="/search">Search / Scan</Link> : null}
+      {hasEwaste ? <Link href="/assets/new">Receive</Link> : null}
+      {hasRepairCafe ? <Link href="/repair-cafe-volunteers">Volunteer Hub</Link> : null}
+      {!hasEwaste && hasRepairCafe ? <Link href="/repair-cafe-dubbo">Public Page</Link> : null}
     </nav>
 
-    <details className="nav-menu" ref={menu}>
+    <details className="nav-menu">
       <summary>Menu</summary>
-      <nav className="nav-panel" aria-label="All navigation" onClick={(event) => {
-        if ((event.target as HTMLElement).closest("a") && menu.current) menu.current.open = false;
-      }}>
-        {groups.map((group) => <section className="nav-group" key={group.title}>
+      <div className="nav-panel">
+        {hasEwaste ? groups.map((group) => <section className="nav-group" key={group.title}>
           <h2>{group.title}</h2>
           <div className="nav-group-links">
             {group.links.map(([href, label]) => <Link href={href} key={href}>{label}</Link>)}
           </div>
-        </section>)}
+        </section>) : null}
 
-        {["admin","manager","technician","volunteer"].includes(role) ? <section className="nav-group">
+        {hasRepairCafe ? <section className="nav-group">
           <h2>Repair Café</h2>
           <div className="nav-group-links">
             <Link href="/repair-cafe-volunteers">Volunteer Hub</Link>
@@ -108,17 +108,18 @@ export function AppNav({ fullName, role }: { fullName: string | null; role: stri
           </div>
         </section> : null}
 
-        {role === "admin" ? <section className="nav-group">
+        {role === "admin" && hasEwaste ? <section className="nav-group">
           <h2>Administration</h2>
           <div className="nav-group-links">
             <Link href="/admin/data">Manage Data</Link>
             <Link href="/admin/permissions">Permissions</Link>
           </div>
         </section> : null}
-        <form action={logout} className="topbar-signout">
-          <button className="button secondary" type="submit">Sign out</button>
-        </form>
-      </nav>
+      </div>
     </details>
+
+    <form action={logout} className="topbar-signout">
+      <button className="button secondary" type="submit">Sign out</button>
+    </form>
   </header>;
 }
