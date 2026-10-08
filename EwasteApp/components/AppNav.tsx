@@ -108,6 +108,13 @@ export function AppNav({
           </div>
         </section> : null}
 
+        <section className="nav-group">
+          <h2>Connected projects</h2>
+          <div className="nav-group-links">
+            <Link href="/projects">Project network</Link>
+          </div>
+        </section>
+
         {role === "admin" && hasEwaste ? <section className="nav-group">
           <h2>Administration</h2>
           <div className="nav-group-links">
