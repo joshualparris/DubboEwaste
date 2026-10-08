@@ -7,10 +7,11 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "vercel-build": "npm run qa:mobile && next build",
+    "vercel-build": "npm run qa:learning && npm run qa:mobile && next build",
     "qa:mobile": "node scripts/mobile-qa.mjs",
-    "prebuild": "npm run qa:mobile",
-    "qa:mobile:browser": "node scripts/mobile-browser-qa.mjs"
+    "prebuild": "npm run qa:learning && npm run qa:mobile",
+    "qa:mobile:browser": "node scripts/mobile-browser-qa.mjs",
+    "qa:learning": "node scripts/learning-qa.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",
