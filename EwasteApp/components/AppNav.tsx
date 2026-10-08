@@ -45,7 +45,6 @@ const groups = [
       ["/dubbo-repair-ewaste", "Dubbo Repair Guide"],
       ["/dubbo-circular-economy", "Circular Economy"],
       ["/regional-computer-experts", "Regional Experts"],
-      ["/repair-cafe-dubbo", "Repair Café Dubbo"],
     ],
   },
 ] as const;
@@ -73,10 +72,12 @@ export function AppNav({ fullName, role }: { fullName: string | null; role: stri
           </div>
         </section>)}
 
-        {role === "admin" || role === "manager" ? <section className="nav-group">
-          <h2>Planning</h2>
+        {["admin","manager","technician","volunteer"].includes(role) ? <section className="nav-group">
+          <h2>Repair Café</h2>
           <div className="nav-group-links">
-            <Link href="/repair-cafe-feedback">Repair Café Feedback</Link>
+            <Link href="/repair-cafe-volunteers">Volunteer Hub</Link>
+            <Link href="/repair-cafe-dubbo">Public Page</Link>
+            {role === "admin" || role === "manager" ? <Link href="/repair-cafe-feedback">Public Feedback</Link> : null}
           </div>
         </section> : null}
 
