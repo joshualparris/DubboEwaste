@@ -20,7 +20,7 @@ export default async function LearningHome({
   const joined = new Set((enrolments.data ?? []).map(x => x.course_slug));
   const done = completions.data ?? [];
   const chosen = programmes.some(p => p.id === track) ? track as Programme : "all";
-  const visible = courses.filter(c => !track || track === "all" || c.programme === chosen);
+  const visible = courses.filter(c => chosen === "all" || c.programme === chosen);
   const recommended = courses.filter(c => c.programme === "all" || assigned.has(c.programme));
   const activeCount = courses.filter(c => joined.has(c.id)).length;
   const finishedCount = courses.filter(c => joined.has(c.id) && courseProgress(c, done).percent === 100).length;
