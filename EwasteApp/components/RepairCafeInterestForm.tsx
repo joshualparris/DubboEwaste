@@ -36,6 +36,15 @@ export function RepairCafeInterestForm() {
 
   useEffect(() => setStartedAt(Date.now()), []);
 
+  function clearValidationError(event: FormEvent<HTMLFormElement>) {
+    if (status !== "error") return;
+    const data = new FormData(event.currentTarget);
+    if (checkedValues(data, "participation").length > 0) {
+      setStatus("idle");
+      setMessage("");
+    }
+  }
+
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!startedAt) return;
@@ -91,7 +100,12 @@ export function RepairCafeInterestForm() {
   }
 
   return (
-    <form className={styles.form} onSubmit={submit}>
+    <form
+      className={styles.form}
+      onSubmit={submit}
+      onChange={clearValidationError}
+      data-no-pending="true"
+    >
       <div className={styles.trap} aria-hidden="true">
         <label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
       </div>
