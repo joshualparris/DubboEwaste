@@ -249,3 +249,6 @@ input[type="checkbox"],input[type="radio"]{width:20px;height:20px;flex:none}
   .record-field-label{display:none!important}
   .scroll-table{min-width:0}
 }
+
+/* Keep programme learning accessible without doubling the mobile header height. */
+@media(max-width:850px){.nav-quick a:nth-child(n+4){display:none}}
