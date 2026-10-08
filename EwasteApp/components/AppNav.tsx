@@ -66,13 +66,14 @@ export function AppNav({
 }) {
   const hasEwaste = programs.includes("dubbo_ewaste");
   const hasRepairCafe = programs.includes("repair_cafe");
+  const hasLibrary = programs.includes("library_of_things");
   const both = hasEwaste && hasRepairCafe;
 
   const brand = both
     ? "DubboEwaste & Repair Café"
     : hasRepairCafe
       ? "Repair Café Dubbo"
-      : "DubboEwaste · AssetFlow";
+      : hasEwaste ? "DubboEwaste · AssetFlow" : hasLibrary ? "Library of Things" : "Volunteer workspace";
 
   return <header className="topbar">
     <div className="topbar-identity">
@@ -82,6 +83,7 @@ export function AppNav({
 
     <nav className="nav-quick" aria-label="Quick navigation">
       {both ? <Link href="/access">Areas</Link> : null}
+      <Link href="/learn">Learning hub</Link>
       {hasEwaste ? <Link href="/dashboard">Dashboard</Link> : null}
       {hasEwaste ? <Link href="/search">Search / Scan</Link> : null}
       {hasEwaste ? <Link href="/assets/new">Receive</Link> : null}
@@ -92,12 +94,15 @@ export function AppNav({
     <details className="nav-menu">
       <summary>Menu</summary>
       <div className="nav-panel">
+        <section className="nav-group"><h2>Learning & development</h2><div className="nav-group-links"><Link href="/learn">My learning · All courses</Link></div></section>
         {hasEwaste ? groups.map((group) => <section className="nav-group" key={group.title}>
           <h2>{group.title}</h2>
           <div className="nav-group-links">
             {group.links.map(([href, label]) => <Link href={href} key={href}>{label}</Link>)}
           </div>
         </section>) : null}
+
+        {hasLibrary ? <section className="nav-group"><h2>Library of Things</h2><div className="nav-group-links"><Link href="/learn?track=library_of_things">Learning pathway</Link><a href="https://circular-economy-dubbo.vercel.app/internal/library-of-things">Pilot workspace ↗</a></div></section> : null}
 
         {hasRepairCafe ? <section className="nav-group">
           <h2>Repair Café</h2>
