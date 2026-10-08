@@ -44,7 +44,7 @@ export async function completeLearningLesson(formData: FormData) {
 
   if (lessonSlug === course.lessons[course.lessons.length - 1].id) {
     const answer = Number(formData.get("answer"));
-    if (!Number.isInteger(answer) || answer !== course.check.answer) {
+    if (!formData.has("answer") || !Number.isInteger(answer) || answer !== course.check.answer) {
       redirect(path + "?result=retry");
     }
   } else if (String(formData.get("practice_done")) !== "yes") {
