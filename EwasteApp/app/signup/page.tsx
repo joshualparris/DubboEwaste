@@ -12,7 +12,7 @@ export default async function SignupPage({
     <main className="login-wrap">
       <section className="login-card stack">
         <div>
-          <div className="badge">DubboEwaste & Repair Café volunteers</div>
+          <div className="badge">DubboEwaste · Repair Café · Library of Things</div>
           <h1>Create account</h1>
           <p className="muted">
             Enter the access code you were given. The code automatically puts your account in the correct volunteer area.
@@ -55,7 +55,7 @@ export default async function SignupPage({
             />
           </label>
           <p id="access-help" className="muted small">
-            Use the DubboEwaste code or Repair Café code supplied by the coordinator. The two codes grant different access.
+            Use the access code supplied for your programme. Each code grants different access; Library of Things enrolment codes must first be configured by an administrator.
           </p>
 
           <button className="button" type="submit">Create account</button>

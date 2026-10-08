@@ -26,10 +26,12 @@ async function destinationForUser() {
   const programs = new Set((access ?? []).map((row) => row.program));
   const ewaste = programs.has("dubbo_ewaste");
   const repairCafe = programs.has("repair_cafe");
+  const library = programs.has("library_of_things");
 
-  if (ewaste && repairCafe) return "/access";
+  if ([ewaste, repairCafe, library].filter(Boolean).length > 1) return "/access";
   if (repairCafe) return "/repair-cafe-volunteers";
   if (ewaste) return "/dashboard";
+  if (library) return "/learn";
 
   await supabase.auth.signOut();
   return "/login?error=Your%20account%20does%20not%20have%20an%20active%20volunteer%20area.";

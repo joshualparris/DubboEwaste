@@ -6,6 +6,9 @@ function repairCafeOnlyPathAllowed(pathname: string) {
     pathname === "/" ||
     pathname.startsWith("/repair-cafe-dubbo") ||
     pathname.startsWith("/repair-cafe-volunteers") ||
+    pathname.startsWith("/learn") ||
+    pathname.startsWith("/projects") ||
+    pathname.startsWith("/access") ||
     pathname.startsWith("/login") ||
     pathname.startsWith("/signup") ||
     pathname.startsWith("/api/repair-cafe-feedback")
@@ -43,12 +46,22 @@ export async function proxy(request: NextRequest) {
     const programs = new Set((access ?? []).map((row) => row.program));
     const hasEwaste = programs.has("dubbo_ewaste");
     const hasRepairCafe = programs.has("repair_cafe");
+    const hasLibrary = programs.has("library_of_things");
 
     if (hasRepairCafe && !hasEwaste && !repairCafeOnlyPathAllowed(request.nextUrl.pathname)) {
       return NextResponse.redirect(new URL("/repair-cafe-volunteers", request.url));
     }
 
-    if (!hasRepairCafe && !hasEwaste && !request.nextUrl.pathname.startsWith("/login") && !request.nextUrl.pathname.startsWith("/signup")) {
+    if (hasLibrary && !hasEwaste && !hasRepairCafe && !(
+      request.nextUrl.pathname === "/" ||
+      request.nextUrl.pathname.startsWith("/learn") ||
+      request.nextUrl.pathname.startsWith("/projects") ||
+      request.nextUrl.pathname.startsWith("/access") ||
+      request.nextUrl.pathname.startsWith("/login") ||
+      request.nextUrl.pathname.startsWith("/signup")
+    )) return NextResponse.redirect(new URL("/learn", request.url));
+
+    if (!hasRepairCafe && !hasEwaste && !hasLibrary && !request.nextUrl.pathname.startsWith("/login") && !request.nextUrl.pathname.startsWith("/signup")) {
       return NextResponse.redirect(new URL("/login?error=No%20active%20volunteer%20area%20is%20assigned.", request.url));
     }
   }

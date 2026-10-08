@@ -13,9 +13,9 @@ export default async function LoginPage({
       <section className="login-card stack">
         <div>
           <div className="badge">Volunteer & staff portal</div>
-          <h1>DubboEwaste & Repair Café</h1>
+          <h1>Dubbo Circular Learning & volunteer portals</h1>
           <p className="muted">
-            Sign in to the volunteer or staff areas you have access to.
+            One account for the learning hub, DubboEwaste, Repair Café and Library of Things access you have been granted.
           </p>
         </div>
 
@@ -46,7 +46,7 @@ export default async function LoginPage({
         </details>
 
         <p className="muted small">
-          New DubboEwaste or Repair Café volunteers can{" "}
+          New volunteers and Library of Things team members can{" "}
           <Link href="/signup"><strong>create an account</strong></Link> using the access code supplied for their team.
         </p>
       </section>
