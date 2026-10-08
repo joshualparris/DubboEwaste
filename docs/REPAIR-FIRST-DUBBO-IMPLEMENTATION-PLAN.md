@@ -1,5 +1,7 @@
 # Repair First Dubbo — evidence-based implementation plan
 
+> **Latest evidence update (8 October 2026):** [REPAIR-FIRST-DUBBO-2026-EVIDENCE-UPDATE.md](REPAIR-FIRST-DUBBO-2026-EVIDENCE-UPDATE.md) adds the newest Australian repair-system research, the current Austrian/French subsidy designs, current Dubbo repair capacity and 2026/27 Council funding dates. Where this file and the update differ, use the newer evidence update.
+
 **Research date:** 8 October 2026  
 **Question:** How do you actually incentivise people in Dubbo to repair their stuff instead of automatically buying new?  
 **Scope:** electronics, appliances, clothing, bikes and household items; behaviour change; local repair capacity; local government; funding; repair cafés; repair rebates; trust; convenience; parts and skills.
