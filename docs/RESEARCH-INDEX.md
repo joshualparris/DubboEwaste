@@ -74,3 +74,13 @@ These remain useful for provenance and should not be silently deleted:
 - [PROJECT-HISTORY-ALL-CHATS.md](PROJECT-HISTORY-ALL-CHATS.md) and [research.md](research.md) — historical context, not current operating authority.
 
 When a historical document conflicts with `CURRENT-STATE.md`, use the current-state evidence and retain the conflict in the relevant correction register.
+
+
+## Circular economy research pack — 8 October 2026
+
+- [../research/circular-economy/README.md](../research/circular-economy/README.md) indexes the uploaded Dubbo circular-economy research pack and the second-pass gap research.
+- The original uploaded ZIP is preserved unchanged under `research/circular-economy/source/`.
+- [Gap closure](../research/circular-economy/10-gap-closure-2026-10-08.md) updates Whylandra reuse planning, Council waste tonnages, e-waste downstream evidence, polystyrene, charity shops, Men's Sheds, textiles and tyres.
+- [Local repair/reuse directory](../research/circular-economy/11-local-repair-reuse-directory-2026-10-08.md) maps current publicly evidenced repair capacity.
+- [Comparator models](../research/circular-economy/12-comparator-models-2026-10-08.md) extracts operating mechanics from Bathurst, Bendigo, Ballarat, Albury, Armidale, Toowoomba, Tamworth, Wagga Wagga and Seymour.
+- [Open evidence requests](../research/circular-economy/13-open-evidence-requests-2026-10-08.md) isolates questions that now require Council/contractor/charity/operator contact or GIPA rather than more broad web research.

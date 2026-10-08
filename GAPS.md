@@ -561,3 +561,32 @@ Dubbo does **not** lack repair activity. Automotive, farm machinery, power tools
 ### Best next evidence collection
 
 Ask Council to support a **supervised condition audit** of bulky/self-haul goods and a **three-month Repair Café / repair-triage pilot**. These two small tests would produce local evidence that internet research cannot: the reusable share of discarded goods and the actual demand for repair assistance.
+
+
+## Circular-economy gap recheck — 8 October 2026
+
+Research pack and verification: [research/circular-economy/README.md](research/circular-economy/README.md).
+
+### Closed or materially narrowed
+
+- **Whylandra reuse-shop concept:** CLOSED AS A PLANNING QUESTION. Council has explicitly documented reuse-shop provision for Whylandra/Wellington and a Whylandra Resource Recovery Park / community Circular Economy Hub concept. **Still open:** adoption, funding, delivery timing, electronics scope and operator.
+- **Council-wide waste mass:** CLOSED at aggregate level. Adopted strategy gives 100,926 t/year average across 2017/18–2021/22, split by MSW/C&I/C&D and diversion/disposal.
+- **Polystyrene:** CLOSED for current broad pathway. Whylandra now uses an on-site processing machine and sells densified blocks onward to manufacturers; the former Sydney-melting arrangement is superseded.
+- **Local repair capability:** MATERIALLY NARROWED. Named current computer/mobile, appliance, bicycle, machinery, clothing/shoe and community-workshop capability is documented. Exact commercial terms and referral willingness remain direct-contact questions.
+- **Men's Sheds:** MATERIALLY NARROWED. Public workshop/repair activities are evidenced; electronics/computer scope and Repair Café willingness remain unverified.
+- **Anél Pienaar role:** historical Council sustainability role is evidenced; do not overstate exact current employment/title without direct confirmation.
+
+### Still genuinely open
+
+1. Council's current e-waste contract after 30 June 2025 and exact first/downstream processors.
+2. Functional-device reuse versus destruction/material processing in the current e-waste chain.
+3. Current adopted/final Whylandra master plan and funded reuse-shop/Circular Economy Hub implementation.
+4. Ownership-transfer and pre-disposal diversion rights at Council facilities.
+5. Local charity electrical acceptance/test-tag/repair/unsold hardgoods rules.
+6. Named downstream textile recycler and recovery/export/residual split.
+7. Post-June-2025 tyre contractor and downstream route.
+8. Device-specific local volumes and unit economics.
+9. Institutional last-batch outcomes.
+10. Repair Café demand measured through a real pilot.
+
+See [open evidence requests](research/circular-economy/13-open-evidence-requests-2026-10-08.md) for the exact questions and GIPA candidate wording.
