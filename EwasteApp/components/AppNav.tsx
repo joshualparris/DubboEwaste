@@ -94,7 +94,7 @@ export function AppNav({
     <details className="nav-menu">
       <summary>Menu</summary>
       <div className="nav-panel">
-        <section className="nav-group"><h2>Learning & development</h2><div className="nav-group-links"><Link href="/learn">My learning · All courses</Link><Link href="/learn/manage">Supervisor desk (authorised accounts)</Link></div></section>
+        <section className="nav-group"><h2>Learning & development</h2><div className="nav-group-links"><Link href="/learn">My learning · All courses</Link><Link href="/learn/manage">Supervisor desk (authorised accounts)</Link><Link href="/circular-access">Circular research (one sign-in)</Link></div></section>
         {hasEwaste ? groups.map((group) => <section className="nav-group" key={group.title}>
           <h2>{group.title}</h2>
           <div className="nav-group-links">
@@ -102,7 +102,7 @@ export function AppNav({
           </div>
         </section>) : null}
 
-        {hasLibrary ? <section className="nav-group"><h2>Library of Things</h2><div className="nav-group-links"><Link href="/learn?track=library_of_things">Learning pathway</Link><a href="https://circular-economy-dubbo.vercel.app/internal/library-of-things">Pilot workspace ↗</a></div></section> : null}
+        {hasLibrary ? <section className="nav-group"><h2>Library of Things</h2><div className="nav-group-links"><Link href="/learn?track=library_of_things">Learning pathway</Link><Link href="/circular-access">Pilot research workspace ↗</Link></div></section> : null}
 
         {hasRepairCafe ? <section className="nav-group">
           <h2>Repair Café</h2>
