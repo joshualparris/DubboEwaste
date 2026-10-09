@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {courses} from "@/lib/learning/catalog";
 import { requireProgrammeContext } from "@/lib/programme-context";
 import {
  createVenue,updateVenue,createSession,createMonthlyDrafts,updateSession,setVenueForSession,
@@ -14,7 +15,7 @@ import styles from "./sessions.module.css";
 type Event={id:string;event_date:string;starts_at:string;ends_at:string;title:string;focus:string;status:string;venue_id:string|null;venue_status:string;safety_checked:boolean};
 type Venue={id:string;name:string;address:string;accessibility:string;permitted_activities:string};
 type Available={event_id:string;user_id:string;response:string;note:string};
-type Slot={id:string;event_id:string;role_name:string;required_count:number;notes:string;starts_at:string;ends_at:string};
+type Slot={id:string;event_id:string;role_name:string;required_count:number;notes:string;starts_at:string;ends_at:string;required_competency:string|null};
 type Assignment={id:string;slot_id:string;user_id:string|null;manual_volunteer_id:string|null;status:string};
 type Manual={id:string;full_name:string;skills:string[]};
 type ManualAvailability={event_id:string;manual_volunteer_id:string;response:string;note:string};
@@ -32,7 +33,7 @@ export default async function RepairCafeSessions({searchParams}:{searchParams:Pr
   supabase.from("repair_cafe_sessions").select("id,event_date,starts_at,ends_at,title,focus,status,venue_id,venue_status,safety_checked").is("deleted_at",null).order("event_date",{ascending:true}).limit(48),
   supabase.from("repair_cafe_venues").select("id,name,address,accessibility,permitted_activities").is("deleted_at",null).order("name"),
   supabase.from("repair_cafe_availability").select("event_id,user_id,response,note").limit(1000),
-  supabase.from("repair_cafe_shift_slots").select("id,event_id,role_name,required_count,notes,starts_at,ends_at").limit(500),
+  supabase.from("repair_cafe_shift_slots").select("id,event_id,role_name,required_count,notes,starts_at,ends_at,required_competency").limit(500),
   supabase.from("repair_cafe_shift_assignments").select("id,slot_id,user_id,status").limit(1000),
   supabase.from("repair_cafe_volunteer_profiles").select("skills,preference").eq("user_id",user?.id??"00000000-0000-0000-0000-000000000000").maybeSingle()
  ]);
@@ -228,7 +229,7 @@ export default async function RepairCafeSessions({searchParams}:{searchParams:Pr
         const confirmed=occupants.filter(a=>a.status==="confirmed").length;
         return <div className={styles.position} key={s.id}>
          <div className={styles.positionHead}><strong>{s.role_name} · {s.starts_at.slice(0,5)}–{s.ends_at.slice(0,5)}</strong><span>{confirmed}/{s.required_count} confirmed</span></div>
-         {s.notes?<p className={styles.help}>{s.notes}</p>:null}
+         {s.notes?<p className={styles.help}>{s.notes}</p>:null}{s.required_competency?<p className={styles.help}><strong>Verified competency needed:</strong> {courses.find(c=>c.id===s.required_competency)?.title??s.required_competency}</p>:null}
          {canManage?<div className={styles.roster}>
           {occupants.length?occupants.map(a=><div key={a.id} className={styles.rosterEntry}>
            <div className={styles.rosterPerson}><span>{nameOf(a.user_id??"",a.manual_volunteer_id??"")} · {friendlyStatus(a.status)}{a.manual_volunteer_id?" · Manually added":""}</span>
@@ -288,6 +289,12 @@ export default async function RepairCafeSessions({searchParams}:{searchParams:Pr
            <label>People needed <input type="number" name="required_count" defaultValue={s.required_count} min={1} max={20} required/></label>
            <div className={styles.two}><label>Shift starts <input type="time" name="starts_at" defaultValue={s.starts_at.slice(0,5)} required/></label><label>Shift ends <input type="time" name="ends_at" defaultValue={s.ends_at.slice(0,5)} required/></label></div>
            <label>Notes <input name="notes" defaultValue={s.notes} maxLength={250}/></label>
+           <label>Verified competency needed
+            <select name="required_competency" defaultValue={s.required_competency??""}>
+             <option value="">None (general volunteers welcome)</option>
+             {courses.filter(c=>c.programme==="repair_cafe"||c.programme==="all").map(c=><option key={c.id} value={c.id}>{c.title}</option>)}
+            </select>
+           </label>
            <button className="button secondary">Save position</button>
           </form>
           <form action={deleteSlot} className={styles.dangerForm}>
@@ -304,6 +311,11 @@ export default async function RepairCafeSessions({searchParams}:{searchParams:Pr
         <div className={styles.two}><label>People required <input type="number" name="required_count" min={1} max={20} defaultValue={1} required/></label>
         <label>Notes <input name="notes" maxLength={250} placeholder="Arrive 9:30"/></label></div>
         <div className={styles.two}><label>Starts at <input type="time" name="starts_at" defaultValue={e.starts_at.slice(0,5)} required/></label><label>Ends at <input type="time" name="ends_at" defaultValue={e.ends_at.slice(0,5)} required/></label></div>
+        <label>Verified competency needed (optional)
+         <select name="required_competency" defaultValue=""><option value="">No prerequisite</option>
+          {courses.filter(c=>c.programme==="repair_cafe"||c.programme==="all").map(c=><option key={c.id} value={c.id}>{c.title}</option>)}
+         </select>
+        </label>
         <button className="button secondary">Add position</button>
        </form>:null}
       </section>
