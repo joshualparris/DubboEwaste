@@ -11,9 +11,9 @@ type Stored={
  key:string;owner:string;eventId:string;createdAt:number;status:OfflineStatus;
  error:string;iv:number[];cipher:ArrayBuffer;
 };
-type Workspace={key:string;salt:number[];iv:number[];check:ArrayBuffer};
+type Workspace={key:string;salt:number[];iv:number[];check:ArrayBuffer;eventId?:string};
 const databaseName="repair-cafe-offline-encrypted-v1";
-const VERSION=1;
+const VERSION=2;
 function tx<T>(request:IDBRequest<T>):Promise<T>{
  return new Promise((resolve,reject)=>{request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error)});
 }
@@ -25,6 +25,7 @@ export function openOfflineDB():Promise<IDBDatabase>{
    const d=r.result;
    if(!d.objectStoreNames.contains("operations"))d.createObjectStore("operations",{keyPath:"key"});
    if(!d.objectStoreNames.contains("workspaces"))d.createObjectStore("workspaces",{keyPath:"key"});
+   if(!d.objectStoreNames.contains("snapshots"))d.createObjectStore("snapshots",{keyPath:"key"});
   };
   r.onerror=()=>reject(r.error);r.onsuccess=()=>resolve(r.result);
   r.onblocked=()=>reject(Error("Close the other Repair Café tab so offline storage can open"));
@@ -129,5 +130,30 @@ export async function encryptedBackup(owner:string):Promise<string>{
    operations:records.filter(x=>x.owner===owner).map(x=>({
     ...x,cipher:Array.from(new Uint8Array(x.cipher))
    }))},null,2);
+ }finally{close(db)}
+}
+
+// Only the event UUID is in unencrypted workspace metadata. All visitor data
+// and previous queue state are encrypted with the user's offline passphrase.
+export async function registerOfflineEvent(owner:string,eventId:string){
+ if(!/^[a-f0-9-]{36}$/i.test(eventId))return;
+ const db=await openOfflineDB();
+ try{
+  const tr=db.transaction("workspaces","readwrite"),store=tr.objectStore("workspaces");
+  const workspace=await tx(store.get(workspaceId(owner))) as Workspace|undefined;
+  if(workspace)await tx(store.put({...workspace,eventId}));
+ }finally{close(db)}
+}
+export async function writeOfflineSnapshot(
+ owner:string,eventId:string,key:CryptoKey,
+ state:{tickets:unknown[];stations:unknown[]}
+){
+ if(!/^[a-f0-9-]{36}$/i.test(eventId))return;
+ const sealed=await encrypt(key,state),db=await openOfflineDB();
+ try{
+  await tx(db.transaction("snapshots","readwrite").objectStore("snapshots").put({
+   key:"snapshot:"+owner+":"+eventId,owner,eventId,
+   savedAt:Date.now(),iv:sealed.iv,cipher:sealed.cipher
+  }));
  }finally{close(db)}
 }
