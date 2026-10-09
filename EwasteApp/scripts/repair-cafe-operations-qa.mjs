@@ -132,4 +132,8 @@ assert(offlineShell.includes('serviceWorker.register')&&
  offlineShell.includes('writeOfflineSnapshot')&&
  live.includes('new CustomEvent("repair-cafe-snapshot"'),
  "Prepare an offline snapshot and static reload fallback before disconnect");
-console.log("Repair Café operations source QA PASS: 40 checks. Real two-device offline acceptance still needed.");
+const proxy=read("proxy.ts");
+assert(proxy.includes('"/repair-cafe-offline.html"')&&proxy.includes('"/repair-cafe-sw.js"')&&
+ proxy.includes('user && privateRoute'),
+ "Offline static resources must load while private ticket routes stay signed-in and scoped");
+console.log("Repair Café operations source QA PASS: 41 checks. Two-device offline acceptance still needed.");
