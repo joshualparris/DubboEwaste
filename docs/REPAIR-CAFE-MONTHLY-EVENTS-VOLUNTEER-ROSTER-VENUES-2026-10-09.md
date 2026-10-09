@@ -5,6 +5,18 @@
 **Owner:** Repair Café Dubbo programme, within the existing DubboEwaste operational platform.  
 **Guiding principle:** one event record per month; volunteers nominate dates, coordinators approve rosters, venues are separately confirmed; nothing is announced publicly prematurely.
 
+## Full CRUD and easy volunteer entry update (9 October 2026)
+
+**Built and database-applied:** all Repair Café coordinators (per-programme admin/manager and global admin) can create, view, edit and delete individual unpublished sessions, including changing dates and opening hours; create/edit/delete venues once detached from sessions; add, amend or delete required roster roles; manage availability records and assignment status; and manage a separate manual volunteer directory without creating login accounts. Session deletions cascade to its shift/availability records. Publicly advertised events must be unpublished before deletion. Editing an advertised date/scope explicitly unpublishes it and requires the coordinator to handle manual notifications.
+
+**Fast workflow:** open `/repair-cafe-volunteers/sessions`, find the month, expand **Edit date & time** or **Add volunteer to this date**. For volunteer management across months, open `/repair-cafe-volunteers/people`, add name, skills and optional consented contact details; optionally select a session to mark available. Existing logged-in Repair Café volunteer profiles can have their self-declared skills amended or removed, but login accounts and programme memberships remain controlled by the existing auth/admin workflows.
+
+**Manual roster safeguard:** a coordinator must confirm the person personally agreed to the date before marking them available and must explicitly confirm their acceptance before assigning a shift. Manually entered people are coordinator-only records, never implicit authenticated accounts. The public interest form is not auto-converted to volunteers.
+
+**Schema migrations:** `20261009150000_repair_cafe_full_crud_manual_volunteers.sql`, `20261009151000_repair_cafe_roster_consistency.sql` and `20261009152000_repair_cafe_member_profile_crud.sql`. They add coordinator-only manual records, changes to assignment foreign keys, RLS CRUD policies, capacity/availability guards and account-member skill management. No existing session or account records are deleted by these migrations.
+
+**Tests:** a transaction-rolled-back database test created/updated/deleted an example venue, session, two manual volunteers, a shift and assignment; verified overbooking is refused, confirmed volunteers cannot be marked unavailable, and published dates cannot change silently. Vercel build verification is tracked separately from this database test. An authenticated multi-account browser E2E test and automatic notifications are still outstanding.
+
 ## Implementation update (9 October 2026)
 
 **Built in the existing Next.js + Supabase platform:**
