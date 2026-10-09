@@ -8,7 +8,7 @@ import styles from "./event-desk.module.css";
 type Session={id:string;event_date:string;title:string;starts_at:string;ends_at:string;status:string;focus:string;venue_status:string};
 type Station={id:string;event_id:string;name:string;category:string;location_note:string};
 type Ticket={
- id:string;event_id:string;ticket_number:number;item_category:string;item_description:string;
+ id:string;event_id:string;ticket_number:number;visitor_display_name:string;item_category:string;item_description:string;
  reported_problem:string;risk_level:string;risk_notes:string;status:string;outcome:string|null;
  barrier:string|null;station_id:string|null;work_summary:string;parts_used:string;
  handover_advice:string;arrived_at:string;started_at:string|null;closed_at:string|null;
@@ -56,7 +56,7 @@ export default async function EventDesk({searchParams}:{
  const [stationResult,ticketResult]=session?await Promise.all([
   supabase.from("repair_cafe_stations").select("id,event_id,name,category,location_note")
    .eq("event_id",session.id).order("name"),
-  supabase.from("repair_cafe_tickets").select("id,event_id,ticket_number,item_category,item_description,reported_problem,risk_level,risk_notes,status,outcome,barrier,station_id,work_summary,parts_used,handover_advice,arrived_at,started_at,closed_at")
+  supabase.from("repair_cafe_tickets").select("id,event_id,ticket_number,visitor_display_name,item_category,item_description,reported_problem,risk_level,risk_notes,status,outcome,barrier,station_id,work_summary,parts_used,handover_advice,arrived_at,started_at,closed_at")
    .eq("event_id",session.id).order("ticket_number",{ascending:false}).limit(500)
  ]):[{data:[],error:null},{data:[],error:null}];
  const stations=(stationResult.data??[]) as Station[];
@@ -120,10 +120,10 @@ export default async function EventDesk({searchParams}:{
   <div className={styles.columns}>
    <section className={styles.panel}>
     <div className={styles.sectionHeader}><h2>1 · Visitor check-in</h2></div>
-    <p className={styles.hint}>One item per ticket. Visitors keep ownership and stay with their belongings. Don't record names, passwords or personal documents here.</p>
+    <p className={styles.hint}>One item per ticket. Visitors keep ownership and stay with their belongings. Only collect a first name or nickname to call someone forward. Don't record surnames, passwords or personal documents.</p>
     {active?<form action={checkInRepairItem} className={styles.form}>
      <input type="hidden" name="event_id" value={session.id}/>
-     <label>Item category <select name="category" defaultValue="" required><option value="" disabled>Choose a category</option>
+     <label>Visitor first name or nickname <input name="visitor_name" required minLength={1} maxLength={50} placeholder="e.g. Bob" autoComplete="off"/></label>\n     <p className={styles.hint}>Used to call the visitor when a repairer is ready. No surname needed.</p>\n     <label>Item category <select name="category" defaultValue="" required><option value="" disabled>Choose a category</option>
       {categories.map(([v,n])=><option key={v} value={v}>{n}</option>)}</select></label>
      <label>What item is it? <input name="item" minLength={2} maxLength={160} required placeholder="e.g. toaster, jacket, bike"/></label>
      <label>What is wrong? <textarea name="fault" minLength={3} maxLength={700} required rows={2} placeholder="Visitor's description of the problem"/></label>
@@ -181,7 +181,7 @@ export default async function EventDesk({searchParams}:{
     {tickets.map(t=><article className={styles.ticket} key={t.id}>
      <div className={styles.ticketHeader}><span className={styles.queueNumber}>#{t.ticket_number}</span>
       <span className={styles.state}>{pretty(t.status)}</span></div>
-     <h3>{t.item_description}</h3>
+     <h3>{t.visitor_display_name? t.visitor_display_name+" · ":""}{t.item_description}</h3>\n     {t.visitor_display_name&&t.status==="waiting"?<p className={styles.hint}><strong>Call out:</strong> “{t.visitor_display_name}, we’re ready to help you with your {t.item_description}.”</p>:null}
      <p className={styles.problem}>{t.reported_problem}</p>
      <div className={styles.ticketMeta}>
       <span>{pretty(t.item_category)}</span><span>Arrived {shortTime(t.arrived_at)}</span>
@@ -244,7 +244,7 @@ export default async function EventDesk({searchParams}:{
     <p className={styles.hint}>If internet fails, note the queue number, item and repair steps on paper; enter records later. Keep completed sheets secure and follow the agreed retention policy.</p>
     <div className={styles.paperForm}>
      <p>Event: {day(session.event_date)} · Ticket #: __________</p>
-     <p>Item/category: ___________________________________</p>
+     <p>Visitor first name/nickname: _______________________</p>\n     <p>Item/category: ___________________________________</p>
      <p>Reported problem: ________________________________</p>
      <p>Visitor acknowledgement: □ &nbsp; Safety screened: □ &nbsp; Risk / refusal: __________________</p>
      <p>Station / repair steps: ____________________________</p>
