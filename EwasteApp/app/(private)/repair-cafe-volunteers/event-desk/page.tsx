@@ -56,7 +56,7 @@ export default async function EventDesk({searchParams}:{
  const activities=(activityResult.data??[]) as Activity[];
 
  const error=stationResult.error||ticketResult.error||activityResult.error||sessionError;
- return <OfflineDeskShell eventId={session?.id??""} ownerId={user.id}><div className={styles.page}>
+ return <OfflineDeskShell eventId={session?.id??""} ownerId={user.id} initialTickets={tickets} initialStations={stations}><div className={styles.page}>
   <div className={styles.navigation}>
    <Link href="/repair-cafe-volunteers">← Volunteer Hub</Link>
    <Link href="/repair-cafe-volunteers/sessions">Sessions & rosters</Link>
