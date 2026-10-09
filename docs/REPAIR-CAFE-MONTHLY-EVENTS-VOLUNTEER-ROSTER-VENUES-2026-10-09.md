@@ -1,9 +1,25 @@
 # Repair Café Dubbo: monthly events, volunteer rostering and venue operations
 
 **Prepared:** 9 October 2026  
-**Status:** proposed implementation and operating procedure; **not live functionality**, not a confirmed 2027 programme.  
+**Status:** foundational event and roster system built 9 October 2026; public dates and volunteer/venue commitments still need to be entered and confirmed. The remaining phases below are proposals, not completed features.  
 **Owner:** Repair Café Dubbo programme, within the existing DubboEwaste operational platform.  
 **Guiding principle:** one event record per month; volunteers nominate dates, coordinators approve rosters, venues are separately confirmed; nothing is announced publicly prematurely.
+
+## Implementation update (9 October 2026)
+
+**Built in the existing Next.js + Supabase platform:**
+- New protected `/repair-cafe-volunteers/sessions` workspace, linked from the Volunteer Hub and app navigation.
+- Create one-off session drafts or 12 third-Saturday monthly draft dates for a selected year without overwriting existing entries.
+- Volunteer self-managed skill and availability profiles per event; voluntary response is **not** a commitment.
+- Coordinator role and capacity fields, shift offers, volunteer acceptance/decline/withdrawal; database-enforced capacity check.
+- Venue directory, booking stages (unknown/offered/tentative/confirmed/declined), confirmed-in-writing checkbox and safety check.
+- Protected public publication state. Publishing requires confirmed venue, safety approval, nonempty repair scope and a complete accepted roster; losing coverage automatically unpublishes the event.
+- Public page queries upcoming **published** events only. It does not expose draft events, private volunteers or unapproved venues.
+- Two applied Supabase migrations: `20261009133500_repair_cafe_sessions_rosters.sql` and `20261009134500_repair_cafe_publish_safety.sql`.
+
+**Not yet included:** automatic email/SMS reminders, external venue-host accounts, a hosted repair item booking queue, exportable iCalendar invites, volunteer attendance/outcome reports and the event-audit log described in the long-term plan. Those are separate development phases. Do not imply an automated message has been sent. No real 2027 booking, Barry or Jill assignment was inserted.
+
+**Verification:** the first Vercel production build passed, including the application’s existing Learning, Mobile and Programme Auth QA gates and Next.js compile. An authenticated browser end-to-end test with actual volunteer accounts has not yet been completed; this document does not claim otherwise.
 
 ## 1. Decision and boundaries
 
