@@ -198,3 +198,14 @@ export async function archiveActiveEvent(f:FormData){
  const {error}=await supabase.from("repair_cafe_sessions").update({deleted_at:new Date().toISOString()}).eq("id",event);
  check(event,error,"Archiving session");done("","Session archived; it can be restored from the operations page");
 }
+
+export async function restoreArchivedVolunteer(f:FormData){
+ const {supabase}=await mgr(),id=asId("",field(f,"manual_volunteer_id"));
+ const {error}=await supabase.from("repair_cafe_manual_volunteers").update({deleted_at:null}).eq("id",id);
+ check("",error,"Restoring volunteer");done("","Volunteer restored; archived shift commitments are not automatically re-confirmed");
+}
+export async function restoreArchivedVenue(f:FormData){
+ const {supabase}=await mgr(),id=asId("",field(f,"venue_id"));
+ const {error}=await supabase.from("repair_cafe_venues").update({deleted_at:null}).eq("id",id);
+ check("",error,"Restoring venue");done("","Venue restored to directory. Re-confirm bookings and safety for individual sessions.");
+}
