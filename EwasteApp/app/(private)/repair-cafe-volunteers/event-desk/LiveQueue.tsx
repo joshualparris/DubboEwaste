@@ -5,26 +5,27 @@ import {createClient} from "@/lib/supabase/browser";
 import Link from "next/link";
 import {saveRepairTicket} from "./actions";
 import ProgressOutcomeFields,{progressChoices} from "./ProgressOutcomeFields";
+import WaitingQueueNotes from "./WaitingQueueNotes";
 import styles from "./event-desk.module.css";
 
 export type LiveTicket={
  id:string;event_id:string;ticket_number:number;visitor_display_name:string;item_category:string;
- item_description:string;reported_problem:string;risk_level:string;risk_notes:string;
+ item_description:string;reported_problem:string;queue_notes:string;risk_level:string;risk_notes:string;
  status:string;outcome:string|null;progress_code:string|null;barrier:string|null;station_id:string|null;
  work_summary:string;parts_used:string;handover_advice:string;
  arrived_at:string;started_at:string|null;closed_at:string|null;updated_at:string;
 };
 export type LiveStation={id:string;event_id:string;name:string;category:string;location_note:string};
-export type LiveActivity={id:string;ticket_id:string;from_status:string|null;to_status:string;note:string;progress_code:string|null;created_at:string};
+export type LiveActivity={id:string;ticket_id:string;from_status:string|null;to_status:string;note:string;progress_code:string|null;problem_snapshot:string|null;queue_note_snapshot:string|null;created_at:string};
 
 const barriers=[["","Not specified"],["parts","Parts unavailable"],["time","Time / capacity"],
  ["skills","Skills / tools"],["safety","Safety"],["cost","Cost"],
  ["not_repairable","Not repairable"],["other","Other"]];
 const pretty=(x:string|null|undefined)=>(x||"—").replaceAll("_"," ").replace(/^./,c=>c.toUpperCase());
 const auTime=(s:string)=>new Date(s).toLocaleTimeString("en-AU",{timeZone:"Australia/Sydney",hour:"numeric",minute:"2-digit"});
-const columns="id,event_id,ticket_number,visitor_display_name,item_category,item_description,reported_problem,risk_level,risk_notes,status,outcome,progress_code,barrier,station_id,work_summary,parts_used,handover_advice,arrived_at,started_at,closed_at,updated_at";
+const columns="id,event_id,ticket_number,visitor_display_name,item_category,item_description,reported_problem,queue_notes,risk_level,risk_notes,status,outcome,progress_code,barrier,station_id,work_summary,parts_used,handover_advice,arrived_at,started_at,closed_at,updated_at";
 const stationColumns="id,event_id,name,category,location_note";
-const activityColumns="id,ticket_id,from_status,to_status,note,progress_code,created_at";
+const activityColumns="id,ticket_id,from_status,to_status,note,progress_code,problem_snapshot,queue_note_snapshot,created_at";
 type Connection="connecting"|"live"|"reconnecting"|"offline"|"restricted";
 type View="queue"|"stations"|"closed"|"all";
 type Props={
@@ -245,6 +246,8 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
        <strong>Call out:</strong> “{t.visitor_display_name}, we’re ready to help you with your {t.item_description}.”
       </p>:null}
       <p className={styles.problem}>{t.reported_problem}</p>
+      {t.queue_notes?<p className={styles.queueNoteText}><strong>Queue notes:</strong> {t.queue_notes}</p>:null}
+      {active&&t.status==="waiting"?<WaitingQueueNotes eventId={eventId} ticket={t}/>:null}
       <div className={styles.ticketMeta}>
        <span>{pretty(t.item_category)}</span><span>Arrived {auTime(t.arrived_at)}</span>
        <span>Station: {stations.find(st=>st.id===t.station_id)?.name||"Unassigned"}</span>
@@ -295,6 +298,8 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
          <span>{auTime(a.created_at)} · {pretty(a.to_status)}
           {a.progress_code?" · "+(progressChoices.find(([code])=>code===a.progress_code)?.[1]||pretty(a.progress_code)):""}</span>
          {a.note?<p>{a.note}</p>:null}
+         {a.problem_snapshot!==null?<p><strong>Problem after edit:</strong> {a.problem_snapshot}</p>:null}
+         {a.queue_note_snapshot!==null?<p><strong>Queue notes after edit:</strong> {a.queue_note_snapshot||"Cleared"}</p>:null}
         </div>)}
        </div>:null}
       </details>
