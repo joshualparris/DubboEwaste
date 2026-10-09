@@ -3,7 +3,7 @@ import {useCallback,useEffect,useRef,useState,type FormEvent,type ReactNode} fro
 import {createClient} from "@/lib/supabase/browser";
 import {
  hasWorkspace,unlockWorkspace,readOperations,writeOperation,updateOperationState,
- dropOperation,encryptedBackup,type OfflineOperation,type OfflineKind
+ dropOperation,encryptedBackup,registerOfflineEvent,writeOfflineSnapshot,type OfflineOperation,type OfflineKind
 } from "./offline-store";
 import styles from "./event-desk.module.css";
 
@@ -32,8 +32,8 @@ function operationLabel(op:OfflineOperation){
 function messageFor(e:unknown){return e instanceof Error?e.message:"Offline storage failed"}
 const conflictPattern=/changed on another|revision|closed|not found|ticket is|no longer|not open|not permitted|can't|cannot|outcome|risk|unsafe|cancelled|conflict/i;
 
-export default function OfflineDeskShell({eventId,ownerId,children}:{
- eventId:string;ownerId:string;children:ReactNode;
+export default function OfflineDeskShell({eventId,ownerId,initialTickets,initialStations,children}:{
+ eventId:string;ownerId:string;initialTickets:unknown[];initialStations:unknown[];children:ReactNode;
 }){
  const [phrase,setPhrase]=useState("");
  const [vaultExists,setVaultExists]=useState<boolean|null>(null);
@@ -105,6 +105,18 @@ export default function OfflineDeskShell({eventId,ownerId,children}:{
   if(ready&&online&&!forceOffline)void sync();
  },[ready,online,forceOffline,sync]);
  useEffect(()=>{
+  if(!ready||!keyRef.current)return;
+  const onSnapshot=(event:Event)=>{
+   const detail=(event as CustomEvent<{eventId:string;tickets:unknown[];stations:unknown[]}>).detail;
+   if(!detail||detail.eventId!==eventId||!keyRef.current)return;
+   void writeOfflineSnapshot(ownerId,eventId,keyRef.current,{
+    tickets:detail.tickets,stations:detail.stations
+   }).catch(e=>setError("Unable to update offline snapshot: "+messageFor(e)));
+  };
+  window.addEventListener("repair-cafe-snapshot",onSnapshot);
+  return ()=>window.removeEventListener("repair-cafe-snapshot",onSnapshot);
+ },[ready,eventId,ownerId]);
+ useEffect(()=>{
   if(!ready)return;
   const onFocus=()=>{if(navigator.onLine)void sync()};
   const interval=setInterval(()=>{if(document.visibilityState==="visible")void sync()},30000);
@@ -117,6 +129,14 @@ export default function OfflineDeskShell({eventId,ownerId,children}:{
   try{
    const key=await unlockWorkspace(ownerId,phrase);
    keyRef.current=key;setReady(true);setVaultExists(true);setPhrase("");
+   if(eventId){
+    await registerOfflineEvent(ownerId,eventId);
+    await writeOfflineSnapshot(ownerId,eventId,key,{tickets:initialTickets,stations:initialStations});
+   }
+   if("serviceWorker" in navigator){
+    try{await navigator.serviceWorker.register("/repair-cafe-sw.js",{scope:"/"});}
+    catch{setNotice("Offline work saves in this tab, but offline page reload is unavailable in this browser.");}
+   }
    await refresh();
    setNotice("Offline storage unlocked. Saved work is encrypted on this device.");
   }catch(e){setError(messageFor(e));}finally{setBusy(false)}
