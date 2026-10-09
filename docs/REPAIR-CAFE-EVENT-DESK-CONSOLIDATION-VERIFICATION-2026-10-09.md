@@ -9,13 +9,13 @@
 - Retained the legacy `repair_cafe_visits` and `repair_cafe_repair_tickets` tables for schema compatibility, but revoked user write grants, removed coordinator write policies and installed blocking triggers for **INSERT, UPDATE and DELETE**, including privileged legacy write attempts. Prevents divergence and accidental double counting.
 - Confirmed `rc_legacy_visit_read_only` and `rc_legacy_repair_read_only` triggers are enabled (PostgreSQL `tgenabled='O'`).
 - Confirmed row-level security enabled on four tables: canonical tickets, ticket activity and both retired legacy tables.
-- Vercel production deployment automatically queued/built for commit `3a7a27b`; status seen as **BUILDING** when checked, not yet verified Ready.
+- Vercel production deployment automatically queued/built for commit `3a7a27b`; verified **READY** in Vercel production for commit `3a7a27b` (this confirms successful deployment, not signed-in workflow acceptance).
 
 ## Important distinction
 This is a **schema/data-consistency** fix, not proof the complete event-day app is production tested.
 
 ## Remaining verifications
-1. Watch Vercel deployment to terminal READY or ERROR, and inspect build logs if failure.
+1. **Vercel deployment READY:** completed. Inspect authenticated runtime and console/API responses to verify functioning, not just build.
 2. Validate migration order, deployed app/database consistency and permissions in a signed-in browser.
 3. Run end-to-end tests using disposable test tickets (no real visitor names): check-in, safety rejection, station assignment, completion, referral, unsafe item, closed-ticket immutability and history.
 4. Run signed-in RLS matrix for anonymous, E-waste-only, Library-only, Repair Café member, Repair Café coordinator, Repair Café admin and global admin. Don't treat a metadata query as a substitute for these tests.
