@@ -29,8 +29,8 @@ export default async function RepairCafeSessions({searchParams}:{searchParams:Pr
  const [{data:eventData,error:eventsError},{data:venueData,error:venueError},
         {data:availData,error:availError},{data:slotData,error:slotError},
         {data:assignData,error:assignError},{data:profileData}]=await Promise.all([
-  supabase.from("repair_cafe_sessions").select("id,event_date,starts_at,ends_at,title,focus,status,venue_id,venue_status,safety_checked").order("event_date",{ascending:true}).limit(48),
-  supabase.from("repair_cafe_venues").select("id,name,address,accessibility,permitted_activities").order("name"),
+  supabase.from("repair_cafe_sessions").select("id,event_date,starts_at,ends_at,title,focus,status,venue_id,venue_status,safety_checked").is("deleted_at",null).order("event_date",{ascending:true}).limit(48),
+  supabase.from("repair_cafe_venues").select("id,name,address,accessibility,permitted_activities").is("deleted_at",null).order("name"),
   supabase.from("repair_cafe_availability").select("event_id,user_id,response,note").limit(1000),
   supabase.from("repair_cafe_shift_slots").select("id,event_id,role_name,required_count,notes,starts_at,ends_at").limit(500),
   supabase.from("repair_cafe_shift_assignments").select("id,slot_id,user_id,status").limit(1000),
@@ -38,7 +38,7 @@ export default async function RepairCafeSessions({searchParams}:{searchParams:Pr
  ]);
  const directoryResult=canManage?await supabase.rpc("repair_cafe_roster_directory"):null;
  const [manualPeopleResult,manualAvailResult]=canManage?await Promise.all([
-  supabase.from("repair_cafe_manual_volunteers").select("id,full_name,skills").order("full_name"),
+  supabase.from("repair_cafe_manual_volunteers").select("id,full_name,skills").is("deleted_at",null).order("full_name"),
   supabase.from("repair_cafe_manual_availability").select("event_id,manual_volunteer_id,response,note").limit(1000)
  ]):[{data:[],error:null},{data:[],error:null}];
  const errors=[eventsError,venueError,availError,slotError,assignError,directoryResult?.error,
@@ -127,7 +127,7 @@ export default async function RepairCafeSessions({searchParams}:{searchParams:Pr
       <input type="hidden" name="venue_id" value={v.id}/>
       <p className={styles.help}>First detach this venue from any linked sessions.</p>
       <label>Type DELETE to remove this venue <input name="confirm" required autoComplete="off" placeholder="DELETE"/></label>
-      <button className="button danger">Delete venue</button>
+      <button className="button danger">Archive venue</button>
      </form></details>)}</div>
    </details>:null}
   </section>:null}
@@ -362,10 +362,10 @@ export default async function RepairCafeSessions({searchParams}:{searchParams:Pr
       </div>
       <form action={deleteSession} className={styles.dangerForm}>
        <h4>Delete this session</h4>
-       <p className={styles.help}>This permanently removes the session, volunteer availability, required positions and all roster assignments. Published sessions must be unpublished and communicated first.</p>
+       <p className={styles.help}>This archives the session and hides it from the calendar while preserving its roster and history. Restore it from Operations & safety. Notify attendees before archiving.</p>
        <input type="hidden" name="event_id" value={e.id}/>
        <label>Type DELETE to confirm <input name="confirm" required autoComplete="off" placeholder="DELETE"/></label>
-       <button className="button danger" disabled={e.status==="published"}>Delete session and its roster</button>
+       <button className="button danger" disabled={e.status==="published"}>Archive session (recoverable)</button>
       </form>
      </details>:null}
     </article>;
