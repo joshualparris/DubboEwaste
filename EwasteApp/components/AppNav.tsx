@@ -125,6 +125,7 @@ export function AppNav({ fullName, role, programme = null, globalAdmin = role ==
           <div className="nav-group-links">
             <Link href="/admin/data">Manage Data</Link>
             <Link href="/admin/permissions">Permissions</Link>
+            <Link href="/admin/analytics">Site analytics</Link>
           </div>
         </section> : null}
         <section className="nav-group"><h2>Programme</h2><div className="nav-group-links">
