@@ -137,7 +137,7 @@ const proxy=read("proxy.ts");
 assert(proxy.includes('"/repair-cafe-offline.html"')&&proxy.includes('"/repair-cafe-sw.js"')&&
  proxy.includes('user && privateRoute'),
  "Offline static resources must load while private ticket routes stay signed-in and scoped");
-const fallbackScript=offlineFallback.match(/<script>([\\s\\S]*?)<\\/script>/);
+const fallbackScript=offlineFallback.match(/<script>([\s\S]*?)<\/script>/);
 assert(fallbackScript?.[1],"Standalone offline fallback must contain its own cached script");
 new Script(fallbackScript[1],{filename:"repair-cafe-offline.html"});
 new Script(offlineSW,{filename:"repair-cafe-sw.js"});
