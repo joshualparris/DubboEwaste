@@ -1,7 +1,7 @@
 # Dubbo Repair Café local repairer referral directory — 10 October 2026
 
 ## Purpose and scope
-An evidence-linked **first-pass** volunteer directory, built into `EwasteApp` at `/repair-cafe-volunteers/referrals`. It is a **referral leads directory**, not a certification, recommendation or partner registry. As of 10 October 2026 it contains **59 business/outlet records**, including **20 with a primary-business/organisation source** and **39 supported only by an online listing**. **1** are located in nearby towns (Geurie).
+An evidence-linked **first-pass** volunteer directory, built into `EwasteApp` at `/repair-cafe-volunteers/referrals`. It is a **referral leads directory**, not a certification, recommendation or partner registry. As of 10 October 2026, after a second research pass, it contains **101 business/outlet records**, including **44 with business/primary-source evidence** and **57 supported only by an online listing**. **1** are located in nearby towns (Geurie).
 
 ## Method
 Public web research and local-business searches across computer/device repair, appliance specialists, textile and footwear repairs, upholstery/furniture, bikes and mobility equipment, tool and small-engine repairs, musical instruments, jewellery, glass and locksmiths, and vehicle / caravan services.
@@ -13,6 +13,22 @@ Each record has:
 - locality and a stable row identifier.
 
 Business sources were checked online, **not** by phoning businesses. Missing fields are deliberately omitted. Online listings and primary websites can become stale.
+
+## Second-pass additions (10 October 2026)
+
+**42 new non-duplicate directory leads** were added, broadening the previous 59 to **101** (24 new business/primary-source records, 18 new third-party/listing leads). Source URLs appear on every record, and the updated CSV has all 101.
+
+New categories and examples:
+- Computer and phone: Custom Computer Creations, Orana Business Solutions (printers), Viatek, Right Click Go, Revelation I.T., Tech Exe, Nova Computers, Cracked Your iDevice, Wellington Computer Services.
+- Sewing, fabric, leather: Dubbo Stitching Studio, Saddler & Co, Western Tarps and Motor Trimming; three directory-only alterations businesses, and Charlie's sewing-machine repair lead.
+- Spectacles / musical: Burgun & Williams spectacle frame repair, Music Lounge piano-repair listing (service to be confirmed).
+- Garden and machinery: M.M & Mechanical, Dubbo Machinery Service, Michell Machinery, AquaWest, JME generator/welder repair.
+- Welding, fabrication and hydraulic/diesel: DND Welding, Agriweld Engineering, WF Industries, RJM Fabrications, Rust and Dust, Iron Earth, Logical Hydraulics, diesel and hydraulic specialists, Narromine's Walkerbout Welding.
+- Home and regulated trades: Byrnes Doors, Western Garage Doors, SCR Electrical, Williams Oriel, Jordan Wheatland, Forever Electrical.
+
+**Source-validation note:** "official" means a business/operator website or primary institutional listing describes the service. It does **not** mean the business has been contacted, inspected, licence-checked or agreed to be a referral partner. "listing" entries are more tentative: some are based on historic directories; for example Charlie's Sewing Machines and several alteration listings **must be called to establish whether they still trade**. Two repair leads in nearby towns (Wellington and Narromine) were intentionally included as regional options.
+
+Excluded probable duplicates: Techy Experimax at the existing Tech Savvy address; Orana Mobility Solutions as an apparent renamed/parallel listing for existing Orana Disability Sales & Service; Vivid Shade Solutions associated with the same published ABN and workshop address as Western Tarps (not counted as a separate repairer). These should be individually validated before treating them as distinct businesses.
 
 ## Data quality and exclusions
 - Cases Indulgence appears twice because two distinct Dubbo shopfronts were identified.
