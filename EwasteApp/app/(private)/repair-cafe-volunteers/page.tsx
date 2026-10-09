@@ -80,6 +80,7 @@ export default async function RepairCafeVolunteerHub() {
           </p>
         </div>
         <div className={styles.heroActions}>
+          <Link className="button secondary" href="/repair-cafe-volunteers/check-in">Volunteer QR check-in & out</Link>
           <Link className="button" href="/repair-cafe-volunteers/sessions">Monthly sessions & rosters</Link>
           <Link className="button secondary" href="/repair-cafe-volunteers/knowledge">Repair knowledge base</Link>
           <Link className="button secondary" href="/repair-cafe-volunteers/event-desk">Event Desk · check-in & repairs</Link>
