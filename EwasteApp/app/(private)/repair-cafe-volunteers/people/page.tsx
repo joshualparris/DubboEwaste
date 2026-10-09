@@ -49,6 +49,7 @@ export default async function PeoplePage({searchParams}:{searchParams:Promise<{e
       {sessions.map(e=><option key={e.id} value={e.id}>{nice(e.event_date)} · {e.title}</option>)}
      </select>
     </label>
+    <label className={styles.checkbox}><input type="checkbox" name="confirmed_availability" value="yes"/> If I selected a session, I have checked this person can help on that date.</label>
     <button className="button">Add volunteer</button>
    </form>
   </section>
