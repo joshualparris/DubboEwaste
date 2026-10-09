@@ -108,6 +108,12 @@ export async function uploadTicketPhoto(f:FormData){
  if(!found)fail(event,"Ticket not found");
  if(field(f,"photo_permission")!=="yes")
   fail(event,"Ask the item owner for explicit permission to store the photo privately before uploading.");
+ if(field(f,"photo_consent")!=="yes")
+  fail(event,"The visitor must separately agree to a private repair photo.");
+ const {error:consentError}=await supabase.from("repair_cafe_tickets").update({
+  photo_consent:true,photo_consent_at:new Date().toISOString()
+ }).eq("id",ticket).eq("event_id",event);
+ check(event,consentError,"Saving photo permission");
  const file=f.get("photo");
  if(!(file instanceof File))fail(event,"Select a photo");
  const ext:{[key:string]:string}={"image/jpeg":"jpg","image/png":"png","image/webp":"webp"};
