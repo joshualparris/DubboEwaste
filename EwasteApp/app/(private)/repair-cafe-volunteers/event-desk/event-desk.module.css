@@ -32,3 +32,17 @@
 .queueTab:focus-visible,.queueTabActive:focus-visible,.liveToolbar button:focus-visible{outline:3px solid #72acdc;outline-offset:2px}
 @media(max-width:700px){.liveBoardColumns{grid-template-columns:1fr}.liveBoard{padding:.85rem}.liveBoardGroup{padding:.8rem}.liveToolbar{align-items:stretch}.liveToolbar>button{flex:1}.queueTabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.queueTab,.queueTabActive{width:100%}}
 @media print{.liveToolbar,.queueTabs,.liveBoard{display:none!important}.liveWorkspace .queue{border:0}.liveWorkspace .ticketDetails{display:none}}
+
+
+/* Reception can change the reported fault and add triage notes without moving a waiting item. */
+.queueNoteText{margin:.15rem 0 .3rem;padding:.65rem .7rem;border-left:3px solid #62a784;border-radius:6px;background:#f3f8f4;color:#314d3c;font-size:.88rem;line-height:1.55;overflow-wrap:anywhere}
+.queueNotesEditor{margin:.35rem 0 .55rem;border:1px solid #b9d5c2;border-radius:11px;background:#f5faf6;min-width:0;padding:.7rem .8rem}
+.queueNotesEditor>summary{cursor:pointer;color:#235e42;display:flex;align-items:center;justify-content:space-between;gap:.6rem;font-weight:800;list-style:none;min-height:34px}
+.queueNotesEditor>summary::-webkit-details-marker{display:none}
+.queueNotesEditor>summary::after{content:"";border-right:2px solid #2b6d4e;border-bottom:2px solid #2b6d4e;width:8px;height:8px;transform:rotate(45deg);flex:none}
+.queueNotesEditor[open]>summary::after{transform:rotate(225deg)}
+.queueNotesEditor>summary small{font-weight:500;font-size:.75rem;color:#5c7767}
+.queueNotesEditor[open]>.form{padding-top:.5rem}
+.queueNotesEditor .warning{margin-top:.65rem}
+.queueNotesEditor button:disabled{opacity:.5;cursor:not-allowed}
+@media(max-width:660px){.queueNotesEditor>summary{align-items:flex-start;flex-wrap:wrap}.queueNotesEditor>summary small{width:100%}}
