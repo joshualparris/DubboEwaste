@@ -186,8 +186,8 @@ export async function updateSlot(form:FormData){
  checkId(id);
  if(role_name.length<2||role_name.length>80||notes.length>250||
     !Number.isInteger(required_count)||required_count<1||required_count>20||
-    !/^([01]\\d|2[0-3]):[0-5]\\d$/.test(starts_at)||
-    !/^([01]\\d|2[0-3]):[0-5]\\d$/.test(ends_at)||ends_at<=starts_at)
+    !/^([01]\d|2[0-3]):[0-5]\d$/.test(starts_at)||
+    !/^([01]\d|2[0-3]):[0-5]\d$/.test(ends_at)||ends_at<=starts_at)
   fail("Check the role, start, finish, capacity and notes.");
  const {error}=await supabase.from("repair_cafe_shift_slots")
   .update({role_name,notes,required_count,starts_at,ends_at}).eq("id",id);
