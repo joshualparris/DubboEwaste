@@ -22,7 +22,9 @@ const categories = [
 
 export default async function RepairCafeDubboPage() {
   const db=await createClient();
-  const today=new Intl.DateTimeFormat("en-CA",{timeZone:"Australia/Sydney",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+  const parts=new Intl.DateTimeFormat("en-AU",{timeZone:"Australia/Sydney",year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date());
+  const part=(type:string)=>parts.find(p=>p.type===type)?.value??"";
+  const today=part("year")+"-"+part("month")+"-"+part("day");
   const {data:events}=await db.from("repair_cafe_sessions")
     .select("event_date,starts_at,ends_at,title,focus,venue_id")
     .eq("status","published").gte("event_date",today)
