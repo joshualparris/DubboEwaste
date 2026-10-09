@@ -184,6 +184,7 @@ export default async function RepairCafeSessions({searchParams}:{searchParams:Pr
           <label>Phone (optional) <input type="tel" name="phone" maxLength={40}/></label>
          </div>
          <label className={styles.checkbox}><input type="checkbox" name="contact_consent" value="yes"/> They agreed to these contact details being kept for Repair Café.</label>
+         <label className={styles.checkbox}><input type="checkbox" name="confirmed_availability" value="yes"/> This person agreed they are available on {friendlyDate(e.event_date)}.</label>
          <label>Optional confirmed position <select name="slot_id" defaultValue="">
           <option value="">Just add as available for {friendlyDate(e.event_date)}</option>
           {eventSlots.map(sl=><option value={sl.id} key={sl.id}>{sl.role_name}</option>)}
