@@ -22,6 +22,11 @@ export default async function Knowledge({searchParams}:{searchParams:Promise<{q?
  const {data:openRows,error:openError}=q.length>=2
   ?await supabase.rpc("repair_cafe_search_open_repair",{p_query:q,p_limit:25})
   :{data:[],error:null};
+ const broadTerm=q.split(/\s+/).filter(Boolean).at(-1)??"";
+ const broaden=q.length>=2&&!openError&&!(openRows??[]).length&&q.includes(" ")&&broadTerm.length>=2;
+ const {data:broaderRows,error:broaderError}=broaden
+  ?await supabase.rpc("repair_cafe_search_open_repair",{p_query:broadTerm,p_limit:15})
+  :{data:[],error:null};
  const wiki=await searchRestarters(q);
  const selectedTicket=params.ticket&&/^[0-9a-f-]{36}$/i.test(params.ticket)?attempts.find(x=>x.id===params.ticket):undefined;
  const all=(data??[]) as Entry[],words=clean(q);
@@ -87,7 +92,9 @@ export default async function Knowledge({searchParams}:{searchParams:Promise<{q?
     <a href={q?"https://wiki.restarters.net/index.php?search="+encodeURIComponent(q):"https://wiki.restarters.net/"} target="_blank" rel="noopener noreferrer">Search Restarters Wiki ↗</a>
     <hr/><h3>Open Repair Alliance · 305,649 imported records</h3><p>Search the July 2025 ORDS v0.3 collection across category, product, brand and fault. These are repair outcomes, not step-by-step instructions. Source: Open Repair Alliance · CC BY-SA 4.0.</p>
     {((openRows??[]) as OpenRepairHit[]).map(r=><p key={r.source_id}><strong>{r.brand||r.product||r.category} {r.model}</strong><small style={{display:"block"}}>{r.problem||r.category} · {r.repair_status||"Outcome not supplied"} · {r.country}</small></p>)}
-    {q&&!(openRows??[]).length?<p className="muted">No matching records in the imported dataset. Try fewer or broader words.</p>:null}
+    {q&&!(openRows??[]).length&&!openError?<p className="muted">No records contained every search word. {broaden?"Broader results for “"+broadTerm+"” appear below.":"Try a broader category or single keyword."}</p>:null}
+    {broaderError?<p className="muted">Broader search unavailable: {broaderError.message}</p>:null}
+    {((broaderRows??[]) as OpenRepairHit[]).map(r=><p key={r.source_id}><strong>{r.brand||r.product||r.category} {r.model}</strong><small style={{display:"block"}}>{r.problem||r.category} · {r.repair_status||"Outcome not supplied"} · {r.country}</small></p>)}
     <a href="https://openrepair.org/open-data/downloads/" target="_blank" rel="noopener noreferrer">Browse open repair datasets ↗</a>
     <p className="muted">External sources retain their own licences. iFixit API use is non-commercial; guides are opened at their source. No visitor information is sent to these services, only the search terms entered here.</p>
    </div>
