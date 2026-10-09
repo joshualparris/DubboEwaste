@@ -5,7 +5,9 @@ import { analyticsPath, analyticsTarget, geoFromHeaders, deviceFromUserAgent } f
 export const runtime = "nodejs";
 const allowed = new Map([
   ["https://dubbo-ewaste-app.vercel.app", "dubbo_ewaste"],
-  ["https://circular-economy-dubbo.vercel.app", "circular_economy"]
+  ["https://circular-economy-dubbo.vercel.app", "circular_economy"],
+  ["https://assetflow-backup.onrender.com", "dubbo_ewaste"],
+  ["https://joshualparris.github.io", "dubbo_ewaste"]
 ]);
 
 function cors(origin: string | null): HeadersInit {
