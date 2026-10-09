@@ -58,6 +58,7 @@ export default async function EventDesk({searchParams}:{
    <Link href="/repair-cafe-volunteers">← Volunteer Hub</Link>
    <Link href="/repair-cafe-volunteers/sessions">Sessions & rosters</Link>
    <Link href="/learn?track=repair_cafe">Learning</Link>
+   <Link href="/repair-cafe-volunteers/knowledge">Repair guides & knowledge</Link>
   </div>
   <header className={styles.hero}>
    <div><div className={styles.eyebrow}>Private volunteer workspace · Community repairs</div>
