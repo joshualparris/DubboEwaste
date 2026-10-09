@@ -151,4 +151,12 @@ assert(offlineShell.includes('openTrustedWorkspace')&&
 assert(offlineFallback.includes('workspace.deviceKey')&&
  !offlineFallback.includes('const phrase=$("phrase").value'),
  "The offline fallback should use the device-bound key, not prompt for a password");
-console.log("Repair Café operations source QA PASS: 43 guards + offline syntax parses. Two-device browser testing still needed.");
+const eventDeskCss=read("app/(private)/repair-cafe-volunteers/event-desk/event-desk.module.css");
+assert(offlineShell.indexOf("{children}\n  <details className={styles.offlinePanel}")>=0 &&
+ offlineShell.includes('<summary className={styles.offlineSummary}>') &&
+ offlineShell.includes('operations.length+" unsynchronised"') &&
+ offlineShell.includes('Conflicts need review') &&
+ eventDeskCss.includes('.offlinePanel[open]>.offlineSummary::after') &&
+ eventDeskCss.includes('max-width:1180px'),
+ "Offline controls should be below the desk, collapsed by default, with pending/conflict status visible");
+console.log("Repair Café operations source QA PASS: 44 guards + offline syntax parses. Two-device browser testing still needed.");
