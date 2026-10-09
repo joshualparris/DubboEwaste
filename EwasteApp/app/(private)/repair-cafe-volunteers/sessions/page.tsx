@@ -7,7 +7,7 @@ import {
 import {
  createManualVolunteer,assignManualShift,setManualAvailability,
  setAccountAvailability,deleteAvailability,changeAssignmentStatus,
- updateSlot,deleteSlot,deleteSession,deleteVenue
+ updateSlot,deleteSlot,deleteSession,deleteVenue,substituteVolunteer
 } from "./manage-actions";
 import styles from "./sessions.module.css";
 
@@ -236,6 +236,20 @@ export default async function RepairCafeSessions({searchParams}:{searchParams:Pr
              <button className={styles.linkButton} aria-label={"Remove "+nameOf(a.user_id??"",a.manual_volunteer_id??"")+" from "+s.role_name}>Remove</button>
             </form>
            </div>
+           <form action={substituteVolunteer} className={styles.form}>
+            <input type="hidden" name="assignment_id" value={a.id}/>
+            <label>Substitute with a confirmed-available volunteer
+             <select name="replacement" defaultValue="" required>
+              <option value="" disabled>Choose replacement</option>
+              <optgroup label="Registered">{people.filter(p=>eventAvailability.some(av=>av.user_id===p.user_id&&av.response==="available")&&p.user_id!==a.user_id)
+               .map(p=><option key={p.user_id} value={"account:"+p.user_id}>{p.display_name}</option>)}</optgroup>
+              <optgroup label="Manual">{availableManual.filter(p=>p.id!==a.manual_volunteer_id)
+               .map(p=><option key={p.id} value={"manual:"+p.id}>{p.full_name}</option>)}</optgroup>
+             </select>
+            </label>
+            <label className={styles.checkbox}><input type="checkbox" name="confirmed_by_contact" value="yes"/> Replacement agreed to this shift.</label>
+            <button className="button secondary">Substitute volunteer</button>
+           </form>
            <form action={changeAssignmentStatus} className={styles.inlineForm}>
             <input type="hidden" name="assignment_id" value={a.id}/>
             <label className={styles.srOnly} htmlFor={"status-"+a.id}>Status for {nameOf(a.user_id??"",a.manual_volunteer_id??"")}</label>
