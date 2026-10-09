@@ -84,6 +84,7 @@ export default async function RepairCafeVolunteerHub() {
           <Link className="button secondary" href="/repair-cafe-volunteers/my-shifts">My shifts & waitlists</Link>
           <Link className="button" href="/repair-cafe-volunteers/sessions">Monthly sessions & rosters</Link>
           <Link className="button secondary" href="/repair-cafe-volunteers/knowledge">Repair knowledge base</Link>
+          <Link className="button secondary" href="/repair-cafe-volunteers/referrals">Find a local repairer · referrals</Link>
           {canSeeFeedback ? <Link className="button secondary" href="/repair-cafe-volunteers/stations">Station leads & capacity</Link> : null}
           <Link className="button secondary" href="/repair-cafe-volunteers/event-desk">Event Desk · check-in & repairs</Link>
           {canSeeFeedback ? <Link className="button secondary" href="/repair-cafe-volunteers/operations">Operations & safety</Link> : null}
