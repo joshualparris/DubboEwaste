@@ -59,8 +59,9 @@ assert(deskActions.includes('repair_cafe_save_ticket_with_progress')&&
  "Ticket updates must use checked, audited progress RPC");
 assert(live.includes("progressChoices")&&live.includes("Progress so far:")&&
  live.includes("a.progress_code"),"Live view and timeline must show partial findings");
-assert(deskPage.includes("note,progress_code,created_at")&&
- deskPage.includes("outcome,progress_code,barrier"),"SSR snapshot must include progress");
+assert(deskPage.includes("note,progress_code,")&&
+ deskPage.includes("problem_snapshot,queue_note_snapshot,created_at")&&
+ deskPage.includes("outcome,progress_code,barrier"),"SSR snapshot must include progress and waiting-note history");
 const queueNoteSQL=read("supabase/migrations/20261009195000_repair_cafe_waiting_queue_notes.sql");
 const queueNoteUI=read("app/(private)/repair-cafe-volunteers/event-desk/WaitingQueueNotes.tsx");
 assert(queueNoteSQL.includes("old_ticket.status<>'waiting'")&&
