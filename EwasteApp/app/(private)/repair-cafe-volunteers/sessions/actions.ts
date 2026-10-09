@@ -154,7 +154,7 @@ export async function respondShift(form:FormData) {
  const {data:a}=await supabase.from("repair_cafe_shift_assignments").select("user_id,status").eq("id",id).single();
  if(!a||a.user_id!==user.id)fail("This is not your shift offer.");
  if((a.status==="offered"&&!["confirmed","declined"].includes(status))||(a.status==="confirmed"&&status!=="withdrawn"))fail("This shift response is no longer available.");
- const {error}=await supabase.from("repair_cafe_shift_assignments").update({status,updated_at:new Date().toISOString()}).eq("id",id);
+ const {error}=await supabase.from("repair_cafe_shift_assignments").update({status}).eq("id",id);
  errMessage(error,"Could not update shift");done(status==="confirmed"?"Shift accepted and confirmed.":status==="withdrawn"?"You have withdrawn; the coordinator needs to refill this position.":"Shift declined.");
 }
 export async function removeShiftOffer(form:FormData) {
