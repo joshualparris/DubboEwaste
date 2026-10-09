@@ -71,7 +71,7 @@ export default function OfflineDeskShell({eventId,ownerId,initialTickets,initial
   const {data:{subscription}}=client.auth.onAuthStateChange((event,session)=>{
    if(event==="SIGNED_OUT"||(session?.user&&session.user.id!==ownerId)){
     keyRef.current=null;opsRef.current=[];setOperations([]);
-    setReady(false);setNotice("Signed out. Sign in with the same volunteer account to continue.");
+    setReady(false);setWorkspaceState(null);setNotice("Signed out. Sign in with the same volunteer account to continue.");
    }
   });
   return ()=>{
