@@ -13,7 +13,12 @@ export default async function Knowledge({searchParams}:{searchParams:Promise<{q?
  const manage=context.global_admin||["admin","manager"].includes(context.role??"");
  const params=await searchParams,q=(params.q??"").trim().slice(0,100);
  const {data,error}=await supabase.from("repair_cafe_knowledge").select("id,title,category,manufacturer,model,symptoms,diagnosis,solution,outcome,safety_notes,guide_url").order("updated_at",{ascending:false}).limit(250);
+ const {data:attemptData,error:attemptError}=await supabase.from("repair_cafe_tickets")
+  .select("id,item_category,item_description,reported_problem,work_summary,outcome,barrier,parts_used,handover_advice,status")
+  .in("status",["completed","referred","not_attempted"]).order("closed_at",{ascending:false}).limit(150);
+ const attempts=(attemptData??[]) as {id:string;item_category:string;item_description:string;reported_problem:string;work_summary:string;outcome:string|null;barrier:string|null;parts_used:string;handover_advice:string}[];
  const all=(data??[]) as Entry[],words=clean(q);
+ const attemptsMatched=words?attempts.filter(x=>[x.item_category,x.item_description,x.reported_problem,x.work_summary,x.outcome??"",x.barrier??""].some(y=>clean(y).includes(words))):attempts;
  const entries=words?all.filter(x=>[x.title,x.category,x.manufacturer,x.model,x.symptoms,x.diagnosis,x.solution].some(y=>clean(y).includes(words))):all;
  // Public iFixit v2 API: external results shown as outbound links, never copied into private records without review.
  let guides:Suggest[]=[];let lookupFailed=false;
@@ -31,10 +36,20 @@ export default async function Knowledge({searchParams}:{searchParams:Promise<{q?
   <p>Find previous repair lessons, search free repair guides, and build a shared knowledge library. Do not enter visitor names, passwords or personal information.</p></header>
   {params.error?<div className="error" role="alert">{params.error}</div>:null}
   {params.success?<div className="success" role="status">{params.success}</div>:null}
-  {error?<div className="error" role="alert">Knowledge entries are unavailable: {error.message}</div>:null}
+  {error||attemptError?<div className="error" role="alert">Some knowledge records could not load: {error?.message??attemptError?.message}</div>:null}
   <section style={styles.panel}><h2>Search repairs and guides</h2>
    <form style={{display:"flex",gap:8,flexWrap:"wrap"}} method="get"><input style={{flex:"1 1 230px",minWidth:0}} name="q" defaultValue={q} placeholder="e.g. HP laptop no power, sewing machine, broken zipper" maxLength={100} aria-label="Search repair knowledge"/><button className="button">Search</button></form>
    <p className="muted">Search local category, brand, model, symptom or fix. iFixit guide suggestions update for your query.</p></section>
+  <section style={styles.panel}><h2>Previous Dubbo repair attempts ({attemptsMatched.length})</h2>
+   <p className="muted">Completed/refused repair tickets, without visitor names. These are individual reports, not verified public how-to guides. Do not copy personal information from the notes into a shared lesson.</p>
+   {!attemptsMatched.length?<p>No matching repair attempts recorded yet.</p>:null}
+   <div style={styles.grid}>{attemptsMatched.slice(0,30).map(t=><details key={t.id} style={{padding:12,border:"1px solid #d8e1da",borderRadius:10}}>
+    <summary><strong>{t.item_description}</strong> · {t.outcome?.replaceAll("_"," ")??"Unrecorded"}</summary>
+    <p><strong>Problem:</strong> {t.reported_problem}</p><p><strong>What was tried:</strong> {t.work_summary||"Not recorded"}</p>
+    {t.barrier?<p><strong>Barrier:</strong> {t.barrier}</p>:null}{t.parts_used?<p><strong>Parts:</strong> {t.parts_used}</p>:null}
+    {t.handover_advice?<p><strong>Advice:</strong> {t.handover_advice}</p>:null}
+   </details>)}</div>
+  </section>
   <section style={styles.grid}>
    <div style={styles.panel}><h2>Dubbo repair lessons ({entries.length})</h2>
     {!entries.length?<p>No matching curated repair lessons yet. Coordinators can add a solution below.</p>:null}
