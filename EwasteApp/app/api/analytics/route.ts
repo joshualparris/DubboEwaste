@@ -6,8 +6,8 @@ export const runtime = "nodejs";
 const allowed = new Map([
   ["https://dubbo-ewaste-app.vercel.app", "dubbo_ewaste"],
   ["https://circular-economy-dubbo.vercel.app", "circular_economy"],
-  ["https://assetflow-backup.onrender.com", "dubbo_ewaste"],
-  ["https://joshualparris.github.io", "dubbo_ewaste"]
+  ["https://assetflow-backup.onrender.com", "render_backup"],
+  ["https://joshualparris.github.io", "github_pages"]
 ]);
 
 function cors(origin: string | null): HeadersInit {
