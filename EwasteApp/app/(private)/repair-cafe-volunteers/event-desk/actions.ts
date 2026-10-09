@@ -39,21 +39,21 @@ export async function checkInRepairItem(form:FormData){
  const {supabase}=await requireDesk();
  const eventId=field(form,"event_id");
  if(!validUuid.test(eventId))fail(eventId,"Choose an event.");
- const category=field(form,"category"),item=field(form,"item"),fault=field(form,"fault");
+ const category=field(form,"category"),item=field(form,"item"),fault=field(form,"fault"),visitorName=field(form,"visitor_name");
  const risk=field(form,"risk"),riskNotes=field(form,"risk_notes");
  if(!["electronics","computers","small_appliance","textiles","bicycle","furniture","household","other"].includes(category)
-  ||item.length<2||item.length>160||fault.length<3||fault.length>700||riskNotes.length>500
+  ||item.length<2||item.length>160||fault.length<3||fault.length>700||riskNotes.length>500\n  ||visitorName.length<1||visitorName.length>50||/[\\x00-\\x1f\\x7f]/.test(visitorName)
   ||!["clear","review","unsafe"].includes(risk))
   fail(eventId,"Check the item, fault and safety assessment.");
  if(field(form,"screened")!=="yes"||field(form,"acknowledged")!=="yes")
   fail(eventId,"Safety screen and the visitor's acknowledgement are required.");
- const {data,error}=await supabase.rpc("repair_cafe_check_in",{
+ const {data,error}=await supabase.rpc("repair_cafe_check_in_named",{
   p_event_id:eventId,p_category:category,p_item:item,p_problem:fault,
-  p_acknowledged:true,p_screened:true,p_risk:risk,p_risk_notes:riskNotes
+  p_acknowledged:true,p_screened:true,p_risk:risk,p_risk_notes:riskNotes,p_visitor_name:visitorName
  });
  formError(error,eventId,"Check-in failed");
  const number=(data??[])[0]?.queue_number;
- succeed(eventId,number?"Item #"+number+" checked in. "+(risk==="unsafe"?"Unsafe item recorded as not attempted.":"It is now in the queue."):"Item checked in.");
+ succeed(eventId,number?visitorName+" · item #"+number+" checked in. "+(risk==="unsafe"?"Unsafe item recorded as not attempted.":"It is now in the queue."):"Item checked in.");
 }
 export async function saveRepairTicket(form:FormData){
  const {supabase}=await requireDesk();
