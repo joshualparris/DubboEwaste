@@ -39,7 +39,7 @@ export default async function Knowledge({searchParams}:{searchParams:Promise<{q?
    const response=await fetch("https://www.ifixit.com/api/2.0/suggest/"+encodeURIComponent(q)+"?doctypes=guide",{next:{revalidate:3600},signal:AbortSignal.timeout(3500)});
    if(!response.ok)throw new Error("Unavailable");
    const payload=await response.json() as {results?:Suggest[]};
-   guides=(payload.results??[]).filter(x=>x.dataType==="guide"&&typeof x.url==="string"&&x.url.startsWith("https://www.ifixit.com/")).slice(0,8);
+   guides=(payload.results??[]).filter(x=>x.dataType==="guide"&&typeof x.url==="string"&&x.url.startsWith("https://www.ifixit.com/")).filter(x=>q.toLowerCase().split(" ").filter(Boolean).every(term=>(x.title??"").toLowerCase().includes(term))).slice(0,8);
   }catch{lookupFailed=true}
  }
  return <main style={{maxWidth:1150,margin:"0 auto",display:"grid",gap:20,paddingBottom:60}}>
