@@ -80,4 +80,8 @@ assert(live.includes("<WaitingQueueNotes")&&live.includes("t.status===\"waiting\
 assert(deskPage.includes("reported_problem,queue_notes")&&
  deskPage.includes("problem_snapshot,queue_note_snapshot"),
  "First page load must include updated queue notes and history");
-console.log("Repair Café operations source QA PASS: 29 feature/privacy checks. Not a signed-in browser test.");
+assert(live.includes('view==="stations"?atStations') &&
+ live.includes('atStations.filter(t=>t.station_id===st.id)') &&
+ live.includes('["waiting","in_progress"].includes(t.status)'),
+ "Assigned waiting tickets must be shown in At stations and on the station board");
+console.log("Repair Café operations source QA PASS: 30 checks. Not a browser test.");
