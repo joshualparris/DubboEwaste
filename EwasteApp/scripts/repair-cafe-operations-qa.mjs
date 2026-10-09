@@ -61,4 +61,22 @@ assert(live.includes("progressChoices")&&live.includes("Progress so far:")&&
  live.includes("a.progress_code"),"Live view and timeline must show partial findings");
 assert(deskPage.includes("note,progress_code,created_at")&&
  deskPage.includes("outcome,progress_code,barrier"),"SSR snapshot must include progress");
-console.log("Repair Café operations source QA PASS: 24 feature/privacy checks. Not a signed-in browser test.");
+const queueNoteSQL=read("supabase/migrations/20261009195000_repair_cafe_waiting_queue_notes.sql");
+const queueNoteUI=read("app/(private)/repair-cafe-volunteers/event-desk/WaitingQueueNotes.tsx");
+assert(queueNoteSQL.includes("old_ticket.status<>'waiting'")&&
+ queueNoteSQL.includes("old_ticket.updated_at is distinct from p_expected_updated_at")&&
+ queueNoteSQL.includes("private.has_program('repair_cafe')"),
+ "Queue editing must require waiting status, current revision and Repair Café membership");
+assert(queueNoteSQL.includes("problem_snapshot")&&queueNoteSQL.includes("queue_note_snapshot")&&
+ queueNoteSQL.includes("insert into public.repair_cafe_ticket_activity"),
+ "Queue note corrections must be recorded in repair history");
+assert(queueNoteUI.includes('name="reported_problem"')&&queueNoteUI.includes('name="queue_notes"')&&
+ queueNoteUI.includes("outdated"),
+ "The waiting editor must support intake corrections, additional notes and stale-form protection");
+assert(live.includes("<WaitingQueueNotes")&&live.includes("t.status===\"waiting\"")&&
+ live.includes("queue_note_snapshot"),
+ "Live queue must show editable notes only while waiting and display their edit history");
+assert(deskPage.includes("reported_problem,queue_notes")&&
+ deskPage.includes("problem_snapshot,queue_note_snapshot"),
+ "First page load must include updated queue notes and history");
+console.log("Repair Café operations source QA PASS: 29 feature/privacy checks. Not a signed-in browser test.");
