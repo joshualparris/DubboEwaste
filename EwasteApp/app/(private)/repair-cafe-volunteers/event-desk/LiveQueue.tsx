@@ -152,10 +152,15 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
   .sort((a,b)=>a.ticket_number-b.ticket_number),[tickets]);
  const repairing=useMemo(()=>tickets.filter(t=>t.status==="in_progress")
   .sort((a,b)=>a.ticket_number-b.ticket_number),[tickets]);
+ // Station assignment and starting work are independent. An assigned ticket
+ // can remain Waiting until its volunteer actually begins the repair.
+ const atStations=useMemo(()=>tickets.filter(t=>t.station_id!==null&&
+  ["waiting","in_progress"].includes(t.status))
+  .sort((a,b)=>a.ticket_number-b.ticket_number),[tickets]);
  const closed=useMemo(()=>tickets.filter(t=>["completed","referred","not_attempted","void"].includes(t.status))
   .sort((a,b)=>b.ticket_number-a.ticket_number),[tickets]);
  const displayed=view==="queue"?[...waiting,...repairing]:
-  view==="closed"?closed:view==="stations"?repairing:[...waiting,...repairing,...closed];
+  view==="closed"?closed:view==="stations"?atStations:[...waiting,...repairing,...closed];
  const statusLabel=connection==="live"?"Live updates connected":
   connection==="connecting"?"Connecting to live updates":
   connection==="offline"?"Offline · reconnect when online":
@@ -182,7 +187,7 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
   <section className={styles.stats} aria-label="Live event totals">
    {[
     ["Checked in",tickets.filter(t=>t.status!=="void").length],
-    ["Waiting",waiting.length],["At stations",repairing.length],
+    ["Waiting",waiting.length],["At stations",atStations.length],
     ["Fixed",outcomes.fixed],["Partial",outcomes.partial],
     ["Referred",outcomes.referred],["Not fixed",outcomes.unsuccessful],
     ["Not attempted",outcomes.notAttempted]
@@ -206,15 +211,16 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
      </p>):<p className={styles.hint}>No visitors waiting.</p>}
     </div>
     <div className={styles.liveBoardGroup}>
-     <h3>Repair stations · {repairing.length} active</h3>
+     <h3>Repair stations · {atStations.length} assigned ({repairing.filter(t=>t.station_id!==null).length} in progress)</h3>
      {stations.length?stations.map(st=><div key={st.id} className={styles.boardStation}>
       <strong>{st.name}</strong>
-      {repairing.filter(t=>t.station_id===st.id).map(t=><p key={t.id}>
+      {atStations.filter(t=>t.station_id===st.id).map(t=><p key={t.id}>
        #{t.ticket_number} · {t.visitor_display_name||"Visitor"} · {t.item_description}
+       {" · "}{t.status==="waiting"?"Assigned, waiting to start":"In progress"}
       </p>)}
-      {!repairing.some(t=>t.station_id===st.id)?<span className={styles.hint}>Available</span>:null}
+      {!atStations.some(t=>t.station_id===st.id)?<span className={styles.hint}>No tickets assigned</span>:null}
      </div>):<p className={styles.hint}>No repair stations added yet.</p>}
-     {repairing.filter(t=>!t.station_id).map(t=><p key={t.id} className={styles.warning}>#{t.ticket_number} · No station assigned</p>)}
+     {repairing.filter(t=>!t.station_id).map(t=><p key={t.id} className={styles.warning}>#{t.ticket_number} · In progress, no station assigned</p>)}
     </div>
    </div>
   </section>
@@ -222,11 +228,11 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
   <section className={styles.queue} aria-label="Live queue and repair tickets">
    <div className={styles.sectionHeader}>
     <div><h2>3 · Live queue and repair outcomes</h2>
-     <p className={styles.hint}>Select a view, then open a ticket to allocate a station or record work. Other devices' updates appear automatically.</p></div>
+     <p className={styles.hint}>At stations includes assigned waiting tickets and repairs in progress. An assigned ticket stays Waiting until work begins. Other devices update automatically.</p></div>
     <strong>{tickets.length} ticket records</strong>
    </div>
    <div className={styles.queueTabs} role="group" aria-label="Filter repair queue">
-    {([["queue","Waiting & active"],["stations","At stations"],["closed","Finished"],["all","All tickets"]] as [View,string][])
+    {([["queue","Waiting & active"],["stations","At stations ("+atStations.length+")"],["closed","Finished"],["all","All tickets"]] as [View,string][])
      .map(([key,label])=><button key={key} type="button" onClick={()=>setView(key)}
        className={view===key?styles.queueTabActive:styles.queueTab}
        aria-pressed={view===key}>{label}</button>)}
@@ -240,7 +246,7 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
      const stale=currentEdit&&editing.revision!==t.updated_at;
      return <article className={styles.ticket} key={t.id}>
       <div className={styles.ticketHeader}><span className={styles.queueNumber}>#{t.ticket_number}</span>
-       <span className={styles.state}>{pretty(t.status)}</span></div>
+       <span className={styles.state}>{t.status==="waiting"&&t.station_id?"Waiting · assigned":pretty(t.status)}</span></div>
       <h3>{t.visitor_display_name?t.visitor_display_name+" · ":""}{t.item_description}</h3>
       {t.visitor_display_name&&t.status==="waiting"?<p className={styles.hint}>
        <strong>Call out:</strong> “{t.visitor_display_name}, we’re ready to help you with your {t.item_description}.”
