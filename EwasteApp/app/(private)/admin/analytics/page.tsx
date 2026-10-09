@@ -2,7 +2,7 @@ import Link from "next/link";
 import { requireProgrammeContext } from "@/lib/programme-context";
 
 type CountItem = { site?: string; event_name?: string; total?: number; page_group?: string;
-  target_group?: string; country?: string; region?: string; device_class?: string };
+  target_group?: string; country?: string; region?: string; device_class?: string; referrer_domain?: string };
 type Report = {
   day_sydney: string; events_total: number;
   by_site: CountItem[]; pages: CountItem[]; clicks: CountItem[];
