@@ -93,6 +93,28 @@ export async function saveRepairTicket(form:FormData){
   "Repair ticket updated: "+status.replaceAll("_"," ")+".");
 }
 
+export async function saveWaitingQueueNotes(form:FormData){
+ const {supabase}=await requireDesk();
+ const eventId=field(form,"event_id"),ticketId=field(form,"ticket_id");
+ const revision=field(form,"revision");
+ const reportedProblem=field(form,"reported_problem"),queueNotes=field(form,"queue_notes");
+ if(!validUuid.test(eventId)||!validUuid.test(ticketId))fail(eventId,"Choose a valid queue ticket.");
+ if(!revision||!Number.isFinite(Date.parse(revision)))fail(eventId,"Please reopen queue notes to edit the latest version.");
+ if(reportedProblem.length<3||reportedProblem.length>700||queueNotes.length>1000)
+  fail(eventId,"Check the problem description (3–700 characters) and queue notes (maximum 1000 characters).");
+ // Check event ownership, and then recheck queue status, event eligibility and
+ // optimistic revision in the security-definer RPC under a row lock.
+ const {data:ticket,error:readError}=await supabase.from("repair_cafe_tickets")
+  .select("event_id").eq("id",ticketId).single();
+ if(readError||!ticket||ticket.event_id!==eventId)fail(eventId,"Ticket not found in this session.");
+ const {error}=await supabase.rpc("repair_cafe_edit_waiting_notes",{
+  p_ticket_id:ticketId,p_expected_updated_at:revision,
+  p_reported_problem:reportedProblem,p_queue_notes:queueNotes
+ });
+ formError(error,eventId,"Could not save queue notes");
+ succeed(eventId,"Queue notes saved. The ticket is still waiting.");
+}
+
 export async function addRepairStation(form:FormData){
  const {supabase}=await requireDesk(true);
  const eventId=field(form,"event_id"),name=field(form,"name"),category=field(form,"category"),location=field(form,"location_note");
