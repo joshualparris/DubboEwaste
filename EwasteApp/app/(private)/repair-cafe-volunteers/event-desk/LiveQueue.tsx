@@ -3,6 +3,7 @@
 import {useCallback,useEffect,useMemo,useRef,useState} from "react";
 import {createClient} from "@/lib/supabase/browser";
 import Link from "next/link";
+import {callNextVisitor} from "./call-actions";
 import {saveRepairTicket} from "./actions";
 import ProgressOutcomeFields,{progressChoices} from "./ProgressOutcomeFields";
 import WaitingQueueNotes from "./WaitingQueueNotes";
@@ -11,7 +12,7 @@ import styles from "./event-desk.module.css";
 export type LiveTicket={
  id:string;event_id:string;ticket_number:number;visitor_display_name:string;item_category:string;
  item_description:string;reported_problem:string;queue_notes:string;risk_level:string;risk_notes:string;
- status:string;outcome:string|null;progress_code:string|null;barrier:string|null;station_id:string|null;
+ status:string;outcome:string|null;progress_code:string|null;called_at:string|null;called_station_id:string|null;barrier:string|null;station_id:string|null;
  work_summary:string;parts_used:string;handover_advice:string;
  arrived_at:string;started_at:string|null;closed_at:string|null;updated_at:string;
 };
@@ -23,7 +24,7 @@ const barriers=[["","Not specified"],["parts","Parts unavailable"],["time","Time
  ["not_repairable","Not repairable"],["other","Other"]];
 const pretty=(x:string|null|undefined)=>(x||"—").replaceAll("_"," ").replace(/^./,c=>c.toUpperCase());
 const auTime=(s:string)=>new Date(s).toLocaleTimeString("en-AU",{timeZone:"Australia/Sydney",hour:"numeric",minute:"2-digit"});
-const columns="id,event_id,ticket_number,visitor_display_name,item_category,item_description,reported_problem,queue_notes,risk_level,risk_notes,status,outcome,progress_code,barrier,station_id,work_summary,parts_used,handover_advice,arrived_at,started_at,closed_at,updated_at";
+const columns="id,event_id,ticket_number,visitor_display_name,item_category,item_description,reported_problem,queue_notes,risk_level,risk_notes,status,outcome,progress_code,called_at,called_station_id,barrier,station_id,work_summary,parts_used,handover_advice,arrived_at,started_at,closed_at,updated_at";
 const stationColumns="id,event_id,name,category,location_note,capacity,lead_name";
 const activityColumns="id,ticket_id,from_status,to_status,note,progress_code,problem_snapshot,queue_note_snapshot,created_at";
 type Connection="connecting"|"live"|"reconnecting"|"offline"|"restricted";
@@ -217,6 +218,15 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
       <strong>#{t.ticket_number} · {t.visitor_display_name||"Visitor"}</strong>
       <span>{t.item_description}</span>
       {t.risk_level!=="clear"?<small>Safety: {pretty(t.risk_level)}</small>:null}
+      {t.called_at?<small>Called to {stations.find(s=>s.id===t.called_station_id)?.name||"station"} at {auTime(t.called_at)}</small>:null}
+      {active&&t.risk_level==="clear"&&stations.length?<form action={callNextVisitor}>
+       <input type="hidden" name="event_id" value={eventId}/>
+       <input type="hidden" name="ticket_id" value={t.id}/>
+       <label>Call to station <select name="station_id" required defaultValue={t.called_station_id??""}>
+        <option value="">Choose station</option>{stations.map(s=><option value={s.id} key={s.id}>{s.name}</option>)}
+       </select></label>
+       <button className="button secondary">Call visitor</button>
+      </form>:null}
      </p>):<p className={styles.hint}>No visitors waiting.</p>}
     </div>
     <div className={styles.liveBoardGroup}>
