@@ -30,4 +30,19 @@ assert(dispatcher.includes("process.env.CRON_SECRET")&&dispatcher.includes("proc
  "Dispatcher must fail closed without service secrets");
 assert(!dispatcher.includes("console.log(job.destination)"),"No recipient logging");
 assert(cron.crons?.some(c=>c.path==="/api/repair-cafe/dispatch"),"Daily dispatcher schedule missing");
-console.log("Repair Café operations source QA PASS: 12 feature/privacy checks. Not a browser delivery test.");
+const live=read("app/(private)/repair-cafe-volunteers/event-desk/LiveQueue.tsx");
+const realtime=read("supabase/migrations/20261009190000_repair_cafe_live_queue.sql");
+const deskPage=read("app/(private)/repair-cafe-volunteers/event-desk/page.tsx");
+assert(realtime.includes("alter publication supabase_realtime add table public.repair_cafe_tickets")&&
+  realtime.includes("alter publication supabase_realtime add table public.repair_cafe_stations"),"Realtime publication missing the scoped operational tables");
+assert(!realtime.includes("add table public.repair_cafe_manual_volunteers"),"Private volunteer contacts cannot be replicated");
+assert(live.includes('filter:"event_id=eq."+eventId')&&
+  live.includes('schema:"public",table:"repair_cafe_tickets"')&&
+  live.includes('schema:"public",table:"repair_cafe_stations"'),"Subscriptions must be filtered to selected event");
+assert(live.includes("setInterval")&&live.includes("visibilitychange")&&
+  live.includes("navigator.onLine"),"Realtime must include reliable fallback refresh");
+assert(live.includes("Live updates connected")&&live.includes("Last checked"),
+ "Show a truthful live connection/synchronisation status");
+assert(deskPage.includes("<LiveQueue")&&!deskPage.includes("Refresh to see another volunteer"),
+ "The Event Desk must render live queue instead of a stale manual-refresh board");
+console.log("Repair Café operations source QA PASS: 18 feature/privacy checks. Not a signed-in multi-device browser test.");
