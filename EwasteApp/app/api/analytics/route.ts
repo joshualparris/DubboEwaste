@@ -40,7 +40,7 @@ export async function POST(request: Request) {
 
   const supabase = await createClient();
   // Auth only comes from a verified same-origin session, never from a browser-supplied flag.
-  const isAuthenticated = site === "dubbo_ewaste" &&
+  const isAuthenticated = (site === "dubbo_ewaste" || site === "render_backup") &&
     (await supabase.auth.getUser()).data.user != null;
   const geo = geoFromHeaders(request.headers);
   const ref = request.headers.get("referer") || "";
