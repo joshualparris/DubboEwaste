@@ -3,6 +3,7 @@ import {redirect} from "next/navigation";
 import {requireProgrammeContext} from "@/lib/programme-context";
 import {PrintButton} from "@/components/PrintButton";
 import {checkInRepairItem,saveRepairTicket,addRepairStation,updateRepairStation,deleteRepairStation} from "./actions";
+import OfflineDeskShell from "./OfflineDeskShell";
 import LiveQueue,{type LiveTicket,type LiveStation,type LiveActivity} from "./LiveQueue";
 import styles from "./event-desk.module.css";
 
@@ -27,6 +28,8 @@ export default async function EventDesk({searchParams}:{
  searchParams:Promise<{event?:string;error?:string;success?:string}>
 }){
  const {supabase,context}=await requireProgrammeContext();
+ const {data:{user}}=await supabase.auth.getUser();
+ if(!user)redirect("/login");
  if(!context.global_admin&&context.selected!=="repair_cafe")redirect("/programmes?error=Select%20Repair%20Caf%C3%A9");
  const canManage=context.global_admin||["manager","admin"].includes(context.role??"");
  const params=await searchParams;
@@ -53,7 +56,7 @@ export default async function EventDesk({searchParams}:{
  const activities=(activityResult.data??[]) as Activity[];
 
  const error=stationResult.error||ticketResult.error||activityResult.error||sessionError;
- return <div className={styles.page}>
+ return <OfflineDeskShell eventId={session?.id??""} ownerId={user.id}><div className={styles.page}>
   <div className={styles.navigation}>
    <Link href="/repair-cafe-volunteers">← Volunteer Hub</Link>
    <Link href="/repair-cafe-volunteers/sessions">Sessions & rosters</Link>
@@ -96,7 +99,7 @@ export default async function EventDesk({searchParams}:{
    <section className={styles.panel}>
     <div className={styles.sectionHeader}><h2>1 · Visitor check-in</h2></div>
     <p className={styles.hint}>One item per ticket. Visitors keep ownership and stay with their belongings. Only collect a first name or nickname to call someone forward. Don't record surnames, passwords or personal documents.</p>
-    {active?<form action={checkInRepairItem} className={styles.form}>
+    {active?<form data-offline-kind="check_in" action={checkInRepairItem} className={styles.form}>
      <input type="hidden" name="event_id" value={session.id}/>
      <label>Visitor first name or nickname <input name="visitor_name" required minLength={1} maxLength={50} placeholder="e.g. Bob" autoComplete="off"/></label>
      <p className={styles.hint}>Used to call the visitor when a repairer is ready. No surname needed.</p>
@@ -172,6 +175,6 @@ export default async function EventDesk({searchParams}:{
    </div>
   </section>
   </>:null}
-  <footer className={styles.footer}>Community Repair Café visits are not E-waste donations or commercial work orders. Please keep passwords and visitor personal data out of repair notes. Formal incident reporting, automated notifications and offline synchronisation still need dedicated development.</footer>
- </div>;
+  <footer className={styles.footer}>Community Repair Café visits are not E-waste donations or commercial work orders. Please keep passwords and visitor personal data out of repair notes. Offline check-ins and repair updates require an unlocked encrypted vault; other administration features still need internet.</footer>
+ </div></OfflineDeskShell>;
 }
