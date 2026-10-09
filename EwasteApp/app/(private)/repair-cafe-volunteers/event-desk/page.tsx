@@ -41,13 +41,13 @@ export default async function EventDesk({searchParams}:{
  const [stationResult,ticketResult]=session?await Promise.all([
   supabase.from("repair_cafe_stations").select("id,event_id,name,category,location_note")
    .eq("event_id",session.id).order("name"),
-  supabase.from("repair_cafe_tickets").select("id,event_id,ticket_number,visitor_display_name,item_category,item_description,reported_problem,risk_level,risk_notes,status,outcome,barrier,station_id,work_summary,parts_used,handover_advice,arrived_at,started_at,closed_at,updated_at")
+  supabase.from("repair_cafe_tickets").select("id,event_id,ticket_number,visitor_display_name,item_category,item_description,reported_problem,risk_level,risk_notes,status,outcome,progress_code,barrier,station_id,work_summary,parts_used,handover_advice,arrived_at,started_at,closed_at,updated_at")
    .eq("event_id",session.id).order("ticket_number",{ascending:false}).limit(500)
  ]):[{data:[],error:null},{data:[],error:null}];
  const stations=(stationResult.data??[]) as Station[];
  const tickets=(ticketResult.data??[]) as Ticket[];
  const activityResult=tickets.length?await supabase.from("repair_cafe_ticket_activity")
-  .select("id,ticket_id,from_status,to_status,note,created_at")
+  .select("id,ticket_id,from_status,to_status,note,progress_code,created_at")
   .in("ticket_id",tickets.map(t=>t.id)).order("created_at",{ascending:false}).limit(1500)
   :{data:[],error:null};
  const activities=(activityResult.data??[]) as Activity[];
