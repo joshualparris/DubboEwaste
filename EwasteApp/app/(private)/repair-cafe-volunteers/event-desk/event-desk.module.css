@@ -83,5 +83,5 @@
 .offlineEntry summary{cursor:pointer;font-size:.82rem;font-weight:700;color:#325d45}
 .offlinePayload{white-space:pre-wrap;overflow-wrap:anywhere;max-height:260px;overflow:auto;border-radius:7px;padding:.7rem;background:#f4f7f4;font-size:.76rem}
 .offlineButtons{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
-@media(max-width:640px){.offlineSetup{grid-template-columns:1fr}.offlineSetup small{grid-column:auto}.offlineEntry{display:grid;grid-template-columns:1fr}.offlineButtons .button{flex:1}.offlinePanel{padding:.8rem}.offlineActions .button{flex:1}}
+@media(max-width:640px){.offlineSetup{grid-template-columns:1fr}.offlineSetup small{grid-column:auto}.offlineEntry{display:grid;grid-template-columns:1fr}.offlineButtons .button{flex:1}.offlineActions .button{flex:1}}
 @media print{.offlinePanel{display:none!important}}
