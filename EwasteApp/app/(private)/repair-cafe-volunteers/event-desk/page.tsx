@@ -8,7 +8,7 @@ import LiveQueue,{type LiveTicket,type LiveStation,type LiveActivity} from "./Li
 import styles from "./event-desk.module.css";
 
 type Session={id:string;event_date:string;title:string;starts_at:string;ends_at:string;status:string;focus:string;venue_status:string};
-type Station={id:string;event_id:string;name:string;category:string;location_note:string};
+type Station={id:string;event_id:string;name:string;category:string;location_note:string;capacity:number;lead_name:string};
 type Ticket=LiveTicket;
 type Activity=LiveActivity;
 const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -42,7 +42,7 @@ export default async function EventDesk({searchParams}:{
  const active=!!session&&!["completed","cancelled"].includes(session.status)&&
   (session.status==="published"||canManage);
  const [stationResult,ticketResult]=session?await Promise.all([
-  supabase.from("repair_cafe_stations").select("id,event_id,name,category,location_note")
+  supabase.from("repair_cafe_stations").select("id,event_id,name,category,location_note,capacity,lead_name")
    .eq("event_id",session.id).order("name"),
   supabase.from("repair_cafe_tickets").select("id,event_id,ticket_number,visitor_display_name,item_category,item_description,reported_problem,queue_notes,risk_level,risk_notes,status,outcome,progress_code,barrier,station_id,work_summary,parts_used,handover_advice,arrived_at,started_at,closed_at,updated_at")
    .eq("event_id",session.id).order("ticket_number",{ascending:false}).limit(500)
