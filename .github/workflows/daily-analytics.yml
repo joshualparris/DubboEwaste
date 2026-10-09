@@ -1,6 +1,11 @@
 name: Daily privacy-safe website analytics
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/daily-analytics.yml'
+      - 'EwasteApp/scripts/export_analytics.py'
   schedule:
     - cron: "34 3 * * *"
       timezone: "Australia/Sydney"
