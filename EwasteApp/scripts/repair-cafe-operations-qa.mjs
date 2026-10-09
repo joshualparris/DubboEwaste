@@ -1,6 +1,7 @@
 // Static regression guard for Repair Café operations. This complements, but never
 // replaces, end-to-end RLS, database transaction and authenticated browser tests.
 import assert from "node:assert/strict";
+import {Script} from "node:vm";
 import {readFileSync} from "node:fs";
 const read=(p)=>readFileSync(new URL("../"+p,import.meta.url),"utf8");
 const migrations=read("supabase/migrations/20261009170000_repair_cafe_event_operations.sql");
@@ -136,4 +137,8 @@ const proxy=read("proxy.ts");
 assert(proxy.includes('"/repair-cafe-offline.html"')&&proxy.includes('"/repair-cafe-sw.js"')&&
  proxy.includes('user && privateRoute'),
  "Offline static resources must load while private ticket routes stay signed-in and scoped");
-console.log("Repair Café operations source QA PASS: 41 checks. Two-device offline acceptance still needed.");
+const fallbackScript=offlineFallback.match(/<script>([\\s\\S]*?)<\\/script>/);
+assert(fallbackScript?.[1],"Standalone offline fallback must contain its own cached script");
+new Script(fallbackScript[1],{filename:"repair-cafe-offline.html"});
+new Script(offlineSW,{filename:"repair-cafe-sw.js"});
+console.log("Repair Café operations source QA PASS: 41 guards + both offline JavaScript syntax parses. Two-device browser test still needed.");
