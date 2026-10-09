@@ -80,7 +80,8 @@ export default async function RepairCafeVolunteerHub() {
           </p>
         </div>
         <div className={styles.heroActions}>
-          <Link className="button" href="/repair-cafe-dubbo">View public page</Link>
+          <Link className="button" href="/repair-cafe-volunteers/sessions">Monthly sessions & rosters</Link>
+          <Link className="button secondary" href="/repair-cafe-dubbo">View public page</Link>
           {canSeeFeedback ? <Link className="button secondary" href="/repair-cafe-feedback">Review public feedback</Link> : null}
         </div>
       </header>
