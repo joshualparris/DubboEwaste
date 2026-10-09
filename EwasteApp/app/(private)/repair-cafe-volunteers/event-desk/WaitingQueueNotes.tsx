@@ -36,7 +36,7 @@ export default function WaitingQueueNotes({
    Another volunteer updated this ticket. Your unsaved text is still here.
    Copy it if needed, then close and reopen this editor to load the newest version.
   </div>:null}
-  <form action={saveWaitingQueueNotes} className={styles.form}>
+  <form data-offline-kind="queue_notes" action={saveWaitingQueueNotes} className={styles.form}>
    <input type="hidden" name="event_id" value={eventId}/>
    <input type="hidden" name="ticket_id" value={ticket.id}/>
    <input type="hidden" name="revision" value={revision}/>
