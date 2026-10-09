@@ -95,9 +95,9 @@ export async function deleteManualVolunteer(form:FormData){
  const {supabase}=await coordinator();
  const id=value(form,"manual_volunteer_id");checkId(id);
  if(value(form,"confirm")!=="DELETE")fail("Type DELETE to remove this volunteer and their rosters.",people);
- const {error}=await supabase.from("repair_cafe_manual_volunteers").delete().eq("id",id);
+ const {error}=await supabase.from("repair_cafe_manual_volunteers").update({deleted_at:new Date().toISOString()}).eq("id",id);
  assertResult(error,"Could not delete volunteer");
- done("Manual volunteer removed, including their availability and shift records.",people);
+ done("Volunteer archived. Their history is preserved for authorised restoration.",people);
 }
 export async function setManualAvailability(form:FormData){
  const {supabase}=await coordinator();
@@ -212,8 +212,8 @@ export async function deleteSession(form:FormData){
  const {data:event}=await supabase.from("repair_cafe_sessions").select("status").eq("id",id).single();
  if(!event)fail("Session not found.");
  if(event.status==="published")fail("Unpublish the session before deleting; notify affected people.");
- const {error}=await supabase.from("repair_cafe_sessions").delete().eq("id",id);
- assertResult(error,"Could not delete session");done("Session removed with its availability and roster records.");
+ const {error}=await supabase.from("repair_cafe_sessions").update({deleted_at:new Date().toISOString()}).eq("id",id);
+ assertResult(error,"Could not archive session");done("Session archived. Rosters and history can be restored.");
 }
 export async function deleteVenue(form:FormData){
  const {supabase}=await coordinator();
@@ -221,8 +221,8 @@ export async function deleteVenue(form:FormData){
  if(value(form,"confirm")!=="DELETE")fail("Type DELETE to remove this venue.");
  const {data:linked}=await supabase.from("repair_cafe_sessions").select("id").eq("venue_id",id).limit(1);
  if(linked?.length)fail("This venue belongs to an event. Change that event's venue before deleting.");
- const {error}=await supabase.from("repair_cafe_venues").delete().eq("id",id);
- assertResult(error,"Could not delete venue");done("Venue removed from directory.");
+ const {error}=await supabase.from("repair_cafe_venues").update({deleted_at:new Date().toISOString()}).eq("id",id);
+ assertResult(error,"Could not archive venue");done("Venue archived; it can be restored.");
 }
 
 export async function saveMemberSkillRecord(form:FormData){
