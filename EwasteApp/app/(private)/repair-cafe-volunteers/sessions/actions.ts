@@ -99,7 +99,7 @@ export async function setSessionStatus(form:FormData) {
   const missing=slots.filter(s=>(assignments||[]).filter(a=>a.slot_id===s.id&&a.status==="confirmed").length<s.required_count);
   if(missing.length)fail("Fill and confirm all required volunteer positions before publishing: "+missing.map(s=>s.role_name).join(", "));
  }
- const {error}=await supabase.from("repair_cafe_sessions").update({status,updated_at:new Date().toISOString()}).eq("id",id);
+ const {error}=await supabase.from("repair_cafe_sessions").update({status}).eq("id",id);
  errMessage(error,"Could not change session status");
  done(status==="published"?"Session published on the public Repair Café page.":"Session status saved. If it was public, manually notify affected people of changes.");
 }
