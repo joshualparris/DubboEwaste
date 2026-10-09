@@ -86,7 +86,7 @@ create index repair_cafe_assignments_user_idx on public.repair_cafe_shift_assign
 
 -- Prevent overbooking when two people accept the last seat concurrently.
 create function private.repair_cafe_check_capacity()
-returns trigger language plpgsql security invoker set search_path=''
+returns trigger language plpgsql security definer set search_path=''
 as $$
 declare max_seats int; used_seats int;
 begin
@@ -118,15 +118,15 @@ revoke all on table public.repair_cafe_venues,public.repair_cafe_sessions,
 grant select on public.repair_cafe_venues,public.repair_cafe_sessions to anon;
 grant select,insert,update on public.repair_cafe_venues,public.repair_cafe_sessions to authenticated;
 grant select,insert,update on public.repair_cafe_volunteer_profiles,public.repair_cafe_availability to authenticated;
-grant select,insert on public.repair_cafe_shift_slots to authenticated;
+grant select,insert,update,delete on public.repair_cafe_shift_slots to authenticated;
 grant select,insert,delete on public.repair_cafe_shift_assignments to authenticated;
 grant update(status) on public.repair_cafe_shift_assignments to authenticated;
 
 create policy "venues visible to members or when hosting public event"
  on public.repair_cafe_venues for select to anon,authenticated
  using (
-  private.has_program('repair_cafe')
-  or exists(select 1 from public.repair_cafe_sessions e where e.venue_id=id and e.status='published')
+  exists(select 1 from public.repair_cafe_sessions e where e.venue_id=id and e.status='published')
+  or (auth.uid() is not null and private.has_program('repair_cafe'))
  );
 create policy "coordinators add venues"
  on public.repair_cafe_venues for insert to authenticated
@@ -137,7 +137,7 @@ create policy "coordinators update venues"
 
 create policy "sessions visible to volunteers or publicly when published"
  on public.repair_cafe_sessions for select to anon,authenticated
- using (status='published' or private.has_program('repair_cafe'));
+ using (status='published' or (auth.uid() is not null and private.has_program('repair_cafe')));
 create policy "coordinators create sessions"
  on public.repair_cafe_sessions for insert to authenticated
  with check (private.repair_cafe_can_manage());
@@ -170,6 +170,12 @@ create policy "volunteers revise own availability"
 create policy "shifts visible to repair cafe members"
  on public.repair_cafe_shift_slots for select to authenticated
  using (private.has_program('repair_cafe'));
+create policy "coordinators edit shifts"
+ on public.repair_cafe_shift_slots for update to authenticated
+ using (private.repair_cafe_can_manage()) with check (private.repair_cafe_can_manage());
+create policy "coordinators remove shifts"
+ on public.repair_cafe_shift_slots for delete to authenticated
+ using (private.repair_cafe_can_manage());
 create policy "coordinators create shifts"
  on public.repair_cafe_shift_slots for insert to authenticated
  with check (private.repair_cafe_can_manage());
