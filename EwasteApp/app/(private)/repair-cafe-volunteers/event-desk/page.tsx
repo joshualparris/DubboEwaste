@@ -3,6 +3,7 @@ import {redirect} from "next/navigation";
 import {requireProgrammeContext} from "@/lib/programme-context";
 import {PrintButton} from "@/components/PrintButton";
 import {checkInRepairItem,saveRepairTicket,addRepairStation,updateRepairStation,deleteRepairStation} from "./actions";
+import {saveStationDispatch} from "../stations/actions";
 import OfflineDeskShell from "./OfflineDeskShell";
 import LiveQueue,{type LiveTicket,type LiveStation,type LiveActivity} from "./LiveQueue";
 import styles from "./event-desk.module.css";
@@ -122,13 +123,20 @@ export default async function EventDesk({searchParams}:{
     </form>:<p className={styles.warning}>Intake is unavailable for this session. Publish it first, or ask a coordinator to run a planning rehearsal.</p>}
    </section>
    <section className={styles.panel}>
-    <div className={styles.sectionHeader}><h2>2 · Repair stations</h2><span>{stations.length} total</span></div>
-    <p className={styles.hint}>A cleared item needs a station before work begins. An electrical category label does not authorise mains work.</p>
+    <div className={styles.sectionHeader}><h2>2 · Repair stations and station leads</h2><span>{stations.length} total</span></div>
+    <p className={styles.hint}>To assign a station lead, open a station below, enter the volunteer’s name in **Station lead**, then save. Set the number of simultaneous repairs here too. A cleared item needs a station before work begins. Electrical category does not authorise mains work.</p>
     {stations.length===0?<p>No stations set up yet.</p>:<div className={styles.stationList}>
      {stations.map(st=><details className={styles.station} key={st.id}>
-      <summary><strong>{st.name}</strong><small>{pretty(st.category)} · See live board for current occupancy</small></summary>
+      <summary><strong>{st.name}</strong><small>{pretty(st.category)} · Lead: {st.lead_name||"Not assigned"} · Capacity {st.capacity} · Tap to manage</small></summary>
       <p className={styles.hint}>{st.location_note||"Location not noted"}</p>
-      {canManage?<><form action={updateRepairStation} className={styles.form}>
+      {canManage?<><form action={saveStationDispatch} className={styles.form}>
+       <input type="hidden" name="event" value={session.id}/>
+       <input type="hidden" name="station_id" value={st.id}/>
+       <input type="hidden" name="return_to" value="event-desk"/>
+       <label>Station lead (volunteer name) <input name="lead" defaultValue={st.lead_name} maxLength={100} placeholder="e.g. Alex · sewing station"/></label>
+       <label>Maximum simultaneous repairs <input name="capacity" type="number" min={1} max={20} defaultValue={st.capacity} required/></label>
+       <button className="button">Save station lead &amp; capacity</button>
+      </form><form action={updateRepairStation} className={styles.form}>
        <input type="hidden" name="event_id" value={session.id}/><input type="hidden" name="station_id" value={st.id}/>
        <label>Name <input name="name" defaultValue={st.name} maxLength={80} minLength={2} required/></label>
        <label>Area <select name="category" defaultValue={st.category}>{stationTypes.map(([v,n])=><option key={v} value={v}>{n}</option>)}</select></label>
