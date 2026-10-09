@@ -214,7 +214,7 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
    <div className={styles.liveBoardColumns}>
     <div className={styles.liveBoardGroup}>
      <h3>Waiting · {waiting.length}</h3>
-     {waiting.length?waiting.map(t=><p key={t.id} className={styles.boardItem}>
+     {waiting.length?waiting.map(t=><div key={t.id} className={styles.boardItem}>
       <strong>#{t.ticket_number} · {t.visitor_display_name||"Visitor"}</strong>
       <span>{t.item_description}</span>
       {t.risk_level!=="clear"?<small>Safety: {pretty(t.risk_level)}</small>:null}
@@ -227,7 +227,7 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
        </select></label>
        <button className="button secondary">Call visitor</button>
       </form>:null}
-     </p>):<p className={styles.hint}>No visitors waiting.</p>}
+     </div>):<p className={styles.hint}>No visitors waiting.</p>}
     </div>
     <div className={styles.liveBoardGroup}>
      <h3>Repair stations · {atStations.length} assigned ({repairing.filter(t=>t.station_id!==null).length} in progress)</h3>
