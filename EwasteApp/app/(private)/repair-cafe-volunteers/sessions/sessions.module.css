@@ -7,3 +7,51 @@
 .panel>summary:hover,.venue>summary:hover,.adminDetails>summary:hover{color:#28624b}
 .panel>summary:focus-visible,.venue>summary:focus-visible,.adminDetails>summary:focus-visible{outline:3px solid #64a9e8;outline-offset:4px;border-radius:5px}
 @media(prefers-reduced-motion:reduce){.panel>summary::after,.venue>summary::after,.adminDetails>summary::after{transition:none}}
+
+/* Coordinator session management and private volunteer directory */
+.eventToolsBar{display:flex;gap:.65rem;flex-wrap:wrap;padding:.75rem 1.2rem;border-bottom:1px solid #e0e8e1;background:#f9fbf8}
+.eventTool{flex:1 1 240px;min-width:0;border:1px solid #cdded3;border-radius:12px;background:white;padding:.7rem .85rem}
+.eventTool>summary{display:flex;align-items:center;justify-content:space-between;gap:.6rem;list-style:none;cursor:pointer;font-weight:800;color:#275d42;min-height:36px}
+.eventTool>summary::-webkit-details-marker{display:none}
+.eventTool>summary::marker{content:""}
+.eventTool>summary::after{content:"";border-right:2px solid #35644c;border-bottom:2px solid #35644c;transform:rotate(45deg);width:9px;height:9px;flex:none;margin-right:4px}
+.eventTool[open]>summary::after{transform:rotate(225deg)}
+.eventTool[open]>summary{margin-bottom:1rem}
+.eventTool>.form{padding:.65rem 0 .2rem}
+.eventTool:has(>summary:focus-visible){outline:3px solid #64a9e8;outline-offset:3px}
+.directoryGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin-top:.8rem}
+.directoryCard{border:1px solid #dce6de;border-radius:13px;padding:1rem;background:#f9fbf8;min-width:0}
+.directoryCard>summary{display:flex;justify-content:space-between;gap:.6rem;cursor:pointer;list-style:none;font-weight:800}
+.directoryCard>summary::-webkit-details-marker{display:none}
+.directoryCard>summary::marker{content:""}
+.directoryCard>summary::after{content:"";display:block;width:9px;height:9px;border-right:2px solid #35644c;border-bottom:2px solid #35644c;transform:rotate(45deg);flex:none}
+.directoryCard[open]>summary::after{transform:rotate(225deg)}
+.directoryCard>summary small{display:block;font-weight:400;color:#5b7164;margin-top:.4rem;line-height:1.5}
+.directoryCard[open]>.form{margin-top:1rem}
+.dangerForm{display:grid;gap:.8rem;margin-top:1rem;padding:1rem;border:1px solid #f0c7c0;border-radius:12px;background:#fffafa}
+.dangerForm h4{margin:0;color:#91362c}
+.dangerForm label{font-size:.87rem;font-weight:700;display:grid;gap:.3rem}
+.dangerForm input{width:100%;border:1px solid #ccbbb8;border-radius:9px;padding:.65rem .75rem}
+.dangerForm button{justify-self:start}
+.inlineManage{margin-top:.85rem;background:#f8faf8;border:1px solid #e1e8e2;border-radius:10px;padding:.65rem .75rem}
+.inlineManage>summary{cursor:pointer;list-style:none;font-weight:800;color:#27644b}
+.inlineManage>summary::-webkit-details-marker{display:none}
+.inlineManage>summary::marker{content:""}
+.inlineManage>summary::after{content:" ▾"}
+.inlineManage[open]>summary::after{content:" ▴"}
+.inlineManage[open]>.form{margin-top:.8rem}
+.rosterEntry{padding:.65rem 0;border-bottom:1px solid #edf0ec;display:grid;gap:.55rem}
+.rosterEntry>.inlineForm{align-items:center}
+.rosterEntry>.inlineForm select{max-width:180px;flex:0 1 180px}
+.rosterEntry>.inlineForm .checkbox{display:flex;gap:.45rem;align-items:center;font-weight:500;font-size:.8rem}
+.rosterEntry>.inlineForm button{white-space:nowrap}
+.availLine{padding:.4rem 0;border-bottom:1px solid #e3e9e4}
+.availLine form{margin-top:.2rem}
+@media(max-width:680px){
+ .directoryGrid{grid-template-columns:1fr}
+ .eventToolsBar{padding:.65rem;display:grid}
+ .eventTool{width:100%}
+ .rosterEntry>.inlineForm{display:grid;grid-template-columns:1fr}
+ .rosterEntry>.inlineForm select{max-width:none}
+ .dangerForm{padding:.8rem}
+}
