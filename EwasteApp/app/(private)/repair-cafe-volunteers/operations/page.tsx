@@ -154,6 +154,7 @@ export default async function OperationsPage({searchParams}:{searchParams:Promis
     <form action={uploadTicketPhoto} className={styles.form}>
      <input type="hidden" name="event_id" value={event}/><input type="hidden" name="ticket_id" value={t.id}/>
      <label>Private repair photo (5 MB maximum)<input type="file" name="photo" accept="image/jpeg,image/png,image/webp" required/></label>
+     <label className={styles.check}><input type="checkbox" name="photo_consent" value="yes" required/> Visitor separately consented to a private item photograph. Do not photograph people, passwords or identifiable documents.</label>
      <label>Photo description<input name="note" maxLength={200}/></label>
      <label className={styles.checkbox}><input type="checkbox" name="photo_permission" value="yes" required/> The item owner explicitly agreed to this photo being kept privately for repair documentation.</label>
      <button className="button secondary">Upload private photo</button>
