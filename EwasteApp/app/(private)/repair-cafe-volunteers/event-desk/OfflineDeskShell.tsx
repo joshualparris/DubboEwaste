@@ -238,12 +238,19 @@ export default function OfflineDeskShell({eventId,ownerId,initialTickets,initial
   }catch(e){setError(messageFor(e))}
  };
  return <div onSubmitCapture={e=>{void submit(e)}} className={styles.offlineShell}>
-  <section className={styles.offlinePanel} aria-label="Offline event workspace">
-   <div className={styles.offlineTitle}>
+  {children}
+  <details className={styles.offlinePanel} aria-label="Offline event workspace">
+   <summary className={styles.offlineSummary}>
     <strong>Offline Event Desk</strong>
-    <span>{!online?"No internet":forceOffline?"Save locally mode":ready?"Encrypted local storage ready":"Not enabled"}</span>
-   </div>
-   <p className={styles.hint}>Enable before the event to protect check-ins, queue notes and repair updates if Wi-Fi drops. Saved items are <strong>not on the shared queue</strong> until synchronised.</p>
+    <span className={styles.offlineSummaryStatus}>
+     {operations.some(x=>x.status==="conflict")?"Conflicts need review":
+      operations.length?operations.length+" unsynchronised":
+      !online?"Offline":forceOffline?"Saving locally":ready?"Ready":"Not enabled"}
+    </span>
+    <span className={styles.offlineExpandLabel}>Offline settings and saved work</span>
+   </summary>
+   <div className={styles.offlinePanelBody}>
+    <p className={styles.hint}>Enable before the event to protect check-ins, queue notes and repair updates if Wi-Fi drops. Saved items are <strong>not on the shared queue</strong> until synchronised.</p>
    {!ready?<div className={styles.offlineSetup}>
     {workspaceState==="legacy"?<>
      <label>One-time recovery of existing encrypted work
@@ -287,7 +294,7 @@ export default function OfflineDeskShell({eventId,ownerId,initialTickets,initial
      </div>
     </div>)}
    </div>:null}
-  </section>
-  {children}
+   </div>
+  </details>
  </div>;
 }
