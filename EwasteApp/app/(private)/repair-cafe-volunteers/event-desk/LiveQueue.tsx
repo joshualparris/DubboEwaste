@@ -1,7 +1,7 @@
 "use client";
 
 import {useCallback,useEffect,useMemo,useRef,useState} from "react";
-import {createClient} from "@/lib/supabase/browser";
+import {createClient} from "@/lib/supabase/browser";\nimport Link from "next/link";
 import {saveRepairTicket} from "./actions";
 import styles from "./event-desk.module.css";
 
@@ -252,7 +252,7 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
        {t.risk_level!=="clear"?<span className={styles.risk}>{pretty(t.risk_level)} safety flag</span>:null}
       </div>
       {t.outcome?<p className={styles.outcome}><strong>Outcome:</strong> {pretty(t.outcome)}{t.barrier?" · "+pretty(t.barrier):""}</p>:null}
-      {t.handover_advice?<p className={styles.hint}><strong>Handover:</strong> {t.handover_advice}</p>:null}
+      {canManage&&["completed","referred","not_attempted"].includes(t.status)?<p><Link href={"/repair-cafe-volunteers/knowledge?ticket="+t.id}>Save as repair lesson →</Link></p>:null}\n      {t.handover_advice?<p className={styles.hint}><strong>Handover:</strong> {t.handover_advice}</p>:null}
       <details className={styles.ticketDetails} onToggle={e=>{
        if(e.currentTarget.open)setEditing({id:t.id,revision:t.updated_at});
        else setEditing(old=>old?.id===t.id?null:old);
