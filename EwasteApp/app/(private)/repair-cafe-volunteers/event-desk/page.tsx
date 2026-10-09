@@ -124,7 +124,7 @@ export default async function EventDesk({searchParams}:{
    </section>
    <section className={styles.panel}>
     <div className={styles.sectionHeader}><h2>2 · Repair stations and station leads</h2><span>{stations.length} total</span></div>
-    <p className={styles.hint}>To assign a station lead, open a station below, enter the volunteer’s name in **Station lead**, then save. Set the number of simultaneous repairs here too. A cleared item needs a station before work begins. Electrical category does not authorise mains work.</p>
+    <p className={styles.hint}>To assign a station lead, open a station below, enter the volunteer’s name in the Station lead field, then save. Set the number of simultaneous repairs here too. A cleared item needs a station before work begins. Electrical category does not authorise mains work.</p>
     {stations.length===0?<p>No stations set up yet.</p>:<div className={styles.stationList}>
      {stations.map(st=><details className={styles.station} key={st.id}>
       <summary><strong>{st.name}</strong><small>{pretty(st.category)} · Lead: {st.lead_name||"Not assigned"} · Capacity {st.capacity} · Tap to manage</small></summary>
