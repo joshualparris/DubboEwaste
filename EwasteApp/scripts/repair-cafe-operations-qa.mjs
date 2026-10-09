@@ -111,4 +111,25 @@ assert(deskPage.includes("<OfflineDeskShell")&&
  live.includes('data-offline-kind="ticket_update"')&&
  queueNoteUI.includes('data-offline-kind="queue_notes"'),
  "Supported Event Desk forms must be connected to offline capture");
-console.log("Repair Café operations source QA PASS: 36 checks. Offline browser testing still required.");
+const offlineFallback=read("public/repair-cafe-offline.html");
+const offlineSW=read("public/repair-cafe-sw.js");
+assert(offlineFallback.includes('repair-cafe-offline-encrypted-v1')&&
+ offlineFallback.includes("Offline passphrase")&&
+ offlineFallback.includes('Save encrypted check-in')&&
+ offlineFallback.includes('formRow(t,"queue_notes"')&&
+ offlineFallback.includes('formRow(t,"ticket_update"'),
+ "Offline reload fallback must reopen encrypted event and permit essential edits");
+assert(offlineSW.includes("repair-cafe-offline.html")&&
+ offlineSW.includes('request.mode!=="navigate"')&&
+ offlineSW.includes('event.respondWith(fetch(request).catch(')&&
+ !offlineSW.includes('cache.put(request'),
+ "Service worker must never cache private Event Desk pages");
+assert(offlineStore.includes('const VERSION=2')&&
+ offlineStore.includes('writeOfflineSnapshot')&&
+ offlineStore.includes('registerOfflineEvent'),
+ "Encrypted snapshot and recovery metadata required");
+assert(offlineShell.includes('serviceWorker.register')&&
+ offlineShell.includes('writeOfflineSnapshot')&&
+ live.includes('new CustomEvent("repair-cafe-snapshot"'),
+ "Prepare an offline snapshot and static reload fallback before disconnect");
+console.log("Repair Café operations source QA PASS: 40 checks. Real two-device offline acceptance still needed.");
