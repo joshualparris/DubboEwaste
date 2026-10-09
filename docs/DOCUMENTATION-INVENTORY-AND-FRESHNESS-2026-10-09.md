@@ -21,11 +21,11 @@
 - **Do not promote source code into operational truth:** a created route, local migration, queued email, source-level mobile QA or a Vercel READY build is not proof of browser behaviour, applied database parity, transmitted emails or approved community events.
 - Never seed imaginary venue bookings or volunteers to make a dashboard look complete.
 
-## Indexed files (317 existing documents at scan time)
+## Indexed files (318 existing documents at scan time)
 
 Each link goes to the tracked source document. Historical category membership refers to how to **interpret** the material, not a declaration that its factual contents remain correct today.
 
-### Current application, status and access (12)
+### Current application, status and access (13)
 
 - [`EwasteApp/ARCHITECTURE.md`](https://github.com/joshualparris/DubboEwaste/blob/main/EwasteApp/ARCHITECTURE.md)
 - [`EwasteApp/README.md`](https://github.com/joshualparris/DubboEwaste/blob/main/EwasteApp/README.md)
@@ -37,6 +37,7 @@ Each link goes to the tracked source document. Historical category membership re
 - [`README.md`](https://github.com/joshualparris/DubboEwaste/blob/main/README.md)
 - [`START-HERE.md`](https://github.com/joshualparris/DubboEwaste/blob/main/START-HERE.md)
 - [`docs/CURRENT-STATE.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/CURRENT-STATE.md)
+- [`docs/DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md)
 - [`docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md)
 - [`docs/README.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/README.md)
 
