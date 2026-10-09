@@ -50,6 +50,8 @@ export async function createManualVolunteer(form:FormData){
  if(slot_id)checkId(slot_id);
  if(slot_id&&!event_id)fail("Select a session before choosing a position.");
  if(slot_id&&!confirmed)fail("Confirm that the volunteer personally agreed to the shift.");
+ if(event_id && value(form,"confirmed_availability")!=="yes")
+  fail("Only mark someone available after they agreed to that particular session.");
  if(event_id){
   const {data:event}=await supabase.from("repair_cafe_sessions").select("id,status").eq("id",event_id).single();
   if(!event||["completed","cancelled"].includes(event.status))fail("That session is closed or missing.");
