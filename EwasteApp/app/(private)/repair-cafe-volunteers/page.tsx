@@ -171,6 +171,14 @@ export default async function RepairCafeVolunteerHub() {
       </section>
 
       <section className={styles.section}>
+        <h2>Monthly sessions, rosters and venues</h2>
+        <p className={styles.intro}>Proposed operating plan for choosing a date each month, recording volunteer availability and skills, confirming venue bookings, filling shifts and only announcing events once they are ready. This is a planning specification; live rostering has not been built yet.</p>
+        <div className={styles.links}>
+          <a href="https://github.com/joshualparris/DubboEwaste/blob/main/docs/REPAIR-CAFE-MONTHLY-EVENTS-VOLUNTEER-ROSTER-VENUES-2026-10-09.md" target="_blank" rel="noreferrer">Read monthly events and rostering plan ↗</a>
+        </div>
+      </section>
+
+      <section className={styles.section}>
         <h2>Internal research</h2>
         <div className={styles.links}>
           <a href="https://github.com/joshualparris/DubboEwaste/blob/main/docs/DUBBO-REPAIR-CAFE-VENUE-RESEARCH-2026-10-08.md" target="_blank" rel="noreferrer">Venue deep research ↗</a>
