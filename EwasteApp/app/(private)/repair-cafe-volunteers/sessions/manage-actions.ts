@@ -221,3 +221,22 @@ export async function deleteVenue(form:FormData){
  const {error}=await supabase.from("repair_cafe_venues").delete().eq("id",id);
  assertResult(error,"Could not delete venue");done("Venue removed from directory.");
 }
+
+export async function saveMemberSkillRecord(form:FormData){
+ const {supabase}=await coordinator();
+ const user_id=value(form,"user_id");checkId(user_id);
+ const skills=skillsFrom(value(form,"skills"));
+ const {data:membership}=await supabase.from("program_access").select("user_id")
+  .eq("user_id",user_id).eq("program","repair_cafe").eq("active",true).maybeSingle();
+ if(!membership)fail("That account has no active Repair Café membership.",people);
+ const {error}=await supabase.from("repair_cafe_volunteer_profiles")
+  .upsert({user_id,skills,updated_at:new Date().toISOString()},{onConflict:"user_id"});
+ assertResult(error,"Could not save member skills");done("Registered volunteer skills updated; account access remains unchanged.",people);
+}
+export async function removeMemberSkillRecord(form:FormData){
+ const {supabase}=await coordinator();
+ const user_id=value(form,"user_id");checkId(user_id);
+ if(value(form,"confirm")!=="DELETE")fail("Type DELETE to clear the skill profile.",people);
+ const {error}=await supabase.from("repair_cafe_volunteer_profiles").delete().eq("user_id",user_id);
+ assertResult(error,"Could not delete volunteer skills");done("Skill profile removed. This did not delete the person's login account.",people);
+}
