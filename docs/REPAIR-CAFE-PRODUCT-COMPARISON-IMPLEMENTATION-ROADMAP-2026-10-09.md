@@ -4,6 +4,23 @@
 **Repository:** joshualparris/DubboEwaste, EwasteApp  
 **Scope:** Community Repair Café operations and volunteer coordination only. Do not conflate items temporarily handled at events with donated E-waste, commercial repair jobs or Library of Things loans.
 
+## Implementation progress — 9 October 2026
+
+**P0 Event Desk code and database implemented:**
+- `EwasteApp/app/(private)/repair-cafe-volunteers/event-desk`: authenticated event selector, volunteer item check-in, mandatory acknowledgement + safety screening, event-local queue number, station assignment, append-only activity, completion outcomes, paper fallback and internal outcome counts.
+- `.../event-desk/export/route.ts`: coordinator-only, CSV-formula-protected, paged de-identified event outcome export.
+- `EwasteApp/supabase/migrations/20261009163000_repair_cafe_event_desk.sql`: canonical `repair_cafe_tickets`, `repair_cafe_stations`, `repair_cafe_ticket_activity`, atomic queue RPCs, RLS and secure status transitions.
+- A transaction-rolled-back SQL end-to-end test passed check-in, sequential queue numbers, unsafe refusal, repair completion, event history and blocked unsafe work. A separate simulated unauthorised account test passed. Anonymous SELECT and EXECUTE grants were checked absent. These tests do not substitute for real signed-in/browser testing.
+
+**P1/P2 infrastructure partially implemented:**
+- Additional additive migrations `20261009170000_repair_cafe_event_operations.sql` and `20261009171500_repair_cafe_ticket_operations_link.sql` have been applied; they include attendance, time-bounded shifts, overlap checks, venue-contact log, verified competence evidence, incident records, private image references, notification consent/outbox, soft archive fields and audit history.
+- Organiser code under `.../repair-cafe-volunteers/operations` and `.../repair-cafe-volunteers/reports` now supplies management/reporting screens. These require account-based browser acceptance tests and operator training before field use.
+- **Notifications are outbox/opt-in records, not proof of actual email/SMS delivery.** Never claim volunteers were notified unless an approved delivery service is connected, sending succeeds, and a receipt is recorded.
+- Old duplicate, unapplied migrations `20261009164000_repair_cafe_attendance_shift_times.sql` and `20261009173000_repair_cafe_event_desk_workflow.sql` were removed to prevent breaking a clean migration replay or creating duplicate ticket/attendance tables. The canonical records are in 1630 + 1700 + 1715 migrations.
+- `repair_cafe_visits` / `repair_cafe_repair_tickets` also exist as an alternate older workflow schema. The currently implemented Event Desk and outcomes reports should treat `repair_cafe_tickets` as the **canonical ticket**; do not present figures by summing both tables. Any future retirement/merge needs explicit data reconciliation, not silent deletion.
+
+**Still not independently verified:** full signed-in volunteer/coordinator interaction across all pages, cross-browser accessibility, active messaging delivery, photo retention controls, a tested no-internet process, Australian insurance/electrical compliance and live event readiness. All real sessions still require human confirmation.
+
 ## Executive judgement
 
 The existing Repair Café has a promising public concept site, volunteer/venue directory, 2027 monthly session planning, manual and authenticated volunteers, skill declarations, availability, shift assignment, role-based access, basic venue verification, and links to circular-learning courses. It currently lacks the complete **day-of-event journey**: visitor intake → safety screen and consent → triage / station queue → repair notes and outcome → aggregated, defensible reports. A build-complete feature is not necessarily browser-tested or field-ready.
