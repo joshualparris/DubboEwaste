@@ -6,6 +6,9 @@
   const pathname = location.pathname;
   const page = pathname.includes("/DubboEwasteApp/admin") ? "/legacy-admin"
              : pathname.includes("/DubboEwasteApp/") ? "/legacy-gateway"
+             : pathname.endsWith("/glossary.html") ? "/glossary"
+             : pathname.endsWith("/itad-deep-research.html") ? "/itad-research"
+             : pathname.endsWith("/multimeter-training.html") ? "/multimeter-training"
              : "/field-school";
   function send(event, target) {
     try {
