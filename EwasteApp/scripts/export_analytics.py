@@ -6,14 +6,19 @@ private route/action names are never available from the export endpoint.
 import datetime as dt
 import json
 from pathlib import Path
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
-URL = "https://dubbo-ewaste-app.vercel.app/api/analytics/daily-export"
+URL = "https://kukwydsfhlmwwxpgnbpn.supabase.co/rest/v1/rpc/analytics_public_daily_report"
+# This is an existing browser-visible Supabase publishable key, never a service key.
+PUBLISHABLE_KEY = "sb_publishable_i7540lgd1StPXRbAASYT_g_UJxXg3az"
 SITES = ("dubbo_ewaste", "github_pages", "render_backup",)
 day = (dt.datetime.now(ZoneInfo("Australia/Sydney")).date() - dt.timedelta(days=1)).isoformat()
 
-with urlopen(URL + "?day=" + day, timeout=30) as response:
+request = Request(URL, method="POST",
+                  data=json.dumps({"p_day": day}).encode("utf-8"),
+                  headers={"apikey": PUBLISHABLE_KEY, "Content-Type": "application/json"})
+with urlopen(request, timeout=30) as response:
     if response.status != 200:
         raise RuntimeError("Daily aggregate endpoint did not respond successfully")
     payload = json.load(response)
