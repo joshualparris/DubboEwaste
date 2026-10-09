@@ -2,8 +2,10 @@
 import {useCallback,useEffect,useRef,useState,type FormEvent,type ReactNode} from "react";
 import {createClient} from "@/lib/supabase/browser";
 import {
- hasWorkspace,unlockWorkspace,readOperations,writeOperation,updateOperationState,
- dropOperation,encryptedBackup,registerOfflineEvent,writeOfflineSnapshot,type OfflineOperation,type OfflineKind
+ getWorkspaceState,openTrustedWorkspace,migrateLegacyWorkspace,
+ readOperations,writeOperation,updateOperationState,
+ dropOperation,registerOfflineEvent,writeOfflineSnapshot,
+ type OfflineOperation,type OfflineKind,type OfflineWorkspaceState
 } from "./offline-store";
 import styles from "./event-desk.module.css";
 
@@ -36,7 +38,7 @@ export default function OfflineDeskShell({eventId,ownerId,initialTickets,initial
  eventId:string;ownerId:string;initialTickets:unknown[];initialStations:unknown[];children:ReactNode;
 }){
  const [phrase,setPhrase]=useState("");
- const [vaultExists,setVaultExists]=useState<boolean|null>(null);
+ const [workspaceState,setWorkspaceState]=useState<OfflineWorkspaceState|null>(null);
  const [ready,setReady]=useState(false);
  const [online,setOnline]=useState(true);
  const [forceOffline,setForceOffline]=useState(false);
@@ -58,11 +60,26 @@ export default function OfflineDeskShell({eventId,ownerId,initialTickets,initial
  useEffect(()=>{
   setOnline(navigator.onLine);
   let current=true;
-  void hasWorkspace(ownerId).then(x=>{if(current)setVaultExists(x)})
+  void getWorkspaceState(ownerId).then(mode=>{if(current)setWorkspaceState(mode)})
    .catch(e=>{if(current)setError(messageFor(e))});
   const up=()=>setOnline(true),down=()=>setOnline(false);
   window.addEventListener("online",up);window.addEventListener("offline",down);
-  return ()=>{current=false;window.removeEventListener("online",up);window.removeEventListener("offline",down)};
+  // The user's online account is the authorisation boundary. Lock in-memory
+  // keys and sensitive pending notes on sign-out, even though this trusted
+  // browser deliberately keeps a key on disk for offline restart.
+  const client=createClient();
+  const {data:{subscription}}=client.auth.onAuthStateChange((event,session)=>{
+   if(event==="SIGNED_OUT"||(session?.user&&session.user.id!==ownerId)){
+    keyRef.current=null;opsRef.current=[];setOperations([]);
+    setReady(false);setNotice("Signed out. Sign in with the same volunteer account to continue.");
+   }
+  });
+  return ()=>{
+   current=false;
+   subscription.unsubscribe();
+   window.removeEventListener("online",up);window.removeEventListener("offline",down);
+   keyRef.current=null;opsRef.current=[];
+  };
  },[ownerId]);
 
  const sync=useCallback(async()=>{
@@ -124,36 +141,60 @@ export default function OfflineDeskShell({eventId,ownerId,initialTickets,initial
   return ()=>{clearInterval(interval);window.removeEventListener("focus",onFocus)};
  },[ready,sync]);
 
- const unlock=async()=>{
+ const prepare=useCallback(async(key:CryptoKey)=>{
+  keyRef.current=key;
+  if(eventId){
+   await registerOfflineEvent(ownerId,eventId);
+   await writeOfflineSnapshot(ownerId,eventId,key,{
+    tickets:initialTickets,stations:initialStations
+   });
+  }
+  if("serviceWorker" in navigator){
+   try{await navigator.serviceWorker.register("/repair-cafe-sw.js",{scope:"/"});}
+   catch{setNotice("Offline saves work, but reopening the page without internet may be unavailable in this browser.");}
+  }
+  await refresh();
+  setReady(true);
+ },[ownerId,eventId,initialTickets,initialStations,refresh]);
+ const enable=async()=>{
   setBusy(true);setError("");
   try{
-   const key=await unlockWorkspace(ownerId,phrase);
-   keyRef.current=key;setReady(true);setVaultExists(true);setPhrase("");
-   if(eventId){
-    await registerOfflineEvent(ownerId,eventId);
-    await writeOfflineSnapshot(ownerId,eventId,key,{tickets:initialTickets,stations:initialStations});
-   }
-   if("serviceWorker" in navigator){
-    try{await navigator.serviceWorker.register("/repair-cafe-sw.js",{scope:"/"});}
-    catch{setNotice("Offline work saves in this tab, but offline page reload is unavailable in this browser.");}
-   }
-   await refresh();
-   setNotice("Offline storage unlocked. Saved work is encrypted on this device.");
-  }catch(e){setError(messageFor(e));}finally{setBusy(false)}
+   // A legacy passphrase is requested only once when old unsynchronised work
+   // actually exists. Never overwrite it to remove the prompt.
+   const key=workspaceState==="legacy"?
+    await migrateLegacyWorkspace(ownerId,phrase):
+    await openTrustedWorkspace(ownerId);
+   await prepare(key);
+   setWorkspaceState("trusted");setPhrase("");
+   setNotice(workspaceState==="legacy"?
+    "Existing offline records safely migrated. Future visits need no second passphrase.":
+    "Offline saving enabled for this trusted device. No additional passphrase required.");
+  }catch(e){setError(messageFor(e))}
+  finally{setBusy(false)}
  };
+ // Returning as the same authenticated account opens its local trusted
+ // workspace automatically. Never enable a new device without an explicit click.
+ useEffect(()=>{
+  if(workspaceState!=="trusted"||ready||busy||keyRef.current)return;
+  let current=true;
+  void openTrustedWorkspace(ownerId).then(async key=>{
+   if(!current)return;
+   await prepare(key);
+  }).catch(e=>{if(current)setError(messageFor(e))});
+  return ()=>{current=false};
+ },[workspaceState,ownerId,ready,busy,prepare]);
 
  const submit=async(ev:FormEvent<HTMLDivElement>)=>{
   const form=ev.target;
   if(!(form instanceof HTMLFormElement))return;
   const kind=form.dataset.offlineKind as OfflineKind|undefined;
-  const shouldCapture=kind&&ready&&(forceOffline||!online||opsRef.current.length>0);
   // When online with an unlocked vault, route *all* supported forms via the
   // idempotent RPC too: a dropped response must not duplicate a check-in.
   const useOfflineSync=kind&&ready;
   if(!useOfflineSync){
    if(!online||forceOffline){
     ev.preventDefault();
-    setError("This action cannot be submitted offline. Unlock Offline Mode for check-ins, queue notes and ticket updates; other management forms require internet.");
+    setError("This action cannot be submitted offline. Enable offline on this trusted device for check-ins, queue notes and ticket updates; other management forms require internet.");
    }
    return;
   }
@@ -172,7 +213,7 @@ export default function OfflineDeskShell({eventId,ownerId,initialTickets,initial
     String(x.payload.ticket_id||"")===ticketId))
     throw Error("An edit for this ticket is already saved offline. Synchronise or review that change before adding another.");
    if(kind!=="check_in"&&!payload.revision)throw Error("Original ticket revision is required for safe sync");
-   if(!keyRef.current)throw Error("Unlock the offline vault first");
+   if(!keyRef.current)throw Error("Enable offline on this device first");
    const entry:OfflineOperation={id:crypto.randomUUID(),owner:ownerId,
     eventId,kind,payload,createdAt:Date.now(),status:"pending"};
    await writeOperation(entry,keyRef.current);
@@ -196,14 +237,6 @@ export default function OfflineDeskShell({eventId,ownerId,initialTickets,initial
    if(online&&!forceOffline)void sync();
   }catch(e){setError(messageFor(e))}
  };
- const download=async()=>{
-  try{
-   const data=await encryptedBackup(ownerId),blob=new Blob([data],{type:"application/json"});
-   const url=URL.createObjectURL(blob),a=document.createElement("a");
-   a.href=url;a.download="repair-cafe-encrypted-offline-backup-"+new Date().toISOString().slice(0,10)+".json";a.click();
-   setTimeout(()=>URL.revokeObjectURL(url),2000);
-  }catch(e){setError(messageFor(e))}
- };
  return <div onSubmitCapture={e=>{void submit(e)}} className={styles.offlineShell}>
   <section className={styles.offlinePanel} aria-label="Offline event workspace">
    <div className={styles.offlineTitle}>
@@ -212,21 +245,30 @@ export default function OfflineDeskShell({eventId,ownerId,initialTickets,initial
    </div>
    <p className={styles.hint}>Enable before the event to protect check-ins, queue notes and repair updates if Wi-Fi drops. Saved items are <strong>not on the shared queue</strong> until synchronised.</p>
    {!ready?<div className={styles.offlineSetup}>
-     <label>{vaultExists?"Unlock saved work with your offline passphrase":"Set a private offline passphrase (12+ characters)"}
+    {workspaceState==="legacy"?<>
+     <label>One-time recovery of existing encrypted work
       <input type="password" value={phrase} onChange={e=>setPhrase(e.target.value)}
-       autoComplete="off" placeholder="Offline passphrase" minLength={12}/>
+       autoComplete="off" placeholder="Your previous offline passphrase" minLength={12}/>
      </label>
-     <button className="button secondary" type="button" disabled={busy||phrase.length<12} onClick={()=>{void unlock()}}>
-      {busy?"Opening…":vaultExists?"Unlock offline workspace":"Enable encrypted offline saving"}
-     </button>
-     <small className={styles.hint}>No password reset: the passphrase is not stored or recoverable. Use a trusted device, not a public/shared computer.</small>
-    </div>:<div className={styles.offlineActions}>
-     <label><input type="checkbox" checked={forceOffline} onChange={e=>setForceOffline(e.target.checked)}/> Save locally for offline rehearsal</label>
-     <button className="button secondary" type="button" disabled={syncing||!online||forceOffline} onClick={()=>{void sync()}}>
-      {syncing?"Synchronising…":"Sync saved work"}
-     </button>
-     <button className="button secondary" type="button" onClick={()=>{void download()}}>Encrypted backup</button>
-    </div>}
+     <p className={styles.hint}>This device contains older offline records.
+      Enter the previous passphrase <strong>once</strong> to migrate them without losing work.
+      After migration, it won't be requested again.</p>
+    </>:<p className={styles.hint}>Use only a trusted, screen-locked volunteer device.
+      Anyone using this browser profile could read its locally saved information.
+      You will still need your normal volunteer login when syncing.</p>}
+    <button className="button secondary" type="button"
+     disabled={busy||workspaceState===null||(workspaceState==="legacy"&&phrase.length<12)}
+     onClick={()=>{void enable()}}>
+     {busy?"Preparing…":workspaceState==="legacy"?"Migrate existing offline work":
+      workspaceState==="trusted"?"Opening trusted offline storage":"Enable offline on this device"}
+    </button>
+   </div>:<div className={styles.offlineActions}>
+    <label><input type="checkbox" checked={forceOffline} onChange={e=>setForceOffline(e.target.checked)}/> Save locally for offline rehearsal</label>
+    <button className="button secondary" type="button" disabled={syncing||!online||forceOffline} onClick={()=>{void sync()}}>
+     {syncing?"Synchronising…":"Sync saved work"}
+    </button>
+    <span className={styles.hint}>This browser stores a non-exportable encryption key. Sync before changing devices.</span>
+   </div>}
    {notice?<p role="status" className={styles.offlineNotice}>{notice}</p>:null}
    {error?<p role="alert" className={styles.warning}>{error}</p>:null}
    {ready?<div className={styles.offlineOutbox}>
