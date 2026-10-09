@@ -7,12 +7,13 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "vercel-build": "npm run qa:learning && npm run qa:mobile && npm run qa:programme-auth && next build",
+    "vercel-build": "npm run qa:learning && npm run qa:mobile && npm run qa:programme-auth && npm run qa:repair-cafe && next build",
     "qa:mobile": "node scripts/mobile-qa.mjs",
-    "prebuild": "npm run qa:learning && npm run qa:mobile && npm run qa:programme-auth",
+    "prebuild": "npm run qa:learning && npm run qa:mobile && npm run qa:programme-auth && npm run qa:repair-cafe",
     "qa:mobile:browser": "node scripts/mobile-browser-qa.mjs",
     "qa:programme-auth": "node scripts/programme-auth-qa.mjs",
-    "qa:learning": "node scripts/learning-qa.mjs"
+    "qa:learning": "node scripts/learning-qa.mjs",
+    "qa:repair-cafe": "node scripts/repair-cafe-qa.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",
