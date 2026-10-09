@@ -1,6 +1,6 @@
 /* Repair Café offline navigation fallback.
    Never cache signed-in HTML, Supabase requests, Next responses, photos or user data. */
-const CACHE="repair-cafe-static-offline-v1";
+const CACHE="repair-cafe-static-offline-v2";
 const FALLBACK="/repair-cafe-offline.html";
 self.addEventListener("install",event=>{
  event.waitUntil(caches.open(CACHE).then(cache=>cache.add(FALLBACK)));
