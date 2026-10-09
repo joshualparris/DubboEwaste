@@ -1,7 +1,7 @@
 # Dubbo Repair Café local repairer referral directory — 10 October 2026
 
 ## Purpose and scope
-An evidence-linked **first-pass** volunteer directory, built into `EwasteApp` at `/repair-cafe-volunteers/referrals`. It is a **referral leads directory**, not a certification, recommendation or partner registry. As of 10 October 2026, after a second research pass, it contains **101 business/outlet records**, including **44 with business/primary-source evidence** and **57 supported only by an online listing**. **1** are located in nearby towns (Geurie).
+An evidence-linked **two-pass** volunteer directory, built into `EwasteApp` at `/repair-cafe-volunteers/referrals`. It is a **referral leads directory**, not a certification, recommendation or partner registry. As of 10 October 2026, after a second research pass, it contains **101 business/outlet records**, including **44 with business/primary-source evidence** and **57 supported only by an online listing**. **3** are located in nearby towns (Geurie, Wellington and Narromine).
 
 ## Method
 Public web research and local-business searches across computer/device repair, appliance specialists, textile and footwear repairs, upholstery/furniture, bikes and mobility equipment, tool and small-engine repairs, musical instruments, jewellery, glass and locksmiths, and vehicle / caravan services.
