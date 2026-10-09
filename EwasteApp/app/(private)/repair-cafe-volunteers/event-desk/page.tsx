@@ -3,19 +3,14 @@ import {redirect} from "next/navigation";
 import {requireProgrammeContext} from "@/lib/programme-context";
 import {PrintButton} from "@/components/PrintButton";
 import {checkInRepairItem,saveRepairTicket,addRepairStation,updateRepairStation,deleteRepairStation} from "./actions";
+import LiveQueue,{type LiveTicket,type LiveStation,type LiveActivity} from "./LiveQueue";
 import styles from "./event-desk.module.css";
 
 type Session={id:string;event_date:string;title:string;starts_at:string;ends_at:string;status:string;focus:string;venue_status:string};
 type Station={id:string;event_id:string;name:string;category:string;location_note:string};
-type Ticket={
- id:string;event_id:string;ticket_number:number;visitor_display_name:string;item_category:string;item_description:string;
- reported_problem:string;risk_level:string;risk_notes:string;status:string;outcome:string|null;
- barrier:string|null;station_id:string|null;work_summary:string;parts_used:string;
- handover_advice:string;arrived_at:string;started_at:string|null;closed_at:string|null;
-};
-type Activity={id:string;ticket_id:string;from_status:string|null;to_status:string;note:string;created_at:string};
+type Ticket=LiveTicket;
+type Activity=LiveActivity;
 const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-const statuses=["waiting","in_progress","completed","referred","not_attempted","void"];
 const categories=[
  ["electronics","Electronics"],["computers","Computers / laptops"],["small_appliance","Small appliances"],
  ["textiles","Clothing / sewing"],["bicycle","Bicycle"],["furniture","Furniture / wood"],
@@ -24,17 +19,7 @@ const categories=[
 const stationTypes=[["general","General"],["electrical","Electrical (approved only)"],
  ["computers","Computers"],["sewing","Sewing"],["bikes","Bikes"],["mechanical","Mechanical"],
  ["woodwork","Woodwork"],["other","Other"]] as const;
-const resultTypes=[
- ["","No outcome yet"],["fixed","Fixed"],["partially_fixed","Partially fixed"],
- ["not_fixed","Not fixed"],["referred","Referred elsewhere"],
- ["not_attempted","Not attempted"]
-] as const;
-const barrierTypes=[["","Not specified"],["parts","Parts unavailable"],["time","Time / capacity"],
- ["skills","Skills / tools"],["safety","Safety"],["cost","Cost"],
- ["not_repairable","Not repairable"],["other","Other"]] as const;
 const pretty=(value:string|null|undefined)=>(value||"—").replaceAll("_"," ").replace(/^./,x=>x.toUpperCase());
-const shortTime=(date:string)=>
- new Date(date).toLocaleTimeString("en-AU",{timeZone:"Australia/Sydney",hour:"numeric",minute:"2-digit"});
 const day=(date:string)=>new Date(date+"T12:00:00Z").toLocaleDateString("en-AU",
  {timeZone:"Australia/Sydney",weekday:"short",day:"numeric",month:"short",year:"numeric"});
 
@@ -56,7 +41,7 @@ export default async function EventDesk({searchParams}:{
  const [stationResult,ticketResult]=session?await Promise.all([
   supabase.from("repair_cafe_stations").select("id,event_id,name,category,location_note")
    .eq("event_id",session.id).order("name"),
-  supabase.from("repair_cafe_tickets").select("id,event_id,ticket_number,visitor_display_name,item_category,item_description,reported_problem,risk_level,risk_notes,status,outcome,barrier,station_id,work_summary,parts_used,handover_advice,arrived_at,started_at,closed_at")
+  supabase.from("repair_cafe_tickets").select("id,event_id,ticket_number,visitor_display_name,item_category,item_description,reported_problem,risk_level,risk_notes,status,outcome,barrier,station_id,work_summary,parts_used,handover_advice,arrived_at,started_at,closed_at,updated_at")
    .eq("event_id",session.id).order("ticket_number",{ascending:false}).limit(500)
  ]):[{data:[],error:null},{data:[],error:null}];
  const stations=(stationResult.data??[]) as Station[];
@@ -66,10 +51,7 @@ export default async function EventDesk({searchParams}:{
   .in("ticket_id",tickets.map(t=>t.id)).order("created_at",{ascending:false}).limit(1500)
   :{data:[],error:null};
  const activities=(activityResult.data??[]) as Activity[];
- const count=(type:string)=>tickets.filter(t=>t.status===type).length;
- const outcomes={fixed:tickets.filter(t=>t.outcome==="fixed").length,partial:tickets.filter(t=>t.outcome==="partially_fixed").length,
-  unsuccessful:tickets.filter(t=>t.outcome==="not_fixed").length,referred:count("referred"),
-  notAttempted:count("not_attempted")};
+
  const error=stationResult.error||ticketResult.error||activityResult.error||sessionError;
  return <div className={styles.page}>
   <div className={styles.navigation}>
@@ -108,15 +90,7 @@ export default async function EventDesk({searchParams}:{
      {canManage?"This is a planning event. Test entries here are internal and are not proof of a public Repair Café event. Only use real visitor intake after publishing and completing safety/venue checks.":"This session is not open for volunteer intake yet."}
    </p>:null}
   </section>
-  {session?<><section className={styles.stats} aria-label="Event status totals">
-   {[
-    ["Checked in",tickets.filter(t=>t.status!=="void").length],
-    ["Waiting",count("waiting")],["At stations",count("in_progress")],
-    ["Fixed",outcomes.fixed],["Partial",outcomes.partial],
-    ["Referred",outcomes.referred],["Not fixed",outcomes.unsuccessful],
-    ["Not attempted",outcomes.notAttempted]
-   ].map(([label,num])=><div className={styles.metric} key={label}><strong>{num}</strong><span>{label}</span></div>)}
-  </section>
+  {session?<>
   <div className={styles.columns}>
    <section className={styles.panel}>
     <div className={styles.sectionHeader}><h2>1 · Visitor check-in</h2></div>
@@ -148,7 +122,7 @@ export default async function EventDesk({searchParams}:{
     <p className={styles.hint}>A cleared item needs a station before work begins. An electrical category label does not authorise mains work.</p>
     {stations.length===0?<p>No stations set up yet.</p>:<div className={styles.stationList}>
      {stations.map(st=><details className={styles.station} key={st.id}>
-      <summary><strong>{st.name}</strong><small>{pretty(st.category)} · {tickets.filter(t=>t.station_id===st.id&&t.status==="in_progress").length} active</small></summary>
+      <summary><strong>{st.name}</strong><small>{pretty(st.category)} · See live board for current occupancy</small></summary>
       <p className={styles.hint}>{st.location_note||"Location not noted"}</p>
       {canManage?<><form action={updateRepairStation} className={styles.form}>
        <input type="hidden" name="event_id" value={session.id}/><input type="hidden" name="station_id" value={st.id}/>
@@ -175,72 +149,11 @@ export default async function EventDesk({searchParams}:{
     </details>:null}
    </section>
   </div>
-  <section className={styles.queue}>
-   <div className={styles.sectionHeader}><div><h2>3 · Live queue and repair outcomes</h2><p className={styles.hint}>Tap a ticket to allocate a station, record work and close it. Refresh to see another volunteer's updates.</p></div>
-   <strong>{tickets.length} ticket records</strong></div>
-   {tickets.length===0?<div className={styles.empty}>No repairs recorded for this session. Start with check-in.</div>:null}
-   <div className={styles.ticketGrid}>
-    {tickets.map(t=><article className={styles.ticket} key={t.id}>
-     <div className={styles.ticketHeader}><span className={styles.queueNumber}>#{t.ticket_number}</span>
-      <span className={styles.state}>{pretty(t.status)}</span></div>
-     <h3>{t.visitor_display_name? t.visitor_display_name+" · ":""}{t.item_description}</h3>
-     {t.visitor_display_name&&t.status==="waiting"?<p className={styles.hint}><strong>Call out:</strong> “{t.visitor_display_name}, we’re ready to help you with your {t.item_description}.”</p>:null}
-     <p className={styles.problem}>{t.reported_problem}</p>
-     <div className={styles.ticketMeta}>
-      <span>{pretty(t.item_category)}</span><span>Arrived {shortTime(t.arrived_at)}</span>
-      <span>Station: {stations.find(st=>st.id===t.station_id)?.name||"Unassigned"}</span>
-      {t.risk_level!=="clear"?<span className={styles.risk}>{pretty(t.risk_level)} safety flag</span>:null}
-     </div>
-     {t.outcome?<p className={styles.outcome}><strong>Outcome:</strong> {pretty(t.outcome)}{t.barrier?" · "+pretty(t.barrier):""}</p>:null}
-     {t.handover_advice?<p className={styles.hint}><strong>Handover:</strong> {t.handover_advice}</p>:null}
-     <details className={styles.ticketDetails}>
-      <summary>{active?"Update ticket / record repair":"Review ticket and history"}</summary>
-      {active?<form action={saveRepairTicket} className={styles.form}>
-       <input type="hidden" name="event_id" value={session.id}/>
-       <input type="hidden" name="ticket_id" value={t.id}/>
-       <label>Status <select name="status" defaultValue={t.status} required>
-        {statuses.filter(st=>canManage||st!=="void").map(st=><option value={st} key={st}>{pretty(st)}</option>)}
-       </select></label>
-       <label>Repair station <select name="station_id" defaultValue={t.station_id||""}>
-        <option value="">Not assigned</option>
-        {stations.map(st=><option key={st.id} value={st.id}>{st.name}</option>)}
-       </select></label>
-       <label>Outcome (required for completed / referred / not attempted) <select name="outcome" defaultValue={t.outcome||""}>
-        {resultTypes.map(([v,n])=><option key={v} value={v}>{n}</option>)}
-       </select></label>
-       <label>Reason repair could not be completed <select name="barrier" defaultValue={t.barrier||""}>
-        {barrierTypes.map(([v,n])=><option key={v} value={v}>{n}</option>)}
-       </select></label>
-       <label>Repair note / summary <textarea name="note" maxLength={1200} rows={3} placeholder="What did you check, try or observe?"/></label>
-       <label>Parts or materials used <input name="parts" maxLength={300} defaultValue={t.parts_used}/></label>
-       <label>Advice to visitor <textarea name="advice" maxLength={700} defaultValue={t.handover_advice} rows={2}/></label>
-       {canManage?<><label>Safety state <select name="risk" defaultValue={t.risk_level}>
-        <option value="clear">Cleared within scope</option><option value="review">Review required</option><option value="unsafe">Unsafe</option>
-       </select></label>
-        <label>Safety notes <textarea name="risk_notes" maxLength={500} defaultValue={t.risk_notes} rows={2}/></label></>
-       :<><input type="hidden" name="risk" value={t.risk_level}/><input type="hidden" name="risk_notes" value={t.risk_notes}/></>}
-       <p className={styles.hint}>To start: choose In progress and a station. To close: choose Completed and an outcome. Unsafe items cannot be repaired. Changes are logged.</p>
-       <button className="button">Save repair update</button>
-      </form>:null}
-      {activities.filter(a=>a.ticket_id===t.id).length?<div className={styles.history}>
-       <h4>Change history</h4>
-       {activities.filter(a=>a.ticket_id===t.id).map(a=><div key={a.id}>
-        <span>{shortTime(a.created_at)} · {pretty(a.to_status)}</span>
-        {a.note?<p>{a.note}</p>:null}</div>)}
-      </div>:null}
-     </details>
-    </article>)}
-   </div>
-  </section>
+  <LiveQueue key={session.id} eventId={session.id} active={active} canManage={canManage}
+   initialTickets={tickets} initialStations={stations} initialActivities={activities}/>
   <section className={styles.panel}>
    <div className={styles.sectionHeader}><h2>4 · End-of-session report</h2></div>
-   <div className={styles.reportGrid}>
-    <p><strong>{outcomes.fixed}</strong><span>Successfully fixed</span></p>
-    <p><strong>{outcomes.partial}</strong><span>Partially fixed</span></p>
-    <p><strong>{outcomes.unsuccessful}</strong><span>Not fixed</span></p>
-    <p><strong>{outcomes.referred}</strong><span>Referred</span></p>
-    <p><strong>{outcomes.notAttempted}</strong><span>Not attempted</span></p>
-   </div>
+   <p className={styles.hint}>Current counts are shown in the live board above. For reviewed totals, visit <Link href="/repair-cafe-volunteers/reports">Impact reports</Link>.</p>
    <p className={styles.hint}>These are observed ticket outcomes, not estimates of kilograms saved or CO₂ avoided. Duplicate/void tickets are excluded from the checked-in count. Figures are internal until reviewed.</p>
    <div className={styles.printSection}>
     <h3>Offline paper fallback</h3>
