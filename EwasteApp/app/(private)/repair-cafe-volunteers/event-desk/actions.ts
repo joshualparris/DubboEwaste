@@ -42,7 +42,8 @@ export async function checkInRepairItem(form:FormData){
  const category=field(form,"category"),item=field(form,"item"),fault=field(form,"fault"),visitorName=field(form,"visitor_name");
  const risk=field(form,"risk"),riskNotes=field(form,"risk_notes");
  if(!["electronics","computers","small_appliance","textiles","bicycle","furniture","household","other"].includes(category)
-  ||item.length<2||item.length>160||fault.length<3||fault.length>700||riskNotes.length>500\n  ||visitorName.length<1||visitorName.length>50||/[\\x00-\\x1f\\x7f]/.test(visitorName)
+  ||item.length<2||item.length>160||fault.length<3||fault.length>700||riskNotes.length>500
+  ||visitorName.length<1||visitorName.length>50||/[\x00-\x1f\x7f]/.test(visitorName)
   ||!["clear","review","unsafe"].includes(risk))
   fail(eventId,"Check the item, fault and safety assessment.");
  if(field(form,"screened")!=="yes"||field(form,"acknowledged")!=="yes")
