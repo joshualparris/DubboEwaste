@@ -6,7 +6,7 @@ import {
  addVenueHistory,removeVenueHistory,recordCompetency,removeCompetency,recordAttendance,
  createIncident,amendIncident,saveTicketWeight,uploadTicketPhoto,removeTicketPhoto,
  saveNoticePreferences,saveManualNoticePreferences,queueVolunteerNotice,
- restoreArchivedEvent,archiveActiveEvent
+ restoreArchivedEvent,archiveActiveEvent,restoreArchivedVolunteer,restoreArchivedVenue
 } from "./actions";
 import styles from "./operations.module.css";
 type Event={id:string;event_date:string;title:string;status:string;venue_id:string|null;venue_status:string;deleted_at:string|null};
@@ -31,6 +31,10 @@ export default async function OperationsPage({searchParams}:{searchParams:Promis
   supabase.from("repair_cafe_notification_preferences").select("email,phone,email_opt_in,sms_opt_in").eq("user_id",user.id).maybeSingle()
  ]);
  const events=(eventsData??[]) as Event[],members=(profiles??[]) as Person[],manual=(manualData??[]) as Manual[];
+ const [{data:archivedVolunteers},{data:archivedVenues}]=await Promise.all([
+  supabase.from("repair_cafe_manual_volunteers").select("id,full_name").not("deleted_at","is",null).order("full_name").limit(100),
+  supabase.from("repair_cafe_venues").select("id,name").not("deleted_at","is",null).order("name").limit(100)
+ ]);
  const e=events.find(s=>s.id===params.event&&!s.deleted_at)??events.find(s=>!s.deleted_at)??null;
  const event=e?.id??"";
  const personName=(user_id:string|null,manual_id:string|null)=>manual_id?manual.find(v=>v.id===manual_id)?.full_name??"Manual volunteer":members.find(v=>v.user_id===user_id)?.display_name??"Member";
@@ -191,10 +195,25 @@ export default async function OperationsPage({searchParams}:{searchParams:Promis
     <input type="hidden" name="event_id" value={event}/><label>Type ARCHIVE to hide session<input name="confirm" placeholder="ARCHIVE" required/></label>
     <button className="button secondary">Archive this session</button>
    </form>:<p className={styles.hint}>Unpublish the session before archiving it.</p>}
-   <h3>Archived sessions</h3><div className={styles.entries}>{events.filter(x=>x.deleted_at).map(x=><form action={restoreArchivedEvent} key={x.id} className={styles.attendance}>
-    <span>{dateText(x.event_date)} · {x.title}</span><input type="hidden" name="event_id" value={x.id}/>
-    <button className="button secondary">Restore as draft</button></form>)}</div>
+
   </section></>:null}
+  <section className={styles.panel}><h2>Recover archived records</h2>
+   <p className={styles.hint}>Restoring an event always leaves it a draft. Restoring a venue or volunteer does not re-confirm bookings or previously withdrawn shifts.</p>
+   <div className={styles.cols}>
+    <div><h3>Sessions</h3>{events.filter(x=>x.deleted_at).length===0?<p className={styles.hint}>None archived</p>:null}
+     {events.filter(x=>x.deleted_at).map(x=><form action={restoreArchivedEvent} key={x.id} className={styles.attendance}>
+      <span>{dateText(x.event_date)} · {x.title}</span><input type="hidden" name="event_id" value={x.id}/>
+      <button className="button secondary">Restore draft</button></form>)}</div>
+    <div><h3>Volunteers</h3>{(archivedVolunteers??[]).length===0?<p className={styles.hint}>None archived</p>:null}
+     {(archivedVolunteers??[]).map(x=><form action={restoreArchivedVolunteer} key={x.id} className={styles.attendance}>
+      <span>{x.full_name}</span><input type="hidden" name="manual_volunteer_id" value={x.id}/>
+      <button className="button secondary">Restore person</button></form>)}</div>
+    <div><h3>Venues</h3>{(archivedVenues??[]).length===0?<p className={styles.hint}>None archived</p>:null}
+     {(archivedVenues??[]).map(x=><form action={restoreArchivedVenue} key={x.id} className={styles.attendance}>
+      <span>{x.name}</span><input type="hidden" name="venue_id" value={x.id}/>
+      <button className="button secondary">Restore venue</button></form>)}</div>
+   </div>
+  </section>
   <footer className={styles.hint}>This volunteer workspace is not a medical or electrical compliance certification. Confirm insurance, child safety, permitted repairs and real-world incident escalation locally before the first public event.</footer>
  </div>;
 }
