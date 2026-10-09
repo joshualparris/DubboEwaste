@@ -84,4 +84,31 @@ assert(live.includes('view==="stations"?atStations') &&
  live.includes('atStations.filter(t=>t.station_id===st.id)') &&
  live.includes('["waiting","in_progress"].includes(t.status)'),
  "Assigned waiting tickets must be shown in At stations and on the station board");
-console.log("Repair Café operations source QA PASS: 30 checks. Not a browser test.");
+const offlineStore=read("app/(private)/repair-cafe-volunteers/event-desk/offline-store.ts");
+const offlineShell=read("app/(private)/repair-cafe-volunteers/event-desk/OfflineDeskShell.tsx");
+const offlineSQL=read("supabase/migrations/20261009199000_repair_cafe_offline_sync.sql");
+assert(offlineStore.includes('AES-GCM')&&offlineStore.includes('PBKDF2')&&
+ offlineStore.includes('indexedDB.open')&&offlineStore.includes('crypto.subtle.encrypt'),
+ "Offline drafts must be encrypted at rest in IndexedDB");
+assert(!offlineStore.includes('localStorage.setItem')&&
+ !offlineStore.includes('sessionStorage.setItem'),
+ "No unencrypted visitor notes or encryption key in web storage");
+assert(offlineSQL.includes("pg_advisory_xact_lock")&&
+ offlineSQL.includes("payload_hash")&&
+ offlineSQL.includes("repair_cafe_offline_receipts"),
+ "Offline check-ins must prevent replay duplicates atomically");
+assert(offlineSQL.includes("repair_cafe_edit_waiting_notes")&&
+ offlineSQL.includes("repair_cafe_save_ticket_with_progress")&&
+ offlineSQL.includes("private.has_program('repair_cafe')"),
+ "Offline sync must reuse existing safety, programme and concurrency rules");
+assert(offlineShell.includes("conflictPattern")&&
+ offlineShell.includes("updateOperationState")&&
+ offlineShell.includes("encryptedBackup")&&
+ offlineShell.includes("dropOperation"),
+ "Offline changes must be recoverable and conflicts must not be silently overridden");
+assert(deskPage.includes("<OfflineDeskShell")&&
+ deskPage.includes('data-offline-kind="check_in"')&&
+ live.includes('data-offline-kind="ticket_update"')&&
+ queueNoteUI.includes('data-offline-kind="queue_notes"'),
+ "Supported Event Desk forms must be connected to offline capture");
+console.log("Repair Café operations source QA PASS: 36 checks. Offline browser testing still required.");
