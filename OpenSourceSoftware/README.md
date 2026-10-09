@@ -1,5 +1,9 @@
 # Open Source Software for Dubbo E-Waste / ITAD
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Design/research boundary (9 October 2026):** The specifications here are historical product research and proposed architecture; `EwasteApp/` is the deployed implementation. Do not infer features marked as proposals in this folder are production-ready; verify against [live feature register](../docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) and [repository documentation inventory](../docs/DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md).
+
+
 Research into software used by IT asset disposition (ITAD), refurbishment and e-waste operators, with a focus on free/open-source tools and functionality that could be built in-house.
 
 ## Core finding

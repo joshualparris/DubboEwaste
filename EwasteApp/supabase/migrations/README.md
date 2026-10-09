@@ -1,5 +1,9 @@
 # Supabase migration guide
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 live migration warning:** The Repair Café has many additive migrations (events/venues/rosters, manual volunteers, canonical tickets/stations/history, incident and audit, notification outbox, archive/restore, knowledge, offline sync, QR, station dispatch, training and waitlist additions). The production Supabase migration history does **not** automatically match filename timestamps; some migrations were applied under different Supabase-generated versions. Do **not** run all `.sql` files alphabetically in production or assume the late 20261009 waitlist/training/feedback migrations are applied merely because the files exist. Compare deployed migration history against repository SQL; check dependencies, RLS, functions and triggers in the actual environment; prefer tested incremental migrations. Legacy duplicate ticket tables are not the operational write path. See [live feature verification](../../../docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md).
+
+
 The SQL files in this directory reflect how the schema evolved during rapid AssetFlow development.
 
 ## Important: numbering is historical, not a reliable execution order

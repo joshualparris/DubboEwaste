@@ -1,5 +1,9 @@
 # Production architecture handoff
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Archived architectural handoff (9 October 2026):** This describes the legacy static prototype/early aspirations and should *not* be read as the current production architecture. Current Next.js + Supabase Auth/Postgres/RLS code lives under [`EwasteApp/`](../EwasteApp/), with per-programme scopes, Repair Café ticket/queue, knowledge, operations, LMS and Library of Things. Read [current architecture](../EwasteApp/ARCHITECTURE.md) and [verified features](../docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md).
+
+
 The MVP is intentionally static and safe for demonstrations. A production deployment should replace the demo adapters with:
 
 ## Identity and roles

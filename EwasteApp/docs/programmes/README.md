@@ -1,5 +1,9 @@
 # Programme separation and scoped roles
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Current boundary check (9 October 2026):** Programme-scoped access now covers E-waste asset flows, Library of Things lending, Repair Café tickets and volunteer operations. Repair Café **visitor-owned tickets** are stored in `repair_cafe_tickets`, not in E-waste assets or Library of Things loans. Event Desk, roster, knowledge, station dispatch, attendance, learning and coordinator-only incident/photos/outbox use RLS plus authenticated context and secure RPCs. Manually added Repair Café people are directory records, not login users. Re-check live RLS and [feature register](../../../docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) before granting permissions; route hiding by itself is insufficient.
+
+
 Each tracked item has `programme`, `owner_kind` and optional `owner_name`. Programmes are E-waste, Library of Things and Repair Café. Existing inventory stays E-waste with ownership marked unconfirmed; a previous authority check is not treated as proof of programme ownership. Repair Café feedback/demand records are assigned Repair Café. New Repair Café intake defaults to customer ownership; lending intake defaults to programme ownership.
 
 ## Roles and administration

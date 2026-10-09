@@ -1,5 +1,9 @@
 # Canonical research index
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Current reference (9 October 2026):** This file is an index of dated research, not the current software roadmap. For the **complete current document file inventory**, see [Documentation freshness inventory](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md), and for actual app capabilities/database status see [Live features & verification](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md). Avoid using 2–8 October research gaps as proof a now-shipped app feature is still missing, or vice versa: software completion does not confirm a real-world partner agreement.
+
+
 Use this page to find the current authority first. The repository deliberately retains older gap lists, chat syntheses and correction files for provenance; they are not automatically current merely because they are detailed.
 
 ## Start here

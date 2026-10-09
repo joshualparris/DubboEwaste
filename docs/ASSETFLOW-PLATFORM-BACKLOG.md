@@ -1,5 +1,9 @@
 # AssetFlow platform backlog
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Review note (9 October 2026):** The original priority and checklists below reflect an earlier AssetFlow product phase. CRM, operations, learning and a separate Repair Café programme have moved forward. Use the [current feature register](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) to verify implementation. Any comparison-only ERP, sanitisation vendor, messaging or external integration claims remain *proposals* unless configured and tested. Repair Café event tickets should never be merged into AssetFlow commercial inventory.
+
+
 This is the implementation backlog for the broader AssetFlow product. It translates the Recycly, Razor ERP, Blancco, BitRaser and reCore feature comparison into work that is appropriate for DubboEwaste.
 
 Updated: 2 October 2026

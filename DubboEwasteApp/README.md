@@ -1,5 +1,9 @@
 # DubboEwasteApp static prototype
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Legacy status reconfirmed (9 October 2026):** This is a static prototype and not the source of the production Repair Café, AssetFlow or Library of Things routes. [Live software features and verification](../docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) are maintained separately.
+
+
 This directory on **`main` is an older dependency-free prototype** of the operations UI.
 
 It is **not the current production app**.
