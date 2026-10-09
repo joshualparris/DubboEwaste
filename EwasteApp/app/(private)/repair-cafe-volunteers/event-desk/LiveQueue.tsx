@@ -1,31 +1,30 @@
 "use client";
 
 import {useCallback,useEffect,useMemo,useRef,useState} from "react";
-import {createClient} from "@/lib/supabase/browser";\nimport Link from "next/link";
+import {createClient} from "@/lib/supabase/browser";
+import Link from "next/link";
 import {saveRepairTicket} from "./actions";
+import ProgressOutcomeFields,{progressChoices} from "./ProgressOutcomeFields";
 import styles from "./event-desk.module.css";
 
 export type LiveTicket={
  id:string;event_id:string;ticket_number:number;visitor_display_name:string;item_category:string;
  item_description:string;reported_problem:string;risk_level:string;risk_notes:string;
- status:string;outcome:string|null;barrier:string|null;station_id:string|null;
+ status:string;outcome:string|null;progress_code:string|null;barrier:string|null;station_id:string|null;
  work_summary:string;parts_used:string;handover_advice:string;
  arrived_at:string;started_at:string|null;closed_at:string|null;updated_at:string;
 };
 export type LiveStation={id:string;event_id:string;name:string;category:string;location_note:string};
-export type LiveActivity={id:string;ticket_id:string;from_status:string|null;to_status:string;note:string;created_at:string};
+export type LiveActivity={id:string;ticket_id:string;from_status:string|null;to_status:string;note:string;progress_code:string|null;created_at:string};
 
-const statuses=["waiting","in_progress","completed","referred","not_attempted","void"];
-const results=[["","No outcome yet"],["fixed","Fixed"],["partially_fixed","Partially fixed"],
- ["not_fixed","Not fixed"],["referred","Referred elsewhere"],["not_attempted","Not attempted"]];
 const barriers=[["","Not specified"],["parts","Parts unavailable"],["time","Time / capacity"],
  ["skills","Skills / tools"],["safety","Safety"],["cost","Cost"],
  ["not_repairable","Not repairable"],["other","Other"]];
 const pretty=(x:string|null|undefined)=>(x||"—").replaceAll("_"," ").replace(/^./,c=>c.toUpperCase());
 const auTime=(s:string)=>new Date(s).toLocaleTimeString("en-AU",{timeZone:"Australia/Sydney",hour:"numeric",minute:"2-digit"});
-const columns="id,event_id,ticket_number,visitor_display_name,item_category,item_description,reported_problem,risk_level,risk_notes,status,outcome,barrier,station_id,work_summary,parts_used,handover_advice,arrived_at,started_at,closed_at,updated_at";
+const columns="id,event_id,ticket_number,visitor_display_name,item_category,item_description,reported_problem,risk_level,risk_notes,status,outcome,progress_code,barrier,station_id,work_summary,parts_used,handover_advice,arrived_at,started_at,closed_at,updated_at";
 const stationColumns="id,event_id,name,category,location_note";
-const activityColumns="id,ticket_id,from_status,to_status,note,created_at";
+const activityColumns="id,ticket_id,from_status,to_status,note,progress_code,created_at";
 type Connection="connecting"|"live"|"reconnecting"|"offline"|"restricted";
 type View="queue"|"stations"|"closed"|"all";
 type Props={
@@ -251,8 +250,13 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
        <span>Station: {stations.find(st=>st.id===t.station_id)?.name||"Unassigned"}</span>
        {t.risk_level!=="clear"?<span className={styles.risk}>{pretty(t.risk_level)} safety flag</span>:null}
       </div>
-      {t.outcome?<p className={styles.outcome}><strong>Outcome:</strong> {pretty(t.outcome)}{t.barrier?" · "+pretty(t.barrier):""}</p>:null}
-      {canManage&&["completed","referred","not_attempted"].includes(t.status)?<p><Link href={"/repair-cafe-volunteers/knowledge?ticket="+t.id}>Save as repair lesson →</Link></p>:null}\n      {t.handover_advice?<p className={styles.hint}><strong>Handover:</strong> {t.handover_advice}</p>:null}
+      {t.progress_code?<p className={styles.outcome}><strong>Progress so far:</strong>{" "}
+       {progressChoices.find(([code])=>code===t.progress_code)?.[1]||pretty(t.progress_code)}
+       {!t.outcome?" · Still open":""}
+      </p>:null}
+      {t.outcome?<p className={styles.outcome}><strong>Final outcome:</strong> {pretty(t.outcome)}{t.barrier?" · "+pretty(t.barrier):""}</p>:null}
+      {canManage&&["completed","referred","not_attempted"].includes(t.status)?<p><Link href={"/repair-cafe-volunteers/knowledge?ticket="+t.id}>Save as repair lesson →</Link></p>:null}
+      {t.handover_advice?<p className={styles.hint}><strong>Handover:</strong> {t.handover_advice}</p>:null}
       <details className={styles.ticketDetails} onToggle={e=>{
        if(e.currentTarget.open)setEditing({id:t.id,revision:t.updated_at});
        else setEditing(old=>old?.id===t.id?null:old);
@@ -264,19 +268,17 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
        {active?<form action={saveRepairTicket} className={styles.form}>
         <input type="hidden" name="event_id" value={eventId}/>
         <input type="hidden" name="ticket_id" value={t.id}/>
-        <label>Status <select name="status" defaultValue={t.status} required>
-         {statuses.filter(s=>canManage||s!=="void").map(s=><option key={s} value={s}>{pretty(s)}</option>)}
-        </select></label>
+        <input type="hidden" name="revision" value={t.updated_at}/>
+        <ProgressOutcomeFields status={t.status} outcome={t.outcome} progressCode={t.progress_code} canManage={canManage}/>
         <label>Repair station <select name="station_id" defaultValue={t.station_id||""}>
          <option value="">Not assigned</option>{stations.map(s=><option key={s.id} value={s.id}>{s.name}</option>)}
         </select></label>
-        <label>Outcome (required when closed)<select name="outcome" defaultValue={t.outcome||""}>
-         {results.map(([v,n])=><option key={v} value={v}>{n}</option>)}
-        </select></label>
+
         <label>Reason repair couldn't be completed <select name="barrier" defaultValue={t.barrier||""}>
          {barriers.map(([v,n])=><option key={v} value={v}>{n}</option>)}
         </select></label>
-        <label>Repair notes <textarea name="note" rows={3} maxLength={1200} placeholder="What did you check, try or observe?"/></label>
+        <label>Repair notes / milestone <textarea name="note" rows={3} maxLength={1200}
+          placeholder="E.g. power now works, but the screen is still blank"/></label>
         <label>Parts or materials used <input name="parts" defaultValue={t.parts_used} maxLength={300}/></label>
         <label>Advice to visitor <textarea name="advice" defaultValue={t.handover_advice} rows={2} maxLength={700}/></label>
         {canManage?<><label>Safety state <select name="risk" defaultValue={t.risk_level}>
@@ -284,13 +286,14 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
         </select></label>
         <label>Safety notes <textarea name="risk_notes" defaultValue={t.risk_notes} rows={2} maxLength={500}/></label></>:
         <><input type="hidden" name="risk" value={t.risk_level}/><input type="hidden" name="risk_notes" value={t.risk_notes}/></>}
-        <p className={styles.hint}>To begin: choose In progress and a station. Unsafe items cannot be repaired. Changes are logged.</p>
+        <p className={styles.hint}>To begin: choose In progress and a station. Record interim findings freely while the ticket remains open. Select Completed only for the final handover. Changes are logged.</p>
         <button className="button" disabled={!!stale}>Save repair update</button>
        </form>:null}
        {activities.filter(a=>a.ticket_id===t.id).length?<div className={styles.history}>
         <h4>Change history</h4>
         {activities.filter(a=>a.ticket_id===t.id).map(a=><div key={a.id}>
-         <span>{auTime(a.created_at)} · {pretty(a.to_status)}</span>
+         <span>{auTime(a.created_at)} · {pretty(a.to_status)}
+          {a.progress_code?" · "+(progressChoices.find(([code])=>code===a.progress_code)?.[1]||pretty(a.progress_code)):""}</span>
          {a.note?<p>{a.note}</p>:null}
         </div>)}
        </div>:null}
