@@ -81,7 +81,10 @@ export default async function EventDesk({searchParams}:{
    <div><div className={styles.eyebrow}>Private volunteer workspace · Community repairs</div>
     <h1>Repair Café Event Desk</h1>
     <p>Check in a visitor's item, keep the queue moving, record repair outcomes and hand over useful advice.</p></div>
-   <PrintButton/>
+   <div className={styles.headerActions}>
+    {canManage&&session?<Link className="button secondary" href={"/repair-cafe-volunteers/event-desk/export?event="+session.id}>Export de-identified outcomes CSV</Link>:null}
+    <PrintButton/>
+   </div>
   </header>
   {params.error?<div className="error" role="alert">{params.error}</div>:null}
   {params.success?<div className="success" role="status">{params.success}</div>:null}
