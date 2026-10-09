@@ -123,7 +123,9 @@ export default async function EventDesk({searchParams}:{
     <p className={styles.hint}>One item per ticket. Visitors keep ownership and stay with their belongings. Only collect a first name or nickname to call someone forward. Don't record surnames, passwords or personal documents.</p>
     {active?<form action={checkInRepairItem} className={styles.form}>
      <input type="hidden" name="event_id" value={session.id}/>
-     <label>Visitor first name or nickname <input name="visitor_name" required minLength={1} maxLength={50} placeholder="e.g. Bob" autoComplete="off"/></label>\n     <p className={styles.hint}>Used to call the visitor when a repairer is ready. No surname needed.</p>\n     <label>Item category <select name="category" defaultValue="" required><option value="" disabled>Choose a category</option>
+     <label>Visitor first name or nickname <input name="visitor_name" required minLength={1} maxLength={50} placeholder="e.g. Bob" autoComplete="off"/></label>
+     <p className={styles.hint}>Used to call the visitor when a repairer is ready. No surname needed.</p>
+     <label>Item category <select name="category" defaultValue="" required><option value="" disabled>Choose a category</option>
       {categories.map(([v,n])=><option key={v} value={v}>{n}</option>)}</select></label>
      <label>What item is it? <input name="item" minLength={2} maxLength={160} required placeholder="e.g. toaster, jacket, bike"/></label>
      <label>What is wrong? <textarea name="fault" minLength={3} maxLength={700} required rows={2} placeholder="Visitor's description of the problem"/></label>
@@ -181,7 +183,8 @@ export default async function EventDesk({searchParams}:{
     {tickets.map(t=><article className={styles.ticket} key={t.id}>
      <div className={styles.ticketHeader}><span className={styles.queueNumber}>#{t.ticket_number}</span>
       <span className={styles.state}>{pretty(t.status)}</span></div>
-     <h3>{t.visitor_display_name? t.visitor_display_name+" · ":""}{t.item_description}</h3>\n     {t.visitor_display_name&&t.status==="waiting"?<p className={styles.hint}><strong>Call out:</strong> “{t.visitor_display_name}, we’re ready to help you with your {t.item_description}.”</p>:null}
+     <h3>{t.visitor_display_name? t.visitor_display_name+" · ":""}{t.item_description}</h3>
+     {t.visitor_display_name&&t.status==="waiting"?<p className={styles.hint}><strong>Call out:</strong> “{t.visitor_display_name}, we’re ready to help you with your {t.item_description}.”</p>:null}
      <p className={styles.problem}>{t.reported_problem}</p>
      <div className={styles.ticketMeta}>
       <span>{pretty(t.item_category)}</span><span>Arrived {shortTime(t.arrived_at)}</span>
@@ -244,7 +247,8 @@ export default async function EventDesk({searchParams}:{
     <p className={styles.hint}>If internet fails, note the queue number, item and repair steps on paper; enter records later. Keep completed sheets secure and follow the agreed retention policy.</p>
     <div className={styles.paperForm}>
      <p>Event: {day(session.event_date)} · Ticket #: __________</p>
-     <p>Visitor first name/nickname: _______________________</p>\n     <p>Item/category: ___________________________________</p>
+     <p>Visitor first name/nickname: _______________________</p>
+     <p>Item/category: ___________________________________</p>
      <p>Reported problem: ________________________________</p>
      <p>Visitor acknowledgement: □ &nbsp; Safety screened: □ &nbsp; Risk / refusal: __________________</p>
      <p>Station / repair steps: ____________________________</p>
