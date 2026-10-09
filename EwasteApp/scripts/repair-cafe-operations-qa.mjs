@@ -45,4 +45,20 @@ assert(live.includes("Live updates connected")&&live.includes("Last checked"),
  "Show a truthful live connection/synchronisation status");
 assert(deskPage.includes("<LiveQueue")&&!deskPage.includes("Refresh to see another volunteer"),
  "The Event Desk must render live queue instead of a stale manual-refresh board");
-console.log("Repair Café operations source QA PASS: 18 feature/privacy checks. Not a signed-in multi-device browser test.");
+const progressSql=read("supabase/migrations/20261009192000_repair_cafe_interim_repair_progress.sql");
+const progressUI=read("app/(private)/repair-cafe-volunteers/event-desk/ProgressOutcomeFields.tsx");
+const deskActions=read("app/(private)/repair-cafe-volunteers/event-desk/actions.ts");
+assert(progressSql.includes("progress_code")&&progressSql.includes("p_expected_updated_at"),
+ "Interim progress and server-side conflict prevention are required");
+assert(progressSql.includes("perform public.repair_cafe_save_ticket(")&&progressSql.includes("progress_code=p_progress_code"),
+ "Progress writes must reuse the original permission/safety rules");
+assert(progressUI.includes('name="progress_code"')&&progressUI.includes('name="outcome"')&&
+ progressUI.includes('status==="completed"'),"Interim finding must not be counted as final outcome");
+assert(deskActions.includes('repair_cafe_save_ticket_with_progress')&&
+ deskActions.includes("p_expected_updated_at:revision"),
+ "Ticket updates must use checked, audited progress RPC");
+assert(live.includes("progressChoices")&&live.includes("Progress so far:")&&
+ live.includes("a.progress_code"),"Live view and timeline must show partial findings");
+assert(deskPage.includes("note,progress_code,created_at")&&
+ deskPage.includes("outcome,progress_code,barrier"),"SSR snapshot must include progress");
+console.log("Repair Café operations source QA PASS: 24 feature/privacy checks. Not a signed-in browser test.");
