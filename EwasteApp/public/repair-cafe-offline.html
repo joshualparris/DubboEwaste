@@ -126,9 +126,13 @@ async function seal(value){
 async function save(kind,payload){
  if(!key||!owner||!eventId)throw Error("Unlock a prepared event first");
  const others=(await allRecords("operations")).filter(o=>o.owner===owner);
- if(kind!=="check_in"&&others.some(o=>o.eventId===eventId&&o.status==="pending"
-  &&o.key!==undefined&&o.ticketId===payload.ticket_id))
-  throw Error("There is already an unsynchronised edit for this ticket");
+ if(kind!=="check_in"){
+  for(const row of others.filter(o=>o.eventId===eventId)){
+   const saved=await decrypt(row.iv,row.cipher);
+   if(saved.payload?.ticket_id===payload.ticket_id)
+    throw Error("There is already a saved edit for this ticket. Synchronise or review it before adding another.");
+  }
+ }
  const id=crypto.randomUUID(),sealed=await seal({kind,payload});
  const db=await openDB();
  try{
