@@ -6,7 +6,7 @@ type CountItem = { site?: string; event_name?: string; total?: number; page_grou
 type Report = {
   day_sydney: string; events_total: number;
   by_site: CountItem[]; pages: CountItem[]; clicks: CountItem[];
-  locations: CountItem[]; devices: CountItem[];
+  locations: CountItem[]; devices: CountItem[]; referrers: CountItem[]; referrer_domain?: string;
 };
 function dayInSydney() {
   const entries = new Intl.DateTimeFormat("en-GB", {
@@ -21,7 +21,7 @@ function TableSection({ title, items, name }: { title: string; items: CountItem[
     {items.length ? <div style={{overflowX:"auto"}}><table style={{width:"100%",textAlign:"left"}}>
       <thead><tr><th>Item</th><th>Site</th><th>Count</th></tr></thead>
       <tbody>{items.slice(0,30).map((v,i) => <tr key={i}>
-        <td>{String(v[name] || "unknown")}</td><td>{v.site || "Both"}</td>
+        <td>{String(v[name] || "unknown")}{name === "country" ? " / " + (v.region || "unknown") : ""}</td><td>{v.site || "Both"}</td>
         <td>{n(v.total)}</td></tr>)}</tbody>
     </table></div> : <p>No events yet.</p>}</section>;
 }
@@ -65,6 +65,7 @@ export default async function AnalyticsDashboard() {
     <TableSection title="Today's most clicked links and actions" items={today?.clicks || []} name="target_group" />
     <TableSection title="Today's visitor country/state (approximate)" items={today?.locations || []} name="country" />
     <TableSection title="Today's device types" items={today?.devices || []} name="device_class" />
+    <TableSection title="Today's referring websites" items={today?.referrers || []} name="referrer_domain" />
     <section className="card"><h2>How reports work</h2>
       <p>Individual visitors cannot be identified from this dashboard. A visit is a page-view event,
       not necessarily a unique person. Browser privacy settings can prevent tracking.</p>
