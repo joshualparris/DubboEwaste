@@ -120,8 +120,13 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
   const onOnline=()=>{setConnection("reconnecting");void sync()};
   const onOffline=()=>setConnection("offline");
   const onVisible=()=>{if(document.visibilityState==="visible")void sync()};
+  const offlineSynced=(e:Event)=>{
+   const message=e as CustomEvent<{eventId:string}>;
+   if(message.detail?.eventId===eventId)void sync();
+  };
   window.addEventListener("online",onOnline);
   window.addEventListener("offline",onOffline);
+  window.addEventListener("repair-cafe-offline-synced",offlineSynced);
   document.addEventListener("visibilitychange",onVisible);
   // Poll as a safety net for short-lived disconnections / missed messages.
   // Keeps the queue usable even when the realtime WebSocket is unavailable.
@@ -135,6 +140,7 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
    clearInterval(interval);
    window.removeEventListener("online",onOnline);
    window.removeEventListener("offline",onOffline);
+   window.removeEventListener("repair-cafe-offline-synced",offlineSynced);
    document.removeEventListener("visibilitychange",onVisible);
    syncRef.current=null;
    void db.removeChannel(channel);
