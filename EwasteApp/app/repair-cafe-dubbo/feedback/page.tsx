@@ -3,7 +3,8 @@ import {createClient} from "@/lib/supabase/server";
 import {submitFeedback} from "./actions";
 export default async function Feedback({searchParams}:{searchParams:Promise<{event?:string;thanks?:string;error?:string}>}){
  const p=await searchParams,db=await createClient();
- const {data:events,error}=await db.rpc("repair_cafe_recent_feedback_events");
+ const {data:rawEvents,error}=await db.rpc("repair_cafe_recent_feedback_events");
+ const events=(rawEvents??[]) as {id:string;title:string;event_date:string}[];
  return <main style={{maxWidth:640,margin:"auto",padding:"30px 16px"}}>
  <Link href="/repair-cafe-dubbo">← Repair Café Dubbo</Link><h1>How did your visit go?</h1>
  <p>Optional anonymous feedback to help us improve. No account, name, email, item serial number or contact details required. Please avoid personal information in your comment.</p>
