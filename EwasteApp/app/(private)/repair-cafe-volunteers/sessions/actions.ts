@@ -66,11 +66,16 @@ export async function updateSession(form:FormData) {
  const {supabase}=await actor(true);
  const id=value(form,"event_id"),event_date=value(form,"event_date"),title=value(form,"title"),starts_at=value(form,"starts_at"),ends_at=value(form,"ends_at"),focus=value(form,"focus");
  if(!validId(id)||!validDate(event_date)||!timePattern.test(starts_at)||!timePattern.test(ends_at)||ends_at<=starts_at||title.length<3||title.length>150||focus.length>350)fail("Check the session details.");
- const {data:old,error:readError}=await supabase.from("repair_cafe_sessions").select("status,event_date,starts_at,ends_at").eq("id",id).single();
+ const {data:old,error:readError}=await supabase.from("repair_cafe_sessions").select("status,event_date,starts_at,ends_at,title,focus").eq("id",id).single();
  if(readError||!old)fail("Session not found.");
- if(old.status==="published"&&(event_date!==old.event_date||starts_at!==old.starts_at?.slice(0,5)||ends_at!==old.ends_at?.slice(0,5)))fail("Unpublish the session before changing its public date or time, and notify participants.");
- const {error}=await supabase.from("repair_cafe_sessions").update({event_date,title,starts_at,ends_at,focus,updated_at:new Date().toISOString()}).eq("id",id);
- errMessage(error,"Could not save session");done("Session details saved.");
+ const changed=event_date!==old.event_date||starts_at!==old.starts_at?.slice(0,5)||
+  ends_at!==old.ends_at?.slice(0,5)||title!==old.title||focus!==old.focus;
+ if(old.status==="published"&&changed&&value(form,"acknowledge_public_change")!=="yes")
+  fail("Tick the acknowledgement before editing a published event. It will be unpublished and people must be notified.");
+ const changes={event_date,title,starts_at,ends_at,focus,
+  status:old.status==="published"&&changed?"draft":old.status,updated_at:new Date().toISOString()};
+ const {error}=await supabase.from("repair_cafe_sessions").update(changes).eq("id",id);
+ errMessage(error,"Could not save session");done(old.status==="published"&&changed?"Session changed and unpublished. Notify affected people before re-publishing.":"Session details saved.");
 }
 export async function setVenueForSession(form:FormData) {
  const {supabase}=await actor(true);
