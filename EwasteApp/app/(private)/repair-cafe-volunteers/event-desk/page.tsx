@@ -47,7 +47,7 @@ export default async function EventDesk({searchParams}:{
  const params=await searchParams;
  const {data:sessionData,error:sessionError}=await supabase.from("repair_cafe_sessions")
   .select("id,event_date,title,starts_at,ends_at,status,focus,venue_status")
-  .order("event_date",{ascending:true}).limit(100);
+  .is("deleted_at",null).order("event_date",{ascending:true}).limit(100);
  const sessions=(sessionData??[]) as Session[];
  const requested=params.event&&uuid.test(params.event)?params.event:null;
  const session=sessions.find(s=>s.id===requested)??sessions.find(s=>!["completed","cancelled"].includes(s.status))??sessions[0]??null;
