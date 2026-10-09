@@ -37,11 +37,13 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f2f5f2;border-radius
 <div id="alert" class="warning" role="alert"></div>
 <div id="status" class="status" role="status"></div>
 <section id="lock">
-<h2>Unlock saved workspace</h2>
-<label>Prepared account <select id="user" required></select></label>
-<label>Offline passphrase <input type="password" id="phrase" minlength="12" autocomplete="off" required/></label>
-<button id="unlock" type="button">Unlock local work</button>
-<p class="muted">The passphrase is not stored. If there is no prepared workspace, reconnect and enable Offline Mode from the signed-in Event Desk first. Private/incognito tabs may erase local records.</p>
+<h2>Trusted device offline workspace</h2>
+<p class="muted">Your offline work is encrypted with a non-exportable key kept in this browser.
+ No second passphrase. Only use a trusted, screen-locked device: anyone able to use this browser profile may access the offline copy.</p>
+<label id="userLabel">Prepared volunteer account <select id="user" required></select></label>
+<button id="unlock" type="button">Open offline work</button>
+<p class="muted">If no account is prepared, reconnect, sign in with your normal volunteer account and select <strong>Enable offline on this device</strong>.
+ Signing in again online as the same volunteer is required before synchronisation. Private/incognito storage may be erased.</p>
 </section>
 <div id="desk" hidden>
 <section>
@@ -108,11 +110,6 @@ async function allRecords(name){
  try{return await request(db.transaction(name).objectStore(name).getAll())}
  finally{db.close()}
 }
-async function derive(password,salt){
- const material=await crypto.subtle.importKey("raw",encoder.encode(password),"PBKDF2",false,["deriveKey"]);
- return crypto.subtle.deriveKey({name:"PBKDF2",salt:new Uint8Array(salt),iterations:220000,
- hash:"SHA-256"},material,{name:"AES-GCM",length:256},false,["encrypt","decrypt"]);
-}
 async function decrypt(iv,cipher){
  const data=await crypto.subtle.decrypt({name:"AES-GCM",iv:new Uint8Array(iv)},key,cipher);
  return JSON.parse(decoder.decode(data));
@@ -160,18 +157,14 @@ async function drawPending(){
 async function unlock(){
  try{
   const id=$("user").value;
-  if(!id)throw Error("No prepared offline account found");
-  const phrase=$("phrase").value;
-  if(phrase.length<12)throw Error("Passphrase must be at least 12 characters");
+  if(!id)throw Error("No trusted offline account prepared on this device");
   const workspace=await fromStore("workspaces",id);
-  if(!workspace?.eventId)throw Error("No event was prepared in this offline workspace");
-  const derived=await derive(phrase,workspace.salt);
-  key=derived;
-  const test=await decrypt(workspace.iv,workspace.check);
+  if(!workspace?.eventId)throw Error("No event prepared in this offline workspace");
+  if(workspace.mode!=="trusted"||!workspace.deviceKey)
+   throw Error("Older passphrase-protected work found. Reconnect and sign in with the volunteer account to migrate it once without losing records.");
+  key=workspace.deviceKey;
   owner=id.slice("workspace:".length);
-  if(test!=="repair-cafe-offline:"+owner)throw Error("Incorrect passphrase");
   eventId=workspace.eventId;
-  $("phrase").value="";
   const record=await fromStore("snapshots","snapshot:"+owner+":"+eventId);
   snapshot=record?await decrypt(record.iv,record.cipher):{tickets:[],stations:[]};
   $("eventInfo").textContent="Prepared event ID: "+eventId+" · Account: "+owner.slice(0,8)+"…";
@@ -265,7 +258,8 @@ $("intake").addEventListener("submit",async e=>{
 $("unlock").addEventListener("click",unlock);
 (async()=>{
  try{
-  const list=(await allRecords("workspaces")).filter(x=>x.eventId);
+  const list=(await allRecords("workspaces")).filter(x=>x.eventId&&x.mode==="trusted"&&x.deviceKey);
+  const older=(await allRecords("workspaces")).filter(x=>x.eventId&&x.mode!=="trusted");
   const select=$("user");
   for(const w of list){
    const option=document.createElement("option");option.value=w.key;
@@ -273,8 +267,15 @@ $("unlock").addEventListener("click",unlock);
    select.append(option);
   }
   if(!list.length){
-   alertUser("No prepared offline vault found. Reconnect, open the signed-in Event Desk and enable encrypted Offline Mode before going offline.");
+   alertUser(older.length?
+    "Only older passphrase-protected work is present. Reconnect and sign in to migrate it using its previous passphrase once.":
+    "No trusted offline workspace exists. Reconnect and enable offline saving while signed in.");
    $("unlock").disabled=true;
+  }
+  if(list.length===1){
+   $("user").value=list[0].key;
+   $("userLabel").hidden=true;
+   await unlock();
   }
  }catch(e){alertUser("Local encrypted storage unavailable: "+(e.message||"unknown"))}
 })();
