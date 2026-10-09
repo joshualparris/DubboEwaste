@@ -13,7 +13,11 @@ async function manager(){
 }
 export async function saveKnowledge(form:FormData){
  const supabase=await manager(),id=v(form,"id"),title=v(form,"title");
- const ticketId=v(form,"ticket_id");\n if(ticketId&&!uuid.test(ticketId))fail("Invalid repair ticket");\n if(ticketId){const {data:ticket}=await supabase.from("repair_cafe_tickets").select("id,status").eq("id",ticketId).single();\n if(!ticket||!["completed","referred","not_attempted"].includes(ticket.status))fail("Only closed tickets may become lessons");}\n const entry={title,category:v(form,"category")||"other",manufacturer:v(form,"manufacturer"),
+ const ticketId=v(form,"ticket_id");
+ if(ticketId&&!uuid.test(ticketId))fail("Invalid repair ticket");
+ if(ticketId){const {data:ticket}=await supabase.from("repair_cafe_tickets").select("id,status").eq("id",ticketId).single();
+ if(!ticket||!["completed","referred","not_attempted"].includes(ticket.status))fail("Only closed tickets may become lessons");}
+ const entry={title,category:v(form,"category")||"other",manufacturer:v(form,"manufacturer"),
  model:v(form,"model"),symptoms:v(form,"symptoms"),diagnosis:v(form,"diagnosis"),
  solution:v(form,"solution"),outcome:v(form,"outcome")||"unverified",
  safety_notes:v(form,"safety_notes"),guide_url:v(form,"guide_url"),
@@ -22,7 +26,8 @@ export async function saveKnowledge(form:FormData){
  !["worked","partially_worked","did_not_work","unverified"].includes(entry.outcome)||
  (entry.guide_url&&!/^https:\/\//i.test(entry.guide_url)))fail("Check the knowledge entry and secure guide URL.");
  if(id&&!uuid.test(id))fail("Invalid entry ID.");
- const payload={...entry,...(!id&&ticketId?{ticket_id:ticketId,review_status:"draft"}:{})};\n const {error}=id?await supabase.from("repair_cafe_knowledge").update(entry).eq("id",id):await supabase.from("repair_cafe_knowledge").insert(payload);
+ const payload={...entry,...(!id&&ticketId?{ticket_id:ticketId,review_status:"draft"}:{})};
+ const {error}=id?await supabase.from("repair_cafe_knowledge").update(entry).eq("id",id):await supabase.from("repair_cafe_knowledge").insert(payload);
  if(error)fail("Unable to save: "+error.message);
  revalidatePath(root);redirect(root+"?success="+encodeURIComponent("Knowledge entry saved."));
 }
