@@ -14,7 +14,7 @@ import styles from "./sessions.module.css";
 type Event={id:string;event_date:string;starts_at:string;ends_at:string;title:string;focus:string;status:string;venue_id:string|null;venue_status:string;safety_checked:boolean};
 type Venue={id:string;name:string;address:string;accessibility:string;permitted_activities:string};
 type Available={event_id:string;user_id:string;response:string;note:string};
-type Slot={id:string;event_id:string;role_name:string;required_count:number;notes:string};
+type Slot={id:string;event_id:string;role_name:string;required_count:number;notes:string;starts_at:string;ends_at:string};
 type Assignment={id:string;slot_id:string;user_id:string|null;manual_volunteer_id:string|null;status:string};
 type Manual={id:string;full_name:string;skills:string[]};
 type ManualAvailability={event_id:string;manual_volunteer_id:string;response:string;note:string};
@@ -32,7 +32,7 @@ export default async function RepairCafeSessions({searchParams}:{searchParams:Pr
   supabase.from("repair_cafe_sessions").select("id,event_date,starts_at,ends_at,title,focus,status,venue_id,venue_status,safety_checked").order("event_date",{ascending:true}).limit(48),
   supabase.from("repair_cafe_venues").select("id,name,address,accessibility,permitted_activities").order("name"),
   supabase.from("repair_cafe_availability").select("event_id,user_id,response,note").limit(1000),
-  supabase.from("repair_cafe_shift_slots").select("id,event_id,role_name,required_count,notes").limit(500),
+  supabase.from("repair_cafe_shift_slots").select("id,event_id,role_name,required_count,notes,starts_at,ends_at").limit(500),
   supabase.from("repair_cafe_shift_assignments").select("id,slot_id,user_id,status").limit(1000),
   supabase.from("repair_cafe_volunteer_profiles").select("skills,preference").eq("user_id",user?.id??"00000000-0000-0000-0000-000000000000").maybeSingle()
  ]);
@@ -83,7 +83,10 @@ export default async function RepairCafeSessions({searchParams}:{searchParams:Pr
   </section>
   {canManage?<section className={styles.coordinator}>
    <div className={styles.sectionTitle}><h2>Coordinator desk</h2><span className={styles.pill}>Managers & admins</span></div>
-   <Link href="/repair-cafe-volunteers/people" className="button secondary">Manage all volunteers · add, edit, delete ↗</Link>
+   <div className={styles.buttonRow}><Link href="/repair-cafe-volunteers/people" className="button secondary">Manage all volunteers ↗</Link>
+   <Link href="/repair-cafe-volunteers/event-desk" className="button secondary">Event Desk ↗</Link>
+   <Link href="/repair-cafe-volunteers/operations" className="button secondary">Operations & safety ↗</Link>
+   <Link href="/repair-cafe-volunteers/reports" className="button secondary">Reports ↗</Link></div>
    <p className={styles.help}>Every session below has an Edit date & time control. You can also add someone directly to a single date without creating a login.</p>
    <div className={styles.manageGrid}>
     <details className={styles.panel}><summary>Create an event</summary>
@@ -224,7 +227,7 @@ export default async function RepairCafeSessions({searchParams}:{searchParams:Pr
         const occupants=eventAssignments.filter(a=>a.slot_id===s.id);
         const confirmed=occupants.filter(a=>a.status==="confirmed").length;
         return <div className={styles.position} key={s.id}>
-         <div className={styles.positionHead}><strong>{s.role_name}</strong><span>{confirmed}/{s.required_count} confirmed</span></div>
+         <div className={styles.positionHead}><strong>{s.role_name} · {s.starts_at.slice(0,5)}–{s.ends_at.slice(0,5)}</strong><span>{confirmed}/{s.required_count} confirmed</span></div>
          {s.notes?<p className={styles.help}>{s.notes}</p>:null}
          {canManage?<div className={styles.roster}>
           {occupants.length?occupants.map(a=><div key={a.id} className={styles.rosterEntry}>
@@ -269,6 +272,7 @@ export default async function RepairCafeSessions({searchParams}:{searchParams:Pr
            <input type="hidden" name="slot_id" value={s.id}/>
            <label>Role name <input name="role_name" defaultValue={s.role_name} minLength={2} maxLength={80} required/></label>
            <label>People needed <input type="number" name="required_count" defaultValue={s.required_count} min={1} max={20} required/></label>
+           <div className={styles.two}><label>Shift starts <input type="time" name="starts_at" defaultValue={s.starts_at.slice(0,5)} required/></label><label>Shift ends <input type="time" name="ends_at" defaultValue={s.ends_at.slice(0,5)} required/></label></div>
            <label>Notes <input name="notes" defaultValue={s.notes} maxLength={250}/></label>
            <button className="button secondary">Save position</button>
           </form>
@@ -285,6 +289,7 @@ export default async function RepairCafeSessions({searchParams}:{searchParams:Pr
         <label>Role <input name="role_name" list="repair-roles" required maxLength={80} placeholder="Sewing & textiles"/></label>
         <div className={styles.two}><label>People required <input type="number" name="required_count" min={1} max={20} defaultValue={1} required/></label>
         <label>Notes <input name="notes" maxLength={250} placeholder="Arrive 9:30"/></label></div>
+        <div className={styles.two}><label>Starts at <input type="time" name="starts_at" defaultValue={e.starts_at.slice(0,5)} required/></label><label>Ends at <input type="time" name="ends_at" defaultValue={e.ends_at.slice(0,5)} required/></label></div>
         <button className="button secondary">Add position</button>
        </form>:null}
       </section>
