@@ -63,6 +63,16 @@ export async function saveRepairTicket(form:FormData){
  const status=field(form,"status"),risk=field(form,"risk"),riskNotes=field(form,"risk_notes");
  const stationId=field(form,"station_id"),note=field(form,"note"),advice=field(form,"advice"),parts=field(form,"parts");
  const outcome=field(form,"outcome"),barrier=field(form,"barrier");
+ const progressCode=field(form,"progress_code"),revision=field(form,"revision");
+ const allowedProgress=["","diagnosing","progress_made","partly_working","awaiting_parts","blocked","needs_more_work"];
+ if(!allowedProgress.includes(progressCode))fail(eventId,"Choose a valid progress update.");
+ if(!revision||!Number.isFinite(Date.parse(revision)))fail(eventId,"Please refresh this ticket and try saving again.");
+ if(["waiting","in_progress"].includes(status)&&outcome)
+  fail(eventId,"The ticket is still open. Record a partial result under Progress so far, or close the ticket for a final outcome.");
+ if(status==="completed"&&!["fixed","partially_fixed","not_fixed"].includes(outcome))
+  fail(eventId,"Choose a final result when closing a completed ticket.");
+ if(status==="referred"&&outcome!=="referred")fail(eventId,"Choose the referred outcome to close this ticket.");
+ if(status==="not_attempted"&&outcome!=="not_attempted")fail(eventId,"Choose not attempted to close this ticket.");
  if(!["waiting","in_progress","completed","referred","not_attempted","void"].includes(status)
   ||!["clear","review","unsafe"].includes(risk)||riskNotes.length>500
   ||(stationId!==""&&!validUuid.test(stationId))
@@ -71,13 +81,16 @@ export async function saveRepairTicket(form:FormData){
  const {data:ticket,error:readError}=await supabase.from("repair_cafe_tickets")
   .select("id,event_id").eq("id",ticketId).single();
  if(readError||!ticket||ticket.event_id!==eventId)fail(eventId,"Ticket not found in this session.");
- const {error}=await supabase.rpc("repair_cafe_save_ticket",{
+ const {error}=await supabase.rpc("repair_cafe_save_ticket_with_progress",{
   p_ticket_id:ticketId,p_status:status,p_station_id:stationId||null,
   p_outcome:outcome||null,p_barrier:barrier||null,
-  p_note:note,p_advice:advice,p_parts:parts,p_risk:risk,p_risk_notes:riskNotes
+  p_note:note,p_advice:advice,p_parts:parts,p_risk:risk,p_risk_notes:riskNotes,
+  p_progress_code:progressCode||null,p_expected_updated_at:revision
  });
  formError(error,eventId,"Could not update the ticket");
- succeed(eventId,"Repair ticket updated: "+status.replaceAll("_"," ")+".");
+ succeed(eventId,["waiting","in_progress"].includes(status)&&progressCode?
+  "Interim repair progress saved; this ticket is still open.":
+  "Repair ticket updated: "+status.replaceAll("_"," ")+".");
 }
 
 export async function addRepairStation(form:FormData){
