@@ -87,6 +87,9 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
     setTickets(nextTickets);
     setStations((s.data??[]) as LiveStation[]);
     setActivities(nextActivities);
+    window.dispatchEvent(new CustomEvent("repair-cafe-snapshot",{
+     detail:{eventId,tickets:nextTickets,stations:(s.data??[])}
+    }));
     setLastUpdated(Date.now());
     setWarning("");
    }catch(e){
