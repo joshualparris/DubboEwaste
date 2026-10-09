@@ -3,3 +3,32 @@
 .headerActions a{font-size:.85rem}
 @media(max-width:660px){.headerActions{width:100%;display:grid}.headerActions a,.headerActions button{width:100%}}
 @media print{.headerActions{display:none!important}}
+
+
+/* Live, event-scoped reception and repair-station board */
+.liveWorkspace{display:grid;gap:1rem;min-width:0}
+.liveToolbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.7rem;background:#f3f8f4;border:1px solid #cbded1;border-radius:12px;padding:.8rem 1rem}
+.liveStatus{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;font-size:.85rem;color:#365644}
+.liveStatus strong{font-size:.86rem}
+.liveStatus .hint{margin:0 .2rem}
+.liveDot,.fallbackDot{display:inline-block;width:10px;height:10px;border-radius:50%;flex:none}
+.liveDot{background:#13834b;box-shadow:0 0 0 3px #d6eddb}
+.fallbackDot{background:#c08428;box-shadow:0 0 0 3px #fbecd3}
+.liveBoard{border:1px solid #dce6de;border-radius:16px;background:#fff;padding:1.1rem;min-width:0}
+.liveBoardColumns{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.liveBoardGroup{min-width:0;background:#f7faf8;border:1px solid #e3ebe4;border-radius:12px;padding:1rem;align-content:start;display:grid;gap:.55rem}
+.liveBoardGroup h3{font-size:1rem;margin:0 0 .4rem}
+.boardItem{border-left:3px solid #3f9571;background:#fff;padding:.7rem .8rem;border-radius:7px;margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem .7rem;overflow-wrap:anywhere}
+.boardItem strong{font-size:.95rem}
+.boardItem span{font-size:.86rem;color:#455b4d}
+.boardItem small{color:#945927;font-weight:800}
+.boardStation{border:1px solid #d9e5dd;background:#fff;border-radius:10px;padding:.7rem;display:grid;gap:.3rem}
+.boardStation strong{color:#295b40}
+.boardStation p{font-size:.86rem;margin:0;overflow-wrap:anywhere}
+.boardStation .hint{margin:0}
+.queueTabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
+.queueTab,.queueTabActive{font:inherit;font-size:.86rem;font-weight:750;cursor:pointer;border:1px solid #a9c9b2;border-radius:999px;padding:.52rem .85rem;min-height:42px;background:#fff;color:#286044}
+.queueTabActive{color:#fff;background:#245c40;border-color:#245c40}
+.queueTab:focus-visible,.queueTabActive:focus-visible,.liveToolbar button:focus-visible{outline:3px solid #72acdc;outline-offset:2px}
+@media(max-width:700px){.liveBoardColumns{grid-template-columns:1fr}.liveBoard{padding:.85rem}.liveBoardGroup{padding:.8rem}.liveToolbar{align-items:stretch}.liveToolbar>button{flex:1}.queueTabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.queueTab,.queueTabActive{width:100%}}
+@media print{.liveToolbar,.queueTabs,.liveBoard{display:none!important}.liveWorkspace .queue{border:0}.liveWorkspace .ticketDetails{display:none}}
