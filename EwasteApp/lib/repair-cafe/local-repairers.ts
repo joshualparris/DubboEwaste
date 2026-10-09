@@ -1,0 +1,678 @@
+/**
+ * Repair Café Dubbo volunteer referral leads (researched 10 October 2026).
+ * Public business details only. NOT a directory of approved/partnered repairers.
+ * 'official' = repair category supported by an official business/centre source;
+ * 'listing' = a current public business listing, not independently confirmed by phone.
+ * Every referral still requires calling ahead about accepted items, pricing and suitability.
+ * Locations/phone numbers can change; please report corrections to coordinators.
+ */
+export const REPAIRER_CATEGORIES = ["Computers & phones","Electronics & audio","Appliances & electrical","Clothing, shoes & textiles","Furniture & upholstery","Bicycles & mobility","Tools, mowers & machinery","Musical instruments","Jewellery & watches","Home, glass & locksmiths","Vehicles & caravans"] as const;
+export type RepairerCategory = (typeof REPAIRER_CATEGORIES)[number];
+export type LocalRepairer = {
+  id: string; name: string; category: RepairerCategory; services: string;
+  locality: string; address?: string; phone?: string; email?: string;
+  source: string; evidence: "official" | "listing";
+};
+export const REPAIRERS_CHECKED_AT = "2026-10-10";
+export const LOCAL_REPAIRERS: LocalRepairer[] = [
+  {
+    "id": "cbm",
+    "name": "CBM Computers",
+    "category": "Computers & phones",
+    "services": "Computer servicing, PC hardware repairs and support",
+    "locality": "Dubbo",
+    "address": "111 Talbragar St",
+    "phone": "02 6884 4600",
+    "email": "sales@cbmcomputers.com.au",
+    "source": "https://cbmcomputers.com.au/",
+    "evidence": "official"
+  },
+  {
+    "id": "tech-savvy",
+    "name": "Tech Savvy Dubbo",
+    "category": "Computers & phones",
+    "services": "Mobile phones, tablets and computer repairs",
+    "locality": "Dubbo",
+    "address": "Shop 101, Orana Mall, 56 Windsor Parade",
+    "phone": "0439 662 335",
+    "email": "dubbo@techsavvyau.com",
+    "source": "https://www.techsavvyau.com/",
+    "evidence": "official"
+  },
+  {
+    "id": "sos",
+    "name": "SOS Phone Repairs Dubbo",
+    "category": "Computers & phones",
+    "services": "Mobile phone repairs",
+    "locality": "Dubbo",
+    "address": "126 Darling St",
+    "phone": "02 6885 1150",
+    "source": "https://www.google.com/maps/search/?api=1&query=SOS%20Phone%20Repairs%20Dubbo%20NSW&query_place_id=ChIJYUVddKRxD2sRrsnSlGvDRoM",
+    "evidence": "listing"
+  },
+  {
+    "id": "leading-edge",
+    "name": "Leading Edge Computers Dubbo",
+    "category": "Computers & phones",
+    "services": "Computer repair, upgrades, refurbished computers and support",
+    "locality": "Dubbo",
+    "address": "33 Macquarie St",
+    "phone": "02 6881 6880",
+    "email": "sales@lecit.com.au",
+    "source": "https://dubbochamber.com.au/chamber-members/leading-edge-computers-dubbo",
+    "evidence": "official"
+  },
+  {
+    "id": "crt",
+    "name": "Computer Research & Technology",
+    "category": "Computers & phones",
+    "services": "Computer performance, hardware upgrades, home IT and printer connectivity support",
+    "locality": "Dubbo",
+    "address": "128 Darling St",
+    "phone": "02 6884 5922",
+    "source": "https://crt.net.au/home-it/",
+    "evidence": "official"
+  },
+  {
+    "id": "case-square",
+    "name": "Case Indulgence – Dubbo Square",
+    "category": "Computers & phones",
+    "services": "Phone screen, battery, charging port and other mobile repairs",
+    "locality": "Dubbo",
+    "address": "Shop K04, Dubbo Square, 177 Macquarie St",
+    "phone": "0435 112 737",
+    "email": "info@caseindulgence.com.au",
+    "source": "https://caseindulgence.com.au/iphone-repair-dubbo/",
+    "evidence": "official"
+  },
+  {
+    "id": "case-orana",
+    "name": "Case Indulgence – Orana Mall",
+    "category": "Computers & phones",
+    "services": "Phone screen, battery, charging port and other mobile repairs",
+    "locality": "Dubbo",
+    "address": "Shop T08, Orana Mall, 56 Windsor Parade",
+    "phone": "0466 141 688",
+    "email": "info@caseindulgence.com.au",
+    "source": "https://www.oranamall.com.au/case-indulgence/",
+    "evidence": "official"
+  },
+  {
+    "id": "cpr",
+    "name": "Phone Repairs CPR Dubbo",
+    "category": "Computers & phones",
+    "services": "Mobile phone repairs; check device/parts acceptance",
+    "locality": "Dubbo",
+    "address": "Springfield Way",
+    "phone": "0490 254 951",
+    "source": "https://www.google.com/maps/search/?api=1&query=Phone%20Repairs%20CPR%20Dubbo%20NSW&query_place_id=ChIJE3LcxqhxD2sR-MI0GpFtYFc",
+    "evidence": "listing"
+  },
+  {
+    "id": "david-walters",
+    "name": "David Walters Electronic Services",
+    "category": "Electronics & audio",
+    "services": "Electronics repairs; ask what equipment is accepted",
+    "locality": "Dubbo",
+    "address": "75L Burroway Dubbo Rd",
+    "phone": "0428 262 440",
+    "source": "https://www.google.com/maps/search/?api=1&query=David%20Walters%20Electronic%20Services%20NSW&query_place_id=ChIJCRdyMLdxD2sRyBTkhoN8NgQ",
+    "evidence": "listing"
+  },
+  {
+    "id": "page-electronics",
+    "name": "Page Electronics",
+    "category": "Electronics & audio",
+    "services": "Television/electronics service; confirm current equipment scope",
+    "locality": "Dubbo",
+    "address": "2/14 Asset Way",
+    "phone": "02 6882 1930",
+    "source": "https://www.google.com/maps/search/?api=1&query=Page%20Electronics%20NSW&query_place_id=ChIJ-9kwuZhxD2sRDtE7M7TpUrs",
+    "evidence": "listing"
+  },
+  {
+    "id": "inland-tech",
+    "name": "Inland Technology",
+    "category": "Computers & phones",
+    "services": "Printer servicing and repairs",
+    "locality": "Dubbo",
+    "address": "39 Erskine St",
+    "phone": "02 6882 6155",
+    "source": "https://www.google.com/maps/search/?api=1&query=Inland%20Technology%20NSW&query_place_id=ChIJBeo2_7NxD2sRZSi1L-asvoc",
+    "evidence": "listing"
+  },
+  {
+    "id": "macq-appliance",
+    "name": "Macquarie Appliance Repair",
+    "category": "Appliances & electrical",
+    "services": "Household appliance repair; ask which brands and appliances",
+    "locality": "Dubbo",
+    "address": "Shed 36B/34 Hawthorn St",
+    "phone": "0409 324 152",
+    "source": "https://www.google.com/maps/search/?api=1&query=Macquarie%20Appliance%20Repair%20NSW&query_place_id=ChIJg4HChm_P2QcRm1A5m1gkLdI",
+    "evidence": "listing"
+  },
+  {
+    "id": "stove-repairs",
+    "name": "Stove Repairs Dubbo",
+    "category": "Appliances & electrical",
+    "services": "Stove and oven repair; electrical/gas work for qualified trades only",
+    "locality": "Dubbo",
+    "phone": "0419 628 941",
+    "source": "https://www.google.com/maps/search/?api=1&query=Stove%20Repairs%20Dubbo%20NSW&query_place_id=ChIJnbglgtRvD2sRTiTS4Lq2cyM",
+    "evidence": "listing"
+  },
+  {
+    "id": "doug-smith",
+    "name": "Doug Smith Spares",
+    "category": "Appliances & electrical",
+    "services": "Appliance spare parts; ask whether they undertake repairs or recommend technicians",
+    "locality": "Dubbo",
+    "address": "105 Bourke St",
+    "phone": "02 6883 3222",
+    "source": "https://www.google.com/maps/search/?api=1&query=Doug%20Smith%20Spares%20NSW&query_place_id=ChIJL6tPCLRxD2sReHHhqUHE47s",
+    "evidence": "listing"
+  },
+  {
+    "id": "marty-nelson",
+    "name": "Marty Nelson Refrigeration & Air Conditioning",
+    "category": "Appliances & electrical",
+    "services": "Refrigeration and air-conditioning professional service",
+    "locality": "Dubbo",
+    "address": "82 Erskine St",
+    "phone": "02 5820 0986",
+    "source": "https://www.google.com/maps/search/?api=1&query=Marty%20Nelson%20Refrigeration%20%26%20Air%20Conditioning%20NSW&query_place_id=ChIJj44kzUFxD2sRmm5ULH48Z7w",
+    "evidence": "listing"
+  },
+  {
+    "id": "medley",
+    "name": "Medley Refrigeration & Air Conditioning",
+    "category": "Appliances & electrical",
+    "services": "Refrigeration and air conditioning service",
+    "locality": "Dubbo",
+    "address": "39 Cobbora Rd",
+    "phone": "02 6884 7554",
+    "source": "https://www.google.com/maps/search/?api=1&query=Medley%20Refrigeration%20NSW&query_place_id=ChIJedHWl59xD2sR3ILwjBWh_y4",
+    "evidence": "listing"
+  },
+  {
+    "id": "chill-rite",
+    "name": "Chill-Rite Refrigeration and Air Conditioning",
+    "category": "Appliances & electrical",
+    "services": "Refrigeration and air-conditioning service",
+    "locality": "Dubbo",
+    "address": "19 Douglas Mawson Dr",
+    "phone": "1300 545 767",
+    "source": "https://www.google.com/maps/search/?api=1&query=Chill-Rite%20NSW&query_place_id=ChIJdaeNCSByD2sRTNbF4oZyDHo",
+    "evidence": "listing"
+  },
+  {
+    "id": "kaye-electrical",
+    "name": "Kaye's Electrical",
+    "category": "Appliances & electrical",
+    "services": "Electrical and air-conditioning service; confirm appliances accepted",
+    "locality": "Dubbo",
+    "address": "3/12 Young St",
+    "phone": "02 6884 4145",
+    "source": "https://www.google.com/maps/search/?api=1&query=Kaye's%20Electrical%20Dubbo%20NSW&query_place_id=ChIJDVg1501wD2sR-2qS-VVVHz8",
+    "evidence": "listing"
+  },
+  {
+    "id": "macq-dry",
+    "name": "Macquarie Dry Cleaners",
+    "category": "Clothing, shoes & textiles",
+    "services": "Garment repair, alterations, mending and tailoring",
+    "locality": "Dubbo",
+    "address": "87A Tamworth St",
+    "phone": "02 6882 1955",
+    "email": "macquariedrycleaners@outlook.com",
+    "source": "https://www.macquariedrycleaners.com.au/alterations",
+    "evidence": "official"
+  },
+  {
+    "id": "lisa-sewing",
+    "name": "Dubbo Alterations and Sewing by Lisa",
+    "category": "Clothing, shoes & textiles",
+    "services": "Clothing alterations and sewing",
+    "locality": "Dubbo",
+    "address": "37 Windsor Parade",
+    "phone": "0403 774 860",
+    "source": "https://www.google.com/maps/search/?api=1&query=Dubbo%20alterations%20and%20sewing%20by%20Lisa%20NSW&query_place_id=ChIJF1uepMxxD2sRvLZg4v9Z8Ts",
+    "evidence": "listing"
+  },
+  {
+    "id": "central-shoes",
+    "name": "Central Shoe Repairs",
+    "category": "Clothing, shoes & textiles",
+    "services": "Shoe and boot repairs; call to confirm scope",
+    "locality": "Dubbo",
+    "address": "147 Talbragar St",
+    "phone": "02 6882 2390",
+    "source": "https://www.google.com/maps/search/?api=1&query=Central%20Shoe%20Repairs%20NSW&query_place_id=ChIJHQC0fbFxD2sRnTlDGK8s5Vo",
+    "evidence": "listing"
+  },
+  {
+    "id": "horse-wear",
+    "name": "Horse Wear Repairs Dubbo",
+    "category": "Clothing, shoes & textiles",
+    "services": "Horse-wear repairs; contact before bringing equipment",
+    "locality": "Dubbo",
+    "address": "2 Kentucky Ct",
+    "phone": "0429 935 201",
+    "source": "https://www.google.com/maps/search/?api=1&query=Horse%20Wear%20Repairs%20Dubbo%20NSW&query_place_id=ChIJAQBwYQdyD2sRQ4qzeEqPahA",
+    "evidence": "listing"
+  },
+  {
+    "id": "jm-upholstery",
+    "name": "JM Upholstery",
+    "category": "Furniture & upholstery",
+    "services": "Furniture upholstery; enquire about repair and recovering",
+    "locality": "Dubbo",
+    "address": "1 Meurer Ct",
+    "phone": "0488 966 582",
+    "source": "https://www.google.com/maps/search/?api=1&query=JM%20Upholstery%20Dubbo%20NSW&query_place_id=ChIJ9zVkEZRxD2sRVVxb6w_vcpk",
+    "evidence": "listing"
+  },
+  {
+    "id": "cantrim",
+    "name": "Cantrim",
+    "category": "Furniture & upholstery",
+    "services": "Upholstery services; ask about particular repairs",
+    "locality": "Dubbo",
+    "address": "3 Evans St",
+    "phone": "0417 979 632",
+    "source": "https://www.google.com/maps/search/?api=1&query=Cantrim%20Dubbo%20NSW&query_place_id=ChIJsXTxNMhxD2sR8LRqXto2H58",
+    "evidence": "listing"
+  },
+  {
+    "id": "restoore",
+    "name": "Restoore – Joinery & Furniture",
+    "category": "Furniture & upholstery",
+    "services": "Furniture restoration, broken legs, loose joints, benchtops and timber damage",
+    "locality": "Dubbo",
+    "address": "32R Cooreena Rd",
+    "phone": "0467 596 775",
+    "email": "info@restoore.com.au",
+    "source": "https://www.restoore.com.au/furniture-design-restoration-repair-services",
+    "evidence": "official"
+  },
+  {
+    "id": "wheeler",
+    "name": "Wheeler Cycles",
+    "category": "Bicycles & mobility",
+    "services": "Bicycle repairs, adjustment and servicing",
+    "locality": "Dubbo",
+    "address": "124 Erskine St",
+    "phone": "02 6882 9899",
+    "source": "https://www.wheelercycles.com.au/workshop",
+    "evidence": "official"
+  },
+  {
+    "id": "bike-shoppe",
+    "name": "The Bike Shoppe",
+    "category": "Bicycles & mobility",
+    "services": "Bicycle retail and repairs",
+    "locality": "Dubbo",
+    "address": "116A Darling St",
+    "phone": "02 6881 8755",
+    "source": "https://www.google.com/maps/search/?api=1&query=The%20Bike%20Shoppe%20NSW&query_place_id=ChIJU5v9dK5xD2sRzfR8RLnB7E0",
+    "evidence": "listing"
+  },
+  {
+    "id": "orana-disability",
+    "name": "Orana Disability Sales & Service",
+    "category": "Bicycles & mobility",
+    "services": "Mobility scooters, wheelchairs and aids; repairs/support for equipment sold",
+    "locality": "Dubbo",
+    "address": "92 Victoria St",
+    "phone": "02 6882 9029",
+    "source": "https://www.oranadisability.com/",
+    "evidence": "official"
+  },
+  {
+    "id": "trc",
+    "name": "Tool Repair Centre Dubbo",
+    "category": "Tools, mowers & machinery",
+    "services": "Power-tool repairs including DeWalt, Paslode, Metabo and Makita",
+    "locality": "Geurie",
+    "address": "74–76 Cass St",
+    "phone": "0488 186 478",
+    "email": "trcdubbo@gmail.com",
+    "source": "https://trcdubbo.com.au/",
+    "evidence": "official"
+  },
+  {
+    "id": "dubbo-mowers",
+    "name": "Dubbo Mowers & Chainsaws",
+    "category": "Tools, mowers & machinery",
+    "services": "Mowers, chainsaws and garden equipment servicing",
+    "locality": "Dubbo",
+    "address": "28 Cobbora Rd",
+    "phone": "02 6882 3122",
+    "source": "https://www.google.com/maps/search/?api=1&query=Dubbo%20Mowers%20and%20Chainsaws%20NSW&query_place_id=ChIJEUDz3bhxD2sRWd6lwlw3-J4",
+    "evidence": "listing"
+  },
+  {
+    "id": "gowin",
+    "name": "Gowin' Around Mobile Mower Service & Repair",
+    "category": "Tools, mowers & machinery",
+    "services": "Mower and small-engine repair; mobile service offered",
+    "locality": "Dubbo",
+    "address": "1/35 Douglas Mawson Dr",
+    "phone": "0413 378 484",
+    "source": "https://www.localsearch.com.au/profile/gowin-around-mobile-mower-service-repair/dubbo-nsw-2830/bvT1",
+    "evidence": "listing"
+  },
+  {
+    "id": "pronto",
+    "name": "Pronto Small Engines",
+    "category": "Tools, mowers & machinery",
+    "services": "Small-engine and mower repairs",
+    "locality": "Dubbo",
+    "address": "88 Fitzroy St",
+    "phone": "02 6882 3090",
+    "source": "https://www.google.com/maps/search/?api=1&query=Pronto%20Small%20Engines%20NSW&query_place_id=ChIJh1KWh8NxD2sR9XY7I89D2Rg",
+    "evidence": "listing"
+  },
+  {
+    "id": "mower-man",
+    "name": "The Mower Man",
+    "category": "Tools, mowers & machinery",
+    "services": "Lawn mower repairs; call for details",
+    "locality": "Dubbo",
+    "phone": "0435 849 955",
+    "source": "https://www.google.com/maps/search/?api=1&query=The%20Mower%20Man%20Dubbo%20NSW&query_place_id=ChIJVVPgilxxD2sRm6g4AW7CebQ",
+    "evidence": "listing"
+  },
+  {
+    "id": "robertsons",
+    "name": "Robertson's Motorcycles & Machinery",
+    "category": "Tools, mowers & machinery",
+    "services": "Motorcycle and outdoor machinery servicing; confirm machine types",
+    "locality": "Dubbo",
+    "address": "75 Wheelers Ln",
+    "phone": "02 6884 2933",
+    "source": "https://www.google.com/maps/search/?api=1&query=Robertson's%20Motorcycles%20%26%20Machinery%20NSW&query_place_id=ChIJVb0PCpNxD2sRIL_1lsS9Ojk",
+    "evidence": "listing"
+  },
+  {
+    "id": "legends",
+    "name": "Legends Music Shop",
+    "category": "Musical instruments",
+    "services": "Instrument repair and servicing, especially stringed instruments",
+    "locality": "Dubbo",
+    "address": "78 Macquarie St",
+    "phone": "02 6885 5665",
+    "email": "legendsmusicshop@gmail.com",
+    "source": "https://legendsmusicshop.com.au/pages/contact-us",
+    "evidence": "official"
+  },
+  {
+    "id": "kings-hall",
+    "name": "Kings Hall Jewellers",
+    "category": "Jewellery & watches",
+    "services": "Jewellery repairs, resizing and restoration",
+    "locality": "Dubbo",
+    "address": "180 Macquarie St",
+    "phone": "02 6885 3500",
+    "source": "https://www.kingshall.com.au/contact",
+    "evidence": "official"
+  },
+  {
+    "id": "whitneys",
+    "name": "Whitneys Jewellers",
+    "category": "Jewellery & watches",
+    "services": "Jewellery repairs, cleaning, remodelling and restoration",
+    "locality": "Dubbo",
+    "address": "149 Talbragar St",
+    "phone": "02 6882 4620",
+    "email": "info@whitneysjewellers.com.au",
+    "source": "https://www.whitneysjewellers.com.au/our-services",
+    "evidence": "official"
+  },
+  {
+    "id": "glass-window",
+    "name": "Glass & Window Centre",
+    "category": "Home, glass & locksmiths",
+    "services": "Home window and glass repairs",
+    "locality": "Dubbo",
+    "address": "87 Victoria St",
+    "phone": "02 6882 2657",
+    "source": "https://www.google.com/maps/search/?api=1&query=Glass%20%26%20Window%20Centre%20Dubbo%20NSW&query_place_id=ChIJdX-STUVwD2sRKx8Hd6xqH80",
+    "evidence": "listing"
+  },
+  {
+    "id": "orana-glass",
+    "name": "Orana Glass",
+    "category": "Home, glass & locksmiths",
+    "services": "Glass repair and replacement; enquire about item types",
+    "locality": "Dubbo",
+    "address": "1/3 Depot Rd",
+    "phone": "02 6884 7784",
+    "source": "https://www.google.com/maps/search/?api=1&query=Orana%20Glass%20NSW&query_place_id=ChIJB9_N0cVxD2sR7J1j6Bl_FEY",
+    "evidence": "listing"
+  },
+  {
+    "id": "dubbo-locksmith",
+    "name": "Dubbo Mobile Locksmiths",
+    "category": "Home, glass & locksmiths",
+    "services": "Residential and commercial locksmith services",
+    "locality": "Dubbo",
+    "address": "Mobile service",
+    "phone": "0417 362 905",
+    "email": "adam@dubbomobilelocksmiths.com.au",
+    "source": "https://www.dubbomobilelocksmiths.com.au/contact-us",
+    "evidence": "official"
+  },
+  {
+    "id": "dcl",
+    "name": "DCL Locksmiths & Security",
+    "category": "Home, glass & locksmiths",
+    "services": "Locksmith, door hardware and security service",
+    "locality": "Dubbo",
+    "address": "Unit 2, 3/14 Erskine St",
+    "phone": "02 6884 2886",
+    "email": "sales@dcls.com.au",
+    "source": "https://www.dcls.com.au/contact",
+    "evidence": "official"
+  },
+  {
+    "id": "orana-locks",
+    "name": "Orana Regional Locksmiths",
+    "category": "Home, glass & locksmiths",
+    "services": "Locksmith services",
+    "locality": "Dubbo",
+    "address": "Mobile/PO Box",
+    "phone": "0408 566 200",
+    "source": "https://www.google.com/maps/search/?api=1&query=Orana%20Regional%20Locksmiths%20NSW&query_place_id=ChIJ795Fxl9wD2sRRrmsM4jzwc0",
+    "evidence": "listing"
+  },
+  {
+    "id": "jlm-locks",
+    "name": "JLM Locksmiths",
+    "category": "Home, glass & locksmiths",
+    "services": "Locksmith services",
+    "locality": "Dubbo",
+    "address": "Talbragar St",
+    "phone": "0480 692 934",
+    "source": "https://www.google.com/maps/search/?api=1&query=JLM%20Locksmiths%20Dubbo%20NSW&query_place_id=ChIJXYbayWyB7yERNOTbRyk72X8",
+    "evidence": "listing"
+  },
+  {
+    "id": "jim-blinds",
+    "name": "Jim's Blind Cleaning & Repairs – Dubbo service",
+    "category": "Home, glass & locksmiths",
+    "services": "Venetian and roller blind repairs; confirm local appointment availability",
+    "locality": "Dubbo",
+    "address": "Mobile service",
+    "source": "https://jimsblindcleaningandrepairs.com.au/local-services/nsw/dubbo/",
+    "evidence": "official"
+  },
+  {
+    "id": "dubbo-maintenance",
+    "name": "Dubbo Repairs & Maintenance",
+    "category": "Home, glass & locksmiths",
+    "services": "Property repair, maintenance and reactive make-safe work",
+    "locality": "Dubbo",
+    "address": "Mobile service",
+    "phone": "02 5820 0975",
+    "email": "admin@dubborepairs.com.au",
+    "source": "https://dubborepairs.com.au/contact-us/?type=Request+Work+Order",
+    "evidence": "official"
+  },
+  {
+    "id": "obrien",
+    "name": "O'Brien AutoGlass Dubbo",
+    "category": "Vehicles & caravans",
+    "services": "Windscreen chip repair and automotive glass replacement",
+    "locality": "Dubbo",
+    "address": "16 Erskine St",
+    "phone": "1800 053 598",
+    "source": "https://www.obrien.com.au/locations/vehicle-glass-dubbo/",
+    "evidence": "official"
+  },
+  {
+    "id": "novus",
+    "name": "NOVUS Glass Dubbo",
+    "category": "Vehicles & caravans",
+    "services": "Mobile windscreen chip repair and replacement",
+    "locality": "Dubbo",
+    "address": "Mobile service",
+    "phone": "13 22 34",
+    "email": "admin@novusautoglass.com.au",
+    "source": "https://www.novusglass.com/en-au/shop/dubbo/",
+    "evidence": "official"
+  },
+  {
+    "id": "windscreen-specialist",
+    "name": "Dubbo Windscreen Specialist",
+    "category": "Vehicles & caravans",
+    "services": "Automotive windscreen repairs",
+    "locality": "Dubbo",
+    "address": "97 River St",
+    "phone": "02 6885 2188",
+    "source": "https://www.google.com/maps/search/?api=1&query=Dubbo%20Windscreen%20Specialist%20NSW&query_place_id=ChIJD7FDdcRxD2sRFAI6904GhoM",
+    "evidence": "listing"
+  },
+  {
+    "id": "centralwest-autoglass",
+    "name": "Central West Auto Glass",
+    "category": "Vehicles & caravans",
+    "services": "Automotive glass repairs and replacement",
+    "locality": "Dubbo",
+    "address": "39 Douglas Mawson Dr",
+    "phone": "02 6882 8688",
+    "source": "https://www.google.com/maps/search/?api=1&query=Central%20West%20Auto%20Glass%20NSW&query_place_id=ChIJN_NM9KtxD2sRog0b70a07wY",
+    "evidence": "listing"
+  },
+  {
+    "id": "bc-caravan",
+    "name": "B & C Caravan Service",
+    "category": "Vehicles & caravans",
+    "services": "Caravan/RV repair and servicing",
+    "locality": "Dubbo",
+    "address": "119 Fitzroy St",
+    "phone": "02 6881 8877",
+    "source": "https://www.google.com/maps/search/?api=1&query=B%20and%20C%20Caravan%20Service%20NSW&query_place_id=ChIJV9B7dMdxD2sRDmWWmeeY5DE",
+    "evidence": "listing"
+  },
+  {
+    "id": "jayco",
+    "name": "Jayco Dubbo",
+    "category": "Vehicles & caravans",
+    "services": "RV and caravan servicing and repairs",
+    "locality": "Dubbo",
+    "address": "Unit 2/20 Blueridge Dr",
+    "phone": "02 6882 0322",
+    "source": "https://www.google.com/maps/search/?api=1&query=Jayco%20Dubbo%20NSW&query_place_id=ChIJmRvjg1twD2sRuF-Xex_DZTc",
+    "evidence": "listing"
+  },
+  {
+    "id": "geoff-richards",
+    "name": "Geoff Richards Panel Beating",
+    "category": "Vehicles & caravans",
+    "services": "Vehicle body repairs and panel beating",
+    "locality": "Dubbo",
+    "address": "5 Asset Way",
+    "phone": "02 6882 5191",
+    "source": "https://www.google.com/maps/search/?api=1&query=Geoff%20Richards%20Panel%20Beating%20NSW&query_place_id=ChIJLcfpB05wD2sRvzIR-ZruZJY",
+    "evidence": "listing"
+  },
+  {
+    "id": "northside-smash",
+    "name": "Northside Smash Repairs",
+    "category": "Vehicles & caravans",
+    "services": "Vehicle panel/body repairs",
+    "locality": "Dubbo",
+    "address": "98 Fitzroy St",
+    "phone": "02 6882 0466",
+    "source": "https://www.google.com/maps/search/?api=1&query=Northside%20Smash%20Repairs%20NSW&query_place_id=ChIJfdy5lqxxD2sRxkmFEq8M4bc",
+    "evidence": "listing"
+  },
+  {
+    "id": "dubbo-city-moto",
+    "name": "Dubbo City Motorcycles",
+    "category": "Vehicles & caravans",
+    "services": "Motorcycle servicing; confirm repair availability",
+    "locality": "Dubbo",
+    "address": "11 Victoria St",
+    "phone": "02 6882 8884",
+    "source": "https://www.google.com/maps/search/?api=1&query=Dubbo%20City%20Motorcycles%20NSW&query_place_id=ChIJNWm6c1FwD2sR6QHc-iuVdxE",
+    "evidence": "listing"
+  },
+  {
+    "id": "bob-jane",
+    "name": "Bob Jane T-Marts Dubbo",
+    "category": "Vehicles & caravans",
+    "services": "Tyres, punctures and wheel services; enquire about puncture repair",
+    "locality": "Dubbo",
+    "address": "223 Macquarie St",
+    "phone": "02 6881 8900",
+    "source": "https://www.google.com/maps/search/?api=1&query=Bob%20Jane%20Dubbo%20NSW&query_place_id=ChIJ8fs1U6txD2sRXzjtMHy-EeE",
+    "evidence": "listing"
+  },
+  {
+    "id": "robertsons-tyre",
+    "name": "Robertson's Tyrepower Dubbo",
+    "category": "Vehicles & caravans",
+    "services": "Tyres and wheel service; call for puncture repair",
+    "locality": "Dubbo",
+    "address": "128 Brisbane St",
+    "phone": "02 6882 4766",
+    "source": "https://www.google.com/maps/search/?api=1&query=Robertson's%20Tyrepower%20Dubbo%20NSW&query_place_id=ChIJqxaESbJxD2sRSDsirITHeog",
+    "evidence": "listing"
+  },
+  {
+    "id": "hannaford",
+    "name": "Hannaford Tyre and Suspension",
+    "category": "Vehicles & caravans",
+    "services": "Tyres and vehicle suspension service",
+    "locality": "Dubbo",
+    "address": "78 River St",
+    "phone": "02 6884 0008",
+    "source": "https://www.google.com/maps/search/?api=1&query=Hannaford%20Tyre%20and%20Suspension%20NSW&query_place_id=ChIJUa_84LdxD2sRgGWxdj0cins",
+    "evidence": "listing"
+  },
+  {
+    "id": "dubbo-friends",
+    "name": "Dubbo Friends Auto Care",
+    "category": "Vehicles & caravans",
+    "services": "Vehicle mechanical servicing and repairs",
+    "locality": "Dubbo",
+    "address": "1/15 McKenzie St",
+    "phone": "02 5806 0360",
+    "source": "https://www.google.com/maps/search/?api=1&query=Dubbo%20Friends%20Auto%20Care%20NSW&query_place_id=ChIJIUg9hy1xD2sRHe8APh-Nv08",
+    "evidence": "listing"
+  },
+  {
+    "id": "ace-auto",
+    "name": "Ace Automotive",
+    "category": "Vehicles & caravans",
+    "services": "Automotive repair and servicing; confirm vehicle work required",
+    "locality": "Dubbo",
+    "address": "5 Mansour St",
+    "phone": "02 5806 0362",
+    "source": "https://www.google.com/maps/search/?api=1&query=Ace%20Automotive%20NSW&query_place_id=ChIJGSNE5U1wD2sRz3xla4LS8NA",
+    "evidence": "listing"
+  }
+];
