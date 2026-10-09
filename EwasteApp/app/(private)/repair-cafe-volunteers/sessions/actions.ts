@@ -136,9 +136,9 @@ export async function setAvailability(form:FormData) {
 }
 export async function createSlot(form:FormData) {
  const {supabase}=await actor(true);
- const event_id=value(form,"event_id"),role_name=value(form,"role_name"),notes=value(form,"notes"),required_count=Number(value(form,"required_count")),starts_at=value(form,"starts_at"),ends_at=value(form,"ends_at");
- if(!validId(event_id)||role_name.length<2||role_name.length>80||notes.length>250||!Number.isInteger(required_count)||required_count<1||required_count>20||!timePattern.test(starts_at)||!timePattern.test(ends_at)||ends_at<=starts_at)fail("Check shift position, start and finish.");
- const {error}=await supabase.from("repair_cafe_shift_slots").insert({event_id,role_name,required_count,notes,starts_at,ends_at});
+ const event_id=value(form,"event_id"),role_name=value(form,"role_name"),notes=value(form,"notes"),required_count=Number(value(form,"required_count")),starts_at=value(form,"starts_at"),ends_at=value(form,"ends_at"),required_competency=value(form,"required_competency");
+ if(!validId(event_id)||role_name.length<2||role_name.length>80||notes.length>250||!Number.isInteger(required_count)||required_count<1||required_count>20||!timePattern.test(starts_at)||!timePattern.test(ends_at)||ends_at<=starts_at||required_competency.length>120)fail("Check shift position, start, finish and competency.");
+ const {error}=await supabase.from("repair_cafe_shift_slots").insert({event_id,role_name,required_count,notes,starts_at,ends_at,required_competency:required_competency||null});
  errMessage(error,"Could not add position");done("Volunteer position created.");
 }
 export async function offerShift(form:FormData) {
