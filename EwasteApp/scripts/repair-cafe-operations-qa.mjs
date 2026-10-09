@@ -104,7 +104,7 @@ assert(offlineSQL.includes("repair_cafe_edit_waiting_notes")&&
  "Offline sync must reuse existing safety, programme and concurrency rules");
 assert(offlineShell.includes("conflictPattern")&&
  offlineShell.includes("updateOperationState")&&
- offlineShell.includes("encryptedBackup")&&
+ offlineShell.includes("migrateLegacyWorkspace")&&
  offlineShell.includes("dropOperation"),
  "Offline changes must be recoverable and conflicts must not be silently overridden");
 assert(deskPage.includes("<OfflineDeskShell")&&
@@ -115,7 +115,7 @@ assert(deskPage.includes("<OfflineDeskShell")&&
 const offlineFallback=read("public/repair-cafe-offline.html");
 const offlineSW=read("public/repair-cafe-sw.js");
 assert(offlineFallback.includes('repair-cafe-offline-encrypted-v1')&&
- offlineFallback.includes("Offline passphrase")&&
+ offlineFallback.includes("Trusted device offline workspace")&&
  offlineFallback.includes('Save encrypted check-in')&&
  offlineFallback.includes('formRow(t,"queue_notes"')&&
  offlineFallback.includes('formRow(t,"ticket_update"'),
@@ -126,6 +126,9 @@ assert(offlineSW.includes("repair-cafe-offline.html")&&
  !offlineSW.includes('cache.put(request'),
  "Service worker must never cache private Event Desk pages");
 assert(offlineStore.includes('const VERSION=2')&&
+ offlineStore.includes('crypto.subtle.generateKey')&&
+ offlineStore.includes('mode:"trusted"')&&
+ offlineStore.includes('migrateLegacyWorkspace')&&
  offlineStore.includes('writeOfflineSnapshot')&&
  offlineStore.includes('registerOfflineEvent'),
  "Encrypted snapshot and recovery metadata required");
@@ -141,4 +144,11 @@ const fallbackScript=offlineFallback.match(/<script>([\s\S]*?)<\/script>/);
 assert(fallbackScript?.[1],"Standalone offline fallback must contain its own cached script");
 new Script(fallbackScript[1],{filename:"repair-cafe-offline.html"});
 new Script(offlineSW,{filename:"repair-cafe-sw.js"});
-console.log("Repair Café operations source QA PASS: 41 guards + both offline JavaScript syntax parses. Two-device browser test still needed.");
+assert(offlineShell.includes('openTrustedWorkspace')&&
+ offlineShell.includes('Migrate existing offline work')&&
+ !offlineShell.includes('Set a private offline passphrase'),
+ "Trusted-device offline setup should need no separate password (except legacy recovery)");
+assert(offlineFallback.includes('workspace.deviceKey')&&
+ !offlineFallback.includes('const phrase=$("phrase").value'),
+ "The offline fallback should use the device-bound key, not prompt for a password");
+console.log("Repair Café operations source QA PASS: 43 guards + offline syntax parses. Two-device browser testing still needed.");
