@@ -107,6 +107,7 @@ export function AppNav({ fullName, role, programme = null, globalAdmin = role ==
           <h2>Repair Café</h2>
           <div className="nav-group-links">
             <Link href="/repair-cafe-volunteers">Volunteer Hub</Link>
+            <Link href="/repair-cafe-volunteers/sessions">Sessions & rosters</Link>
             <Link href="/repair-cafe-dubbo">Public Page</Link>
             {role === "admin" || role === "manager" ? <Link href="/repair-cafe-feedback">Public Feedback</Link> : null}
           </div>
