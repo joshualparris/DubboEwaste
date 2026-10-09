@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Offline Repair Café Event Desk</title>
+<style>
+:root{color-scheme:light;font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#213b2c;background:#f3f6f2}
+*{box-sizing:border-box}body{margin:0;padding:20px}main{max-width:960px;margin:0 auto}
+h1{font-size:clamp(24px,5vw,34px);margin:.25rem 0 .6rem}h2{font-size:21px}
+header,section{background:white;border:1px solid #cbded1;border-radius:15px;padding:18px;margin:12px 0}
+header{background:linear-gradient(110deg,#deefdf,#faf6e7)}p{line-height:1.55;color:#53675a}
+label{display:grid;gap:5px;margin:12px 0;font-size:14px;font-weight:700}
+input,select,textarea{width:100%;padding:10px;border:1px solid #9cb6a4;border-radius:8px;font:inherit;color:#193a2a;background:#fff}
+textarea{resize:vertical}button,a.link{background:#276343;border:1px solid #276343;border-radius:8px;color:white;padding:11px 15px;font:inherit;font-weight:750;cursor:pointer;text-decoration:none;display:inline-block}
+button.secondary{color:#26583b;border-color:#a9cbb3;background:#f5faf6}
+button:disabled{opacity:.5;cursor:not-allowed}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.check{display:flex;align-items:start;font-weight:600}.check input{width:20px;height:20px;flex:none;margin:0 8px 0 0}
+.warning{padding:12px;border:1px solid #d9ae68;border-radius:9px;background:#fff8e9;color:#79501c}
+.status{color:#236947;font-weight:750}.ticket{border:1px solid #dce9df;background:#fafdfa;border-radius:10px;padding:13px;margin:10px 0}
+.ticket summary{cursor:pointer;font-weight:800}.ticket h3{font-size:16px}
+.muted{font-size:13px;color:#586f5f}.buttons{display:flex;gap:10px;flex-wrap:wrap}.buttons button{flex:1}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f2f5f2;border-radius:7px;padding:10px;font-size:12px}
+#alert{display:none}#status{display:none}
+@media(max-width:650px){body{padding:9px}.grid{grid-template-columns:1fr}header,section{padding:13px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="status">OFFLINE · LOCALLY ENCRYPTED WORKSPACE</div>
+<h1>Repair Café Event Desk</h1>
+<p>This is a basic offline emergency screen. No visitor data or private web pages are stored in the browser's page cache. Your saved queue is encrypted and only opens with your offline passphrase.</p>
+<p class="warning">New check-ins are <strong>not assigned a queue number</strong> until synchronised. Write a temporary paper number if necessary. Do not assume changes have reached reception or other stations.</p>
+<a class="link" id="onlineLink" href="/repair-cafe-volunteers/event-desk">Return to the live Event Desk when internet returns</a>
+</header>
+<div id="alert" class="warning" role="alert"></div>
+<div id="status" class="status" role="status"></div>
+<section id="lock">
+<h2>Unlock saved workspace</h2>
+<label>Prepared account <select id="user" required></select></label>
+<label>Offline passphrase <input type="password" id="phrase" minlength="12" autocomplete="off" required/></label>
+<button id="unlock" type="button">Unlock local work</button>
+<p class="muted">The passphrase is not stored. If there is no prepared workspace, reconnect and enable Offline Mode from the signed-in Event Desk first. Private/incognito tabs may erase local records.</p>
+</section>
+<div id="desk" hidden>
+<section>
+<h2>Saved on this device</h2>
+<p id="eventInfo" class="muted"></p>
+<p id="pending"></p>
+<div id="pendingList"></div>
+<p class="muted">These records will be sent once you reopen the live Event Desk using the same account and passphrase. Only the live server assigns official ticket numbers, checks permissions and resolves edits.</p>
+</section>
+<section>
+<h2>New check-in (saved offline)</h2>
+<form id="intake">
+<div class="grid">
+<label>First name or nickname<input name="visitor_name" minlength="1" maxlength="50" required autocomplete="off"/></label>
+<label>Item category<select name="category" required>
+<option value="">Select</option><option value="computers">Computers / laptops</option>
+<option value="textiles">Clothing / sewing</option><option value="electronics">Electronics</option>
+<option value="small_appliance">Small appliance</option><option value="bicycle">Bicycle</option>
+<option value="furniture">Furniture</option><option value="household">Household</option>
+<option value="other">Other</option></select></label>
+</div>
+<label>Item<input name="item" minlength="2" maxlength="160" required/></label>
+<label>Reported problem<textarea name="fault" minlength="3" maxlength="700" rows="2" required></textarea></label>
+<label>Safety assessment<select name="risk" required>
+<option value="">Select</option><option value="clear">Cleared within permitted scope</option>
+<option value="review">Needs coordinator review</option><option value="unsafe">Unsafe, do not repair</option>
+</select></label>
+<label>Safety notes<textarea name="risk_notes" maxlength="500"></textarea></label>
+<label class="check"><input type="checkbox" name="screened" required/>I screened the item for risks and permitted scope.</label>
+<label class="check"><input type="checkbox" name="acknowledged" required/>The visitor agreed to volunteer assistance and understands repair isn't guaranteed.</label>
+<button type="submit">Save encrypted check-in</button>
+</form>
+</section>
+<section>
+<h2>Previous online queue snapshot</h2>
+<p class="muted" id="snapshotTime">This queue is a snapshot, not real-time. New work from other stations is invisible until online.</p>
+<div id="tickets"></div>
+</section>
+</div>
+</main>
+<script>
+"use strict";
+const DB="repair-cafe-offline-encrypted-v1",VER=2;
+const $=id=>document.getElementById(id);
+const encoder=new TextEncoder(),decoder=new TextDecoder();
+let key=null,owner="",eventId="",snapshot={tickets:[],stations:[]};
+function alertUser(message){$("alert").textContent=message;$("alert").style.display="block";}
+function status(message){$("status").textContent=message;$("status").style.display="block";$("alert").style.display="none";}
+function request(q){return new Promise((resolve,reject)=>{q.onsuccess=()=>resolve(q.result);q.onerror=()=>reject(q.error)})}
+function openDB(){return new Promise((resolve,reject)=>{
+ const r=indexedDB.open(DB,VER);
+ r.onupgradeneeded=()=>{for(const name of ["workspaces","operations","snapshots"]){
+  if(!r.result.objectStoreNames.contains(name))r.result.createObjectStore(name,{keyPath:"key"});
+ }};
+ r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);
+})}
+async function fromStore(storeName,name){
+ const db=await openDB();
+ try{return await request(db.transaction(storeName).objectStore(storeName).get(name))}
+ finally{db.close()}
+}
+async function allRecords(name){
+ const db=await openDB();
+ try{return await request(db.transaction(name).objectStore(name).getAll())}
+ finally{db.close()}
+}
+async function derive(password,salt){
+ const material=await crypto.subtle.importKey("raw",encoder.encode(password),"PBKDF2",false,["deriveKey"]);
+ return crypto.subtle.deriveKey({name:"PBKDF2",salt:new Uint8Array(salt),iterations:220000,
+ hash:"SHA-256"},material,{name:"AES-GCM",length:256},false,["encrypt","decrypt"]);
+}
+async function decrypt(iv,cipher){
+ const data=await crypto.subtle.decrypt({name:"AES-GCM",iv:new Uint8Array(iv)},key,cipher);
+ return JSON.parse(decoder.decode(data));
+}
+async function seal(value){
+ const iv=Array.from(crypto.getRandomValues(new Uint8Array(12)));
+ const cipher=await crypto.subtle.encrypt({name:"AES-GCM",iv:new Uint8Array(iv)},
+ key,encoder.encode(JSON.stringify(value)));
+ return {iv,cipher};
+}
+async function save(kind,payload){
+ if(!key||!owner||!eventId)throw Error("Unlock a prepared event first");
+ const others=(await allRecords("operations")).filter(o=>o.owner===owner);
+ if(kind!=="check_in"&&others.some(o=>o.eventId===eventId&&o.status==="pending"
+  &&o.key!==undefined&&o.ticketId===payload.ticket_id))
+  throw Error("There is already an unsynchronised edit for this ticket");
+ const id=crypto.randomUUID(),sealed=await seal({kind,payload});
+ const db=await openDB();
+ try{
+  const row={key:id,owner,eventId,kind:"encrypted",ticketId:kind==="check_in"?null:payload.ticket_id,
+   createdAt:Date.now(),status:"pending",error:"",iv:sealed.iv,cipher:sealed.cipher};
+  await request(db.transaction("operations","readwrite").objectStore("operations").add(row));
+ }finally{db.close()}
+ status("Encrypted locally; not yet sent to the shared queue. Reopen the live Event Desk to synchronise.");
+ await drawPending();
+}
+function element(tag,text){const e=document.createElement(tag);e.textContent=text;return e}
+async function drawPending(){
+ const records=(await allRecords("operations")).filter(x=>x.owner===owner).sort((a,b)=>a.createdAt-b.createdAt);
+ $("pending").textContent=records.length+" unsynchronised action(s)";
+ const container=$("pendingList");container.replaceChildren();
+ for(const row of records){
+  const entry=await decrypt(row.iv,row.cipher);
+  const div=element("p",(row.status==="pending"?"Pending":row.status.toUpperCase())+" · "+
+    (entry.kind==="check_in"?"Check-in "+entry.payload.visitor_name+" · "+entry.payload.item:
+     entry.kind==="queue_notes"?"Queue notes for ticket "+String(entry.payload.ticket_id).slice(0,8):
+     "Repair milestone for ticket "+String(entry.payload.ticket_id).slice(0,8)));
+  container.append(div);
+ }
+}
+async function unlock(){
+ try{
+  const id=$("user").value;
+  if(!id)throw Error("No prepared offline account found");
+  const phrase=$("phrase").value;
+  if(phrase.length<12)throw Error("Passphrase must be at least 12 characters");
+  const workspace=await fromStore("workspaces",id);
+  if(!workspace?.eventId)throw Error("No event was prepared in this offline workspace");
+  const derived=await derive(phrase,workspace.salt);
+  key=derived;
+  const test=await decrypt(workspace.iv,workspace.check);
+  owner=id.slice("workspace:".length);
+  if(test!=="repair-cafe-offline:"+owner)throw Error("Incorrect passphrase");
+  eventId=workspace.eventId;
+  $("phrase").value="";
+  const record=await fromStore("snapshots","snapshot:"+owner+":"+eventId);
+  snapshot=record?await decrypt(record.iv,record.cipher):{tickets:[],stations:[]};
+  $("eventInfo").textContent="Prepared event ID: "+eventId+" · Account: "+owner.slice(0,8)+"…";
+  $("onlineLink").href="/repair-cafe-volunteers/event-desk?event="+encodeURIComponent(eventId);
+  $("snapshotTime").textContent=record?
+   "Last saved snapshot: "+new Date(record.savedAt).toLocaleString("en-AU")+
+   ". This is not a live queue, and its ticket data may be stale.":
+   "No online queue snapshot was prepared; new check-ins can still be saved locally.";
+  $("lock").hidden=true;$("desk").hidden=false;
+  await drawPending();drawTickets();
+  status("Offline workspace unlocked. Nothing will be sent until you reconnect and open the live Event Desk.");
+ }catch(e){key=null;owner="";alertUser(e.message||"Unable to unlock this device")}
+}
+function formRow(ticket,kind,fields){
+ const f=document.createElement("form");
+ f.addEventListener("submit",async ev=>{
+  ev.preventDefault();
+  try{
+   const data=new FormData(f),payload={ticket_id:ticket.id,revision:ticket.updated_at};
+   for(const k of fields)payload[k]=String(data.get(k)||"").trim();
+   if(kind==="ticket_update"){
+    payload.status="in_progress";
+    payload.outcome="";
+    payload.barrier="";
+    payload.advice=ticket.handover_advice||"";
+    payload.parts=ticket.parts_used||"";
+    payload.risk=ticket.risk_level||"clear";
+    payload.risk_notes=ticket.risk_notes||"";
+   }
+   await save(kind,payload);
+  }catch(e){alertUser(e.message||"Unable to save")}
+ });
+ return f;
+}
+function addInput(parent,label,name,value,max,rows=0){
+ const wrapper=document.createElement("label");
+ wrapper.textContent=label;
+ const ctrl=document.createElement(rows?"textarea":"input");
+ ctrl.name=name;ctrl.maxLength=max;ctrl.value=value||"";
+ if(rows)ctrl.rows=rows;
+ wrapper.append(ctrl);parent.append(wrapper);return ctrl;
+}
+function addSelect(parent,label,name,values,current){
+ const wrapper=document.createElement("label");wrapper.textContent=label;
+ const ctrl=document.createElement("select");ctrl.name=name;
+ for(const [v,t] of values){const opt=new Option(t,v);ctrl.append(opt)}
+ ctrl.value=current||"";wrapper.append(ctrl);parent.append(wrapper);return ctrl;
+}
+function drawTickets(){
+ const root=$("tickets");root.replaceChildren();
+ if(!snapshot.tickets?.length){root.append(element("p","No tickets in the last encrypted snapshot."));return}
+ for(const t of snapshot.tickets){
+  const d=document.createElement("details");d.className="ticket";
+  const title=element("summary","#"+t.ticket_number+" · "+(t.visitor_display_name||"Visitor")+
+   " · "+t.item_description+" · "+t.status.replaceAll("_"," "));
+  d.append(title);
+  d.append(element("p",t.reported_problem));
+  if(t.queue_notes)d.append(element("p","Queue notes: "+t.queue_notes));
+  if(t.status==="waiting"){
+   const f=formRow(t,"queue_notes",["reported_problem","queue_notes"]);
+   f.append(element("h3","Edit waiting queue notes"));
+   addInput(f,"Problem","reported_problem",t.reported_problem,700,2);
+   addInput(f,"Additional notes","queue_notes",t.queue_notes,1000,3);
+   const btn=element("button","Save notes offline");btn.type="submit";f.append(btn);d.append(f);
+  }
+  if(["waiting","in_progress"].includes(t.status)){
+   const f=formRow(t,"ticket_update",["station_id","progress_code","note"]);
+   f.append(element("h3","Add repair milestone"));
+   addSelect(f,"Station","station_id",[["","Unassigned"],...snapshot.stations.map(s=>[s.id,s.name])],t.station_id);
+   addSelect(f,"Progress","progress_code",[["","No update"],["diagnosing","Diagnosing"],["progress_made","Progress made"],
+    ["partly_working","Partly working"],["awaiting_parts","Awaiting parts"],
+    ["blocked","Blocked"],["needs_more_work","Further work"]],t.progress_code);
+   addInput(f,"Work done or observations","note","",1200,3);
+   const btn=element("button","Save milestone offline");btn.type="submit";f.append(btn);d.append(f);
+  }
+  root.append(d);
+ }
+}
+$("intake").addEventListener("submit",async e=>{
+ e.preventDefault();
+ try{
+  const data=new FormData($("intake")),payload={};
+  for(const key of ["visitor_name","category","item","fault","risk","risk_notes"])
+   payload[key]=String(data.get(key)||"").trim();
+  payload.acknowledged=data.has("acknowledged");payload.screened=data.has("screened");
+  if(!payload.acknowledged||!payload.screened)throw Error("Obtain both required acknowledgements");
+  await save("check_in",payload);
+  $("intake").reset();
+ }catch(err){alertUser(err.message||"Could not save local intake")}
+});
+$("unlock").addEventListener("click",unlock);
+(async()=>{
+ try{
+  const list=(await allRecords("workspaces")).filter(x=>x.eventId);
+  const select=$("user");
+  for(const w of list){
+   const option=document.createElement("option");option.value=w.key;
+   option.textContent="Prepared account "+w.key.slice(-8)+" · Event "+w.eventId.slice(0,8);
+   select.append(option);
+  }
+  if(!list.length){
+   alertUser("No prepared offline vault found. Reconnect, open the signed-in Event Desk and enable encrypted Offline Mode before going offline.");
+   $("unlock").disabled=true;
+  }
+ }catch(e){alertUser("Local encrypted storage unavailable: "+(e.message||"unknown"))}
+})();
+</script>
+</body></html>
