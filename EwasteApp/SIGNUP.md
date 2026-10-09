@@ -1,5 +1,9 @@
 # Programme volunteer signup
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Updated 9 October 2026:** Repair Café has **two kinds of volunteer record**: account members created through programme-coded signup, and coordinator-created **manual volunteer records** in `/repair-cafe-volunteers/people`. A manual record does not have login privileges or automatically become a programme account. Coordinators may record consent, availability, roles, attendance and contact preferences separately. Public interest/feedback submissions are **not** automatic memberships. Confirm actual access via Supabase programme policies and [feature register](../docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md).
+
+
 The portal supports Dubbo E-waste (`dubbo_ewaste`), Library of Things (`library_of_things`) and Repair Café (`repair_cafe`). A coordinator supplies a programme-specific access code. The database verifies its SHA-256 digest against `private.signup_access_codes`, strips the submitted code, and creates volunteer membership in that programme only. Signup never grants admin privileges.
 
 Existing E-waste and Repair Café codes are retained. A Library of Things admin must set its signup code before distributing it. Go to **Menu → Programme memberships**, expand the programme and use **Set or rotate volunteer signup code**. Codes need at least 10 characters and are never committed to Git or returned by the app. Existing memberships remain unchanged when a code rotates.

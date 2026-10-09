@@ -1,5 +1,9 @@
 # DubboEwaste
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Documentation reviewed 9 October 2026.** For what the running software implements *and what is not yet verified*, read [Live features & verification](docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md). For the full documentation catalogue and historical-source rules, read [Documentation inventory](docs/DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md). Current routes now include a Repair Café Event Desk, volunteer QR check-in, live-queue UI, station dispatch, repair knowledge base, offline-capture client, operations/safety and reports. Code presence does not prove field readiness; do not infer real venue bookings, delivered messages or software production permissions from documentation alone.
+
+
 Research, operating design and software for a reuse-first e-waste / IT asset disposition pilot in Dubbo, NSW.
 
 > **Reuse first. Recycle second.**

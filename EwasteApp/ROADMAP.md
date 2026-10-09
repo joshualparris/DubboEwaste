@@ -1,6 +1,10 @@
 # EwasteApp roadmap
 
-Updated: 5 October 2026
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Status correction (9 October 2026):** This older AssetFlow roadmap predates the major Repair Café release and broader LMS work. See [live feature and verification register](../docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) and [Repair Café phase roadmap](../docs/REPAIR-CAFE-PRODUCT-COMPARISON-IMPLEMENTATION-ROADMAP-2026-10-09.md). The app now includes Repair Café tickets, station dispatch, QR attendance, self-service roster, local knowledge/search, incident/venue audit, reports and offline/realtime code; source presence, production migration, field tests and provider activation have **different** statuses. Commercial integration proposals below are not automatically completed by this change.
+
+
+Original slice roadmap: 5 October 2026; current-product addendum: 9 October 2026
 
 The detailed long-range platform backlog remains in [docs/ASSETFLOW-PLATFORM-BACKLOG.md](../docs/ASSETFLOW-PLATFORM-BACKLOG.md). This file tracks the production website itself.
 

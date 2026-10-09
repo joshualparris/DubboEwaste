@@ -1,5 +1,9 @@
 # Documentation hub
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Current product authority (reviewed 9 October 2026):** [Live feature and verification register](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) · [Inventory of all Markdown/text documents and freshness rules](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md) · [Repair Café implementation roadmap](REPAIR-CAFE-PRODUCT-COMPARISON-IMPLEMENTATION-ROADMAP-2026-10-09.md). Historical research is intentionally preserved; it must not overrule verified code, migration state or actual launch permissions.
+
+
 This is the human-friendly navigation page for `docs/`.
 
 For current status, always begin with **[CURRENT-STATE.md](CURRENT-STATE.md)**. For the full research-series authority map, use **[RESEARCH-INDEX.md](RESEARCH-INDEX.md)**.

@@ -1,5 +1,9 @@
 # DubboEwaste Operations App
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Current software inventory (9 October 2026):** [Verified feature register](../docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) · [Documentation index](../docs/DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md) · [Repair Café roadmap](../docs/REPAIR-CAFE-PRODUCT-COMPARISON-IMPLEMENTATION-ROADMAP-2026-10-09.md). This Next.js app serves private E-waste operations/CRM/certificates/learning, Library of Things lending, Repair Café sessions/volunteers, Event Desk, QR check-in, stations, knowledge, safety/incident records, exports and *also* selected public routes. Realtime and encrypted offline code is implemented but still needs multi-device field acceptance. Queued notifications are not sent emails by default.
+
+
 This is the **production private operations application** for DubboEwaste staff and volunteers.
 
 Production: https://dubbo-ewaste-app.vercel.app/

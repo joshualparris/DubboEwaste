@@ -1,6 +1,10 @@
 # Start here
 
-**Last reviewed:** 6 October 2026
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Reviewed 9 October 2026:** Start with the [verified product feature register](docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md), then the [full documentation inventory](docs/DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md). For Repair Café volunteers: [Event Desk](https://dubbo-ewaste-app.vercel.app/repair-cafe-volunteers/event-desk), [sessions](https://dubbo-ewaste-app.vercel.app/repair-cafe-volunteers/sessions), [station dispatch](https://dubbo-ewaste-app.vercel.app/repair-cafe-volunteers/stations), [knowledge](https://dubbo-ewaste-app.vercel.app/repair-cafe-volunteers/knowledge), [operations](https://dubbo-ewaste-app.vercel.app/repair-cafe-volunteers/operations) and [reports](https://dubbo-ewaste-app.vercel.app/repair-cafe-volunteers/reports). Those pages are private; mobile/offline and external notification delivery still require specific verification.
+
+
+**Last reviewed:** 9 October 2026
 
 This page is the quickest way into the DubboEwaste repository. It is a navigation layer, not an exhaustive list of all 489+ tracked files. For the full documentation map use [docs/README.md](docs/README.md) and [docs/RESEARCH-INDEX.md](docs/RESEARCH-INDEX.md).
 

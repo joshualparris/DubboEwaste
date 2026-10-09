@@ -1,6 +1,10 @@
 # DubboEwaste current-state register
 
-**As at:** 6 October 2026 (AEDT)  
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 software addendum:** The earlier research/pilot-gated conclusion below remains about real-world operations. The **software**, however, now includes AssetFlow, scoped E-waste/Library of Things/Repair Café programmes, learning, a Repair Café Event Desk, stations, monthly rosters, volunteer self-service/QR check-in, local knowledge/search, audit/safety records and reporting. Production Supabase has been queried and Vercel builds have passed; that does **not** establish a booked venue, insured organisation, authorised electrical repairs, actual delivery of queued email/SMS or fully field-tested offline/realtime workflows. See [Live features and verification](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) for the evidence-qualified capability matrix and snapshot counts.
+
+
+**As at:** 9 October 2026 (AEDT) — original physical launch-gates review dated 6 October  
 **Purpose:** one short, current map of what the repository can support today. This is the canonical status summary; detailed research and historical gap registers remain linked below.
 
 ## Status vocabulary

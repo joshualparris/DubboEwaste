@@ -1,5 +1,9 @@
 # EwasteApp architecture
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Architecture update, 9 October 2026:** The title below is historical as a first-slice design. The live `EwasteApp/` now combines **private and selected public Next.js routes**, Supabase Auth/Postgres/RLS, three programme scopes, AssetFlow core entities, separate Library of Things lending records, Repair Café `repair_cafe_tickets` (canonical), `repair_cafe_stations`, `repair_cafe_ticket_activity`, rostering, learning and reporting. The legacy `repair_cafe_visits` / `repair_cafe_repair_tickets` are **not** another active ticket workflow. See [current feature register](../docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md). Proposed future tables below should not be assumed missing or unapplied without inspecting the real schema.
+
+
 ## Product boundary
 
 The existing GitHub Pages site remains public research/training.
