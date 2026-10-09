@@ -56,6 +56,11 @@ export async function recordAttendance(f:FormData){
  const {supabase}=await mgr(),event=asId("",field(f,"event_id")),person=asId(event,field(f,"person_id"));
  const kind=field(f,"kind"),mode=field(f,"mode");if(!["account","manual"].includes(kind)||!["in","out","reset"].includes(mode))fail(event,"Invalid attendance selection");
  const col=kind==="account"?"user_id":"manual_volunteer_id";
+ const {data:membership,error:memberError}=kind==="account"
+  ?await supabase.from("program_access").select("user_id").eq("user_id",person).eq("program","repair_cafe").eq("active",true).maybeSingle()
+  :await supabase.from("repair_cafe_manual_volunteers").select("id").eq("id",person).is("deleted_at",null).maybeSingle();
+ check(event,memberError,"Checking volunteer membership");
+ if(!membership)fail(event,"Only an active Repair Café volunteer can be checked in or out.");
  const {data:old}=await supabase.from("repair_cafe_attendance").select("id,check_in_at").eq("event_id",event).eq(col,person).maybeSingle();
  if(mode==="out"&&!old?.check_in_at)fail(event,"Check this volunteer in first");
  const now=new Date().toISOString();
@@ -68,7 +73,11 @@ export async function createIncident(f:FormData){
  const {supabase}=await mgr(),event=asId("",field(f,"event_id"));
  const severity=field(f,"severity"),details=limit(event,field(f,"details"),3000);
  if(!["near_miss","minor","major"].includes(severity)||details.length<3)fail(event,"Describe the incident and choose severity");
- const ticket=field(f,"ticket_id");if(ticket)asId(event,ticket);
+ const ticket=field(f,"ticket_id");if(ticket){
+  asId(event,ticket);
+  const {data:related}=await supabase.from("repair_cafe_tickets").select("event_id").eq("id",ticket).maybeSingle();
+  if(!related||related.event_id!==event)fail(event,"The incident ticket must belong to this event.");
+ }
  const {error}=await supabase.from("repair_cafe_incidents").insert({
   event_id:event,ticket_id:ticket||null,severity,details,
   immediate_action:limit(event,field(f,"immediate_action"),3000),
@@ -97,6 +106,8 @@ export async function uploadTicketPhoto(f:FormData){
  const {supabase,user}=await mgr(),event=asId("",field(f,"event_id")),ticket=asId(event,field(f,"ticket_id"));
  const {data:found}=await supabase.from("repair_cafe_tickets").select("id").eq("id",ticket).eq("event_id",event).single();
  if(!found)fail(event,"Ticket not found");
+ if(field(f,"photo_permission")!=="yes")
+  fail(event,"Ask the item owner for explicit permission to store the photo privately before uploading.");
  const file=f.get("photo");
  if(!(file instanceof File))fail(event,"Select a photo");
  const ext:{[key:string]:string}={"image/jpeg":"jpg","image/png":"png","image/webp":"webp"};
