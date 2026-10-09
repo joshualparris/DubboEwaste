@@ -1,8 +1,5 @@
 name: Daily aggregate website analytics
 on:
-  schedule:
-    - cron: "34 3 * * *"
-      timezone: "Australia/Sydney"
   workflow_dispatch:
 
 permissions:
