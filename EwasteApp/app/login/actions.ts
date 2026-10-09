@@ -1,6 +1,7 @@
 "use server";
 
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
+import { geoFromHeaders, deviceFromUserAgent } from "@/lib/analytics";
 import { PROGRAMME_COOKIE, type ProgrammeContext } from "@/lib/programmes";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
@@ -44,6 +45,15 @@ export async function login(formData: FormData) {
   (await cookies()).delete(PROGRAMME_COOKIE);
   const destination = await destinationForUser();
   if (destination.startsWith("/login")) redirect(destination);
+  // Log a successful sign-in count only, never the email, account ID or password.
+  try {
+    const h = await headers();
+    await supabase.from("analytics_events").insert({
+      site: "dubbo_ewaste", event_name: "login_success", page_group: "/login",
+      ...geoFromHeaders(h), device_class: deviceFromUserAgent(h.get("user-agent") || ""),
+      is_authenticated: true
+    });
+  } catch { /* sign-in must never depend on analytics */ }
   if (formData.get("next") === "/circular-access") redirect("/circular-access");
   redirect(destination);
 }
@@ -74,6 +84,14 @@ export async function resendConfirmation(formData: FormData) {
 export async function logout() {
   const supabase = await createClient();
   (await cookies()).delete(PROGRAMME_COOKIE);
+  try {
+    const h = await headers();
+    await supabase.from("analytics_events").insert({
+      site: "dubbo_ewaste", event_name: "logout", page_group: "/login",
+      ...geoFromHeaders(h), device_class: deviceFromUserAgent(h.get("user-agent") || ""),
+      is_authenticated: true
+    });
+  } catch { /* logout must never depend on analytics */ }
   await supabase.auth.signOut();
   redirect("/login");
 }
