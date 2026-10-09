@@ -243,3 +243,33 @@ export async function removeMemberSkillRecord(form:FormData){
  const {error}=await supabase.from("repair_cafe_volunteer_profiles").delete().eq("user_id",user_id);
  assertResult(error,"Could not delete volunteer skills");done("Skill profile removed. This did not delete the person's login account.",people);
 }
+
+export async function substituteVolunteer(form:FormData){
+ const {supabase}=await coordinator();
+ const assignment_id=value(form,"assignment_id"),choice=value(form,"replacement");
+ checkId(assignment_id);
+ if(value(form,"confirmed_by_contact")!=="yes")
+  fail("You must speak to the replacement volunteer and confirm this shift with them first.");
+ const [kind,person]=choice.split(":");
+ if(!["account","manual"].includes(kind)||!person)fail("Choose a replacement volunteer.");
+ checkId(person);
+ const {data:existing,error:readError}=await supabase.from("repair_cafe_shift_assignments")
+  .select("id,status,slot_id").eq("id",assignment_id).single();
+ if(readError||!existing)fail("Assignment missing.");
+ const {data:slot}=await supabase.from("repair_cafe_shift_slots").select("event_id").eq("id",existing.slot_id).single();
+ if(!slot)fail("Shift missing.");
+ const table=kind==="manual"?"repair_cafe_manual_availability":"repair_cafe_availability";
+ const col=kind==="manual"?"manual_volunteer_id":"user_id";
+ const {data:availability}=await supabase.from(table).select("response")
+  .eq("event_id",slot.event_id).eq(col,person).maybeSingle();
+ if(availability?.response!=="available")
+  fail("Replacement volunteer must have agreed they are available for this event.");
+ // Single row update; no remove/recreate gap, so a live event does not silently lose coverage.
+ const {error}=await supabase.from("repair_cafe_shift_assignments").update({
+  user_id:kind==="account"?person:null,
+  manual_volunteer_id:kind==="manual"?person:null,
+  status:"confirmed"
+ }).eq("id",assignment_id);
+ assertResult(error,"Could not substitute volunteer");
+ done("Replacement confirmed. Update the roster and tell the original volunteer.");
+}
