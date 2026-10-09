@@ -27,7 +27,14 @@ export async function saveKnowledge(form:FormData){
  (entry.guide_url&&!/^https:\/\//i.test(entry.guide_url)))fail("Check the knowledge entry and secure guide URL.");
  if(id&&!uuid.test(id))fail("Invalid entry ID.");
  const payload={...entry,...(!id&&ticketId?{ticket_id:ticketId,review_status:"draft"}:{})};
- const {error}=id?await supabase.from("repair_cafe_knowledge").update(entry).eq("id",id):await supabase.from("repair_cafe_knowledge").insert(payload);
+ const {data:existing}=id?await supabase.from("repair_cafe_knowledge").select("ticket_id").eq("id",id).single():{data:null};
+ if(!id){
+  let search=supabase.from("repair_cafe_knowledge").select("id").ilike("title",title).eq("category",entry.category).limit(1);
+  const {data:duplicates}=await search;
+  if(duplicates?.length)fail("A knowledge lesson with that title and category already exists. Search and edit it instead.");
+ }
+ const edited={...entry,...(existing?.ticket_id?{review_status:"draft",privacy_confirmed_at:null}:{})};
+ const {error}=id?await supabase.from("repair_cafe_knowledge").update(edited).eq("id",id):await supabase.from("repair_cafe_knowledge").insert(payload);
  if(error)fail("Unable to save: "+error.message);
  revalidatePath(root);redirect(root+"?success="+encodeURIComponent("Knowledge entry saved."));
 }
