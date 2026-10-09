@@ -13,7 +13,7 @@ export default async function PeoplePage({searchParams}:{searchParams:Promise<{e
   redirect("/repair-cafe-volunteers/sessions?error=Only%20coordinators%20can%20manage%20volunteer%20contact%20details");
  const [{data:manual,error:peopleError},{data:events},directory]=await Promise.all([
   supabase.from("repair_cafe_manual_volunteers")
-   .select("id,full_name,email,phone,skills,notes,contact_consent").order("full_name"),
+   .select("id,full_name,email,phone,skills,notes,contact_consent").is("deleted_at",null).order("full_name"),
   supabase.from("repair_cafe_sessions").select("id,event_date,title,status").order("event_date"),
   supabase.rpc("repair_cafe_roster_directory")
  ]);
@@ -71,9 +71,9 @@ export default async function PeoplePage({searchParams}:{searchParams:Promise<{e
      </form>
      <form action={deleteManualVolunteer} className={styles.dangerForm}>
       <input type="hidden" name="manual_volunteer_id" value={p.id}/>
-      <p className={styles.help}>Deleting also removes this person's availability and roster assignments, including confirmed shifts. Review their sessions first.</p>
+      <p className={styles.help}>Archiving hides this volunteer and preserves their history. Any confirmed shifts are withdrawn. Restore from Operations & safety.</p>
       <label>Type DELETE to confirm <input name="confirm" autoComplete="off" placeholder="DELETE" required/></label>
-      <button className="button danger">Delete volunteer and their rosters</button>
+      <button className="button danger">Archive volunteer</button>
      </form>
     </details>)}
    </div>
