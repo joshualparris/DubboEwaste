@@ -1,5 +1,9 @@
 # Repair Café Website Engagement Benchmark
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 documentation reconciliation:** **Historical competitor and content benchmark (8 October):** the Repair Café public website and private volunteer system were expanded on 9 October. Treat recommendations such as new event or volunteer pages as design research, not proof they are still absent. External comparator ratings, publication wording and sign-up requirements should be rechecked before making public claims. See [documentation index](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md).
+
+
 **Research date:** 8 October 2026  
 **Purpose:** Identify website/engagement patterns that should be built into a public Dubbo Repair Café participation site.
 

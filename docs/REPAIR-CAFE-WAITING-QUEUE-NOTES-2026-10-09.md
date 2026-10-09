@@ -1,5 +1,9 @@
 # Repair Café Dubbo — editing notes while waiting
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 documentation reconciliation:** **Current integration note:** waiting-ticket note editing is an Event Desk capability alongside intake, station dispatch and outcome history. The note editor must not silently alter risk decisions, invent a completed outcome or lose edits during live/reconnect updates. The old change note describes one iteration; see [current feature matrix](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) and do an authenticated browser regression. See [documentation index](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md).
+
+
 Updated 9 October 2026.
 
 ## Change

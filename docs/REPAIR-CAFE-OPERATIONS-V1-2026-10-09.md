@@ -1,5 +1,9 @@
 # Repair Café Dubbo — integrated operations build
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 documentation reconciliation:** **Current navigation/status supplement:** Private Event Desk, monthly sessions, volunteer directory, self-service/QR, station leads/dispatch, knowledge base, operations/safety and event/annual reports now have routes. Distinguish stored attendance from verified real work, generated QR from successful phone check-in, source-only offline from tested sync, notification outbox from actual external delivery, and LMS completion from verified qualifications. The [live feature matrix](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) is the point-in-time status authority. See [documentation index](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md).
+
+
 **Updated:** 9 October 2026. **Repository:** \`joshualparris/DubboEwaste\`, \`EwasteApp\`.
 **Scope:** Existing private Repair Café programme, NOT a second login, SaaS subscription or separate public website.
 **Intent:** Pilot-grade event-day and volunteer operations. It is **not** a substitute for real venue permission, insurance, electrical compliance or appropriately trained supervision.

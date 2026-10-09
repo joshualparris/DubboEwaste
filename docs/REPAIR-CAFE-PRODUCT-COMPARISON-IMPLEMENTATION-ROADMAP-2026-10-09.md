@@ -1,5 +1,9 @@
 # Repair Café Dubbo: product comparison, gaps and implementation roadmap
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 documentation reconciliation:** **Roadmap reconciliation 9 October:** the original feature gaps below were a *pre-implementation competitor comparison*. Several gaps have since acquired working routes, SQL, or feature scaffolds: Event Desk tickets, attendee hours, stations, incident/audit, manual contacts, QR check-in, feedback, knowledge search, live queue, offline capture, annual reports and exports. These remain at different levels of verification. **Do not mark the whole roadmap complete**; live email/SMS, external partners/safety sign-off and a multi-account mock event remain unsatisfied. [Current feature matrix](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md). See [documentation index](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md).
+
+
 **Date:** 9 October 2026  
 **Repository:** joshualparris/DubboEwaste, EwasteApp  
 **Scope:** Community Repair Café operations and volunteer coordination only. Do not conflate items temporarily handled at events with donated E-waste, commercial repair jobs or Library of Things loans.

@@ -1,5 +1,9 @@
 # Repair Café Dubbo: monthly events, volunteer rostering and venue operations
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 documentation reconciliation:** **The original first-slice plan has been overtaken.** Coordinator CRUD/date edits, programme-scoped manual volunteers, assignment management, timed shifts, check-in hours, archive/restore, safety/audit history, QR route, volunteer self-service and more are now represented in the app/code and live schema. Read sections labelled 'proposed model', 'not yet included' and suggested future phases as **historical requirements**, not definitive current gaps. Waitlist, training gate, dispatch and email delivery still require individual migration/deployment/browser/provider checks. No real venue is confirmed in the 9 October database snapshot. See [documentation index](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md).
+
+
 **Prepared:** 9 October 2026  
 **Status:** foundational event and roster system built 9 October 2026; public dates and volunteer/venue commitments still need to be entered and confirmed. The remaining phases below are proposals, not completed features.  
 **Owner:** Repair Café Dubbo programme, within the existing DubboEwaste operational platform.  
@@ -29,7 +33,7 @@
 - Public page queries upcoming **published** events only. It does not expose draft events, private volunteers or unapproved venues.
 - Two applied Supabase migrations: `20261009133500_repair_cafe_sessions_rosters.sql` and `20261009134500_repair_cafe_publish_safety.sql`.
 
-**Not yet included:** automatic email/SMS reminders, external venue-host accounts, a hosted repair item booking queue, exportable iCalendar invites, volunteer attendance/outcome reports and the event-audit log described in the long-term plan. Those are separate development phases. Do not imply an automated message has been sent. No real 2027 booking, Barry or Jill assignment was inserted.
+**First-release historical gap list (now partly superseded):** external email/SMS delivery and external venue-host accounts remain separate; attendance, outcomes, audit history and queue functionality have since gained dedicated implementation. Consult the 9 October reconciliation above and the live feature matrix. Those are separate development phases. Do not imply an automated message has been sent. No real 2027 booking, Barry or Jill assignment was inserted.
 
 **Verification:** the first Vercel production build passed, including the application’s existing Learning, Mobile and Programme Auth QA gates and Next.js compile. An authenticated browser end-to-end test with actual volunteer accounts has not yet been completed; this document does not claim otherwise.
 

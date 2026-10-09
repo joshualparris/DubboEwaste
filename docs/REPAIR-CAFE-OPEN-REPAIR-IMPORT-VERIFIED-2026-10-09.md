@@ -1,5 +1,9 @@
 # Open Repair Alliance July 2025 import verification
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 documentation reconciliation:** **Rechecked 9 October 2026:** live Supabase contained **305,649** historical Open Repair Alliance records during this documentation review. This verifies table population, not correctness of every mapping, quality of a search result or that a given item can be repaired safely. Source records are historical observational outcomes, **not repair instructions**. See [documentation index](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md).
+
+
 **Date:** 9 October 2026  
 **Target:** DubboEwaste Supabase, `public.repair_cafe_open_repair_data`  
 **Status:** Full live import **verified complete**.

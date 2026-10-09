@@ -1,5 +1,9 @@
 # Repair Café Dubbo — encrypted offline Event Desk
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 documentation reconciliation:** **Implementation versus field acceptance:** an encrypted offline Event Desk client, receipts and conflict-handling migrations exist. A source/build pass does **not** verify persistence across browser reload, Android/iPhone quirks, safe reconnection, duplicate prevention, compromised device or revocation. Offline mode is not a general offline LMS/roster/incident photo system. Treat the original browser rehearsal section as a current *open safety test*, not completed. See [documentation index](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md).
+
+
 **Implemented:** 9 October 2026. **App:** \`EwasteApp\` within \`joshualparris/DubboEwaste\`.
 
 ## What it supports
