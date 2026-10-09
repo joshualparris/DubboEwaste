@@ -181,15 +181,18 @@ export async function changeAssignmentStatus(form:FormData){
 export async function updateSlot(form:FormData){
  const {supabase}=await coordinator();
  const id=value(form,"slot_id"),role_name=value(form,"role_name"),
- notes=value(form,"notes"),required_count=Number(value(form,"required_count"));
+ notes=value(form,"notes"),required_count=Number(value(form,"required_count")),
+ starts_at=value(form,"starts_at"),ends_at=value(form,"ends_at");
  checkId(id);
  if(role_name.length<2||role_name.length>80||notes.length>250||
-    !Number.isInteger(required_count)||required_count<1||required_count>20)
-  fail("Check the position name, capacity and notes.");
+    !Number.isInteger(required_count)||required_count<1||required_count>20||
+    !/^([01]\\d|2[0-3]):[0-5]\\d$/.test(starts_at)||
+    !/^([01]\\d|2[0-3]):[0-5]\\d$/.test(ends_at)||ends_at<=starts_at)
+  fail("Check the role, start, finish, capacity and notes.");
  const {error}=await supabase.from("repair_cafe_shift_slots")
-  .update({role_name,notes,required_count}).eq("id",id);
+  .update({role_name,notes,required_count,starts_at,ends_at}).eq("id",id);
  assertResult(error,"Could not update position");
- done("Position updated. Check whether any public event needs re-publication.");
+ done("Position updated. Conflicting volunteer shifts are rejected automatically.");
 }
 export async function deleteSlot(form:FormData){
  const {supabase}=await coordinator();
