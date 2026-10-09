@@ -51,3 +51,13 @@ for field, cols in (
     lines.append("")
 (out / (day + ".md")).write_text("\n".join(lines) + "\n", encoding="utf-8")
 print("Daily aggregate written:", site, day)
+
+# Enforce the 90-day raw-event retention period after a successful daily export.
+cutoff = (dt.datetime.now(ZoneInfo("Australia/Sydney")) - dt.timedelta(days=90)).astimezone(dt.timezone.utc)
+from urllib.parse import quote
+delete_url = url + "/rest/v1/analytics_events?occurred_at=lt." + quote(cutoff.isoformat().replace("+00:00", "Z"))
+delete_request = Request(delete_url, method="DELETE",
+                         headers={"apikey": token, "Authorization": "Bearer " + token,
+                                  "Prefer": "return=minimal"})
+with urlopen(delete_request, timeout=20):
+    pass
