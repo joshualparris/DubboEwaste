@@ -74,14 +74,14 @@ returns setof public.repair_cafe_notifications
 language plpgsql security definer set search_path=''
 as $$
 begin
- if current_user <> 'service_role' then
+ if auth.role() <> 'service_role' then
   raise exception 'Service role only' using errcode='42501';
  end if;
  return query
  with jobs as (
   select id from public.repair_cafe_notifications
-  where (state='pending' and scheduled_for<=now())
-    or (state='sending' and scheduled_for<now()-interval '15 minutes')
+  where ((state='pending' and scheduled_for<=now())
+    or (state='sending' and scheduled_for<now()-interval '15 minutes'))
    and attempt_count<3
   order by scheduled_for,id
   for update skip locked
