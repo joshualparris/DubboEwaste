@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {redirect} from "next/navigation";
 import {requireProgrammeContext} from "@/lib/programme-context";
-import {createManualVolunteer,updateManualVolunteer,deleteManualVolunteer} from "../sessions/manage-actions";
+import {createManualVolunteer,updateManualVolunteer,deleteManualVolunteer,saveMemberSkillRecord,removeMemberSkillRecord} from "../sessions/manage-actions";
 import styles from "../sessions/sessions.module.css";
 
 type Manual={id:string;full_name:string;email:string;phone:string;skills:string[];notes:string;contact_consent:boolean};
@@ -81,9 +81,20 @@ export default async function PeoplePage({searchParams}:{searchParams:Promise<{e
   <section className={styles.panel}>
    <h2>Volunteers with logins ({accounts.length})</h2>
    <p className={styles.help}>These are existing authenticated Repair Café members. Their accounts are managed through programme memberships, not the manual directory. You can still assign them to sessions from the roster once they have indicated availability.</p>
-   <div className={styles.directoryGrid}>{accounts.map(a=><div key={a.user_id} className={styles.directoryCard}>
-    <strong>{a.display_name}</strong><p className={styles.help}>{a.skills.join(", ")||"Skills not provided"}</p>
-   </div>)}</div>
+   <div className={styles.directoryGrid}>{accounts.map(a=><details key={a.user_id} className={styles.directoryCard}>
+    <summary><span>{a.display_name}<small>{a.skills.join(" · ")||"Skills not provided"} · Has login</small></span></summary>
+    <form action={saveMemberSkillRecord} className={styles.form}>
+     <input type="hidden" name="user_id" value={a.user_id}/>
+     <label>Self-declared skills <input name="skills" maxLength={1200} defaultValue={a.skills.join(", ")} placeholder="Sewing, laptop help, intake"/></label>
+     <button className="button secondary">Save account volunteer skills</button>
+    </form>
+    <form action={removeMemberSkillRecord} className={styles.dangerForm}>
+     <input type="hidden" name="user_id" value={a.user_id}/>
+     <p className={styles.help}>Remove only this person's Repair Café skill record, not their login or membership.</p>
+     <label>Type DELETE to confirm <input name="confirm" required placeholder="DELETE"/></label>
+     <button className="button danger">Delete skill record</button>
+    </form>
+   </details>)}</div>
   </section>
  </div>;
 }
