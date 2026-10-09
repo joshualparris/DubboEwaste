@@ -66,6 +66,7 @@ export default async function RepairCafeDubboPage() {
         {venue?.accessibility?<p>Access: {venue.accessibility}</p>:null}
         <p><strong>Planned repair focus:</strong> {upcoming.focus}</p>
         <p>Bring a portable item and stay to learn with volunteers. Repair is not guaranteed, and unsafe or specialist work may be declined.</p>
+        <p><a href="/repair-cafe-dubbo/feedback">Leave optional anonymous feedback after your visit →</a></p>
       </section>:null}
 
       <section className={styles.section} id="how-it-works">
