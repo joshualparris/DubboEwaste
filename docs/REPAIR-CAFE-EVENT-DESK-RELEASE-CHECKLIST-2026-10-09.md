@@ -1,5 +1,9 @@
 # Event Desk implementation and release checklist (9 October 2026)
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 documentation reconciliation:** **Release status superseded:** later Vercel production builds completed successfully for the Event Desk. Therefore the older footer phrase 'not verified deployed' is no longer accurate; interpret the checklist as a **historical pre-release gate list**. Core database rollback-only tests passed. Still **not verified**: signed-in multi-role, two-device realtime, smartphone offline capture/reconciliation and a complete in-person mock event. See [current verified features](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) and [documentation freshness index](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md).
+
+
 ## Implemented in GitHub
 - Authenticated private Event Desk page: `EwasteApp/app/(private)/repair-cafe-volunteers/event-desk/page.tsx`.
 - Server actions: `event-desk/actions.ts`, selecting a session, check-in, station CRUD, status/outcome changes.
@@ -34,4 +38,4 @@
 - Counts reflect one canonical data source and exclude void tickets.
 
 ## Status
-**Committed source, not verified deployed or production-ready.** This checklist documents outstanding work rather than claiming the above tests passed.
+**Production deployment verified READY later on 9 October; not yet field-certified or fully end-to-end browser-tested.** This checklist documents outstanding work rather than claiming the above tests passed.

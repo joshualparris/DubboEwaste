@@ -1,5 +1,9 @@
 # Repair Café Dubbo — interim repair findings versus final outcome
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 documentation reconciliation:** This is a **specific 9 October bug/workflow implementation record**, not a complete list of today's Event Desk functionality. The app now has separate interim notes/status and final repair outcomes with ticket history; test that progress notes remain available and never falsely imply a final outcome. See the live feature register for the current scope. See [current verified features](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) and [documentation freshness index](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md).
+
+
 **Fixed:** 9 October 2026. **Route:** \`/repair-cafe-volunteers/event-desk\`.
 
 ## Why this exists

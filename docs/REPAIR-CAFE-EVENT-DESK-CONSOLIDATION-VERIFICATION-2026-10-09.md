@@ -1,5 +1,9 @@
 # Repair Café Event Desk: consolidation and verification record
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 documentation reconciliation:** **Current integration addendum:** the canonical operational record is `public.repair_cafe_tickets`; older `repair_cafe_visits`/`repair_cafe_repair_tickets` were retired as an alternate write path by migration. Since this original verification, Event Desk gained live-queue UI, station lead/dispatch, offline capture, local knowledge search, optional owner-permitted photos and reporting. Migration source presence and an RLS/SQL dry-run do **not** prove multi-account/mobile/browser acceptance. See [current verified features](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) and [documentation freshness index](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md).
+
+
 **Date:** 9 October 2026. **Scope:** live DubboEwaste Supabase project and GitHub's Next.js app.
 
 ## Completed

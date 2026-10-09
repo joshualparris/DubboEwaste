@@ -1,5 +1,9 @@
 # Repair Café Dubbo × Dubbo Farmers Market — evidence and pilot proposal
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 documentation reconciliation:** This is a **venue/market feasibility investigation**, not permission for a stall, funding, auspice, insurance or repair scope. The software now manages sessions, tickets, venue correspondence and capacity, but external market/venue approvals remain unconfirmed and must be checked directly. See [current verified features](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) and [documentation freshness index](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md).
+
+
 **Researched:** 9 October 2026  
 **Status:** External examples verified from published sources; **Dubbo market partnership not confirmed**, no stall or venue booking implied.  
 **Owner:** Repair Café Dubbo within DubboEwaste. Complements the monthly event/volunteer/venue specification.

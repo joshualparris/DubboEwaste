@@ -1,5 +1,9 @@
 # Dubbo Repair Café Venue Research
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 documentation reconciliation:** **Dated venue leads, not bookings.** Current 9 October live Supabase snapshot has **zero active venue records** despite 13 session records. The app now offers venue directory, confirmation stages, contact history and evidence capture, but none of this confirms a real host or permission for repair activities. Check actual organisation, insurance, accessibility, power/tool restrictions and safety before announcing dates. See [current verified features](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) and [documentation freshness index](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md).
+
+
 **Research date:** 8 October 2026  
 **Purpose:** Identify realistic venues for a small, inclusive Dubbo Repair Café pilot and longer-term community repair program.
 

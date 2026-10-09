@@ -1,5 +1,9 @@
 # Repair Café Dubbo — live reception and station queue
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 documentation reconciliation:** **Live queue status:** Supabase Realtime subscriptions and client indicators exist in the application, with server-side programme access. A green compile or publication membership check **is not two-browser realtime validation**. Multi-device updates, reconnect, tab wake, membership revocation, station moves and mobile typing under live changes remain separate acceptance tests. See [current verified features](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) and [documentation freshness index](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md).
+
+
 **Implementation:** 9 October 2026 · existing DubboEwaste/AssetFlow Repair Café programme.
 
 ## User experience

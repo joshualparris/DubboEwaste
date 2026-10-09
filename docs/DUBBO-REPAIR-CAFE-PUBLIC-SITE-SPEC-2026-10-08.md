@@ -1,5 +1,9 @@
 # Repair Café Dubbo Public Website Specification
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 documentation reconciliation:** This is the 8 October **public-site specification**, not a current build checklist. The live public route is `/repair-cafe-dubbo` with feedback support and publication-gated upcoming events. Private volunteer rostering, Event Desk, knowledge, reports and station dispatch now live under `/repair-cafe-volunteers/*`; keep private details off the public home page. **Do not claim a venue/event is confirmed** without records and host approval. See [current verified features](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) and [documentation freshness index](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md).
+
+
 **Date:** 8 October 2026  
 **Status:** Build specification based on Dubbo circular-economy, venue and website-engagement research.
 

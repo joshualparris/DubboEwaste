@@ -1,4 +1,8 @@
 # Repair Café Dubbo: zero-personal-spend launch, grants and operating answers
+
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 documentation reconciliation:** This grant/legal/venue note remains **external research and proposals**, not approval to operate. The new Repair Café Event Desk, internal safety/incident records and volunteer LMS do not substitute for a real incorporated host, approved venue, liability cover or NSW electrical safety controls. Grant amounts/deadlines must be rechecked before use; a possible $0 launch is conditional, not a guarantee. See [current verified features](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) and [documentation freshness index](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md).
+
 **Researched:** 9 October 2026. **Status:** research and proposed actions, not insurance approval, grant eligibility determination, venue booking or market permission.
 
 ## Recommendation
