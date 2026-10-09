@@ -5,6 +5,7 @@ import {saveKnowledge,deleteKnowledge,reviewLesson} from "./actions";
 import {searchRestarters} from "@/lib/repair-cafe/restarters";
 
 type Entry={id:string;review_status:string;ticket_id:string|null;title:string;category:string;manufacturer:string;model:string;symptoms:string;diagnosis:string;solution:string;outcome:string;safety_notes:string;guide_url:string};
+type OpenRepairHit={source_id:string;brand:string;product:string;category:string;model:string;problem:string;repair_status:string;country:string};
 type Suggest={dataType?:string;title?:string;url?:string;guideid?:number;locale?:string};
 const clean=(x:string)=>x.toLowerCase();
 const styles={panel:{border:"1px solid #cbd8ce",borderRadius:15,padding:"1rem",background:"var(--surface,#fff)"} as const,form:{display:"grid",gap:12} as const,grid:{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(min(100%,330px),1fr))",gap:16} as const};
@@ -85,7 +86,7 @@ export default async function Knowledge({searchParams}:{searchParams:Promise<{q?
     {wiki.hits.map(h=><p key={h.url}><a href={h.url} target="_blank" rel="noopener noreferrer">{h.title} ↗</a>{h.snippet?<small style={{display:"block"}}>{h.snippet}</small>:null}</p>)}
     <a href={q?"https://wiki.restarters.net/index.php?search="+encodeURIComponent(q):"https://wiki.restarters.net/"} target="_blank" rel="noopener noreferrer">Search Restarters Wiki ↗</a>
     <hr/><h3>Open Repair Alliance · 305,649 imported records</h3><p>Search the July 2025 ORDS v0.3 collection across category, product, brand and fault. These are repair outcomes, not step-by-step instructions. Source: Open Repair Alliance · CC BY-SA 4.0.</p>
-    {(openRows??[]).map(r=><p key={r.source_id}><strong>{r.brand||r.product||r.category} {r.model}</strong><small style={{display:"block"}}>{r.problem||r.category} · {r.repair_status||"Outcome not supplied"} · {r.country}</small></p>)}
+    {((openRows??[]) as OpenRepairHit[]).map(r=><p key={r.source_id}><strong>{r.brand||r.product||r.category} {r.model}</strong><small style={{display:"block"}}>{r.problem||r.category} · {r.repair_status||"Outcome not supplied"} · {r.country}</small></p>)}
     {q&&!(openRows??[]).length?<p className="muted">No matching records in the imported dataset. Try fewer or broader words.</p>:null}
     <a href="https://openrepair.org/open-data/downloads/" target="_blank" rel="noopener noreferrer">Browse open repair datasets ↗</a>
     <p className="muted">External sources retain their own licences. iFixit API use is non-commercial; guides are opened at their source. No visitor information is sent to these services, only the search terms entered here.</p>
