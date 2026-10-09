@@ -274,7 +274,7 @@ export default function LiveQueue({eventId,active,canManage,initialTickets,initi
        {stale?<div role="alert" className={styles.warning}>
         This ticket changed on another device while you were editing. Close and reopen it to load the latest values before saving.
        </div>:null}
-       {active?<form action={saveRepairTicket} className={styles.form}>
+       {active?<form data-offline-kind="ticket_update" action={saveRepairTicket} className={styles.form}>
         <input type="hidden" name="event_id" value={eventId}/>
         <input type="hidden" name="ticket_id" value={t.id}/>
         <input type="hidden" name="revision" value={t.updated_at}/>
