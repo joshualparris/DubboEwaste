@@ -1,5 +1,9 @@
 # Repository organisation audit — 2 October 2026
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Historical inventory only (2 October 2026):** Counts in this audit (273 files, 136 docs, 75 app files) are a *dated snapshot* and no longer describe the current repository. The 9 October audit indexed 317+ Markdown/text files and a substantially expanded Next.js app. Current directory status and all-doc inventory: [documentation catalogue](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md).
+
+
 ## Scope
 
 Full-tree review of the `main` branch of `joshualparris/DubboEwaste`.

@@ -1,5 +1,9 @@
 # Phase 0 Launch Checklist
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 status:** The physical E-waste pilot still requires separate planning, safety, provenance and partner sign-offs. In parallel, the Repair Café app has programme-scoped roster, ticket intake, safety/incident records, LMS and reporting, but they are not evidence a first event, insurance or venue is secured. [Current software status](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md).
+
+
 ## BLOCKS PUBLIC INTAKE
 - [ ] Council planning answer in writing.
 - [ ] Fair Trading licence/exemption position in writing.

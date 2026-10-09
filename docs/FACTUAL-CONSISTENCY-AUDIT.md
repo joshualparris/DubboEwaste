@@ -1,5 +1,9 @@
 # Factual Consistency Audit — 2 Oct 2026
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Precedence updated 9 October 2026:** For product implementation and production deployment, [live features & verification](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) supersedes 2 October notes; for physical business gates [CURRENT-STATE](CURRENT-STATE.md) remains authoritative. The legal, sourcing and market assertions below are dated research and require fresh official-source verification. Do not confuse newer source code with confirmed partner approval.
+
+
 **Scope:** whole-repo cross-check of recurring claims after the Agy/Claude/ChatGPT research passes. Historical research files are preserved, but this document records which newer position wins when files disagree.
 
 ## Canonical precedence

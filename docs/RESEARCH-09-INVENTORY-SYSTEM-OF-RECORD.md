@@ -1,5 +1,9 @@
 # Research 09: Inventory, software and information architecture
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 implementation boundary:** AssetFlow's tracked E-waste assets, Library of Things loans and Repair Café visitor-owned ticket records are **different sources of truth**, not a combined possession register. Repair Café now uses `repair_cafe_tickets` with queue, status, station and history. Original inventory-source comparisons below are research snapshots and must not be treated as claims of live integrations. [Verified feature map](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md).
+
+
 **Research date:** 2 October 2026 (AEST)
 
 **Gap covered:** `codexGAPS.md` section 12: asset IDs, serial/IMEI privacy, photos, custody, sanitisation certificates, repairs, parts, listings, sales, returns, ageing, downstream evidence, backups, retention and export.

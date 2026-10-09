@@ -1,5 +1,9 @@
 # Pilot Dashboard
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **9 October 2026 interpretation:** This is a physical reuse-first pilot scorecard, distinct from software metrics. The private Repair Café reports page records ticket outcomes and attendance separately and may show measured weights; do not sum public Repair Café tickets into donated E-waste asset totals or claim avoided CO₂ without an agreed method. [Software verification](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md).
+
+
 Calculate weekly from `pilot-tracker.csv`.
 
 ## Core KPIs

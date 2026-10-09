@@ -1,5 +1,9 @@
 # AssetFlow Detailed Software Specification
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Specification versus production (9 October 2026):** This 2 October v0.2 document remains a *design proposal*, not a completed or certified implementation specification. The live Next.js `EwasteApp/` includes AssetFlow modules, CRM, Learning, the Library of Things and separate Repair Café operations. For working routes, migration parity and outstanding QA see [verified product register](../docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md).
+
+
 Version: research specification v0.2  
 Date: 2 October 2026
 

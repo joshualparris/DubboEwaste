@@ -1,5 +1,9 @@
 # ChatGPT TODO — DubboEwaste
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Historical completed research task log (2 October 2026):** Later Repair Café programme, volunteer LMS, Event Desk, offline, QR and reporting implementations should be assessed via [verified current features](docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md), not this task log. Research 'complete' does not mean operational/pilot approved.
+
+
 > **Completed execution log / historical.** This is not the active project backlog. Current external and pilot closure work lives in [codexToDO.md](codexToDO.md), while current project status lives in [docs/CURRENT-STATE.md](docs/CURRENT-STATE.md).
 
 

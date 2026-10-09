@@ -1,5 +1,9 @@
 # Codex TODO — Dubbo E-Waste closure plan
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Backlog clarification (9 October 2026):** This is a dated E-waste Phase 0 closure list, **not** a single master backlog for the newer Repair Café/LMS/Library of Things product. The [live feature register](docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md), [Repair Café product roadmap](docs/REPAIR-CAFE-PRODUCT-COMPARISON-IMPLEMENTATION-ROADMAP-2026-10-09.md) and [GitHub readiness issue #24](https://github.com/joshualparris/DubboEwaste/issues/24) cover those systems. A checkmark for a research task never substitutes for a signed community/insurance/legal agreement.
+
+
 **Created:** 2 October 2026  
 **Repository:** `joshualparris/DubboEwaste`  
 **Purpose:** convert the repository's research gaps into an executable closure plan. A checked item means the repository now contains the relevant document, template or deterministic check. It does not mean an external approval, course, partnership or real-world pilot has happened.
