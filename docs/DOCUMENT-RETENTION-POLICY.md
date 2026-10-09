@@ -1,5 +1,9 @@
 # Document Retention Policy
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Policy gap (9 October 2026):** The software now keeps Repair Café event records, safety/incident notes, audit logs, volunteer details, private repair images, notification preferences, attendance and offline locally encrypted records. The document below is a prior draft and **does not by itself approve a retention schedule for every new category**. Agree owner, purpose, storage/deletion period, photo/consent revocation, exported CSV handling and trusted-device offline recovery before accepting real visitor data. [Feature register](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md).
+
+
 **Interim conservative policy** pending legal/accounting advice.
 
 ## Keep permanently while business operates + archive

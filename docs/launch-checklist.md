@@ -1,5 +1,9 @@
 # Lean launch checklist
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Launch-status correction (9 October 2026):** A live website and app features are not evidence that the first Repair Café or E-waste collection is approved. Before public attendance, confirm written host/venue permission, applicable insurance, legal/safety boundaries, authorised volunteers and a genuine rehearsal. Repair Café Event Desk/rosters/QR/offline/source capabilities are described separately in [current feature verification](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md).
+
+
 Goal: validate Dubbo eWaste from an existing home shed with the least possible capital and regulatory risk.
 
 For the physical shed itself, use [MINIMUM-PHYSICAL-SHED-SETUP-CHECKLIST.md](MINIMUM-PHYSICAL-SHED-SETUP-CHECKLIST.md) as the single minimum-setup checklist.

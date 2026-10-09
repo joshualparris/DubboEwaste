@@ -1,5 +1,9 @@
 # Phase 0 launch gates
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Current operational boundary (9 October 2026):** software build progress does not remove any physical pilot launch gate. The Repair Café now has event planning, consent/safety flags, ticket tracking, volunteer roster, station dispatch and incident records in code, but those do not confirm organisational auspice, a host venue, permitted repair activities, insurance, transport/waste approvals or practitioner qualifications. Live feature evidence: [product register](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md).
+
+
 **Updated:** 2 October 2026 (AEST). **P0 means Phase 0:** prove a small, controlled reuse/refurbishment operation before offering general public intake or larger IT asset disposition (ITAD) services.
 
 This is the canonical action sequence. The expanded checks are **designed operating policies**, not evidence that the premises, insurance or licences have been approved. Current decision: external gates remain open. **Do not advertise general public intake.** See [CURRENT-STATE.md](CURRENT-STATE.md). Creating this checklist does not close a gate. [EVD-P0-013–015]

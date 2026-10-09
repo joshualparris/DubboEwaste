@@ -1,5 +1,9 @@
 # Research 05: Data, identity, locks and privacy SOP
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Privacy implementation addendum (9 October 2026):** the private app now stores Repair Café tickets, audit history, optional private photos, volunteer contacts/opt-in, and offline capture records. Do not store visitor passwords, sensitive ID or redundant contact information in repair notes. Offline storage, photo consent and retention need browser testing and an explicit approved retention policy; staff training alone is not consent. Research/source statements below are dated, not legal advice. [Current capabilities and limitations](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md).
+
+
 **Research date:** 2 October 2026 (AEST)
 
 **Gap covered:** `codexGAPS.md` section 6, plus the identity and data exceptions that affect sections 2, 7, 11, 12 and 15.

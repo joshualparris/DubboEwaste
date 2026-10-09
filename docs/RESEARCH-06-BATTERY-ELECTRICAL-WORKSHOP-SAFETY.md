@@ -1,5 +1,9 @@
 # Research 06: Battery, electrical and workshop safety
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Safety addendum (9 October 2026):** Repair Café Event Desk enforces basic safety screening and refuses an unsafe ticket from progressing to a normal repair. This is **not** a licence to undertake mains electrical work, battery repairs or any activity outside insurer/venue-approved scope. A self-declared skill or course completion is not formal competency. Real first aid, incident escalation and NSW regulations must be reviewed separately. [Current app boundaries](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md).
+
+
 **Research date:** 2 October 2026 (AEST)
 
 **Gap covered:** `codexGAPS.md` section 7: battery quarantine, electrical work, workshop controls, charging, chemicals, soldering, emergency response and product-safety boundaries.

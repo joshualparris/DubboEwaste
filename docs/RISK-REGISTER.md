@@ -1,5 +1,9 @@
 # Phase 0 Risk Register
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Additional product risks identified 9 October 2026:** Repair Café now involves private contacts, photographs, visitor descriptions, incident reports, offline browser storage, web-based volunteer rostering and potential automated notifications. Real controls remain: data minimisation, consent, authorised device policy, RLS, event-date/role validity, safety escalation, record retention, tested restoration and confirmed message delivery. Existing risks below are not exhaustive. [Current features/status](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md).
+
+
 | Risk | Likelihood before controls | Impact | Controls | Stop/escalate |
 |---|---|---|---|---|
 | lithium fire/thermal runaway | medium | severe | reject damaged batteries; supervised charging; fire-safe work area; FRNSW procedure | heat/smoke/off-gassing |

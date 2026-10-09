@@ -1,5 +1,9 @@
 # Phase 0 operating blueprint — cheapest possible Dubbo eWaste start
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Current software alignment (9 October 2026):** `EwasteApp/` has grown to include separate Repair Café and Library of Things programmes as well as E-waste/ITAD AssetFlow modules. Treat this document as the physical reuse-first pilot blueprint. Repair Café visitor-owned items must not inherit E-waste custody or sanitisation status; the community repair ticket workflow is `repair_cafe_tickets`. Software features do not grant real-world launch approvals. [Live feature register](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md).
+
+
 **Updated:** 2 October 2026  
 **Scope:** a very small, selective electronics reuse/refurbishment business operated from a leased residential shed in Dubbo, with intake on **Tuesdays and Saturdays**.  
 **Goal:** prove that good electronics can be sourced, securely processed and profitably reused **before** taking on warehouse rent, staff, a truck, broad e-waste intake or industrial recycling.

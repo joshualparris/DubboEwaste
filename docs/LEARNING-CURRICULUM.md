@@ -1,5 +1,9 @@
 # DubboEwaste Learning Curriculum
 
+<!-- DOCUMENTATION-SYNC-2026-10-09 -->
+> **Learning product update (9 October 2026):** The shared `/learn` portal now includes programme-specific courses, enrolments, lessons, progress and coordinator oversight; Repair Café has separate competencies and role-suitability work. A course being present, completed or self-declared **does not alone prove verified permission or regulatory competence**. Check actual LMS gates and migration parity. [Live product register](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md).
+
+
 ## Before pilot
 1. **Lithium safety:** complete the free UNSW/available battery-safety material identified in repo research; read FRNSW guidance.
 2. **PC hardware:** Professor Messer A+ Core 1 hardware/troubleshooting sections or equivalent free material.
