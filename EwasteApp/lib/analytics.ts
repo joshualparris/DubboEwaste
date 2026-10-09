@@ -2,7 +2,9 @@
 const allowedSecond = new Set([
   "sessions", "event-desk", "training", "learning", "volunteers", "venues",
   "library-of-things", "repair-cafe", "opportunities", "new", "settings",
-  "assets", "roles", "inventory", "certificates", "calendar"
+  "assets", "roles", "inventory", "certificates", "calendar", "analytics",
+  "data", "permissions", "programmes", "reports", "knowledge", "operations",
+  "people", "history", "processing", "quotes", "campaigns", "feedback"
 ]);
 export function analyticsPath(raw: unknown): string {
   if (typeof raw !== "string") return "/";
