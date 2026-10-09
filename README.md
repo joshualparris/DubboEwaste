@@ -12,11 +12,13 @@ Research, operating design and software for a reuse-first e-waste / IT asset dis
 
 If you are new to the repository, open **[START-HERE.md](START-HERE.md)**.
 
-The three current authority documents are:
+The current starting authorities are:
 
-1. **[Current state](docs/CURRENT-STATE.md)** — what is verified, designed, blocked or still unknown.
-2. **[Phase 0 launch gates](docs/PHASE-0-LAUNCH-GATES.md)** — what must be closed before broader intake.
-3. **[Research index](docs/RESEARCH-INDEX.md)** — where detailed evidence and historical research lives.
+1. **[Live feature register](docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md)** — software capabilities, evidence and limitations as at 9 October 2026.
+2. **[Current state](docs/CURRENT-STATE.md)** — real-world operating status and unknowns.
+3. **[Phase 0 launch gates](docs/PHASE-0-LAUNCH-GATES.md)** — what must close before public intake.
+4. **[Documentation inventory](docs/DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md)** — all 318 tracked Markdown/text documents and which are historical.
+5. **[Research index](docs/RESEARCH-INDEX.md)** — detailed original evidence, not a live software backlog.
 
 For the complete documentation map, use **[docs/README.md](docs/README.md)**.
 

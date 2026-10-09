@@ -6,7 +6,7 @@
 
 **Last reviewed:** 9 October 2026
 
-This page is the quickest way into the DubboEwaste repository. It is a navigation layer, not an exhaustive list of all 489+ tracked files. For the full documentation map use [docs/README.md](docs/README.md) and [docs/RESEARCH-INDEX.md](docs/RESEARCH-INDEX.md).
+This page is the quickest way into the DubboEwaste repository. It is a navigation layer, not an exhaustive list of the repository's files. The 9 October documentation catalogue indexes 318 tracked Markdown/text documents. For the full documentation map use [docs/README.md](docs/README.md) and [docs/RESEARCH-INDEX.md](docs/RESEARCH-INDEX.md).
 
 ## I want to know the current status
 

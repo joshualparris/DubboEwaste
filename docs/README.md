@@ -12,7 +12,10 @@ For current status, always begin with **[CURRENT-STATE.md](CURRENT-STATE.md)**. 
 
 | Need | Document |
 |---|---|
-| Current project status | [CURRENT-STATE.md](CURRENT-STATE.md) |
+| Live software functionality and verification | [LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) |
+| Full document catalogue and age/status guidance | [DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md) |
+| Current physical project/pilot status | [CURRENT-STATE.md](CURRENT-STATE.md) |
+| Repair Café implementation/acceptance plan | [REPAIR-CAFE-PRODUCT-COMPARISON-IMPLEMENTATION-ROADMAP-2026-10-09.md](REPAIR-CAFE-PRODUCT-COMPARISON-IMPLEMENTATION-ROADMAP-2026-10-09.md) |
 | Launch blockers / stop rules | [PHASE-0-LAUNCH-GATES.md](PHASE-0-LAUNCH-GATES.md) |
 | Canonical research navigation | [RESEARCH-INDEX.md](RESEARCH-INDEX.md) |
 | Evidence maturity / closure | [RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md](RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md) |
