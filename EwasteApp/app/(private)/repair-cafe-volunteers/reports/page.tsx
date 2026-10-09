@@ -37,7 +37,7 @@ export default async function CafeReports({searchParams}:{searchParams:Promise<{
   <div className="card" style={{background:"linear-gradient(110deg,#e6f3e8,#fbf6e9)"}}>
    <div className="badge">Private · Repair Café outcomes</div><h1>Impact and volunteer reports</h1>
    <p className="muted">Actual measured results only. No invented CO₂ savings, weight estimates or implied repair successes.</p>
-   <div className="actions no-print"><PrintButton/><Link className="button secondary" href={eventId?"/repair-cafe-volunteers/reports/export?event="+eventId:"/repair-cafe-volunteers/reports/export"}>Export CSV</Link></div>
+   <div className="actions no-print"><PrintButton/><Link className="button secondary" href="/repair-cafe-volunteers/reports/annual">Annual impact</Link><Link className="button secondary" href="/repair-cafe-volunteers/reports/open-data">Draft Open Repair export</Link><Link className="button secondary" href={eventId?"/repair-cafe-volunteers/reports/export?event="+eventId:"/repair-cafe-volunteers/reports/export"}>Export CSV</Link></div>
   </div>
   <section className="card"><h2>Choose a session</h2><div className="actions no-print">
    {active.map(s=><Link href={"?event="+s.id} key={s.id} className={"button "+(s.id===eventId?"":"secondary")}>{date(s.event_date)} · {s.status}</Link>)}
