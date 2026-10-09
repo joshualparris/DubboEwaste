@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { RepairCafeInterestForm } from "@/components/RepairCafeInterestForm";
 import styles from "./page.module.css";
+import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
   title: "Help Shape Repair Café Dubbo",
@@ -19,7 +20,19 @@ const categories = [
   ["🪑", "Household items", "Small furniture, toys and other portable things."],
 ];
 
-export default function RepairCafeDubboPage() {
+export default async function RepairCafeDubboPage() {
+  const db=await createClient();
+  const today=new Intl.DateTimeFormat("en-CA",{timeZone:"Australia/Sydney",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+  const {data:events}=await db.from("repair_cafe_sessions")
+    .select("event_date,starts_at,ends_at,title,focus,venue_id")
+    .eq("status","published").gte("event_date",today)
+    .order("event_date",{ascending:true}).limit(1);
+  const upcoming=events?.[0]??null;
+  const {data:venue}=upcoming?.venue_id
+    ?await db.from("repair_cafe_venues").select("name,address,accessibility").eq("id",upcoming.venue_id).maybeSingle()
+    :{data:null};
+  const publicDate=upcoming?new Date(upcoming.event_date+"T12:00:00Z")
+    .toLocaleDateString("en-AU",{timeZone:"Australia/Sydney",weekday:"long",day:"numeric",month:"long",year:"numeric"}):"";
   return (
     <main className={styles.page}>
       <header className={styles.hero} id="top">
@@ -29,7 +42,7 @@ export default function RepairCafeDubboPage() {
         </nav>
 
         <div className={styles.heroInner}>
-          <p className={styles.status}>Community idea being tested · no event is operating yet</p>
+          <p className={styles.status}>{upcoming?"Next Repair Café session announced":"Community idea being tested · no event is operating yet"}</p>
           <h1>Fix it. Learn it.<br />Keep it in use.</h1>
           <p className={styles.lede}>
             We&apos;re exploring a friendly Repair Café for Dubbo where people can bring broken everyday items,
@@ -42,6 +55,16 @@ export default function RepairCafeDubboPage() {
           <p className={styles.micro}>You do not need repair skills to take part or volunteer.</p>
         </div>
       </header>
+
+      {upcoming?<section className={styles.nextEvent} aria-label="Next confirmed Repair Café event">
+        <span className={styles.kicker}>Next confirmed event</span>
+        <h2>{publicDate}</h2>
+        <p><strong>{upcoming.starts_at.slice(0,5)}–{upcoming.ends_at.slice(0,5)} · {venue?.name??"Location pending"}</strong></p>
+        {venue?.address?<p>{venue.address}</p>:null}
+        {venue?.accessibility?<p>Access: {venue.accessibility}</p>:null}
+        <p><strong>Planned repair focus:</strong> {upcoming.focus}</p>
+        <p>Bring a portable item and stay to learn with volunteers. Repair is not guaranteed, and unsafe or specialist work may be declined.</p>
+      </section>:null}
 
       <section className={styles.section} id="how-it-works">
         <div className={styles.sectionHead}>
@@ -107,7 +130,7 @@ export default function RepairCafeDubboPage() {
         <div className={styles.faq}>
           <details>
             <summary>Is Repair Café Dubbo already running?</summary>
-            <p>No. We are measuring interest before committing to a venue or event.</p>
+            <p>{upcoming?"Yes, one upcoming event is confirmed above. The community interest form remains open.":"Not yet. We are measuring interest before confirming a venue or public event."}</p>
           </details>
           <details>
             <summary>Would I have to pay?</summary>
