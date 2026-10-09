@@ -1,5 +1,7 @@
-// Encrypted, account-scoped offline operations. No key or phrase is persisted.
-// A tab may close without losing pending work. The user must unlock again.
+// Encrypted, account-scoped offline operations. The non-extractable AES-GCM key
+// is stored in this trusted browser's IndexedDB, never exported to the server.
+// Anyone who can use this browser profile can access this offline workspace.
+// An authenticated account is still required for uploads / server access.
 // IndexedDB is not guaranteed in private/incognito mode; display errors in the UI.
 export type OfflineKind="check_in"|"queue_notes"|"ticket_update";
 export type OfflineStatus="pending"|"conflict"|"blocked";
@@ -11,7 +13,9 @@ type Stored={
  key:string;owner:string;eventId:string;createdAt:number;status:OfflineStatus;
  error:string;iv:number[];cipher:ArrayBuffer;
 };
-type Workspace={key:string;salt:number[];iv:number[];check:ArrayBuffer;eventId?:string};
+type Workspace={key:string;eventId?:string;mode?:"trusted";deviceKey?:CryptoKey;
+// Legacy v1 records used passphrase-derived keys. Only used for one-time migration.
+salt?:number[];iv?:number[];check?:ArrayBuffer};
 const databaseName="repair-cafe-offline-encrypted-v1";
 const VERSION=2;
 function tx<T>(request:IDBRequest<T>):Promise<T>{
@@ -49,32 +53,86 @@ async function decrypt<T>(key:CryptoKey,iv:number[],cipher:ArrayBuffer):Promise<
 }
 const workspaceId=(owner:string)=>"workspace:"+owner;
 function close(db:IDBDatabase){db.close()}
-export async function hasWorkspace(owner:string):Promise<boolean>{
- const db=await openOfflineDB();
- try{return !!await tx(db.transaction("workspaces").objectStore("workspaces").get(workspaceId(owner)))}
- finally{close(db)}
-}
-export async function unlockWorkspace(owner:string,phrase:string):Promise<CryptoKey>{
- if(phrase.length<12)throw Error("Use a private passphrase of at least 12 characters");
+export type OfflineWorkspaceState="none"|"trusted"|"legacy";
+export async function getWorkspaceState(owner:string):Promise<OfflineWorkspaceState>{
  const db=await openOfflineDB();
  try{
-  const store=db.transaction("workspaces").objectStore("workspaces");
-  const saved=await tx(store.get(workspaceId(owner))) as Workspace|undefined;
-  if(saved){
-   const key=await derive(phrase,saved.salt);
-   try{
-    const value=await decrypt<string>(key,saved.iv,saved.check);
-    if(value!=="repair-cafe-offline:"+owner)throw Error("Incorrect passphrase");
-   }catch{throw Error("Wrong offline passphrase. Saved work has not been changed.")}
-   return key;
+  const record=await tx(db.transaction("workspaces").objectStore("workspaces").get(workspaceId(owner))) as Workspace|undefined;
+  if(!record)return "none";
+  return record.mode==="trusted"&&record.deviceKey?"trusted":"legacy";
+ }finally{close(db)}
+}
+// Kept for existing imports; do not equate a legacy vault with a trusted key.
+export async function hasWorkspace(owner:string):Promise<boolean>{
+ return (await getWorkspaceState(owner))!=="none";
+}
+export async function openTrustedWorkspace(owner:string):Promise<CryptoKey>{
+ const db=await openOfflineDB();
+ try{
+  const existing=await tx(db.transaction("workspaces").objectStore("workspaces").get(workspaceId(owner))) as Workspace|undefined;
+  if(existing){
+   if(existing.mode==="trusted"&&existing.deviceKey)return existing.deviceKey;
+   throw Error("An older offline vault exists. Migrate it using its original passphrase before enabling the trusted-device workspace.");
   }
-  const salt=bytes(16),key=await derive(phrase,salt);
-  const sample=await encrypt(key,"repair-cafe-offline:"+owner);
-  const tx2=db.transaction("workspaces","readwrite");
-  await tx(tx2.objectStore("workspaces").add({
-   key:workspaceId(owner),salt,iv:sample.iv,check:sample.cipher
-  } as Workspace));
-  return key;
+  // WebCrypto stores a NON-EXTRACTABLE key directly via IndexedDB structured clone.
+  const deviceKey=await crypto.subtle.generateKey({name:"AES-GCM",length:256},false,["encrypt","decrypt"]);
+  try{
+   const transaction=db.transaction("workspaces","readwrite");
+   await tx(transaction.objectStore("workspaces").add({key:workspaceId(owner),mode:"trusted",deviceKey} as Workspace));
+   return deviceKey;
+  }catch(e){
+   // A second tab may have created the workspace first. Never replace its key.
+   if(e instanceof DOMException&&e.name==="ConstraintError"){
+    const saved=await tx(db.transaction("workspaces").objectStore("workspaces").get(workspaceId(owner))) as Workspace|undefined;
+    if(saved?.mode==="trusted"&&saved.deviceKey)return saved.deviceKey;
+   }
+   throw e;
+  }
+ }finally{close(db)}
+}
+// Legacy encrypted records are never deleted or re-keyed without the user's
+// original passphrase. Migration stages all ciphertext before a single write.
+export async function migrateLegacyWorkspace(owner:string,phrase:string):Promise<CryptoKey>{
+ if(phrase.length<12)throw Error("Enter the old passphrase for this one-time migration");
+ const db=await openOfflineDB();
+ try{
+  const saved=await tx(db.transaction("workspaces").objectStore("workspaces").get(workspaceId(owner))) as Workspace|undefined;
+  if(!saved)throw Error("No previous offline workspace on this device");
+  if(saved.mode==="trusted"&&saved.deviceKey)return saved.deviceKey;
+  if(!saved.salt||!saved.iv||!saved.check)throw Error("Legacy workspace is incomplete; nothing was erased");
+  const previousKey=await derive(phrase,saved.salt);
+  try{
+   const marker=await decrypt<string>(previousKey,saved.iv,saved.check);
+   if(marker!=="repair-cafe-offline:"+owner)throw Error("Invalid original key");
+  }catch{throw Error("Incorrect old passphrase. Nothing was erased.");}
+  const deviceKey=await crypto.subtle.generateKey({name:"AES-GCM",length:256},false,["encrypt","decrypt"]);
+  const [operations,snapshots]=await Promise.all([
+   tx(db.transaction("operations").objectStore("operations").getAll()) as Promise<Stored[]>,
+   tx(db.transaction("snapshots").objectStore("snapshots").getAll()) as Promise<Stored[]>
+  ]);
+  const rekey=async<T extends Stored>(items:T[])=>{
+   const prepared:T[]=[];
+   for(const item of items.filter(x=>x.owner===owner)){
+    const value=await decrypt<unknown>(previousKey,item.iv,item.cipher);
+    const sealed=await encrypt(deviceKey,value);
+    prepared.push({...item,iv:sealed.iv,cipher:sealed.cipher});
+   }
+   return prepared;
+  };
+  const [newOps,newSnapshots]=await Promise.all([rekey(operations),rekey(snapshots)]);
+  // All writes commit together. A browser crash cannot leave half-rekeyed data.
+  const transaction=db.transaction(["operations","snapshots","workspaces"],"readwrite");
+  for(const item of newOps)transaction.objectStore("operations").put(item);
+  for(const item of newSnapshots)transaction.objectStore("snapshots").put(item);
+  transaction.objectStore("workspaces").put({
+   key:workspaceId(owner),mode:"trusted",deviceKey,eventId:saved.eventId
+  } as Workspace);
+  await new Promise<void>((resolve,reject)=>{
+   transaction.oncomplete=()=>resolve();
+   transaction.onerror=()=>reject(transaction.error);
+   transaction.onabort=()=>reject(transaction.error||Error("Migration transaction aborted"));
+  });
+  return deviceKey;
  }finally{close(db)}
 }
 export async function readOperations(owner:string,key:CryptoKey):Promise<OfflineOperation[]>{
@@ -125,8 +183,9 @@ export async function encryptedBackup(owner:string):Promise<string>{
    tx(db.transaction("workspaces").objectStore("workspaces").get(workspaceId(owner))) as Promise<Workspace|undefined>
   ]);
   if(!workspace)throw Error("Offline vault does not exist");
+  if(workspace.mode==="trusted")throw Error("Trusted-device keys cannot be exported. Synchronise all pending work before changing devices.");
   return JSON.stringify({format:"repair-cafe-encrypted-backup-v1",createdAt:new Date().toISOString(),
-   workspace:{...workspace,check:Array.from(new Uint8Array(workspace.check))},
+   workspace:{...workspace,check:Array.from(new Uint8Array(workspace.check!))},
    operations:records.filter(x=>x.owner===owner).map(x=>({
     ...x,cipher:Array.from(new Uint8Array(x.cipher))
    }))},null,2);
@@ -134,7 +193,7 @@ export async function encryptedBackup(owner:string):Promise<string>{
 }
 
 // Only the event UUID is in unencrypted workspace metadata. All visitor data
-// and previous queue state are encrypted with the user's offline passphrase.
+// and previous queue state are encrypted with the trusted device's browser key.
 export async function registerOfflineEvent(owner:string,eventId:string){
  if(!/^[a-f0-9-]{36}$/i.test(eventId))return;
  const db=await openOfflineDB();
