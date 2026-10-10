@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { getCourse } from "@/lib/learning/catalog";
 import { completeLearningLesson } from "../../actions";
 import styles from "../../learning.module.css";
+import ActiveRecallPanel from "@/components/ActiveRecallPanel";
 
 export default async function LessonPage({ params, searchParams }: {
   params: Promise<{ course: string; lesson: string }>;
@@ -40,6 +41,7 @@ export default async function LessonPage({ params, searchParams }: {
         <p>{lesson.practice}</p>
         <p className={styles.hint}>Choose an imaginary example if you are not working in a supervised setting. Do not practise on a real hazard or private device without permission.</p>
       </div>
+      <ActiveRecallPanel courseTitle={course.title} lessonTitle={lesson.title} summary={lesson.idea} practice={lesson.practice} />
       <h2>Go deeper</h2>
       <p>This lesson is a starting point, not a complete operating procedure. The source material explains the wider context, limits and unresolved questions.</p>
       <a className={styles.sourceLink} href={"https://github.com/joshualparris/DubboEwaste/blob/main/" + course.source}
