@@ -57,7 +57,7 @@ export default async function LearningHome({
       <h2>Electronics & Repair Field School</h2>
       <p className={styles.hint}>15 practical courses from low-voltage foundations through soldering, laptop refurbishment, ITAD and Repair Café decision-making. Work through the sequence; theory does not grant electrical authorisation or replace supervisor sign-off.</p>
       <div className={styles.catalogue}>
-        {courses.filter(c=>c.id.startsWith("repair-")).map((c,i)=><article key={c.id} className={styles.courseCard}>
+        {courses.filter(c=>["repair-electrical-safety","repair-lithium-batteries","repair-circuit-fundamentals","repair-multimeter-diagnostics","repair-fault-finding","repair-esd-disassembly","repair-usbc-power","repair-schematics-pcbs","repair-through-hole-soldering","repair-desolder-replace","repair-smd-microsoldering","repair-laptop-refurb","repair-pat-verification","repair-itad-sanitisation","repair-triage-economics"].includes(c.id)).map((c,i)=><article key={c.id} className={styles.courseCard}>
           <div className={styles.courseMeta}><span className={styles.track}>Skill {i+1} of 15</span><span className={styles.hint}>{c.level}</span></div>
           <h3>{c.title}</h3><p>{c.summary}</p>
           <p className={styles.courseDetails}>{c.lessons.length} lessons · {c.duration} min · Video and adaptive practice</p>
