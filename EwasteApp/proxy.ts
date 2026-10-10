@@ -26,7 +26,7 @@ export async function proxy(request: NextRequest) {
   );
 
   const { data: { user } } = await supabase.auth.getUser();
-  const publicRoutes = ["/", "/login", "/signup", "/repair-cafe-dubbo", "/dubbo-repair-ewaste", "/dubbo-circular-economy", "/regional-computer-experts", "/repair-cafe-offline.html", "/repair-cafe-sw.js", "/ram-guide"];
+  const publicRoutes = ["/", "/login", "/signup", "/repair-cafe-dubbo", "/dubbo-repair-ewaste", "/dubbo-circular-economy", "/regional-computer-experts", "/repair-cafe-offline.html", "/repair-cafe-sw.js", "/ram-guide", "/ram-guide/gallery"];
   const privateRoute = !publicRoutes.includes(request.nextUrl.pathname) && !request.nextUrl.pathname.startsWith("/api/") && !request.nextUrl.pathname.startsWith("/verify/") && !request.nextUrl.pathname.startsWith("/_next/");
   if (user && privateRoute) {
     const { data } = await supabase.rpc("programme_context");
