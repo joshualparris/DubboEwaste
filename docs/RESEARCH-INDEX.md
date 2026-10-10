@@ -93,3 +93,7 @@ When a historical document conflicts with `CURRENT-STATE.md`, use the current-st
 - [Open evidence requests](../research/circular-economy/13-open-evidence-requests-2026-10-08.md) isolates questions that now require Council/contractor/charity/operator contact or GIPA rather than more broad web research.
 
 - [10 biggest circular-economy gaps — deep research answers](../research/circular-economy/14-deep-research-10-biggest-gaps-2026-10-08.md) is the 8 October evidence update answering the ten highest-value unresolved Dubbo questions: discarded-item condition, Whylandra reuse implementation, e-waste downstream, retired-device volume, Repair Café demand, Library of Things feasibility, charity rejects, repair economics, C&D product reuse and regional coordination.
+
+## Dubbo technology business field guide — 10 October 2026
+
+[Full research and learning module](DUBBO-TECH-BUSINESS-FIELD-GUIDE-2026-10-10.md): 14 businesses, 15 locations, 67 sources, public role maps, workplace evidence, project experiments and a 30-day plan. Also available as `dubbo-business-field-guide` in the shared LMS. [Snapshot manifest](DUBBO-TECH-RESEARCH-MANIFEST.md).
