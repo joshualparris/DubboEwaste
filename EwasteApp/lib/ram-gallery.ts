@@ -10,7 +10,7 @@ export type RAMPhoto = {
   usage: string; pins: string; identify: string; file: string;
   rarity: "Common" | "Uncommon" | "Rare"; direct: boolean;
 };
-type Row = [string, string, string, string, string, string, string, "Common" | "Uncommon" | "Rare"?];
+type Row = [string, string, string, string, string, string, string, ("Common" | "Uncommon" | "Rare")?];
 const rows: Row[] = [
   // Early chips, sockets, SIMM, SIPP and pre-SDR variants.
   ["Pre-SDR","DIP","Vintage DRAM DIP chip","Ram chip.jpg","DIP pins vary","Early socketed and through-hole RAM ICs; package is not a plug-in RAM stick.","Legacy boards","Rare"],
