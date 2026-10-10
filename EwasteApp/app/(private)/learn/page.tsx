@@ -53,6 +53,18 @@ export default async function LearningHome({
       <p className={styles.hint}>Training can be explored across programmes. Operational permissions remain separate. Courses marked “Your team” match your assigned area.</p>
     </section>
     <aside className={styles.sourcePanel}><strong>New: Interactive RAM Explorer</strong><p>Identify generations from SIMM to DDR5, compare physical modules, explore chips and quiz yourself before repairing or refurbishing PCs.</p><Link className={styles.secondaryLink} href="/ram-guide">Open the interactive RAM Explorer →</Link></aside>
+    <section className={styles.section} id="electronics-field-school">
+      <h2>Electronics & Repair Field School</h2>
+      <p className={styles.hint}>15 practical courses from low-voltage foundations through soldering, laptop refurbishment, ITAD and Repair Café decision-making. Work through the sequence; theory does not grant electrical authorisation or replace supervisor sign-off.</p>
+      <div className={styles.catalogue}>
+        {courses.filter(c=>c.id.startsWith("repair-")).map((c,i)=><article key={c.id} className={styles.courseCard}>
+          <div className={styles.courseMeta}><span className={styles.track}>Skill {i+1} of 15</span><span className={styles.hint}>{c.level}</span></div>
+          <h3>{c.title}</h3><p>{c.summary}</p>
+          <p className={styles.courseDetails}>{c.lessons.length} lessons · {c.duration} min · Video and adaptive practice</p>
+          <Link className={styles.primaryLink} href={"/learn/"+c.id}>Open course →</Link>
+        </article>)}
+      </div>
+    </section>
     <section className={styles.catalogue} aria-label="Learning catalogue">
       {visible.map(c => {
         const isJoined = joined.has(c.id);
