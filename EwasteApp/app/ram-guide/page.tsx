@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import styles from "./ram-guide.module.css";
 
@@ -106,6 +106,15 @@ function boardShape(name:string) {
 
 export default function RamGuide() {
   const [tab,setTab] = useState<Tab>("explore");
+  const sectionRef = useRef<HTMLDivElement>(null);
+  // Navigate AND show the selected section, rather than only updating off-screen content.
+  const navigateTo = (next: Tab) => {
+    setTab(next);
+    window.requestAnimationFrame(() => sectionRef.current?.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      block: "start",
+    }));
+  };
   const [term,setTerm] = useState("");
   const [filter,setFilter] = useState("All");
   const [gen,setGen] = useState("ddr5");
@@ -132,7 +141,7 @@ export default function RamGuide() {
     <div className={styles.wrap}>
       <header className={styles.top}><Link href="/learn">← Circular Learning Hub</Link><span>FIELD GUIDE / COMPUTER HARDWARE</span><Link href="/repair-cafe-dubbo">Repair Café ↗</Link></header>
       <section className={styles.hero}>
-        <div><div className={styles.kicker}><span className={styles.dot}/> AN INTERACTIVE FIELD REFERENCE</div><h1>THE RAM<br/><em>EXPLORER.</em></h1><p>From 30-pin SIMMs to DDR5, LPCAMM2 and the chips on a modern memory stick. Explore what existed, what fits and how to identify it safely.</p><div className={styles.heroActions}><button onClick={()=>setTab("modules")}>Explore module grid <span aria-hidden="true">↗</span></button><button className={styles.ghost} onClick={()=>setTab("quiz")}>Test your knowledge →</button></div></div>
+        <div><div className={styles.kicker}><span className={styles.dot}/> AN INTERACTIVE FIELD REFERENCE</div><h1>THE RAM<br/><em>EXPLORER.</em></h1><p>From 30-pin SIMMs to DDR5, LPCAMM2 and the chips on a modern memory stick. Explore what existed, what fits and how to identify it safely.</p><div className={styles.heroActions}><button onClick={()=>navigateTo("modules")}>Explore module grid <span aria-hidden="true">↗</span></button><button className={styles.ghost} onClick={()=>navigateTo("quiz")}>Test your knowledge →</button></div></div>
         <div className={styles.art} aria-label="Illustrated RAM module, with memory chips, SPD hub, PMIC and gold edge contacts">
           <div className={styles.board}><div className={styles.boardLabel}>DDR5 · 288 PIN</div><div className={styles.chipLine}>{Array.from({length:8},(_,i)=><span key={i}>{i===3?"DRAM":"IC"}</span>)}</div><div className={styles.smallChips}><span>PMIC</span><span>SPD</span><span>CKD*</span></div><div className={styles.fingers}/></div>
           <div className={styles.artFoot}><span>01 / HARDWARE ANATOMY</span><span>DIAGRAM · NOT TO SCALE</span></div>
@@ -140,9 +149,11 @@ export default function RamGuide() {
       </section>
       <div className={styles.stats}><span><strong>8</strong> memory eras on the grid</span><span><strong>{modules.length}</strong> physical module types</span><span><strong>{features.length}</strong> cross-cutting features</span><span><strong>{quizzes.length}</strong> practice questions</span></div>
       <nav className={styles.tabs} aria-label="RAM Explorer sections">
-        {([["explore","01 Overview"],["timeline","02 Timeline"],["modules","03 Module grid"],["anatomy","04 Anatomy & features"],["identify","05 Identify a stick"],["quiz","06 Quiz"]] as const).map(([id,title])=><button key={id} aria-current={tab===id?"page":undefined} className={tab===id?styles.active:""} onClick={()=>setTab(id)}>{title}</button>)}
+        {([["explore","01 Overview"],["timeline","02 Timeline"],["modules","03 Module grid"],["anatomy","04 Anatomy & features"],["identify","05 Identify a stick"],["quiz","06 Quiz"]] as const).map(([id,title])=><button key={id} aria-current={tab===id?"page":undefined} className={tab===id?styles.active:""} onClick={()=>navigateTo(id)}>{title}</button>)}
       </nav>
 
+      <p className={styles.tabHint}>Swipe sideways for more sections →</p>
+      <div ref={sectionRef} id="ram-content" className={styles.content}>
       {tab==="explore" && <section className={styles.section}>
         <div className={styles.sectionHeading}><div><span className={styles.eyebrow}>START HERE</span><h2>One word, three questions.</h2><p>“DDR4 RAM” is not enough information to order a replacement.</p></div></div>
         <div className={styles.three}><article className={styles.card}><span className={styles.num}>01</span><h3>Generation</h3><p>DDR, DDR2, DDR3, DDR4, DDR5 … governs electrical protocol, voltage and timings.</p></article><article className={styles.card}><span className={styles.num}>02</span><h3>Form factor</h3><p>UDIMM, SO-DIMM, CAMM2, MicroDIMM and others govern the physical socket.</p></article><article className={styles.card}><span className={styles.num}>03</span><h3>Platform features</h3><p>ECC, RDIMM, ranks, capacity, speed, SPD profiles and firmware all affect whether it works.</p></article></div>
@@ -175,6 +186,7 @@ export default function RamGuide() {
         <div className={styles.quizShell}><div className={styles.quizProgress}><div style={{width:(Object.keys(answers).length/quizzes.length*100)+"%"}}/></div><span className={styles.quizCounter}>QUESTION {String(quizIndex+1).padStart(2,"0")}</span><h3>{chosenQuestion.q}</h3><div className={styles.answers}>{chosenQuestion.options.map((opt,i)=><button key={i} className={answers[quizIndex]===i?styles.answerSelected:""} onClick={()=>setAnswers(a=>({...a,[quizIndex]:i}))}><span>{String.fromCharCode(65+i)}</span>{opt}</button>)}</div>{answers[quizIndex]!==undefined&&<p className={answers[quizIndex]===chosenQuestion.correct?styles.good:styles.wrong}><strong>{answers[quizIndex]===chosenQuestion.correct?"Correct.":"Not quite."}</strong> {chosenQuestion.why}</p>}<div className={styles.quizFooter}><button disabled={quizIndex===0} onClick={()=>setQuizIndex(i=>Math.max(0,i-1))}>← Previous</button><span>{complete?"Score: "+score+" / "+quizzes.length:Object.keys(answers).length+" answered"}</span>{quizIndex<quizzes.length-1?<button onClick={()=>setQuizIndex(i=>Math.min(quizzes.length-1,i+1))}>Next →</button>:<button onClick={()=>{setQuizIndex(0);setAnswers({})}}>Restart ↻</button>}</div></div>
       </section>}
 
+      </div>
       <footer className={styles.footer}><div><strong>RAM EXPLORER</strong><p>Part of the DubboEwaste repair and reuse field school. Information reference only, not proof of system compatibility or repair competency.</p><small>Content reviewed 10 October 2026 · Dates and performance ranges approximate · Amber means verify.</small></div><div className={styles.sources}><span>SOURCES & CROSS-CHECKS</span>{sources.map(s=><a target="_blank" rel="noreferrer" key={s.url} href={s.url}>{s.label} ↗</a>)}<a href="https://github.com/joshualparris/DubboEwaste">Source repository ↗</a></div></footer>
     </div>
   </main>;
