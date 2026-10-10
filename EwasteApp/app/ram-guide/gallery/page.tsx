@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { awaitingPhotos, commonsFilePage, commonsSearch, commonsThumb, ramPhotos, type RAMPhoto } from "@/lib/ram-gallery";
+import { awaitingPhotos, commonsFilePage, commonsThumb, ramPhotos, specialistReferences, type RAMPhoto } from "@/lib/ram-gallery";
 import styles from "./gallery.module.css";
 
 const eras = ["All","Pre-SDR","SDR","DDR","DDR2","DDR3","DDR4","DDR5","Rambus","LPDDR","GDDR","HBM"];
@@ -68,7 +68,7 @@ export default function Gallery() {
   return <><main className={styles.page}>
     <div className={styles.wrap}>
       <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/ram-guide">← RAM Explorer</Link><span>/</span><span>Photo gallery</span><Link href="/learn">Learning Hub ↗</Link></nav>
-      <header className={styles.hero}><div className={styles.eyebrow}>FIELD SCHOOL / PHOTOGRAPHIC ATLAS</div><h1>THE RAM<br/><em>PHOTO ARCHIVE.</em></h1><p>See what real computer memory looks like: early SIMMs and SDRAM, DDR1–DDR5, server modules, Rambus, tiny laptop formats and chips on graphics cards.</p><div className={styles.heroStats}><span><strong>{ramPhotos.length}</strong> sourced photographs</span><span><strong>{new Set(ramPhotos.map(x=>x.generation)).size}</strong> technology groups</span><span><strong>{awaitingPhotos.length}</strong> variants needing a better photo</span></div><div className={styles.introHint}>Photographs are real, not generated illustrations. Every image opens its source page for author and licensing information.</div></header>
+      <header className={styles.hero}><div className={styles.eyebrow}>FIELD SCHOOL / PHOTOGRAPHIC ATLAS</div><h1>THE RAM<br/><em>PHOTO ARCHIVE.</em></h1><p>See what real computer memory looks like: early SIMMs and SDRAM, DDR1–DDR5, server modules, Rambus, tiny laptop formats and chips on graphics cards.</p><div className={styles.heroStats}><span><strong>{ramPhotos.length}</strong> sourced photographs</span><span><strong>{new Set(ramPhotos.map(x=>x.generation)).size}</strong> technology groups</span><span><strong>{awaitingPhotos.length}</strong> variants needing a better photo</span></div><div className={styles.introHint}>Photographs are real, not generated illustrations. Each card has its original file page for author and licensing details. Rare specialist references link to exact manufacturer pages, not empty searches.</div></header>
       <section className={styles.filters} aria-label="Gallery filters">
         <div className={styles.filterHeading}><div><span className={styles.eyebrow}>BROWSE THE COLLECTION</span><h2>Find a RAM type.</h2></div><button onClick={reset}>Reset filters ↺</button></div>
         <label className={styles.searchLabel}>Search a module, feature, pin count or manufacturer
@@ -91,9 +91,17 @@ export default function Gallery() {
           </article>)}</div>}
         {visibleCount<matches.length && <button className={styles.showMore} onClick={()=>setVisibleCount(n=>n+24)}>Load 24 more photographs ({matches.length-visibleCount} remaining) ↓</button>}
       </section>
-      <section className={styles.gaps} id="rare-formats"><div className={styles.filterHeading}><div><span className={styles.eyebrow}>RARE AND UNRESOLVED</span><h2>Photo research queue</h2></div><button onClick={()=>setShowMissing(x=>!x)} aria-expanded={showMissing}>{showMissing?"Hide list −":"Show "+awaitingPhotos.length+" rare variants +"}</button></div>
-        <p>These are meaningful RAM formats or variants we still want to represent. They are <strong>not passed off as photographed</strong> without a reliable, correctly identified image. Some represent broader ranges, not one unique module.</p>
-        {showMissing&&<div className={styles.missingGrid}>{awaitingPhotos.map(([generation,shape,title])=><article key={generation+shape+title}><span>{generation} · {shape}</span><h3>{title}</h3><a href={commonsSearch(generation+" "+shape+" "+title)} target="_blank" rel="noopener noreferrer">Find candidate photos on Commons ↗</a></article>)}</div>}
+      <section className={styles.gaps} id="rare-formats">
+        <div className={styles.filterHeading}><div><span className={styles.eyebrow}>SPECIALIST PHOTOGRAPHS / VERIFIED LINKS</span><h2>Rare RAM, real sources</h2></div></div>
+        <p>These are specific manufacturer photograph pages, an actual seller listing, and one original engineering drawing. Unlike the old research queue, <strong>none of these links runs a search</strong>. Some photographs cannot legally or reliably be mirrored into the gallery, so open the source to view them.</p>
+        <div className={styles.missingGrid}>{specialistReferences.map(ref=><article key={ref.url}>
+          <span>{ref.generation} · {ref.shape}</span><h3>{ref.title}</h3>
+          <p className={styles.referenceType}>{ref.type}</p><p>{ref.note}</p>
+          <a href={ref.url} target="_blank" rel="noopener noreferrer">Open the exact photographed source ↗</a>
+        </article>)}</div>
+        <div className={styles.filterHeading}><div><span className={styles.eyebrow}>HONEST COVERAGE REGISTER</span><h2>Still awaiting exact photos</h2></div><button onClick={()=>setShowMissing(x=>!x)} aria-expanded={showMissing}>{showMissing?"Hide unresolved list −":"See "+awaitingPhotos.length+" remaining research targets +"}</button></div>
+        <p>For these variants I still haven't verified an individual, correctly identified, reusable photograph. Rather than repeat broken searches or show the wrong module, I've left the details visible without dead links.</p>
+        {showMissing&&<div className={styles.missingGrid}>{awaitingPhotos.map(([generation,shape,title])=><article key={generation+shape+title}><span>{generation} · {shape}</span><h3>{title}</h3><p>No verified reusable standalone image yet; see the manufacturer and source cards above where applicable.</p></article>)}</div>}
       </section>
       <footer className={styles.footer}><div><h2>Why the sources matter.</h2><p>This catalogue is for recognising hardware and learning what different modules look like. The photographed example is not proof of motherboard compatibility. Wikimedia Commons files have individual creators and licences; open each photo's original page for credit and reuse conditions.</p><Link href="/ram-guide">← Back to the full RAM Explorer</Link></div><div><strong>RESEARCH COLLECTIONS</strong>{sources.map(s=><a target="_blank" rel="noopener noreferrer" key={s.href} href={s.href}>{s.label} ↗</a>)}<small>Curated 10 October 2026. Photos load from Wikimedia Commons with fallback to the source link if an image fails.</small></div></footer>
     </div>
