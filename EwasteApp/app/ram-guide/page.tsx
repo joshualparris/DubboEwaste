@@ -107,13 +107,19 @@ function boardShape(name:string) {
 export default function RamGuide() {
   const [tab,setTab] = useState<Tab>("explore");
   const sectionRef = useRef<HTMLDivElement>(null);
+  const tabsRef = useRef<HTMLElement>(null);
   // Navigate AND show the selected section, rather than only updating off-screen content.
   const navigateTo = (next: Tab) => {
     setTab(next);
-    window.requestAnimationFrame(() => sectionRef.current?.scrollIntoView({
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-      block: "start",
-    }));
+    window.requestAnimationFrame(() => {
+      const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+      const strip = tabsRef.current;
+      const activeButton = strip?.querySelector<HTMLButtonElement>(`[data-ram-section="${next}"]`);
+      if (strip && activeButton) {
+        strip.scrollTo({ left: activeButton.offsetLeft - (strip.clientWidth - activeButton.offsetWidth) / 2, behavior });
+      }
+      sectionRef.current?.scrollIntoView({ behavior, block: "start" });
+    });
   };
   const [term,setTerm] = useState("");
   const [filter,setFilter] = useState("All");
@@ -148,8 +154,8 @@ export default function RamGuide() {
         </div>
       </section>
       <div className={styles.stats}><span><strong>8</strong> memory eras on the grid</span><span><strong>{modules.length}</strong> physical module types</span><span><strong>{features.length}</strong> cross-cutting features</span><span><strong>{quizzes.length}</strong> practice questions</span></div>
-      <nav className={styles.tabs} aria-label="RAM Explorer sections">
-        {([["explore","01 Overview"],["timeline","02 Timeline"],["modules","03 Module grid"],["anatomy","04 Anatomy & features"],["identify","05 Identify a stick"],["quiz","06 Quiz"]] as const).map(([id,title])=><button key={id} aria-current={tab===id?"page":undefined} className={tab===id?styles.active:""} onClick={()=>navigateTo(id)}>{title}</button>)}
+      <nav ref={tabsRef} className={styles.tabs} aria-label="RAM Explorer sections">
+        {([["explore","01 Overview"],["timeline","02 Timeline"],["modules","03 Module grid"],["anatomy","04 Anatomy & features"],["identify","05 Identify a stick"],["quiz","06 Quiz"]] as const).map(([id,title])=><button key={id} data-ram-section={id} aria-current={tab===id?"page":undefined} className={tab===id?styles.active:""} onClick={()=>navigateTo(id)}>{title}</button>)}
       </nav>
 
       <p className={styles.tabHint}>Swipe sideways for more sections →</p>
