@@ -8,9 +8,9 @@ const caseBank = [
     "practitioner": {
       "question": "Five laptops have fleet manager release but unknown drive inventory. Next step?",
       "options": [
-        "Collect and sort later",
-        "Reconcile serials, storage and handling scope with releaser before custody",
-        "Request no further details"
+        "Collect only machines listed by model, then reconcile missing drive details",
+        "Confirm drive identities, release scope and custody controls before collection",
+        "Get manager approval for a later storage audit after the devices arrive"
       ],
       "answer": 1,
       "explanation": "Uncontrolled storage and custody are unresolved."
@@ -31,9 +31,9 @@ const caseBank = [
     "practitioner": {
       "question": "A firm advertises 24/7 support but publishes no roster. Best evidence for employee workload?",
       "options": [
-        "A current Dubbo employee or manager explaining rota, call-outs and allowances",
-        "A customer rating",
-        "The size of the building"
+        "Ask the current local team about roster, call-outs and actual allowances",
+        "Compare the regional job advert with another provider's advertised hours",
+        "Infer on-call hours from the company's published 24/7 customer support"
       ],
       "answer": 0,
       "explanation": "Service hours alone do not prove staff conditions."
@@ -54,9 +54,9 @@ const caseBank = [
     "practitioner": {
       "question": "An old laptop needs an $85 battery while a refurbished alternative costs $200. What evidence decides reuse?",
       "options": [
-        "Its age alone",
-        "The scrap payment",
-        "Safe repairability, useful remaining life, cost and local demand"
+        "Compare battery cost with its estimated scrap value before deciding repair",
+        "Choose the refurbished unit because its upfront price is easier to verify",
+        "Compare expected useful life, safe repair cost and the owner's actual needs"
       ],
       "answer": 2,
       "explanation": "Compare real usable outcomes."
@@ -77,11 +77,11 @@ const caseBank = [
     "practitioner": {
       "question": "A visitor wants file recovery from someone else's laptop. The lead is unavailable. What should a new volunteer do?",
       "options": [
-        "Browse read-only to assess condition",
-        "Pause, verify authority, scope and an approved supervisor",
-        "Erase it to remove risk"
+        "Document the request and pause until authority and supervision are verified",
+        "Attempt non-destructive recovery while the coordinator is unavailable",
+        "Ask the carrier to confirm consent verbally before accessing file names"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Physical possession is not data access permission."
     },
     "expert": {
@@ -100,11 +100,11 @@ const caseBank = [
     "practitioner": {
       "question": "A damaged lithium pack is warm but still powers up. Which intake action is justified?",
       "options": [
-        "Quarantine per site procedure and escalate, without charging",
-        "Run a benchmark first",
-        "Put it in normal stock once off"
+        "Use a charging test to determine whether the warm pack remains serviceable",
+        "Isolate the hazard under site procedure and request qualified handling",
+        "Store it in regular stock but label the known pack damage for later review"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Hazard comes before function."
     },
     "expert": {
@@ -123,11 +123,11 @@ const caseBank = [
     "practitioner": {
       "question": "Consent permits a boot test; the volunteer notices private photos. Which action is authorised?",
       "options": [
-        "Open the folder to confirm the SSD",
-        "Only non-content checks within consent; ask separately before file access",
-        "Copy images as a repair record"
+        "Perform the authorised boot check without opening any personal file folders",
+        "Review only a small image sample to confirm disk access without copying",
+        "Make a temporary encrypted backup and obtain further consent afterwards"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Test permission is scope-limited."
     },
     "expert": {
@@ -146,9 +146,9 @@ const caseBank = [
     "practitioner": {
       "question": "A visitor with low vision cannot follow tiny diagrams. What preserves their agency?",
       "options": [
-        "Finish silently for them",
-        "Refuse because visual manuals are required",
-        "Ask preferred format, offer verbal explanation and let them direct pace"
+        "Switch to verbal descriptions only, since printed diagrams are inaccessible",
+        "Invite a support person to make all decisions while repairs are explained",
+        "Ask for preferred format, explain verbally and let the visitor set the pace"
       ],
       "answer": 2,
       "explanation": "Accessible teaching starts with preference."
@@ -169,11 +169,11 @@ const caseBank = [
     "practitioner": {
       "question": "A cleaned laptop boots once, then fails twice after being moved. Best note?",
       "options": [
-        "Fixed after cleaning",
-        "Intermittent failure persists; record conditions and movement correlation",
-        "RAM confirmed bad"
+        "Record an intermittent failure, test conditions and the movement association",
+        "Record the successful cleaning and treat later failures as a new fault",
+        "Classify the RAM connection as the likely cause before repeatable testing"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Observation is not root cause."
     },
     "expert": {
@@ -192,9 +192,9 @@ const caseBank = [
     "practitioner": {
       "question": "A hinge repair is $80 but battery replacement is also needed. What should be offered?",
       "options": [
-        "Immediate recycle",
-        "A whole-device repair versus replacement comparison matched to intended use",
-        "Repair hinge without mentioning battery"
+        "Quote the hinge alone and review battery performance only after completing it",
+        "Compare total repair cost and useful life against alternatives for the owner",
+        "Assume the battery must be replaced and defer the hinge quote until then"
       ],
       "answer": 1,
       "explanation": "Lifecycle and total cost matter."
@@ -215,9 +215,9 @@ const caseBank = [
     "practitioner": {
       "question": "Twelve laptops arrive listed only by model. A driver demands an instant receipt. What is defensible?",
       "options": [
-        "Provisional count and custody receipt, followed by serial-level reconciliation",
-        "Claim all twelve sanitised",
-        "Refuse to record discrepancies"
+        "Issue a provisional counted receipt and reconcile serials before full acceptance",
+        "Issue an accepted-item receipt using the driver-provided model spreadsheet",
+        "Hold all items and record nothing until every serial has been verified"
       ],
       "answer": 0,
       "explanation": "Receipt is not inspection proof."
@@ -238,11 +238,11 @@ const caseBank = [
     "practitioner": {
       "question": "A boots with unknown SSD status, B has broken LCD, C has hot swollen pack. Order?",
       "options": [
-        "Benchmark all immediately",
-        "Sell A, repair B, then store C",
-        "Quarantine C; verify data/ownership of A; assess B safely"
+        "Test device A's SSD first, store device C separately and queue B for parts",
+        "Segregate hot device C, resolve A's data status and assess B's repair safely",
+        "Grade B for reuse, quarantine C after arrival and list A as awaiting wipe"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "Segregate safety and data risk first."
     },
     "expert": {
@@ -261,11 +261,11 @@ const caseBank = [
     "practitioner": {
       "question": "An SSD tool reports success but lacks serial and verification result. What can you certify?",
       "options": [
-        "A complete destruction certificate",
-        "Only operation reported; audited sanitisation evidence incomplete",
-        "That the SSD contains no recoverable data"
+        "Record that the tool ran; sanitisation proof is incomplete without audit evidence",
+        "Treat the tool's success flag as evidence of completed erasure for the batch",
+        "Issue a conditional certificate using the transfer date instead of the serial"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Tool status without traceability is limited."
     },
     "expert": {
@@ -284,9 +284,9 @@ const caseBank = [
     "practitioner": {
       "question": "External video works; internal display is black. What isolation is reasonable?",
       "options": [
-        "Replace motherboard",
-        "Investigate internal panel/backlight/cable path with compatible safe tests",
-        "Replace SSD"
+        "Replace the LCD first because the external display has confirmed video output",
+        "Check the internal panel, power/backlight and cable using compatible tests",
+        "Reinstall the graphics driver to exclude a software-controlled display blank"
       ],
       "answer": 1,
       "explanation": "External video narrows, but doesn't prove a particular part."
@@ -307,11 +307,11 @@ const caseBank = [
     "practitioner": {
       "question": "A punctured battery arrives unlabelled. What handling should intake record?",
       "options": [
-        "Standard test queue",
-        "Specialist hazard isolation and safe referral with no charging",
-        "Normal laptop accessories"
+        "Keep the pack in normal intake until the battery safety lead has assessed it",
+        "Photograph the puncture first, then test whether capacity has fallen",
+        "Isolate under the battery incident procedure and arrange specialist referral"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Damaged cells need specialised procedures."
     },
     "expert": {
@@ -330,9 +330,9 @@ const caseBank = [
     "practitioner": {
       "question": "A slow laptop has an HDD, damaged screen and a 20-minute battery. What is the repair plan based on?",
       "options": [
-        "SSD alone",
-        "All material defects, parts compatibility, budget and intended use",
-        "Install Windows then sell"
+        "Start with an SSD because boot time is the most measurable performance defect",
+        "Assess all major defects, part costs and intended use before selecting repairs",
+        "Replace the LCD and battery first because visible defects affect resale value"
       ],
       "answer": 1,
       "explanation": "Treat the whole device and its real use."
@@ -353,11 +353,11 @@ const caseBank = [
     "practitioner": {
       "question": "Boot tests pass but webcam and SD reader are untested. What can your listing say?",
       "options": [
-        "Fully tested",
-        "State tests and untested features accurately",
-        "Mint condition"
+        "List all successful tests and clearly identify webcam and reader as untested",
+        "Mark the machine fully tested if the camera app and desktop both start",
+        "Exclude untested features entirely, since only marketed features count"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Claims must reflect evidence."
     },
     "expert": {
@@ -376,11 +376,11 @@ const caseBank = [
     "practitioner": {
       "question": "A recycler gives a weighbridge ticket only. What does it establish?",
       "options": [
-        "Every drive was destroyed",
-        "Every component was recovered",
-        "The transfer/weight event, not downstream final processing"
+        "Evidence of accepted weight/transfer, not confirmed final material processing",
+        "Confirmation that all units reached the end recycler named by the driver",
+        "A destruction record for the drives if its paperwork lists total kilograms"
       ],
-      "answer": 2,
+      "answer": 0,
       "explanation": "One stage's receipt isn't full chain evidence."
     },
     "expert": {
@@ -399,11 +399,11 @@ const caseBank = [
     "practitioner": {
       "question": "Two identical models from different owners appear on one bench. How should records be kept?",
       "options": [
-        "Separate assets, job-linked custody records and photos",
-        "Combine by model",
-        "Track by colour"
+        "Combine the two models in a batch record but keep the owner notes separately",
+        "Create distinct asset IDs linked to each owner, job and custody evidence",
+        "Keep one asset ID but distinguish both units by their photograph timestamps"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Identity follows ownership and serial, not retail model."
     },
     "expert": {
@@ -422,11 +422,11 @@ const caseBank = [
     "practitioner": {
       "question": "Two radios arrive; one has exposed mains circuitry. Which is the correct station decision?",
       "options": [
-        "Let anyone try a quick test",
-        "Screen separately and refer hazard to qualified electrical support",
-        "Reject all radios"
+        "Assign each radio to a general repairer after a short owner questionnaire",
+        "Refuse both radios because the same model has exposed mains in one unit",
+        "Screen both separately and refer exposed mains work to qualified services"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Risk differs by condition, not product label."
     },
     "expert": {
@@ -445,9 +445,9 @@ const caseBank = [
     "practitioner": {
       "question": "A toaster trips a power outlet and no electrical specialist is available. What next?",
       "options": [
-        "Use a hand tool station",
-        "Refer without bench energising, noting the suspected mains fault",
-        "Try another socket"
+        "Have the owner demonstrate the fault using the same outlet but no new tests",
+        "Record the mains symptom and refer, without energising it at the repair bench",
+        "Allow a visual-only tear-down before referring it to electrical repair staff"
       ],
       "answer": 1,
       "explanation": "Only competent authorised electrical service is appropriate."
@@ -468,11 +468,11 @@ const caseBank = [
     "practitioner": {
       "question": "After cable adjustment a bicycle brake feels spongy; the owner wants to ride home. What now?",
       "options": [
-        "Claim repaired if wheel spins",
-        "Do more random tightening",
-        "Stop and refer for competent brake assessment"
+        "Pause use and refer for competent brake assessment before claiming success",
+        "Request a short test ride to see whether braking pressure improves in use",
+        "Tighten the cable within tool limits and record that work as provisional"
       ],
-      "answer": 2,
+      "answer": 0,
       "explanation": "Safety-critical function is not yet verified."
     },
     "expert": {
@@ -491,9 +491,9 @@ const caseBank = [
     "practitioner": {
       "question": "Venue approves sewing and computers, not bikes; two bike volunteers sign up. How do you advertise?",
       "options": [
-        "Include bikes anyway",
-        "Only approved stations, confirmed capacity, request separate bike permission",
-        "Tell people at the door"
+        "Advertise bikes as subject to approval while confirming numbers on the day",
+        "Publish only permitted stations and seek separate venue approval for bikes",
+        "Ask bike volunteers to work outdoors, where venue restrictions may not apply"
       ],
       "answer": 1,
       "explanation": "Scope must match venue approval."
@@ -514,9 +514,9 @@ const caseBank = [
     "practitioner": {
       "question": "A visitor is deaf and prefers notes; volunteer insists on spoken demonstration. What supports participation?",
       "options": [
-        "Speak louder",
-        "Write and illustrate steps, confirm preferences, give agency",
-        "Ask them to leave"
+        "Offer only written instructions and let the visitor adapt them independently",
+        "Ask the visitor's preference and use suitable written or visual explanation",
+        "Have another attendee translate the spoken demonstration without asking"
       ],
       "answer": 1,
       "explanation": "Communication accommodation should follow preference."
@@ -537,9 +537,9 @@ const caseBank = [
     "practitioner": {
       "question": "The local library wants to lend drills but has no inspection/maintenance capability. Pilot option?",
       "options": [
-        "Start manageable low-risk items and defer drills until systems exist",
-        "Buy drills to attract signups",
-        "Lend untested privately"
+        "Begin with manageable low-risk stock and build inspections before adding drills",
+        "Offer drill loans with a signed risk waiver until a maintenance role exists",
+        "Buy the drills but allow bookings only when borrowed items appear undamaged"
       ],
       "answer": 0,
       "explanation": "Interest without capacity is not sufficient."
@@ -560,11 +560,11 @@ const caseBank = [
     "practitioner": {
       "question": "A returned sewing kit looks complete but is missing a presser foot. Appropriate status?",
       "options": [
-        "Returned and available",
-        "Borrower problem only",
-        "Incomplete pending component-level reconciliation"
+        "Mark returned with a note asking borrowers to supply the missing component",
+        "Set kit to incomplete until the specialist foot is reconciled and documented",
+        "Keep available, but include a warning at checkout that the foot is missing"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "Component status determines availability."
     },
     "expert": {
@@ -583,11 +583,11 @@ const caseBank = [
     "practitioner": {
       "question": "A functional drill has cracked power lead and loud bearing. Loan status?",
       "options": [
-        "Available with warning",
-        "Quarantine pending competent assessment",
-        "Available to experienced people"
+        "Keep available to experienced borrowers, with faults recorded at handoff",
+        "Inspect visually at intake and loan after the housing passes a wipe-down",
+        "Quarantine the drill pending competent assessment of lead and bearing"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Functional outcome doesn't override hazards."
     },
     "expert": {
@@ -606,9 +606,9 @@ const caseBank = [
     "practitioner": {
       "question": "One item is booked for two weeks; another visitor needs it for tomorrow's fundraiser. Policy?",
       "options": [
-        "Use published reservation rules, offer documented agreed exceptions",
-        "Fundraiser always wins",
-        "Whoever attends first wins"
+        "Apply published booking priority and discuss any recorded, agreed exception",
+        "Prioritise the fundraiser if it has a larger predicted community benefit",
+        "Keep the earliest booking unless the second borrower can collect sooner"
       ],
       "answer": 0,
       "explanation": "Fair policies guide exceptions."
@@ -629,11 +629,11 @@ const caseBank = [
     "practitioner": {
       "question": "Ten proposed items cost $500, only three show demand and two require specialists. Phase-one plan?",
       "options": [
-        "Purchase all",
-        "Wait indefinitely",
-        "Start verified serviceable items and measure use before expansion"
+        "Order the ten items but offer only the three with verified demand initially",
+        "Pilot serviceable demand-backed stock and define expansion thresholds",
+        "Purchase the cheapest items to increase variety with the available budget"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "Controlled pilot reduces operational exposure."
     },
     "expert": {
@@ -652,9 +652,9 @@ const caseBank = [
     "practitioner": {
       "question": "Powered-off circuit gives continuity through parallel components. Does the beep prove the named part is shorted?",
       "options": [
-        "Yes always",
-        "No; topology and isolation matter",
-        "Only for laptops"
+        "A beep is suggestive; test continuity again with a different meter range",
+        "No: parallel paths require schematic context and controlled isolation",
+        "A beep proves a zero-ohm fault only when the board is disconnected"
       ],
       "answer": 1,
       "explanation": "Parallel paths can create false confidence."
@@ -675,11 +675,11 @@ const caseBank = [
     "practitioner": {
       "question": "Donated laptop shows organisational enrollment during setup. The giver claims it was retired. Next?",
       "options": [
-        "Use bypass software",
-        "Require legitimate administrator release evidence before reuse",
-        "Sell with a disclosure only"
+        "Require verified authorised tenant/device release before promising reuse",
+        "Treat a written donation as enough and note the enrolment for the new user",
+        "Use recovery mode to erase user files and check whether enrolment returns"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Management association is not cleared by retirement claim."
     },
     "expert": {
