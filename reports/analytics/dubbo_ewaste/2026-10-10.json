@@ -1,0 +1,42 @@
+{
+  "by_site": [
+    {
+      "event_name": "page_view",
+      "site": "dubbo_ewaste",
+      "total": 10
+    }
+  ],
+  "clicks": [],
+  "date_sydney": "2026-10-10",
+  "devices": [
+    {
+      "device_class": "mobile",
+      "site": "dubbo_ewaste",
+      "total": 15
+    }
+  ],
+  "locations": [
+    {
+      "country": "AU",
+      "region": "NSW",
+      "site": "dubbo_ewaste",
+      "total": 14
+    }
+  ],
+  "notice": "Public aggregate only. Buckets under 5 withheld; private routes/actions generalized.",
+  "pages": [
+    {
+      "page_group": "/repair-cafe-dubbo",
+      "site": "dubbo_ewaste",
+      "total": 9
+    }
+  ],
+  "referrers": [
+    {
+      "referrer_domain": "dubbo-ewaste-app.vercel.app",
+      "site": "dubbo_ewaste",
+      "total": 14
+    }
+  ],
+  "site": "dubbo_ewaste"
+}
