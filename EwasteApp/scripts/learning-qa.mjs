@@ -38,3 +38,24 @@ for(const p of ["app/(private)/learn/manage/page.tsx","app/(private)/learn/learn
  assert.ok(fs.existsSync(path.join(root,p)),"Missing required route: "+p);
 }
 console.log("Learning QA PASS: "+calls.length+" courses, "+calls.reduce((n,c)=>n+c.lessons,0)+" lessons, "+entries.length+" media items, research route guarded.");
+
+const challengeSource=load("lib/learning/challenges.ts");
+assert.ok(challengeSource.includes("const caseBank = "),"Adaptive challenge bank must be statically auditable");
+const caseBank=JSON.parse(challengeSource.split("const caseBank = ")[1].split(" as const;")[0]);
+assert.equal(caseBank.length,calls.length,"Every course needs a matched adaptive challenge set");
+assert.ok(caseBank.every(item=>calls.some(c=>c.id===item.slug)),"No challenge may point to an unknown course");
+const assessed=caseBank.flatMap(item=>[item.practitioner,item.expert]);
+assert.equal(assessed.length,calls.length*2);
+const largest=assessed.filter(q=>q.options[q.answer].length===Math.max(...q.options.map(o=>o.length))).length;
+const smallest=assessed.filter(q=>q.options[q.answer].length===Math.min(...q.options.map(o=>o.length))).length;
+for (const q of assessed){
+  assert.equal(q.options.length,3,"Questions need three answer choices");
+  assert.ok(Number.isInteger(q.answer) && q.answer>=0 && q.answer<q.options.length,"Invalid correct answer index");
+  assert.equal(new Set(q.options).size,q.options.length,"Answer choices must be distinct");
+  const lengths=q.options.map(o=>o.length);
+  assert.ok(Math.min(...lengths)>15,"Avoid absurdly terse alternative answers");
+  assert.ok(Math.max(...lengths)/Math.min(...lengths)<1.3,"Answer-length cue found in: "+q.question);
+}
+assert.ok(largest/assessed.length<=0.45,"Picking the longest answer must not dominate");
+assert.ok(smallest/assessed.length<=0.45,"Picking the shortest answer must not dominate");
+console.log("Answer-bias QA PASS: "+assessed.length+" adaptive questions; longest "+largest+", shortest "+smallest+".");
