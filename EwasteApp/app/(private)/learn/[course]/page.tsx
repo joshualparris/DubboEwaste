@@ -6,6 +6,7 @@ import {mediaForCourse} from "@/lib/learning/media";
 import {enrolInCourse} from "../actions";
 import {finishMedia,submitPractical} from "../learning-activities";
 import styles from "../learning.module.css";
+import AdaptiveAssessment from "@/components/AdaptiveAssessment";
 
 export default async function CourseOverview({params,searchParams}:{
  params:Promise<{course:string}>,searchParams:Promise<{error?:string,message?:string}>
@@ -60,6 +61,7 @@ export default async function CourseOverview({params,searchParams}:{
     })}
    </div>
   </section>
+  {joined ? <AdaptiveAssessment courseId={id} /> : null}
   {media.length>0?<section className={styles.section} id="media">
    <h2>Watch, listen and reflect</h2>
    <p className={styles.hint}>Source-linked learning. Videos open on their provider's website, so a blocked embed cannot prevent learning. Captions and playback vary; written notes and primary reading remain available.</p>
