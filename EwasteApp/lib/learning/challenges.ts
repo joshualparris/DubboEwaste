@@ -9,7 +9,7 @@ const caseBank = [
       "question": "Five laptops have fleet manager release but unknown drive inventory. Next step?",
       "options": [
         "Collect only machines listed by model, then reconcile missing drive details",
-        "Confirm drive identities, release scope and custody controls before collection",
+        "Confirm drives, release scope and custody controls before collection",
         "Get manager approval for a later storage audit after the devices arrive"
       ],
       "answer": 1,
@@ -56,7 +56,7 @@ const caseBank = [
       "options": [
         "Compare battery cost with its estimated scrap value before deciding repair",
         "Choose the refurbished unit because its upfront price is easier to verify",
-        "Compare expected useful life, safe repair cost and the owner's actual needs"
+        "Compare useful life, safe repair cost and the owner's needs"
       ],
       "answer": 2,
       "explanation": "Compare real usable outcomes."
@@ -64,7 +64,7 @@ const caseBank = [
     "expert": {
       "question": "A cheaper repair would make an inefficient device usable for only six months, while a more expensive refurb may last three years. Best evaluation?",
       "options": [
-        "Compare useful years, repair reliability, total cost and environmental assumptions",
+        "Compare service years, reliability, lifecycle cost and likely impacts",
         "Choose repair when its upfront cost is less than half the refurbished option",
         "Choose refurb when expected lifespan is greater, without checking suitability"
       ],
@@ -77,7 +77,7 @@ const caseBank = [
     "practitioner": {
       "question": "A visitor wants file recovery from someone else's laptop. The lead is unavailable. What should a new volunteer do?",
       "options": [
-        "Document the request and pause until authority and supervision are verified",
+        "Record the request and pause until consent and supervision are verified",
         "Attempt non-destructive recovery while the coordinator is unavailable",
         "Ask the carrier to confirm consent verbally before accessing file names"
       ],
@@ -123,7 +123,7 @@ const caseBank = [
     "practitioner": {
       "question": "Consent permits a boot test; the volunteer notices private photos. Which action is authorised?",
       "options": [
-        "Perform the authorised boot check without opening any personal file folders",
+        "Perform the consented boot test without opening private folders",
         "Review only a small image sample to confirm disk access without copying",
         "Make a temporary encrypted backup and obtain further consent afterwards"
       ],
@@ -134,7 +134,7 @@ const caseBank = [
       "question": "A customer wants a report containing passwords and all personal details. What report is defensible?",
       "options": [
         "Include a full local copy but encrypt the file and give access only to the owner",
-        "Issue an asset-linked test report without secrets and agree secure evidence needs",
+        "Issue an asset-linked report without secrets; agree a safe evidence channel",
         "Use a summary with no identifiers or test details to minimise future retention"
       ],
       "answer": 1,
@@ -148,7 +148,7 @@ const caseBank = [
       "options": [
         "Switch to verbal descriptions only, since printed diagrams are inaccessible",
         "Invite a support person to make all decisions while repairs are explained",
-        "Ask for preferred format, explain verbally and let the visitor set the pace"
+        "Ask preferred format, describe steps and let the visitor guide pace"
       ],
       "answer": 2,
       "explanation": "Accessible teaching starts with preference."
@@ -157,7 +157,7 @@ const caseBank = [
       "question": "Two repair visitors need different accessibility support and the roster is full. How should the lead decide?",
       "options": [
         "Give priority to the urgent repair while offering a later accessible time slot",
-        "Use published capacity criteria and arrange accessible communication or referral",
+        "Use fair capacity rules and accessible communication or referral",
         "Give each visitor equal bench time regardless of differing support requirements"
       ],
       "answer": 1,
@@ -169,7 +169,7 @@ const caseBank = [
     "practitioner": {
       "question": "A cleaned laptop boots once, then fails twice after being moved. Best note?",
       "options": [
-        "Record an intermittent failure, test conditions and the movement association",
+        "Record intermittent failure and movement-related test conditions",
         "Record the successful cleaning and treat later failures as a new fault",
         "Classify the RAM connection as the likely cause before repeatable testing"
       ],
@@ -179,7 +179,7 @@ const caseBank = [
     "expert": {
       "question": "Four of six machines booted, but half used different adapters. What can you conclude?",
       "options": [
-        "Describe observed boot results, align test conditions and rerun before estimating reliability",
+        "Report test conditions and rerun with standard power before claiming reliability",
         "Use the four successful devices to estimate model reliability with a wide confidence band",
         "Report success separately by adapter type and treat each small group as conclusive"
       ],
@@ -203,7 +203,7 @@ const caseBank = [
       "question": "A locked device needs $30 in parts; an unlocked cleared device needs $90. Which should receive limited refurb time?",
       "options": [
         "Refurb the cheapest device first and seek enterprise unlock before listing it",
-        "Allocate work to the released device if its useful value justifies total cost",
+        "Prioritise the released unit if expected value justifies cost",
         "Split time across both devices to reduce the chance of missing valuable parts"
       ],
       "answer": 1,
@@ -215,7 +215,7 @@ const caseBank = [
     "practitioner": {
       "question": "Twelve laptops arrive listed only by model. A driver demands an instant receipt. What is defensible?",
       "options": [
-        "Issue a provisional counted receipt and reconcile serials before full acceptance",
+        "Issue provisional receipt; reconcile serials before accepting the lot",
         "Issue an accepted-item receipt using the driver-provided model spreadsheet",
         "Hold all items and record nothing until every serial has been verified"
       ],
@@ -239,7 +239,7 @@ const caseBank = [
       "question": "A boots with unknown SSD status, B has broken LCD, C has hot swollen pack. Order?",
       "options": [
         "Test device A's SSD first, store device C separately and queue B for parts",
-        "Segregate hot device C, resolve A's data status and assess B's repair safely",
+        "Isolate hot C, verify A's data status and assess B's repair",
         "Grade B for reuse, quarantine C after arrival and list A as awaiting wipe"
       ],
       "answer": 1,
@@ -261,7 +261,7 @@ const caseBank = [
     "practitioner": {
       "question": "An SSD tool reports success but lacks serial and verification result. What can you certify?",
       "options": [
-        "Record that the tool ran; sanitisation proof is incomplete without audit evidence",
+        "Record tool operation only; audited sanitisation remains unproven",
         "Treat the tool's success flag as evidence of completed erasure for the batch",
         "Issue a conditional certificate using the transfer date instead of the serial"
       ],
@@ -309,7 +309,7 @@ const caseBank = [
       "options": [
         "Keep the pack in normal intake until the battery safety lead has assessed it",
         "Photograph the puncture first, then test whether capacity has fallen",
-        "Isolate under the battery incident procedure and arrange specialist referral"
+        "Use the battery incident procedure and arrange specialist referral"
       ],
       "answer": 2,
       "explanation": "Damaged cells need specialised procedures."
@@ -318,7 +318,7 @@ const caseBank = [
       "question": "A full battery storage area receives another hot suspect pack. A driver suggests leaving it in a car overnight. What should happen?",
       "options": [
         "Hold intake outside the crowded bay until the storage temperature is checked",
-        "Decline uncontrolled handoff and activate approved specialist hazard routing",
+        "Decline uncontrolled handoff and invoke approved specialist controls",
         "Accept temporarily if a driver stays onsite until storage space is cleared"
       ],
       "answer": 1,
@@ -331,7 +331,7 @@ const caseBank = [
       "question": "A slow laptop has an HDD, damaged screen and a 20-minute battery. What is the repair plan based on?",
       "options": [
         "Start with an SSD because boot time is the most measurable performance defect",
-        "Assess all major defects, part costs and intended use before selecting repairs",
+        "Assess defects, costs and intended use before approving repairs",
         "Replace the LCD and battery first because visible defects affect resale value"
       ],
       "answer": 1,
@@ -353,7 +353,7 @@ const caseBank = [
     "practitioner": {
       "question": "Boot tests pass but webcam and SD reader are untested. What can your listing say?",
       "options": [
-        "List all successful tests and clearly identify webcam and reader as untested",
+        "List verified tests; identify webcam and reader as untested",
         "Mark the machine fully tested if the camera app and desktop both start",
         "Exclude untested features entirely, since only marketed features count"
       ],
@@ -376,7 +376,7 @@ const caseBank = [
     "practitioner": {
       "question": "A recycler gives a weighbridge ticket only. What does it establish?",
       "options": [
-        "Evidence of accepted weight/transfer, not confirmed final material processing",
+        "Proof of transfer and weight, not full downstream material processing",
         "Confirmation that all units reached the end recycler named by the driver",
         "A destruction record for the drives if its paperwork lists total kilograms"
       ],
@@ -386,7 +386,7 @@ const caseBank = [
     "expert": {
       "question": "A mixed batch has drives, lithium packs and PCBs. The processor issues one weight slip. What's missing?",
       "options": [
-        "Require separate signed evidence for drives, battery hazards and final destinations",
+        "Require separate signed evidence for drives, batteries and final destinations",
         "Accept a certified recycler's gross weight slip for all specialist waste streams",
         "Track material-category weights but obtain receiving-facility evidence later"
       ],
@@ -410,7 +410,7 @@ const caseBank = [
       "question": "An item is marked for recycling while its drive erasure has failed. What should AssetFlow require?",
       "options": [
         "Allow a supervisor to overwrite the erasure status with an attached comment",
-        "Block release pending verified erasure or a formally authorised, logged exception",
+        "Block release until erasure is verified or an authorised exception is logged",
         "Release to recycler pending its destruction certificate and reconcile afterward"
       ],
       "answer": 1,
@@ -424,7 +424,7 @@ const caseBank = [
       "options": [
         "Assign each radio to a general repairer after a short owner questionnaire",
         "Refuse both radios because the same model has exposed mains in one unit",
-        "Screen both separately and refer exposed mains work to qualified services"
+        "Screen separately; refer exposed mains to qualified services"
       ],
       "answer": 2,
       "explanation": "Risk differs by condition, not product label."
@@ -446,7 +446,7 @@ const caseBank = [
       "question": "A toaster trips a power outlet and no electrical specialist is available. What next?",
       "options": [
         "Have the owner demonstrate the fault using the same outlet but no new tests",
-        "Record the mains symptom and refer, without energising it at the repair bench",
+        "Record mains hazard and refer without powering it at the bench",
         "Allow a visual-only tear-down before referring it to electrical repair staff"
       ],
       "answer": 1,
@@ -455,7 +455,7 @@ const caseBank = [
     "expert": {
       "question": "A visitor carries a device labelled with someone else's name and requests private file access. What should intake do?",
       "options": [
-        "Document unresolved ownership, restrict access and seek approved consent first",
+        "Record unresolved ownership; restrict access until consent is verified",
         "Perform external-only health checks while consent is being established",
         "Proceed with recovered data if the visitor signs a broad on-arrival waiver"
       ],
@@ -468,7 +468,7 @@ const caseBank = [
     "practitioner": {
       "question": "After cable adjustment a bicycle brake feels spongy; the owner wants to ride home. What now?",
       "options": [
-        "Pause use and refer for competent brake assessment before claiming success",
+        "Pause use and refer for a qualified brake assessment",
         "Request a short test ride to see whether braking pressure improves in use",
         "Tighten the cable within tool limits and record that work as provisional"
       ],
@@ -537,7 +537,7 @@ const caseBank = [
     "practitioner": {
       "question": "The local library wants to lend drills but has no inspection/maintenance capability. Pilot option?",
       "options": [
-        "Begin with manageable low-risk stock and build inspections before adding drills",
+        "Start with lower-risk stock; build inspections before lending drills",
         "Offer drill loans with a signed risk waiver until a maintenance role exists",
         "Buy the drills but allow bookings only when borrowed items appear undamaged"
       ],
@@ -561,7 +561,7 @@ const caseBank = [
       "question": "A returned sewing kit looks complete but is missing a presser foot. Appropriate status?",
       "options": [
         "Mark returned with a note asking borrowers to supply the missing component",
-        "Set kit to incomplete until the specialist foot is reconciled and documented",
+        "Mark the kit incomplete until the missing foot is reconciled",
         "Keep available, but include a warning at checkout that the foot is missing"
       ],
       "answer": 1,
@@ -594,7 +594,7 @@ const caseBank = [
       "question": "Borrowed power tool comes back wet. Volunteer may not open/electrically test it. Next?",
       "options": [
         "Wait until dry externally, then allow a supervised functional test at handoff",
-        "Quarantine and record moisture exposure pending competent return-to-loan checks",
+        "Quarantine wet equipment pending competent return-to-loan checks",
         "Loan with a wet-use advisory after the battery or power cord is removed"
       ],
       "answer": 1,
@@ -606,7 +606,7 @@ const caseBank = [
     "practitioner": {
       "question": "One item is booked for two weeks; another visitor needs it for tomorrow's fundraiser. Policy?",
       "options": [
-        "Apply published booking priority and discuss any recorded, agreed exception",
+        "Apply published priorities and discuss documented exceptions",
         "Prioritise the fundraiser if it has a larger predicted community benefit",
         "Keep the earliest booking unless the second borrower can collect sooner"
       ],
@@ -639,7 +639,7 @@ const caseBank = [
     "expert": {
       "question": "Pilot has many signups but few loans and a growing repair backlog. Most useful measures?",
       "options": [
-        "Track loans completed, missed demand, cancelled bookings and servicing effort",
+        "Track loans, unmet demand, cancellations and maintenance burden",
         "Use registrations and positive feedback as the early signal for expansion",
         "Track stock value and maintenance backlog before buying more equipment"
       ],
@@ -662,7 +662,7 @@ const caseBank = [
     "expert": {
       "question": "19.5V adapter reads 19.6V unloaded but collapses to 6V under compatible load. Which hypothesis?",
       "options": [
-        "Compare the adapter under safe compatible load and verify by known-good substitution",
+        "Test the adapter under compatible load and compare a known-good unit",
         "Replace the laptop battery first and remeasure unloaded adapter voltage",
         "Conclude the laptop DC input stage has failed because its load is too high"
       ],
@@ -685,7 +685,7 @@ const caseBank = [
     "expert": {
       "question": "A valid donation includes still-managed encrypted devices. What disposition?",
       "options": [
-        "Hold in restricted custody; seek tenant release and verified storage outcomes",
+        "Hold in custody pending tenant release and verified data outcomes",
         "Treat the donation letter as release but remove encrypted drives at resale",
         "Resell for parts if MDM remains and record the account lock in the listing"
       ],
