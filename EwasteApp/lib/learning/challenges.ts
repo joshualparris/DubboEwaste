@@ -18,9 +18,9 @@ const caseBank = [
     "expert": {
       "question": "A leased batch includes customer files and your pilot cannot audit sanitisation. What do you offer?",
       "options": [
-        "Promise certified erasure later",
-        "Accept and resell without drives",
-        "Decline data-bearing intake until authority and an equipped downstream path are agreed"
+        "Propose an interim inventory-only custody agreement and decide sanitisation after acceptance",
+        "Arrange a contingent agreement for any devices a releaser says it owns, pending data checks",
+        "Decline transfer until lease authority and verified sanitisation/downstream responsibilities are agreed"
       ],
       "answer": 2,
       "explanation": "Leases and auditable data outcomes must be resolved."
@@ -41,11 +41,11 @@ const caseBank = [
     "expert": {
       "question": "A 2006 director listing contradicts current company records and an undated staff biography. What can an org chart assert?",
       "options": [
-        "The 2006 reporting lines are still valid",
-        "Separate current legal officers and evidenced functional roles, mark reporting lines unknown",
-        "Infer management hierarchy from salaries"
+        "Document legal officers and current functional staff separately, marking reporting lines unverified",
+        "Treat the latest legal register as a verified employee reporting chart",
+        "Use the current biography for functional leadership but omit date and source limitations"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Evidence for ownership, operations and hierarchy differs."
     }
   },
@@ -64,9 +64,9 @@ const caseBank = [
     "expert": {
       "question": "A cheaper repair would make an inefficient device usable for only six months, while a more expensive refurb may last three years. Best evaluation?",
       "options": [
-        "Estimate lifecycle cost and useful years with uncertainty, then compare",
-        "Reuse must always win",
-        "Recycle must always win"
+        "Estimate remaining service years, reliability, total lifecycle cost and environmental assumptions across both options",
+        "Prefer the lower initial repair cost if measured energy consumption is similar",
+        "Prefer the longer expected lifespan before checking accessibility, software suitability or repair waste"
       ],
       "answer": 0,
       "explanation": "A circular hierarchy is conditional, not absolute."
@@ -87,9 +87,9 @@ const caseBank = [
     "expert": {
       "question": "A fast volunteer skips serial recording; a slower one follows all checks. Who should run intake unsupervised?",
       "options": [
-        "Fastest person",
-        "Neither until role competence and authorisation are demonstrated",
-        "Whichever owns the tools"
+        "Give the faster technician temporary intake ownership while the coordinator audits at day's end",
+        "Require observed compliance and specific delegation for either person before solo intake",
+        "Give both equal unsupervised access but review only discrepant serials"
       ],
       "answer": 1,
       "explanation": "Speed is not controlled custody competence."
@@ -110,11 +110,11 @@ const caseBank = [
     "expert": {
       "question": "A pack emits solvent odour and intermittent heat without swelling during a public event. What should the coordinator do?",
       "options": [
-        "Charge it briefly to reproduce",
-        "Move it to an ordinary storeroom",
-        "Stop work, follow emergency isolation procedures and arrange competent safe handling"
+        "Move the laptop into a monitored temporary holding area, then arrange qualified handling after the event",
+        "Stop work, implement the site incident/isolation response now and arrange competent downstream handling",
+        "Document the odour and restart investigation once surface temperature returns to normal"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "No swelling does not rule out thermal risk."
     }
   },
@@ -133,9 +133,9 @@ const caseBank = [
     "expert": {
       "question": "A customer wants a report containing passwords and all personal details. What report is defensible?",
       "options": [
-        "Give only relevant test/asset evidence and omit reusable secrets",
-        "Share the whole dataset with volunteers",
-        "Publish it to prove transparency"
+        "Provide an asset-referenced test report, redact reusable secrets and agree a secure separate evidence channel if strictly needed",
+        "Give the owner the entire report but retain no internal copy",
+        "Produce a summary without serials, defects or test methods to avoid any identifying records"
       ],
       "answer": 0,
       "explanation": "Proof does not require credentials."
@@ -156,11 +156,11 @@ const caseBank = [
     "expert": {
       "question": "Two repair visitors need different accessibility support and the roster is full. How should the lead decide?",
       "options": [
-        "Serve only quick clients",
-        "Use transparent safety/urgency criteria and arrange communication support or honest referral",
-        "Refuse accessibility adjustments automatically"
+        "Use the accessible venue but reduce available sessions proportionally to pay for it, without community input",
+        "Book the cheap venue and offer remote repair advice to anyone unable to use the stairs",
+        "Compare access, demand, obligations, available grants and alternate locations, then document a justifiable venue choice"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Capacity and equitable access can both be considered."
     }
   },
@@ -179,9 +179,9 @@ const caseBank = [
     "expert": {
       "question": "Four of six machines booted, but half used different adapters. What can you conclude?",
       "options": [
-        "Rerun controlled tests; report conditional observed outcomes",
-        "Model failure rate is 33%",
-        "Discard failed units from sample"
+        "Describe the observed 4/6 boot result with test conditions, standardise power/adapters and repeat before estimating reliability",
+        "Stratify the 4/6 success rate by adapter and publish it as a model reliability rate",
+        "Retest only previously failed units under identical adapters and exclude earlier successes"
       ],
       "answer": 0,
       "explanation": "Different test conditions confound claims."
@@ -202,11 +202,11 @@ const caseBank = [
     "expert": {
       "question": "A locked device needs $30 in parts; an unlocked cleared device needs $90. Which should receive limited refurb time?",
       "options": [
-        "Always repair cheapest",
-        "Refurb locked first and bypass later",
-        "Choose only where release, data evidence, labour and net utility justify it"
+        "Refurb the locked device for parts value before obtaining authorisation to release it",
+        "Prioritise the authorised cleared unit if resale/use value justifies parts and labour, and keep the locked one on hold",
+        "Spend equal time on both because donor receipts are sufficient for data release"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "A cheap locked device may be unreleasable."
     }
   },
@@ -225,9 +225,9 @@ const caseBank = [
     "expert": {
       "question": "Two drives are missing from a batch; you only photographed the box exterior. What intake process corrects this?",
       "options": [
-        "More overall photos",
-        "Itemised serials, documented exceptions and signed handoff/reconciliation",
-        "A single gross weight"
+        "Add weight checks at transfer and accept drive counts at supplier level without serials",
+        "Use source-linked drive serial reconciliation, signed sealed custody transfers and an immediate mismatch exception",
+        "Have staff photograph every box and reconcile serials only at final disposal"
       ],
       "answer": 1,
       "explanation": "Custody evidence requires item-level records."
@@ -248,9 +248,9 @@ const caseBank = [
     "expert": {
       "question": "A device passes RAM tests but has failing SMART and a deteriorated pack. Grade?",
       "options": [
-        "Ready to sell because it boots",
-        "Defects unresolved pending repair and verification",
-        "Cosmetic grade only"
+        "Grade as tested and usable but disclose SMART and battery as expected age-related wear",
+        "Hold as defective until storage/battery decisions and required retests establish safe disposition",
+        "Grade as parts-only without checking whether approved repairs would restore utility"
       ],
       "answer": 1,
       "explanation": "Passing one component does not offset known failures."
@@ -271,9 +271,9 @@ const caseBank = [
     "expert": {
       "question": "Power was lost during NVMe sanitize and logs are incomplete. Next action?",
       "options": [
-        "Quarantine and perform approved verification/repeat or documented destruction",
-        "Trust the command start message",
-        "Reformat the filesystem and call it verified"
+        "Quarantine and independently verify an approved sanitisation outcome or arrange traceable destruction",
+        "Treat the interrupted sanitize as completed if BIOS no longer identifies the drive",
+        "Run a file-level wipe and add a note that the initial command was interrupted"
       ],
       "answer": 0,
       "explanation": "Incomplete execution cannot be treated as confirmed completion."
@@ -294,9 +294,9 @@ const caseBank = [
     "expert": {
       "question": "A replacement panel works until the hinge moves. Which hypothesis is most supported?",
       "options": [
-        "Windows activation problem",
-        "SSD voltage fault",
-        "eDP cable or hinge routing defect, investigated unpowered"
+        "Swap a second known-good compatible panel first to confirm the LCD is not faulty",
+        "Reinstall graphics software and then measure cable voltage under hinge movement",
+        "Investigate the hinge/eDP cable route with power isolated, then verify using exact compatible parts"
       ],
       "answer": 2,
       "explanation": "Mechanical movement correlates with display signal."
@@ -317,11 +317,11 @@ const caseBank = [
     "expert": {
       "question": "A full battery storage area receives another hot suspect pack. A driver suggests leaving it in a car overnight. What should happen?",
       "options": [
-        "Decline uncontrolled intake and invoke approved incident/downstream controls",
-        "Accept and reassess tomorrow",
-        "Discharge using improvised resistors"
+        "Accept into a separately marked area if the site has no confirmed heat management controls",
+        "Decline uncontrolled handoff and activate the site hazard response with qualified collection routing",
+        "Ask the driver to wait until the storage area can be rearranged and cooled"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Capacity does not justify uncontrolled heat risk."
     }
   },
@@ -340,11 +340,11 @@ const caseBank = [
     "expert": {
       "question": "A donor panel is the right diagonal size but uses a different connector/pinout. What should you do?",
       "options": [
-        "Test hot to check compatibility",
-        "Modify the connector",
-        "Verify electrical pinout/backlight requirements first; refuse incompatible swaps"
+        "Verify panel electrical/pinout compatibility with exact model evidence and decline or source a proper replacement",
+        "Order an adapter cable that matches connector shape, then measure compatibility after installation",
+        "Swap only if physical connector and mounting holes match, while warning the buyer"
       ],
-      "answer": 2,
+      "answer": 0,
       "explanation": "Size alone cannot establish electrical safety."
     }
   },
@@ -363,11 +363,11 @@ const caseBank = [
     "expert": {
       "question": "A refurb exhibits an intermittent fault after sale. What response aligns with Australian Consumer Law?",
       "options": [
-        "Investigate, document and provide applicable remedy",
-        "Used goods have no consumer guarantees",
-        "Refuse because it booted before sale"
+        "Offer an informal partial credit if they agree not to make a warranty claim",
+        "Investigate and document an appropriate ACL-compliant remedy without assuming all used goods lack guarantees",
+        "Require independent proof of the fault before discussing consumer rights, regardless of circumstances"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Business sales of second-hand goods can carry consumer guarantees."
     }
   },
@@ -386,11 +386,11 @@ const caseBank = [
     "expert": {
       "question": "A mixed batch has drives, lithium packs and PCBs. The processor issues one weight slip. What's missing?",
       "options": [
-        "Nothing if total mass is right",
-        "Separate data, hazard and downstream category/facility evidence",
-        "A marketing sticker"
+        "Track item-level drives, battery hazards and separate category/facility processing evidence tied to signed transfers",
+        "Retain the gross slip plus recycler accreditation as complete data destruction and hazard evidence",
+        "Use one separate weight total for each material stream without needing final receiving-facility records"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Different risk streams need distinct proofs."
     }
   },
@@ -409,11 +409,11 @@ const caseBank = [
     "expert": {
       "question": "An item is marked for recycling while its drive erasure has failed. What should AssetFlow require?",
       "options": [
-        "An authorised exception/resolution and audit evidence before release",
-        "Automatic deletion of the erasure failure",
-        "A comment only"
+        "Escalate to a lead who can manually overwrite the erasure status while leaving a comment",
+        "Permit release on a supervisor's provisional approval, pending certificate after dispatch",
+        "Block disposition until an authorised exception or verified sanitisation outcome is recorded with audit trail"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "Data exceptions require controlled disposition."
     }
   },
@@ -432,11 +432,11 @@ const caseBank = [
     "expert": {
       "question": "Visitor demand doubles mid-event but the supervisor team doesn't grow. What decision is safe?",
       "options": [
-        "Increase unsupervised stations",
-        "Ignore the queue",
-        "Cap intake and offer clear wait/referral alternatives"
+        "Stop taking walk-ins but allow confirmed bookings to use any vacant tools with volunteer oversight",
+        "Cap intake based on approved stations and skills, clearly communicate deferrals and referrals",
+        "Open an informal assessment-only lane without any check-in to reduce pressure"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "Demand can't override supervision capacity."
     }
   },
@@ -455,9 +455,9 @@ const caseBank = [
     "expert": {
       "question": "A visitor carries a device labelled with someone else's name and requests private file access. What should intake do?",
       "options": [
-        "Hold until authority and consent can be established; record limits",
-        "Assume possession proves ownership",
-        "Copy files to the event laptop"
+        "Hold or refer pending ownership/consent evidence, limit access and document the specific request",
+        "Allow device health checks while ownership is verified, but avoid opening the photo library",
+        "Record the carrier's verbal assurance and continue only with deleted-files recovery"
       ],
       "answer": 0,
       "explanation": "Ownership and consent must be explicit."
@@ -478,9 +478,9 @@ const caseBank = [
     "expert": {
       "question": "A seized fastener is next to a damaged lithium cell. Which technique is defensible?",
       "options": [
-        "Apply heat",
-        "Stop at battery hazard; do not use improvised force or heat",
-        "Use an impact driver"
+        "Use cold penetrant and a hand driver with the battery still close to the fastener",
+        "Stop near the battery hazard; isolate and refer the device before any fastener-force plan",
+        "Remove the nearby lithium pack without further inspection, then resume fastener extraction"
       ],
       "answer": 1,
       "explanation": "Hazard overrides repair attempts."
@@ -501,9 +501,9 @@ const caseBank = [
     "expert": {
       "question": "The only approved coordinator cancels three hours before doors open. Substitute has skills but no delegated authority. Next step?",
       "options": [
-        "Use continuity plan or postpone and contact attendees",
-        "Run under substitute automatically",
-        "Backdate an approval"
+        "Follow documented delegation/approval and incident process, otherwise postpone and notify visitors",
+        "Have a skilled substitute run a reduced event while seeking retrospective venue authority",
+        "Move only the approved stations to another site without recording amended event details"
       ],
       "answer": 0,
       "explanation": "Competence does not invent event authority."
@@ -524,11 +524,11 @@ const caseBank = [
     "expert": {
       "question": "A free venue has inaccessible stairs; a suitable venue costs more. What is the better planning judgement?",
       "options": [
-        "Cheapest is always fairest",
-        "Carry people upstairs",
-        "Compare budget and accessibility obligations and seek equitable alternatives"
+        "Use a larger accessible venue after checking affordability, obligations and inclusive community consultation",
+        "Select the stair-only venue but offer advance home visits if sufficient volunteers agree",
+        "Choose whichever site fits the current volunteer roster and revisit accessibility after launch"
       ],
-      "answer": 2,
+      "answer": 0,
       "explanation": "Price alone isn't an accessibility assessment."
     }
   },
@@ -547,9 +547,9 @@ const caseBank = [
     "expert": {
       "question": "Item A has high demand and frequent failures; B has moderate demand and low upkeep. Which evaluation is most useful?",
       "options": [
-        "Bookings only",
-        "Expected utilisation, lifecycle cost, safety and maintenance time",
-        "Shelf appearance"
+        "Compare acquisition prices and average shelf demand for both items, leaving servicing estimates for after launch",
+        "Compare safe completed loans, downtime, lifecycle cost and equitable access before prioritising investment",
+        "Prioritise A's booking backlog if its repairs can be outsourced, without assessing total outsourcing cost"
       ],
       "answer": 1,
       "explanation": "Value depends on safe sustained service."
@@ -570,9 +570,9 @@ const caseBank = [
     "expert": {
       "question": "Three kits share interchangeable parts with different wear. How preserve traceability?",
       "options": [
-        "Record component transfers and inspection/test history",
-        "Treat them as identical",
-        "Delete history after swap"
+        "Retain component identifiers, transfer links, condition checks and kit history through each swap",
+        "Use kit identifiers and record a maintenance event only if the replacement component fails",
+        "Photograph exchanged components, and treat the newest kit checklist as sufficient provenance"
       ],
       "answer": 0,
       "explanation": "Kit provenance needs component records."
@@ -593,11 +593,11 @@ const caseBank = [
     "expert": {
       "question": "Borrowed power tool comes back wet. Volunteer may not open/electrically test it. Next?",
       "options": [
-        "Dry casing and lend immediately",
-        "Ask borrower to test",
-        "Quarantine and document exposure pending competent checks"
+        "Allow a visual check and a 24-hour dry period, then return to loan if it powers on",
+        "Quarantine, record moisture exposure and refer for an approved inspection/test before resuming circulation",
+        "Return to service under a borrower warning if the outer housing looks dry"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "Wet electrical items can have hidden issues."
     }
   },
@@ -616,11 +616,11 @@ const caseBank = [
     "expert": {
       "question": "A borrower is late because accessible transport repeatedly fails. How adapt fairly?",
       "options": [
-        "Ban them",
-        "Explore documented reasonable adjustments balancing other reservations",
-        "Remove all deadlines permanently"
+        "Offer documented, reasonable adjustments within fair booking rules and consider impacts on other borrowers",
+        "Grant the same extended period automatically to all borrowers, without reviewing stock turnover",
+        "Continue normal penalties but arrange a volunteer pick-up only if the borrower pays an added fee"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Equity, capacity and policy should be considered."
     }
   },
@@ -639,9 +639,9 @@ const caseBank = [
     "expert": {
       "question": "Pilot has many signups but few loans and a growing repair backlog. Most useful measures?",
       "options": [
-        "Completed loans, unmet demand, cancellations and maintenance effort",
-        "Signup count only",
-        "Number of shelves"
+        "Track fulfilled loans, unmet demand, cancellation reasons, maintenance time, costs and borrower outcomes",
+        "Track registrations and positive feedback, then compare those with monthly stock availability",
+        "Track items acquired, donated and under repair separately, and expand if stock value grows"
       ],
       "answer": 0,
       "explanation": "Real utilisation and costs predict sustainability."
@@ -662,9 +662,9 @@ const caseBank = [
     "expert": {
       "question": "19.5V adapter reads 19.6V unloaded but collapses to 6V under compatible load. Which hypothesis?",
       "options": [
-        "Adapter/cable under-load failure to verify by substitution",
-        "Screen cable short, proven",
-        "Wall outlet needs live probing"
+        "Treat the adapter/cable path as suspect and confirm using safe controlled substitution under compatible loading",
+        "Prefer replacing the battery first because unloaded voltage is within tolerance",
+        "Conclude the laptop input stage is shorted because the load voltage collapses"
       ],
       "answer": 0,
       "explanation": "Load response suggests supply path but warrants control."
@@ -685,9 +685,9 @@ const caseBank = [
     "expert": {
       "question": "A valid donation includes still-managed encrypted devices. What disposition?",
       "options": [
-        "Keep restricted, obtain authorised removal and documented data outcome, reject unresolved units",
-        "Bypass management as a repair",
-        "Sell for parts without checking embedded media"
+        "Keep assets restricted, request authorised tenant release and data outcome evidence, and reject unresolved exceptions",
+        "Accept the donation as sufficient but defer Microsoft enrolment removal until the eventual buyer registers",
+        "Keep the encrypted drives for recycling while reusing the rest without resolving enterprise controls"
       ],
       "answer": 0,
       "explanation": "Ownership and technical/data release are separate gates."
