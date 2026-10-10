@@ -19,4 +19,19 @@
 .footer{display:grid;grid-template-columns:1fr 1fr;gap:30px;padding:35px 0 70px;border-top:1px solid var(--stroke)}.footer>div:first-child strong{color:#d4f3dd;font-size:15px;letter-spacing:.1em}.footer p{font-size:13px;line-height:1.7;color:#9db4a7;max-width:490px}.footer small{font-size:11px;color:#89a696}.sources{display:grid;gap:8px;font-size:12px}.sources span{font-size:10px;color:#b7dbc3;letter-spacing:.15em;font-weight:900;margin-bottom:7px}.sources a{color:#9cb6a4}.sources a:hover{color:#b6f2cb;text-decoration:underline}
 @media(max-width:900px){.hero{grid-template-columns:1fr;min-height:0;padding:45px 0}.art{min-height:260px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stats span:nth-child(2){border-right:0}.stats span:nth-child(-n+2){border-bottom:1px solid var(--stroke)}.three{grid-template-columns:1fr}.anatomy,.identify,.detailPanel{grid-template-columns:1fr}.detailPanel .illustration{min-height:180px}.section{padding:40px 0 70px}}
 @media(max-width:580px){.top{font-size:10px;height:65px}.top span{display:none}.hero h1{font-size:clamp(56px,15vw,80px)}.hero{gap:27px}.heroActions button{padding:13px 15px;font-size:13px}.art{min-height:215px}.board{height:105px}.chipLine{height:38px;top:37px;gap:3px}.boardLabel{top:10px}.smallChips{right:9px;bottom:13px}.smallChips span{font-size:6px}.stats span{padding:16px 10px;font-size:10px;line-height:1.4;gap:9px;min-height:82px}.stats strong{font-size:24px}.tabs{padding-top:0}.tabs button{font-size:11px;padding:15px 13px}.tabHint{display:block}.content{scroll-margin-top:55px}.compareHead,.compareRow{grid-template-columns:95px minmax(0,1fr) minmax(0,1fr);padding:12px 10px;gap:8px}.compareRow span:not(:first-child){font-size:12px}.compareNotes{margin:0;display:grid;gap:5px;padding:12px}.selectRow label{flex:1;min-width:130px}.selectRow select{min-width:0;width:100%}.filters{display:grid;grid-template-columns:1fr}.filters input,.filters select{width:100%}.detailPanel{padding:16px}.anatomyBoard{padding:15px}.anatomyChips{gap:4px;padding:10px 5px}.anatomyChips button{height:52px;font-size:8px}.footer{grid-template-columns:1fr}.quizFooter{flex-wrap:wrap}.page .quizFooter button{font-size:12px}}
+/* Mobile RAM matrix usability fix: reserve the screen for compatibility cells, not labels. */
+.gridHint{color:#a7ccb8;font-size:12px;line-height:1.45;margin:4px 0 12px;font-weight:750}
+.matrix{background:#142520}
+.matrix th,.matrix td{border-bottom:0}
+@media(max-width:700px){
+  .matrixScroller{border-radius:9px;background:#142520}
+  .matrix{width:660px;min-width:660px;max-width:none;table-layout:fixed;border-spacing:3px;background:#142520}
+  .matrix th:first-child{width:112px;min-width:112px;max-width:112px;position:sticky;left:0;z-index:2;box-shadow:3px 0 5px #081b13a8}
+  .matrix th:not(:first-child){width:65px;min-width:65px;max-width:65px;white-space:nowrap;text-align:center}
+  .matrix th{font-size:10px;padding:8px 3px;background:#142520;color:#bfcebf}
+  .matrix tbody th{padding:2px 2px;background:#142520}
+  .matrix tbody th button{display:block;max-width:100%;text-align:left;padding:7px 4px;font-size:11px;line-height:1.25;white-space:normal;overflow-wrap:anywhere;word-break:normal}
+  .matrix td{padding:0;background:#142520}
+  .matrix td button{height:38px;min-width:0;width:100%;font-size:18px;border-radius:4px}
+}
 @media(prefers-reduced-motion:reduce){.page *{scroll-behavior:auto!important;transition:none!important}}
