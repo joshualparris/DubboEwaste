@@ -59,3 +59,32 @@ for (const q of assessed){
 assert.ok(largest/assessed.length<=0.45,"Picking the longest answer must not dominate");
 assert.ok(smallest/assessed.length<=0.45,"Picking the shortest answer must not dominate");
 console.log("Answer-bias QA PASS: "+assessed.length+" adaptive questions; longest "+largest+", shortest "+smallest+".");
+
+
+const deepContent=load("lib/learning/deep-pathways.ts");
+const matchDeep=deepContent.match(/export const deepPathways: DeepPathway\[\] = (\[[\s\S]*?\]);\nexport function deepPathwayFor/);
+assert.ok(matchDeep,"Deep learning pathway JSON must be statically parseable");
+const deeper=JSON.parse(matchDeep[1]);
+assert.equal(deeper.length,15,"Electronics and repair field school must benchmark all fifteen courses");
+assert.equal(new Set(deeper.map(p=>p.slug)).size,deeper.length,"Duplicate advanced pathway");
+for(const item of deeper) {
+ assert.ok(calls.some(c=>c.id===item.slug),"Missing parent course: "+item.slug);
+ assert.ok(item.benchmark.length>=80 && item.target.length>=70,"Depth comparison not specific enough for "+item.slug);
+ assert.ok(item.resources.length>=2,"Every field course needs at least two external sources");
+ assert.equal(item.cases.length,3,"Each of three lessons needs a course-specific applied exercise");
+ for(const r of item.resources){
+  const u=new URL(r.url);
+  assert.equal(u.protocol,"https:","External resource must be HTTPS");
+  assert.ok(!/search=|\/results\?/i.test(r.url),"Do not use broad search links in place of real courses");
+  assert.ok(r.title.length>=10&&r.why.length>=40,"Resource must describe its educational value");
+ }
+ for(const q of item.cases){
+  assert.ok(q.prompt.length>=80&&q.workedAnswer.length>=60&&q.safety.length>=45,
+   "Applied questions require prompt, worked solution and boundary");
+ }
+}
+assert.ok(load("app/(private)/learn/[course]/page.tsx").includes("deepPathwayFor"),"Course page must show external learning links");
+assert.ok(load("app/(private)/learn/[course]/[lesson]/page.tsx").includes("studyCase"),"Lesson must show technical applied exercise");
+console.log("External learning benchmark QA PASS: "+deeper.length+" courses, "+
+ deeper.reduce((n,x)=>n+x.resources.length,0)+" targeted references, "+
+ deeper.reduce((n,x)=>n+x.cases.length,0)+" worked applied exercises.");
