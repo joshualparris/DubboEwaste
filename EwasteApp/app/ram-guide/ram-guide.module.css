@@ -35,3 +35,5 @@
   .matrix td button{height:38px;min-width:0;width:100%;font-size:18px;border-radius:4px}
 }
 @media(prefers-reduced-motion:reduce){.page *{scroll-behavior:auto!important;transition:none!important}}
+
+.galleryBanner{margin:22px 0 0;border:1px solid #68aa80;border-radius:10px;background:linear-gradient(110deg,#214e32,#153727);padding:0}.galleryBanner a{display:flex;flex-wrap:wrap;gap:7px 16px;align-items:center;padding:17px 20px;color:#d2ffdf;text-decoration:none}.galleryBanner strong{font-size:14px}.galleryBanner span{font-size:12px;color:#acd9b8}.galleryBanner a:hover{background:#255b39;border-radius:9px}
