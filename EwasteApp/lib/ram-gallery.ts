@@ -110,7 +110,26 @@ const rows: Row[] = [
   ["LPDDR","LPDDR IC","LPDDR mobile memory chip","Lpddr.png","Soldered package","DRAM packages on embedded/mobile boards rather than removable DIMMs.","Mobile / embedded","Uncommon"],
   ["LPDDR","LPDDR IC","Nintendo Switch LPDDR packages","Nintendo Switch RAM klmbg2jenb(cropped).png","Soldered package","Actual Nintendo Switch PCB RAM ICs.","Console","Uncommon"],
   ["GDDR","GDDR6","RTX 3060 GDDR6 memory package","RTX 3060 12GB GDDR6 with GA104.png","Soldered BGA","Graphics RAM beside GPU; not a DIMM and not upgradeable like PC RAM.","Graphics card","Common"],
-  ["HBM","HBM stack","Vega GPU HBM die/stack","AMD@14nm@GCN 5th gen@Vega10@Radeon RX Vega 64@HBM DRAM Die@ Stack-DSC08838-DSC08973 - ZS-retouched.jpg","Stacked on-package memory","High Bandwidth Memory is stacked near the GPU/accelerator.","GPU / AI","Rare"]
+  ["HBM","HBM stack","Vega GPU HBM die/stack","AMD@14nm@GCN 5th gen@Vega10@Radeon RX Vega 64@HBM DRAM Die@ Stack-DSC08838-DSC08973 - ZS-retouched.jpg","Stacked on-package memory","High Bandwidth Memory is stacked near the GPU/accelerator.","GPU / AI","Rare"],
+  // Individually checked Commons file pages or named files from exact Commons media categories (10 Oct 2026).
+  ["Pre-SDR","EDO DRAM IC","Silicon Magic 1MB EDO DRAM chip","Silicon Magic SM81C256K16CJ-25.png","Surface-mounted IC","Verified source explicitly identifies the photographed chip as an EDO DRAM IC, not a DIMM.","1990s components","Rare"],
+  ["Pre-SDR","EDO DRAM IC","Micron EDO memory IC","Micron MT4C16270DJ-7.png","Surface-mounted IC","Real Micron EDO DRAM integrated circuit, separate from the SIMM or DIMM carrying it.","1990s components","Rare"],
+  ["Pre-SDR","EDO DRAM IC","VIS EDO DRAM IC","VIS VG264265BJ-35.png","Surface-mounted IC","Real Vanguard International Semiconductor EDO chip.","1990s components","Rare"],
+  ["Pre-SDR","EDO DRAM IC","LG Semiconductor EDO chip","LG Semiconductor GM71C4263CJ60.png","Surface-mounted IC","Photograph of EDO memory silicon in its chip package.","1990s components","Rare"],
+  ["Pre-SDR","SIMM","LG Semiconductor 72-pin EDO SIMM","F11636S.jpg","72 pins","Identified 4 MB EDO SIMM; demonstrates the package-versus-module distinction.","Vintage desktop","Rare"],
+  ["DDR3","Low-voltage DIMM","DDR3L low-voltage desktop DIMM","DIMM DDR3 1600 low voltage IMGP6412 wp.jpg","240 pins","Actual 1.35 V-class DDR3L module with heat spreader.","Desktop","Uncommon"],
+  ["DDR5","RDIMM / ECC","Micron 64GB DDR5-4800 ECC registered DIMM","Micron MTC40F204681RC48BA1R 20240407 076.jpg","288 contacts","Photographed 64 GiB DDR5 RDIMM; extra buffering and ECC require compatible server or workstation.","Server / workstation","Uncommon"],
+  ["DDR5","CUDIMM","DDR5 CUDIMM and CSODIMM shown at COMPUTEX","Eindrücke von der COMPUTEX 2024 ( 极客湾Geekerwan) 15.png","DDR5 clocked modules","A real exhibition photograph showing clocked DIMM and SO-DIMM formats together.","Industry exhibit","Rare"],
+  ["DDR5","CSODIMM","CSODIMM alongside clocked desktop RAM","Eindrücke von der COMPUTEX 2024 ( 极客湾Geekerwan) 17.png","262-contact SO-DIMM family","Source category explicitly labels this exhibit CSODIMM. Photo is an exhibition view, not an isolated retail stick.","Industry exhibit","Rare"],
+  ["LPDDR","LPDDR1","Samsung LPDDR1 on an Amazon Kindle motherboard","Amazon Kindle 3 (model D00901) - board - Samsung K4X2G323PC-8GD8-0518.jpg","Soldered package","Actual low-power first-generation mobile DDR on a device circuit board.","E-reader","Rare"],
+  ["LPDDR","LPDDR2","Samsung LPDDR2 on Motorola Xoom","Motorola Xoom - Samsung K4P4G154EC-FGC1 on main board-0122.jpg","Soldered package","Category-verified LPDDR2 IC photographed on the tablet motherboard.","Tablet","Uncommon"],
+  ["LPDDR","LPDDR3","Samsung LPDDR3 on Lumia 640","Microsoft Lumia 640, model RM-1077 - board - Samsung K4E8E304EE-AGCE-7494.jpg","Soldered package","Category-verified LPDDR3 package on a phone circuit board.","Mobile","Uncommon"],
+  ["LPDDR","LPDDR4","Samsung LPDDR4 on electronics PCB","Samsung UE40MU6409U - board - Samsung K4F2E3S4HM-MGCJ-5289.jpg","Soldered package","Category-verified LPDDR4 component on a circuit board.","Embedded","Uncommon"],
+  ["LPDDR","LPDDR5","Samsung LPDDR5 on Huawei phone PCB","Huawei Y6 (2019, model MRD-LX1) - board 1 - Samsung KMQD60013M-B318-7107.jpg","Soldered package","Photograph filed in the Commons LPDDR5 category; verify exact package organisation from marking.","Mobile","Uncommon"],
+  ["GDDR","GDDR5","GDDR5 chip near a GTX 980 Ti","GDDR5 980Ti.jpg","Soldered BGA","Actual GDDR5 graphics memory; not replaceable DIMM RAM.","GPU","Uncommon"],
+  ["GDDR","GDDR7","GDDR7 memory package markings from RTX 5090","RTX5090⁄DLSS4深度评测：全靠科技与狠活！ (2160p 60fps VP9-128kbit AAC)-00.31.23.387 (GDDR7 markings).png","Soldered BGA","Real captured footage frame showing GDDR7 chip markings on graphics hardware.","GPU","Rare"],
+  ["HBM","HBM2","Nvidia Tesla P100 HBM2 package detail","Nvidia@16nm@Pascal@GP100@Tesla P100@T Taiwan 1912A1 PN9G70.S6W GP100-897-A1 DSC07143-DSC07204.jpg","Interposer-mounted HBM stacks","Detailed die/package photograph from a Tesla P100 with HBM2 architecture.","Accelerator","Rare"],
+  ["HBM","HBM2","Nvidia GP100 HBM stack notes","Nvidia@16nm@Pascal@GP100@Tesla P100@T Taiwan 1912A1 PN9G70.S6W GP100-897-A1 DSCx11 HBM-Stack notes.jpg","Interposer-mounted HBM stacks","Annotated real photographs of HBM stack arrangement.","Accelerator","Rare"],
 ];
 export const ramPhotos: RAMPhoto[] = rows.map(([generation,shape,title,file,pins,identify,usage,rarity],i)=>({
   id:"ram-photo-"+String(i+1).padStart(3,"0"),generation,shape,title,file,pins,identify,usage,
@@ -119,28 +138,40 @@ export const ramPhotos: RAMPhoto[] = rows.map(([generation,shape,title,file,pins
 /** Variants without a suitably exact, reusable photographic file in the vetted batch.
  * No unrelated photo is substituted just to fill space. */
 export const awaitingPhotos = [
-  ["Pre-SDR","DIP","FPM / EDO / BEDO individual IC package variants"],
-  ["Pre-SDR","DIMM","Very early proprietary 72/100-pin DIMM formats"],
-  ["SDR","RDIMM","SDR-era registered DIMM"],
-  ["DDR","MicroDIMM","DDR1 MicroDIMM"],
-  ["DDR2","MicroDIMM","DDR2 MicroDIMM"],
-  ["DDR2","Mini-DIMM","DDR2 compact Mini-DIMM"],
-  ["DDR3","MicroDIMM","DDR3 MicroDIMM (existence/model requires verification)"],
-  ["DDR3","LRDIMM","DDR3 load-reduced DIMM"],
-  ["DDR3","NVDIMM","DDR3 persistent/NVDIMM variants"],
-  ["DDR4","NVDIMM","DDR4 NVDIMM-N with capacitor backup"],
-  ["DDR4","VLP","DDR4 very-low-profile server DIMM"],
-  ["DDR5","RDIMM","DDR5 registered server RDIMM"],
-  ["DDR5","VLP","DDR5 VLP RDIMM"],
-  ["DDR5","CSODIMM","CSODIMM isolated retail-product photograph"],
-  ["DDR5","CUDIMM","CUDIMM isolated retail-product photograph"],
-  ["DDR5","LRDIMM","DDR5 LRDIMM limited/specialist variants"],
-  ["DDR5","CAMM2","DDR5 CAMM2 isolated module (not just display boards)"],
-  ["LPDDR","LPDDR2/3/4/4X/5/5X/6","Individual identifiable soldered memory generations"],
-  ["GDDR","GDDR1/2/3/4/5/5X/6X/7","Individually labelled BGA chips across all generations"],
-  ["HBM","HBM1/2/2E/3/3E/4","Each stacked-memory generation and package photos"],
-  ["Special","ECC UDIMM","Unbuffered ECC in SDR/DDR2/DDR3/DDR4/DDR5"],
-  ["Special","SOCAMM2","SOCAMM2 package-specific photograph"],
+  ["Pre-SDR","BEDO IC","A physically documented BEDO-specific IC package rather than ordinary EDO"],
+  ["Pre-SDR","Proprietary DIMM","Rare 72/100-pin early/proprietary DIMM variants"],
+  ["SDR","RDIMM","168-pin registered SDR server module (manufacturer photo located, Commons photo not confirmed)"],
+  ["DDR","MicroDIMM","DDR1 MicroDIMM, isolated exact module photo"],
+  ["DDR2","MicroDIMM","DDR2 MicroDIMM, isolated exact module photo"],
+  ["DDR2","Mini-DIMM","DDR2 244-pin Mini-DIMM, isolated photo (official datasheet does show technical drawing)"],
+  ["DDR3","MicroDIMM","DDR3 214-pin MicroDIMM: existence and actual part numbers confirmed, isolated reusable photo outstanding"],
+  ["DDR3","LRDIMM","DDR3 LRDIMM, Commons-compatible isolated photo outstanding"],
+  ["DDR3","NVDIMM","DDR3 NVDIMM-specific physical module photograph"],
+  ["DDR4","NVDIMM","DDR4 NVDIMM-N: manufacturer photo linked below; Commons-hosted image outstanding"],
+  ["DDR4","VLP","DDR4 VLP RDIMM: official maker photos linked below; Commons-hosted image outstanding"],
+  ["DDR5","VLP","DDR5 VLP RDIMM: official maker photos linked below; Commons-hosted image outstanding"],
+  ["DDR5","LRDIMM","DDR5 LRDIMM: platform-specific implementation uncertain; avoid substitute photograph"],
+  ["DDR5","CAMM2","Isolated DDR5 CAMM2 module, distinct from LPCAMM2"],
+  ["LPDDR","LPDDR4X/5X/6","Individually labelled package photographs for LPDDR4X, LPDDR5X, LPDDR6"],
+  ["GDDR","GDDR1/2/3/4/5X/6X","Individually identified memory chips, not just graphics cards"],
+  ["HBM","HBM1/2E/3/3E/4","Individual HBM generations beyond the photographed HBM2 packages"],
+  ["Special","ECC UDIMM","Exact ECC-unbuffered variant photos across the desktop DDR generations"],
+  ["Special","SOCAMM2","SOCAMM2 manufacturer photos available, Commons licence not established"]
+] as const;
+
+/** Verified manufacturer/reference pages containing actual module photos
+ * or an explicitly labelled technical drawing. These are direct links to
+ * specific sources, not search results. Respect publisher reuse licences. */
+export const specialistReferences = [
+  {generation:"DDR3",shape:"MicroDIMM",title:"DDR3 214-pin MicroDIMM (real product and part numbers)",url:"https://3max.co.jp/products/built-in/dimm/ddr3/microdimm/",type:"Manufacturer product page",note:"Sunmax lists 214-pin DDR3 MicroDIMMs SMD-M4G66 and SMD-M1G86. This establishes existence, even if a reusable isolated photo is still unavailable."},
+  {generation:"DDR2",shape:"Mini-DIMM",title:"Micron DDR2 registered Mini-DIMM 244-pin",url:"https://media.digikey.com/pdf/Data%20Sheets/Micron%20Technology%20Inc%20PDFs/MT18HTF25672PKZ.pdf",type:"Manufacturer technical drawing",note:"Micron module datasheet with labelled form-factor drawing. Not counted as an actual photograph."},
+  {generation:"DDR3",shape:"LRDIMM",title:"Netlist DDR3 LRDIMM and Mini-DIMM families",url:"https://netlist.com/products/memory-module/ddr3-dimms/",type:"Manufacturer product photographs",note:"Manufacturer page displays separate DDR3 LRDIMM and Mini-DIMM product families."},
+  {generation:"SDR",shape:"RDIMM",title:"168-pin ECC registered SDRAM",url:"https://www.ebay.com/itm/168720893877",type:"Seller photographs (availability may change)",note:"Real multi-angle photos of a registered PC133 SDRAM module. Listing may expire and photography has third-party rights."},
+  {generation:"DDR4",shape:"NVDIMM",title:"Viking Technology DDR4 NVDIMM",url:"https://www.vikingtechnology.com/non-volatile-memory/ddr4-nvdimm/",type:"Manufacturer product photograph",note:"Official product image and details of DDR4 non-volatile DIMM."},
+  {generation:"DDR4",shape:"VLP RDIMM",title:"Apacer DDR4 very-low-profile RDIMM",url:"https://www.apacer.com/en/product/industrial-product/detail/industrial_dram/ddr4_vlp_rdimm",type:"Manufacturer product photograph",note:"Actual VLP registered server memory with technical dimensions."},
+  {generation:"DDR5",shape:"VLP RDIMM",title:"Innodisk DDR5 288-pin RDIMM VLP",url:"https://www.innodisk.com/en/products/dram-modules/ddr5/ddr5-rdimm-vlp",type:"Manufacturer product photograph",note:"Official front photo, 18mm low-profile height and ECC registered specs."},
+  {generation:"DDR5",shape:"CSODIMM",title:"Silicon Power DDR5 CSODIMM",url:"https://www.silicon-power-industrial.com/solution-detail/ddr5_csodimm/",type:"Manufacturer product photograph",note:"Official retail/industrial clocked SO-DIMM photo with CKD and 262-pin specifications."},
+  {generation:"Special",shape:"SOCAMM2",title:"Micron SOCAMM2 official photo gallery",url:"https://sg.micron.com/about/press/image-gallery/products-technology/dram-modules/socamm2",type:"Manufacturer photo gallery",note:"Six official SOCAMM2 product photographs. Check Micron's image reuse restrictions."}
 ] as const;
 
 export function commonsFilePage(name:string) {
