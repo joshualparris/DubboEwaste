@@ -76,12 +76,12 @@ export const deepPathways: DeepPathway[] = [
       {
         "prompt": "A device with a 3-cell pack will charge but immediately shuts down without the adaptor. List credible causes without opening the pack.",
         "workedAnswer": "Separate weak cells, BMS state, connector fault and firmware reporting; propose only non-invasive checks.",
-        "safety": "Do not short, bypass or solder cells."
+        "safety": "Do not short, bypass or solder cells. No practice on swollen, leaking or unknown loose lithium cells; supervised specialist handling only."
       },
       {
         "prompt": "A stored tablet is pushing its display outward. Record a quarantine decision and handoff plan.",
         "workedAnswer": "List why charging and exploratory prying must stop, who is contacted and where the record is kept.",
-        "safety": "No DIY cell removal as an assessment."
+        "safety": "No DIY cell removal as an assessment. No practice on swollen, leaking or unknown loose lithium cells; supervised specialist handling only."
       },
       {
         "prompt": "Explain why measuring one battery terminal voltage does not prove lithium pack health.",
@@ -123,7 +123,7 @@ export const deepPathways: DeepPathway[] = [
     ],
     "cases": [
       {
-        "prompt": "Design a 5 V LED circuit assuming LED Vf = 2 V and target 8 mA.",
+        "prompt": "Design a 5 V LED circuit assuming LED Vf = 2 V and target 8 mA.  Show all equations, units, intermediate values and assumptions before comparing with the expected result.",
         "workedAnswer": "R ≈ 375 Ω, so 390 Ω standard resistor gives ≈ 7.7 mA; P resistor ≈ 0.023 W.",
         "safety": "Show calculation, component tolerance and resistor-rating margin."
       },
@@ -133,7 +133,7 @@ export const deepPathways: DeepPathway[] = [
         "safety": "Explain why real meter input resistance matters."
       },
       {
-        "prompt": "Model a 10 kΩ resistor charging a 100 µF capacitor from a 5 V supply.",
+        "prompt": "Model a 10 kΩ resistor charging a 100 µF capacitor from a 5 V supply.  Show all equations, units, intermediate values and assumptions before comparing with the expected result.",
         "workedAnswer": "Time constant τ=1 s; after one τ ≈ 3.16 V; after three τ ≈ 4.75 V.",
         "safety": "Simulate it; don't experiment on large/high-voltage capacitors."
       }
@@ -177,12 +177,12 @@ export const deepPathways: DeepPathway[] = [
         "safety": "Avoid battery shorting or unrestricted current tests."
       },
       {
-        "prompt": "A powered-off 1 kΩ resistor measures 700 Ω in circuit. Can it be rejected?",
+        "prompt": "A powered-off 1 kΩ resistor measures 700 Ω in circuit. Can it be rejected?  State two alternative explanations, a safe discriminating test and the evidence needed for your final decision.",
         "workedAnswer": "Not without considering parallel components and circuit topology.",
         "safety": "Explain how an out-of-circuit comparison or schematic resolves the ambiguity."
       },
       {
-        "prompt": "Create a reference-point plan for two hypothetical test nodes, 5 V and 3.3 V.",
+        "prompt": "Create a reference-point plan for two hypothetical test nodes, 5 V and 3.3 V.  State two alternative explanations, a safe discriminating test and the evidence needed for your final decision.",
         "workedAnswer": "Specify DC mode, correct V/Ω jack, ground reference and expected reading uncertainty.",
         "safety": "Never move leads to the current jack to check voltage."
       }
@@ -221,7 +221,7 @@ export const deepPathways: DeepPathway[] = [
     ],
     "cases": [
       {
-        "prompt": "Laptop LEDs light but the screen is black. Make a four-branch fault tree.",
+        "prompt": "Laptop LEDs light but the screen is black. Make a four-branch fault tree.  State two alternative explanations, a safe discriminating test and the evidence needed for your final decision.",
         "workedAnswer": "Include backlight, panel/cable, firmware/boot and video-output path with tests that distinguish them.",
         "safety": "Do not erase the drive or swap a motherboard first."
       },
@@ -272,10 +272,10 @@ export const deepPathways: DeepPathway[] = [
       {
         "prompt": "Two nearly identical connectors use flip-lock and slide-lock mechanisms. Explain why your removal technique changes.",
         "workedAnswer": "State latch motion, cable insertion direction, force limits and visual evidence.",
-        "safety": "Do not lever an unidentified latch."
+        "safety": "Do not lever an unidentified latch. Battery isolation and fragile adhesives require competence; no damaged battery removal as beginner practice."
       },
       {
-        "prompt": "A small laptop has 12 screws of three lengths. Design a tracking system.",
+        "prompt": "A small laptop has 12 screws of three lengths. Design a tracking system.  State two alternative explanations, a safe discriminating test and the evidence needed for your final decision.",
         "workedAnswer": "Map positions to photos and containers; add a verification pass before power-up.",
         "safety": "Misplaced screws can puncture a battery or board."
       },
@@ -321,7 +321,7 @@ export const deepPathways: DeepPathway[] = [
         "safety": "Do not start probing an exposed powered port."
       },
       {
-        "prompt": "Design a safe external-only USB-C fault decision tree.",
+        "prompt": "Design a safe external-only USB-C fault decision tree.  State two alternative explanations, a safe discriminating test and the evidence needed for your final decision.",
         "workedAnswer": "Separate adaptor, cable, charging port and host/controller without dismantling high-energy components.",
         "safety": "Define stop conditions for bent/shorted contacts."
       }
@@ -361,7 +361,7 @@ export const deepPathways: DeepPathway[] = [
     "cases": [
       {
         "prompt": "A schematic has R1 = 1kΩ in series with R2 = 2kΩ across 9 V. Identify the voltage drops.",
-        "workedAnswer": "Current = 3 mA; drops = 3 V and 6 V.",
+        "workedAnswer": "Current = 3 mA; drops = 3 V and 6 V. Verify the series-current assumption and that the sum of voltage drops equals the supply voltage.",
         "safety": "Show KVL: 3 + 6 = 9 V, specify series assumptions."
       },
       {
@@ -414,14 +414,14 @@ export const deepPathways: DeepPathway[] = [
         "safety": "No 'it boots therefore all joints are fine' shortcut."
       },
       {
-        "prompt": "Compare two joints with the same solder alloy, one on a large ground plane.",
+        "prompt": "Compare two joints with the same solder alloy, one on a large ground plane.  State two alternative explanations, a safe discriminating test and the evidence needed for your final decision.",
         "workedAnswer": "Discuss heat sinking, suitable tip contact and pad-wetting rather than blindly raising setpoint.",
-        "safety": "Avoid prolonged heat that delaminates PCB."
+        "safety": "Avoid prolonged heat that delaminates PCB. Use unpowered, expendable low-voltage practice boards, ventilation and lead hygiene."
       },
       {
         "prompt": "Photograph five through-hole practice joints and score solder coverage, wetting and bridges.",
         "workedAnswer": "Include before/after remediation and explain any uncertainty.",
-        "safety": "Only handle unpowered practice circuits."
+        "safety": "Only handle unpowered practice circuits. Use unpowered, expendable low-voltage practice boards, ventilation and lead hygiene."
       }
     ]
   },
@@ -501,15 +501,15 @@ export const deepPathways: DeepPathway[] = [
       {
         "prompt": "A 0603 resistor is mounted skewed with a lifted pad. What must be assessed before rework?",
         "workedAnswer": "Footprint integrity, solder bridge, nearby parts, thermal history and whether rework is still justified.",
-        "safety": "Don't assume every misalignment needs heat."
+        "safety": "Don't assume every misalignment needs heat. Advanced rework; not an authorisation to transplant PMIC/SPD chips or rework battery circuits."
       },
       {
-        "prompt": "A board with a shorted rail has a nearby PMIC. Outline competing causes.",
+        "prompt": "A board with a shorted rail has a nearby PMIC. Outline competing causes.  State two alternative explanations, a safe discriminating test and the evidence needed for your final decision.",
         "workedAnswer": "Downstream capacitor, protection circuit, PMIC, connector contamination and board damage.",
         "safety": "No indiscriminate injection or donor-chip transplant."
       },
       {
-        "prompt": "Compare through-hole versus QFN rework hazards.",
+        "prompt": "Compare through-hole versus QFN rework hazards.  State two alternative explanations, a safe discriminating test and the evidence needed for your final decision.",
         "workedAnswer": "Discuss hidden pads, thermal mass, X-ray inspection limitations and requirements for professional equipment.",
         "safety": "Use an inexpensive SMD test board for hands-on practice only."
       }
@@ -550,7 +550,7 @@ export const deepPathways: DeepPathway[] = [
         "safety": "Diagonal size does not establish transplant compatibility."
       },
       {
-        "prompt": "Define a refurbishment pass/fail acceptance record.",
+        "prompt": "Define a refurbishment pass/fail acceptance record.  State two alternative explanations, a safe discriminating test and the evidence needed for your final decision.",
         "workedAnswer": "Battery health, charging, thermal stability, ports, screen, keyboard, memory and verified erasure.",
         "safety": "A single successful boot is not release evidence."
       }
@@ -589,7 +589,7 @@ export const deepPathways: DeepPathway[] = [
     ],
     "cases": [
       {
-        "prompt": "A portable fan has a nicked mains cable but powers on. Can it be returned?",
+        "prompt": "A portable fan has a nicked mains cable but powers on. Can it be returned?  State two alternative explanations, a safe discriminating test and the evidence needed for your final decision.",
         "workedAnswer": "No: visible electrical damage requires competent assessment, irrespective of power-on.",
         "safety": "Don't use an unqualified live trial as a diagnostic."
       },
@@ -601,7 +601,7 @@ export const deepPathways: DeepPathway[] = [
       {
         "prompt": "A course learner claims online PAT credentials authorise plug replacement in NSW.",
         "workedAnswer": "Explain distinction between training and any required licence/competence.",
-        "safety": "Document escalations and avoid scope creep."
+        "safety": "Document escalations and avoid scope creep. Do not use UK PAT-course completion as proof of NSW legal competency; do not undertake live mains tests without qualification."
       }
     ]
   },
@@ -643,12 +643,12 @@ export const deepPathways: DeepPathway[] = [
         "safety": "The correct report must bind to the physical media."
       },
       {
-        "prompt": "A modern SSD reports successful OS overwrite. Does this prove sanitisation?",
+        "prompt": "A modern SSD reports successful OS overwrite. Does this prove sanitisation?  State two alternative explanations, a safe discriminating test and the evidence needed for your final decision.",
         "workedAnswer": "No: match controller-supported method, required assurance, error checks and validation.",
         "safety": "Record any exception rather than inventing confidence."
       },
       {
-        "prompt": "A computer is erased but still registered in a school's management tenant.",
+        "prompt": "A computer is erased but still registered in a school's management tenant.  State two alternative explanations, a safe discriminating test and the evidence needed for your final decision.",
         "workedAnswer": "Sanitisation does not remove ownership restrictions or Autopilot enrolment.",
         "safety": "Separate data release and legal/device-management release."
       }
@@ -692,12 +692,12 @@ export const deepPathways: DeepPathway[] = [
         "safety": "Use realistic probabilities rather than declaring repair automatically better."
       },
       {
-        "prompt": "A 'free' laptop takes 5 hours of volunteer time and $60 in parts.",
+        "prompt": "A 'free' laptop takes 5 hours of volunteer time and $60 in parts.  State two alternative explanations, a safe discriminating test and the evidence needed for your final decision.",
         "workedAnswer": "Compare staff opportunity cost, repeat failures, saleability and safer disposition.",
         "safety": "Include data sanitation and battery work as additional costs."
       },
       {
-        "prompt": "A working donor machine includes usable RAM and an unverified data-bearing SSD.",
+        "prompt": "A working donor machine includes usable RAM and an unverified data-bearing SSD.  State two alternative explanations, a safe discriminating test and the evidence needed for your final decision.",
         "workedAnswer": "Value RAM after compatibility testing; quarantine SSD until authorised sanitisation.",
         "safety": "Parts harvesting does not cancel chain of custody."
       }
