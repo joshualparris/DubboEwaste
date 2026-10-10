@@ -7,6 +7,7 @@ import {enrolInCourse} from "../actions";
 import {finishMedia,submitPractical} from "../learning-activities";
 import styles from "../learning.module.css";
 import AdaptiveAssessment from "@/components/AdaptiveAssessment";
+import { deepPathwayFor } from "@/lib/learning/deep-pathways";
 
 export default async function CourseOverview({params,searchParams}:{
  params:Promise<{course:string}>,searchParams:Promise<{error?:string,message?:string}>
@@ -15,6 +16,7 @@ export default async function CourseOverview({params,searchParams}:{
  const {error,message}=await searchParams;
  const course=getCourse(id);
  if(!course) notFound();
+ const deep=deepPathwayFor(id);
  const db=await createClient();
  const {data:{user}}=await db.auth.getUser();
  if(!user) return null;
@@ -39,7 +41,7 @@ export default async function CourseOverview({params,searchParams}:{
   <header className={styles.courseHero}>
    <span className={styles.track}>{programmes.find(x=>x.id===course.programme)?.icon} {programmes.find(x=>x.id===course.programme)?.label}</span>
    <h1>{course.title}</h1><p>{course.summary}</p>
-   <p className={styles.hint}>{course.level} · Around {course.duration} minutes · {course.lessons.length} lessons</p>
+   <p className={styles.hint}>{course.level} · {deep?"Three orientation lessons; external in-depth study and a supervised application recommended":`Around ${course.duration} minutes · ${course.lessons.length} lessons`}</p>
    {(assignments.data??[]).length>0 ? <p className={styles.notice}>Assigned to you for {(assignments.data??[]).map(a=>a.programme.replaceAll("_"," ")).join(", ")}. {(assignments.data??[]).filter(a=>a.due_date).map(a=>"Target date: "+a.due_date).join("; ")}</p>:null}
    {joined ? <><div className={styles.progressLabel}><strong>Lesson progress</strong><strong>{progress.percent}%</strong></div><progress aria-label="Course completion" value={progress.complete} max={progress.total}/></>
     : <form action={enrolInCourse}><input type="hidden" name="course" value={id}/><button className={styles.primaryButton}>Join this course →</button></form>}
@@ -48,8 +50,26 @@ export default async function CourseOverview({params,searchParams}:{
   {message==="enrolled"?<p role="status" className={styles.success}>You're enrolled. Choose a lesson to begin.</p>:null}
   {message==="media"?<p role="status" className={styles.success}>Media reflection saved to your progress.</p>:null}
   {message==="submitted"?<p role="status" className={styles.success}>Your practical reflection was sent for review.</p>:null}
+  {deep?<section className={styles.deepPanel} aria-label="In-depth courses and comparison">
+    <span className={styles.deepEyebrow}>Course benchmark and further study</span>
+    <h2>This is a starting point, not the whole course.</h2>
+    <p>{deep.benchmark}</p>
+    <p><strong>What mastery looks like:</strong> {deep.target}</p>
+    <p className={styles.deepSafety}><strong>Boundary:</strong> {deep.limits}</p>
+    <h3>Follow a substantial external course or training programme</h3>
+    <div className={styles.deepResources}>
+      {deep.resources.map((r,i)=><article key={r.url}>
+        <span className={styles.deepType}>{i===0?"Recommended first":"Further depth"} · {r.kind}</span>
+        <h4>{r.title}</h4>
+        <p><strong>{r.provider}</strong> · {r.access}</p>
+        <p>{r.why}</p>
+        <a href={r.url} target="_blank" rel="noopener noreferrer">Open the original course or reference ↗</a>
+      </article>)}
+    </div>
+    <p className={styles.deepFoot}>Provider learning is hosted externally. Pricing, entry requirements and certificates are controlled by the provider. We don't claim that internal orientation equals professional competence or external course completion.</p>
+   </section>:null}
   <section className={styles.section}>
-   <h2>Your lessons</h2>
+   <h2>{deep?"Orientation lessons + applied problems":"Your lessons"}</h2>
    <div className={styles.lessonList}>
     {course.lessons.map((lesson,index)=>{
       const completed=done.some(x=>x.lesson_slug===lesson.id);
