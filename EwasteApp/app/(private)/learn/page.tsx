@@ -52,6 +52,7 @@ export default async function LearningHome({
       </nav>
       <p className={styles.hint}>Training can be explored across programmes. Operational permissions remain separate. Courses marked “Your team” match your assigned area.</p>
     </section>
+    <aside className={styles.sourcePanel}><strong>New: Interactive RAM Explorer</strong><p>Identify generations from SIMM to DDR5, compare physical modules, explore chips and quiz yourself before repairing or refurbishing PCs.</p><Link className={styles.secondaryLink} href="/ram-guide">Open the interactive RAM Explorer →</Link></aside>
     <section className={styles.catalogue} aria-label="Learning catalogue">
       {visible.map(c => {
         const isJoined = joined.has(c.id);
