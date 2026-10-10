@@ -698,8 +698,8 @@ export const challenges: Challenge[] = caseBank.flatMap(item => {
   const course = courses.find(c => c.id === item.slug);
   if (!course) throw new Error("Unknown course: " + item.slug);
   return [
-    { ...item.practitioner, id: item.slug + ":practitioner", level: 2 as Difficulty, topic: item.slug, programme: course.programme },
-    { ...item.expert, id: item.slug + ":expert", level: 3 as Difficulty, topic: item.slug, programme: course.programme },
+    { ...item.practitioner, options: [...item.practitioner.options] as [string,string,string], id: item.slug + ":practitioner", level: 2 as Difficulty, topic: item.slug, programme: course.programme },
+    { ...item.expert, options: [...item.expert.options] as [string,string,string], id: item.slug + ":expert", level: 3 as Difficulty, topic: item.slug, programme: course.programme },
     { id: item.slug + ":foundation", level: 1 as Difficulty, topic: item.slug, programme: course.programme,
       question: course.check.question, options: course.check.options, answer: course.check.answer as 0|1|2, explanation: course.check.explanation }
   ];
