@@ -692,7 +692,352 @@ const caseBank = [
       "answer": 0,
       "explanation": "Ownership and technical/data release are separate gates."
     }
+  },
+{
+  "slug": "repair-electrical-safety",
+  "practitioner": {
+    "question": "A donated appliance has a damaged plug. Who should begin repairs?",
+    "options": [
+      "Isolate it and seek appropriately competent assessment",
+      "Energise it outdoors to check whether it still operates",
+      "Replace the plug after viewing a general soldering video"
+    ],
+    "answer": 0,
+    "explanation": "Mains damage calls for competent assessment."
+  },
+  "expert": {
+    "question": "A competent PCB solderer volunteers for mains lead replacement. What matters?",
+    "options": [
+      "Approve because neat solder joints prove electrical skill",
+      "Check legal work scope, competence and supervisory requirements",
+      "Let them try once while another volunteer observes"
+    ],
+    "answer": 1,
+    "explanation": "Bench soldering is not an electrical work licence."
   }
+},
+{
+  "slug": "repair-lithium-batteries",
+  "practitioner": {
+    "question": "A tablet's display has lifted because its battery is swollen. Next step?",
+    "options": [
+      "Charge briefly to check whether the battery still functions",
+      "Isolate it following the damaged battery quarantine plan",
+      "Press the screen back down and continue the inspection"
+    ],
+    "answer": 1,
+    "explanation": "Swollen cells require hazardous battery procedures."
+  },
+  "expert": {
+    "question": "A loose battery pack has puncture damage. What should the lead do?",
+    "options": [
+      "Keep it away from charging and follow emergency procedures",
+      "Wrap it in conductive foil so nobody touches the contacts for this visit",
+      "Put it by the outside recycling pile until the next visit"
+    ],
+    "answer": 0,
+    "explanation": "Damaged lithium cells need planned isolation and escalation."
+  }
+},
+{
+  "slug": "repair-circuit-fundamentals",
+  "practitioner": {
+    "question": "A 3V cell powers a resistor of 1kΩ. Ignoring other drops, what's current?",
+    "options": [
+      "About 0.3 mA because the resistance is 1000 ohms",
+      "About 3 mA because three volts divided by 1000 ohms",
+      "About 30 mA because a battery delivers fixed current"
+    ],
+    "answer": 1,
+    "explanation": "I = V/R = 0.003 amps."
+  },
+  "expert": {
+    "question": "An LED remains dark in a breadboard test. What is worth checking?",
+    "options": [
+      "Replace the battery with an unregulated higher voltage pack",
+      "Bridge the current-limiting resistor with a spare wire",
+      "Inspect LED polarity and compare resistor value to design"
+    ],
+    "answer": 2,
+    "explanation": "Check expected polarity and current rather than bypassing protection."
+  }
+},
+{
+  "slug": "repair-multimeter-diagnostics",
+  "practitioner": {
+    "question": "Your meter's red probe is in the 10A jack. How should voltage be read?",
+    "options": [
+      "Change it to the V/Ω jack and verify DC voltage mode",
+      "Leave it in the 10A jack, just change the dial selector",
+      "Touch the probes together across the battery terminals"
+    ],
+    "answer": 0,
+    "explanation": "A jack used for current can short a voltage source."
+  },
+  "expert": {
+    "question": "A meter reads 0V between two points. What can you conclude?",
+    "options": [
+      "The device has a broken fuse somewhere in the power path for this visit",
+      "There was no measured difference at the selected test points",
+      "All circuits on the PCB are de-energised and fully safe"
+    ],
+    "answer": 1,
+    "explanation": "One zero reading is not a complete power diagnosis."
+  }
+},
+{
+  "slug": "repair-fault-finding",
+  "practitioner": {
+    "question": "A laptop lights its power LED but has a black screen. What next?",
+    "options": [
+      "Erase the OS because software is always the likely fault",
+      "Use external display and backlight tests to narrow the cause",
+      "Replace the motherboard because the display path is internal"
+    ],
+    "answer": 1,
+    "explanation": "Low-risk separating tests should precede replacements."
+  },
+  "expert": {
+    "question": "A repaired charging socket works once. Is that enough to close the job?",
+    "options": [
+      "Yes; record a successful power-on as the sole acceptance test",
+      "Yes; ask the owner to perform all remaining checks at home",
+      "No; reproduce the prior fault test and check stability again"
+    ],
+    "answer": 2,
+    "explanation": "One startup is weak evidence for a lasting repair."
+  }
+},
+{
+  "slug": "repair-esd-disassembly",
+  "practitioner": {
+    "question": "A notebook ribbon cable resists removal. What's the next action?",
+    "options": [
+      "Pull harder until the retention clips move into place for this visit",
+      "Apply hot air directly to the plastic connector latch",
+      "Identify the exact socket and latch in the service manual"
+    ],
+    "answer": 2,
+    "explanation": "ZIF and FPC mechanisms vary; do not force them."
+  },
+  "expert": {
+    "question": "Two long chassis screws remain after rebuild. What should happen?",
+    "options": [
+      "Find their documented locations before final closure or power",
+      "Fit them wherever the outer shell seems loose after assembly as a shortcut",
+      "Leave them out if the laptop keyboard is working normally"
+    ],
+    "answer": 0,
+    "explanation": "Wrong screw lengths can damage a board or battery."
+  }
+},
+{
+  "slug": "repair-usbc-power",
+  "practitioner": {
+    "question": "A laptop charges with one USB-C brick but not another. What first?",
+    "options": [
+      "Confirm PD capabilities, cable rating and laptop requirements",
+      "Force the laptop to take a fixed voltage from another charger",
+      "Replace the laptop's charging IC because the port is selective"
+    ],
+    "answer": 0,
+    "explanation": "PD charging requires agreed profiles and suitable cables."
+  },
+  "expert": {
+    "question": "A USB-C port has exposed bent pins. What should a beginner do?",
+    "options": [
+      "Measure adjacent pins while charging to check for a short",
+      "Document the damage and refer any fine-pitch board repair",
+      "Rebend the pins with the device powered and still plugged in"
+    ],
+    "answer": 1,
+    "explanation": "Damaged USB-C ports may short and require specialist rework."
+  }
+},
+{
+  "slug": "repair-schematics-pcbs",
+  "practitioner": {
+    "question": "Two boardview files disagree about a charging IC pin. Which is valid?",
+    "options": [
+      "Use the most recent download even if the model differs for this visit",
+      "Use whichever shows the IC closest to the charger port",
+      "Match the exact board revision and verify pin references"
+    ],
+    "answer": 2,
+    "explanation": "Revision-specific schematic evidence prevents wrong probes."
+  },
+  "expert": {
+    "question": "A schematic says +3VALW but the test pad is unverified. What now?",
+    "options": [
+      "Confirm the revision and validated test location before contact",
+      "Probe all exposed capacitors until one shows around three volts",
+      "Assume every nearby pad shares the same +3VALW connection"
+    ],
+    "answer": 0,
+    "explanation": "Blind live probing can create faults rather than locate them."
+  }
+},
+{
+  "slug": "repair-through-hole-soldering",
+  "practitioner": {
+    "question": "A resistor lead has solder but the copper pad hasn't wetted. Concern?",
+    "options": [
+      "The solder joint is fine because the lead looks fully covered as a shortcut",
+      "Poor pad wetting can cause an unreliable electrical connection",
+      "The solder will spread to the pad after the board heats up"
+    ],
+    "answer": 1,
+    "explanation": "Solder must wet both lead and pad."
+  },
+  "expert": {
+    "question": "A solder bridge connects adjacent traces on a practice board. Fix?",
+    "options": [
+      "Remove the bridge using flux and wick; inspect for pad damage",
+      "Scratch off both copper traces to guarantee full separation for this visit",
+      "Run high current through the bridge until the metal melts"
+    ],
+    "answer": 0,
+    "explanation": "A controlled rework and inspection preserve the PCB."
+  }
+},
+{
+  "slug": "repair-desolder-replace",
+  "practitioner": {
+    "question": "A switch won't release and its copper pad is lifting. Next step?",
+    "options": [
+      "Keep pulling steadily to minimise overall heating time",
+      "Stop pulling and reconsider the heat and removal approach",
+      "Cut away all the loose copper before replacing the switch"
+    ],
+    "answer": 1,
+    "explanation": "Mechanical force can permanently rip traces and pads."
+  },
+  "expert": {
+    "question": "A replacement socket fits physically but uses different pin signals. Now?",
+    "options": [
+      "Solder it first and test which pins seem to be ground as a shortcut",
+      "Connect it backwards if the first powered test fails",
+      "Source a compatible connector and verify its exact pinout"
+    ],
+    "answer": 2,
+    "explanation": "A connector footprint does not prove electrical compatibility."
+  }
+},
+{
+  "slug": "repair-smd-microsoldering",
+  "practitioner": {
+    "question": "A shorted voltage rail runs near a PMIC. Is the IC proved faulty?",
+    "options": [
+      "Yes, a rail short identifies the regulator as the root fault for this visit",
+      "No, isolate possible loads and gather supporting measurements",
+      "Yes, swap a matching-looking donor IC before further tests"
+    ],
+    "answer": 1,
+    "explanation": "Missing rails and shorts can originate elsewhere."
+  },
+  "expert": {
+    "question": "A nearby connector warps during hot-air rework. What does that show?",
+    "options": [
+      "Inadequate thermal control or shielding of adjacent plastics",
+      "A necessary part of proper SMD work before flux activates as a shortcut",
+      "Evidence the board needs a higher temperature next time"
+    ],
+    "answer": 0,
+    "explanation": "Thermal damage is a failed process control."
+  }
+},
+{
+  "slug": "repair-laptop-refurb",
+  "practitioner": {
+    "question": "A donated laptop boots into a previous owner's profile. What next?",
+    "options": [
+      "Access the documents so you can see what needs saving",
+      "Quarantine the drive pending authority and data procedure",
+      "Create another account and donate it with the profile intact"
+    ],
+    "answer": 1,
+    "explanation": "Power-on does not grant data access rights."
+  },
+  "expert": {
+    "question": "A transplanted LCD flickers while external HDMI is stable. What now?",
+    "options": [
+      "Claim the screen is tested because HDMI proves video works for this visit",
+      "Erase the device to reset the display driver automatically",
+      "Check donor panel, cable, power and connector compatibility"
+    ],
+    "answer": 2,
+    "explanation": "External output and internal panel paths are different."
+  }
+},
+{
+  "slug": "repair-pat-verification",
+  "practitioner": {
+    "question": "A volunteer finished an online soldering course. May they certify mains repairs?",
+    "options": [
+      "Yes, if the customer's appliance still works on collection",
+      "Only when relevant competence and legal conditions are met",
+      "Yes, if a second volunteer agrees the join looks strong"
+    ],
+    "answer": 1,
+    "explanation": "Training videos do not establish test-and-tag competence."
+  },
+  "expert": {
+    "question": "An appliance passes a test but its supply lead has cut insulation. Release?",
+    "options": [
+      "Send it home because a passing instrument test is decisive",
+      "Run the test again; two passing readings override the damage",
+      "Do not release until the visibly damaged item is assessed"
+    ],
+    "answer": 2,
+    "explanation": "Visual safety defects need independent consideration."
+  }
+},
+{
+  "slug": "repair-itad-sanitisation",
+  "practitioner": {
+    "question": "An erasure log has no serial match to the SSD on your bench. Next?",
+    "options": [
+      "Reconcile media identity and sanitisation evidence before release",
+      "Trust the erasure process because all SSDs work the same way for this visit",
+      "Factory reset Windows and issue the certificate without logs"
+    ],
+    "answer": 0,
+    "explanation": "Erasure evidence must refer to the correct physical media."
+  },
+  "expert": {
+    "question": "An SSD was sanitised, but the laptop remains managed by a school. May it be resold?",
+    "options": [
+      "Yes, sanitisation automatically establishes legal device ownership",
+      "No, authorised release and management controls must be resolved",
+      "Yes, if a buyer knows the login is linked to a school tenant"
+    ],
+    "answer": 1,
+    "explanation": "Ownership controls and media sanitisation are distinct."
+  }
+},
+{
+  "slug": "repair-triage-economics",
+  "practitioner": {
+    "question": "A used laptop needs a costly new battery. Which comparison is best?",
+    "options": [
+      "Choose repair automatically because reusing always costs less",
+      "Compare remaining life, user needs and total repair costs",
+      "Discard the laptop because any battery replacement is waste"
+    ],
+    "answer": 1,
+    "explanation": "A sustainable decision needs useful-life economics."
+  },
+  "expert": {
+    "question": "Harvested SSDs and RAM are ready for resale. What must happen first?",
+    "options": [
+      "Sell them quickly before demand decreases further this month",
+      "Use them personally as the donated devices are no longer needed",
+      "Record provenance, test parts and sanitise data-bearing media"
+    ],
+    "answer": 2,
+    "explanation": "Reuse of parts still requires authority and traceability."
+  }
+}
 ] as const;
 export const challenges: Challenge[] = caseBank.flatMap(item => {
   const course = courses.find(c => c.id === item.slug);
