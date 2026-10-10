@@ -145,7 +145,7 @@ export default function RamGuide() {
 
   return <main className={styles.page}>
     <div className={styles.wrap}>
-      <header className={styles.top}><Link href="/learn">← Circular Learning Hub</Link><span>FIELD GUIDE / COMPUTER HARDWARE</span><Link href="/repair-cafe-dubbo">Repair Café ↗</Link></header>
+      <header className={styles.top}><Link href="/learn">← Circular Learning Hub</Link><span>FIELD GUIDE / COMPUTER HARDWARE</span><Link href="/ram-guide/gallery">Photo Gallery ↗</Link></header>
       <section className={styles.hero}>
         <div><div className={styles.kicker}><span className={styles.dot}/> AN INTERACTIVE FIELD REFERENCE</div><h1>THE RAM<br/><em>EXPLORER.</em></h1><p>From 30-pin SIMMs to DDR5, LPCAMM2 and the chips on a modern memory stick. Explore what existed, what fits and how to identify it safely.</p><div className={styles.heroActions}><button onClick={()=>navigateTo("modules")}>Explore module grid <span aria-hidden="true">↗</span></button><button className={styles.ghost} onClick={()=>navigateTo("quiz")}>Test your knowledge →</button></div></div>
         <div className={styles.art} aria-label="Illustrated RAM module, with memory chips, SPD hub, PMIC and gold edge contacts">
@@ -154,6 +154,7 @@ export default function RamGuide() {
         </div>
       </section>
       <div className={styles.stats}><span><strong>8</strong> memory eras on the grid</span><span><strong>{modules.length}</strong> physical module types</span><span><strong>{features.length}</strong> cross-cutting features</span><span><strong>{quizzes.length}</strong> practice questions</span></div>
+      <div className={styles.galleryBanner}><Link href="/ram-guide/gallery">📷 <strong>NEW: Real RAM Photo Gallery</strong><span>Browse 90+ sourced photographs from vintage SIMMs to DDR5 and specialised memory →</span></Link></div>
       <nav ref={tabsRef} className={styles.tabs} aria-label="RAM Explorer sections">
         {([["explore","01 Overview"],["timeline","02 Timeline"],["modules","03 Module grid"],["anatomy","04 Anatomy & features"],["identify","05 Identify a stick"],["quiz","06 Quiz"]] as const).map(([id,title])=><button key={id} data-ram-section={id} aria-current={tab===id?"page":undefined} className={tab===id?styles.active:""} onClick={()=>navigateTo(id)}>{title}</button>)}
       </nav>
