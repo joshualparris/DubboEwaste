@@ -65,7 +65,7 @@ export default function Gallery() {
   const changeFilters = (cb:()=>void)=>{cb();setVisibleCount(24)};
   const reset=()=>{setQuery("");setEra("All");setShape("All");setUsage("All");setRarity("All");setVisibleCount(24)};
   const onCompare=(id:string)=>setCompare(ids=>ids.includes(id)?ids.filter(x=>x!==id):ids.length<3?[...ids,id]:[...ids.slice(1),id]);
-  return <main className={styles.page}>
+  return <><main className={styles.page}>
     <div className={styles.wrap}>
       <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/ram-guide">← RAM Explorer</Link><span>/</span><span>Photo gallery</span><Link href="/learn">Learning Hub ↗</Link></nav>
       <header className={styles.hero}><div className={styles.eyebrow}>FIELD SCHOOL / PHOTOGRAPHIC ATLAS</div><h1>THE RAM<br/><em>PHOTO ARCHIVE.</em></h1><p>See what real computer memory looks like: early SIMMs and SDRAM, DDR1–DDR5, server modules, Rambus, tiny laptop formats and chips on graphics cards.</p><div className={styles.heroStats}><span><strong>{ramPhotos.length}</strong> sourced photographs</span><span><strong>{new Set(ramPhotos.map(x=>x.generation)).size}</strong> technology groups</span><span><strong>{awaitingPhotos.length}</strong> variants needing a better photo</span></div><div className={styles.introHint}>Photographs are real, not generated illustrations. Every image opens its source page for author and licensing information.</div></header>
@@ -100,5 +100,5 @@ export default function Gallery() {
     {active&&<Detail key={active.id} item={active} onClose={()=>setActive(null)} onCompare={onCompare} compared={compare.includes(active.id)} />}
     {selected.length>0&&<aside className={styles.compareTray} aria-label="Selected RAM comparison"><div><strong>{selected.length}/3 selected to compare</strong><div className={styles.picked}>{selected.map(x=><button key={x.id} onClick={()=>setActive(x)}>{x.title}</button>)}</div></div><button className={styles.clear} onClick={()=>setCompare([])}>Clear</button><button className={styles.compareOpen} onClick={()=>document.getElementById("ram-compare")?.scrollIntoView({behavior:"smooth"})}>Compare ↓</button></aside>}
     {selected.length>0&&<section className={styles.compareDock} id="ram-compare"><div className={styles.wrap}><h2>Compare your selected modules</h2><div className={styles.compareGrid}>{selected.map(x=><article key={x.id}><Photo key={x.id} entry={x}/><h3>{x.title}</h3><p>{x.generation} / {x.shape}</p><strong>{x.pins}</strong><p>{x.identify}</p><a href={commonsFilePage(x.file)} target="_blank" rel="noopener noreferrer">Source & licence ↗</a></article>)}</div></div></section>}
-  </main>;
+  </main></>;
 }
