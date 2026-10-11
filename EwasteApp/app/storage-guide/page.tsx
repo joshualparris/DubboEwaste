@@ -116,7 +116,7 @@ export default function StorageGuide(){
     <div className={styles.heroActions}><button onClick={()=>navigate("catalogue")}>Browse storage types ↗</button><button className={styles.ghost} onClick={()=>navigate("identify")}>Check a drive →</button></div>
    </div>
    <div className={extra.heroPhotos} aria-label="Genuine photographs of computer storage hardware">
-     {realPhotos.filter(p=>["sata35","sata-ssd","nvme2230"].some(id=>p.ids.includes(id))).map(p=><figure className={extra.heroPhotoTile} key={p.file}>
+     {realPhotos.filter(p=>["sata35","sata-ssd","nvme2280"].some(id=>p.ids.includes(id))).map(p=><figure className={extra.heroPhotoTile} key={p.file}>
        <RealPhoto file={p.file} title={p.title}/>
        <figcaption><strong>{p.title}</strong><a href={commonsFilePage(p.file)} target="_blank" rel="noopener noreferrer">{p.creator} · photograph ↗</a> · <a href={p.licenseUrl} target="_blank" rel="noopener noreferrer">{p.license}</a></figcaption>
      </figure>)}
@@ -136,7 +136,7 @@ export default function StorageGuide(){
     ].map(([n,title,desc])=><article key={n} className={styles.card}><span className={styles.num}>{n}</span><h3>{title}</h3><p>{desc}</p></article>)}</div>
     <div className={styles.callout}><strong>Common trap:</strong> M.2 is a physical module format; NVMe is a command protocol usually running over PCIe. Some M.2 drives are SATA, some are NVMe. A 2.5-inch drive may be SATA, SAS or U.2 NVMe.</div>
     <div className={styles.sectionHeading}><div><span className={styles.eyebrow}>LOOK AT REAL HARDWARE</span><h2>HDD, SATA SSD and M.2 NVMe in photographs.</h2><p>These are actual photographs, not AI-generated imagery or schematic drawings. Use the shape and connector as visual clues, then verify the label and host.</p></div></div>
-    <div className={extra.photoHighlights}>{["desktop-sata","sata-ssd","nvme-2230"].map(photoById).map(p=><figure key={p.file}>
+    <div className={extra.photoHighlights}>{["desktop-sata","sata-ssd","nvme-2280"].map(photoById).map(p=><figure key={p.file}>
       <RealPhoto file={p.file} title={p.title}/>
       <figcaption><strong>{p.title}</strong><p>{p.detail}</p><a href={commonsFilePage(p.file)} target="_blank" rel="noopener noreferrer">Photo by {p.creator} · photograph ↗</a> · <a href={p.licenseUrl} target="_blank" rel="noopener noreferrer">{p.license}</a></figcaption>
     </figure>)}</div>
