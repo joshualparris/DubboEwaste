@@ -364,6 +364,31 @@ Each link goes to the tracked source document. Historical category membership re
 - [`docs/launch-checklist.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/launch-checklist.md)
 - [`docs/research.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/research.md)
 
+## Incremental additions indexed on 11 October 2026
+
+These documents were added after the dated 9 October snapshot. Their listing records file presence, not approval or verification of their external claims.
+
+- [`docs/ASSETFLOW-LMS-QUALITY-REGISTER-2026-10-11.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/ASSETFLOW-LMS-QUALITY-REGISTER-2026-10-11.md)
+- [`docs/COMPUTER-REPAIR-SERVICE-PRICING-2026-10-11.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/COMPUTER-REPAIR-SERVICE-PRICING-2026-10-11.md)
+- [`docs/DUBBO-NEW-EWASTE-OUTREACH-LEADS-2026-10-11.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/DUBBO-NEW-EWASTE-OUTREACH-LEADS-2026-10-11.md)
+- [`docs/DUBBO-TECH-BUSINESS-DECISION-BRIEF-2026-10-11.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/DUBBO-TECH-BUSINESS-DECISION-BRIEF-2026-10-11.md)
+- [`docs/DUBBO-TECH-BUSINESS-FIELD-GUIDE-2026-10-10.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/DUBBO-TECH-BUSINESS-FIELD-GUIDE-2026-10-10.md)
+- [`docs/DUBBO-TECH-RESEARCH-MANIFEST.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/DUBBO-TECH-RESEARCH-MANIFEST.md)
+- [`docs/ELECTRONICS-REPAIR-15-SKILL-LEARNING-PATH-2026-10-11.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/ELECTRONICS-REPAIR-15-SKILL-LEARNING-PATH-2026-10-11.md)
+- [`docs/LAPTOP-DIAGNOSTICS-MASTERY-LAB.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/LAPTOP-DIAGNOSTICS-MASTERY-LAB.md)
+- [`docs/LEARNING-QUALITY-STANDARD.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/LEARNING-QUALITY-STANDARD.md)
+- [`docs/REPAIR-CAFE-REPAIRER-DIRECTORY-RESEARCH-2026-10-10.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/REPAIR-CAFE-REPAIRER-DIRECTORY-RESEARCH-2026-10-10.md)
+- [`docs/SSD-UPGRADE-MASTERY-HP250G3-2026-10-11.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/SSD-UPGRADE-MASTERY-HP250G3-2026-10-11.md)
+- [`reports/analytics/dubbo_ewaste/2026-10-08.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/dubbo_ewaste/2026-10-08.md)
+- [`reports/analytics/dubbo_ewaste/2026-10-09.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/dubbo_ewaste/2026-10-09.md)
+- [`reports/analytics/dubbo_ewaste/2026-10-10.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/dubbo_ewaste/2026-10-10.md)
+- [`reports/analytics/github_pages/2026-10-08.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/github_pages/2026-10-08.md)
+- [`reports/analytics/github_pages/2026-10-09.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/github_pages/2026-10-09.md)
+- [`reports/analytics/github_pages/2026-10-10.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/github_pages/2026-10-10.md)
+- [`reports/analytics/render_backup/2026-10-08.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/render_backup/2026-10-08.md)
+- [`reports/analytics/render_backup/2026-10-09.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/render_backup/2026-10-09.md)
+- [`reports/analytics/render_backup/2026-10-10.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/render_backup/2026-10-10.md)
+
 ## Coverage rule
 
 The full inventory captures files present during this scan; it does not include future additions, binary/media files, code files or database migrations. Research-file claims require original-source checking to claim freshness. For implementation details inspect the actual `EwasteApp/app/` routes, migrations, test scripts and current deployment.
