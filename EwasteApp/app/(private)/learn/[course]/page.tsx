@@ -9,6 +9,8 @@ import styles from "../learning.module.css";
 import AdaptiveAssessment from "@/components/AdaptiveAssessment";
 import RepairPricingStudio from "@/components/RepairPricingStudio";
 import LaptopDiagnosticsLab from "@/components/LaptopDiagnosticsLab";
+import RefurbAudioCompanion from "@/components/RefurbAudioCompanion";
+import {independentlyObservedSignoff,rubricTotal,refurbSkillNames} from "@/lib/learning/mastery";
 import { deepPathwayFor } from "@/lib/learning/deep-pathways";
 import {assessLearningQuality,qualityStageLabel} from "@/lib/learning/quality";
 
@@ -28,7 +30,7 @@ export default async function CourseOverview({params,searchParams}:{
   db.from("learning_enrolments").select("course_slug").eq("user_id",user.id).eq("course_slug",id).maybeSingle(),
   db.from("learning_progress").select("course_slug,lesson_slug").eq("user_id",user.id).eq("course_slug",id),
   db.from("learning_media_progress").select("resource_slug").eq("user_id",user.id).eq("course_slug",id),
-  db.from("learning_practical_submissions").select("id,submitted_at,status,feedback,directly_observed").eq("user_id",user.id).eq("course_slug",id).order("submitted_at",{ascending:false}).limit(5),
+  db.from("learning_practical_submissions").select("id,submitted_at,status,reviewer_id,reviewed_at,feedback,directly_observed,observed_on,observation_method,evidence_reference,assessor_attested,skill_consent,skill_diagnosis,skill_compatibility,skill_safety,skill_verification,skill_handover").eq("user_id",user.id).eq("course_slug",id).order("submitted_at",{ascending:false}).limit(100),
   db.from("program_access").select("program").eq("user_id",user.id).eq("active",true),
   db.from("learning_assignments").select("programme,due_date").eq("user_id",user.id).eq("course_slug",id),
  ]);
@@ -40,6 +42,7 @@ export default async function CourseOverview({params,searchParams}:{
  const areas=(memberships.data??[]).map(m=>m.program).filter(p=>["dubbo_ewaste","repair_cafe","library_of_things"].includes(p));
  const practicalAreas=course.programme==="all"?areas:areas.filter(a=>a===course.programme);
  const reviews=submissions.data??[];
+ const signedOff=id==="repair-laptop-refurb"?reviews.filter(r=>independentlyObservedSignoff(r,user.id)):[];
  return <div className={styles.shell}>
   <nav className={styles.breadcrumbs} aria-label="Breadcrumb"><Link href="/learn">Learning hub</Link><span>/</span><span>{course.title}</span></nav>
   <header className={styles.courseHero}>
@@ -111,6 +114,7 @@ export default async function CourseOverview({params,searchParams}:{
     })}
    </div>
   </section>
+  {id==="repair-laptop-refurb"?<RefurbAudioCompanion/>:null}
   {id==="repair-laptop-refurb" ? <section className={styles.sourcePanel} aria-label="Extended laptop refurbishment field labs">
    <h2>Apply it: diagnose, transplant, verify</h2>
    <p><strong>New · LCD donor-screen transplant lab:</strong> five adaptive missions grounded in a real ASUS A541U donor and HP 15-db0034au with cracked LCD. Work with PowerShell EDID evidence, panel labels, connector and mounting checks, safety stop-work gates, and a copyable supervisor evidence record.</p>
@@ -140,10 +144,21 @@ export default async function CourseOverview({params,searchParams}:{
    </article>)}
    </div>
   </section>:null}
+  {id==="repair-laptop-refurb"?<section className={styles.sourcePanel} aria-label="Independent observed practical sign-off">
+    <h2>Observed practical competence</h2>
+    <p>Passing lessons, simulations or listening exercises is not a sign-off. An independent authorised supervisor must personally watch a safe repair demonstration, score six practical abilities and file the evidence record.</p>
+    {signedOff.length>0?signedOff.slice(0,1).map(s=><div key={s.id}>
+      <p className={styles.success}><strong>Supervisor-observed practical signed off</strong> · {rubricTotal(s)}/18 · observed {new Date((s.observed_on??"")+"T12:00:00").toLocaleDateString("en-AU")}</p>
+      <p><strong>Observation method:</strong> {s.observation_method==="in_person"?"In person":"Live remote"} · <strong>Evidence reference:</strong> {s.evidence_reference} · <strong>Assessor recorded:</strong> {new Date(s.reviewed_at??s.submitted_at).toLocaleDateString("en-AU")}.</p>
+      <ul>{refurbSkillNames.map(([key,label])=><li key={key}>{label}: {s[key]}/3</li>)}</ul>
+      <p>{s.feedback}</p><p className={styles.hint}>This is a recorded local practical assessment, not an external trade qualification, licence or authorisation for regulated electrical work.</p>
+    </div>):<p className={styles.notice}>No independently observed practical sign-off is recorded for your account yet. Complete the course and arrange a real supervised demonstration; a checkbox or catalogue entry alone cannot grant mastery.</p>}
+    <p><a href="https://github.com/joshualparris/DubboEwaste/blob/main/docs/LAPTOP-REFURB-OBSERVED-SKILLS-ASSESSMENT-2026-10-11.md" target="_blank" rel="noopener noreferrer">Read the six-criterion assessor rubric ↗</a></p>
+   </section>:null}
   <section className={styles.section} id="practical">
    <h2>Practical assessment</h2>
    <p className={styles.hint}>After completing the lessons, describe a safe activity or simulated scenario. A programme supervisor can review your explanation. Approval requires a separate recorded direct observation; it does not create professional qualifications or electrical authorisation.</p>
-   {(reviews).map(x=><div className={styles.sourcePanel} key={x.id}><strong>Submitted {new Date(x.submitted_at).toLocaleDateString("en-AU")} · {x.status.replaceAll("_"," ")}</strong>{x.feedback?<p>Supervisor feedback: {x.feedback}</p>:<p className={styles.hint}>Awaiting review</p>}</div>)}
+   {(reviews).map(x=><div className={styles.sourcePanel} key={x.id}><strong>Submitted {new Date(x.submitted_at).toLocaleDateString("en-AU")} · {x.status.replaceAll("_"," ")}</strong>{id==="repair-laptop-refurb"&&x.status==="approved"&&!independentlyObservedSignoff(x,user.id)?<p className={styles.notice}>Approval recorded, but the six-skill evidence is incomplete; this does not count as an independently observed sign-off.</p>:null}{x.feedback?<p>Supervisor feedback: {x.feedback}</p>:<p className={styles.hint}>Awaiting review</p>}</div>)}
    {joined&&progress.percent===100&&practicalAreas.length>0?
      <form action={submitPractical} className={styles.checkPanel}>
       <input type="hidden" name="course" value={id}/>

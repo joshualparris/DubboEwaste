@@ -389,6 +389,8 @@ These documents were added after the dated 9 October snapshot. Their listing rec
 - [`reports/analytics/render_backup/2026-10-09.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/render_backup/2026-10-09.md)
 - [`reports/analytics/render_backup/2026-10-10.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/render_backup/2026-10-10.md)
 
+- [`docs/LAPTOP-REFURB-OBSERVED-SKILLS-ASSESSMENT-2026-10-11.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/LAPTOP-REFURB-OBSERVED-SKILLS-ASSESSMENT-2026-10-11.md)
+
 ## Coverage rule
 
 The full inventory captures files present during this scan; it does not include future additions, binary/media files, code files or database migrations. Research-file claims require original-source checking to claim freshness. For implementation details inspect the actual `EwasteApp/app/` routes, migrations, test scripts and current deployment.

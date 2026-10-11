@@ -41,6 +41,11 @@ export async function assignCourse(form:FormData) {
  revalidatePath("/learn");
  redirect(path+"?message=assigned");
 }
+const laptopCriteria=[
+ "skill_consent","skill_diagnosis","skill_compatibility",
+ "skill_safety","skill_verification","skill_handover"
+] as const;
+
 export async function reviewPractical(form:FormData) {
  const id=String(form.get("submission")??"");
  const decision=String(form.get("decision")??"");
@@ -53,15 +58,59 @@ export async function reviewPractical(form:FormData) {
  }
  if(decision==="approved"&&!observed) redirect(path+"?error=Approval%20requires%20direct%20observation");
  const {data:record}=await actor.db.from("learning_practical_submissions")
-  .select("id,user_id,programme,status").eq("id",id).maybeSingle();
- if(!record||!permitted(record.programme,actor)||record.user_id===actor.user.id||record.status!=="submitted") redirect(path+"?error=Unable%20to%20review%20this%20submission");
- const {error}=await actor.db.from("learning_practical_submissions").update({
-  status:decision,feedback,reviewer_id:actor.user.id,reviewed_at:new Date().toISOString(),directly_observed:observed
- }).eq("id",id).eq("status","submitted");
- if(error) redirect(path+"?error=Review%20could%20not%20be%20saved");
+  .select("id,user_id,programme,course_slug,status").eq("id",id).maybeSingle();
+ if(!record||!permitted(record.programme,actor)||record.user_id===actor.user.id||record.status!=="submitted"){
+  redirect(path+"?error=Unable%20to%20review%20this%20submission");
+ }
+ const isLaptopCapstone=record.course_slug==="repair-laptop-refurb"&&decision==="approved";
+ const rubric:Record<string,number>={};
+ let observedOn:string|null=null;
+ let observationMethod:string|null=null;
+ let evidenceReference:string|null=null;
+ const attested=form.get("assessor_attested")==="yes";
+ if(isLaptopCapstone){
+  for(const criterion of laptopCriteria){
+   const raw=String(form.get(criterion)??"");
+   if(!/^[0-3]$/.test(raw))redirect(path+"?error=All%20six%20practical%20skills%20must%20be%20scored");
+   rubric[criterion]=Number(raw);
+  }
+  const sum=laptopCriteria.reduce((total,criterion)=>total+rubric[criterion],0);
+  if(sum<15||rubric.skill_consent<2||rubric.skill_safety<2){
+   redirect(path+"?error=Skill%20scores%20below%20the%20practical%20approval%20standard");
+  }
+  observedOn=String(form.get("observed_on")??"");
+  observationMethod=String(form.get("observation_method")??"");
+  evidenceReference=String(form.get("evidence_reference")??"").trim();
+  const validDate=/^\d{4}-\d{2}-\d{2}$/.test(observedOn)
+    && !Number.isNaN(Date.parse(observedOn+"T00:00:00Z"))
+    && observedOn>= "2020-01-01";
+  if(!validDate||!["in_person","live_remote"].includes(observationMethod)
+   ||! /^[A-Za-z0-9][A-Za-z0-9._/-]{7,159}$/.test(evidenceReference)
+   || !attested || feedback.length<30){
+    redirect(path+"?error=Supply%20date%2C%20mode%2C%20redacted%20evidence%2C%20attestation%20and%20detailed%20feedback");
+  }
+ }
+ const update:Record<string,unknown>={
+  status:decision,
+  feedback,
+  reviewer_id:actor.user.id,
+  reviewed_at:new Date().toISOString(),
+  directly_observed:observed
+ };
+ if(isLaptopCapstone){
+  Object.assign(update,rubric,{
+   observed_on:observedOn,observation_method:observationMethod,
+   evidence_reference:evidenceReference,assessor_attested:true
+  });
+ }
+ const {data:saved,error}=await actor.db.from("learning_practical_submissions")
+  .update(update).eq("id",id).eq("status","submitted").select("id").maybeSingle();
+ if(error||!saved)redirect(path+"?error=Review%20could%20not%20be%20saved%3B%20check%20the%20assessment%20schema");
  revalidatePath(path);
+ revalidatePath("/learn/"+record.course_slug);
  redirect(path+"?message=reviewed");
 }
+
 export async function rotateLibraryCode(previous:{code:string|null,error:string|null},_form:FormData):Promise<{code:string|null,error:string|null}> {
  const actor=await coordinator();
  if(!actor.global) return {code:null,error:"Only a global administrator can issue Library of Things codes."};
