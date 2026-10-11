@@ -9,6 +9,71 @@ export type DeepPathway = {
 };
 export const deepPathways: DeepPathway[] = [
   {
+  "slug": "repair-cafe-running",
+  "benchmark": "AssetFlow's three orientation lessons explain the monthly Repair Café concept but cannot demonstrate capacity decisions or incident handling. The connected JoshHub simulator now records irrevocable first decisions, operational consequences and a reviewable event portfolio, while regulator guidance provides a real risk-management framework.",
+  "target": "Develop an approved and realistic event brief: documented venue/date and permitted activities, accepted roster with backups, accessible floor plan, consent/triage controls, emergency and exclusions plan, visitor flow, and a measurable next-event improvement. Demonstrate a complete simulated event, including defensible incident recovery and an evidence-based debrief.",
+  "limits": "This is a fictional training exercise, not permission to hold an actual event. Local council/venue approvals, insurance, WHS, privacy, electrical competency and volunteer consent must be verified separately. The simulator and public resources do not grant qualifications.",
+  "resources": [
+    {
+      "title": "Run Your Own Repair Café — interactive command desk",
+      "provider": "JoshHub Learning Lab",
+      "url": "https://josh-hub-96no.vercel.app/learn/repair-cafe-simulator",
+      "access": "Free interactive simulation; progress kept on learner's browser; AI assessment requires the owner's configured Groq service",
+      "kind": "Practical simulation",
+      "why": "Make and log seven event-day choices, see effects on staffing, queue and trust, recover safely and export an auditable fictional learning portfolio."
+    },
+    {
+      "title": "Event risk assessment and management",
+      "provider": "NSW Government Event Starter Guide",
+      "url": "https://www.nsw.gov.au/departments-and-agencies/premiers-department/community-engagement/event-starter-guide/risk-assessment-management",
+      "access": "Free · Australian government primary guidance",
+      "kind": "Official planning reference",
+      "why": "Build a hazard register, controls, ownership and ongoing event monitoring. Use an actual venue-specific risk process before public events."
+    },
+    {
+      "title": "Repair Café house rules",
+      "provider": "Repair Café International",
+      "url": "https://www.repaircafe.org/en/house-rules/",
+      "access": "Free · primary guidance",
+      "kind": "Volunteer and visitor charter",
+      "why": "Establish what repair-together means, expectations about items, volunteers, no guaranteed repairs and one-item-first queue. Review any liability statements against applicable local law rather than assuming a waiver removes statutory obligations."
+    },
+    {
+      "title": "Fifteen years of Repair Café — documentary",
+      "provider": "Repair Café International",
+      "url": "https://www.repaircafe.org/en/anniversary-documentary-on-15-years-of-repair-cafe/",
+      "access": "Free · external video, English subtitles stated by publisher",
+      "kind": "Video and analysis",
+      "why": "Observe a community-repair learning culture, then note one feature you would adopt and one that needs local adaptation."
+    },
+    {
+      "title": "Restart Radio — community repair conversations",
+      "provider": "The Restart Project",
+      "url": "https://therestartproject.org/podcast/",
+      "access": "Free · podcast; individual episodes may vary",
+      "kind": "Audio and reflection",
+      "why": "Listen for evidence about volunteer retention, learning, repair outcomes and collaboration before writing your event plan."
+    }
+  ],
+  "cases": [
+    {
+      "prompt": "Two days before the first advertised Saturday, your sewing and computer volunteers are confirmed but the event lead is unavailable. The library room has only provisional permission and bicycle fixes are not permitted. Explain whether you open, reduce scope, postpone or move, and show the exact confirmation and communication gates.",
+      "workedAnswer": "Do not assume that a volunteer's skills confer event-lead accountability or that a tentative venue is approved. Confirm a responsible lead, a written venue/date/approved scope, suitable cover and any safety plan first. If those gates cannot be met, cancel/postpone and communicate clearly to volunteers/visitors; do not announce bike services. Evidence: roles, written venue permission, published messaging and decision timestamp. Compare the cost of disappointing an early small audience with the consequences of an unapproved event.",
+      "safety": "Never treat an EOI, generic volunteer availability or verbal permission as consent to a specific shift, site or repair category."
+    },
+    {
+      "prompt": "At 11:00 the welcome desk is unattended, five new visitors arrive, a kettle has a damaged mains lead and a laptop owner offers their password while leaving. Set a defensible queue, safeguarding and referral response, with realistic staffing trade-offs and near-miss records.",
+      "workedAnswer": "Pause or limit new arrivals while allocating a confirmed competent welcome substitute; record any role change and provide realistic waits/referrals. Do not energise the kettle or accept it for unapproved electrical work; explain the safe qualified pathway. Do not take unattended laptop custody or passwords. Give visitors clear expectations, retain minimal necessary information and protect access routes. Record both choices and impacts on backlog and volunteer energy, not imaginary repair success.",
+      "safety": "A waiver cannot establish competence or authorise work outside the agreed scope. Do not request or store real customer passwords in training."
+    },
+    {
+      "prompt": "The event ends with 17 arrivals, four repairs, six diagnoses/referrals, three safety declines and four attendees still waiting. A volunteer proposes reporting 17 items as diverted from landfill. Draft a truthful outcome report and a single measurable next-month improvement with a named owner.",
+      "workedAnswer": "Do not report 17 items as waste diverted: arrival, attempted repair and successful repair are different outcomes. Explain what happened to the four waiting visitors and confirm all items were returned to owners. Report the four repaired and six diagnosed/referred separately, with any consent and classification limitations. Prioritise one change (e.g. a 30-minute intake cut-off, additional accepted welcome coverage or category-specific capacity) owned by the event lead, then compare queue/wait records at the next event. Attribute all numbers to this fictional worked case, not actual Dubbo data.",
+      "safety": "Do not overstate recycling diversion, publish personal attendance data or imply a volunteer owes ongoing shifts."
+    }
+  ]
+},
+  {
     "slug": "repair-electrical-safety",
     "benchmark": "SafeWork NSW safety guidance and formal PAT training cover hazard assessment, de-energisation, testing competence and regulatory context; our existing lesson only names hazards.",
     "target": "Produce a reasoned risk assessment with energy-source map, isolation state, escalation threshold and record of who may authorise the work.",
