@@ -65,7 +65,7 @@ const deepContent=load("lib/learning/deep-pathways.ts");
 const matchDeep=deepContent.match(/export const deepPathways: DeepPathway\[\] = (\[[\s\S]*?\]);\nexport function deepPathwayFor/);
 assert.ok(matchDeep,"Deep learning pathway JSON must be statically parseable");
 const deeper=JSON.parse(matchDeep[1]);
-assert.equal(deeper.length,15,"Electronics and repair field school must benchmark all fifteen courses");
+assert.equal(deeper.length,16,"Field-school and repair-pricing pathways must cover all sixteen target courses");
 assert.equal(new Set(deeper.map(p=>p.slug)).size,deeper.length,"Duplicate advanced pathway");
 for(const item of deeper) {
  assert.ok(calls.some(c=>c.id===item.slug),"Missing parent course: "+item.slug);
@@ -85,6 +85,11 @@ for(const item of deeper) {
 }
 assert.ok(load("app/(private)/learn/[course]/page.tsx").includes("deepPathwayFor"),"Course page must show external learning links");
 assert.ok(load("app/(private)/learn/[course]/[lesson]/page.tsx").includes("studyCase"),"Lesson must show technical applied exercise");
+const pricingPathway=deeper.find(item=>item.slug==="repair-service-pricing");
+assert.ok(pricingPathway,"The repair-pricing course must have a verified advanced pathway");
+assert.ok(pricingPathway.resources.some(r=>r.provider==="ACCC"),"Repair pricing needs regulator guidance for consent and notices");
+assert.ok(pricingPathway.cases.every(c=>c.workedAnswer.includes("$")||c.workedAnswer.includes("quote")),
+  "Pricing cases need numerical or customer communication outcomes");
 console.log("External learning benchmark QA PASS: "+deeper.length+" courses, "+
  deeper.reduce((n,x)=>n+x.resources.length,0)+" targeted references, "+
  deeper.reduce((n,x)=>n+x.cases.length,0)+" worked applied exercises.");
