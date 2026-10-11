@@ -949,24 +949,24 @@ const caseBank = [
 {
   "slug": "repair-laptop-refurb",
   "practitioner": {
-    "question": "A donated laptop boots into a previous owner's profile. What next?",
+    "question": "An authorised 500 GB HDD has 300 GB used. The planned SATA SSD holds 256 GB. What do you recommend before cloning?",
     "options": [
-      "Access the documents so you can see what needs saving",
-      "Quarantine the drive pending authority and data procedure",
-      "Create another account and donate it with the profile intact"
+      "Verify a separate backup, then agree a target that fits all required partitions",
+      "Start a full-disk clone and let the software compress whatever cannot fit",
+      "Delete EFI and recovery partitions until all existing data fits on the SSD"
     ],
-    "answer": 1,
-    "explanation": "Power-on does not grant data access rights."
+    "answer": 0,
+    "explanation": "Both occupied data and boot-related partitions must fit. Document a separate validated backup, then agree a larger SSD or a safe reduction plan; copying is not inherently a backup."
   },
   "expert": {
-    "question": "A transplanted LCD flickers while external HDMI is stable. What now?",
+    "question": "An authorised HDD has failed SMART self-tests and audible clicking; its owner has irreplaceable photos. What next?",
     "options": [
-      "Claim the screen is tested because HDMI proves video works for this visit",
-      "Erase the device to reset the display driver automatically",
-      "Check donor panel, cable, power and connector compatibility"
+      "Retry a complete clone several times, reducing the block size after errors",
+      "Run an extended surface scan first, then copy any readable user folders",
+      "Suspend routine reads, preserve the drive and discuss professional recovery"
     ],
     "answer": 2,
-    "explanation": "External output and internal panel paths are different."
+    "explanation": "Repeat retries and surface scans can worsen failing-media recovery chances. The data-value conversation and permission come before a standard SSD migration."
   }
 },
 {
