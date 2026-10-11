@@ -112,7 +112,7 @@ for(const item of featured){
    "Each media resource must map to one stage and name its provider");
 }
 assert.ok(page.includes('id="pricing-media"')&&page.includes("featuredMedia.map")&&
- page.includes("rel=\\"noopener noreferrer\\"")&&page.includes('href="#pricing-media"'),
+ page.includes('rel="noopener noreferrer"')&&page.includes('href="#pricing-media"'),
  "Media library must have direct accessible links from the studio hero");
 console.log("Repair pricing media QA PASS: 4 videos, 2 podcasts, real HTTPS provider links and applied tasks.");
 
