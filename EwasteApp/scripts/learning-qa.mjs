@@ -93,3 +93,16 @@ assert.ok(["repair-service-pricing","repair-cafe-intake","things-maintenance","d
 console.log("External learning benchmark QA PASS: "+deeper.length+" courses, "+
  deeper.reduce((n,x)=>n+x.resources.length,0)+" targeted references, "+
  deeper.reduce((n,x)=>n+x.cases.length,0)+" worked applied exercises.");
+
+
+const labSource=load("components/LaptopDiagnosticsLab.tsx");
+const labFile=ts.createSourceFile("LaptopDiagnosticsLab.tsx",labSource,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
+assert.equal(labFile.parseDiagnostics.length,0,"Diagnostics lab TSX syntax must parse cleanly");
+assert.ok(load("app/(private)/learn/[course]/page.tsx").includes('<LaptopDiagnosticsLab />'),"Laptop lab must be mounted in course");
+for(const required of ["Predict, then investigate","setPredictions","Evidence budget","Critical stop-work","localStorage","diagnostic decision"]){
+ assert.ok(labSource.toLowerCase().includes(required.toLowerCase()),"Missing diagnostics lab feature: "+required);
+}
+assert.equal((labSource.match(/title:".*Case [ABC]"/g)||[]).length,3,"Three diagnostic cases must remain");
+assert.ok(labSource.includes("unsafe?0:"),"Critical safety errors must zero the case score");
+assert.ok(labSource.includes("evidence&&predictionCoverage"),"Efficiency points must require decisive evidence and predictions");
+console.log("Diagnostics workbench QA PASS: TSX parsed; three cases, safety, predictions and integration present.");
