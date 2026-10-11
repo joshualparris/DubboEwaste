@@ -86,6 +86,14 @@ export default async function CourseOverview({params,searchParams}:{
     </div>
     <p className={styles.deepFoot}>Provider learning is hosted externally. Pricing, entry requirements and certificates are controlled by the provider. We don't claim that internal orientation equals professional competence or external course completion.</p>
    </section>:null}
+  {id==="repair-service-pricing"?<section className={styles.pricingHero}>
+    <span>INTERACTIVE CAPSTONE · WORKED SIMULATIONS</span>
+    <h2>Repair Pricing Studio</h2>
+    <p>Make decisions with fictional costs: calculate a billable-hour floor, build GST-aware quotes, respond to scope changes, then compare escalating cases. Includes feedback, worked answers, customer handover and spaced review.</p>
+    <div className={styles.pricingCalloutStats}><strong>4 scenarios</strong><strong>4 practice stages</strong><strong>Video, audio and official sources</strong></div>
+    <Link className={styles.pricingStart} href="/learn/repair-service-pricing/studio">Open the interactive Pricing Studio →</Link>
+    <p className={styles.hint}>Practice stays in this browser; the studio does not create a real invoice or certify business competence.</p>
+  </section>:null}
   <section className={styles.section}>
    <h2>{deep?"Orientation lessons + applied problems":"Your lessons"}</h2>
    <div className={styles.lessonList}>
