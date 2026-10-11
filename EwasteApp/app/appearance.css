@@ -1,0 +1,64 @@
+/* AssetFlow signed-in appearance settings. Light remains the default. */
+:root[data-theme="dark"]{
+ color-scheme:dark;
+ --bg:#101914;
+ --panel:#1b2820;
+ --ink:#edf5ed;
+ --muted:#b4c6b8;
+ --line:#394e40;
+ --brand:#58b887;
+ --brand-dark:#297e58;
+ --soft:#203e2d;
+ --field:#152119;
+ --field-line:#769781;
+}
+:root[data-theme="light"]{color-scheme:light;--field:#ffffff;--field-line:#bfcac2}
+:root[data-theme="dark"] :is(.card,.login-card,.result-row,.lookup-panel,.lookup-results button,.lookup-result,.barcode-panel,.doc-paper,.doc-section-nav a,.doc-section-nav,.quote-sheet,.qr){
+ background:var(--panel);color:var(--ink);border-color:var(--line);
+}
+:root[data-theme="dark"] :is(.doc-section-nav,.doc-section-nav a){background:var(--panel)}
+:root[data-theme="dark"] :is(.form input,.form select,.form textarea,.mini-form input,.mini-form select,.mini-form textarea,.inline-form input,.search-form input,.upload-control input,.container input:not([type="checkbox"]):not([type="radio"]),.container select,.container textarea){
+ background:var(--field);color:var(--ink);border-color:var(--field-line);
+}
+:root[data-theme="dark"] :is(table,thead,tbody,tfoot,tr,th,td){background:var(--panel);color:var(--ink);border-color:var(--line)}
+:root[data-theme="dark"] :is(.badge,.button.secondary,.doc-section-nav a){background:var(--soft);color:var(--ink);border-color:var(--line)}
+:root[data-theme="dark"] :is(.muted,.result-row span,.lookup-results button span,.lookup-result span,.lookup-result small){color:var(--muted)}
+:root[data-theme="dark"] :is(.lookup-panel,.barcode-panel){background:var(--soft)}
+:root[data-theme="dark"] :is(.document-markdown code){background:#2b4031;color:var(--ink)}
+:root[data-theme="dark"] :is(.doc-code){background:#08110b;color:#e1f5e9}
+:root[data-theme="dark"] :is(.overdue){background:#3b2b16!important;border-color:#a57930!important}
+:root[data-theme="dark"] :is(.overdue strong){color:#ffce8b}
+:root[data-theme="dark"] :is(.success){background:#153d27;color:#bdf4cc;border-color:#4d8762}
+:root[data-theme="dark"] :is(.error){background:#452723;color:#ffdbd6}
+:root[data-theme="dark"] :is(.danger-zone){background:#32201e;border-color:#8d4a47}
+:root[data-theme="dark"] :is(.topbar,.nav-panel){background:#0d2316}
+:root[data-theme="dark"] .doc-section-nav{background:rgba(23,37,29,.97)}
+/* CSS-module course/repair components also contain original light-only colour literals.
+   Restrict overrides to their card-like surfaces; keep their distinctive dark hero panels. */
+:root[data-theme="dark"] :is(
+ [class*="courseCard"],[class*="lessonRow"],[class*="sourcePanel"],
+ [class*="checkPanel"],[class*="deepPanel"],[class*="deepLesson"],
+ [class*="deepResources"] article,[class*="pricingInline"],
+ [class*="learning_"][class*="notice"]
+){background:var(--panel)!important;color:var(--ink)!important;border-color:var(--line)!important}
+:root[data-theme="dark"] :is(
+ [class*="courseCard"],[class*="lessonRow"],[class*="sourcePanel"],
+ [class*="checkPanel"],[class*="deepPanel"],[class*="deepLesson"]
+) :is(h2,h3,h4,p,li,label,legend,strong,summary){color:var(--ink)}
+:root[data-theme="dark"] :is([class*="deepProblem"],[class*="deepAnswer"],[class*="deepResources"] article){background:var(--field)!important;color:var(--ink)!important;border-color:var(--line)!important}
+:root[data-theme="dark"] :is([class*="deepProblem"],[class*="deepAnswer"],[class*="deepResources"] article) :is(p,h3,h4,summary){color:var(--ink)!important}
+:root[data-theme="dark"] :is([class*="hint"],[class*="deepFoot"]){color:var(--muted)!important}
+:root[data-theme="dark"] :is([class*="formField"],[class*="deepResources"]) :is(input,textarea,select){background:var(--field);color:var(--ink);border-color:var(--line)}
+:root[data-theme="dark"] :is([class*="courseCard"],[class*="sourcePanel"],[class*="deepPanel"]) a{color:#a3ecc0}
+:root[data-theme="dark"] :is([class*="deepResources"],[class*="deepNext"]) a{color:#fff}
+:root[data-theme="dark"] .button:not(.secondary){background:#216847;color:#fff}
+:root[data-theme="dark"] .button:not(.secondary):hover{background:#185336}
+:root[data-theme="dark"] .badge{color:#c0f0d2}
+:root[data-theme="dark"] :is(a,button,input,select,textarea):focus-visible{outline:3px solid #9ddbb9;outline-offset:2px}
+/* Scan targets, certificates, and paper printouts must remain legible on white. */
+:root[data-theme="dark"] :is(.asset-label-print-area,.asset-batch-print-area,.asset-print-label,.qr){background:#fff;color:#111}
+@media print{
+ :root[data-theme="dark"],:root[data-theme="dark"] body{color-scheme:light!important;--bg:#fff;--panel:#fff;--ink:#111;--muted:#444;--line:#bbb;--soft:#f2f2f2}
+ :root[data-theme="dark"] :is(.certificate-sheet,.quote-sheet,.doc-paper,.asset-label-print-area,.asset-batch-print-area,.asset-print-label){background:#fff!important;color:#111!important}
+ :root[data-theme="dark"] :is(.card,table,th,td){background:white!important;color:black!important}
+}
