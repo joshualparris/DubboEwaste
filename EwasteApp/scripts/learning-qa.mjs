@@ -41,7 +41,7 @@ for(const p of ["app/(private)/learn/manage/page.tsx","app/(private)/learn/learn
 console.log("Learning QA PASS: "+calls.length+" courses, "+calls.reduce((n,c)=>n+c.lessons,0)+" lessons, "+entries.length+" media items, research route guarded.");
 
 const qualitySource=load("lib/learning/quality.ts");
-assert.ok(qualitySource.includes("masteryReady")&&qualitySource.includes("No independently observed skills sign-off"),"Course quality must not be equated with completion");
+assert.ok(qualitySource.includes("masteryReady")&&qualitySource.includes("Individual observed skills sign-off"),"Course quality must not be equated with completion");
 assert.ok(load("app/(private)/learn/[course]/page.tsx").includes("qualityStageLabel"),"Show quality status and gaps for each course");
 const challengeSource=load("lib/learning/challenges.ts");
 assert.ok(challengeSource.includes("const caseBank = "),"Adaptive challenge bank must be statically auditable");
@@ -189,3 +189,51 @@ for(const id of ["ssd-crucial-copy","ssd-crucial-install","ssd-hp-ifixit","ssd-s
 assert.ok(ssdOverview.includes("/storage-guide")&&ssdOverview.includes("SSD-UPGRADE-MASTERY")&&ssdOverview.includes("/field-lab"),"SSD guide, atlas and field lab links needed");
 assert.ok(ssdOverview.includes("/screen-transplant"),"Preserve LCD screen transplant course");
 console.log("Integrated SSD masterclass QA PASS: model-specific guide, source media, deep cases, supervisor rubric and both labs.");
+
+
+// Audio and real-world assessment are separate learning outcomes.
+// A published podcast and simulated cases cannot manufacture a supervised pass.
+const audioSource=load("lib/learning/refurb-audio.ts");
+const audioPlayer=load("components/RefurbAudioCompanion.tsx");
+const audioTs=readTS("lib/learning/refurb-audio.ts");
+const audioView=ts.createSourceFile("RefurbAudioCompanion.tsx",audioPlayer,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
+assert.equal(audioTs.parseDiagnostics.length,0,"Audio chapter scripts must parse");
+assert.equal(audioView.parseDiagnostics.length,0,"Audio UI must be parseable TSX");
+for(const id of ["consent","fit","prove"])assert.ok(audioSource.includes('id:"'+id+'"'),"Missing authentic narrated chapter "+id);
+assert.ok((audioSource.match(/duration:"About 3 minutes"/g)||[]).length===3,"The narration needs three full chapters");
+for(const required of ["speechSynthesis","SpeechSynthesisUtterance","Pause","Stop","transcript","role=\"status\"","en-AU"]){
+ assert.ok(audioPlayer.includes(required),"Audio player must implement: "+required);
+}
+assert.ok(ssdMedia.includes('id:"ssd-drive-recovery-podcast"'),"Missing directly relevant failing-storage podcast");
+assert.ok(load("app/(private)/learn/[course]/page.tsx").includes("<RefurbAudioCompanion/>"),"Learner must be able to hear the actual teaching");
+
+const signoffModel=load("lib/learning/mastery.ts");
+const signoffTs=readTS("lib/learning/mastery.ts");
+assert.equal(signoffTs.parseDiagnostics.length,0,"Sign-off derivation must parse");
+const masteryJS=ts.transpileModule(signoffModel,{compilerOptions:{module:ts.ModuleKind.ES2022,target:ts.ScriptTarget.ES2022}}).outputText;
+const mastery=await import("data:text/javascript;base64,"+Buffer.from(masteryJS).toString("base64"));
+const scores={skill_consent:3,skill_diagnosis:3,skill_compatibility:2,skill_safety:3,skill_verification:2,skill_handover:2};
+const observed={
+ id:"test",submitted_at:"2026-10-11",status:"approved",reviewer_id:"assessor",reviewed_at:"2026-10-11",
+ feedback:"Actual direct observation notes recorded",directly_observed:true,observed_on:"2026-10-11",
+ observation_method:"in_person",evidence_reference:"DEW-TRAINING-0007",assessor_attested:true,...scores
+};
+assert.equal(mastery.rubricTotal(observed),15,"Rubric must total six skills");
+assert.equal(mastery.independentlyObservedSignoff(observed,"learner"),true,"Properly observed demonstration is recordable");
+for(const altered of [{reviewer_id:"learner"},{directly_observed:false},{assessor_attested:false},
+ {skill_safety:1},{skill_diagnosis:null},{status:"submitted"},{observed_on:null},{reviewed_at:null}]){
+ assert.equal(mastery.independentlyObservedSignoff({...observed,...altered},"learner"),false,"Never certify unobserved, unsafe or incomplete work");
+}
+const reviewAction=load("app/(private)/learn/manage/actions.ts");
+const reviewScreen=load("app/(private)/learn/manage/page.tsx");
+const courseDetail=load("app/(private)/learn/[course]/page.tsx");
+const migration=load("supabase/migrations/20261011090000_learning_observed_mastery_rubric.sql");
+for(const field of ["skill_consent","skill_diagnosis","skill_compatibility","skill_safety","skill_verification","skill_handover",
+ "assessor_attested","observed_on","observation_method","evidence_reference"]){
+ assert.ok(reviewAction.includes(field)&&reviewScreen.includes(field)&&migration.includes(field),"Score/evidence must be stored and validated: "+field);
+}
+assert.ok(migration.includes("learning_refurb_observed_mastery_guard")&&migration.includes("learning_practical_review_immutable"),"Database must enforce rubric and immutable review");
+assert.ok(reviewAction.includes("record.user_id===actor.user.id"),"A learner cannot approve their own evidence");
+assert.ok(reviewScreen.includes("Independently observed laptop practical sign-offs"),"Supervisor must have a real review register");
+assert.ok(courseDetail.includes("independentlyObservedSignoff")&&courseDetail.includes("No independently observed practical sign-off"),"Learner must see their actual outcome or honest absence of one");
+console.log("Observed mastery QA PASS: audio scripts and UI parse, targeted podcast, six skills, independent-assessor gate and DB audit controls.");
