@@ -25,7 +25,8 @@ assert.ok(calls.every(c=>["all","dubbo_ewaste","repair_cafe","library_of_things"
 const contents=load("lib/learning/media.ts");
 const entries=[...contents.matchAll(/\{id:"([^"]+)",course:"([^"]+)",type:"([^"]+)"/g)]
  .map((m)=>({id:m[1],course:m[2],type:m[3]}));
-assert.ok(entries.length>=12,"Expected the curated media library");
+assert.ok(entries.length>=62,"Every course should have a curated external resource and substantial pathways should add independent sources");
+assert.ok(calls.every(course=>entries.some(item=>item.course===course.id)),"All courses must link at least one directly relevant source");
 assert.equal(new Set(entries.map(x=>x.id)).size,entries.length,"Duplicate media ID");
 assert.ok(entries.every(x=>calls.some(c=>c.id===x.course)),"Media linked to a missing course");
 assert.ok(entries.every(x=>["video","podcast","guide"].includes(x.type)),"Unknown media type");
@@ -39,6 +40,9 @@ for(const p of ["app/(private)/learn/manage/page.tsx","app/(private)/learn/learn
 }
 console.log("Learning QA PASS: "+calls.length+" courses, "+calls.reduce((n,c)=>n+c.lessons,0)+" lessons, "+entries.length+" media items, research route guarded.");
 
+const qualitySource=load("lib/learning/quality.ts");
+assert.ok(qualitySource.includes("masteryReady")&&qualitySource.includes("No independently observed skills sign-off"),"Course quality must not be equated with completion");
+assert.ok(load("app/(private)/learn/[course]/page.tsx").includes("qualityStageLabel"),"Show quality status and gaps for each course");
 const challengeSource=load("lib/learning/challenges.ts");
 assert.ok(challengeSource.includes("const caseBank = "),"Adaptive challenge bank must be statically auditable");
 const caseBank=JSON.parse(challengeSource.split("const caseBank = ")[1].split(" as const;")[0]);
@@ -65,7 +69,7 @@ const deepContent=load("lib/learning/deep-pathways.ts");
 const matchDeep=deepContent.match(/export const deepPathways: DeepPathway\[\] = (\[[\s\S]*?\]);\nexport function deepPathwayFor/);
 assert.ok(matchDeep,"Deep learning pathway JSON must be statically parseable");
 const deeper=JSON.parse(matchDeep[1]);
-assert.equal(deeper.length,15,"Electronics and repair field school must benchmark all fifteen courses");
+assert.ok(deeper.length>=19,"Critical learning courses must have nineteen or more reviewed advanced pathways");
 assert.equal(new Set(deeper.map(p=>p.slug)).size,deeper.length,"Duplicate advanced pathway");
 for(const item of deeper) {
  assert.ok(calls.some(c=>c.id===item.slug),"Missing parent course: "+item.slug);
@@ -85,6 +89,7 @@ for(const item of deeper) {
 }
 assert.ok(load("app/(private)/learn/[course]/page.tsx").includes("deepPathwayFor"),"Course page must show external learning links");
 assert.ok(load("app/(private)/learn/[course]/[lesson]/page.tsx").includes("studyCase"),"Lesson must show technical applied exercise");
+assert.ok(["repair-service-pricing","repair-cafe-intake","things-maintenance","device-identity-locks"].every(id=>deeper.some(p=>p.slug===id)),"Critical new field exercises must remain");
 console.log("External learning benchmark QA PASS: "+deeper.length+" courses, "+
  deeper.reduce((n,x)=>n+x.resources.length,0)+" targeted references, "+
  deeper.reduce((n,x)=>n+x.cases.length,0)+" worked applied exercises.");
