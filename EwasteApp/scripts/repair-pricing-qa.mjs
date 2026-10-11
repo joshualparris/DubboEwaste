@@ -25,6 +25,15 @@ const markup=180*1.25;
 nearly((markup-180)/markup*100,20);
 assert.equal(calc.assessNumber(264,264),true);
 assert.equal(calc.assessNumber(190,264),false);
+const liquidCase=calc.scenarioBank.find(x=>x.id==="no-power");
+assert.ok(liquidCase);
+const withGST=calc.calculateJob(liquidCase.labourCost,liquidCase.partCost,liquidCase.overhead,liquidCase.reworkReserve,liquidCase.targetMargin,true);
+const withoutGST=calc.calculateJob(liquidCase.labourCost,liquidCase.partCost,liquidCase.overhead,liquidCase.reworkReserve,liquidCase.targetMargin,false);
+assert.ok(withGST.incGST>liquidCase.approvalCap && withoutGST.incGST<liquidCase.approvalCap,
+ "No-power case must test changing cap status depending on GST registration");
+const protections={data:true,parts:true,stop:true,scope:true};
+assert.equal(calc.analyseQuote(liquidCase,withGST.incGST,true,protections,"refer","over").points,100);
+assert.equal(calc.analyseQuote(liquidCase,withoutGST.incGST,false,protections,"refer","within").points,100);
 assert.equal(calc.scenarioBank.length,4);
 assert.equal(new Set(calc.scenarioBank.map(x=>x.id)).size,4);
 for(const item of calc.scenarioBank){
@@ -34,13 +43,22 @@ for(const item of calc.scenarioBank){
  const target=calc.calculateJob(item.labourCost,item.partCost,item.overhead,item.reworkReserve,item.targetMargin,true);
  const consent={data:true,parts:true,stop:true,scope:true};
  const action=item.acceptability==="reapproval"?"stop":"refer";
- const accepted=calc.analyseQuote(item,target.incGST,true,consent,action);
+ const budget=target.incGST>item.approvalCap?"over":"within";
+ const accepted=calc.analyseQuote(item,target.incGST,true,consent,action,budget);
+ assert.equal(accepted.budgetCorrect,true,"Learner must identify approval-cap status: "+item.id);
+ const wrongBudget=calc.analyseQuote(item,target.incGST,true,consent,action,budget==="over"?"within":"over");
+ assert.ok(wrongBudget.points<100,"Incorrect approval-cap judgement must block full marks: "+item.id);
+ assert.equal(wrongBudget.budgetCorrect,false);
+ const unansweredBudget=calc.analyseQuote(item,target.incGST,true,consent,action,null);
+ assert.ok(unansweredBudget.points<100,"Unanswered budget status must block full marks: "+item.id);
  assert.equal(accepted.points,100,"Correct, fully protected quote must pass: "+item.id);
- const wrong=calc.analyseQuote(item,target.incGST+100,true,{...consent,stop:false},"continue");
+ const wrong=calc.analyseQuote(item,target.incGST+100,true,{...consent,stop:false},"continue",budget);
  assert.ok(wrong.points<100,"Unsafe/incorrect quote must fail: "+item.id);
  assert.ok(item.hiddenConstraint.length>=50,"Each case must include a non-trivial surprise");
 }
 const page=read("app/(private)/learn/repair-service-pricing/studio/page.tsx");
+assert.ok(page.includes('name={"pricing-budget-"+which}') && page.includes("result.budgetCorrect"),
+ "Practical studio must independently ask and explain customer authorisation cap");
 const css=read("app/(private)/learn/repair-service-pricing/studio/studio.module.css");
 const classes=new Set([...page.matchAll(/styles\.([a-zA-Z][a-zA-Z0-9]*)/g)].map(x=>x[1]));
 for(const name of classes) assert.ok(new RegExp("\\."+name+"(?=\\s*[,\\{])").test(css),"Missing scoped style: "+name);
