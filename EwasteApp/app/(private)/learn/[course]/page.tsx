@@ -107,6 +107,13 @@ export default async function CourseOverview({params,searchParams}:{
     })}
    </div>
   </section>
+  {id==="repair-laptop-refurb" ? <section className={styles.sourcePanel} aria-label="Extended laptop refurbishment field labs">
+   <h2>Apply it: diagnose, transplant, verify</h2>
+   <p><strong>New · LCD donor-screen transplant lab:</strong> five adaptive missions grounded in a real ASUS A541U donor and HP 15-db0034au with cracked LCD. Work with PowerShell EDID evidence, panel labels, connector and mounting checks, safety stop-work gates, and a copyable supervisor evidence record.</p>
+   <p>The real transplant is still unverified: matching 15.6-inch displays and 30-pin eDP are not enough to approve connection. Treat an unresolved connector orientation or pinout as <strong>HOLD</strong>.</p>
+   <p><Link className={styles.primaryLink} href="/learn/repair-laptop-refurb/screen-transplant">Start the screen-transplant field lab →</Link></p>
+   <p className={styles.hint}>Also available: <Link href="/learn/repair-laptop-refurb/field-lab">five-mission HDD-to-SSD clone field lab →</Link>. Both support the existing course rather than adding another shallow module.</p>
+  </section>:null}
   {joined && id==="repair-laptop-refurb" ? <LaptopDiagnosticsLab /> : null}
   {joined ? <AdaptiveAssessment courseId={id} /> : null}
   {media.length>0?<section className={styles.section} id="media">
