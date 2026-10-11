@@ -38,10 +38,11 @@ cases.forEach((c,i)=>{
  assert.ok(c.why.length>=100&&c.detail.length>=80,
   "Scenarios must explain real decisions, not mere slogans");
 });
-assert.ok(code.includes("Math.abs(Number(num)-t.ex)")&&code.includes("35 words")&&
- code.includes("rework")&&code.includes("written")&&code.includes("quoteNumbers")===false,
- "Assessment must check calculation, explanation, risk and written notices");
-assert.ok(code.includes("type=\\"number\\"")===false || code.includes("step=\\".01\\""),
+assert.ok(code.includes("Math.abs(Number(num)-t.ex)") &&
+ code.includes("35 words") && code.includes("risk") && code.includes("notice") &&
+ code.includes("pricingTotals") && code.includes("Download fictional worked-case portfolio"),
+ "Assessment must check calculation, explanation, risk, notices and evidence");
+assert.ok(code.includes('type="number"') && code.includes('step=".01"'),
  "Numeric quote input must support cents");
 assert.ok(!code.includes("Peter Tosh") && !code.includes("parristechservices@gmail.com"),
  "Do not embed real customers or business authentication context in public assessment");
