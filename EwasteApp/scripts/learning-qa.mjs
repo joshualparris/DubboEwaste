@@ -106,3 +106,34 @@ assert.equal((labSource.match(/title:".*Case [ABC]"/g)||[]).length,3,"Three diag
 assert.ok(labSource.includes("unsafe?0:"),"Critical safety errors must zero the case score");
 assert.ok(labSource.includes("evidence&&predictionCoverage"),"Efficiency points must require decisive evidence and predictions");
 console.log("Diagnostics workbench QA PASS: TSX parsed; three cases, safety, predictions and integration present.");
+
+/* Clone field lab: challenging alternatives, no answer-length shortcut, and actual practice evidence. */
+const labData=load("lib/learning/storage-clone-lab.ts");
+const labPage=load("app/(private)/learn/repair-laptop-refurb/field-lab/page.tsx");
+const labCourse=load("app/(private)/learn/[course]/page.tsx");
+const labMatches=[...labData.matchAll(/choices:\[(("(?:\\.|[^"\\])*",?){3})\],correct:([012])/g)];
+assert.equal(labMatches.length,15,"Five clone missions must offer three adaptive levels each");
+const labCheck=labMatches.map(m=>{
+ const opts=[...m[1].matchAll(/"((?:\\.|[^"\\])*)"/g)].map(x=>x[1]);
+ assert.equal(opts.length,3,"Every clone decision requires three meaningful choices");
+ assert.equal(new Set(opts).size,3,"Clone decision choices must differ");
+ const lengths=opts.map(x=>x.length);
+ assert.ok(Math.min(...lengths)>=50,"Avoid short giveaway choices in "+opts[0]);
+ assert.ok(Math.max(...lengths)/Math.min(...lengths)<1.3,"Answer-length giveaway in "+opts[0]);
+ return {answer:Number(m[3]),lengths};
+});
+const labLongest=labCheck.filter(x=>x.answer===x.lengths.indexOf(Math.max(...x.lengths))).length;
+const labShortest=labCheck.filter(x=>x.answer===x.lengths.indexOf(Math.min(...x.lengths))).length;
+assert.ok(labLongest<=7&&labShortest<=7,"Picking the longest/shortest answer cannot be a strong strategy");
+assert.deepEqual([0,1,2].map(i=>labCheck.filter(x=>x.answer===i).length),[5,5,5],"Balance correct-choice positions");
+for(const id of ["custody","compatibility","slowdown","verification","handover"]){
+ assert.ok(labData.includes('id:"'+id+'"'),"Missing clone field lab mission "+id);
+}
+assert.ok(labCourse.includes('href="/learn/repair-laptop-refurb/field-lab"'),"LMS must link the practical field lab");
+for(const fragment of ["SpeechSynthesisUtterance","evidenceMinimum","summary(notes,answers)","curatedResources","observationLog","navigator.clipboard","window.print()"]){
+ assert.ok(labPage.includes(fragment),"Clone lab missing active learning feature: "+fragment);
+}
+for(const url of ["https://www.youtube.com/watch?v=lSdSNAjmdDg","https://csrc.nist.gov/pubs/sp/800/88/r2/final"]){
+ assert.ok(labData.includes(url),"Missing first-party research source "+url);
+}
+console.log("Clone field lab QA PASS: 5 missions, 15 adaptive decisions, balanced alternatives, narrated reasoning and evidence export.");
