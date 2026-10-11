@@ -51,4 +51,7 @@ for(const source of [course,lesson]){
 }
 assert.ok(page.includes("written data-loss")&&page.includes("refurbished")&&page.includes("GST"),"Consumer safeguards must be visible");
 assert.ok(page.includes("localStorage")&&page.includes("Suggested review"),"Spaced, browser-only learning record must be visible");
+assert.ok(page.includes("exportEvidence")&&page.includes("new Blob")&&page.includes("last "),"Learners must be able to export honest dated evidence");
+assert.ok(page.includes("latest ")&&page.includes("best:"),"Latest score must be differentiated from best score");
+assert.ok(page.includes("real written notice must still be delivered"),"Simulation must not misrepresent repair notices as delivered");
 console.log("Repair pricing QA PASS: four risk-aware scenarios; arithmetic, GST, approvals, mobile style coverage and integration links.");
