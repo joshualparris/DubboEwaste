@@ -154,8 +154,8 @@ export default function PricingStudio(){
       <div className={styles.caseContext}>
         <div><span className={styles.eyebrow}>CUSTOMER BRIEF</span><h3>{caseInfo.device}</h3><p><strong>Customer wants:</strong> {caseInfo.ownerNeed}</p><p><strong>Known:</strong> {caseInfo.known}</p><p><strong>Uncertain:</strong> {caseInfo.uncertainty}</p><p className={styles.casePrompt}>{caseInfo.prompt}</p></div>
         <div><span className={styles.eyebrow}>INTERNAL JOB COSTS · EX GST</span>
-          <table><tbody>{[["Technician cost",caseInfo.labourCost],["Landed part cost",caseInfo.partCost],["Unrecovered overhead",caseInfo.overhead],["Expected rework provision",caseInfo.reworkReserve]].map(([name,amount])=><tr key={name}><th>{name}</th><td>{money(Number(amount))}</td></tr>)}
-          <tr><th><strong>Total internal cost</strong></th><td><strong>{money(quotation.cost)}</strong></td></tr></tbody></table>
+          <div className="table-wrap"><table><tbody>{[["Technician cost",caseInfo.labourCost],["Landed part cost",caseInfo.partCost],["Unrecovered overhead",caseInfo.overhead],["Expected rework provision",caseInfo.reworkReserve]].map(([name,amount])=><tr key={name}><th>{name}</th><td>{money(Number(amount))}</td></tr>)}
+          <tr><th><strong>Total internal cost</strong></th><td><strong>{money(quotation.cost)}</strong></td></tr></tbody></table></div>
           <div className={styles.caseFacts}><div>Target job margin <strong>{caseInfo.targetMargin}%</strong></div><div>Current authorisation cap <strong>{money(caseInfo.approvalCap)}</strong></div><div>Comparable replacement <strong>{money(caseInfo.expectedReplacement)}</strong></div></div>
         </div>
       </div>
