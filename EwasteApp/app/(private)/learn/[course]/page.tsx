@@ -7,6 +7,7 @@ import {enrolInCourse} from "../actions";
 import {finishMedia,submitPractical} from "../learning-activities";
 import styles from "../learning.module.css";
 import AdaptiveAssessment from "@/components/AdaptiveAssessment";
+import StorageUpgradeLab from "@/components/StorageUpgradeLab";
 import LaptopDiagnosticsLab from "@/components/LaptopDiagnosticsLab";
 import { deepPathwayFor } from "@/lib/learning/deep-pathways";
 import {assessLearningQuality,qualityStageLabel} from "@/lib/learning/quality";
@@ -94,6 +95,12 @@ export default async function CourseOverview({params,searchParams}:{
    </div>
   </section>
   {joined && id==="repair-laptop-refurb" ? <LaptopDiagnosticsLab /> : null}
+  {id==="repair-laptop-refurb"?<section className={styles.section}>
+    <h2>Interactive visual reference</h2>
+    <p>Explore HDD versus SSD construction, SATA and NVMe interfaces, the 2.5-inch bay and live compatibility decisions before touching a customer device.</p>
+    <Link className={styles.secondaryLink} href="/storage-guide">Open the Storage Explorer →</Link>
+   </section>:null}
+  {joined&&id==="repair-laptop-refurb"?<StorageUpgradeLab/>:null}
   {joined ? <AdaptiveAssessment courseId={id} /> : null}
   {media.length>0?<section className={styles.section} id="media">
    <h2>Watch, listen and reflect</h2>
