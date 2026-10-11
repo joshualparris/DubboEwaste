@@ -61,3 +61,31 @@
 .quizButtons{display:flex;flex-wrap:wrap;gap:6px}
 @media(max-width:1020px){.fourGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.atlas,.photoGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:660px){.fourGrid,.atlas,.compareGrid,.photoGrid{grid-template-columns:1fr}.heroArt{min-height:245px;padding:20px 15px 45px}.bigDisk{border-width:5px}.bigSSD{height:160px}.bigSSD div{font-size:19px}.bigSSD:after{bottom:-6px;height:6px}.driveCard{padding:16px}.graphicWrap{min-height:130px}.photo{height:260px}.miniData{grid-template-columns:1fr}.quizButtons{width:100%;justify-content:flex-start}}
+
+
+/* Real photographs from Wikimedia Commons, credited beside each image. */
+.heroPhotos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:1fr 1fr auto;min-height:335px;gap:10px;border:1px solid #34594b;border-radius:18px;padding:12px;background:#10271f}
+.heroPhotoTile{position:relative;margin:0;overflow:hidden;border:1px solid #416e56;border-radius:12px;min-width:0;background:#101b16}
+.heroPhotoTile:first-child{grid-row:1 / span 2}
+.heroPhotoTile .photo{width:100%;height:100%;min-height:120px;object-fit:contain;padding:10px;background:#15291e}
+.heroPhotoTile figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 9px;background:linear-gradient(transparent,#07130cf5);display:grid;gap:3px}
+.heroPhotoTile figcaption strong{color:#f5fff6;font-size:13px;line-height:1.3}
+.heroPhotoTile figcaption a{color:#b5e7cb;text-decoration:underline;font-size:11px}
+.heroPhotoNotice{grid-column:1/-1;letter-spacing:.06em;color:#b1d7bf;font-size:10px;text-align:center;padding:0 6px}
+.photoHighlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:14px 0 34px}
+.photoHighlights figure{margin:0;min-width:0;background:#152b21;border:1px solid #41674b;border-radius:12px;overflow:hidden}
+.photoHighlights figure .photo{height:190px;object-fit:contain;padding:9px}
+.photoHighlights figcaption{padding:14px;display:grid;gap:7px}
+.photoHighlights figcaption strong{font-size:15px;line-height:1.3;color:#f4fff7}
+.photoHighlights figcaption p{font-size:12px;color:#b5d2be;line-height:1.6;margin:0}
+.photoHighlights figcaption a{font-size:11px;line-height:1.5;color:#b0e6c6;text-decoration:underline}
+.photoSourceLine{display:block;font-size:11px;line-height:1.45;min-height:30px;color:#a5d8bc;text-decoration:underline}
+span.photoSourceLine{color:#829f91;text-decoration:none}
+.driveCard .photo{height:160px;object-fit:contain;background:#10241d;border:1px solid #3c7050;border-radius:9px;padding:9px}
+.driveCard .photoFailed{min-height:160px;border:1px dashed #3c7050;border-radius:9px}
+.identifyPhoto{padding:0;margin:0;min-width:0}
+.identifyPhoto .photo{height:210px;object-fit:contain;border:1px solid #456a50;border-radius:8px}
+.identifyPhoto figcaption{font-size:12px;line-height:1.6;color:#b2d9bf}
+.identifyPhoto figcaption a{color:#a6e7c6;text-decoration:underline}
+@media(max-width:900px){.photoHighlights{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.heroPhotos{min-height:300px}.heroPhotoTile .photo{min-height:115px}.heroPhotoTile figcaption{padding:10px 6px 5px}.heroPhotoTile figcaption strong{font-size:10px}.heroPhotoTile figcaption a{font-size:9px}.photoHighlights{grid-template-columns:1fr}.photoHighlights figure .photo{height:205px}.driveCard .photo{height:180px}}
