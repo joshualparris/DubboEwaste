@@ -7,6 +7,7 @@ import {enrolInCourse} from "../actions";
 import {finishMedia,submitPractical} from "../learning-activities";
 import styles from "../learning.module.css";
 import AdaptiveAssessment from "@/components/AdaptiveAssessment";
+import RepairPricingStudio from "@/components/RepairPricingStudio";
 import LaptopDiagnosticsLab from "@/components/LaptopDiagnosticsLab";
 import { deepPathwayFor } from "@/lib/learning/deep-pathways";
 import {assessLearningQuality,qualityStageLabel} from "@/lib/learning/quality";
@@ -118,6 +119,7 @@ export default async function CourseOverview({params,searchParams}:{
    <p className={styles.hint}>Also available: <Link href="/learn/repair-laptop-refurb/field-lab">five-mission HDD-to-SSD clone field lab →</Link>. Both support the existing course rather than adding another shallow module.</p>
   </section>:null}
   {joined && id==="repair-laptop-refurb" ? <LaptopDiagnosticsLab /> : null}
+  {joined && id==="repair-service-pricing" ? <RepairPricingStudio /> : null}
   {joined ? <AdaptiveAssessment courseId={id} /> : null}
   {media.length>0?<section className={styles.section} id="media">
    <h2>Watch, listen and reflect</h2>
