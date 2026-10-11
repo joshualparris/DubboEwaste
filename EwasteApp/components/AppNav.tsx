@@ -131,6 +131,7 @@ export function AppNav({ fullName, role, programme = null, globalAdmin = role ==
         </section> : null}
         <section className="nav-group"><h2>Programme</h2><div className="nav-group-links">
           <Link href="/programmes">Switch programme</Link>
+          <Link href="/settings">Settings · Appearance</Link>
           {allowed("/lending") ? <Link href="/lending">Loans & returns</Link> : null}
           {globalAdmin || role === "admin" ? <Link href="/admin/programmes">Programme memberships</Link> : null}
         </div></section>
