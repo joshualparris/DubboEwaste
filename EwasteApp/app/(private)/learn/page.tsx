@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { courses, programmes, courseProgress, type Programme } from "@/lib/learning/catalog";
 import { enrolInCourse } from "./actions";
 import styles from "./learning.module.css";
+import {qualityCounts} from "@/lib/learning/quality";
 
 export const metadata = { title: "Dubbo Circular Learning" };
 export default async function LearningHome({
@@ -40,6 +41,11 @@ export default async function LearningHome({
         <span><strong>{finishedCount}</strong> completed</span>
       </div>
     </header>
+    <aside className={styles.sourcePanel}>
+      <strong>Course quality register</strong>
+      <p>{qualityCounts.substantial} substantial applied pathways; {qualityCounts.developing} developing courses with additional references; {qualityCounts.orientation} orientation-only. {qualityCounts.masteryReady} independently mastery-ready. Course completion is not professional sign-off.</p>
+      <p className={styles.hint}>Every course detail page now identifies its resources, practical exercises and remaining gaps.</p>
+    </aside>
     {error ? <p role="alert" className={styles.notice}>{error}</p> : null}
     {canManage ? <div className={styles.sourcePanel}><strong>Supervisor tools</strong><p>Assign learning, review practical work and manage Library of Things access if authorised.</p><Link className={styles.secondaryLink} href="/learn/manage">Open supervisor desk →</Link></div> : null}
     {assignedCourses.size > 0 ? <section className={styles.section}><h2>Assigned to you</h2><div className={styles.catalogue}>{courses.filter(x=>assignedCourses.has(x.id)).map(x=><article key={x.id} className={styles.courseCard}><span className={styles.track}>Assigned learning</span><h3>{x.title}</h3><p>{x.summary}</p><Link className={styles.primaryLink} href={"/learn/"+x.id}>Open course →</Link></article>)}</div></section>:null}
