@@ -702,6 +702,63 @@ export const deepPathways: DeepPathway[] = [
         "safety": "Parts harvesting does not cancel chain of custody."
       }
     ]
-  }
+  },
+{
+  "slug": "repair-service-pricing",
+  "benchmark": "Australian Government business.gov.au explains cost-based pricing, hourly recovery, margin, market comparison and correct GST treatment. ACCC repair-notice guidance adds consent and written warnings. This Academy's original three lessons and multiple-choice check do not demonstrate a repeatable customer-ready estimate or appropriate stop-work decisions.",
+  "target": "Produce three separately costed, correctly calculated illustrative quotes with an explicit GST basis, billable-versus-unattended time, diagnostic limit, risk allocation and written scope; defend why an additional cost requires new permission. Apply the same method to an unseen scenario, then submit a real-world or simulated quote for independent supervisor review.",
+  "limits": "This is training, not permission to trade, offer tax advice, repair data-bearing devices or issue professional certification. Figures are fictional; Australian Consumer Law rights cannot be waived and applicable repair notices must be provided in writing before accepting goods for repair. Actual GST treatment depends on registration and circumstances.",
+  "resources": [
+    {
+      "title": "Choose a pricing strategy",
+      "provider": "Australian Government — business.gov.au",
+      "url": "https://business.gov.au/products-and-services/choose-a-pricing-strategy",
+      "access": "Free · official Australian business guidance",
+      "kind": "Pricing and margin explanation",
+      "why": "Read cost-plus, hourly charging, comparison with market rates, legal pricing and the distinction between markup and margin before costing a fictional job."
+    },
+    {
+      "title": "Repair notices",
+      "provider": "ACCC",
+      "url": "https://www.accc.gov.au/consumers/problem-with-a-product-or-service-you-bought/repair-notices",
+      "access": "Free · official regulator guidance",
+      "kind": "Mandatory repair-notice rules",
+      "why": "Learn when data loss and refurbished-parts notices apply and why applicable written information must be given before accepting a device for repair."
+    },
+    {
+      "title": "Register for goods and services tax (GST)",
+      "provider": "Australian Government — business.gov.au",
+      "url": "https://business.gov.au/registrations/register-for-taxes/register-for-goods-and-services-tax-gst",
+      "access": "Free · official GST overview",
+      "kind": "Tax status and customer-price checks",
+      "why": "Distinguish GST-registered and non-registered quotes; verify the customer-facing final price and avoid incorrectly labelling a normal invoice a tax invoice."
+    },
+    {
+      "title": "Tech Repair Shop Labor Rate: How to Calculate Yours",
+      "provider": "Tech Care Association",
+      "url": "https://techcareassociation.org/2026/09/23/tech-repair-shop-labor-rate-formula/",
+      "access": "Free · practitioner guidance",
+      "kind": "Applied repair-business rate worksheet",
+      "why": "Compare billable utilisation, overhead, cost recovery and overhead double-counting with a working repair-business example. Cross-check legal claims against Australian sources."
+    }
+  ],
+  "cases": [
+    {
+      "prompt": "WORKED CASE 1 — A fictional Dubbo repairer allocates $70 technician labour cost, $80 delivered SSD, $20 not already recovered in overhead, and $10 expected rework provision. They want 25% job gross margin. Calculate the total cost, ex-GST sale price, GST-registered customer price and non-GST-registered price. Explain why a $216 markup answer would be wrong for 25% margin and whether a three-hour unattended clone is three billable active hours.",
+      "workedAnswer": "Cost = 70+80+20+10 = $180. Ex-GST quote for 25% gross margin = 180/(1−0.25) = $240. A GST-registered seller's customer price for a taxable supply is $240×1.10 = $264, including $24 GST; a non-registered seller does not add GST, so the comparable example is $240. The price at 25% markup would be $225, not $240; $216 is a 20% markup (and a 16.7% margin), not a 25% margin. Explain exactly how active labour, bench monitoring and non-billable clone time were costed without inventing active labour.",
+      "safety": "All figures and cost inputs are examples. Do not count costs twice. Do not treat unattended cloning as permission to read, copy or erase files; obtain scope-specific consent and arrange data protection."
+    },
+    {
+      "prompt": "WORKED CASE 2 — An owner authorises at most $210 to diagnose a no-power laptop. A fault now needs a further $95 part and estimated additional labour. Construct the stop-work response: what is the already-approved scope, what extra quote must be prepared, which alternative routes should be offered, and what written approval must be obtained before proceeding? A data-bearing drive is fitted.",
+      "workedAnswer": "Stop before ordering or fitting the new part. Record diagnostic work completed and its agreed fee, plus remaining uncertainty, labour and part cost in a clearly itemised REVISED total customer price (not merely '$95 extra'). Offer refusal/return, referral, or repair when economically defensible, including an estimated replace alternative. Request explicit informed approval for new scope and cap. For covered repairs, give applicable written Australian Consumer Law repair notice before accepting for repair; a notice is not merely a sign or web link. Do not promise that a diagnosis alone guarantees repair or data recovery.",
+      "safety": "The quoted $210 is an authorisation ceiling, not a blank cheque. Never exceed it silently, guarantee data recovery or waive statutory consumer rights. Exact notices depend on the repair activity and product."
+    },
+    {
+      "prompt": "WORKED CASE 3 — A repaired 2014 laptop may yield $220 on resale. It needs $85 parts, 1.5 hours of costed labour at $60/hour, $15 consumables and a 20% chance of an additional $80 fault. Compare expected DIRECT contribution before overhead/rework with a modern refurb that offers greater useful life. Decide whether to repair, salvage parts or recycle, identify two uncertainties, and design a one-page owner-facing statement that does not present profit as certain.",
+      "workedAnswer": "Expected extra fault cost = 0.20×$80=$16. Direct total = $85+$90+$15+$16=$206. Expected direct contribution at $220 is $14 BEFORE allocation of overhead, sales costs, return liability and taxes. This does not prove a profitable resale or a positive environmental outcome. Compare saleability, residual battery/storage risk, years of useful life and lawful chain of custody. A defendable response may decline repair or retain for parts if permission and data treatment allow. Record a range and what tests would change that decision.",
+      "safety": "A nominal $14 surplus is not net profit. Refurb resale and environmental-impact figures depend on real conditions and must never be represented as guaranteed. Manage data and lithium batteries before disposition."
+    }
+  ]
+}
 ];
 export function deepPathwayFor(id:string){return deepPathways.find(x=>x.slug===id);}
