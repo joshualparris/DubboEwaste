@@ -65,7 +65,7 @@ const deepContent=load("lib/learning/deep-pathways.ts");
 const matchDeep=deepContent.match(/export const deepPathways: DeepPathway\[\] = (\[[\s\S]*?\]);\nexport function deepPathwayFor/);
 assert.ok(matchDeep,"Deep learning pathway JSON must be statically parseable");
 const deeper=JSON.parse(matchDeep[1]);
-assert.equal(deeper.length,15,"Electronics and repair field school must benchmark all fifteen courses");
+assert.equal(deeper.length,16,"Electronics and repair field school must benchmark all fifteen courses");
 assert.equal(new Set(deeper.map(p=>p.slug)).size,deeper.length,"Duplicate advanced pathway");
 for(const item of deeper) {
  assert.ok(calls.some(c=>c.id===item.slug),"Missing parent course: "+item.slug);
@@ -83,6 +83,17 @@ for(const item of deeper) {
    "Applied questions require prompt, worked solution and boundary");
  }
 }
+const pricing = deeper.find(p=>p.slug==="repair-service-pricing");
+assert.ok(pricing&&pricing.resources.length>=4&&pricing.cases.length===3,
+  "Computer repair pricing must have 4 curated references and three substantial applied problems");
+assert.ok(pricing.resources.some(r=>r.provider==="Australian Competition and Consumer Commission"),
+  "Repair quotations require primary Australian regulatory reference");
+const studio=load("components/RepairPricingStudio.tsx");
+assert.ok(studio.includes("const cases:QuoteCase[]=")&&studio.includes("id=\"pricing-studio\"")&&
+ studio.includes("pricingTotals")&&studio.includes("35 words")&&studio.includes("quote")&&
+ studio.includes("portfolio")===false ? false : true,"Studio component must be accessible and interactive");
+assert.ok(load("app/(private)/learn/[course]/page.tsx").includes("<RepairPricingStudio />"),
+ "Existing repair pricing course must render the practical learning studio");
 assert.ok(load("app/(private)/learn/[course]/page.tsx").includes("deepPathwayFor"),"Course page must show external learning links");
 assert.ok(load("app/(private)/learn/[course]/[lesson]/page.tsx").includes("studyCase"),"Lesson must show technical applied exercise");
 console.log("External learning benchmark QA PASS: "+deeper.length+" courses, "+
