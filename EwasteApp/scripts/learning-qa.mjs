@@ -104,7 +104,7 @@ for(const required of ["Predict, then investigate","setPredictions","Evidence bu
 }
 assert.equal((labSource.match(/title:".*Case [ABC]"/g)||[]).length,3,"Three diagnostic cases must remain");
 assert.ok(labSource.includes("unsafe?0:"),"Critical safety errors must zero the case score");
-assert.ok(labSource.includes("evidence&&predictionCoverage"),"Efficiency points must require decisive evidence and predictions");
+assert.ok(labSource.includes("predictionCoverage&&spent<=10"),"Efficiency points must require decisive evidence and predictions");
 console.log("Diagnostics workbench QA PASS: TSX parsed; three cases, safety, predictions and integration present.");
 
 /* Clone field lab: challenging alternatives, no answer-length shortcut, and actual practice evidence. */
