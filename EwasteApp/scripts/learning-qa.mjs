@@ -287,9 +287,9 @@ for(const line of playbackLines){
  assert.ok(result, "Non-playable provider metadata: "+id);
  assert.ok(result.src.startsWith("https://"),"Only HTTPS in providers");
  if(type==="video"){testedVideos++;assert.ok(["youtube","vimeo"].includes(result.kind),"All videos must use approved inline player: "+id);}
- else{testedPodcasts++;assert.ok(["audio","apple"].includes(result.kind),"All podcasts need direct audio or native podcast player: "+id);}
+ else{testedPodcasts++;assert.ok(["audio","apple","spotify"].includes(result.kind),"All podcasts need direct audio or native podcast player: "+id);}
 }
-assert.ok(testedVideos>=27&&testedPodcasts>=11,"Do not lose restored podcast and video inventory");
+assert.ok(testedVideos>=27&&testedPodcasts>=18,"Do not lose restored podcast and video inventory");
 assert.equal(mediaPlayback({type:"video",url:"https://evil.example/watch?v=pQw4E8ecL5c"}),null,"Block arbitrary iframe targets");
 assert.equal(mediaPlayback({type:"podcast",url:"javascript:alert(1)"}),null,"Block Javascript source");
 assert.ok(playerSource.includes("<audio controls")&&playerSource.includes("<iframe"),"Native HTML5 audio and provider iframe are required");
