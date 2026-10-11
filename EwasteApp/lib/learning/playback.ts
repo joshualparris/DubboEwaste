@@ -1,6 +1,6 @@
 import type {MediaItem} from "./media";
 
-export type MediaPlayback={kind:"youtube"|"apple"|"audio"|"vimeo";src:string;label:string};
+export type MediaPlayback={kind:"youtube"|"apple"|"audio"|"vimeo"|"spotify";src:string;label:string};
 
 /** Only approved provider players. Never put an arbitrary content URL into an iframe. */
 export function mediaPlayback(item:MediaItem):MediaPlayback|null {
@@ -29,6 +29,11 @@ export function mediaPlayback(item:MediaItem):MediaPlayback|null {
    const v=u.hostname==="youtu.be"?u.pathname.substring(1):u.searchParams.get("v");
    if(v&&/^[\w-]{11}$/.test(v))return {kind:"youtube",src:"https://www.youtube-nocookie.com/embed/"+v+"?rel=0",label:"Video"};
   }
+  if(item.type==="podcast"&&u.hostname==="open.spotify.com"
+     && /^\\/episode\\/[a-zA-Z0-9]{15,32}$/.test(u.pathname)){
+    const id=u.pathname.split("/")[2];
+    return {kind:"spotify",src:"https://open.spotify.com/embed/episode/"+id,label:"Spotify episode"};
+   }
   if(item.type==="podcast"&&u.hostname==="podcasts.apple.com"
      && /^\/[a-z]{2}\/podcast\//.test(u.pathname)
      && /\/id\d+$/.test(u.pathname)
