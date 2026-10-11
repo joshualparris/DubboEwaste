@@ -141,7 +141,7 @@ for(const m of featured){
 }
 assert.ok(page.includes('playingMedia===item.id') && page.includes("Play here")&&
  page.includes("Stop player")&&page.includes("<iframe") &&
- page.includes("loading=\\"lazy\\"")&&page.includes("allowFullScreen")&&
+ page.includes('loading="lazy"')&&page.includes("allowFullScreen")&&
  page.includes('href={item.url}'),"Click-to-play embed and external playback fallback both required");
 console.log("Repair media player QA PASS: 4 in-page video embeds, 3 publisher podcast embeds with original source fallbacks.");
 
