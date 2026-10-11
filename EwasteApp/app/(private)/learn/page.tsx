@@ -53,6 +53,7 @@ export default async function LearningHome({
       <p className={styles.hint}>Training can be explored across programmes. Operational permissions remain separate. Courses marked “Your team” match your assigned area.</p>
     </section>
     <aside className={styles.sourcePanel}><strong>New: Interactive RAM Explorer</strong><p>Identify generations from SIMM to DDR5, compare physical modules, explore chips and quiz yourself before repairing or refurbishing PCs.</p><Link className={styles.secondaryLink} href="/ram-guide">Open the interactive RAM Explorer →</Link></aside>
+    <aside className={styles.sourcePanel}><strong>New: HDD, SSD & Storage Explorer</strong><p>Trace drive history, recognise PATA/SATA/SAS/NVMe formats, compare physical storage, inspect verified photos, check connectors and practise practical storage decisions.</p><Link className={styles.secondaryLink} href="/storage-guide">Open the interactive Storage Explorer →</Link></aside>
     <section className={styles.section} id="electronics-field-school">
       <h2>Electronics & Repair Field School</h2>
       <p className={styles.hint}>15 practical courses from low-voltage foundations through soldering, laptop refurbishment, ITAD and Repair Café decision-making. Work through the sequence; theory does not grant electrical authorisation or replace supervisor sign-off.</p>
