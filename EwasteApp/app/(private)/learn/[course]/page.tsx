@@ -8,6 +8,7 @@ import {finishMedia,submitPractical} from "../learning-activities";
 import styles from "../learning.module.css";
 import AdaptiveAssessment from "@/components/AdaptiveAssessment";
 import { deepPathwayFor } from "@/lib/learning/deep-pathways";
+import {assessLearningQuality,qualityStageLabel} from "@/lib/learning/quality";
 
 export default async function CourseOverview({params,searchParams}:{
  params:Promise<{course:string}>,searchParams:Promise<{error?:string,message?:string}>
@@ -17,6 +18,7 @@ export default async function CourseOverview({params,searchParams}:{
  const course=getCourse(id);
  if(!course) notFound();
  const deep=deepPathwayFor(id);
+ const quality=assessLearningQuality(course);
  const db=await createClient();
  const {data:{user}}=await db.auth.getUser();
  if(!user) return null;
@@ -42,6 +44,7 @@ export default async function CourseOverview({params,searchParams}:{
    <span className={styles.track}>{programmes.find(x=>x.id===course.programme)?.icon} {programmes.find(x=>x.id===course.programme)?.label}</span>
    <h1>{course.title}</h1><p>{course.summary}</p>
    <p className={styles.hint}>{course.level} · {deep?"Three orientation lessons; external in-depth study and a supervised application recommended":`Around ${course.duration} minutes · ${course.lessons.length} lessons`}</p>
+   <p className={styles.hint}><strong>Content quality:</strong> {qualityStageLabel(quality.stage)}. This rating describes teaching materials, not your competence or permission to perform repairs.</p>
    {(assignments.data??[]).length>0 ? <p className={styles.notice}>Assigned to you for {(assignments.data??[]).map(a=>a.programme.replaceAll("_"," ")).join(", ")}. {(assignments.data??[]).filter(a=>a.due_date).map(a=>"Target date: "+a.due_date).join("; ")}</p>:null}
    {joined ? <><div className={styles.progressLabel}><strong>Lesson progress</strong><strong>{progress.percent}%</strong></div><progress aria-label="Course completion" value={progress.complete} max={progress.total}/></>
     : <form action={enrolInCourse}><input type="hidden" name="course" value={id}/><button className={styles.primaryButton}>Join this course →</button></form>}
@@ -50,6 +53,14 @@ export default async function CourseOverview({params,searchParams}:{
   {message==="enrolled"?<p role="status" className={styles.success}>You're enrolled. Choose a lesson to begin.</p>:null}
   {message==="media"?<p role="status" className={styles.success}>Media reflection saved to your progress.</p>:null}
   {message==="submitted"?<p role="status" className={styles.success}>Your practical reflection was sent for review.</p>:null}
+  <section className={styles.sourcePanel} aria-label="Learning quality and gaps">
+    <h2>What this course actually teaches</h2>
+    <p>{quality.evidence.join(" · ")}</p>
+    <details><summary>View what is still missing before professional mastery</summary>
+      <ul>{quality.gaps.map(g=><li key={g}>{g}</li>)}</ul>
+      <p>Passing a quiz or ticking off a lesson is not supervised competency evidence.</p>
+    </details>
+  </section>
   {deep?<section className={styles.deepPanel} aria-label="In-depth courses and comparison">
     <span className={styles.deepEyebrow}>Course benchmark and further study</span>
     <h2>This is a starting point, not the whole course.</h2>
