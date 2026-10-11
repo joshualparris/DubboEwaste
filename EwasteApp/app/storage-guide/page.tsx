@@ -64,7 +64,7 @@ const realPhotos:StoragePhoto[] = [
   "group": "SSD",
   "detail": "A real 2.5-inch SATA flash drive for desktop and laptop upgrades.",
   "creator": "Qurren",
-  "license": "Licence on Commons",
+  "license": "CC BY-SA 3.0",
   "ids": [
    "sata-ssd"
   ]
@@ -77,8 +77,7 @@ const realPhotos:StoragePhoto[] = [
   "creator": "Useranonymoususer",
   "license": "CC0",
   "ids": [
-   "msata",
-   "pata-ssd"
+   "msata"
   ]
  },
  {
@@ -90,9 +89,7 @@ const realPhotos:StoragePhoto[] = [
   "license": "CC BY-SA 4.0",
   "ids": [
    "m2-sata42",
-   "m2-sata80",
-   "m2-sata",
-   "nvme2242"
+   "m2-sata80"
   ]
  },
  {
@@ -103,10 +100,7 @@ const realPhotos:StoragePhoto[] = [
   "creator": "User5515",
   "license": "CC0",
   "ids": [
-   "nvme2230",
-   "nvme2280",
-   "nvme22110",
-   "pcie-aic"
+   "nvme2280"
   ]
  },
  {
@@ -116,11 +110,7 @@ const realPhotos:StoragePhoto[] = [
   "detail": "A real HDD cabled into a desktop case.",
   "creator": "Whityya23",
   "license": "CC0",
-  "ids": [
-   "sata25h",
-   "usb-hdd",
-   "sshd"
-  ]
+  "ids": []
  },
  {
   "title": "USB flash drive",
@@ -152,8 +142,7 @@ const realPhotos:StoragePhoto[] = [
   "creator": "Techno ted modern",
   "license": "CC BY-SA 4.0",
   "ids": [
-   "sd",
-   "micro-sd"
+   "sd"
   ]
  },
  {
