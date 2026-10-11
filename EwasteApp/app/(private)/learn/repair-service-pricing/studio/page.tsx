@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { analyseQuote, assessNumber, calculateFloor, calculateJob, money, scenarioBank } from "@/lib/learning/repair-pricing";
-import type { RepairScenario } from "@/lib/learning/repair-pricing";
+import type { RepairScenario, BudgetJudgement } from "@/lib/learning/repair-pricing";
 import styles from "./studio.module.css";
 
 type Stage="rate"|"case"|"handover"|"review";
@@ -58,6 +58,7 @@ export default function PricingStudio(){
  const [scopeNote,setScopeNote]=useState("");
  const [consent,setConsent]=useState<Consent>({data:false,parts:false,stop:false,scope:false});
  const [choice,setChoice]=useState<Choice>("continue");
+ const [budgetJudgement,setBudgetJudgement]=useState<BudgetJudgement|null>(null);
  const [checked,setChecked]=useState(false);
  const [feedback,setFeedback]=useState("");
  const [reflected,setReflected]=useState("");
@@ -66,11 +67,11 @@ export default function PricingStudio(){
  const caseInfo=scenarioBank.find(x=>x.id===which)??scenarioBank[0];
  const rate=useMemo(()=>calculateFloor(monthlyOverhead,monthlyLabour,paidHours,utilisation,margin),[monthlyOverhead,monthlyLabour,paidHours,utilisation,margin]);
  const quotation=useMemo(()=>calculateJob(caseInfo.labourCost,caseInfo.partCost,caseInfo.overhead,caseInfo.reworkReserve,caseInfo.targetMargin,gstRegistered),[caseInfo,gstRegistered]);
- const result=useMemo(()=>analyseQuote(caseInfo,price,gstRegistered,consent,choice),[caseInfo,price,gstRegistered,consent,choice]);
+ const result=useMemo(()=>analyseQuote(caseInfo,price,gstRegistered,consent,choice,budgetJudgement),[caseInfo,price,gstRegistered,consent,choice,budgetJudgement]);
  const completed=Object.keys(history).filter(x=>history[x].score===100).length;
  const nextReview=Object.values(history).length>0?Object.values(history).map(h=>new Date(new Date(h.date).getTime()+3*86400000)).sort((a,b)=>a.getTime()-b.getTime())[0]:null;
  const navigate=(next:Stage)=>{setStage(next);document.getElementById("pricing-studio")?.scrollIntoView({behavior:"smooth",block:"start"})};
- const selectScenario=(id:string)=>{setWhich(id);setPriceTouched(false);setPrice(0);setConsent({data:false,parts:false,stop:false,scope:false});setChoice("continue");setChecked(false);setScopeNote("");setFeedback("");};
+ const selectScenario=(id:string)=>{setWhich(id);setPriceTouched(false);setPrice(0);setConsent({data:false,parts:false,stop:false,scope:false});setChoice("continue");setBudgetJudgement(null);setChecked(false);setScopeNote("");setFeedback("");};
  const validInput=[monthlyOverhead,monthlyLabour,paidHours,utilisation,margin].every(Number.isFinite)&&paidHours>0&&utilisation>0&&margin<100&&Number.isFinite(rate.required);
  const floorCorrect=validInput&&assessNumber(estimate,rate.required,.015);
  const canSubmit=priceTouched&&scopeNote.trim().length>=50;
@@ -116,6 +117,9 @@ export default function PricingStudio(){
      "Customer price entered: "+money(price)+"; correct example total: "+money(quotation.incGST),
      "Customer scope: "+(scopeNote.trim()||"Not written"),
      "Change-of-scope decision: "+choice,
+    "Customer approval cap judgement: "+(budgetJudgement||"Not answered"),
+    "Correct approval cap judgement: "+result.correctBudgetJudgement,
+    "Approval cap judgement correct: "+result.budgetCorrect,
      "Data notice planned in simulation: "+consent.data,
      "Refurbished parts notice planned in simulation: "+consent.parts,
      "Maximum approval and scope clarified: "+consent.scope,
@@ -196,6 +200,12 @@ export default function PricingStudio(){
             <input type="number" inputMode="decimal" min="0" max="100000" step=".01" value={priceTouched?price:""} placeholder="Your calculated total" onChange={e=>{setPrice(Number(e.target.value));setPriceTouched(true);setChecked(false)}}/>
           </label>
           <p className={styles.muted}>Use cost ÷ (1 − target margin). Add GST only if the simulated business is registered. The quote is a fictional single total; do not present it as a local market rate.</p>
+          <fieldset className={styles.decision}>
+           <legend>Independent check: does the full customer price fit the existing authorisation cap?</legend>
+           <p className={styles.muted}>Compare the TOTAL payable amount (including GST if registered) with the cap above. A mathematically correct quote is not automatically approved.</p>
+           {([["within","Yes · at or below the approved total cap"],["over","No · the total exceeds existing authority"]] as const).map(([id,label])=>
+            <label key={id}><input type="radio" name={"pricing-budget-"+which} checked={budgetJudgement===id} onChange={()=>{setBudgetJudgement(id);setChecked(false)}}/><span>{label}</span></label>)}
+          </fieldset>
           <h3>2. Write the scope</h3>
           <label className={styles.textLabel}>What is included, excluded and uncertain? Write at least 50 characters.
             <textarea value={scopeNote} onChange={e=>{setScopeNote(e.target.value);setChecked(false)}} rows={4} maxLength={1200} placeholder="I will diagnose... Includes... Excludes... If unexpected work appears..."/>
@@ -219,6 +229,7 @@ export default function PricingStudio(){
          <div className={styles.gradeHead}><strong>{result.points} / 100</strong><div><h3>{scoreLabel(result.points)}</h3><p>{result.points===100?"Well defended in this fictional scenario. Now justify it in a real supervised assessment.":"Review the reasons below and attempt again; your earlier highest score is retained."}</p></div></div>
          <ul>
           <li>{result.priceCorrect?"✓ Price calculation is within tolerance.":"✕ Price calculation needs correcting."} Internal cost: {money(result.numbers.cost)}; at {caseInfo.targetMargin}% margin: {money(result.numbers.exGST)} ex GST, plus {gstRegistered?money(result.numbers.gst)+" GST":"no GST"} = <strong>{money(result.numbers.incGST)} customer total</strong>.</li>
+          <li>{result.budgetCorrect?"✓ Correct check against the customer's approval cap.":"✕ Your comparison with the customer's approved maximum is incorrect or unanswered."} Customer-approved limit: {money(caseInfo.approvalCap)}; this example's total: {money(result.numbers.incGST)}. {result.capExceeded?"The total exceeds the cap and work is not currently authorised.":"The base quote is within the cap, but unforeseen costs still need approval."}</li>
           <li>{result.actionCorrect?"✓ Correct change-of-scope decision.":"✕ The chosen change-of-scope decision is not justified."} {caseInfo.acceptability==="reapproval"?"Pause and get explicit new approval before further work.":"Recommend referral or replacement because repair reliability, value or competence is in doubt."}</li>
           <li>{result.missing.length===0?"✓ All required simulated safeguards addressed.":"✕ Still missing: "+result.missing.join("; ")+". "}</li>
           <li>Cost ÷ price = {(100-result.numbers.actualMargin).toFixed(1)}% and gross margin = {result.numbers.actualMargin.toFixed(1)}%, subject to correct cost allocations. Reassess if scope changes.</li>
