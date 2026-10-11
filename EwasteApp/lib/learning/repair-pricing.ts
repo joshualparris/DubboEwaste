@@ -68,7 +68,8 @@ export function calculateJob(labour:number,parts:number,overhead:number,provisio
 export function assessNumber(actual:number,expected:number,variance=0.01){
  return Number.isFinite(actual) && Number.isFinite(expected) && Math.abs(actual-expected) <=Math.max(.03,Math.abs(expected)*variance);
 }
-export function analyseQuote(s:RepairScenario,entered:number,gstRegistered:boolean,consent:{data:boolean;parts:boolean;stop:boolean;scope:boolean},decision:"stop"|"continue"|"refer"){
+export type BudgetJudgement = "within" | "over";
+export function analyseQuote(s:RepairScenario,entered:number,gstRegistered:boolean,consent:{data:boolean;parts:boolean;stop:boolean;scope:boolean},decision:"stop"|"continue"|"refer",budgetJudgement:BudgetJudgement|null){
  const numbers=calculateJob(s.labourCost,s.partCost,s.overhead,s.reworkReserve,s.targetMargin,gstRegistered);
  const priceCorrect=assessNumber(entered,numbers.incGST);
  const missing=([
@@ -79,6 +80,12 @@ export function analyseQuote(s:RepairScenario,entered:number,gstRegistered:boole
  ] as const).filter(([ok])=>!ok).map(([,name])=>name);
  const correctAction = s.acceptability==="reapproval"?"stop":"refer";
  const actionCorrect=decision===correctAction;
- const points=(priceCorrect?40:0)+((4-missing.length)*10)+(actionCorrect?20:0);
- return {numbers,points,priceCorrect,missing,actionCorrect,correctAction};
+ // Compare the GST-inclusive total (or ex-GST if unregistered) against the actual
+ // customer approval cap. Incorrectly assuming a quote is authorised loses credit
+ // even when the selling-price arithmetic is correct.
+ const capExceeded=numbers.incGST>s.approvalCap+0.005;
+ const correctBudgetJudgement:BudgetJudgement=capExceeded?"over":"within";
+ const budgetCorrect=budgetJudgement===correctBudgetJudgement;
+ const points=(priceCorrect?30:0)+((4-missing.length)*10)+(actionCorrect?20:0)+(budgetCorrect?10:0);
+ return {numbers,points,priceCorrect,missing,actionCorrect,correctAction,capExceeded,budgetCorrect,correctBudgetJudgement};
 }
