@@ -3,6 +3,7 @@ import {notFound} from "next/navigation";
 import {createClient} from "@/lib/supabase/server";
 import {getCourse,courseProgress,programmes} from "@/lib/learning/catalog";
 import {mediaForCourse} from "@/lib/learning/media";
+import {CourseMediaPlayer} from "@/components/learning/CourseMediaPlayer";
 import {enrolInCourse} from "../actions";
 import {finishMedia,submitPractical} from "../learning-activities";
 import styles from "../learning.module.css";
@@ -134,6 +135,7 @@ export default async function CourseOverview({params,searchParams}:{
     <h3>{item.title}</h3><p>{item.summary}</p><p className={styles.hint}>{item.provider}</p>
     <p><strong>Think about:</strong> {item.focus}</p>
     <p className={styles.hint}>{item.accessibility}</p>
+    <CourseMediaPlayer item={item}/>
     <a className={styles.secondaryLink} href={item.url} target="_blank" rel="noopener noreferrer">Open original {item.type} ↗</a>
     {joined?(watched.has(item.id)?<p className={styles.success}>✓ Your reflection is recorded</p>:
     <form action={finishMedia} className={styles.checkForm}>
