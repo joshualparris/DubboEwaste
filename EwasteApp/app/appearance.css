@@ -51,6 +51,10 @@
 :root[data-theme="dark"] :is([class*="formField"],[class*="deepResources"]) :is(input,textarea,select){background:var(--field);color:var(--ink);border-color:var(--line)}
 :root[data-theme="dark"] :is([class*="courseCard"],[class*="sourcePanel"],[class*="deepPanel"]) a{color:#a3ecc0}
 :root[data-theme="dark"] :is([class*="deepResources"],[class*="deepNext"]) a{color:#fff}
+:root[data-theme="dark"] .button:not(.secondary){background:#216847;color:#fff}
+:root[data-theme="dark"] .button:not(.secondary):hover{background:#185336}
+:root[data-theme="dark"] .badge{color:#c0f0d2}
+:root[data-theme="dark"] :is(a,button,input,select,textarea):focus-visible{outline:3px solid #9ddbb9;outline-offset:2px}
 /* Scan targets, certificates, and paper printouts must remain legible on white. */
 :root[data-theme="dark"] :is(.asset-label-print-area,.asset-batch-print-area,.asset-print-label,.qr){background:#fff;color:#111}
 @media print{
