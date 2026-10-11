@@ -2,6 +2,7 @@ import fs from "node:fs";
 import assert from "node:assert/strict";
 import path from "node:path";
 import ts from "typescript";
+import "./repair-pricing-qa.mjs";
 const root=process.cwd();
 const load=p=>fs.readFileSync(path.join(root,p),"utf8");
 const readTS=p=>ts.createSourceFile(p,load(p),ts.ScriptTarget.Latest,true,ts.ScriptKind.TS);
@@ -89,9 +90,9 @@ assert.ok(pricing&&pricing.resources.length>=4&&pricing.cases.length===3,
 assert.ok(pricing.resources.some(r=>r.provider==="Australian Competition and Consumer Commission"),
   "Repair quotations require primary Australian regulatory reference");
 const studio=load("components/RepairPricingStudio.tsx");
-assert.ok(studio.includes("const cases:QuoteCase[]=")&&studio.includes("id=\"pricing-studio\"")&&
- studio.includes("pricingTotals")&&studio.includes("35 words")&&studio.includes("quote")&&
- studio.includes("portfolio")===false ? false : true,"Studio component must be accessible and interactive");
+assert.ok(studio.includes("const cases:QuoteCase[]=") && studio.includes('id="pricing-studio"') &&
+ studio.includes("pricingTotals") && studio.includes("35 words") && studio.includes("Download fictional worked-case portfolio"),
+ "Pricing studio must include calculation, decision, customer response and evidence export");
 assert.ok(load("app/(private)/learn/[course]/page.tsx").includes("<RepairPricingStudio />"),
  "Existing repair pricing course must render the practical learning studio");
 assert.ok(load("app/(private)/learn/[course]/page.tsx").includes("deepPathwayFor"),"Course page must show external learning links");
