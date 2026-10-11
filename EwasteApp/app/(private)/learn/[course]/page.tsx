@@ -7,6 +7,7 @@ import {enrolInCourse} from "../actions";
 import {finishMedia,submitPractical} from "../learning-activities";
 import styles from "../learning.module.css";
 import AdaptiveAssessment from "@/components/AdaptiveAssessment";
+import LaptopDiagnosticsLab from "@/components/LaptopDiagnosticsLab";
 import { deepPathwayFor } from "@/lib/learning/deep-pathways";
 import {assessLearningQuality,qualityStageLabel} from "@/lib/learning/quality";
 
@@ -92,6 +93,7 @@ export default async function CourseOverview({params,searchParams}:{
     })}
    </div>
   </section>
+  {joined && id==="repair-laptop-refurb" ? <LaptopDiagnosticsLab /> : null}
   {joined ? <AdaptiveAssessment courseId={id} /> : null}
   {media.length>0?<section className={styles.section} id="media">
    <h2>Watch, listen and reflect</h2>
