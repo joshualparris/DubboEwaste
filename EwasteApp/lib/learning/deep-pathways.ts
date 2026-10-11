@@ -702,6 +702,63 @@ export const deepPathways: DeepPathway[] = [
         "safety": "Parts harvesting does not cancel chain of custody."
       }
     ]
-  }
+  },
+{
+  "slug": "repair-service-pricing",
+  "benchmark": "The ACCC repair-notice rules, business.gov.au cost-plus pricing guidance and industry labour-rate models demand more than a generic margin question. The existing three-lesson orientation has no graduated, assessed quoting portfolio; accurate costing must be combined with lawful disclosures, customer approval and data handling.",
+  "target": "Independently create four documented fictional quotes: distinguish internal cost from selling rate, calculate ex-GST margin and conditional GST correctly, explain why donor/used parts require prior informed notice, cap authorisation for uncertain liquid damage, and justify a repair-versus-replace decision. Show workings, a customer-facing approval message and an evidence-based stop-work rule.",
+  "limits": "Training figures and examples are fictional, not a published repair tariff. This is not a tax, legal or professional qualification. The ACCC requires applicable written repair notices before accepting consumer goods for repair; in uncertain liquid-damage cases do not energise the device. Do not use actual customer files, names or secrets in the training studio.",
+  "resources": [
+    {
+      "title": "Repair notices for data-bearing goods and refurbished parts",
+      "provider": "Australian Competition and Consumer Commission",
+      "url": "https://www.accc.gov.au/consumers/problem-with-a-product-or-service-you-bought/repair-notices",
+      "access": "Free · official Australian consumer law guidance",
+      "kind": "Primary Australian legal reference",
+      "why": "Study when a written data-loss warning and a refurbished-parts notice must be given, the required wording, and why a customer needs information before a device is accepted for repair."
+    },
+    {
+      "title": "Choose a pricing strategy",
+      "provider": "business.gov.au",
+      "url": "https://business.gov.au/products-and-services/choose-a-pricing-strategy",
+      "access": "Free · Australian Government",
+      "kind": "Structured cost-plus and hourly-pricing guide",
+      "why": "Build a price from cost categories, utilisation and overhead without mistaking cost markup for gross margin, and compare fixed and hourly pricing."
+    },
+    {
+      "title": "Register for goods and services tax (GST)",
+      "provider": "business.gov.au",
+      "url": "https://business.gov.au/registrations/register-for-taxes/register-for-goods-and-services-tax-gst",
+      "access": "Free · Australian Government",
+      "kind": "Tax registration reference",
+      "why": "Understand why GST is conditional on registration, why non-registered businesses must not add GST, and when to use GST-inclusive consumer prices."
+    },
+    {
+      "title": "How to calculate a repair-shop labour rate",
+      "provider": "Tech Care Association",
+      "url": "https://techcareassociation.org/2026/09/23/tech-repair-shop-labor-rate-formula/",
+      "access": "Free practitioner reading · US cost model",
+      "kind": "Industry worked-example perspective",
+      "why": "Critique a detailed hourly rate floor using billable utilisation and labour load; replace US-specific rates and tax assumptions with verified Australian ones."
+    }
+  ],
+  "cases": [
+    {
+      "prompt": "Case 1 — A fictional customer owns an older HP 250 G3 with a 2.5-inch SATA HDD. You can reuse an SSD recovered from a separate test laptop, but its health, capacity and ownership are not yet confirmed. Pricing inputs: eligible replacement part $55, 1.5 active hours at $42 internal labour cost per hour, allocated overhead $16 and a $12 realistic rework allowance. At a target 25% gross margin, calculate the ex-GST estimate and, separately, what a GST-registered business would display inclusive of 10% GST. Distinguish a donor SSD backup from an image of the customer's original HDD. Specify written notices and consent BEFORE accepting a data-storing product for repair.",
+      "workedAnswer": "Internal cost = $55 + (1.5 × $42) + $16 + $12 = $146. For a 25% gross margin, ex-GST price = $146 ÷ 0.75 = $194.67; if GST-registered, show $214.13 inclusive of 10% GST (rounding at invoice level as applicable). An unregistered business should not add GST. The part price is a hypothetical priced input, not a value for an unverified donor. Preserve the customer's original HDD and obtain an approved migration/backup plan, rather than cloning the unrelated donor laptop's Windows image. Test donor health and compatibility; disclose potential data loss and refurbished parts in an appropriate written ACL repair notice before accepting the device for repair. Obtain the final cost cap and approval in writing.",
+      "safety": "If a drive's ownership, health, capacity or authority is unclear, pause. Do not put any real customer's personal data or name in this fictional lesson, and do not claim an untested clone is a verified backup."
+    },
+    {
+      "prompt": "Case 2 — A fictional Lenovo IdeaPad 3 15IAU7 initially ran after tea was spilt on it and now will not power up. A proposed diagnostic costs 1.2 active hours × $42 internal labour, $12 allocated overhead and $10 failure-risk allowance. At a 20% margin, price the diagnostic EXCLUDING GST. The client has authorised only a maximum of $100 and you later discover a $95 replacement part may be needed. Produce a fixed diagnostic scope, explain a stop-work trigger and draft a message with genuinely separate repair/referral/no-repair options. Discuss charger testing ONLY while detached from the spilled laptop.",
+      "workedAnswer": "Cost = 1.2 × $42 + $12 + $10 = $72.40. Price at a 20% gross margin = $72.40 ÷ 0.80 = $90.50 ex-GST; a GST-registered inclusive comparison would be $99.55. Do not interpret $90.50 as authorisation for extra parts. Disconnect the laptop, avoid repeated power attempts, and treat the charger and laptop diagnostics as different tasks. If the $95 additional part is required, STOP; explain what was found, provide revised priced options, seek explicit new approval and preserve the original $100 cap unless changed by informed consent. A valid quotation also explains that a liquid-damaged board may be uneconomic or unsafe to repair.",
+      "safety": "Liquid damage can create unsafe shorts and corrosion. Do not power the laptop just to generate a symptom; offer controlled assessment or competent referral. No unapproved add-on parts."
+    },
+    {
+      "prompt": "Case 3 — A small organisation has four non-booting 2015–2019 laptops and asks for a discounted fleet repair quote. Two pass SSD/storage tests, one shows an unknown device-management lock, and one has a swollen lithium battery. Baseline hypothetical inputs: $210 of parts, 4.5 active labour hours at $42 internal cost/hour, $65 allocated overhead and $38 total expected rework cost. Target 22% gross margin. Calculate the ex-GST batch quote and justify why at least two devices must be excluded or referred. Explain how you would show a separate authorised per-unit scope and not promise that all four machines will be completed for the headline amount.",
+      "workedAnswer": "Internal cost = $210 + (4.5 × $42) + $65 + $38 = $502. Target 22% gross margin: $502 ÷ 0.78 = $643.59 ex-GST, or approximately $707.95 inclusive if GST-registered. However the numerical result is a training exercise, NOT a responsible unconditional fixed price for all four machines. The management-locked unit requires authorised admin/owner release; the swollen-battery unit needs safe quarantine and a qualified handling pathway. Keep those units outside the approved repair scope until diagnosed, record each unit's approved cap and testing evidence, and make quantity discounts contingent on comparable scope rather than hidden cross-subsidy.",
+      "safety": "Never bypass a third-party management lock, energise a swollen lithium battery or treat a batch discount as permission for unquoted work. Protect any customer data-bearing media."
+    }
+  ]
+}
 ];
 export function deepPathwayFor(id:string){return deepPathways.find(x=>x.slug===id);}
