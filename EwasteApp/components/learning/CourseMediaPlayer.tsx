@@ -22,6 +22,9 @@ export function CourseMediaPlayer({item}:{item:MediaItem}){
   }else if(parsed.hostname==="vimeo.com"||parsed.hostname==="player.vimeo.com"){
    const id=parsed.pathname.match(/(?:\/video)?\/(\d+)$/)?.[1];
    if(id)player="https://player.vimeo.com/video/"+id;
+  }else if(parsed.hostname==="podcasts.apple.com"){
+   const episode=parsed.searchParams.get("i");
+   if(/^\d{10,}$/.test(episode??""))player="https://embed.podcasts.apple.com"+parsed.pathname+"?i="+episode;
   }else if(parsed.hostname==="open.spotify.com"){
    const match=parsed.pathname.match(/^\/(?:embed\/)?(episode|show)\/([\w]+)$/);
    if(match)player="https://open.spotify.com/embed/"+match[1]+"/"+match[2];
@@ -29,7 +32,7 @@ export function CourseMediaPlayer({item}:{item:MediaItem}){
  }catch{}
  if(!player)return null;
  return <div style={{margin:"1rem 0",maxWidth:"100%"}}>
-  <iframe title={"Play "+item.title} src={player} loading="lazy" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" style={{display:"block",border:0,width:"100%",height:item.type==="podcast"?220:undefined,aspectRatio:item.type==="video"?"16 / 9":undefined,borderRadius:12}}/>
+  <iframe title={"Play "+item.title} src={player} loading="lazy" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" style={{display:"block",border:0,width:"100%",height:item.type==="podcast"?(player.includes("embed.podcasts.apple.com")?175:220):undefined,aspectRatio:item.type==="video"?"16 / 9":undefined,borderRadius:12}}/>
   <p style={{fontSize:".85rem",marginTop:".4rem"}}>Embedded player supplied by {item.provider}. If playback is blocked, open the original source below.</p>
  </div>;
 }
