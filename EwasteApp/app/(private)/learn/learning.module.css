@@ -116,3 +116,15 @@
 .deepNext p{margin:0;font-size:13px;line-height:1.6}
 .deepNext a{margin-top:0}
 @media(max-width:540px){.deepResources{grid-template-columns:1fr}.deepPanel{padding:16px}.deepLesson{padding:15px}.deepLesson h2{font-size:21px}}
+
+/* Deep pricing simulator entry point */
+.pricingHero{display:grid;gap:13px;background:linear-gradient(135deg,#153c30,#226d48);color:white;padding:clamp(20px,4vw,38px);border-radius:18px}
+.pricingHero>span{font-size:11px;letter-spacing:.13em;font-weight:900;color:#b7f5ca}
+.pricingHero h2{font-size:clamp(24px,4vw,38px);letter-spacing:-.04em;margin:0}
+.pricingHero>p{max-width:850px;margin:0;line-height:1.7;color:#e2f4e6}
+.pricingCalloutStats{display:flex;flex-wrap:wrap;gap:12px;color:#e1f2e3;font-size:12px}
+.pricingCalloutStats strong{border:1px solid #7ba78c;background:#ffffff15;border-radius:7px;padding:8px 11px}
+.pricingStart{display:inline-flex;justify-content:center;align-items:center;max-width:max-content;min-height:43px;border-radius:8px;background:#b6eac2;color:#154229!important;padding:11px 15px;font-size:14px;font-weight:900;text-decoration:none}
+.pricingStart:hover{background:#fff}
+.pricingInline{display:grid;justify-items:start;gap:10px;border-radius:13px;border:1px solid #a5c9b0;background:#ebf6ee;padding:22px}
+.pricingInline p{margin:0;font-size:14px;color:#456750}
