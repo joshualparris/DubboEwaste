@@ -189,6 +189,17 @@ export const storagePhotos:StoragePhoto[] = [
     ]
   },
   {
+    "id": "nvme-2280",
+    "title": "M.2 NVMe 2280 solid-state drive",
+    "file": "1TB 2280 NVME SSD.jpg",
+    "group": "SSD",
+    "detail": "Genuine 1 TB 22 × 80 mm NVMe solid-state drive; unlike 2230 and 22110 lengths, this is the 2280 form factor.",
+    "credit": "User5515",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "atlasIds": ["nvme2280"]
+  },
+  {
     "id": "m2-sata-adapter",
     "title": "SATA SSD adaptor with M.2 SATA module",
     "file": "Dual SSD SATA adapter with Samsung 860 EVO SSD and 2.5-inch enclosure.jpg",
