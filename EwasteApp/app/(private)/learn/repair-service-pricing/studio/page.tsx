@@ -20,6 +20,20 @@ const resources=[
   {label:"Hear repair shop pricing arguments",provider:"Podnutz",url:"https://podnutz.com/podnutz181/",kind:"Free practitioner podcast",why:"Compare historical hardware markup opinions with today's cost-based calculation; old US prices are not local evidence."},
   {label:"Long-form Australian field lesson",provider:"DubboEwaste research",url:"https://github.com/joshualparris/DubboEwaste/blob/main/docs/COMPUTER-REPAIR-SERVICE-PRICING-2026-10-11.md",kind:"Full source notes",why:"Includes model quotes, consent cap, local benchmarking method, consumer notices and practical template."}
 ];
+
+/** Direct episode/video or dedicated course links, not search-result pages.
+ * Original creators host playback. No embedded third-party trackers.
+ * Costing decisions use Australian source guidance, not US repair rate claims.
+ */
+const featuredMedia = [
+ {id:"video-side-repairs",type:"video",stage:"01 · Rate engineering",provider:"Electronics Repair School",title:"Don't Be Afraid to Charge Money for Side Repairs",url:"https://www.classcentral.com/course/youtube-don-t-be-afraid-to-charge-money-for-these-side-repairs-446448",duration:"19-minute free video course",description:"A technician's perspective on charging for time and expertise rather than treating side repairs as free work.",task:"After watching, identify two non-part costs the presenter overlooks or underestimates. Recalculate an Australian hourly floor using the studio.",caveat:"External Class Central listing links to YouTube. Practitioner advice, not an Australian price benchmark."},
+ {id:"video-ssd-copy",type:"video",stage:"02 · Quote simulator",provider:"Crucial / Micron",title:"Installing a Crucial 2.5-inch SSD: Copy",url:"https://www.youtube.com/watch?v=pQw4E8ecL5c",duration:"Free instructional video",description:"Walk through preparing and copying an existing drive when quoting an SSD migration.",task:"List which operations require your hands-on time, which may run unattended, and two extra checks before touching a customer's original disk.",caveat:"Older vendor-specific migration example. Cloning is not an independently verified backup; confirm device and customer permission."},
+ {id:"video-ssd-install",type:"video",stage:"02 · Quote simulator",provider:"Crucial / Micron",title:"Installing a Crucial 2.5-inch SSD: Install",url:"https://www.youtube.com/watch?v=dy7An1DkieQ",duration:"Free instructional video",description:"Observe the physical SSD fitting and verification tasks that a labour quote must allow for.",task:"Create an SSD quote checklist including isolation, drive identification, fitting, boot verification and a no-data-loss caveat.",caveat:"Generic vendor demonstration; not a model-specific repair procedure or proof of safe data migration."},
+ {id:"video-troubleshoot",type:"video",stage:"02 · Quote simulator",provider:"Professor Messer",title:"Computer hardware troubleshooting: diagnostic reasoning",url:"https://www.youtube.com/watch?v=HgeURynWn_w",duration:"Free A+ teaching video",description:"Count the diagnostic steps behind an intermittent hardware symptom before promising a fixed-fee outcome.",task:"Draft a capped diagnostic quote with three inclusions, two exclusions and one stop-work trigger for an uncertain no-power complaint.",caveat:"Demonstration teaches diagnostic scope, not Australian labour prices; check the original video title and playback on YouTube."},
+ {id:"podcast-new-shop",type:"podcast",stage:"01 · Rate engineering",provider:"Computer Repair Academy",title:"Repair Shop Pricing: How Much Should You Charge? — S3 Ep2",url:"https://music.amazon.com.au/podcasts/64e7a117-f5f2-4195-b63d-6ac99d620a81/episodes/2a5fa4d5-0811-489a-a6b4-a8e829a6fd41/computer-repair-academy-why-is-this-pc-so-slow-performance-problems-pc-hardware-repair-shop-pricing---s3-ep2",duration:"21-minute episode · 2 September 2026",description:"The Office Desk segment discusses what a new repair business should charge, alongside real troubleshooting and SSD tools.",task:"Listen to the pricing segment; write down one valid costing principle and one recommendation that needs checking for Australian GST, overhead or consumer rights.",caveat:"Mixed-topic podcast; pricing is one segment. US-style practitioner opinion, not a Dubbo rate card. Player availability varies."},
+ {id:"podcast-hardware-markup",type:"podcast",stage:"03 · Customer handover",provider:"The Computer Repair Podcast / Podnutz",title:"Episode 181: Hardware Markup",url:"https://podnutz.com/podnutz181/",duration:"Free audio + MP3 page · 19 May 2016",description:"Technicians debate whether and how a repair business should mark up the replacement parts it supplies.",task:"Compare 20% markup against 20% gross margin on a $160 total cost. Explain the difference in plain English to a customer.",caveat:"Historical US discussion; parts markup is not the same as overall job margin and is not legal/tax advice."}
+] as const;
+
 const consentLabels:{key:keyof Consent;label:string;why:string}[]=[
   {key:"data",label:"Issue the required individual written data-loss warning before accepting a consumer data-bearing repair",why:"A sign in the shop is not the written notice required by ACCC guidance."},
   {key:"parts",label:"Address the required refurbished-parts notice where the repairer may use refurbished parts",why:"The legal notice depends on repairer practice; this simulation assumes a refurbishing repair business."},
@@ -138,7 +152,7 @@ export default function PricingStudio(){
    <div className={styles.breadcrumb}><Link href="/learn/repair-service-pricing">← Computer Repair Pricing course</Link><span>Practice lab · AUD</span></div>
    <header className={styles.hero}>
     <div><div className={styles.kicker}>ASSETFLOW ACADEMY · INTERACTIVE CAPSTONE</div><h1>REPAIR PRICING<br/><em>STUDIO.</em></h1><p>Build a sustainable labour rate, price actual repair decisions, navigate authorisation and practise producing a transparent customer quote.</p>
-      <div className={styles.heroButtons}><button onClick={()=>navigate("case")}>Start repair scenario ↗</button><button className={styles.lightButton} onClick={()=>navigate("rate")}>Calculate labour floor</button></div>
+      <div className={styles.heroButtons}><button onClick={()=>navigate("case")}>Start repair scenario ↗</button><button className={styles.lightButton} onClick={()=>navigate("rate")}>Calculate labour floor</button><a className={styles.mediaHeroLink} href="#pricing-media">Watch videos & listen to podcasts ↓</a></div>
     </div>
     <div className={styles.heroScore}><span>YOUR PRACTICE RECORD</span><strong>{ready?completed+" / "+scenarioBank.length:"—"}</strong><p>Scenario decisions fully correct. These are learning simulations, not competency certificates.</p><div className={styles.meter}><div style={{width:completed/scenarioBank.length*100+"%"}}/></div>{nextReview?<small>Suggested review: {nextReview.toLocaleDateString("en-AU")}</small>:<small>Complete a scenario to start three-day retrieval review.</small>}</div>
    </header>
@@ -286,6 +300,31 @@ export default function PricingStudio(){
         <button onClick={exportEvidence} className={styles.outline}>Download practice evidence (.txt)</button><button className={styles.outline} onClick={()=>{if(window.confirm("Clear locally saved Pricing Studio practice scores on this browser?"))clear()}}>Reset local practice record</button>
       </div>
     </section>}
+    
+   <section className={styles.mediaSection} id="pricing-media" aria-labelledby="pricing-media-heading">
+     <div className={styles.mediaIntro}>
+       <div><span className={styles.eyebrow}>SIX FREE LEARNING RESOURCES · WATCH & LISTEN</span>
+         <h2 id="pricing-media-heading">Watch the work. Hear the pricing decisions.</h2>
+         <p>Use these creator-hosted videos and actual podcast episodes to test your quoting assumptions. Each resource has a task to complete in the studio; opening a link alone does not earn a mastery score.</p>
+       </div>
+       <a href="#pricing-studio" className={styles.mediaBack}>Back to simulator ↑</a>
+     </div>
+     <div className={styles.mediaGrid}>
+       {featuredMedia.map(item=><article className={styles.mediaCard} key={item.id}>
+         <div className={styles.mediaCardTop}><span className={styles.mediaKind}>{item.type==="video"?"▶ VIDEO":"♫ PODCAST"}</span><span className={styles.mediaStage}>{item.stage}</span></div>
+         <h3>{item.title}</h3>
+         <p className={styles.mediaProvider}>{item.provider} · {item.duration}</p>
+         <p>{item.description}</p>
+         <div className={styles.mediaTask}><strong>Try this:</strong> {item.task}</div>
+         <p className={styles.mediaCaveat}>{item.caveat}</p>
+         <a className={styles.mediaOpen} href={item.url} target="_blank" rel="noopener noreferrer"
+           aria-label={"Open "+item.title+" on the original provider website (new tab)"}>
+           {item.type==="video"?"Watch original video ↗":"Listen to original episode ↗"}
+         </a>
+       </article>)}
+     </div>
+     <p className={styles.mediaDisclaimer}>Links open on their providers' sites; captions, transcripts, availability and adverts are controlled by those providers. Audio and video are optional study formats alongside official Australian guidance, not proof of fair local pricing or a real-world repair qualification.</p>
+   </section>
     <footer className={styles.footer}><div><strong>Source-led, not just a quiz</strong><p>{assumptions.join(" ")}</p></div><Link href="/learn/repair-service-pricing">Return to the LMS course →</Link></footer>
    </div>
   </main>;
