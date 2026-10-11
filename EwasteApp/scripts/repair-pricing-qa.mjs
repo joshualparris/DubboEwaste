@@ -95,12 +95,12 @@ function inspectMedia(node){
 }
 inspectMedia(studioAst);
 assert.ok(featured,"Pricing studio must have a featured media library");
-assert.equal(featured.length,6,"Six curated study resources (4 video, 2 podcasts) required");
+assert.equal(featured.length,7,"Seven curated resources (4 video, 3 podcasts) required");
 assert.equal(featured.filter(x=>x.type==="video").length,4);
-assert.equal(featured.filter(x=>x.type==="podcast").length,2);
-assert.equal(new Set(featured.map(x=>x.id)).size,6,"Duplicate media record");
-assert.equal(new Set(featured.map(x=>x.url)).size,6,"Duplicate media link");
-const allowedHosts=new Set(["www.youtube.com","www.classcentral.com","music.amazon.com.au","podnutz.com"]);
+assert.equal(featured.filter(x=>x.type==="podcast").length,3);
+assert.equal(new Set(featured.map(x=>x.id)).size,7,"Duplicate media record");
+assert.equal(new Set(featured.map(x=>x.url)).size,7,"Duplicate media link");
+const allowedHosts=new Set(["www.youtube.com","music.amazon.com.au","podnutz.com"]);
 for(const item of featured){
  const url=new URL(item.url);
  assert.equal(url.protocol,"https:","Media needs HTTPS");
@@ -114,6 +114,37 @@ for(const item of featured){
 assert.ok(page.includes('id="pricing-media"')&&page.includes("featuredMedia.map")&&
  page.includes('rel="noopener noreferrer"')&&page.includes('href="#pricing-media"'),
  "Media library must have direct accessible links from the studio hero");
-console.log("Repair pricing media QA PASS: 4 videos, 2 podcasts, real HTTPS provider links and applied tasks.");
+const embeds=new Map();
+function inspectEmbeds(node){
+ if(ts.isVariableDeclaration(node)&&node.name.getText(studioAst)==="playableMedia"){
+  assert.ok(ts.isObjectLiteralExpression(node.initializer),"Playback URLs must be a static audited object");
+  for(const property of node.initializer.properties){
+   assert.ok(ts.isPropertyAssignment(property) && ts.isStringLiteral(property.name) &&
+     ts.isObjectLiteralExpression(property.initializer),"Invalid embedded media record");
+   const src=property.initializer.properties.find(p=>ts.isPropertyAssignment(p)&&p.name.getText(studioAst)==="src");
+   assert.ok(src && ts.isStringLiteral(src.initializer),"Each player needs a fixed iframe URL");
+   embeds.set(property.name.text,src.initializer.text);
+  }
+ }
+ ts.forEachChild(node,inspectEmbeds);
+}
+inspectEmbeds(studioAst);
+assert.equal(embeds.size,7,"Every restored media item must have an explicit in-page player");
+assert.ok(embeds.has("podcast-hardware-markup") && embeds.has("podcast-billable-diagnostics") &&
+ embeds.has("podcast-new-shop"),"All original and restored podcasts must remain visible");
+for(const m of featured){
+ assert.ok(embeds.has(m.id),"No missing playable resource "+m.id);
+ const url=new URL(embeds.get(m.id));
+ assert.equal(url.protocol,"https:");
+ if(m.type==="video")assert.equal(url.hostname,"www.youtube-nocookie.com","Video must use privacy-enhanced YouTube embed");
+ else assert.ok(["player.rss.com","podnutz.com"].includes(url.hostname),"Audio must use publisher-hosted player");
+}
+assert.ok(page.includes('playingMedia===item.id') && page.includes("Play here")&&
+ page.includes("Stop player")&&page.includes("<iframe") &&
+ page.includes("loading=\\"lazy\\"")&&page.includes("allowFullScreen")&&
+ page.includes('href={item.url}'),"Click-to-play embed and external playback fallback both required");
+console.log("Repair media player QA PASS: 4 in-page video embeds, 3 publisher podcast embeds with original source fallbacks.");
+
+console.log("Repair pricing media QA PASS: 4 videos, 3 podcasts, original links and applied tasks.");
 
 console.log("Repair pricing QA PASS: four risk-aware scenarios; arithmetic, GST, approvals, mobile style coverage and integration links.");
