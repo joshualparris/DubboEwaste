@@ -237,3 +237,25 @@ assert.ok(reviewAction.includes("record.user_id===actor.user.id"),"A learner can
 assert.ok(reviewScreen.includes("Independently observed laptop practical sign-offs"),"Supervisor must have a real review register");
 assert.ok(courseDetail.includes("independentlyObservedSignoff")&&courseDetail.includes("No independently observed practical sign-off"),"Learner must see their actual outcome or honest absence of one");
 console.log("Observed mastery QA PASS: audio scripts and UI parse, targeted podcast, six skills, independent-assessor gate and DB audit controls.");
+
+
+const storageGallerySource=load("lib/storage-photos.ts");
+const storageGalleryData=storageGallerySource.split("export const storagePhotos:StoragePhoto[] = ")[1]?.split(";\\nexport function")[0];
+assert.ok(storageGalleryData,"Storage Explorer must retain its verified photo catalogue");
+const storageGallery=JSON.parse(storageGalleryData);
+assert.ok(storageGallery.length>=16,"Storage Explorer should feature at least sixteen real photo references");
+assert.equal(new Set(storageGallery.map(p=>p.id)).size,storageGallery.length,"Storage photographs need distinct IDs");
+assert.equal(new Set(storageGallery.map(p=>p.file)).size,storageGallery.length,"Do not add duplicate photograph files");
+const validDriveIds=new Set([...load("lib/storage-guide.ts").matchAll(/\\{id:"([^"]+)",title:/g)].map(m=>m[1]));
+for(const p of storageGallery){
+ assert.ok(p.file && p.credit && p.license && p.licenseUrl.startsWith("https://"),"Photo must credit actual source and license: "+p.id);
+ assert.ok(p.atlasIds.every(id=>validDriveIds.has(id)),"Photo must map to an actual atlas entry: "+p.id);
+}
+assert.ok(storageGallery.some(p=>p.file==="1TB 2280 NVME SSD.jpg"&&p.atlasIds.includes("nvme2280")),"Never substitute a 2230 SSD photo for a 2280 SSD");
+assert.ok(storageGallery.every(p=>!p.atlasIds.includes("pata-ssd")||p.id!=="msata"),"mSATA is not PATA");
+const storagePage=load("app/storage-guide/page.tsx");
+assert.ok(storagePage.includes("storagePhotos.map") && storagePage.includes("photoForItem(item)"),"Storage photos must be visible in gallery and drive atlas");
+assert.ok(storagePage.includes("heroPhotos") && storagePage.includes("photoHighlights"),"Real photos must appear in main site sections, not only a hidden tab");
+const storageTSX=ts.createSourceFile("storage-guide/page.tsx",storagePage,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
+assert.equal(storageTSX.parseDiagnostics.length,0,"Storage Explorer JSX must parse after photo edits");
+console.log("Storage photo QA PASS: real Commons sources, sixteen photo entries, correct drive sizes, header/atlas/anatomy/gallery rendering.");
