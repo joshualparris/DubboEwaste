@@ -67,6 +67,8 @@ export default async function CourseOverview({params,searchParams}:{
    <p>Work through five adaptive repair decisions based on an actual Macrium clone that crawled at 94–96% and then completed. Includes visual timeline, narrated explanations, real manufacturer training, an evidence record and a supervisor verification checklist.</p>
    <p className={styles.hint}>Complete the orientation lessons too. A simulation score is not a practical sign-off; use your finished notes in the supervised assessment below.</p>
    <Link className={styles.secondaryLink} href="/learn/repair-laptop-refurb/field-lab">Open the advanced SSD clone field lab →</Link>
+   <p>Compare drive interfaces visually before ordering parts, then work through the written HP 250 G3 data-protection and verification guide.</p>
+   <Link className={styles.secondaryLink} href="/storage-guide">Explore HDD, SATA SSD and NVMe compatibility →</Link>
   </section>:null}
   {deep?<section className={styles.deepPanel} aria-label="In-depth courses and comparison">
     <span className={styles.deepEyebrow}>Course benchmark and further study</span>
