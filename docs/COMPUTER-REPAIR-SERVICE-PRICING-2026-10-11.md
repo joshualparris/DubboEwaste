@@ -79,6 +79,9 @@ Find 3–5 current comparable repairers in your **actual service area**. Record 
 4. [ACCC — Repair notices](https://www.accc.gov.au/consumers/problem-with-a-product-or-service-you-bought/repair-notices): written data-loss/refurbished-part notice rules.
 5. [ACCC — Consumer rights and guarantees](https://www.accc.gov.au/consumers/buying-products-and-services/consumer-rights-and-guarantees): remedies and non-excludable rights.
 
+### Deeper free practitioner lesson (US context; adapt for Australia)
+- [Tech Care Association — calculate your repair shop labour rate](https://techcareassociation.org/2026/09/23/tech-repair-shop-labor-rate-formula/) (23 September 2026): in-depth rate-floor method, actual billable utilisation, the margin equation and a linked free calculator. Avoid transplanting US labour or tax settings into Australia. This is an industry association perspective rather than official regulatory guidance.
+
 ### Free videos: measure real repair scope (not rate-setting lessons)
 6. [Professor Messer — computer hardware troubleshooting](https://www.youtube.com/watch?v=HgeURynWn_w): note the diagnoses and checks included in a quote. **Does not supply Australian rates**.
 7. [TronicsFix — challenging electronic repair cases](https://www.youtube.com/watch?v=2WHa4EcDtUI): distinguish edited footage from labour, parts and test time not shown. **Does not teach Australian service pricing**.
