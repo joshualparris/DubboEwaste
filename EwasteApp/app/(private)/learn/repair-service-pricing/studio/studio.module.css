@@ -31,3 +31,13 @@
 .mediaDisclaimer{font-size:12px;color:#526a59;line-height:1.6;margin:16px 0 0}
 @media(max-width:760px){.mediaGrid{grid-template-columns:1fr}.mediaIntro{display:block}.mediaBack{display:inline-block;margin-top:8px}.mediaSection{padding:17px}}
 @media print{.mediaSection{break-before:page;background:#fff;border:0;padding:10px}.mediaGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.mediaCard{break-inside:avoid;box-shadow:none}.mediaHeroLink{display:none}}
+
+
+/* Explicit play-to-load ensures no third-party video/audio requests before consent. */
+.mediaPlay{display:inline-flex;justify-content:center;align-items:center;align-self:start;background:#1c6443;color:#fff;font-weight:850;font-size:14px;border:1px solid #135032;border-radius:8px;min-height:46px;padding:12px 19px;cursor:pointer}
+.mediaPlay:hover,.mediaPlay:focus-visible{background:#0f492f;color:#fff;outline-offset:3px}
+.mediaFrameWrap{width:100%;min-width:0}
+.mediaFrameWrap:empty{display:none}
+.mediaFrame{display:block;width:100%;max-width:100%;min-height:240px;border:0;border-radius:9px;background:#eef1f1}
+.mediaPlayerNote{font-size:12px!important;line-height:1.55!important;color:#31513f!important;margin:0 0 8px!important}
+@media(max-width:600px){.mediaPlay,.mediaOpen{width:100%;max-width:100%;text-align:center;justify-content:center}.mediaFrame{min-height:225px}}
