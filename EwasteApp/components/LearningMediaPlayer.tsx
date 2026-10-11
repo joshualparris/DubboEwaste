@@ -19,11 +19,11 @@ export default function LearningMediaPlayer({item}:{item:MediaItem}){
     </div>
     {playback.kind==="audio"?<audio controls preload="none" src={playback.src} className={styles.audio} onError={()=>setFailed(true)}>
      Your browser cannot play this audio source. Use the original link below.
-    </audio>:<iframe className={playback.kind==="youtube"?styles.video:styles.podcast}
+    </audio>:<iframe className={["youtube","vimeo"].includes(playback.kind)?styles.video:styles.podcast}
      title={item.title+" — embedded "+playback.label}
      src={playback.src}
      allow={playback.kind==="youtube"?"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share":"autoplay; encrypted-media"}
-     allowFullScreen={playback.kind==="youtube"}
+     allowFullScreen={playback.kind==="youtube"||playback.kind==="vimeo"}
      loading="lazy"
      referrerPolicy="strict-origin-when-cross-origin"
     />}
