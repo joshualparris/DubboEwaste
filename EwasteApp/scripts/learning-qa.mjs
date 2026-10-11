@@ -88,3 +88,29 @@ assert.ok(load("app/(private)/learn/[course]/[lesson]/page.tsx").includes("study
 console.log("External learning benchmark QA PASS: "+deeper.length+" courses, "+
  deeper.reduce((n,x)=>n+x.resources.length,0)+" targeted references, "+
  deeper.reduce((n,x)=>n+x.cases.length,0)+" worked applied exercises.");
+
+
+// Applied HDD-to-SSD course must be more than a new label or a generic three-choice quiz.
+// These checks defend the research, multiple modalities and supervised skill boundary.
+const ssdGuide=load("../docs/SSD-UPGRADE-MASTERY-HP250G3-2026-10-11.md");
+const ssdCourse=load("lib/learning/catalog.ts");
+const ssdMedia=load("lib/learning/media.ts");
+const ssdLab=load("components/StorageUpgradeLab.tsx");
+const ssdPage=load("app/(private)/learn/[course]/page.tsx");
+const ssdDeep=deeper.find(x=>x.slug==="repair-laptop-refurb");
+assert.ok(ssdDeep,"Storage training must upgrade the existing laptop course");
+assert.ok(ssdDeep.resources.length>=5,"SSD mastery needs model manual, diagnostics, video and audio");
+assert.ok(ssdDeep.cases.every(x=>x.prompt.length>200&&x.workedAnswer.length>250),"Applied cases need real evidence and worked explanations");
+assert.ok(ssdCourse.includes('docs/SSD-UPGRADE-MASTERY-HP250G3-2026-10-11.md'),"Course must link detailed procedures");
+assert.ok(/independent verified backup/i.test(ssdGuide)&&/stop-work/i.test(ssdGuide),"Course must teach data protection and stop conditions");
+assert.ok(/failing HDD/i.test(ssdGuide)&&/old-drive custody/i.test(ssdGuide),"Course must cover data recovery and disposal");
+assert.ok(/gross margin/i.test(ssdGuide)&&/15\/18/.test(ssdGuide),"Course must include economics and observed mastery rubric");
+const ssdMediaTypes=["video","podcast","guide"];
+for(const type of ssdMediaTypes) assert.ok(new RegExp('course:"repair-laptop-refurb",type:"'+type+'"').test(ssdMedia),"Missing "+type+" in laptop course media");
+assert.ok((ssdMedia.match(/id:"ssd-/g)||[]).length>=4,"Expect curated SSD learning media");
+assert.ok(ssdPage.includes('id==="repair-laptop-refurb"?<StorageUpgradeLab/>'),"Simulator must be visible on existing course route");
+assert.ok(ssdPage.includes('href="/storage-guide"'),"Course must link storage visual atlas");
+assert.ok(ssdLab.includes('const scenarios:Scenario[]=[') && (ssdLab.match(/id:"[fpe][1-3]",level:/g)||[]).length===9,"SSD simulation needs nine scenario branches");
+assert.ok(ssdLab.includes("const limit=7")&&ssdLab.includes("Math.min(3,scenario.level+1)")&&ssdLab.includes("Math.max(1,scenario.level-1)"),"Difficulty must adapt to actual answers");
+assert.ok(ssdLab.includes("not evidence of a physical repair"),"Online practice must not be described as observed competence");
+console.log("SSD mastery QA PASS: existing course, three lessons, adaptive simulator, model-specific references, mixed media and observed-skills boundary.");
