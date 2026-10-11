@@ -9,70 +9,70 @@ export type DeepPathway = {
 };
 export const deepPathways: DeepPathway[] = [
   {
-  "slug": "repair-cafe-running",
-  "benchmark": "AssetFlow's three orientation lessons explain the monthly Repair Café concept but cannot demonstrate capacity decisions or incident handling. The connected JoshHub simulator now records irrevocable first decisions, operational consequences and a reviewable event portfolio, while regulator guidance provides a real risk-management framework.",
-  "target": "Develop an approved and realistic event brief: documented venue/date and permitted activities, accepted roster with backups, accessible floor plan, consent/triage controls, emergency and exclusions plan, visitor flow, and a measurable next-event improvement. Demonstrate a complete simulated event, including defensible incident recovery and an evidence-based debrief.",
-  "limits": "This is a fictional training exercise, not permission to hold an actual event. Local council/venue approvals, insurance, WHS, privacy, electrical competency and volunteer consent must be verified separately. The simulator and public resources do not grant qualifications.",
-  "resources": [
-    {
-      "title": "Run Your Own Repair Café — interactive command desk",
-      "provider": "JoshHub Learning Lab",
-      "url": "https://josh-hub-96no.vercel.app/learn/repair-cafe-simulator",
-      "access": "Free interactive simulation; progress kept on learner's browser; AI assessment requires the owner's configured Groq service",
-      "kind": "Practical simulation",
-      "why": "Make and log seven event-day choices, see effects on staffing, queue and trust, recover safely and export an auditable fictional learning portfolio."
-    },
-    {
-      "title": "Event risk assessment and management",
-      "provider": "NSW Government Event Starter Guide",
-      "url": "https://www.nsw.gov.au/departments-and-agencies/premiers-department/community-engagement/event-starter-guide/risk-assessment-management",
-      "access": "Free · Australian government primary guidance",
-      "kind": "Official planning reference",
-      "why": "Build a hazard register, controls, ownership and ongoing event monitoring. Use an actual venue-specific risk process before public events."
-    },
-    {
-      "title": "Repair Café house rules",
-      "provider": "Repair Café International",
-      "url": "https://www.repaircafe.org/en/house-rules/",
-      "access": "Free · primary guidance",
-      "kind": "Volunteer and visitor charter",
-      "why": "Establish what repair-together means, expectations about items, volunteers, no guaranteed repairs and one-item-first queue. Review any liability statements against applicable local law rather than assuming a waiver removes statutory obligations."
-    },
-    {
-      "title": "Fifteen years of Repair Café — documentary",
-      "provider": "Repair Café International",
-      "url": "https://www.repaircafe.org/en/anniversary-documentary-on-15-years-of-repair-cafe/",
-      "access": "Free · external video, English subtitles stated by publisher",
-      "kind": "Video and analysis",
-      "why": "Observe a community-repair learning culture, then note one feature you would adopt and one that needs local adaptation."
-    },
-    {
-      "title": "Restart Radio — community repair conversations",
-      "provider": "The Restart Project",
-      "url": "https://therestartproject.org/podcast/",
-      "access": "Free · podcast; individual episodes may vary",
-      "kind": "Audio and reflection",
-      "why": "Listen for evidence about volunteer retention, learning, repair outcomes and collaboration before writing your event plan."
-    }
-  ],
-  "cases": [
-    {
-      "prompt": "Two days before the first advertised Saturday, your sewing and computer volunteers are confirmed but the event lead is unavailable. The library room has only provisional permission and bicycle fixes are not permitted. Explain whether you open, reduce scope, postpone or move, and show the exact confirmation and communication gates.",
-      "workedAnswer": "Do not assume that a volunteer's skills confer event-lead accountability or that a tentative venue is approved. Confirm a responsible lead, a written venue/date/approved scope, suitable cover and any safety plan first. If those gates cannot be met, cancel/postpone and communicate clearly to volunteers/visitors; do not announce bike services. Evidence: roles, written venue permission, published messaging and decision timestamp. Compare the cost of disappointing an early small audience with the consequences of an unapproved event.",
-      "safety": "Never treat an EOI, generic volunteer availability or verbal permission as consent to a specific shift, site or repair category."
-    },
-    {
-      "prompt": "At 11:00 the welcome desk is unattended, five new visitors arrive, a kettle has a damaged mains lead and a laptop owner offers their password while leaving. Set a defensible queue, safeguarding and referral response, with realistic staffing trade-offs and near-miss records.",
-      "workedAnswer": "Pause or limit new arrivals while allocating a confirmed competent welcome substitute; record any role change and provide realistic waits/referrals. Do not energise the kettle or accept it for unapproved electrical work; explain the safe qualified pathway. Do not take unattended laptop custody or passwords. Give visitors clear expectations, retain minimal necessary information and protect access routes. Record both choices and impacts on backlog and volunteer energy, not imaginary repair success.",
-      "safety": "A waiver cannot establish competence or authorise work outside the agreed scope. Do not request or store real customer passwords in training."
-    },
-    {
-      "prompt": "The event ends with 17 arrivals, four repairs, six diagnoses/referrals, three safety declines and four attendees still waiting. A volunteer proposes reporting 17 items as diverted from landfill. Draft a truthful outcome report and a single measurable next-month improvement with a named owner.",
-      "workedAnswer": "Do not report 17 items as waste diverted: arrival, attempted repair and successful repair are different outcomes. Explain what happened to the four waiting visitors and confirm all items were returned to owners. Report the four repaired and six diagnosed/referred separately, with any consent and classification limitations. Prioritise one change (e.g. a 30-minute intake cut-off, additional accepted welcome coverage or category-specific capacity) owned by the event lead, then compare queue/wait records at the next event. Attribute all numbers to this fictional worked case, not actual Dubbo data.",
-      "safety": "Do not overstate recycling diversion, publish personal attendance data or imply a volunteer owes ongoing shifts."
-    }
-  ]
-},
+    "slug": "repair-cafe-running",
+    "benchmark": "AssetFlow's three orientation lessons explain the monthly Repair Café concept but cannot demonstrate capacity decisions or incident handling. The connected JoshHub simulator now records irrevocable first decisions, operational consequences and a reviewable event portfolio, while regulator guidance provides a real risk-management framework.",
+    "target": "Develop an approved and realistic event brief: documented venue/date and permitted activities, accepted roster with backups, accessible floor plan, consent/triage controls, emergency and exclusions plan, visitor flow, and a measurable next-event improvement. Demonstrate a complete simulated event, including defensible incident recovery and an evidence-based debrief.",
+    "limits": "This is a fictional training exercise, not permission to hold an actual event. Local council/venue approvals, insurance, WHS, privacy, electrical competency and volunteer consent must be verified separately. The simulator and public resources do not grant qualifications.",
+    "resources": [
+      {
+        "title": "Run Your Own Repair Café — interactive command desk",
+        "provider": "JoshHub Learning Lab",
+        "url": "https://josh-hub-96no.vercel.app/learn/repair-cafe-simulator",
+        "access": "Free interactive simulation; progress kept on learner's browser; AI assessment requires the owner's configured Groq service",
+        "kind": "Practical simulation",
+        "why": "Make and log seven event-day choices, see effects on staffing, queue and trust, recover safely and export an auditable fictional learning portfolio."
+      },
+      {
+        "title": "Event risk assessment and management",
+        "provider": "NSW Government Event Starter Guide",
+        "url": "https://www.nsw.gov.au/departments-and-agencies/premiers-department/community-engagement/event-starter-guide/risk-assessment-management",
+        "access": "Free · Australian government primary guidance",
+        "kind": "Official planning reference",
+        "why": "Build a hazard register, controls, ownership and ongoing event monitoring. Use an actual venue-specific risk process before public events."
+      },
+      {
+        "title": "Repair Café house rules",
+        "provider": "Repair Café International",
+        "url": "https://www.repaircafe.org/en/house-rules/",
+        "access": "Free · primary guidance",
+        "kind": "Volunteer and visitor charter",
+        "why": "Establish what repair-together means, expectations about items, volunteers, no guaranteed repairs and one-item-first queue. Review any liability statements against applicable local law rather than assuming a waiver removes statutory obligations."
+      },
+      {
+        "title": "Fifteen years of Repair Café — documentary",
+        "provider": "Repair Café International",
+        "url": "https://www.repaircafe.org/en/anniversary-documentary-on-15-years-of-repair-cafe/",
+        "access": "Free · external video, English subtitles stated by publisher",
+        "kind": "Video and analysis",
+        "why": "Observe a community-repair learning culture, then note one feature you would adopt and one that needs local adaptation."
+      },
+      {
+        "title": "Restart Radio — community repair conversations",
+        "provider": "The Restart Project",
+        "url": "https://therestartproject.org/podcast/",
+        "access": "Free · podcast; individual episodes may vary",
+        "kind": "Audio and reflection",
+        "why": "Listen for evidence about volunteer retention, learning, repair outcomes and collaboration before writing your event plan."
+      }
+    ],
+    "cases": [
+      {
+        "prompt": "Two days before the first advertised Saturday, your sewing and computer volunteers are confirmed but the event lead is unavailable. The library room has only provisional permission and bicycle fixes are not permitted. Explain whether you open, reduce scope, postpone or move, and show the exact confirmation and communication gates.",
+        "workedAnswer": "Do not assume that a volunteer's skills confer event-lead accountability or that a tentative venue is approved. Confirm a responsible lead, a written venue/date/approved scope, suitable cover and any safety plan first. If those gates cannot be met, cancel/postpone and communicate clearly to volunteers/visitors; do not announce bike services. Evidence: roles, written venue permission, published messaging and decision timestamp. Compare the cost of disappointing an early small audience with the consequences of an unapproved event.",
+        "safety": "Never treat an EOI, generic volunteer availability or verbal permission as consent to a specific shift, site or repair category."
+      },
+      {
+        "prompt": "At 11:00 the welcome desk is unattended, five new visitors arrive, a kettle has a damaged mains lead and a laptop owner offers their password while leaving. Set a defensible queue, safeguarding and referral response, with realistic staffing trade-offs and near-miss records.",
+        "workedAnswer": "Pause or limit new arrivals while allocating a confirmed competent welcome substitute; record any role change and provide realistic waits/referrals. Do not energise the kettle or accept it for unapproved electrical work; explain the safe qualified pathway. Do not take unattended laptop custody or passwords. Give visitors clear expectations, retain minimal necessary information and protect access routes. Record both choices and impacts on backlog and volunteer energy, not imaginary repair success.",
+        "safety": "A waiver cannot establish competence or authorise work outside the agreed scope. Do not request or store real customer passwords in training."
+      },
+      {
+        "prompt": "The event ends with 17 arrivals, four repairs, six diagnoses/referrals, three safety declines and four attendees still waiting. A volunteer proposes reporting 17 items as diverted from landfill. Draft a truthful outcome report and a single measurable next-month improvement with a named owner.",
+        "workedAnswer": "Do not report 17 items as waste diverted: arrival, attempted repair and successful repair are different outcomes. Explain what happened to the four waiting visitors and confirm all items were returned to owners. Report the four repaired and six diagnosed/referred separately, with any consent and classification limitations. Prioritise one change (e.g. a 30-minute intake cut-off, additional accepted welcome coverage or category-specific capacity) owned by the event lead, then compare queue/wait records at the next event. Attribute all numbers to this fictional worked case, not actual Dubbo data.",
+        "safety": "Do not overstate recycling diversion, publish personal attendance data or imply a volunteer owes ongoing shifts."
+      }
+    ]
+  },
   {
     "slug": "repair-electrical-safety",
     "benchmark": "SafeWork NSW safety guidance and formal PAT training cover hazard assessment, de-energisation, testing competence and regulatory context; our existing lesson only names hazards.",
@@ -582,42 +582,66 @@ export const deepPathways: DeepPathway[] = [
   },
   {
     "slug": "repair-laptop-refurb",
-    "benchmark": "IBM's A+ hardware troubleshooting course includes device-level cases and assessments, and iFixit supports exact-model procedures.",
-    "target": "Demonstrate documented hardware diagnostics, storage authorisation, compatible replacements and repeatable release tests.",
-    "limits": "No access to previous owners' files; respect firmware locks and lithium risks.",
+    "benchmark": "The existing three-lesson laptop introduction mentioned storage health but did not require repeatable HDD diagnosis, verified backup, exact-model 2.5-inch SATA compatibility, migration failure handling, post-repair data verification or accountable economics. This pathway pairs the HP 250 G3 service manual with practical video, verified references and an adaptive bench simulation.",
+    "target": "Produce a redacted end-to-end HP 250 G3 repair plan: authorisation, two falsifiable hypotheses, independent backup verification, exact SATA/caddy compatibility, safe replacement, cold-boot/data-integrity checks, secure old-drive custody and an itemised customer handover; demonstrate safe work under competent supervision.",
+    "limits": "An HDD marked slow is not automatically faulty. Stop on swollen battery, unresolved ownership, clicking/read-failing media or absent data consent. No copying unknown owners' files or wiping donors. A lesson, quiz or simulation is not evidence of a supervised physical repair.",
     "resources": [
       {
-        "title": "Core 1: Hardware and Network Troubleshooting",
-        "provider": "IBM / Coursera",
-        "url": "https://www.coursera.org/learn/core1-hardware-and-network-troubleshooting",
-        "access": "Platform enrolment terms apply",
-        "kind": "Five-module assessed course",
-        "why": "Boot, motherboard, RAM, mobile displays and storage fault diagnostics."
+        "title": "HP 250 G3 / 256 G3 Maintenance and Service Guide",
+        "provider": "HP official support",
+        "url": "https://support.hp.com/au-en/product/setup-user-guides/hp-250-g3-notebook-pc/6732462",
+        "access": "Free · official model manual PDF on support page",
+        "kind": "Service and disassembly reference",
+        "why": "Confirm the specific HP model, battery steps, hard-drive bracket, correct SATA form factor and the expected service workflow before buying parts."
       },
       {
-        "title": "PC Laptop Repair Guides",
-        "provider": "iFixit",
-        "url": "https://www.ifixit.com/Device/PC_Laptop",
-        "access": "Free · model-specific guides",
-        "kind": "Practical repair reference",
-        "why": "Detailed component disassembly, troubleshooting and photographic procedures."
+        "title": "2.5-inch SSD install: copy and migrate",
+        "provider": "Crucial / Micron",
+        "url": "https://www.youtube.com/watch?v=pQw4E8ecL5c",
+        "access": "Free · video, vendor demonstration",
+        "kind": "Video practical demonstration",
+        "why": "Observe cloning and migration sequencing, then identify why independent backup, encryption state, source health and partitions must be verified beyond this vendor demo."
+      },
+      {
+        "title": "Windows recovery and reinstall options",
+        "provider": "Microsoft Support",
+        "url": "https://support.microsoft.com/en-us/windows/experience/backup-recovery/recovery-options-in-windows",
+        "access": "Free · official guide",
+        "kind": "Decision reference",
+        "why": "Compare recovery, repair and clean install effects on programs and data; distinguish preserving files from preserving a complete bootable installation."
+      },
+      {
+        "title": "SMART drive health: smartctl reference",
+        "provider": "Debian / smartmontools",
+        "url": "https://manpages.debian.org/testing/smartmontools/smartctl.8.en.html",
+        "access": "Free · technical manual",
+        "kind": "Diagnostic reference",
+        "why": "Interpret overall-health flags alongside individual error logs, self-test failures and device limitations rather than treating a green indicator as proof."
+      },
+      {
+        "title": "Repair economics and service boundaries: Fixing IT Right",
+        "provider": "Podnutz Computer Repair Podcast",
+        "url": "https://podnutz.com/podnutz228/",
+        "access": "Free · 2017 podcast",
+        "kind": "Audio case conversation",
+        "why": "Apply customer-scope discussions when an authorised hardware fix reveals unrelated software problems. This recording is contextual, not a drive-replacement tutorial."
       }
     ],
     "cases": [
       {
-        "prompt": "A donated laptop boots to BIOS but an NVMe drive is not detected. Create a plan.",
-        "workedAnswer": "Check ownership, slot capabilities, BIOS setting, drive seating if safe, and known-good comparison.",
-        "safety": "Never treat storage as yours to wipe without authorisation."
+        "prompt": "A real HP 250 G3 with i5-5200U has an HDD, Windows 10 and an owner requesting a cheaper speed-up. Health/RAM details are unknown. Build an evidence-led decision before ordering a 256 GB SATA SSD. Name two alternative causes of slowness, your first three low-risk observations, ownership/backup gate and one absolute stop-work trigger.",
+        "workedAnswer": "First confirm authority and backup requirements; record three timed cold starts/app launches, storage identity and SMART/self-test summaries without stress, plus RAM pressure and available capacity. Compare HDD seek bottlenecks with RAM paging, startup software and storage failure. If clicking or failed sectors, stop ordinary cloning. Verify used partitions and drive bay from the HP 250 G3 service manual before selecting a compatible 2.5-inch SATA SSD.",
+        "safety": "Do not access personal files merely because the Windows profile is available; an SSD upgrade without an independent verified backup can still lose family data."
       },
       {
-        "prompt": "A candidate donor display has matching 15.6-inch diagonal but unknown eDP pinout.",
-        "workedAnswer": "List connector, panel revision, signalling, backlight and mounting checks.",
-        "safety": "Diagonal size does not establish transplant compatibility."
+        "prompt": "An ASUS A541U donor panel N156BGE-E32 and an HP 15-db0034au reporting CMN15DC both have approximately 15.6-inch diagonals. The HP displays reliably over HDMI but its internal LCD is damaged. Explain which electrical, firmware, mechanical and cable details must be verified before connection, and specify the GO/HOLD evidence, safe observation plan and limits of EDID identification.",
+        "workedAnswer": "HOLD: diagonal, resolution and connector appearance alone do not establish compatibility. Obtain exact donor and recipient panel datasheets and revisions; cross-check LVDS versus eDP signal, connector pin numbering and orientation, display/panel supply voltage, backlight control and cable pinout, connector shape/position, mounting tabs, thickness, hinges and cable route. Read-only EDID helps identify the original display class but is not an electrical compatibility guarantee. Use a known-good manufacturer-compatible screen or appropriate replacement and repeat BIOS, OS, backlight, lid movement and sleep/wake tests before any release.",
+        "safety": "Do not hot-plug or energise an unverified donor LCD. Never cut or repin live panel cables; isolate battery using model-specific guidance and stop if safety-critical compatibility evidence is missing."
       },
       {
-        "prompt": "Define a refurbishment pass/fail acceptance record.  State two alternative explanations, a safe discriminating test and the evidence needed for your final decision.",
-        "workedAnswer": "Battery health, charging, thermal stability, ports, screen, keyboard, memory and verified erasure.",
-        "safety": "A single successful boot is not release evidence."
+        "prompt": "A replacement SSD is visible to UEFI and boots once, but no migrated file checks were done, a restart occasionally says 'no boot device', and the old HDD has no custody label. Build a pass/fail release test, including a boot-path hypothesis, at least three repeatable checks, a redacted evidence bundle and a customer-facing price/disposition note.",
+        "workedAnswer": "Hold release. Check UEFI boot entry, EFI partition and firmware setting before assuming a bad SSD. Repeat cold boot and restart, SSD health/identity, authorised sample-file restoration checks against an independent backup, device/peripheral function and logs. Record old HDD asset identity privately, agreed retention/return/sanitisation process, and scope of unverified items. A fictional A$80 cost base at 20% gross margin gives A$100 ex-GST; backup/data recovery and tax must be separately quoted where relevant.",
+        "safety": "A single successful boot, a SMART 'PASSED' flag or a progress tick cannot sign off integrity or data custody; submit observed evidence for human review."
       }
     ]
   },

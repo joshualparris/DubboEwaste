@@ -172,3 +172,20 @@ for(const essential of ["SpeechSynthesisUtterance","safeGates","recorded===5","n
 }
 assert.ok(screenPage.includes("answers.compatibility?.correct&&answers.isolation?.correct"),"Safety-critical compatibility and isolation decisions must be required");
 console.log("Donor screen field lab QA PASS: 5 stages, 15 unbiased adaptive decisions, STOP gates, written evidence and export.");
+
+
+// Integration guard for the HP 250 G3 HDD-to-SSD learning masterclass.
+// Preserve the existing SSD clone, diagnostics, and screen-transplant field labs.
+const ssdGuide=load("../docs/SSD-UPGRADE-MASTERY-HP250G3-2026-10-11.md");
+const ssdMedia=load("lib/learning/media.ts");
+const ssdOverview=load("app/(private)/learn/[course]/page.tsx");
+const ssdDeep=deeper.find(x=>x.slug==="repair-laptop-refurb");
+assert.ok(ssdDeep&&ssdDeep.resources.length>=5,"SSD masterclass needs model manual and diverse references");
+assert.ok(ssdDeep.cases.length===3&&ssdDeep.cases.every(x=>x.prompt.length>200&&x.workedAnswer.length>250),"Laptop cases must include detailed reasoning");
+assert.ok(/independent backup/i.test(ssdGuide)&&/stop-work/i.test(ssdGuide),"SSD guide needs backup and stop-work gates");
+assert.ok(/gross margin/i.test(ssdGuide)&&/15\/18/.test(ssdGuide),"SSD masterclass needs economics and a supervisor rubric");
+for(const kind of ["video","guide","podcast"])assert.ok(new RegExp('course:"repair-laptop-refurb",type:"'+kind+'"').test(ssdMedia),"Missing SSD media type: "+kind);
+for(const id of ["ssd-crucial-copy","ssd-crucial-install","ssd-hp-ifixit","ssd-scope-podcast"])assert.ok(ssdMedia.includes('id:"'+id+'"'),"SSD medium missing: "+id);
+assert.ok(ssdOverview.includes("/storage-guide")&&ssdOverview.includes("SSD-UPGRADE-MASTERY")&&ssdOverview.includes("/field-lab"),"SSD guide, atlas and field lab links needed");
+assert.ok(ssdOverview.includes("/screen-transplant"),"Preserve LCD screen transplant course");
+console.log("Integrated SSD masterclass QA PASS: model-specific guide, source media, deep cases, supervisor rubric and both labs.");

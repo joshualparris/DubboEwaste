@@ -67,6 +67,9 @@ export default async function CourseOverview({params,searchParams}:{
    <p>Work through five adaptive repair decisions based on an actual Macrium clone that crawled at 94–96% and then completed. Includes visual timeline, narrated explanations, real manufacturer training, an evidence record and a supervisor verification checklist.</p>
    <p className={styles.hint}>Complete the orientation lessons too. A simulation score is not a practical sign-off; use your finished notes in the supervised assessment below.</p>
    <Link className={styles.secondaryLink} href="/learn/repair-laptop-refurb/field-lab">Open the advanced SSD clone field lab →</Link>
+   <p>Model-specific study: HP 250 G3 2.5-inch SATA replacement, data preservation and post-repair verification.</p>
+   <p><Link href="https://github.com/joshualparris/DubboEwaste/blob/main/docs/SSD-UPGRADE-MASTERY-HP250G3-2026-10-11.md" target="_blank" rel="noopener noreferrer">Read the full SSD upgrade masterclass ↗</Link></p>
+   <p><Link href="/storage-guide">Explore the visual drive interface and compatibility atlas →</Link></p>
   </section>:null}
   {deep?<section className={styles.deepPanel} aria-label="In-depth courses and comparison">
     <span className={styles.deepEyebrow}>Course benchmark and further study</span>
