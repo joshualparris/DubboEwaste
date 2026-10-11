@@ -139,23 +139,53 @@ for(const url of ["https://www.youtube.com/watch?v=lSdSNAjmdDg","https://csrc.ni
 console.log("Clone field lab QA PASS: 5 missions, 15 adaptive decisions, balanced alternatives, narrated reasoning and evidence export.");
 
 
-// Storage masterclass must deepen the existing course without duplicating its field lab.
+/* Donor LCD transplant: 15 evidence-based decisions, balanced distractors, real safety gates. */
+const screenData=load("lib/learning/screen-transplant-lab.ts");
+const screenPage=load("app/(private)/learn/repair-laptop-refurb/screen-transplant/page.tsx");
+const screenSource=ts.createSourceFile("screen-transplant-lab.ts",screenData,ts.ScriptTarget.Latest,true,ts.ScriptKind.TS);
+const screenView=ts.createSourceFile("screen-transplant/page.tsx",screenPage,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
+assert.equal(screenSource.parseDiagnostics.length,0,"Screen transplant lesson data must parse as TypeScript");
+assert.equal(screenView.parseDiagnostics.length,0,"Screen transplant page must parse as TSX");
+const screenQs=[...screenData.matchAll(/options:\[(("(?:\\.|[^"\\])*",?){3})\],answer:([012])/g)].map(m=>{
+ const options=[...m[1].matchAll(/"((?:\\.|[^"\\])*)"/g)].map(x=>x[1]);
+ assert.equal(options.length,3,"Three real decision options required");
+ assert.equal(new Set(options).size,3,"No duplicate choices in donor screen assessment");
+ const lengths=options.map(s=>s.length);
+ assert.ok(Math.min(...lengths)>=40,"Screen lab distractors too short to be credible");
+ assert.ok(Math.max(...lengths)/Math.min(...lengths)<=1.35,"Screen assessment gives away an answer by length");
+ return {correct:Number(m[3]),lengths};
+});
+assert.equal(screenQs.length,15,"Five screen missions must have three adaptive levels each");
+assert.deepEqual([0,1,2].map(i=>screenQs.filter(q=>q.correct===i).length),[5,5,5],"Avoid correct-answer position bias in screen lab");
+const screenLongest=screenQs.filter(q=>q.correct===q.lengths.indexOf(Math.max(...q.lengths))).length;
+const screenShortest=screenQs.filter(q=>q.correct===q.lengths.indexOf(Math.min(...q.lengths))).length;
+assert.ok(screenLongest<=7&&screenShortest<=7,"Screen lab answers must resist longest/shortest shortcut");
+for(const id of ["symptoms","identity","compatibility","isolation","release"]){
+ assert.ok(screenData.includes('id:"'+id+'"'),"Missing screen transplant stage "+id);
+}
+for(const essential of ["N156BGE-E32","N156BGA-EB2","CMN15DC","Reverse I/F","stopWork?:boolean"]){
+ assert.ok(screenData.includes(essential),"Missing real-case evidence or stop-work contract: "+essential);
+}
+assert.ok(labCourse.includes('href="/learn/repair-laptop-refurb/screen-transplant"'),"Course detail must link the screen transplant lab");
+for(const essential of ["SpeechSynthesisUtterance","safeGates","recorded===5","navigator.clipboard","window.print()","sources.map","HOLD"]){
+ assert.ok(screenPage.includes(essential),"Screen transplant field lab missing essential feature: "+essential);
+}
+assert.ok(screenPage.includes("answers.compatibility?.correct&&answers.isolation?.correct"),"Safety-critical compatibility and isolation decisions must be required");
+console.log("Donor screen field lab QA PASS: 5 stages, 15 unbiased adaptive decisions, STOP gates, written evidence and export.");
+
+
+// Integration guard for the HP 250 G3 HDD-to-SSD learning masterclass.
+// Preserve the existing SSD clone, diagnostics, and screen-transplant field labs.
 const ssdGuide=load("../docs/SSD-UPGRADE-MASTERY-HP250G3-2026-10-11.md");
-const ssdCourse=load("lib/learning/catalog.ts");
 const ssdMedia=load("lib/learning/media.ts");
 const ssdOverview=load("app/(private)/learn/[course]/page.tsx");
-const ssdDeep=deeper.find(item=>item.slug==="repair-laptop-refurb");
-assert.ok(ssdDeep&&ssdDeep.resources.length>=5,"SSD pathway needs five purposeful external media/references");
-assert.ok(ssdDeep.cases.length===3&&ssdDeep.cases.every(item=>item.prompt.length>200&&item.workedAnswer.length>250),"SSD worked cases need meaningful technical depth");
-assert.ok(ssdCourse.includes('docs/SSD-UPGRADE-MASTERY-HP250G3-2026-10-11.md'),"LMS course must reference its full SSD guide");
-assert.ok(/independent backup/i.test(ssdGuide)&&/stop-work/i.test(ssdGuide),"Guide must teach backup and stop-work gates");
-assert.ok(/gross margin/i.test(ssdGuide)&&/15\/18/.test(ssdGuide),"Mastery needs economics and observed rubric");
-for(const kind of ["video","guide","podcast"]){
- assert.ok(new RegExp('course:"repair-laptop-refurb",type:"'+kind+'"').test(ssdMedia),"Expected "+kind+" resource in SSD course");
-}
-for(const id of ["ssd-crucial-copy","ssd-crucial-install","ssd-hp-ifixit","ssd-scope-podcast"]){
- assert.ok(ssdMedia.includes('id:"'+id+'"'),"Missing curated storage media: "+id);
-}
-assert.ok(ssdOverview.includes('href="/storage-guide"'),"Existing refurb course must point to the visual drive atlas");
-assert.ok(ssdOverview.includes('href="/learn/repair-laptop-refurb/field-lab"'),"Existing five-mission field lab must stay linked");
-console.log("SSD masterclass integration QA PASS: original LMS course enhanced, 5-mission adaptive lab preserved, external media and observed skills boundary.");
+const ssdDeep=deeper.find(x=>x.slug==="repair-laptop-refurb");
+assert.ok(ssdDeep&&ssdDeep.resources.length>=5,"SSD masterclass needs model manual and diverse references");
+assert.ok(ssdDeep.cases.length===3&&ssdDeep.cases.every(x=>x.prompt.length>200&&x.workedAnswer.length>250),"Laptop cases must include detailed reasoning");
+assert.ok(/independent backup/i.test(ssdGuide)&&/stop-work/i.test(ssdGuide),"SSD guide needs backup and stop-work gates");
+assert.ok(/gross margin/i.test(ssdGuide)&&/15\/18/.test(ssdGuide),"SSD masterclass needs economics and a supervisor rubric");
+for(const kind of ["video","guide","podcast"])assert.ok(new RegExp('course:"repair-laptop-refurb",type:"'+kind+'"').test(ssdMedia),"Missing SSD media type: "+kind);
+for(const id of ["ssd-crucial-copy","ssd-crucial-install","ssd-hp-ifixit","ssd-scope-podcast"])assert.ok(ssdMedia.includes('id:"'+id+'"'),"SSD medium missing: "+id);
+assert.ok(ssdOverview.includes("/storage-guide")&&ssdOverview.includes("SSD-UPGRADE-MASTERY")&&ssdOverview.includes("/field-lab"),"SSD guide, atlas and field lab links needed");
+assert.ok(ssdOverview.includes("/screen-transplant"),"Preserve LCD screen transplant course");
+console.log("Integrated SSD masterclass QA PASS: model-specific guide, source media, deep cases, supervisor rubric and both labs.");
