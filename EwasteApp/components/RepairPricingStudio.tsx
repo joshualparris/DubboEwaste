@@ -2,7 +2,7 @@
 
 import {useEffect,useState} from "react";
 import styles from "./RepairPricingStudio.module.css";
-import {aud,breakEvenRate,calculateQuote,fictionalCases,markPricingCase,type PricingInputs} from "@/lib/learning/pricing-model";
+import {breakEvenRate,calculateQuote,fictionalCases,markPricingCase,type PricingInputs} from "@/lib/learning/pricing-model";
 
 const money=(n:number)=>new Intl.NumberFormat("en-AU",{style:"currency",currency:"AUD"}).format(n);
 const examples:PricingInputs={parts:80,labour:70,overhead:20,risk:10,marginPercent:25,gstRegistered:true,authorisedMaximum:275};
