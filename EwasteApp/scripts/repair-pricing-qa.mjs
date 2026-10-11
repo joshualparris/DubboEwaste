@@ -72,4 +72,48 @@ assert.ok(page.includes("localStorage")&&page.includes("Suggested review"),"Spac
 assert.ok(page.includes("exportEvidence")&&page.includes("new Blob")&&page.includes("last "),"Learners must be able to export honest dated evidence");
 assert.ok(page.includes("latest ")&&page.includes("best:"),"Latest score must be differentiated from best score");
 assert.ok(page.includes("real written notice must still be delivered"),"Simulation must not misrepresent repair notices as delivered");
+
+/** Quality gate: six real provider URLs, with prompts that turn passive media
+ * consumption into pricing transfer. These are links, not uploaded copies.
+ */
+const studioAst=ts.createSourceFile("pricing-studio.tsx",page,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
+let featured=null;
+function inspectMedia(node){
+ if(ts.isVariableDeclaration(node)&&node.name.getText(studioAst)==="featuredMedia"){
+   const expr=ts.isAsExpression(node.initializer)?node.initializer.expression:node.initializer;
+   assert.ok(ts.isArrayLiteralExpression(expr),"Featured media must be a literal auditable catalogue");
+   featured=expr.elements.map(item=>{
+     assert.ok(ts.isObjectLiteralExpression(item),"Media record must be static");
+     return Object.fromEntries(item.properties.map(p=>{
+       assert.ok(ts.isPropertyAssignment(p)&&ts.isStringLiteral(p.initializer),
+         "Media metadata must be fixed strings");
+       return [p.name.getText(studioAst),p.initializer.text];
+     }));
+   });
+ }
+ ts.forEachChild(node,inspectMedia);
+}
+inspectMedia(studioAst);
+assert.ok(featured,"Pricing studio must have a featured media library");
+assert.equal(featured.length,6,"Six curated study resources (4 video, 2 podcasts) required");
+assert.equal(featured.filter(x=>x.type==="video").length,4);
+assert.equal(featured.filter(x=>x.type==="podcast").length,2);
+assert.equal(new Set(featured.map(x=>x.id)).size,6,"Duplicate media record");
+assert.equal(new Set(featured.map(x=>x.url)).size,6,"Duplicate media link");
+const allowedHosts=new Set(["www.youtube.com","www.classcentral.com","music.amazon.com.au","podnutz.com"]);
+for(const item of featured){
+ const url=new URL(item.url);
+ assert.equal(url.protocol,"https:","Media needs HTTPS");
+ assert.ok(allowedHosts.has(url.hostname),"Media must link to checked provider content");
+ assert.ok(!/\/(search|results)\b|[?&](q|query|search)=/i.test(item.url),"Do not substitute search queries for actual video/podcast pages");
+ assert.ok(item.task.length>=70&&item.description.length>=65&&item.caveat.length>=65,
+   "Every linked media item must explain application and source limitations");
+ assert.ok(item.stage.startsWith("0")&&item.provider.length>5,
+   "Each media resource must map to one stage and name its provider");
+}
+assert.ok(page.includes('id="pricing-media"')&&page.includes("featuredMedia.map")&&
+ page.includes('rel="noopener noreferrer"')&&page.includes('href="#pricing-media"'),
+ "Media library must have direct accessible links from the studio hero");
+console.log("Repair pricing media QA PASS: 4 videos, 2 podcasts, real HTTPS provider links and applied tasks.");
+
 console.log("Repair pricing QA PASS: four risk-aware scenarios; arithmetic, GST, approvals, mobile style coverage and integration links.");
