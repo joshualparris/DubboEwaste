@@ -95,3 +95,54 @@ Find 3–5 current comparable repairers in your **actual service area**. Record 
 11. [Existing LMS course: repair triage, salvage and circular economics](https://dubbo-ewaste-app.vercel.app/learn/repair-triage-economics) addresses whether something is worth repairing; it does **not** replace this service quotation course.
 
 **Evidence hierarchy:** Australian law/government > actual dated comparable repair quotes > practitioner reports > old informal estimates. This lesson is educational, not legal/accounting advice, and it is not a published Parris Tech Services tariff.
+
+---
+
+## Advanced transfer pathway — Repair Quote Studio (added 11 October 2026)
+
+**Launch after enrolling:** https://dubbo-ewaste-app.vercel.app/learn/repair-service-pricing#pricing-studio
+
+This course has three separate layers. **Orientation** is the three lessons, their independently authored scenarios, and linked media. **Formative transfer practice** is the live Quote Studio: monthly billable-hour modelling, cost and margin builder, GST/cap checks, and three new written-and-numerical cases. **Competence evidence** is a reviewed quote and customer-facing explanation under the existing Practical assessment workflow, with direct observation when appropriate. Completing the first two is not certification.
+
+### A deliberate learning sequence (approximately 90–120 minutes, not a promise of qualification)
+
+1. **Explain (15 minutes):** Calculate why a 25% markup differs from a 25% gross margin, and why idle cloning time differs from active labour. Use the official business.gov.au pricing lesson.
+2. **Observe (15 minutes):** Watch the linked hardware-diagnostic video and stop it at each test to predict time and parts uncertainty. Do not mistake editing for total repair effort. Listen to one of the repair-pricing podcasts while checking whether its advice matches Australian consumer rules.
+3. **Work an example (20 minutes):** Use the $180 internal cost example to calculate $240 ex GST / $264 incl GST for a registered taxable sale; test sensitivity to repair labour and rework risk. Deliberately enter a mistaken 25% markup and describe what went wrong.
+4. **Transfer (20 minutes):** Complete the three unseen Quote Studio calculations before revealing answers. Record the consent/stop-work reasoning and construct a message to the fictional customer. The four automatic points per case check only numerical values and whether the quote exceeds the authorisation cap.
+5. **Prove and revisit (15–30 minutes plus a later review):** Make one transparent one-page quote and send it via the course's existing Practical assessment form for supervisor review. After at least 24 hours, recompute a new price from memory and explain which evidence could change the recommendation.
+
+### Common mistakes to identify
+
+| Mistake | What reveals it | Corrective practice |
+|---|---|---|
+| Multiplying cost by 1.25 and calling it 25% **margin** | $180×1.25 gives $225, whose margin is only 20% | Divide total cost by (1−target margin), then verify contribution ÷ price. |
+| Adding overhead twice | Fully loaded **selling** labour rate plus fresh overhead/margin | Decide whether the hourly input is an internal cost or already-loaded customer selling rate; never silently mix models. |
+| Multiplying unattended clone hours by active labour rate | Workstation is unattended for most of the transfer | Itemise active technician time, machine occupancy, verification, monitoring and backup/data consent separately. |
+| Forgetting whether supplier is GST-registered | Final customer price differs by 10% and invoice terminology changes | Verify registration, cost basis, the correct customer-facing total and invoicing requirements. |
+| Agreeing to a $210 cap then fitting another $95 part | Customer never accepted the revised total and scope | Stop, prepare full re-estimate, explain options and obtain fresh informed authority before continuing. |
+| Claiming resale profit before returns and overhead | A $14 direct contribution is mistaken for net profit | Calculate a realistic cost range, retest device suitability, and state uncertainty. |
+
+### Supervisor assessment rubric (0–3 on each, 18 maximum)
+
+| Competency | 0 — missing/unsafe | 1 — developing | 2 — substantial | 3 — independently defensible |
+|---|---|---|---|---|
+| Cost completeness | Missing costs | Parts and labour only | Overhead and reasonable risk accounted | Full itemisation with evidence, nonbillable assumptions and no double count |
+| Numerical calculation | Material arithmetic error | Correct simple sum, wrong margin/GST | Accurate cost, margin and customer total | Also validates alternative pricing and sensitivity |
+| Diagnosis and scope | Promises unverified repair | Some scope assumptions | Defined testing and exclusions | Clear staged diagnostics, stop-work threshold and decision alternatives |
+| Data and consumer obligations | No consent or notice consideration | Mentions backup vaguely | Applicable written repair notice and data handling identified | Correct notice timing and rights with practical documentation |
+| Customer communication | Pressures or misleads owner | Vague estimate | Clear itemised amount, consent and options | Plain-English explanation with uncertainty and explicit reapproval route |
+| Transfer and judgement | Always repair/always replace | One simplistic rule | Compares price, value, risk and life | Uses evidence, documents trade-offs, and states what would change the decision |
+
+**Interpretation:** A score of 14/18 or more, with no zero for data/consumer obligations, is a suggested *internal review target*, not an automatic pass or a licence. A human reviewer must check the actual worksheet and feedback. If the reviewer cannot verify a real job, assess the fictional case and record it honestly as simulation.
+
+**Evidence to attach:** price estimate and chosen cost-basis method; customer-facing total and GST assumption; price ceiling and stop-work point; consent/notice plan; comparison with a suitable alternative; a single specific uncertainty and what observation would resolve it. Never upload customer passwords, photos of private files or unrelated personal information.
+
+### Trusted source checks
+
+- [Australian Government: choose a pricing strategy](https://business.gov.au/products-and-services/choose-a-pricing-strategy) — official fundamentals.
+- [Australian Government: GST registration and invoicing](https://business.gov.au/registrations/register-for-taxes/register-for-goods-and-services-tax-gst) — verify whether GST applies.
+- [ACCC: repair notices](https://www.accc.gov.au/consumers/problem-with-a-product-or-service-you-bought/repair-notices) — read the exact applicable repair-notice rules and required written wording. A generic web link does **not** replace providing a notice to the consumer.
+- [Tech Care Association: rate calculation](https://techcareassociation.org/2026/09/23/tech-repair-shop-labor-rate-formula/) — practitioner comparison, not Australian legal authority.
+
+All examples are hypothetical, and consumer guarantees are statutory. Do not claim that the studio generates legally complete quotations, invoices or professional certification.
