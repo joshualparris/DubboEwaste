@@ -5,13 +5,14 @@ import Link from "next/link";
 import {eras,items,storageSources,type StorageItem,type DriveKind} from "@/lib/storage-guide";
 import {commonsFilePage,commonsThumb} from "@/lib/ram-gallery";
 import {storagePhotos,storagePhotoById} from "@/lib/storage-photos";
+import LearningMediaPlayer from "@/components/LearningMediaPlayer";
 import styles from "../ram-guide/ram-guide.module.css";
 import extra from "./storage-guide.module.css";
 
-type Tab = "overview"|"timeline"|"catalogue"|"identify"|"anatomy"|"photos"|"quiz";
+type Tab = "overview"|"timeline"|"catalogue"|"identify"|"anatomy"|"photos"|"listen"|"quiz";
 const tabs: {id:Tab;label:string}[] = [
  {id:"overview",label:"Start here"},{id:"timeline",label:"History"},{id:"catalogue",label:"Drive atlas"},
- {id:"identify",label:"Will it fit?"},{id:"anatomy",label:"Inside a drive"},{id:"photos",label:"Real photos"},{id:"quiz",label:"Bench scenarios"},
+ {id:"identify",label:"Will it fit?"},{id:"anatomy",label:"Inside a drive"},{id:"photos",label:"Real photos"},{id:"listen",label:"Listen & watch"},{id:"quiz",label:"Bench scenarios"},
 ];
 const kinds:("All"|DriveKind)[]=["All","HDD","SSD","Hybrid","Flash","Removable","Tape"];
 const hostOptions=[
@@ -32,6 +33,48 @@ type StoragePhoto = {title:string;file:string;group:string;detail:string;creator
 const realPhotos:StoragePhoto[] = storagePhotos.map(p=>({title:p.title,file:p.file,group:p.group,detail:p.detail,creator:p.credit,license:p.license,licenseUrl:p.licenseUrl,ids:p.atlasIds}));
 const photoForItem=(entry:StorageItem)=>realPhotos.find(p=>p.ids.includes(entry.id));
 const photoById=(id:string):StoragePhoto=>{const photo=storagePhotoById(id);const found=realPhotos.find(p=>p.file===photo.file);if(!found)throw Error("Missing photo mapping: "+id);return found;};
+const storageLearningMedia:{id:string;kind:"video"|"podcast";title:string;provider:string;url:string;exercise:string;}[] = [
+  {
+    "id": "storage-ssd-copy",
+    "kind": "video",
+    "title": "SSD migration: copy your old drive",
+    "provider": "Crucial / Micron",
+    "url": "https://www.youtube.com/watch?v=pQw4E8ecL5c",
+    "exercise": "Which steps require hands-on attention, and how do you verify that cloning hasn't overwritten the source disk?"
+  },
+  {
+    "id": "storage-ssd-install",
+    "kind": "video",
+    "title": "SSD upgrade: physically install the 2.5-inch SATA drive",
+    "provider": "Crucial / Micron",
+    "url": "https://www.youtube.com/watch?v=dy7An1DkieQ",
+    "exercise": "Before handling a client's drive, write down isolation, connector, caddy and consent checks."
+  },
+  {
+    "id": "storage-data-disaster",
+    "kind": "podcast",
+    "title": "Data Disaster: Backups, Failing Drives & Recovering What Matters",
+    "provider": "Computer Repair Academy · S3 Ep5",
+    "url": "https://podcasts.apple.com/us/podcast/data-disaster-backups-failing-drives-recovering-what/id1771674573?i=1000791278368",
+    "exercise": "Create a first-response plan for an unreadable external HDD holding irreplaceable family photos."
+  },
+  {
+    "id": "storage-circular-value",
+    "kind": "podcast",
+    "title": "E-waste: the circular economy's golden opportunity",
+    "provider": "The Circular Economy Show",
+    "url": "https://open.spotify.com/episode/4GCjqnKpqlxccUvj26cuhC",
+    "exercise": "For a working SSD and failed HDD, compare reuse, parts salvage and specialist recycling routes."
+  },
+  {
+    "id": "storage-renew-it",
+    "kind": "podcast",
+    "title": "E-Waste, Microfactories & Circular Plastics Innovation",
+    "provider": "All Things Circular · Renew IT",
+    "url": "https://open.spotify.com/episode/6WyTlDuqgcYpBieTiEsdB2",
+    "exercise": "Explain when a data-bearing drive must stay out of resale until custody and sanitisation are documented."
+  }
+];
 const components = [
  {id:"platter",name:"HDD platter",short:"Magnetic recording surface",note:"Spins beneath a precisely positioned head. Impacts and contamination can destroy data; do not open serviceable HDDs on the bench."},
  {id:"head",name:"Actuator / read-write heads",short:"Positioning and signal transducer",note:"Moves across tracks without normally touching the surface. Clicking and repeated re-seeks may indicate failure; protect data first."},
@@ -207,6 +250,18 @@ export default function StorageGuide(){
     <div className={styles.sectionHeading}><div><span className={styles.eyebrow}>GROUNDED VISUAL REFERENCE</span><h2>Real photos, with original sources.</h2><p>These are genuine source photographs from original Wikimedia Commons file pages, not AI-generated images. Each displays its author and licence; some rare storage formats still have schematic illustrations.</p></div></div>
     <div className={extra.photoGrid}>{realPhotos.map(p=><article className={extra.photoCard} key={p.file}><RealPhoto file={p.file} title={p.title}/><div className={extra.photoDetails}><small>{p.group} / REAL PHOTOGRAPH</small><h3>{p.title}</h3><p>{p.detail}</p><p>Photographer: <strong>{p.creator}</strong> · <a href={p.licenseUrl} target="_blank" rel="noopener noreferrer">{p.license}</a></p><a href={commonsFilePage(p.file)} target="_blank" rel="noopener noreferrer">View original photograph and licence ↗</a></div></article>)}</div>
     <div className={styles.callout}><strong>Source integrity:</strong> Each file is linked to its original Wikimedia Commons page and credited to its photographer. Attribution and licences remain visible with the images. If Wikimedia cannot load a photograph, the card shows a clear fallback rather than an invented replacement.</div>
+   </section>}
+   {tab==="listen"&&<section className={styles.section} aria-label="Podcasts and videos about computer storage">
+    <div className={styles.sectionHeading}><div><span className={styles.eyebrow}>LEARN BY WATCHING AND LISTENING</span><h2>Storage videos and real podcasts.</h2><p>These five original publisher recordings cover SSD installation, drive recovery and responsible reuse. Choose Play on any card, then start the provider player. No generated audio or unauthorised copies.</p></div></div>
+    <div className={extra.photoGrid}>{storageLearningMedia.map(item=><article key={item.id} className={extra.photoCard}>
+      <div className={extra.photoDetails}>
+       <small>{item.kind==="video"?"▶ INSTRUCTIONAL VIDEO":"♫ PRACTITIONER PODCAST"} · {item.provider}</small>
+       <h3>{item.title}</h3>
+       <p><strong>Practice task:</strong> {item.exercise}</p>
+       <LearningMediaPlayer url={item.url} title={item.title} kind={item.kind}/>
+      </div>
+    </article>)}</div>
+    <p className={styles.callout}>Third-party video and audio are loaded only when you press Play. Spotify, Apple Podcasts and YouTube control access, adverts and captions. Every card includes the original recording link if embedding is blocked.</p>
    </section>}
    {tab==="quiz"&&<section className={styles.section}>
     <div className={styles.sectionHeading}><div><span className={styles.eyebrow}>APPLIED REPAIR THINKING</span><h2>What would you do at the bench?</h2><p>Case-based questions assess decisions rather than memorised connector names. Each answer explains the technical reasoning.</p></div></div>
