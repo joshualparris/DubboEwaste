@@ -50,5 +50,5 @@ for(const source of [course,lesson]){
  assert.ok(source.includes("repair-service-pricing/studio"),"Studio must be linked directly from the learning route");
 }
 assert.ok(page.includes("written data-loss")&&page.includes("refurbished")&&page.includes("GST"),"Consumer safeguards must be visible");
-assert.ok(page.includes("localStorage")&&page.includes("spaced")===false ? true:true);
+assert.ok(page.includes("localStorage")&&page.includes("Suggested review"),"Spaced, browser-only learning record must be visible");
 console.log("Repair pricing QA PASS: four risk-aware scenarios; arithmetic, GST, approvals, mobile style coverage and integration links.");
