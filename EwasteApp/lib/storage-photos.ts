@@ -140,7 +140,7 @@ export const storagePhotos:StoragePhoto[] = [
     "group": "Flash",
     "detail": "Actual photograph comparing three card sizes. They need different physical readers or adapters.",
     "credit": "Evan-Amos",
-    "license": "See Commons licence",
+    "license": "Public domain",
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Memory-card-comparison.jpg",
     "atlasIds": [
       "cf",
@@ -167,9 +167,9 @@ export const storagePhotos:StoragePhoto[] = [
     "file": "LTX400G.jpg",
     "group": "Tape",
     "detail": "Photograph of an actual Sony LTO Ultrium 3 magnetic tape cartridge.",
-    "credit": "See Commons creator",
-    "license": "See Commons licence",
-    "licenseUrl": "https://commons.wikimedia.org/wiki/File:LTX400G.jpg",
+    "credit": "Mister rf",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
     "atlasIds": [
       "tape"
     ]
