@@ -8,7 +8,7 @@ import styles from "./studio.module.css";
 type Stage="rate"|"case"|"handover"|"review";
 type Choice="stop"|"continue"|"refer";
 type Consent={data:boolean;parts:boolean;stop:boolean;scope:boolean};
-type History=Record<string,{score:number;date:string;tries:number}>;
+type History=Record<string,{score:number;best:number;date:string;tries:number}>;
 const assumptions=["Fictional Australian examples, not recommended local prices or an issued customer quote.","Costs are illustrative net inputs. Real GST credits, business structure, accounting and market demand affect real quotes.","The studio saves practice scores in this browser only; it does not certify competence or submit to AssetFlow."];
 const resources=[
   {label:"Set a sustainable rate",provider:"business.gov.au",url:"https://business.gov.au/products-and-services/choose-a-pricing-strategy",kind:"Free Australian guide",why:"Compare cost-plus, hourly, competitors, price presentation and the distinction between expenses and selling price."},
@@ -31,7 +31,7 @@ function useProgress(){
  const [ready,setReady]=useState(false);
  useEffect(()=>{try{const stored=localStorage.getItem("assetflow:pricing-studio:v1");if(stored){const parsed=JSON.parse(stored);if(parsed&&typeof parsed==="object")setHistory(parsed);}}catch{}setReady(true);},[]);
  const save=(id:string,score:number)=>setHistory(current=>{
-  const old=current[id],next={...current,[id]:{score:Math.max(score,old?.score??0),date:new Date().toISOString(),tries:(old?.tries??0)+1}};
+  const old=current[id],next={...current,[id]:{score,best:Math.max(score,old?.best??old?.score??0),date:new Date().toISOString(),tries:(old?.tries??0)+1}};
   try{localStorage.setItem("assetflow:pricing-studio:v1",JSON.stringify(next));}catch{}
   return next;
  });
@@ -84,22 +84,51 @@ export default function PricingStudio(){
    const act=caseInfo.acceptability==="reapproval"?"PAUSE pending revised authorisation":"REFER; don't promise work beyond competence/value";
    return [
     "TRAINING QUOTE ONLY — FICTIONAL CASE",caseInfo.title,caseInfo.device,
-    "Scope: "+scopeNote.trim(),
+    "Scope: "+(scopeNote.trim()||"NOT YET DEFINED"),
     "Included: diagnostic and labour costs, part if applicable, allocated overhead and rework allowance.",
     "Excluded: unsanctioned extras, unverified data recovery, unexpected board-level or safety hazards.",
-    "Cost base ex GST: "+money(result.numbers.cost),
     "Proposed selling price ex GST: "+money(result.numbers.exGST),
     "GST: "+(gstRegistered?money(result.numbers.gst)+" (GST-registered example)":"Not charged (unregistered example)"),
     "Customer total: "+money(result.numbers.incGST),
     "Authorisation limit: "+money(caseInfo.approvalCap),
-    "Data/parts repair notice: provided in writing as required before accepting goods for repair.",
+    "Written data-loss notice (simulated checklist): "+(consent.data?"Planned; real written notice must still be delivered":"NOT YET ADDRESSED"),
+    "Refurbished-parts notice (simulated checklist): "+(consent.parts?"Planned where applicable; real written notice must still be delivered":"NOT YET ADDRESSED"),
     "Unexpected issue: "+caseInfo.hiddenConstraint,
     "Recommended response: "+act,
-    "Acceptance requires separate customer agreement. This is not a legal repair notice or invoice."
+    "No consumer approval recorded. The simulation is not a legal repair notice, invoice or customer agreement."
    ].join("\n");
  };
  const [copied,setCopied]=useState(false);
  async function copyQuote(){try{await navigator.clipboard.writeText(quoteText());setCopied(true);}catch{setCopied(false);setFeedback("Copy was blocked by the browser. Use the printable quote summary instead.")}}
+ function exportEvidence(){
+   const report=[
+     "ASSETFLOW LEARNING — REPAIR PRICING STUDIO EVIDENCE",
+     "Self-assessment only, not a certificate, audit, consumer notice or service invoice.",
+     "Date: "+new Date().toLocaleString("en-AU"),"",
+     "RATE EXERCISE (FICTIONAL)", 
+     "Monthly technician cost: "+money(monthlyLabour), "Monthly operating overhead: "+money(monthlyOverhead),
+     "Paid hours: "+paidHours+"; billable utilisation: "+utilisation+"%; billable hours: "+rate.billableHours.toFixed(2),
+     "Target operating margin: "+margin+"%; derived hourly rate: "+money(rate.required),
+     "Student estimate: "+money(estimate)+"; checked correctly this session: "+(floorPassed?"yes":"no"),"",
+     "SCENARIO PRACTICE HISTORY (SAVED ONLY IN THIS BROWSER)",
+     ...scenarioBank.map(x=>{const h=history[x.id];return x.title+": "+(h?"latest "+h.score+"/100; best "+h.best+"/100; attempts "+h.tries+"; last "+new Date(h.date).toLocaleDateString("en-AU"):"not attempted");}),"",
+     "CURRENT CASE — "+caseInfo.title,
+     "Customer price entered: "+money(price)+"; correct example total: "+money(quotation.incGST),
+     "Customer scope: "+(scopeNote.trim()||"Not written"),
+     "Change-of-scope decision: "+choice,
+     "Data notice planned in simulation: "+consent.data,
+     "Refurbished parts notice planned in simulation: "+consent.parts,
+     "Maximum approval and scope clarified: "+consent.scope,
+     "New costs will be paused before work: "+consent.stop,
+     "Calculated outcome: "+result.points+"/100 (choices and arithmetic only; free text not graded)","",
+     "DELAYED RECALL WRITING (NOT AUTOMATICALLY SCORED)",reflected.trim()||"No written recall yet.","",
+     "Supervisor should observe: cost arithmetic, assumptions, customer communication, safe scope, repair/data notices, and the decision to stop or refer.",
+     "This export is not evidence that a real customer received notices or approved a service."
+   ].join("\n");
+   const blob=new Blob([report],{type:"text/plain;charset=utf-8"});
+   const url=URL.createObjectURL(blob);
+   const a=document.createElement("a");a.href=url;a.download="repair-pricing-practice-evidence.txt";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+ }
  const scoreLabel=(n:number)=>n===100?"Complete simulation":n>=80?"Strong, but missing a required safeguard":n>=60?"Developing reasoning":"Return to the worked lessons";
  return <main className={styles.page} id="pricing-studio">
    <div className={styles.breadcrumb}><Link href="/learn/repair-service-pricing">← Computer Repair Pricing course</Link><span>Practice lab · AUD</span></div>
@@ -221,7 +250,7 @@ export default function PricingStudio(){
             <p><strong>Fair comparison</strong> — Consider comparable refurbished replacement value and expected life.</p>
             <p><strong>Rights</strong> — Never imply a repair disclaimer removes Australian Consumer Law guarantees.</p>
           </div>
-          <div className={styles.actions}><button onClick={copyQuote}>{copied?"Copied to clipboard ✓":"Copy fictional quote text"}</button><button className={styles.outline} onClick={()=>window.print()}>Print example</button></div>
+          <div className={styles.actions}><button disabled={scopeNote.trim().length<50} onClick={copyQuote}>{copied?"Copied to clipboard ✓":"Copy fictional quote text"}</button><button className={styles.outline} onClick={()=>window.print()}>Print example</button></div>
           {feedback?<p className={styles.incorrect}>{feedback}</p>:null}
           <a href={resources[2].url} target="_blank" rel="noopener noreferrer">ACCC: mandatory repair notices and timing ↗</a>
           <a href={resources[3].url} target="_blank" rel="noopener noreferrer">ACCC: single total consumer price ↗</a>
@@ -232,7 +261,7 @@ export default function PricingStudio(){
     {stage==="review"&&<section className={styles.module}>
       <div className={styles.eyebrow}>STEP 04 / RECALL · TRANSFER · EVIDENCE</div><h2>Can you do it a week later?</h2>
       <p className={styles.lead}>Mastery requires repeated retrieval and transfer to unfamiliar situations. This page only tracks this browser's simulation attempts; LMS completion and supervisor observation are separate.</p>
-      <div className={styles.reviewGrid}>{scenarioBank.map((c,i)=><div className={styles.reviewCard} key={c.id}><small>{String(i+1).padStart(2,"0")} · {c.severity}</small><h3>{c.title}</h3><strong>{history[c.id]?history[c.id].score+"/100":"Not attempted"}</strong><p>{history[c.id]?history[c.id].score===100?"Simulated decisions fully correct; return in 3 days to test recall.":"Review the missing steps and retry without notes.":"Attempt the scenario to establish a baseline."}</p><button onClick={()=>{selectScenario(c.id);navigate("case")}}>Practise this case →</button></div>)}</div>
+      <div className={styles.reviewGrid}>{scenarioBank.map((c,i)=><div className={styles.reviewCard} key={c.id}><small>{String(i+1).padStart(2,"0")} · {c.severity}</small><h3>{c.title}</h3><strong>{history[c.id]?history[c.id].score+"/100 latest":"Not attempted"}</strong><p>{history[c.id]?history[c.id].score===100?"Simulated decisions fully correct; return in 3 days to test recall.":"Review the missing steps and retry without notes.":"Attempt the scenario to establish a baseline."} {history[c.id]?"Best: "+(history[c.id].best??history[c.id].score)+"/100 · "+history[c.id].tries+" attempt(s).":""}</p><button onClick={()=>{selectScenario(c.id);navigate("case")}}>Practise this case →</button></div>)}</div>
       <div className={styles.columns}>
        <div className={styles.panel}><h3>Spaced self-test · no hints</h3><p>Without looking back, explain: why can $160 cost require a $200 ex-GST quote at 20% target margin? What changes if the owner approves $200 but a required part pushes the total to $260?</p><label className={styles.textLabel}>Write your reasoning (private; not graded)
         <textarea value={reflected} onChange={e=>setReflected(e.target.value)} rows={5} placeholder="Show your formula; explain the stop-work decision and the documented authorisation steps..."/></label>
@@ -243,7 +272,7 @@ export default function PricingStudio(){
       <div className={styles.bottomLine}>
         <div><strong>{ready?completed:0} / {scenarioBank.length}</strong><span>perfect simulations on this browser</span></div>
         <p>{floorPassed?"Labour rate floor answered correctly in this session.":"Complete the labour-rate calculation without opening the answer first."} Recheck on another day and demonstrate a customer-safe quote with a qualified supervisor. No automatic certification is awarded.</p>
-        <button className={styles.outline} onClick={()=>{if(window.confirm("Clear locally saved Pricing Studio practice scores on this browser?"))clear()}}>Reset local practice record</button>
+        <button onClick={exportEvidence} className={styles.outline}>Download practice evidence (.txt)</button><button className={styles.outline} onClick={()=>{if(window.confirm("Clear locally saved Pricing Studio practice scores on this browser?"))clear()}}>Reset local practice record</button>
       </div>
     </section>}
     <footer className={styles.footer}><div><strong>Source-led, not just a quiz</strong><p>{assumptions.join(" ")}</p></div><Link href="/learn/repair-service-pricing">Return to the LMS course →</Link></footer>
