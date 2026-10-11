@@ -1,6 +1,6 @@
 import type {MediaItem} from "./media";
 
-export type MediaPlayback={kind:"youtube"|"apple"|"audio";src:string;label:string};
+export type MediaPlayback={kind:"youtube"|"apple"|"audio"|"vimeo";src:string;label:string};
 
 /** Only approved provider players. Never put an arbitrary content URL into an iframe. */
 export function mediaPlayback(item:MediaItem):MediaPlayback|null {
@@ -8,9 +8,17 @@ export function mediaPlayback(item:MediaItem):MediaPlayback|null {
  if(item.type==="podcast"&&item.audioUrl){
   try {
    const p=new URL(item.audioUrl);
-   if(p.protocol==="https:" && ["traffic.libsyn.com","therestartproject.org"].includes(p.hostname)
+   if(p.protocol==="https:" && ["traffic.libsyn.com","therestartproject.org","media.blubrry.com"].includes(p.hostname)
      && p.pathname.toLowerCase().endsWith(".mp3")){
     return {kind:"audio",src:p.href,label:"Audio episode"};
+   }
+  }catch{return null;}
+ }
+ if(item.type==="video" && item.embedUrl){
+  try{
+   const u=new URL(item.embedUrl);
+   if(u.protocol==="https:"&&u.hostname==="player.vimeo.com"&&/^\\/video\\/\\d+$/.test(u.pathname)){
+    return {kind:"vimeo",src:u.origin+u.pathname,label:"Video"};
    }
   }catch{return null;}
  }
