@@ -41,7 +41,8 @@ export default async function LearningHome({
         <span><strong>{finishedCount}</strong> completed</span>
       </div>
     </header>
-    <aside className={styles.sourcePanel}>
+    <section className={styles.sourcePanel} aria-label="Podcasts and videos"><strong>Listen and watch without leaving the LMS</strong><p>Browse the restored podcast episodes and hands-on video lessons. Play selected content directly here, then return to the appropriate course to record your learning.</p><Link className={styles.secondaryLink} href="/learn/media#podcasts">Open podcasts &amp; videos →</Link></section>
+  <aside className={styles.sourcePanel}>
       <strong>Course quality register</strong>
       <p>{qualityCounts.substantial} substantial applied pathways; {qualityCounts.developing} developing courses with additional references; {qualityCounts.orientation} orientation-only. {qualityCounts.masteryReady} independently mastery-ready. Course completion is not professional sign-off.</p>
       <p className={styles.hint}>Every course detail page now identifies its resources, practical exercises and remaining gaps.</p>

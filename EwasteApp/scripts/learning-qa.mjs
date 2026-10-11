@@ -259,3 +259,42 @@ assert.ok(storagePage.includes("heroPhotos") && storagePage.includes("photoHighl
 const storageTSX=ts.createSourceFile("storage-guide/page.tsx",storagePage,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
 assert.equal(storageTSX.parseDiagnostics.length,0,"Storage Explorer JSX must parse after photo edits");
 console.log("Storage photo QA PASS: real Commons sources, sixteen photo entries, correct drive sizes, header/atlas/anatomy/gallery rendering.");
+
+
+// Provider-backed inline playback: no misleading "watch/listen here" buttons that
+// just navigate away, and no untrusted raw link may enter an iframe.
+const playSource=load("lib/learning/playback.ts");
+const playerSource=load("components/LearningMediaPlayer.tsx");
+const mediaHub=load("app/(private)/learn/media/page.tsx");
+const mediaHome=load("app/(private)/learn/page.tsx");
+const courseMedia=load("app/(private)/learn/[course]/page.tsx");
+const playTS=readTS("lib/learning/playback.ts");
+const playerTS=ts.createSourceFile("LearningMediaPlayer.tsx",playerSource,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
+assert.equal(playTS.parseDiagnostics.length,0,"Provider embed resolver must parse TypeScript");
+assert.equal(playerTS.parseDiagnostics.length,0,"Shared audio and video player must parse TSX");
+const transpiled=ts.transpileModule(playSource,{compilerOptions:{module:ts.ModuleKind.ES2022,target:ts.ScriptTarget.ES2022}}).outputText;
+const {mediaPlayback}=await import("data:text/javascript;base64,"+Buffer.from(transpiled).toString("base64"));
+const playbackLines=contents.split("\n").filter(line=>/type:"(?:video|podcast)"/.test(line));
+let testedVideos=0, testedPodcasts=0;
+for(const line of playbackLines){
+ const type=line.match(/type:"(video|podcast)"/)?.[1];
+ const url=line.match(/url:"([^"]+)"/)?.[1];
+ const audioUrl=line.match(/audioUrl:"([^"]+)"/)?.[1];
+ const embedUrl=line.match(/embedUrl:"([^"]+)"/)?.[1];
+ const id=line.match(/id:"([^"]+)"/)?.[1];
+ assert.ok(type&&url&&id,"Every media row must expose explicit trusted playback metadata");
+ const result=mediaPlayback({type,url,audioUrl,embedUrl});
+ assert.ok(result, "Non-playable provider metadata: "+id);
+ assert.ok(result.src.startsWith("https://"),"Only HTTPS in providers");
+ if(type==="video"){testedVideos++;assert.ok(["youtube","vimeo"].includes(result.kind),"All videos must use approved inline player: "+id);}
+ else{testedPodcasts++;assert.ok(["audio","apple","spotify"].includes(result.kind),"All podcasts need direct audio or native podcast player: "+id);}
+}
+assert.ok(testedVideos>=27&&testedPodcasts>=18,"Do not lose restored podcast and video inventory");
+assert.equal(mediaPlayback({type:"video",url:"https://evil.example/watch?v=pQw4E8ecL5c"}),null,"Block arbitrary iframe targets");
+assert.equal(mediaPlayback({type:"podcast",url:"javascript:alert(1)"}),null,"Block Javascript source");
+assert.ok(playerSource.includes("<audio controls")&&playerSource.includes("<iframe"),"Native HTML5 audio and provider iframe are required");
+assert.ok(playerSource.includes("onClick={()=>{setOpen(true)")&&playerSource.includes("Open original"),"Privacy click-to-load and honest external fallback");
+assert.ok(mediaHub.includes("mediaItems.filter")&&mediaHub.includes("<LearningMediaPlayer item={item}/>"),"Media hub must play providers in-page");
+assert.ok(courseMedia.includes("<LearningMediaPlayer item={item}/>"),"Learning modules must play providers in-page");
+assert.ok(mediaHome.includes('href="/learn/media#podcasts"'),"Learning home must link central listening library");
+console.log("Inline media QA PASS: "+testedPodcasts+" podcasts and "+testedVideos+" videos have in-page players, original links and trusted URL allowlists.");
