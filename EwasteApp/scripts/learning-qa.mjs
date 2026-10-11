@@ -240,13 +240,13 @@ console.log("Observed mastery QA PASS: audio scripts and UI parse, targeted podc
 
 
 const storageGallerySource=load("lib/storage-photos.ts");
-const storageGalleryData=storageGallerySource.split("export const storagePhotos:StoragePhoto[] = ")[1]?.split(";\\nexport function")[0];
+const storageGalleryData=storageGallerySource.split("export const storagePhotos:StoragePhoto[] = ")[1]?.split(";\nexport function")[0];
 assert.ok(storageGalleryData,"Storage Explorer must retain its verified photo catalogue");
 const storageGallery=JSON.parse(storageGalleryData);
 assert.ok(storageGallery.length>=16,"Storage Explorer should feature at least sixteen real photo references");
 assert.equal(new Set(storageGallery.map(p=>p.id)).size,storageGallery.length,"Storage photographs need distinct IDs");
 assert.equal(new Set(storageGallery.map(p=>p.file)).size,storageGallery.length,"Do not add duplicate photograph files");
-const validDriveIds=new Set([...load("lib/storage-guide.ts").matchAll(/\\{id:"([^"]+)",title:/g)].map(m=>m[1]));
+const validDriveIds=new Set([...load("lib/storage-guide.ts").matchAll(/\{id:"([^"]+)",title:/g)].map(m=>m[1]));
 for(const p of storageGallery){
  assert.ok(p.file && p.credit && p.license && p.licenseUrl.startsWith("https://"),"Photo must credit actual source and license: "+p.id);
  assert.ok(p.atlasIds.every(id=>validDriveIds.has(id)),"Photo must map to an actual atlas entry: "+p.id);
