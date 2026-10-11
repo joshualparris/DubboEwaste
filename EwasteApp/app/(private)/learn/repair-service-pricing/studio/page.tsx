@@ -26,13 +26,29 @@ const resources=[
  * Costing decisions use Australian source guidance, not US repair rate claims.
  */
 const featuredMedia = [
- {id:"video-side-repairs",type:"video",stage:"01 · Rate engineering",provider:"Electronics Repair School",title:"Don't Be Afraid to Charge Money for Side Repairs",url:"https://www.classcentral.com/course/youtube-don-t-be-afraid-to-charge-money-for-these-side-repairs-446448",duration:"19-minute free video course",description:"A technician's perspective on charging for time and expertise rather than treating side repairs as free work.",task:"After watching, identify two non-part costs the presenter overlooks or underestimates. Recalculate an Australian hourly floor using the studio.",caveat:"External Class Central listing links to YouTube. Practitioner advice, not an Australian price benchmark."},
+ {id:"video-side-repairs",type:"video",stage:"01 · Rate engineering",provider:"Electronics Repair School",title:"Don't Be Afraid to Charge Money for Side Repairs",url:"https://www.youtube.com/watch?v=OFSqkWOd1-s",duration:"19-minute free video course",description:"A technician's perspective on charging for time and expertise rather than treating side repairs as free work.",task:"After watching, identify two non-part costs the presenter overlooks or underestimates. Recalculate an Australian hourly floor using the studio.",caveat:"External Class Central listing links to YouTube. Practitioner advice, not an Australian price benchmark."},
  {id:"video-ssd-copy",type:"video",stage:"02 · Quote simulator",provider:"Crucial / Micron",title:"Installing a Crucial 2.5-inch SSD: Copy",url:"https://www.youtube.com/watch?v=pQw4E8ecL5c",duration:"Free instructional video",description:"Walk through preparing and copying an existing drive when quoting an SSD migration.",task:"List which operations require your hands-on time, which may run unattended, and two extra checks before touching a customer's original disk.",caveat:"Older vendor-specific migration example. Cloning is not an independently verified backup; confirm device and customer permission."},
  {id:"video-ssd-install",type:"video",stage:"02 · Quote simulator",provider:"Crucial / Micron",title:"Installing a Crucial 2.5-inch SSD: Install",url:"https://www.youtube.com/watch?v=dy7An1DkieQ",duration:"Free instructional video",description:"Observe the physical SSD fitting and verification tasks that a labour quote must allow for.",task:"Create an SSD quote checklist including isolation, drive identification, fitting, boot verification and a no-data-loss caveat.",caveat:"Generic vendor demonstration; not a model-specific repair procedure or proof of safe data migration."},
  {id:"video-troubleshoot",type:"video",stage:"02 · Quote simulator",provider:"Professor Messer",title:"Computer hardware troubleshooting: diagnostic reasoning",url:"https://www.youtube.com/watch?v=HgeURynWn_w",duration:"Free A+ teaching video",description:"Count the diagnostic steps behind an intermittent hardware symptom before promising a fixed-fee outcome.",task:"Draft a capped diagnostic quote with three inclusions, two exclusions and one stop-work trigger for an uncertain no-power complaint.",caveat:"Demonstration teaches diagnostic scope, not Australian labour prices; check the original video title and playback on YouTube."},
  {id:"podcast-new-shop",type:"podcast",stage:"01 · Rate engineering",provider:"Computer Repair Academy",title:"Repair Shop Pricing: How Much Should You Charge? — S3 Ep2",url:"https://music.amazon.com.au/podcasts/64e7a117-f5f2-4195-b63d-6ac99d620a81/episodes/2a5fa4d5-0811-489a-a6b4-a8e829a6fd41/computer-repair-academy-why-is-this-pc-so-slow-performance-problems-pc-hardware-repair-shop-pricing---s3-ep2",duration:"21-minute episode · 2 September 2026",description:"The Office Desk segment discusses what a new repair business should charge, alongside real troubleshooting and SSD tools.",task:"Listen to the pricing segment; write down one valid costing principle and one recommendation that needs checking for Australian GST, overhead or consumer rights.",caveat:"Mixed-topic podcast; pricing is one segment. US-style practitioner opinion, not a Dubbo rate card. Player availability varies."},
- {id:"podcast-hardware-markup",type:"podcast",stage:"03 · Customer handover",provider:"The Computer Repair Podcast / Podnutz",title:"Episode 181: Hardware Markup",url:"https://podnutz.com/podnutz181/",duration:"Free audio + MP3 page · 19 May 2016",description:"Technicians debate whether and how a repair business should mark up the replacement parts it supplies.",task:"Compare 20% markup against 20% gross margin on a $160 total cost. Explain the difference in plain English to a customer.",caveat:"Historical US discussion; parts markup is not the same as overall job margin and is not legal/tax advice."}
-] as const;
+ {id:"podcast-hardware-markup",type:"podcast",stage:"03 · Customer handover",provider:"The Computer Repair Podcast / Podnutz",title:"Episode 181: Hardware Markup",url:"https://podnutz.com/podnutz181/",duration:"Free audio + MP3 page · 19 May 2016",description:"Technicians debate whether and how a repair business should mark up the replacement parts it supplies.",task:"Compare 20% markup against 20% gross margin on a $160 total cost. Explain the difference in plain English to a customer.",caveat:"Historical US discussion; parts markup is not the same as overall job margin and is not legal/tax advice."},
+ {id:"podcast-billable-diagnostics",type:"podcast",stage:"01 · Rate engineering",provider:"Computer Repair Academy",title:"Patch Tuesday Panic — Why Technicians Shouldn't Give Away Diagnostic Work",url:"https://music.amazon.com.au/podcasts/64e7a117-f5f2-4195-b63d-6ac99d620a81/episodes/b84938f1-eadb-4ded-8195-25945e538452/computer-repair-academy-patch-tuesday-panic-pc-mysteries-what%E2%80%99s-happening-on-the-repair-bench",duration:"19-minute episode · 25 August 2026",description:"A companion episode about charging properly for the diagnostic work that precedes repair.",task:"Listen to the diagnostic-fee discussion, then write a customer-facing capped diagnostic scope with one exception that requires further consent.",caveat:"US practitioner audio, not a guaranteed Australian market price. Select this episode in the embedded RSS.com show player."}
+ ] as const;
+
+/* Embedded players are activated only after a user clicks Play here, so external
+ * media providers receive no requests before that interaction. Videos use
+ * YouTube's privacy-enhanced iframe. RSS.com provides an official show player
+ * with a selectable episode playlist; the old Podnutz archive may deny iframe
+ * embedding, in which case the original page remains the listening fallback. */
+const playableMedia: Record<string,{src:string;label:string;kind:"video"|"podcast";height:number}> = {
+ "video-side-repairs":{src:"https://www.youtube-nocookie.com/embed/OFSqkWOd1-s",label:"Play the original side-repair pricing video",kind:"video",height:285},
+ "video-ssd-copy":{src:"https://www.youtube-nocookie.com/embed/pQw4E8ecL5c",label:"Play Crucial SSD copy demonstration",kind:"video",height:285},
+ "video-ssd-install":{src:"https://www.youtube-nocookie.com/embed/dy7An1DkieQ",label:"Play Crucial SATA SSD installation",kind:"video",height:285},
+ "video-troubleshoot":{src:"https://www.youtube-nocookie.com/embed/HgeURynWn_w",label:"Play Professor Messer troubleshooting video",kind:"video",height:285},
+ "podcast-new-shop":{src:"https://player.rss.com/computer-repair-academy/?limit=12",label:"Computer Repair Academy audio player; choose S3 Ep2 about repair pricing",kind:"podcast",height:380},
+ "podcast-billable-diagnostics":{src:"https://player.rss.com/computer-repair-academy/?limit=12",label:"Computer Repair Academy audio player; choose S3 Ep1 about billable diagnostic work",kind:"podcast",height:380},
+ "podcast-hardware-markup":{src:"https://podnutz.com/podnutz181/",label:"Original Podnutz episode page with audio player; open original page if embedding is blocked",kind:"podcast",height:380}
+};
 
 const consentLabels:{key:keyof Consent;label:string;why:string}[]=[
   {key:"data",label:"Issue the required individual written data-loss warning before accepting a consumer data-bearing repair",why:"A sign in the shop is not the written notice required by ACCC guidance."},
@@ -58,6 +74,7 @@ function NumberEntry({label,value,onChange,min=0,max=100000,step=1,help}:{
 function Note({children}:{children:React.ReactNode}){return <p className={styles.note}>{children}</p>}
 export default function PricingStudio(){
  const [stage,setStage]=useState<Stage>("rate");
+ const [playingMedia,setPlayingMedia]=useState<string|null>(null);
  const [monthlyOverhead,setMonthlyOverhead]=useState(1800);
  const [monthlyLabour,setMonthlyLabour]=useState(3600);
  const [paidHours,setPaidHours]=useState(160);
@@ -303,9 +320,9 @@ export default function PricingStudio(){
     
    <section className={styles.mediaSection} id="pricing-media" aria-labelledby="pricing-media-heading">
      <div className={styles.mediaIntro}>
-       <div><span className={styles.eyebrow}>SIX FREE LEARNING RESOURCES · WATCH & LISTEN</span>
+       <div><span className={styles.eyebrow}>SEVEN RELEVANT LEARNING RESOURCES · WATCH & LISTEN</span>
          <h2 id="pricing-media-heading">Watch the work. Hear the pricing decisions.</h2>
-         <p>Use these creator-hosted videos and actual podcast episodes to test your quoting assumptions. Each resource has a task to complete in the studio; opening a link alone does not earn a mastery score.</p>
+         <p>Play videos here, or use the embedded podcast player and choose the named episode from its playlist. The 2016 Podnutz archive may block embedding; its original MP3/player page is always linked. Each resource has a task to complete in the studio; opening a link alone does not earn a mastery score.</p>
        </div>
        <a href="#pricing-studio" className={styles.mediaBack}>Back to simulator ↑</a>
      </div>
@@ -317,13 +334,33 @@ export default function PricingStudio(){
          <p>{item.description}</p>
          <div className={styles.mediaTask}><strong>Try this:</strong> {item.task}</div>
          <p className={styles.mediaCaveat}>{item.caveat}</p>
+         {playableMedia[item.id]?<button className={styles.mediaPlay} type="button"
+           aria-expanded={playingMedia===item.id}
+           aria-controls={"media-frame-"+item.id}
+           onClick={()=>setPlayingMedia(playingMedia===item.id?null:item.id)}>
+           {playingMedia===item.id?"Stop player":"▶ Play here"}
+         </button>:null}
+         <div id={"media-frame-"+item.id} className={styles.mediaFrameWrap}>
+           {playingMedia===item.id&&playableMedia[item.id]?<>
+             {item.type==="podcast"?<p className={styles.mediaPlayerNote}>
+               {item.id==="podcast-hardware-markup"
+                 ?"This publisher's archive may block iframe playback. If nothing loads, use the original MP3/player link below."
+                 :"Use the RSS.com podcast playlist to select the named episode above. It may not be the first item shown."}
+             </p>:null}
+             <iframe className={styles.mediaFrame} src={playableMedia[item.id].src}
+               title={playableMedia[item.id].label}
+               loading="lazy" referrerPolicy="strict-origin-when-cross-origin"
+               allow="autoplay; encrypted-media; picture-in-picture"
+               allowFullScreen style={{height:playableMedia[item.id].height}} />
+           </>:null}
+         </div>
          <a className={styles.mediaOpen} href={item.url} target="_blank" rel="noopener noreferrer"
            aria-label={"Open "+item.title+" on the original provider website (new tab)"}>
-           {item.type==="video"?"Watch original video ↗":"Listen to original episode ↗"}
+           {item.type==="video"?"Watch on YouTube ↗":"Listen on original episode page ↗"}
          </a>
        </article>)}
      </div>
-     <p className={styles.mediaDisclaimer}>Links open on their providers' sites; captions, transcripts, availability and adverts are controlled by those providers. Audio and video are optional study formats alongside official Australian guidance, not proof of fair local pricing or a real-world repair qualification.</p>
+     <p className={styles.mediaDisclaimer}>In-page playback uses the media providers' official players, activated only when you press Play here. For a blocked embed, use the original episode/video link on the same card. Captions, transcripts, availability and adverts are controlled by the provider. Audio and video are optional study formats alongside official Australian guidance, not proof of fair local pricing or a real-world repair qualification.</p>
    </section>
     <footer className={styles.footer}><div><strong>Source-led, not just a quiz</strong><p>{assumptions.join(" ")}</p></div><Link href="/learn/repair-service-pricing">Return to the LMS course →</Link></footer>
    </div>
