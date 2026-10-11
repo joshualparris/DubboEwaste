@@ -517,42 +517,66 @@ export const deepPathways: DeepPathway[] = [
   },
   {
     "slug": "repair-laptop-refurb",
-    "benchmark": "IBM's A+ hardware troubleshooting course includes device-level cases and assessments, and iFixit supports exact-model procedures.",
-    "target": "Demonstrate documented hardware diagnostics, storage authorisation, compatible replacements and repeatable release tests.",
-    "limits": "No access to previous owners' files; respect firmware locks and lithium risks.",
+    "benchmark": "The existing three-lesson laptop introduction mentioned storage health but did not require repeatable HDD diagnosis, verified backup, exact-model 2.5-inch SATA compatibility, migration failure handling, post-repair data verification or accountable economics. This pathway pairs the HP 250 G3 service manual with practical video, verified references and an adaptive bench simulation.",
+    "target": "Produce a redacted end-to-end HP 250 G3 repair plan: authorisation, two falsifiable hypotheses, independent backup verification, exact SATA/caddy compatibility, safe replacement, cold-boot/data-integrity checks, secure old-drive custody and an itemised customer handover; demonstrate safe work under competent supervision.",
+    "limits": "An HDD marked slow is not automatically faulty. Stop on swollen battery, unresolved ownership, clicking/read-failing media or absent data consent. No copying unknown owners' files or wiping donors. A lesson, quiz or simulation is not evidence of a supervised physical repair.",
     "resources": [
       {
-        "title": "Core 1: Hardware and Network Troubleshooting",
-        "provider": "IBM / Coursera",
-        "url": "https://www.coursera.org/learn/core1-hardware-and-network-troubleshooting",
-        "access": "Platform enrolment terms apply",
-        "kind": "Five-module assessed course",
-        "why": "Boot, motherboard, RAM, mobile displays and storage fault diagnostics."
+        "title": "HP 250 G3 / 256 G3 Maintenance and Service Guide",
+        "provider": "HP official support",
+        "url": "https://support.hp.com/au-en/product/setup-user-guides/hp-250-g3-notebook-pc/6732462",
+        "access": "Free · official model manual PDF on support page",
+        "kind": "Service and disassembly reference",
+        "why": "Confirm the specific HP model, battery steps, hard-drive bracket, correct SATA form factor and the expected service workflow before buying parts."
       },
       {
-        "title": "PC Laptop Repair Guides",
-        "provider": "iFixit",
-        "url": "https://www.ifixit.com/Device/PC_Laptop",
-        "access": "Free · model-specific guides",
-        "kind": "Practical repair reference",
-        "why": "Detailed component disassembly, troubleshooting and photographic procedures."
+        "title": "2.5-inch SSD install: copy and migrate",
+        "provider": "Crucial / Micron",
+        "url": "https://www.youtube.com/watch?v=pQw4E8ecL5c",
+        "access": "Free · video, vendor demonstration",
+        "kind": "Video practical demonstration",
+        "why": "Observe cloning and migration sequencing, then identify why independent backup, encryption state, source health and partitions must be verified beyond this vendor demo."
+      },
+      {
+        "title": "Windows recovery and reinstall options",
+        "provider": "Microsoft Support",
+        "url": "https://support.microsoft.com/en-us/windows/experience/backup-recovery/recovery-options-in-windows",
+        "access": "Free · official guide",
+        "kind": "Decision reference",
+        "why": "Compare recovery, repair and clean install effects on programs and data; distinguish preserving files from preserving a complete bootable installation."
+      },
+      {
+        "title": "SMART drive health: smartctl reference",
+        "provider": "Debian / smartmontools",
+        "url": "https://manpages.debian.org/testing/smartmontools/smartctl.8.en.html",
+        "access": "Free · technical manual",
+        "kind": "Diagnostic reference",
+        "why": "Interpret overall-health flags alongside individual error logs, self-test failures and device limitations rather than treating a green indicator as proof."
+      },
+      {
+        "title": "Repair economics and service boundaries: Fixing IT Right",
+        "provider": "Podnutz Computer Repair Podcast",
+        "url": "https://podnutz.com/podnutz228/",
+        "access": "Free · 2017 podcast",
+        "kind": "Audio case conversation",
+        "why": "Apply customer-scope discussions when an authorised hardware fix reveals unrelated software problems. This recording is contextual, not a drive-replacement tutorial."
       }
     ],
     "cases": [
       {
-        "prompt": "A donated laptop boots to BIOS but an NVMe drive is not detected. Create a plan.",
-        "workedAnswer": "Check ownership, slot capabilities, BIOS setting, drive seating if safe, and known-good comparison.",
-        "safety": "Never treat storage as yours to wipe without authorisation."
+        "prompt": "A real HP 250 G3 with i5-5200U has an HDD, Windows 10 and an owner requesting a cheaper speed-up. Health/RAM details are unknown. Build an evidence-led decision before ordering a 256 GB SATA SSD. Name two alternative causes of slowness, your first three low-risk observations, ownership/backup gate and one absolute stop-work trigger.",
+        "workedAnswer": "First confirm authority and backup requirements; record three timed cold starts/app launches, storage identity and SMART/self-test summaries without stress, plus RAM pressure and available capacity. Compare HDD seek bottlenecks with RAM paging, startup software and storage failure. If clicking or failed sectors, stop ordinary cloning. Verify used partitions and drive bay from the HP 250 G3 service manual before selecting a compatible 2.5-inch SATA SSD.",
+        "safety": "Do not access personal files merely because the Windows profile is available; an SSD upgrade without an independent verified backup can still lose family data."
       },
       {
-        "prompt": "A candidate donor display has matching 15.6-inch diagonal but unknown eDP pinout.",
-        "workedAnswer": "List connector, panel revision, signalling, backlight and mounting checks.",
-        "safety": "Diagonal size does not establish transplant compatibility."
+        "prompt": "A 500 GB original HDD has 300 GB occupied and an EFI plus recovery partition. The apprentice proposes a 256 GB SATA SSD and wants to clone straight away. Calculate whether 300 GB can fit, differentiate cloning from a verified independent backup, propose two safe alternatives, then outline bracket/connector checks against the exact HP manual.",
+        "workedAnswer": "300 GB of occupied data exceeds 256 GB nominal capacity, with partition and spare-space considerations making the shortfall more severe. Options: authorised data reduction with independent verified backup and re-evaluated partitions, or a larger suitable 2.5-inch SATA SSD. Clone only a stable source after explicit consent, encryption/partition review and source-target identity checks; otherwise clean install on the new drive and preserve old drive pending instructions.",
+        "safety": "Never overwrite a source by confusing USB SATA adapters or drive identifiers. A physically fitting M.2 card does not belong in a 2.5-inch SATA plug."
       },
       {
-        "prompt": "Define a refurbishment pass/fail acceptance record.  State two alternative explanations, a safe discriminating test and the evidence needed for your final decision.",
-        "workedAnswer": "Battery health, charging, thermal stability, ports, screen, keyboard, memory and verified erasure.",
-        "safety": "A single successful boot is not release evidence."
+        "prompt": "A replacement SSD is visible to UEFI and boots once, but no migrated file checks were done, a restart occasionally says 'no boot device', and the old HDD has no custody label. Build a pass/fail release test, including a boot-path hypothesis, at least three repeatable checks, a redacted evidence bundle and a customer-facing price/disposition note.",
+        "workedAnswer": "Hold release. Check UEFI boot entry, EFI partition and firmware setting before assuming a bad SSD. Repeat cold boot and restart, SSD health/identity, authorised sample-file restoration checks against an independent backup, device/peripheral function and logs. Record old HDD asset identity privately, agreed retention/return/sanitisation process, and scope of unverified items. A fictional A$80 cost base at 20% gross margin gives A$100 ex-GST; backup/data recovery and tax must be separately quoted where relevant.",
+        "safety": "A single successful boot, a SMART 'PASSED' flag or a progress tick cannot sign off integrity or data custody; submit observed evidence for human review."
       }
     ]
   },
