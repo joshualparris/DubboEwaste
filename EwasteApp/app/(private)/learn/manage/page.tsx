@@ -6,6 +6,7 @@ import {assignCourse,reviewPractical} from "./actions";
 import {LibraryCodeControl} from "./LibraryCodeControl";
 import {AssignmentForm} from "./AssignmentForm";
 import styles from "../learning.module.css";
+import {independentlyObservedSignoff,rubricTotal} from "@/lib/learning/mastery";
 
 export default async function LearningManagement({searchParams}:{
  searchParams:Promise<{error?:string,message?:string}>
@@ -22,17 +23,19 @@ export default async function LearningManagement({searchParams}:{
  const leading=new Set((ownMemberships??[]).filter(m=>m.programme_role==="admin").map(m=>m.program));
  if(!global&&!leading.size) redirect("/learn");
  const allowed=programmes.filter(p=>p.id!=="all"&&(global||leading.has(p.id)));
- const [accessResult,studentsResult,assignmentResult,reviewResult]=await Promise.all([
+ const [accessResult,studentsResult,assignmentResult,reviewResult,signoffResult]=await Promise.all([
    db.from("program_access").select("user_id,program,active").eq("active",true),
    db.from("profiles").select("id,full_name,email,active").eq("active",true),
    db.from("learning_assignments").select("user_id,course_slug,programme,due_date,assigned_at").order("assigned_at",{ascending:false}).limit(30),
-   db.from("learning_practical_submissions").select("id,user_id,course_slug,programme,reflection,submitted_at,status").eq("status","submitted").order("submitted_at",{ascending:true}).limit(40)
+   db.from("learning_practical_submissions").select("id,user_id,course_slug,programme,reflection,submitted_at,status").eq("status","submitted").order("submitted_at",{ascending:true}).limit(40),
+   db.from("learning_practical_submissions").select("id,user_id,course_slug,programme,submitted_at,status,reviewer_id,reviewed_at,feedback,directly_observed,observed_on,observation_method,evidence_reference,assessor_attested,skill_consent,skill_diagnosis,skill_compatibility,skill_safety,skill_verification,skill_handover").eq("course_slug","repair-laptop-refurb").eq("status","approved").order("reviewed_at",{ascending:false}).limit(40)
  ]);
  const membership=new Set((accessResult.data??[]).filter(x=>allowed.some(p=>p.id===x.program)).map(x=>x.user_id));
  const people=(studentsResult.data??[]).filter(p=>membership.has(p.id));
  const byId=new Map(people.map(p=>[p.id,p.full_name||p.email||"Volunteer"]));
  const pending=(reviewResult.data??[]).filter(x=>allowed.some(p=>p.id===x.programme));
  const assignments=(assignmentResult.data??[]).filter(x=>allowed.some(p=>p.id===x.programme));
+ const signed=(signoffResult.data??[]).filter(x=>allowed.some(p=>p.id===x.programme)&&independentlyObservedSignoff(x,x.user_id));
  return <div className={styles.shell}>
   <nav className={styles.breadcrumbs}><Link href="/learn">Learning hub</Link><span>/</span><span>Supervisor desk</span></nav>
   <header className={styles.courseHero}><span className={styles.track}>Coordinator workspace</span><h1>Support your learners</h1>
@@ -106,6 +109,19 @@ export default async function LearningManagement({searchParams}:{
       </form>
     </article>)}
   </section>
+  <section className={styles.section} aria-label="Recorded independently observed laptop skills">
+    <h2>Independently observed laptop practical sign-offs ({signed.length})</h2>
+    <p className={styles.hint}>This is a restricted, database-backed assessor register, not a count of people who finished lessons. Learners and their own programme coordinators see only records they are authorised to access.</p>
+    {signed.length===0?<p className={styles.notice}>No verified laptop-refurbishment practical sign-offs recorded in your programmes.</p>:
+      <div className={styles.lessonList}>{signed.map(s=><div key={s.id} className={styles.lessonRow}>
+        <span className={styles.lessonIndex} aria-hidden="true">✓</span>
+        <div>
+          <strong>{byId.get(s.user_id)??"Programme learner"}</strong>
+          <p>Observed {s.observed_on} · {s.observation_method==="in_person"?"In person":"Live remote"} · score {rubricTotal(s)}/18</p>
+          <p className={styles.hint}>Evidence reference: {s.evidence_reference} · Recorded {new Date(s.reviewed_at??s.submitted_at).toLocaleDateString("en-AU")} by {byId.get(s.reviewer_id??"")??"authorised independent assessor"}.</p>
+        </div>
+      </div>)}</div>}
+   </section>
   <section className={styles.section}><h2>Recently assigned courses</h2>
    {assignments.length===0?<p className={styles.hint}>No assignments yet.</p>:<div className={styles.lessonList}>
     {assignments.map((a,i)=><div className={styles.lessonRow} key={a.user_id+a.course_slug+a.programme+i}>
