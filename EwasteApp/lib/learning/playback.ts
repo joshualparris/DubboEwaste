@@ -30,7 +30,7 @@ export function mediaPlayback(item:MediaItem):MediaPlayback|null {
    if(v&&/^[\w-]{11}$/.test(v))return {kind:"youtube",src:"https://www.youtube-nocookie.com/embed/"+v+"?rel=0",label:"Video"};
   }
   if(item.type==="podcast"&&u.hostname==="open.spotify.com"
-     && /^\\/episode\\/[a-zA-Z0-9]{15,32}$/.test(u.pathname)){
+     && new RegExp("^/episode/[a-zA-Z0-9]{15,32}$").test(u.pathname)){
     const id=u.pathname.split("/")[2];
     return {kind:"spotify",src:"https://open.spotify.com/embed/episode/"+id,label:"Spotify episode"};
    }
