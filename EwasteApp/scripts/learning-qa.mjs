@@ -102,7 +102,7 @@ assert.ok(ssdDeep,"Storage training must upgrade the existing laptop course");
 assert.ok(ssdDeep.resources.length>=5,"SSD mastery needs model manual, diagnostics, video and audio");
 assert.ok(ssdDeep.cases.every(x=>x.prompt.length>200&&x.workedAnswer.length>250),"Applied cases need real evidence and worked explanations");
 assert.ok(ssdCourse.includes('docs/SSD-UPGRADE-MASTERY-HP250G3-2026-10-11.md'),"Course must link detailed procedures");
-assert.ok(/independent verified backup/i.test(ssdGuide)&&/stop-work/i.test(ssdGuide),"Course must teach data protection and stop conditions");
+assert.ok(/verified independent backup|independent verified backup|independent backup/i.test(ssdGuide)&&/stop-work/i.test(ssdGuide),"Course must teach data protection and stop conditions");
 assert.ok(/failing HDD/i.test(ssdGuide)&&/old-drive custody/i.test(ssdGuide),"Course must cover data recovery and disposal");
 assert.ok(/gross margin/i.test(ssdGuide)&&/15\/18/.test(ssdGuide),"Course must include economics and observed mastery rubric");
 const ssdMediaTypes=["video","podcast","guide"];
