@@ -258,7 +258,7 @@ export default function StorageGuide(){
        <small>{item.kind==="video"?"▶ INSTRUCTIONAL VIDEO":"♫ PRACTITIONER PODCAST"} · {item.provider}</small>
        <h3>{item.title}</h3>
        <p><strong>Practice task:</strong> {item.exercise}</p>
-       <LearningMediaPlayer url={item.url} title={item.title} kind={item.kind}/>
+       <LearningMediaPlayer item={{id:item.id,course:"repair-laptop-refurb",type:item.kind,title:item.title,provider:item.provider,url:item.url,summary:item.exercise,focus:item.exercise,provenance:"practitioner",accessibility:"Direct original publisher player; access depends on provider."}}/>
       </div>
     </article>)}</div>
     <p className={styles.callout}>Third-party video and audio are loaded only when you press Play. Spotify, Apple Podcasts and YouTube control access, adverts and captions. Every card includes the original recording link if embedding is blocked.</p>
