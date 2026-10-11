@@ -1038,6 +1038,30 @@ const caseBank = [
     "explanation": "Reuse of parts still requires authority and traceability."
   }
 }
+,
+{
+  "slug": "repair-service-pricing",
+  "practitioner": {
+    "question": "A repair has $80 parts, $55 internal labour cost and $25 other allocated costs. What ex-GST price gives a 20% job margin?",
+    "options": [
+      "Charge $160, recovering every allocated cost before profit.",
+      "Charge $200, dividing total cost by the retained cost share.",
+      "Charge $192, adding a twenty percent mark-up to costs."
+    ],
+    "answer": 1,
+    "explanation": "Cost is $160. Price for 20% margin is $160 / 0.80 = $200, not the $192 price from a 20% markup."
+  },
+  "expert": {
+    "question": "A laptop repair was capped at $210, but diagnosis reveals a further $95 part. What is the best next step?",
+    "options": [
+      "Stop and get approval for revised price and possible alternatives.",
+      "Fit the replacement and explain the higher amount at collection.",
+      "Limit testing to preserve your quoted total and finish quickly."
+    ],
+    "answer": 0,
+    "explanation": "Do not exceed authorised scope; communicate risks and options, secure the client's explicit acceptance before additional work."
+  }
+}
 ] as const;
 export const challenges: Challenge[] = caseBank.flatMap(item => {
   const course = courses.find(c => c.id === item.slug);
