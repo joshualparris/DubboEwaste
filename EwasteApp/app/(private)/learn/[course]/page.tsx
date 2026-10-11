@@ -10,6 +10,7 @@ import AdaptiveAssessment from "@/components/AdaptiveAssessment";
 import RepairPricingStudio from "@/components/RepairPricingStudio";
 import LaptopDiagnosticsLab from "@/components/LaptopDiagnosticsLab";
 import RefurbAudioCompanion from "@/components/RefurbAudioCompanion";
+import LearningMediaPlayer from "@/components/LearningMediaPlayer";
 import {independentlyObservedSignoff,rubricTotal,refurbSkillNames} from "@/lib/learning/mastery";
 import { deepPathwayFor } from "@/lib/learning/deep-pathways";
 import {assessLearningQuality,qualityStageLabel} from "@/lib/learning/quality";
@@ -127,6 +128,7 @@ export default async function CourseOverview({params,searchParams}:{
   {joined ? <AdaptiveAssessment courseId={id} /> : null}
   {media.length>0?<section className={styles.section} id="media">
    <h2>Watch, listen and reflect</h2>
+   <p><Link className={styles.secondaryLink} href="/learn/media#podcasts">Browse all podcasts and videos →</Link></p>
    <p className={styles.hint}>Source-linked learning. Videos open on their provider's website, so a blocked embed cannot prevent learning. Captions and playback vary; written notes and primary reading remain available.</p>
    <div className={styles.catalogue}>
    {media.map(item=><article className={styles.courseCard} key={item.id}>
@@ -134,6 +136,7 @@ export default async function CourseOverview({params,searchParams}:{
     <h3>{item.title}</h3><p>{item.summary}</p><p className={styles.hint}>{item.provider}</p>
     <p><strong>Think about:</strong> {item.focus}</p>
     <p className={styles.hint}>{item.accessibility}</p>
+    {item.type!=="guide"?<LearningMediaPlayer item={item}/>:null}
     <a className={styles.secondaryLink} href={item.url} target="_blank" rel="noopener noreferrer">Open original {item.type} ↗</a>
     {joined?(watched.has(item.id)?<p className={styles.success}>✓ Your reflection is recorded</p>:
     <form action={finishMedia} className={styles.checkForm}>
