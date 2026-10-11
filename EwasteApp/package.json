@@ -12,7 +12,7 @@
     "prebuild": "npm run qa:learning && npm run qa:mobile && npm run qa:programme-auth && npm run qa:repair-cafe",
     "qa:mobile:browser": "node scripts/mobile-browser-qa.mjs",
     "qa:programme-auth": "node scripts/programme-auth-qa.mjs",
-    "qa:learning": "node scripts/learning-qa.mjs",
+    "qa:learning": "node scripts/learning-qa.mjs && node scripts/pricing-mastery-qa.mjs",
     "qa:repair-cafe": "node scripts/repair-cafe-operations-qa.mjs"
   },
   "dependencies": {
