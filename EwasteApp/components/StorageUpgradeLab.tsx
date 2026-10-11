@@ -25,7 +25,6 @@ export default function StorageUpgradeLab(){
  const [attempts,setAttempts]=useState<Attempt[]>([]);
  const [active,setActive]=useState<string>("f1");
  const [selected,setSelected]=useState<number|null>(null);
- const [nextLevel,setNextLevel]=useState<Level>(1);
  const [note,setNote]=useState("");
  const [checks,setChecks]=useState([false,false,false]);
  const scenario=scenarios.find(s=>s.id===active)??scenarios[0];
@@ -45,12 +44,11 @@ export default function StorageUpgradeLab(){
   if(newAttempts.length>=limit)return;
   const next=success?Math.min(3,scenario.level+1):Math.max(1,scenario.level-1);
   const level=next as Level;
-  setNextLevel(level);
   const used=new Set(newAttempts.map(a=>a.id));
   const other=scenarios.find(s=>s.level===level&&!used.has(s.id))??scenarios.find(s=>!used.has(s.id));
   if(other)setActive(other.id);
  };
- const reset=()=>{setAttempts([]);setActive("f1");setSelected(null);setNextLevel(1);setNote("");setChecks([false,false,false]);};
+ const reset=()=>{setAttempts([]);setActive("f1");setSelected(null);setNote("");setChecks([false,false,false]);};
  const completeRubric=checks.every(Boolean)&&note.trim().length>=100;
  return <section className={styles.lab} aria-labelledby="ssd-lab-title">
   <div className={styles.hero}>
