@@ -61,6 +61,7 @@ export default async function LessonPage({ params, searchParams }: {
           {deep.resources.length>1?<a href={deep.resources[Math.min(index+1,deep.resources.length-1)].url} target="_blank" rel="noopener noreferrer">Alternative: {deep.resources[Math.min(index+1,deep.resources.length-1)].title} ↗</a>:null}
         </div>
       </section>:null}
+      {id==="repair-service-pricing"?<div className={styles.pricingInline}><strong>Apply this in the interactive quotation lab.</strong><p>Don't just read the formula: enter your own numbers, model repair uncertainties and test yourself before revealing feedback.</p><Link className={styles.pricingStart} href="/learn/repair-service-pricing/studio">Practise in Repair Pricing Studio →</Link></div>:null}
       <ActiveRecallPanel courseTitle={course.title} lessonTitle={lesson.title} summary={lesson.idea} practice={lesson.practice} />
       <h2>Full background and reference</h2>
       <p>{deep?"These in-site lessons are orientation and practical decision prompts. The linked provider materials teach the fuller theory, worked examples and limitations. Completing a tick-box is not a competency sign-off.":"This lesson is a starting point, not a complete operating procedure. The source material explains the wider context, limits and unresolved questions."}</p>
