@@ -59,7 +59,46 @@ export default async function LearningManagement({searchParams}:{
          <label><input type="radio" name="decision" value="changes_requested" required/>Request improvements</label>
          <label><input type="radio" name="decision" value="approved" required/>Approve observed activity</label>
        </fieldset>
-       <label className={styles.acknowledgement}><input type="checkbox" name="observed" value="yes"/>I directly observed or independently checked this practical demonstration.</label>
+       {p.course_slug==="repair-laptop-refurb"?<>
+        <p className={styles.hint}>For approval, personally observe a supervised repair or authorised training-device demonstration. Score every criterion. If the learner is not ready, select Request improvements; do not claim the rubric was passed.</p>
+        <fieldset className={styles.quiz}><legend>Observed skills rubric · 0–3 per skill</legend>
+         <p className={styles.hint}>0 = not demonstrated; 1 = developing; 2 = competent with limited prompts; 3 = reliable and explained. Approval requires 15/18 overall and at least 2/3 in consent and safety.</p>
+         {([
+          ["skill_consent","Owner permission, data privacy and custody"],
+          ["skill_diagnosis","Evidence-based diagnosis and stop-work judgement"],
+          ["skill_compatibility","Part, caddy and migration compatibility"],
+          ["skill_safety","Battery isolation, ESD and source/target safety"],
+          ["skill_verification","Boot, media and authorised file verification"],
+          ["skill_handover","Handover, quote and old-drive disposition"]
+         ] as const).map(([name,title])=><label key={name} className={styles.formField}>{title}
+           <select name={name} defaultValue="" aria-label={title+" score"}>
+             <option value="">Choose observed score</option>
+             <option value="0">0 — Not shown</option>
+             <option value="1">1 — Developing</option>
+             <option value="2">2 — Competent</option>
+             <option value="3">3 — Reliable and explained</option>
+           </select>
+         </label>)}
+        </fieldset>
+        <label className={styles.formField}>Observed on (actual day of demonstration)
+         <input type="date" name="observed_on" />
+        </label>
+        <label className={styles.formField}>How you personally observed it
+         <select name="observation_method" defaultValue="">
+          <option value="">Choose observation method</option>
+          <option value="in_person">In person</option>
+          <option value="live_remote">Live video / remote</option>
+         </select>
+        </label>
+        <label className={styles.formField}>Redacted evidence reference only (no names or serials)
+         <input name="evidence_reference" minLength={8} maxLength={160} placeholder="DEW-TRAINING-2026-0042"/>
+        </label>
+        <label className={styles.acknowledgement}>
+         <input type="checkbox" name="assessor_attested" value="yes"/>
+         I personally observed the stated practical skills, verified the evidence reference, and certify these six scores were not inferred from quiz results.
+        </label>
+       </>:null}
+       <label className={styles.acknowledgement}><input type="checkbox" name="observed" value="yes"/>{p.course_slug==="repair-laptop-refurb"?"I directly watched the learner demonstrate the actual procedures safely.":"I directly observed the practical demonstration."}</label>
        <label className={styles.formField}>Specific feedback to learner
         <textarea name="feedback" minLength={10} maxLength={2000} rows={3} required placeholder="What did you observe? Which safety boundaries or techniques were demonstrated?"/>
        </label>
