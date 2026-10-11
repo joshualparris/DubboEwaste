@@ -137,3 +137,25 @@ for(const url of ["https://www.youtube.com/watch?v=lSdSNAjmdDg","https://csrc.ni
  assert.ok(labData.includes(url),"Missing first-party research source "+url);
 }
 console.log("Clone field lab QA PASS: 5 missions, 15 adaptive decisions, balanced alternatives, narrated reasoning and evidence export.");
+
+
+// Storage masterclass must deepen the existing course without duplicating its field lab.
+const ssdGuide=load("../docs/SSD-UPGRADE-MASTERY-HP250G3-2026-10-11.md");
+const ssdCourse=load("lib/learning/catalog.ts");
+const ssdMedia=load("lib/learning/media.ts");
+const ssdOverview=load("app/(private)/learn/[course]/page.tsx");
+const ssdDeep=deeper.find(item=>item.slug==="repair-laptop-refurb");
+assert.ok(ssdDeep&&ssdDeep.resources.length>=5,"SSD pathway needs five purposeful external media/references");
+assert.ok(ssdDeep.cases.length===3&&ssdDeep.cases.every(item=>item.prompt.length>200&&item.workedAnswer.length>250),"SSD worked cases need meaningful technical depth");
+assert.ok(ssdCourse.includes('docs/SSD-UPGRADE-MASTERY-HP250G3-2026-10-11.md'),"LMS course must reference its full SSD guide");
+assert.ok(/independent backup/i.test(ssdGuide)&&/stop-work/i.test(ssdGuide),"Guide must teach backup and stop-work gates");
+assert.ok(/gross margin/i.test(ssdGuide)&&/15\/18/.test(ssdGuide),"Mastery needs economics and observed rubric");
+for(const kind of ["video","guide","podcast"]){
+ assert.ok(new RegExp('course:"repair-laptop-refurb",type:"'+kind+'"').test(ssdMedia),"Expected "+kind+" resource in SSD course");
+}
+for(const id of ["ssd-crucial-copy","ssd-crucial-install","ssd-hp-ifixit","ssd-scope-podcast"]){
+ assert.ok(ssdMedia.includes('id:"'+id+'"'),"Missing curated storage media: "+id);
+}
+assert.ok(ssdOverview.includes('href="/storage-guide"'),"Existing refurb course must point to the visual drive atlas");
+assert.ok(ssdOverview.includes('href="/learn/repair-laptop-refurb/field-lab"'),"Existing five-mission field lab must stay linked");
+console.log("SSD masterclass integration QA PASS: original LMS course enhanced, 5-mission adaptive lab preserved, external media and observed skills boundary.");
