@@ -17,7 +17,7 @@ export function mediaPlayback(item:MediaItem):MediaPlayback|null {
  if(item.type==="video" && item.embedUrl){
   try{
    const u=new URL(item.embedUrl);
-   if(u.protocol==="https:"&&u.hostname==="player.vimeo.com"&&/^\\/video\\/\\d+$/.test(u.pathname)){
+   if(u.protocol==="https:"&&u.hostname==="player.vimeo.com"&&new RegExp("^/video/[0-9]+$").test(u.pathname)){
     return {kind:"vimeo",src:u.origin+u.pathname,label:"Video"};
    }
   }catch{return null;}
