@@ -1,0 +1,51 @@
+.studio{display:grid;gap:24px;padding:clamp(16px,3vw,28px);background:#fff;border:1px solid #c6ddca;border-radius:18px;color:#172923;box-shadow:0 5px 24px #154e2710;min-width:0;max-width:100%}
+.studio h2,.studio h3,.studio h4,.studio h5,.studio p{margin-top:0;margin-bottom:0}
+.stack2,.stack3,.panel,.breakdown,.exercise,.feedback{display:grid;gap:12px;min-width:0}
+.stack2{gap:8px}
+.eyebrow,.caseIndex{font-size:12px;font-weight:800;letter-spacing:.075em;text-transform:uppercase;color:#236146}
+.title{font-size:clamp(22px,3vw,29px);line-height:1.22}
+.subheading{font-size:21px;line-height:1.24}
+.heading,.scoreTitle{font-size:18px;line-height:1.3}
+.small{font-size:14px;line-height:1.55}
+.tiny{font-size:12px;line-height:1.5;color:#566b60}
+.strong{font-weight:750}
+.block{display:block}
+.columns{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+.panel{border-radius:14px;background:#f5f8f5;padding:16px}
+.inputGrid,.inputGridThree{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;min-width:0}
+.inputGridThree{grid-template-columns:repeat(auto-fit,minmax(min(125px,100%),1fr))}
+.fieldLabel{display:grid;gap:6px;font-size:13px;color:#254436;min-width:0}
+.field,.report{display:block;width:100%;min-width:0;max-width:100%;border-radius:9px;border:1px solid #879a91;background:#fff;color:#15221a;padding:11px;font-size:16px;line-height:1.35}
+.field:focus-visible,.report:focus-visible,.studio button:focus-visible,.studio a:focus-visible,.studio input:focus-visible{outline:3px solid #247fc9;outline-offset:2px}
+.field:disabled{background:#eaf1eb;opacity:.85}
+.checkbox{display:flex;align-items:center;gap:8px;font-size:14px}
+.checkbox input{width:19px;height:19px;flex-shrink:0}
+.stat{font-size:18px;background:#fff;padding:13px;border-radius:10px}
+.breakdown{border:1px solid #d1dbd6;border-radius:14px;padding:16px}
+.chart{display:flex;height:24px;overflow:hidden;border-radius:8px;background:#e8f0e8}
+.chart span{height:100%}
+.chartLegend{display:flex;flex-wrap:wrap;gap:5px 15px;color:#405649;font-size:12px}
+.totals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.totals p{background:#f6f9f7;border-radius:9px;padding:10px;font-size:13px}
+.money{display:block;font-size:clamp(17px,2.5vw,22px);margin-top:5px}
+.noticeGood,.noticeBadSmall,.noticeBad{padding:12px;border-radius:10px;font-size:14px;line-height:1.5}
+.noticeGood{background:#e9f6ec;color:#17512c}.noticeBad,.noticeBadSmall{background:#fff4df;color:#6b430a}
+.primaryButton,.actionButton,.outlineButton{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:10px;padding:11px 16px;font-weight:750;cursor:pointer;text-align:center;max-width:100%}
+.primaryButton{background:#12613b;border:1px solid #12613b;color:#fff}
+.actionButton{background:#102b25;color:#fff;border:1px solid #102b25}
+.outlineButton{background:#fff;border:1px solid #277049;color:#12462d}
+.primaryButton:hover,.actionButton:hover{filter:brightness(1.1)}.outlineButton:hover{background:#e4f2e8}
+.primaryButton:disabled,.actionButton:disabled{opacity:.45;cursor:not-allowed}
+.summary{font-weight:700;cursor:pointer}
+.report{margin-top:8px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px;white-space:pre-wrap;line-height:1.45}
+.exercise{padding:18px;border-radius:14px;border:1px solid #a3d5b0;background:#f5fbf6}
+.exercise fieldset{border:0;margin:0;padding:0;display:grid;gap:9px}
+.exercise fieldset label{display:flex;align-items:start;gap:8px;line-height:1.4}
+.exercise input[type=radio]{width:18px;height:18px;margin-top:2px;flex-shrink:0}
+.hintInline{color:#59756a;font-size:12px}
+.feedback{padding:16px;border:1px solid #b8d9c1;border-radius:12px;background:#fff}
+.scoreList{list-style:disc inside;font-size:14px;display:grid;gap:4px;padding:0;margin:0}
+.footer{font-size:13px;color:#405d4e;display:grid;gap:10px;line-height:1.6}
+.underline{text-decoration:underline;text-underline-offset:2px;color:#125c38;font-weight:650}
+@media(min-width:860px){.columns{grid-template-columns:repeat(2,minmax(0,1fr))}.totals{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:460px){.studio{padding:14px;gap:18px}.panel,.exercise,.breakdown{padding:13px}.inputGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.fieldLabel{font-size:12px}.field{padding:10px 8px}.totals{gap:7px}.money{font-size:17px}}
