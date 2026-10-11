@@ -7,6 +7,7 @@ import {enrolInCourse} from "../actions";
 import {finishMedia,submitPractical} from "../learning-activities";
 import styles from "../learning.module.css";
 import AdaptiveAssessment from "@/components/AdaptiveAssessment";
+import RepairPricingStudio from "@/components/RepairPricingStudio";
 import { deepPathwayFor } from "@/lib/learning/deep-pathways";
 
 export default async function CourseOverview({params,searchParams}:{
@@ -81,6 +82,7 @@ export default async function CourseOverview({params,searchParams}:{
     })}
    </div>
   </section>
+  {id==="repair-service-pricing" && joined ? <RepairPricingStudio /> : null}
   {joined ? <AdaptiveAssessment courseId={id} /> : null}
   {media.length>0?<section className={styles.section} id="media">
    <h2>Watch, listen and reflect</h2>
