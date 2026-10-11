@@ -702,6 +702,170 @@ export const deepPathways: DeepPathway[] = [
         "safety": "Parts harvesting does not cancel chain of custody."
       }
     ]
+  },
+  {
+    "slug": "repair-service-pricing",
+    "benchmark": "Business.gov.au official pricing, GST and invoicing lessons plus the ACCC consumer guarantees explain financial and legal concepts that cannot fit into a three-lesson overview. A viable repair quote needs billable utilisation, direct parts costs, predictable rework, profitability, permission and reasonable customer expectations.",
+    "target": "Produce a realistic written repair estimate that separates paid diagnostic time, technician labour, unattended machine time, parts margin, GST registration assumptions, revision limits and customer approval; defend it against two alternative offers.",
+    "limits": "Do not claim verified Dubbo prices or that unpaid personal time must be charged. GST treatment depends on registration; legal rules and client consent apply and a training answer is not legal advice.",
+    "resources": [
+      {
+        "title": "Choose a pricing strategy",
+        "provider": "Australian Government",
+        "url": "https://business.gov.au/products-and-services/choose-a-pricing-strategy",
+        "access": "Free official business lesson",
+        "kind": "Pricing and business framework",
+        "why": "Shows cost-based and value-based pricing approaches; benchmark repair labour economics rather than guessing a percentage."
+      },
+      {
+        "title": "Consumer rights and guarantees",
+        "provider": "ACCC",
+        "url": "https://www.accc.gov.au/consumers/buying-products-and-services/consumer-rights-and-guarantees",
+        "access": "Free regulator reference",
+        "kind": "Australian repair-service obligations",
+        "why": "Explain the service quality and legal duties that remain even when giving a generous discount to a friend."
+      }
+    ],
+    "cases": [
+      {
+        "prompt": "An SSD upgrade needs a $20 drive, $5 paste, 40 minutes technician attention and 3 hours unattended cloning. The client is a friend. Create and justify both a transparent normal labour quote and a voluntary discounted invoice.",
+        "workedAnswer": "Choose an explicit hypothetical hourly rate, bill only defensible technician time, disclose purchased parts at actual agreed charge, and list any diagnostic/backup/verification time separately. Explain the voluntary discount and keep terms and permissions documented.",
+        "safety": "Never represent all unattended clone time as hands-on labour automatically; protect and verify the original drive and obtain data-handling consent before work."
+      },
+      {
+        "prompt": "A repair has loaded costs of $180 before tax, and you want 25% gross margin. A trainee recommends adding 25% markup. Calculate both prices and the actual margins, then explain the customer-facing total assuming GST registration.",
+        "workedAnswer": "25% target gross margin yields $180/(1-.25)=$240 excluding GST and $264 including 10% GST. A 25% markup yields $225 excluding GST, with a 20% gross margin. If not GST registered, do not charge GST.",
+        "safety": "Use correct margin/markup algebra, check current GST obligations and include returns, consumer guarantees, agreed scope and possible quote variation."
+      },
+      {
+        "prompt": "The diagnostic shows a swollen battery and intermittent charging; the $150 initially discussed could increase to $320 if parts are needed. A customer requests an immediate fix but has only authorised $150. Build the stop-work and revised quote response.",
+        "workedAnswer": "Stop unsafe battery work and charging, record evidence, provide a revised itemised quote with uncertainty and alternatives, seek express approval before exceeding the spending limit, and refer hazardous battery work to competent specialists.",
+        "safety": "Customer urgency never permits charging a damaged pack or work beyond competence, consent or authorisation; consumer guarantees continue to apply."
+      }
+    ]
+  },
+  {
+    "slug": "repair-cafe-intake",
+    "benchmark": "Repair Café International provides house rules, volunteer and customer expectations, refusal discretion and documented consent concepts; an introductory three-lesson check is insufficient for a busy mixed-risk intake queue and evidence-safe handoffs.",
+    "target": "Run three simulated intakes, determine which person has authority, ask permission without coercion, capture minimum necessary facts, stop on hazards and route each item to a competent station without promising a repair.",
+    "limits": "Repair Café's house rules are an overseas organisational model. They do not remove Australian statutory rights; actual venue, insurance and hazard procedures must be approved locally.",
+    "resources": [
+      {
+        "title": "Repair Café house rules",
+        "provider": "Repair Café International",
+        "url": "https://www.repaircafe.org/en/house-rules/",
+        "access": "Free official rules",
+        "kind": "Visitor/repairer expectations",
+        "why": "Shows how responsibility, refusing items, visitor involvement and liability limits can be communicated transparently."
+      },
+      {
+        "title": "Consent to handling personal information",
+        "provider": "OAIC",
+        "url": "https://www.oaic.gov.au/privacy/your-privacy-rights/your-personal-information/consent-to-the-handling-of-personal-information",
+        "access": "Free Australian privacy guidance",
+        "kind": "Informed consent framework",
+        "why": "Distinguishes specific informed consent from assuming that possession of a device or attendance grants unlimited access."
+      }
+    ],
+    "cases": [
+      {
+        "prompt": "A teenager brings a locked family laptop asking for a repair, but is unsure who owns it. Another volunteer wants to open the personal documents directory to test functionality. Decide what intake can record and what must be deferred.",
+        "workedAnswer": "Record device type, stated fault, whether ownership is established and the required next permission step. Do not browse personal data or bypass a lock. Offer non-invasive external checks only after appropriate authority and consent are verified.",
+        "safety": "An item handed over at a Repair Café is not blanket permission to access accounts, files or credentials; respect minors' circumstances and local policy."
+      },
+      {
+        "prompt": "Three visitors arrive together: a swollen power bank, a sewing machine missing a foot pedal and a lamp with exposed mains wiring. Design the initial queues and explain your safe-first decisions.",
+        "workedAnswer": "Isolate the suspect battery under site procedure without charging or opening; assess sewing-machine completeness and refer to a competent station; quarantine the lamp and refer mains work to appropriately qualified personnel. Record the reason and owner for each outcome.",
+        "safety": "Do not energise exposed mains or damaged lithium packs, and do not imply a general repair volunteer is legally authorised for electrical wiring."
+      },
+      {
+        "prompt": "A visitor arrives after waiting an hour, is upset about a failed previous repair and refuses the intake consent statement. A volunteer offers to accept the item privately to keep the queue moving. Draft the response and handoff record.",
+        "workedAnswer": "Listen and acknowledge the wait, explain the specific reason for the intake agreement, offer accessible ways to review it, and decline work if necessary consent or safety conditions remain missing. Record only necessary facts and offer appropriate external referral.",
+        "safety": "Avoid coercive consent and informal off-book repairs; follow site complaints, safety, recordkeeping and insurance procedures."
+      }
+    ]
+  },
+  {
+    "slug": "things-maintenance",
+    "benchmark": "Operational Library of Things services document kit completeness and return condition; a viable lending pilot additionally needs actual safety checks, quarantine authority, maintenance evidence and impartial red-flag decisions, not merely an inspection tick box.",
+    "target": "Build and test a repeatable before-lending/after-return inspection record with accessory serials, fault indicators, maintenance ownership, quarantine thresholds, traceable repair decisions and defensible re-release sign-off.",
+    "limits": "UK commercial borrowing terms are examples only; NSW law, local insurer, equipment manuals and competent inspection procedures control the real-world pilot.",
+    "resources": [
+      {
+        "title": "Library of Things borrowing terms",
+        "provider": "Library of Things",
+        "url": "https://libraryofthings.co.uk/terms-of-borrowing",
+        "access": "Free operational example",
+        "kind": "Borrowing and return obligations",
+        "why": "Analyse how staff and borrowers report damage, missing accessories, cleaning needs and return conditions."
+      },
+      {
+        "title": "NSW event risk assessment",
+        "provider": "NSW Government",
+        "url": "https://www.nsw.gov.au/departments-and-agencies/premiers-department/community-engagement/event-starter-guide/risk-assessment-management",
+        "access": "Free official risk-management reference",
+        "kind": "Risk controls and governance",
+        "why": "Adapt the documented identify-assess-mitigate approach to hazardous stock, quarantine and responsible escalation."
+      }
+    ],
+    "cases": [
+      {
+        "prompt": "A shared drill returns with a cracked power adaptor, missing battery cap and photos showing it still powered up yesterday. The next booking starts tomorrow. Decide whether to relend, what evidence to capture and who may release it.",
+        "workedAnswer": "Quarantine the drill and damaged adaptor, record missing accessory and condition, contact the borrower if needed, check supplier guidance and require competent inspection or safe replacement before any authorised re-release. Reschedule the next borrower and record communication.",
+        "safety": "Previous successful operation is not proof of current safety. No charging, adaptation or bypass of damaged electrical components to meet a booking deadline."
+      },
+      {
+        "prompt": "A sewing-machine kit is listed as complete but the borrower reports that two presser feet were missing on pickup. A returning volunteer suspects the previous borrower. Design an evidence-first kit audit.",
+        "workedAnswer": "Compare timestamped intake photos, the baseline kit list, check-in/check-out notes and storage location. Mark evidence as confirmed or unknown; update the master list only after reconciling what was originally issued.",
+        "safety": "Do not assert theft or charge a user based on an incomplete inventory record; preserve privacy and follow a documented dispute process."
+      },
+      {
+        "prompt": "A monthly pilot stores 20 high-demand items. In three months, a stepladder has two reports of wobbling but no confirmed incident. Create a maintenance threshold and a quarantine/release process.",
+        "workedAnswer": "Remove the item from circulation on repeated safety complaints, record inspection and manufacturer guidance, identify a competent reviewer and decide repair, withdrawal or re-release only after documented evidence. Report trends and update preventive checks.",
+        "safety": "Do not ask a novice to load-test or use an unstable ladder; observations, competent assessment and written release records matter more than demand."
+      }
+    ]
+  },
+  {
+    "slug": "device-identity-locks",
+    "benchmark": "Official OAIC guidance requires context-sensitive informed consent, while e-waste and ITAD operations need clear chain of custody and ownership. An orientation on device locks alone does not teach the difference between resetting a donated computer and bypassing somebody else's account.",
+    "target": "Make and defend an intake decision for three locked devices that separates lawful ownership evidence, recovery consent, account/device management restrictions, technical possibilities, data preservation and stop-work/referral.",
+    "limits": "Do not teach bypassing activation, MDM, enterprise security or theft-prevention locks. Follow actual property-release proof and data-erasure authorisation; a device's physical possession does not establish legal authority.",
+    "resources": [
+      {
+        "title": "Consent to handling personal information",
+        "provider": "OAIC",
+        "url": "https://www.oaic.gov.au/privacy/your-privacy-rights/your-personal-information/consent-to-the-handling-of-personal-information",
+        "access": "Free official Australian guidance",
+        "kind": "Permission and information handling",
+        "why": "Distinguish clear, voluntary, specific instructions from a blanket assertion of ownership or a technician's curiosity."
+      },
+      {
+        "title": "NSW EPA e-waste reuse options",
+        "provider": "NSW EPA",
+        "url": "https://www.epa.nsw.gov.au/Your-environment/Recycling-and-reuse/warr-strategy/product-stewardship-schemes/ewaste",
+        "access": "Free state government guidance",
+        "kind": "Device reuse and compliant routing",
+        "why": "Explains reuse and recycling paths while highlighting that devices must have responsible collection and disposal decisions."
+      }
+    ],
+    "cases": [
+      {
+        "prompt": "A donor brings a Windows laptop from a workplace that has shut down. It boots to an organisation-managed sign-in and the donor says they bought it in a clearance sale. Decide what documentary evidence and next steps are appropriate.",
+        "workedAnswer": "Ask for proof of legitimate release and whether the organisation's device-management owner can remove enrollment, avoid personal or corporate data access, record custody restrictions and offer authorised owner-led release or downstream recycling.",
+        "safety": "Never interpret a clearance claim as permission to defeat enterprise enrolment, encryption, activation or device ownership controls."
+      },
+      {
+        "prompt": "A relative hands you a deceased person's locked phone and asks you to retrieve family photos. They have the unlock PIN written on a sticky note but cannot establish the estate's instructions. Explain what you can document and why.",
+        "workedAnswer": "Record the request without accessing the device, explain that credentials alone do not prove legal data-access permission, request appropriate estate/owner authorisation and refer them to approved account-recovery or legal processes.",
+        "safety": "Respect privacy and property rights. Do not try bypass methods, guessed recovery questions or any action that could delete irreplaceable content."
+      },
+      {
+        "prompt": "A school offers ten apparently unwanted Chromebooks with asset stickers but provides only a verbal handover and no device-management release. Decide whether to take the machines, remove storage or advertise resale.",
+        "workedAnswer": "Seek documented asset release and authorised management unenrolment, record serial and custody details, keep any data-bearing components secure, decline resale pending release and sanitisation evidence, and escalate discrepancies.",
+        "safety": "Keep managed devices and data out of public use until legitimate owner release, authorised wipe and policy-compliant disposal are documented."
+      }
+    ]
   }
 ];
 export function deepPathwayFor(id:string){return deepPathways.find(x=>x.slug===id);}
