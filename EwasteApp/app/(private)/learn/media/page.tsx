@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {mediaItems} from "@/lib/learning/media";
-import {mediaPlayback} from "@/lib/learning/playback";
 import {getCourse} from "@/lib/learning/catalog";
 import LearningMediaPlayer from "@/components/LearningMediaPlayer";
 import styles from "../learning.module.css";
