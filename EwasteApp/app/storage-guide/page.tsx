@@ -27,14 +27,146 @@ const hostOptions=[
  {id:"u2",title:"U.2 NVMe-capable bay",accept:["u2"],why:"Requires the correct PCIe path, cable/backplane and host support."},
  {id:"scsi",title:"Matching parallel SCSI controller",accept:["scsi"],why:"Connector width, electrical signalling, drive ID and bus termination must all match."},
 ];
-const realPhotos=[
- {title:"SATA desktop hard disk",file:"SATA-drive.jpg",group:"HDD",detail:"2007 Hitachi 3.5-inch SATA HDD. Source: Frettled."},
- {title:"SATA connector close-up",file:"Hard disk sata.JPG",group:"Connector",detail:"A real photograph of a SATA hard-drive connector."},
- {title:"Inside a magnetic hard drive",file:"Open hard-drive.jpg",group:"Anatomy",detail:"Exposed platter and actuator; historical disassembly photo, not a repair procedure."},
- {title:"mSATA solid-state drive",file:"MSATA SSD.jpg",group:"SSD",detail:"A compact mSATA module. Source: Useranonymoususer."},
- {title:"mSATA vs M.2 SATA/NVMe",file:"MSATA SATA M.2 NVMeSSD.jpg",group:"Comparison",detail:"Photograph of related, non-interchangeable compact SSD formats. Verify each part label."},
- {title:"HDD mounted using SATA",file:"HDD-SATA.jpg",group:"Installed",detail:"Contemporary photo of a SATA HDD installed in a computer case."},
+type StoragePhoto = {title:string;file:string;group:string;detail:string;creator:string;license:string;ids:string[]};
+const realPhotos:StoragePhoto[] = [
+ {
+  "title": "SATA desktop hard disk",
+  "file": "SATA-drive.jpg",
+  "group": "HDD",
+  "detail": "Hitachi 3.5-inch desktop SATA hard disk.",
+  "creator": "Frettled",
+  "license": "CC BY-SA 4.0",
+  "ids": [
+   "sata35"
+  ]
+ },
+ {
+  "title": "SATA power and data connectors",
+  "file": "Hard disk sata.JPG",
+  "group": "Connector",
+  "detail": "Look at the separate L-shaped SATA power and data sockets.",
+  "creator": "Greekwikipedian",
+  "license": "Public domain",
+  "ids": []
+ },
+ {
+  "title": "Open magnetic hard disk",
+  "file": "Open hard-drive.jpg",
+  "group": "Inside HDD",
+  "detail": "Real exposed platter and actuator; a teaching photograph, not a suggestion to open a working drive.",
+  "creator": "Zzubnik",
+  "license": "Public domain",
+  "ids": []
+ },
+ {
+  "title": "2.5-inch SATA SSD",
+  "file": "Super Talent 2.5in SATA SSD SAM64GM25S.jpg",
+  "group": "SSD",
+  "detail": "A real 2.5-inch SATA flash drive for desktop and laptop upgrades.",
+  "creator": "Qurren",
+  "license": "Licence on Commons",
+  "ids": [
+   "sata-ssd"
+  ]
+ },
+ {
+  "title": "mSATA solid-state drive",
+  "file": "MSATA SSD.jpg",
+  "group": "SSD",
+  "detail": "Compact mSATA drive; confirm the host really supports mSATA.",
+  "creator": "Useranonymoususer",
+  "license": "CC0",
+  "ids": [
+   "msata",
+   "pata-ssd"
+  ]
+ },
+ {
+  "title": "mSATA versus M.2 formats",
+  "file": "MSATA SATA M.2 NVMeSSD.jpg",
+  "group": "Comparison",
+  "detail": "Real components with matching-looking shapes but different interfaces and protocols.",
+  "creator": "ガラパリ",
+  "license": "CC BY-SA 4.0",
+  "ids": [
+   "m2-sata42",
+   "m2-sata80",
+   "m2-sata",
+   "nvme2242"
+  ]
+ },
+ {
+  "title": "M.2 NVMe 2280 SSD",
+  "file": "1TB 2280 NVME SSD.jpg",
+  "group": "SSD",
+  "detail": "A real 22 by 80 mm NVMe flash module, not an M.2 SATA drive.",
+  "creator": "User5515",
+  "license": "CC0",
+  "ids": [
+   "nvme2230",
+   "nvme2280",
+   "nvme22110",
+   "pcie-aic"
+  ]
+ },
+ {
+  "title": "SATA HDD inside a computer",
+  "file": "HDD-SATA.jpg",
+  "group": "Installed",
+  "detail": "A real HDD cabled into a desktop case.",
+  "creator": "Whityya23",
+  "license": "CC0",
+  "ids": [
+   "sata25h",
+   "usb-hdd",
+   "sshd"
+  ]
+ },
+ {
+  "title": "USB flash drive",
+  "file": "USBFlashDrive.JPG",
+  "group": "Flash",
+  "detail": "A real retractable USB flash drive.",
+  "creator": "KVDP",
+  "license": "Public domain",
+  "ids": [
+   "usb-stick"
+  ]
+ },
+ {
+  "title": "3.5-inch floppy disk",
+  "file": "Floppy disk R01.jpg",
+  "group": "Removable",
+  "detail": "Photograph of a magnetic diskette from legacy personal computers.",
+  "creator": "Marc Ryckaert",
+  "license": "CC BY-SA 4.0",
+  "ids": [
+   "floppy"
+  ]
+ },
+ {
+  "title": "SD memory card",
+  "file": "SD Card.png",
+  "group": "Removable",
+  "detail": "Photograph of a full-size SD memory card.",
+  "creator": "Techno ted modern",
+  "license": "CC BY-SA 4.0",
+  "ids": [
+   "sd",
+   "micro-sd"
+  ]
+ },
+ {
+  "title": "Compact mSATA reference",
+  "file": "Intel MSATA SSD.jpg",
+  "group": "SSD",
+  "detail": "Another authentic compact SATA SSD photograph.",
+  "creator": "User5515",
+  "license": "CC0",
+  "ids": []
+ }
 ];
+const photoForItem=(entry:StorageItem)=>realPhotos.find(p=>p.ids.includes(entry.id));
 const components = [
  {id:"platter",name:"HDD platter",short:"Magnetic recording surface",note:"Spins beneath a precisely positioned head. Impacts and contamination can destroy data; do not open serviceable HDDs on the bench."},
  {id:"head",name:"Actuator / read-write heads",short:"Positioning and signal transducer",note:"Moves across tracks without normally touching the surface. Clicking and repeated re-seeks may indicate failure; protect data first."},
@@ -118,13 +250,15 @@ export default function StorageGuide(){
     <p>From room-sized disks to M.2 NVMe, enterprise SSDs and removable media. Learn to recognise the drive, match the interface, and make safer refurbishment decisions.</p>
     <div className={styles.heroActions}><button onClick={()=>navigate("catalogue")}>Browse storage types ↗</button><button className={styles.ghost} onClick={()=>navigate("identify")}>Check a drive →</button></div>
    </div>
-   <div className={extra.heroArt} aria-label="Illustrated old hard disk and modern SSD">
-     <div className={extra.bigDisk}><div className={extra.bigPlatter}/><div className={extra.arm}/><span>HDD / MAGNETIC</span></div>
-     <div className={extra.bigSSD}><span>M.2 / NVMe</span><div>▣　▣　▣</div><small>PCIe · FLASH</small></div>
-     <div className={extra.heroArtFoot}>ILLUSTRATIONS ONLY · NOT TO SCALE</div>
+   <div className={extra.heroPhotos} aria-label="Genuine photographs of computer storage hardware">
+     {realPhotos.filter(p=>["sata35","sata-ssd","nvme2280"].some(id=>p.ids.includes(id))).map(p=><figure className={extra.heroPhotoTile} key={p.file}>
+       <RealPhoto file={p.file} title={p.title}/>
+       <figcaption><strong>{p.title}</strong><a href={commonsFilePage(p.file)} target="_blank" rel="noopener noreferrer">{p.creator} · {p.license} ↗</a></figcaption>
+     </figure>)}
+     <small className={extra.heroPhotoNotice}>REAL HARDWARE PHOTOGRAPHS · Original creator and licence linked</small>
    </div>
   </section>
-  <div className={styles.stats}><span><strong>{eras.length}</strong> timeline periods</span><span><strong>{items.length}</strong> storage formats</span><span><strong>6</strong> technology families</span><span><strong>{realPhotos.length}</strong> checked real photos</span></div>
+  <div className={styles.stats}><span><strong>{eras.length}</strong> timeline periods</span><span><strong>{items.length}</strong> storage formats</span><span><strong>6</strong> technology families</span><span><strong>{realPhotos.length}</strong> sourced real photos</span></div>
   <nav ref={tabsRef} className={styles.tabs} aria-label="Storage Explorer sections">{tabs.map(t=><button type="button" key={t.id} data-storage-tab={t.id} className={tab===t.id?styles.active:""} aria-current={tab===t.id?"page":undefined} onClick={()=>navigate(t.id)}>{t.label}</button>)}</nav>
   <div ref={contentRef} className={styles.content}>
    {tab==="overview"&&<section className={styles.section}>
@@ -136,6 +270,11 @@ export default function StorageGuide(){
      ["04","Protocol and host support","ATA/AHCI, NVMe, SCSI, UFS or device-specific signalling; plus firmware and power."]
     ].map(([n,title,desc])=><article key={n} className={styles.card}><span className={styles.num}>{n}</span><h3>{title}</h3><p>{desc}</p></article>)}</div>
     <div className={styles.callout}><strong>Common trap:</strong> M.2 is a physical module format; NVMe is a command protocol usually running over PCIe. Some M.2 drives are SATA, some are NVMe. A 2.5-inch drive may be SATA, SAS or U.2 NVMe.</div>
+    <div className={styles.sectionHeading}><div><span className={styles.eyebrow}>LOOK AT REAL HARDWARE</span><h2>HDD, SATA SSD and M.2 NVMe in photographs.</h2><p>These are actual photographs, not AI-generated imagery or schematic drawings. Use the shape and connector as visual clues, then verify the label and host.</p></div></div>
+    <div className={extra.photoHighlights}>{[realPhotos[0],realPhotos[3],realPhotos[6]].map(p=><figure key={p.file}>
+      <RealPhoto file={p.file} title={p.title}/>
+      <figcaption><strong>{p.title}</strong><p>{p.detail}</p><a href={commonsFilePage(p.file)} target="_blank" rel="noopener noreferrer">Photo by {p.creator} · {p.license} ↗</a></figcaption>
+    </figure>)}</div>
     <div className={styles.sectionHeading}><div><span className={styles.eyebrow}>LEARN BY DOING</span><h2>Use it at the workbench.</h2></div></div>
     <div className={styles.three}>{[
      ["01 / Recognise","Use the illustrated type atlas and historical timeline to classify the drive."],
@@ -155,7 +294,8 @@ export default function StorageGuide(){
     <p className={extra.results}>{visible.length} of {items.length} entries · Select a card to inspect or add up to three to compare</p>
     <div className={extra.atlas}>{visible.map(item=><article key={item.id} className={extra.driveCard}>
       <div className={extra.cardHeader}><span>{item.kind}</span><span>{item.era}</span></div>
-      <button className={extra.itemButton} type="button" onClick={()=>setSelectedId(item.id)} aria-pressed={chosen.id===item.id}><DriveGraphic entry={item}/><h3>{item.title}</h3></button>
+      <button className={extra.itemButton} type="button" onClick={()=>setSelectedId(item.id)} aria-pressed={chosen.id===item.id}>{photoForItem(item)?<RealPhoto file={photoForItem(item)!.file} title={item.title}/>:<DriveGraphic entry={item}/>}<h3>{item.title}</h3></button>
+      {photoForItem(item)?<a className={extra.photoSourceLine} href={commonsFilePage(photoForItem(item)!.file)} target="_blank" rel="noopener noreferrer">Actual hardware · {photoForItem(item)!.creator} · {photoForItem(item)!.license} ↗</a>:<span className={extra.photoSourceLine}>Schematic only · matching photograph not yet sourced</span>}
       <p>{item.format} · {item.interface}</p>
       <p className={extra.spot}>{item.spot}</p>
       <div className={extra.cardButtons}><button onClick={()=>{setSelectedId(item.id);setTab("identify");contentRef.current?.scrollIntoView({block:"start"})}}>Check connection ↗</button><button onClick={()=>toggleCompare(item.id)} aria-pressed={compare.includes(item.id)}>{compare.includes(item.id)?"✓ Selected":"+ Compare"}</button></div>
@@ -169,7 +309,7 @@ export default function StorageGuide(){
      <label>Computer / controller connection<select value={host} onChange={e=>setHost(e.target.value)}>{hostOptions.map(h=><option key={h.id} value={h.id}>{h.title}</option>)}</select></label>
      <label>Drive you want to install<select value={selectedId} onChange={e=>setSelectedId(e.target.value)}>{items.map(item=><option key={item.id} value={item.id}>{item.title}</option>)}</select></label>
      <div className={extra.miniData}><strong>{chosen.format}</strong><span>{chosen.interface}</span><span>{chosen.protocol}</span></div>
-     <DriveGraphic entry={chosen}/>
+     {photoForItem(chosen)?<figure className={extra.identifyPhoto}><RealPhoto file={photoForItem(chosen)!.file} title={chosen.title}/><figcaption>Genuine example photograph · <a href={commonsFilePage(photoForItem(chosen)!.file)} target="_blank" rel="noopener noreferrer">{photoForItem(chosen)!.creator} · source/licence ↗</a>. Compare exact labels before deciding compatibility.</figcaption></figure>:<DriveGraphic entry={chosen}/>} 
     </div><div className={styles.identifyResult}>
       <span className={styles.eyebrow}>INTERFACE ASSESSMENT</span>
       <span className={candidate?styles.resultRare:styles.resultNo}>{candidate?"POSSIBLE MATCH · VERIFY DETAILS":"NOT A DIRECT MATCH / SPECIALIST CHECK"}</span>
@@ -182,6 +322,7 @@ export default function StorageGuide(){
    </section>}
    {tab==="anatomy"&&<section className={styles.section}>
     <div className={styles.sectionHeading}><div><span className={styles.eyebrow}>MECHANICAL VERSUS SOLID STATE</span><h2>What's actually inside?</h2><p>Explore parts from a traditional HDD and NAND flash SSD. The component descriptions are educational, not a guide to opening live drives.</p></div></div>
+    <div className={extra.photoHighlights}>{[realPhotos[2],realPhotos[6]].map(p=><figure key={p.file}><RealPhoto file={p.file} title={p.title}/><figcaption><strong>{p.title}</strong><p>{p.detail}</p><a href={commonsFilePage(p.file)} target="_blank" rel="noopener noreferrer">Photographer: {p.creator} · {p.license} ↗</a></figcaption></figure>)}</div>
     <div className={styles.anatomy}>
      <div className={extra.anatomyPanels}><div className={extra.anatomyDisc}><span>HDD · MAGNETIC PLATTERS</span><div className={extra.largePlatter}/><button onClick={()=>setActiveComponent("platter")}>Platter</button><button onClick={()=>setActiveComponent("head")}>Heads / actuator</button><button onClick={()=>setActiveComponent("motor")}>Spindle motor</button><button onClick={()=>setActiveComponent("pcb")}>Controller PCB</button></div>
       <div className={extra.anatomyFlash}><span>SSD · NAND + CONTROLLER</span><div>▣　▣　▣　▣</div>{components.filter(c=>["nand","ssdcontroller","dram","capacitor"].includes(c.id)).map(c=><button key={c.id} onClick={()=>setActiveComponent(c.id)}>{c.name}</button>)}</div></div>
@@ -198,9 +339,9 @@ export default function StorageGuide(){
     ].map(([name,desc])=><article className={styles.card} key={name}><h3>{name}</h3><p>{desc}</p></article>)}</div>
    </section>}
    {tab==="photos"&&<section className={styles.section}>
-    <div className={styles.sectionHeading}><div><span className={styles.eyebrow}>GROUNDED VISUAL REFERENCE</span><h2>Real photos, with original sources.</h2><p>These example photos were located on individual Wikimedia Commons file pages. They are a starter archive, not photographs of every atlas entry.</p></div></div>
-    <div className={extra.photoGrid}>{realPhotos.map(p=><article className={extra.photoCard} key={p.file}><RealPhoto file={p.file} title={p.title}/><div className={extra.photoDetails}><small>{p.group} / REAL PHOTOGRAPH</small><h3>{p.title}</h3><p>{p.detail}</p><a href={commonsFilePage(p.file)} target="_blank" rel="noopener noreferrer">Original photo, creator and licence ↗</a></div></article>)}</div>
-    <div className={styles.callout}><strong>Source integrity:</strong> Each photo points to an exact file page, rather than a generic search. Check photographer and individual licence before republishing. Missing images show a fallback instead of a broken card.</div>
+    <div className={styles.sectionHeading}><div><span className={styles.eyebrow}>GROUNDED VISUAL REFERENCE</span><h2>Real photos, with original sources.</h2><p>These are genuine source photographs from original Wikimedia Commons file pages, not AI-generated images. Each displays its author and licence; some rare storage formats still have schematic illustrations.</p></div></div>
+    <div className={extra.photoGrid}>{realPhotos.map(p=><article className={extra.photoCard} key={p.file}><RealPhoto file={p.file} title={p.title}/><div className={extra.photoDetails}><small>{p.group} / REAL PHOTOGRAPH</small><h3>{p.title}</h3><p>{p.detail}</p><p>Photographer: <strong>{p.creator}</strong> · {p.license}</p><a href={commonsFilePage(p.file)} target="_blank" rel="noopener noreferrer">View original photograph and licence ↗</a></div></article>)}</div>
+    <div className={styles.callout}><strong>Source integrity:</strong> Each file is linked to its original Wikimedia Commons page and credited to its photographer. Attribution and licences remain visible with the images. If Wikimedia cannot load a photograph, the card shows a clear fallback rather than an invented replacement.</div>
    </section>}
    {tab==="quiz"&&<section className={styles.section}>
     <div className={styles.sectionHeading}><div><span className={styles.eyebrow}>APPLIED REPAIR THINKING</span><h2>What would you do at the bench?</h2><p>Case-based questions assess decisions rather than memorised connector names. Each answer explains the technical reasoning.</p></div></div>
