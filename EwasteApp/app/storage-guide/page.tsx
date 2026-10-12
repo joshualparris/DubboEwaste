@@ -154,12 +154,12 @@ export default function StorageGuide(){
   <header className={styles.top}><Link href="/learn">← Circular Learning Hub</Link><span>FIELD GUIDE / COMPUTER STORAGE</span><Link href="/ram-guide">RAM Explorer ↗</Link></header>
   <section className={`${styles.hero} ${extra.storageHero}`}>
    <div><div className={styles.kicker}><span className={styles.dot}/> HARDWARE HISTORY / REPAIR BENCH</div>
-    <h1>THE STORAGE<br/><em>EXPLORER.</em></h1>
+    <h1><span>THE</span><span>STORAGE</span><em>EXPLORER.</em></h1>
     <p>From room-sized disks to M.2 NVMe, enterprise SSDs and removable media. Learn to recognise the drive, match the interface, and make safer refurbishment decisions.</p>
     <div className={styles.heroActions}><button onClick={()=>navigate("catalogue")}>Browse storage types ↗</button><button className={styles.ghost} onClick={()=>navigate("identify")}>Check a drive →</button></div>
    </div>
    <div className={extra.heroPhotos} aria-label="Genuine photographs of computer storage hardware">
-     {realPhotos.filter(p=>["sata35","sata-ssd","nvme2280"].some(id=>p.ids.includes(id))).map(p=><figure className={extra.heroPhotoTile} key={p.file}>
+     {["desktop-sata","sata-ssd","nvme-2280","open-hdd"].map(photoById).map(p=><figure className={extra.heroPhotoTile} key={p.file}>
        <RealPhoto file={p.file} title={p.title}/>
        <figcaption><strong>{p.title}</strong><a href={commonsFilePage(p.file)} target="_blank" rel="noopener noreferrer">{p.creator} · photograph ↗</a> · <a href={p.licenseUrl} target="_blank" rel="noopener noreferrer">{p.license}</a></figcaption>
      </figure>)}
