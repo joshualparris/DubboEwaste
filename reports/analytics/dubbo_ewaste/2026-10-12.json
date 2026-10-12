@@ -1,0 +1,63 @@
+{
+  "by_site": [
+    {
+      "event_name": "click",
+      "site": "dubbo_ewaste",
+      "total": 15
+    },
+    {
+      "event_name": "page_view",
+      "site": "dubbo_ewaste",
+      "total": 42
+    }
+  ],
+  "clicks": [
+    {
+      "site": "dubbo_ewaste",
+      "target_group": "private-action",
+      "total": 14
+    }
+  ],
+  "date_sydney": "2026-10-12",
+  "devices": [
+    {
+      "device_class": "desktop",
+      "site": "dubbo_ewaste",
+      "total": 52
+    },
+    {
+      "device_class": "mobile",
+      "site": "dubbo_ewaste",
+      "total": 8
+    }
+  ],
+  "locations": [
+    {
+      "country": "AU",
+      "region": "NSW",
+      "site": "dubbo_ewaste",
+      "total": 49
+    }
+  ],
+  "notice": "Public aggregate only. Buckets under 5 withheld; private routes/actions generalized.",
+  "pages": [
+    {
+      "page_group": "/private",
+      "site": "dubbo_ewaste",
+      "total": 36
+    },
+    {
+      "page_group": "/repair-cafe-dubbo",
+      "site": "dubbo_ewaste",
+      "total": 6
+    }
+  ],
+  "referrers": [
+    {
+      "referrer_domain": "dubbo-ewaste-app.vercel.app",
+      "site": "dubbo_ewaste",
+      "total": 57
+    }
+  ],
+  "site": "dubbo_ewaste"
+}
