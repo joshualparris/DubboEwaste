@@ -89,3 +89,18 @@ span.photoSourceLine{color:#829f91;text-decoration:none}
 .identifyPhoto figcaption a{color:#a6e7c6;text-decoration:underline}
 @media(max-width:900px){.photoHighlights{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.heroPhotos{min-height:300px}.heroPhotoTile .photo{min-height:115px}.heroPhotoTile figcaption{padding:10px 6px 5px}.heroPhotoTile figcaption strong{font-size:10px}.heroPhotoTile figcaption a{font-size:9px}.photoHighlights{grid-template-columns:1fr}.photoHighlights figure .photo{height:205px}.driveCard .photo{height:180px}}
+
+/* Storage Explorer hero: page-specific layout (do not change RAM Explorer). */
+.storageHero{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(22px,3vw,40px);align-items:center;min-height:0;padding:clamp(38px,5vw,68px) 0}
+.storageHero>div{min-width:0}
+.storageHero h1{font-size:clamp(42px,5.05vw,76px);line-height:.99;letter-spacing:-.075em;overflow-wrap:normal;word-break:normal;margin:25px 0}
+.storageHero h1 em{white-space:nowrap}
+.storageHero p{font-size:clamp(15px,1.25vw,18px);max-width:46ch}
+.heroPhotos{min-width:0;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,180px)) auto;align-content:start;align-self:center;gap:10px}
+.heroPhotoTile{height:100%;min-height:0;display:flex;flex-direction:column;justify-content:flex-end}
+.heroPhotoTile:first-child{grid-row:1 / span 2}
+.heroPhotoTile .photo{position:absolute;inset:0;width:100%;height:100%;min-height:0;object-fit:contain;padding:12px 12px 45px}
+.heroPhotoTile figcaption{position:relative;margin-top:auto;padding:29px 12px 10px;z-index:1;overflow-wrap:anywhere}
+.heroPhotoNotice{line-height:1.5}
+@media(max-width:1000px){.storageHero{grid-template-columns:1fr;gap:26px}.storageHero h1{font-size:clamp(48px,8vw,82px)}.heroPhotos{grid-template-rows:repeat(2,minmax(0,180px)) auto;max-width:760px;width:100%}}
+@media(max-width:600px){.storageHero{padding:35px 0}.storageHero h1{font-size:clamp(36px,9.4vw,58px);letter-spacing:-.065em}.storageHero h1 em{white-space:normal}.heroPhotos{grid-template-rows:repeat(2,minmax(0,145px)) auto;gap:7px;padding:8px}.heroPhotoTile .photo{padding:8px 8px 39px}.heroPhotoTile figcaption{padding:19px 7px 6px}.heroPhotoNotice{font-size:9px}}
