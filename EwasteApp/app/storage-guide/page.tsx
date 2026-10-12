@@ -152,7 +152,7 @@ export default function StorageGuide(){
 
  return <main className={styles.page}><div className={styles.wrap}>
   <header className={styles.top}><Link href="/learn">← Circular Learning Hub</Link><span>FIELD GUIDE / COMPUTER STORAGE</span><Link href="/ram-guide">RAM Explorer ↗</Link></header>
-  <section className={styles.hero}>
+  <section className={`${styles.hero} ${extra.storageHero}`}>
    <div><div className={styles.kicker}><span className={styles.dot}/> HARDWARE HISTORY / REPAIR BENCH</div>
     <h1>THE STORAGE<br/><em>EXPLORER.</em></h1>
     <p>From room-sized disks to M.2 NVMe, enterprise SSDs and removable media. Learn to recognise the drive, match the interface, and make safer refurbishment decisions.</p>
