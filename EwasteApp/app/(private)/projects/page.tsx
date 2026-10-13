@@ -23,7 +23,7 @@ const groups = [
       { name: "Library of Things Dubbo", url: "https://circular-economy-dubbo.vercel.app/library-of-things", note: "Public explanation of the proposed sharing service." },
       { name: "DubboEwaste application", url: "https://dubbo-ewaste-app.vercel.app/", note: "Current DubboEwaste application entry point." },
       { name: "Cheap PCs & Laptops", url: "https://joshualparris.github.io/Cheappcslaptops/", note: "Refurbished-computer market and pricing research." },
-      { name: "DadLAN rollout snapshot", url: "https://parris-tech-services.github.io/DadlanControlCentre/", note: "DadLAN device rollout and donation/refurbishment snapshot." },
+      { name: "DadLAN rollout snapshot", url: "https://dubbo-ewaste-app.vercel.app/dadlan-rollout.html", note: "Public-safe historical DadLAN rollout snapshot hosted here. Not a live fleet status." },
     ],
   },
   {
