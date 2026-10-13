@@ -34,7 +34,7 @@ export default async function CafeReports({searchParams}:{searchParams:Promise<{
  const issues=[eventsError,ticketResult.error,attendanceResult.error,incidentResult.error].filter(Boolean);
  return <div className="stack" style={{maxWidth:1150,margin:"0 auto"}}>
   <nav className="actions no-print"><Link className="button secondary" href="/repair-cafe-volunteers">Volunteer Hub</Link><Link className="button secondary" href="/repair-cafe-volunteers/event-desk">Event Desk</Link><Link className="button secondary" href="/repair-cafe-volunteers/operations">Operations & safety</Link></nav>
-  <div className="card" style={{background:"linear-gradient(110deg,#e6f3e8,#fbf6e9)"}}>
+  <div className="card repair-report-hero">
    <div className="badge">Private · Repair Café outcomes</div><h1>Impact and volunteer reports</h1>
    <p className="muted">Actual measured results only. No invented CO₂ savings, weight estimates or implied repair successes.</p>
    <div className="actions no-print"><PrintButton/><Link className="button secondary" href="/repair-cafe-volunteers/reports/annual">Annual impact</Link><Link className="button secondary" href="/repair-cafe-volunteers/reports/open-data">Draft Open Repair export</Link><Link className="button secondary" href={eventId?"/repair-cafe-volunteers/reports/export?event="+eventId:"/repair-cafe-volunteers/reports/export"}>Export CSV</Link></div>
