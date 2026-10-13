@@ -15,6 +15,7 @@ export default async function MediaPage({searchParams}:{searchParams:Promise<{er
     supabase.from("sanitisation_policies").select("*").eq("active",true).order("name"),
   ]);
   return <div className="stack">
+    <p><Link className="button" href="/sanitisation-workbench">Guided drive inventory, report review & erasure tools →</Link></p>
     <div><div className="badge">Media sanitisation</div><h1>{showReview?"Media needing wipe or review":"Media queue"}</h1><p className="muted">Every data-bearing medium is its own traceable record. Upload raw tool evidence before or after recording a run.</p><p><Link href={showReview?"/media":"/media?view=review"} className="button secondary">{showReview?"Show all media":"Show media needing review"}</Link></p></div>
     {params.error?<div className="error">{params.error}</div>:null}
     <form action={createSanitisationPolicy} className="card form"><h2>Sanitisation policy</h2><div className="two"><label>Name<input name="name" required placeholder="Standard SSD clear"/></label><label>Standard<input name="standard" required placeholder="Organisation policy / standard"/></label></div><div className="two"><label>Method<input name="method" required placeholder="Approved erase / destroy method"/></label><label>Max retries<input name="max_retries" type="number" min="0" defaultValue="1"/></label></div><label>Fallback route<input name="fallback_route" defaultValue="SUPERVISOR_REVIEW"/></label><button className="button">Add policy</button></form>
