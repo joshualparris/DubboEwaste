@@ -252,3 +252,19 @@ input[type="checkbox"],input[type="radio"]{width:20px;height:20px;flex:none}
 
 /* Keep programme learning accessible without doubling the mobile header height. */
 @media(max-width:850px){.nav-quick a:nth-child(n+4){display:none}}
+
+/* Accessible AssetFlow help and compact mobile command palette. */
+.assetflow-help kbd{display:inline-block;padding:3px 7px;border:1px solid var(--line);border-radius:5px;background:var(--soft);font:13px ui-monospace,Consolas,monospace}
+.assetflow-help ol{padding-left:23px}.assetflow-help ol li{margin:10px 0;line-height:1.5}
+.assetflow-help ul{padding-left:19px}.assetflow-help ul li{margin-bottom:9px}
+.assetflow-help a:not(.button){color:var(--brand);text-decoration:underline;text-underline-offset:2px}
+.assetflow-help details{padding:12px 0;border-bottom:1px solid var(--line)}
+.assetflow-help details summary{cursor:pointer;font-weight:600}
+.assetflow-help details p{margin-bottom:5px}
+.assetflow-help .grid h3{font-size:17px;margin:0 0 5px}
+.assetflow-help .grid .card{box-shadow:none}
+@media(max-width:850px){
+  .nav-quick{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .nav-quick a:nth-child(n+5){display:none}
+}
+@media print{.assetflow-help .card{break-inside:avoid}}
