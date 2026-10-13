@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { logout } from "@/app/login/actions";
+import { QuickNavigator } from "@/components/QuickNavigator";
 
 import { PROGRAMMES, canVisit, type ProgrammeContext } from "@/lib/programmes";
 
@@ -89,6 +90,8 @@ export function AppNav({ fullName, role, programme = null, globalAdmin = role ==
       <Link href="/dashboard">Dashboard</Link>
       <Link href="/search">Search / Scan</Link>
       <Link href="/assets/new">Receive</Link>
+      <QuickNavigator role={role} programme={programme} globalAdmin={globalAdmin} />
+      <Link href="/help">Help</Link>
     </nav>
 
     <details className="nav-menu" ref={menu}>
@@ -132,6 +135,7 @@ export function AppNav({ fullName, role, programme = null, globalAdmin = role ==
         <section className="nav-group"><h2>Programme</h2><div className="nav-group-links">
           <Link href="/programmes">Switch programme</Link>
           <Link href="/settings">Settings · Appearance</Link>
+          <Link href="/help">Help & keyboard shortcuts</Link>
           {allowed("/lending") ? <Link href="/lending">Loans & returns</Link> : null}
           {globalAdmin || role === "admin" ? <Link href="/admin/programmes">Programme memberships</Link> : null}
         </div></section>
