@@ -90,6 +90,7 @@ export default async function RepairCafeVolunteerHub() {
           {canSeeFeedback ? <Link className="button" href="/repair-cafe-volunteers/contacts">Australian Repair Cafés · Insurance & correspondence</Link> : null}
           {canSeeFeedback ? <Link className="button secondary" href="/repair-cafe-volunteers/operations">Operations & safety</Link> : null}
           {canSeeFeedback ? <Link className="button secondary" href="/repair-cafe-volunteers/compliance">Risk & compliance register</Link> : null}
+          {canSeeFeedback ? <Link className="button secondary" href="/repair-cafe-volunteers/preflight">Event safety preflight</Link> : null}
           {canSeeFeedback ? <Link className="button secondary" href="/repair-cafe-volunteers/reports">Reports & exports</Link> : null}
           <Link className="button secondary" href="/repair-cafe-dubbo">View public page</Link>
           {canSeeFeedback ? <Link className="button secondary" href="/repair-cafe-feedback">Review public feedback</Link> : null}
