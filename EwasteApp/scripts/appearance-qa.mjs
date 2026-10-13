@@ -42,4 +42,34 @@ assert.ok(nav.includes('href="/settings"'),"Settings must be discoverable in the
 assert.ok(guards.includes('"settings"'),"Settings must be accessible across authorised programmes");
 assert.ok(settingsPage.includes("<AppearanceSettings/>"),"Page must render the interactive preference");
 assert.ok(css.includes(':root[data-theme="dark"]')&&css.includes('@media print')&&css.includes("--bg:#101914"),"Dark mode and print safeguards must exist");
+
+/* The Volunteer Hub has CSS-module light surfaces, so global theme variables alone
+   are insufficient. Check its dark-mode palette and contrast before each build. */
+const volunteerCss=load("app/(private)/repair-cafe-volunteers/page.module.css");
+assert.ok(volunteerCss.includes(':global(:root[data-theme="dark"]) .page{'),"Volunteer Hub must explicitly support dark mode");
+for(const selector of [".hero",".section",".card",".warning",".checklist li",".links a",".card h3",".hero p"]){
+ assert.ok(volunteerCss.includes(':global(:root[data-theme="dark"]) '+selector),"Missing Volunteer Hub dark-mode rule: "+selector);
+}
+const palette={
+ ink:"#edf5ed",muted:"#bfd0c2",panel:"#1b2820",card:"#25362b",
+ link:"#a1e9bd",warningInk:"#fbe7c8",warningBg:"#392d1b"
+};
+for(const value of Object.values(palette))assert.ok(volunteerCss.includes(value),"Volunteer Hub colour not found: "+value);
+function volunteerLuminance(hex){
+ const channels=hex.slice(1).match(/../g).map(part=>{
+  const srgb=parseInt(part,16)/255;
+  return srgb<=0.04045?srgb/12.92:((srgb+0.055)/1.055)**2.4;
+ });
+ return channels[0]*.2126+channels[1]*.7152+channels[2]*.0722;
+}
+for(const [label,a,b] of [
+ ["heading",palette.ink,palette.panel],["card heading",palette.ink,palette.card],
+ ["card paragraph",palette.muted,palette.card],["muted copy",palette.muted,palette.panel],
+ ["links",palette.link,palette.panel],["safety warning",palette.warningInk,palette.warningBg]
+]){
+ const l1=volunteerLuminance(a),l2=volunteerLuminance(b);
+ const ratio=(Math.max(l1,l2)+.05)/(Math.min(l1,l2)+.05);
+ assert.ok(ratio>=4.5,label+" fails normal-text WCAG AA: "+ratio.toFixed(2));
+}
+
 console.log("Appearance QA PASS: signed-in settings, light/dark/device persistence, cross-tab + device sync, SSR safe load, dark styles and white print output.");

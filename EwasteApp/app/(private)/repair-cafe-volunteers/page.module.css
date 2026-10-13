@@ -1,1 +1,59 @@
 .page{display:grid;gap:1.3rem}.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;background:linear-gradient(135deg,#eef5ed,#f8f2e4);border:1px solid #dce4dc;border-radius:20px;padding:1.5rem}.hero h1{margin:.35rem 0 .6rem;font-size:clamp(2.2rem,5vw,3.8rem);line-height:1}.hero p{max-width:760px;margin:0;color:#526158}.heroActions{display:flex;gap:.6rem;flex-wrap:wrap}.summary,.pilot{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}.summary article,.pilot article{display:grid;gap:.3rem;border:1px solid #dfe4df;border-radius:14px;background:#fff;padding:1rem}.summary span,.pilot span{color:#647068;font-size:.92rem}.section{border:1px solid #e0e4e0;border-radius:18px;background:#fff;padding:1.25rem}.section h2{margin:0 0 .35rem}.intro{margin:.2rem 0 1rem;color:#647068}.venueGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-top:.8rem}.card{position:relative;border:1px solid #e0e4e0;border-radius:14px;padding:1rem;background:#fbfcfa}.card h3{margin:.2rem 2rem .4rem 0}.card p{margin:.45rem 0;color:#56635c}.rank{position:absolute;right:12px;top:8px;font-size:2rem;font-weight:900;color:#dbe7df}.rating{font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.05em;color:#397158!important}.confirm{background:#f7f2e7;padding:.7rem;border-radius:9px}.warning{border-left:5px solid #b36e27;background:#fff4de;border-radius:0 12px 12px 0;padding:.9rem 1rem;margin:.8rem 0}.warning p{margin:.3rem 0 0}.pilot{grid-template-columns:repeat(4,1fr)}.pilot strong{font-size:1.3rem}.checklist{padding-left:1.25rem;margin:.6rem 0}.checklist li{margin:.45rem 0}.links{display:flex;flex-wrap:wrap;gap:.7rem}.links a{font-weight:800;color:#28644b}@media(max-width:850px){.hero{align-items:flex-start;flex-direction:column}.summary,.venueGrid,.grid,.pilot{grid-template-columns:1fr 1fr}}@media(max-width:600px){.summary,.venueGrid,.grid,.pilot{grid-template-columns:1fr}.section,.hero{padding:1rem}.heroActions{width:100%}.heroActions a{width:100%;text-align:center}}
+
+/* Repair Café Volunteer Hub dark-mode surfaces.
+   The original page used pale backgrounds with inherited pale dark-mode text.
+   Scope these overrides to this route so other AssetFlow pages are unaffected. */
+:global(:root[data-theme="dark"]) .page{
+ --rc-panel:#1b2820;
+ --rc-card:#25362b;
+ --rc-border:#496350;
+ --rc-ink:#edf5ed;
+ --rc-muted:#bfd0c2;
+ --rc-link:#a1e9bd;
+ --rc-warning-bg:#392d1b;
+ --rc-warning-ink:#fbe7c8;
+ color:var(--rc-ink);
+}
+:global(:root[data-theme="dark"]) .hero{
+ background:linear-gradient(135deg,#1b3022,#263529);
+ color:var(--rc-ink);
+ border-color:var(--rc-border);
+}
+:global(:root[data-theme="dark"]) .hero h1,
+:global(:root[data-theme="dark"]) .section h2,
+:global(:root[data-theme="dark"]) .card h3{color:var(--rc-ink)}
+:global(:root[data-theme="dark"]) .hero p,
+:global(:root[data-theme="dark"]) .intro,
+:global(:root[data-theme="dark"]) .summary span,
+:global(:root[data-theme="dark"]) .pilot span,
+:global(:root[data-theme="dark"]) .card p{color:var(--rc-muted)}
+:global(:root[data-theme="dark"]) .summary article,
+:global(:root[data-theme="dark"]) .pilot article,
+:global(:root[data-theme="dark"]) .section{
+ background:var(--rc-panel);
+ color:var(--rc-ink);
+ border-color:var(--rc-border);
+}
+:global(:root[data-theme="dark"]) .card{
+ background:var(--rc-card);
+ color:var(--rc-ink);
+ border-color:var(--rc-border);
+}
+:global(:root[data-theme="dark"]) .card p strong,
+:global(:root[data-theme="dark"]) .pilot strong,
+:global(:root[data-theme="dark"]) .summary strong{color:var(--rc-ink)}
+:global(:root[data-theme="dark"]) .card .rating{color:#a1e9bd!important}
+:global(:root[data-theme="dark"]) .rank{color:#b2dbc0}
+:global(:root[data-theme="dark"]) .confirm{background:#30382c;color:var(--rc-muted)}
+:global(:root[data-theme="dark"]) .warning{
+ background:var(--rc-warning-bg);
+ color:var(--rc-warning-ink);
+ border-left-color:#e9ab58;
+}
+:global(:root[data-theme="dark"]) .warning strong,
+:global(:root[data-theme="dark"]) .warning p{color:var(--rc-warning-ink)}
+:global(:root[data-theme="dark"]) .checklist,
+:global(:root[data-theme="dark"]) .checklist li{color:var(--rc-ink)}
+:global(:root[data-theme="dark"]) .checklist li::marker{color:var(--rc-muted)}
+:global(:root[data-theme="dark"]) .links a{color:var(--rc-link);text-decoration:underline;text-underline-offset:3px}
+:global(:root[data-theme="dark"]) .links a:hover{text-decoration-thickness:2px}
