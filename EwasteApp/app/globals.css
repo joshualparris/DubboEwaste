@@ -278,3 +278,6 @@ input[type="checkbox"],input[type="radio"]{width:20px;height:20px;flex:none}
 .dashboard-metric-link:focus-visible{outline:3px solid #146d44;outline-offset:3px;border-color:var(--brand)}
 .dashboard-metric-link:active{transform:translateY(0)}
 @media(prefers-reduced-motion:reduce){.dashboard-metric-link{transition:none}.dashboard-metric-link:hover,.dashboard-metric-link:active{transform:none}}
+
+/* Light-mode Repair Café report hero; dark counterpart lives in appearance.css. */
+.repair-report-hero{background:linear-gradient(110deg,#e6f3e8,#fbf6e9)}
