@@ -7,7 +7,7 @@
  --muted:#b4c6b8;
  --line:#394e40;
  --brand:#58b887;
- --brand-dark:#297e58;
+ --brand-dark:#a3e5bb;
  --soft:#203e2d;
  --field:#152119;
  --field-line:#769781;
@@ -61,4 +61,35 @@
  :root[data-theme="dark"],:root[data-theme="dark"] body{color-scheme:light!important;--bg:#fff;--panel:#fff;--ink:#111;--muted:#444;--line:#bbb;--soft:#f2f2f2}
  :root[data-theme="dark"] :is(.certificate-sheet,.quote-sheet,.doc-paper,.asset-label-print-area,.asset-batch-print-area,.asset-print-label){background:#fff!important;color:#111!important}
  :root[data-theme="dark"] :is(.card,table,th,td){background:white!important;color:black!important}
+}
+
+/* Site-wide contrast coverage: legacy mobile record rows, controls and reports. */
+:root[data-theme="dark"] :is(.record-table>tbody>tr,.evidence-thumb,.result-row,.lookup-result,.assetflow-help .card){
+  background:var(--panel);color:var(--ink);border-color:var(--line);
+}
+:root[data-theme="dark"] .record-table>tbody>tr>td{border-bottom-color:var(--line)}
+:root[data-theme="dark"] :is(.record-field-label,.evidence-thumb small,.doc-breadcrumbs,.form-pending-message){color:var(--muted)}
+:root[data-theme="dark"] :is(.dashboard-metric-hint,.doc-breadcrumbs a,.document-markdown a,.assetflow-help a:not(.button)){
+ color:#a3e5bb;
+}
+:root[data-theme="dark"] :is(.doc-section-nav,.doc-section-nav a,.barcode-existing){
+ background:var(--panel);color:var(--ink);border-color:var(--line);
+}
+:root[data-theme="dark"] :is(.mini-form input,.mini-form select,.mini-form textarea,.search-form input,.barcode-entry input,.form input,.form select,.form textarea){
+ background:var(--field);color:var(--ink);border-color:var(--field-line);
+}
+:root[data-theme="dark"] :is(input,select,textarea)::placeholder{color:#b8cbbd;opacity:1}
+:root[data-theme="dark"] .repair-report-hero{
+ background:linear-gradient(110deg,#24432c,#243126);
+ color:var(--ink);border-color:var(--line);
+}
+:root[data-theme="dark"] .repair-report-hero :is(h1,h2,h3,p,strong){color:var(--ink)}
+:root[data-theme="dark"] :is(.barcode-existing,.danger-zone,.form-pending-message){border-color:#8d7454}
+:root[data-theme="dark"] .barcode-existing{background:#362f20;color:#ffe2b2}
+:root[data-theme="dark"] .dashboard-metric-link{background:var(--panel);color:var(--ink)}
+:root[data-theme="dark"] .dashboard-metric-link:hover{background:var(--soft)}
+/* White QR paper stays white, including scanner/photo/print output. */
+@media print{
+  :root[data-theme="dark"] .repair-report-hero{background:#fff!important;color:#111!important}
+  :root[data-theme="dark"] .repair-report-hero :is(h1,h2,h3,p,strong){color:#111!important}
 }
