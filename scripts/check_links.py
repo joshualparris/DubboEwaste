@@ -4,6 +4,9 @@ from collections import defaultdict
 
 ROOT=pathlib.Path(".")
 FILES=[p for p in ROOT.rglob("*") if p.is_file() and p.suffix.lower() in {".md",".csv",".txt",".yml",".yaml"} and ".git" not in p.parts]
+# Include live Projects directory links that Markdown-only scans otherwise miss.
+PROJECTS=ROOT/"EwasteApp/app/(private)/projects/page.tsx"
+if PROJECTS.exists(): FILES.append(PROJECTS)
 pat=re.compile(r'https?://[^\s<>"\')\]}]+')
 refs=defaultdict(set)
 for p in FILES:
