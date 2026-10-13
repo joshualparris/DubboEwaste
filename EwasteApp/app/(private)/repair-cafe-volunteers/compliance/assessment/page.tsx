@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {redirect} from "next/navigation";
 import {requireProgrammeContext} from "@/lib/programme-context";
-import {saveRisk,saveControl,addInsurance,addRiskReview} from "../actions";
+import {saveRisk,saveControl,addInsurance,addRiskReview,saveInsuranceRenewal} from "../actions";
 type R={id:string;code:string;title:string;category:string;status:string;owner_name:string;likelihood:number|null;impact:number|null;residual_likelihood:number|null;residual_impact:number|null;review_due:string|null;review_note:string};
 const ratings=[1,2,3,4,5];
 export default async function Assessment({searchParams}:{searchParams:Promise<{q?:string;category?:string;priority?:string}>}){
@@ -37,7 +37,12 @@ const input={padding:8,maxWidth:"100%"};return <main style={{maxWidth:1100,margi
 <section><h2>Insurance policies</h2><p>Unknown insurance must remain unconfirmed until verified directly with the insurer.</p>
 <form action={addInsurance} style={{display:"grid",gap:8,maxWidth:600}}>
 <label>Policy type<input name="policy_type" required/></label><label>Provider<input name="provider"/></label><label>Insured entity<input name="insured_entity"/></label><label>Policy number/reference<input name="policy_reference"/></label><label>Expiry<input type="date" name="expiry_on"/></label><label>Coverage and exclusions<textarea name="coverage_note"/></label><label>Evidence link/reference<input name="evidence_reference"/></label><button>Add unconfirmed insurance record</button></form>
-<ul>{(policies||[]).map(p=><li key={p.id}>{p.policy_type}: {p.status}, insurer {p.provider||"unknown"}, expires {p.expiry_on||"unknown"}</li>)}</ul></section>
+<div>{(policies||[]).map(p=>{const days=p.expiry_on?Math.ceil((new Date(p.expiry_on+"T00:00:00Z").getTime()-Date.now())/86400000):null;return <form key={p.id} action={saveInsuranceRenewal} style={{display:"grid",gap:7,border:"1px solid #aaa6",padding:14,marginTop:10,borderRadius:10}}>
+ <strong>{p.policy_type} · {p.provider||"Insurer unknown"}</strong><span>Status: {p.status} · Expires: {p.expiry_on||"Unknown"}</span>
+ <strong>{days===null?"Expiry unknown":days<0?"EXPIRED":days<=30?"Renewal urgent":days<=90?"Renewal due within 90 days":"Current date recorded"}</strong>
+ <input name="id" type="hidden" value={p.id}/><label>Renewal owner<input name="renewal_owner" maxLength={120} defaultValue={p.renewal_owner??"Unassigned"}/></label>
+ <label>Next renewal action<input name="renewal_action" maxLength={1000} defaultValue={p.renewal_action??""}/></label><label>Next follow-up date<input name="next_review_on" type="date" defaultValue={p.next_review_on??""}/></label><button type="submit">Save renewal plan</button>
+ </form>})}</div></section>
 <section><h2>Recorded reviews</h2><ul>{(reviews||[]).map(v=><li key={v.id}>{all.find(r=>r.id===v.risk_id)?.code}: {v.decision}, {v.findings}</li>)}</ul></section>
 </main>
 }
