@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { GO_SHORTCUTS, visibleHelpSections, type HelpLink } from "@/lib/help-navigation";
 import type { ProgrammeContext } from "@/lib/programmes";
@@ -88,7 +88,7 @@ export function QuickNavigator({ programme, globalAdmin, role }: Props) {
         if (event.key === "Escape") { event.preventDefault(); hide(); }
         return;
       }
-      if (event.altKey || event.ctrlKey || event.metaKey || event.repeat || isEditing(event.target)) {
+      if (event.altKey || event.ctrlKey || event.metaKey || event.repeat || event.isComposing || isEditing(event.target)) {
         goStarted.current = 0;
         setWaitingForGo(false);
         return;
@@ -123,12 +123,12 @@ export function QuickNavigator({ programme, globalAdmin, role }: Props) {
     return () => window.clearTimeout(timeout);
   }, [waitingForGo]);
 
-  function onSearchKeys(event: React.KeyboardEvent<HTMLInputElement>) {
+  function onSearchKeys(event: ReactKeyboardEvent<HTMLInputElement>) {
     if (event.key === "ArrowDown") { event.preventDefault(); setSelected(i => Math.min(matches.length - 1, i + 1)); }
     if (event.key === "ArrowUp") { event.preventDefault(); setSelected(i => Math.max(0, i - 1)); }
     if (event.key === "Enter" && matches.length) { event.preventDefault(); visit(matches[Math.max(0, selected)].href); }
   }
-  function trapTab(event: React.KeyboardEvent<HTMLDivElement>) {
+  function trapTab(event: ReactKeyboardEvent<HTMLDivElement>) {
     if (event.key !== "Tab") return;
     const tabbables = Array.from(dialogRef.current?.querySelectorAll<HTMLElement>("button:not([disabled]), input:not([disabled]), a[href]") || []);
     if (!tabbables.length) return;
@@ -154,7 +154,7 @@ export function QuickNavigator({ programme, globalAdmin, role }: Props) {
         </div>
         {mode === "navigate" ? <>
           <label htmlFor="assetflow-quick-search" className={styles.srOnly}>Search pages and features</label>
-          <input id="assetflow-quick-search" ref={inputRef} type="search" value={query} onChange={event => { setQuery(event.target.value); setSelected(0); }} onKeyDown={onSearchKeys} className={styles.search} placeholder="Search features, e.g. donor, scan, invoice, Repair Café…" autoComplete="off" />
+          <input id="assetflow-quick-search" ref={inputRef} type="search" value={query} onChange={event => { setQuery(event.target.value); setSelected(0); }} onKeyDown={onSearchKeys} className={styles.search} placeholder="Search features, e.g. donor, scan, quote, Repair Café…" autoComplete="off" />
           <div className={styles.results} aria-label="Available pages">
             {matches.map((item: HelpLink, index: number) => <button type="button" key={item.href} className={index === selected ? styles.resultSelected : styles.result} onMouseEnter={() => setSelected(index)} onClick={() => visit(item.href)}>
               <span><strong>{item.label}</strong><small>{item.description}</small></span><span className={styles.route}>{item.href}</span>
