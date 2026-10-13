@@ -9,12 +9,29 @@ on:
       - '**/*.txt'
       - 'EwasteApp/app/(private)/projects/page.tsx'
       - 'EwasteApp/public/dadlan-rollout.html'
+      - 'scripts/check_project_links_live.py'
       - 'scripts/check_links.py'
       - 'scripts/check_documentation.py'
       - '.github/workflows/link-audit.yml'
   workflow_dispatch:
 
 jobs:
+  project-links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Probe Projects directory destinations
+        run: python scripts/check_project_links_live.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: projects-links-live-audit
+          path: projects-links-live.json
+
   links:
     runs-on: ubuntu-latest
     timeout-minutes: 20
