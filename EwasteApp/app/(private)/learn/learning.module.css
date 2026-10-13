@@ -128,3 +128,77 @@
 .pricingStart:hover{background:#fff}
 .pricingInline{display:grid;justify-items:start;gap:10px;border-radius:13px;border:1px solid #a5c9b0;background:#ebf6ee;padding:22px}
 .pricingInline p{margin:0;font-size:14px;color:#456750}
+
+
+/* Dark mode: complete paired foreground/background colours for every learning surface.
+   Hero and pricing hero retain their purposely dark artwork and pale lettering. */
+:global(:root[data-theme="dark"]) .shell{color:#edf5ed}
+:global(:root[data-theme="dark"]) .shell :is(.courseHero,.lessonHero,.courseCard,.checkPanel,.footerNote,.sourcePanel,.lessonRow,.practice,.deepPanel,.deepLesson,.pricingInline){
+  background:#1b2820;color:#edf5ed;border-color:#4b6655;
+}
+:global(:root[data-theme="dark"]) .shell :is(.courseHero,.lessonHero,.courseCard,.checkPanel,.footerNote,.sourcePanel,.lessonRow,.practice,.deepPanel,.deepLesson,.pricingInline) :is(h1,h2,h3,h4,legend,strong,summary){
+  color:#edf5ed;
+}
+:global(:root[data-theme="dark"]) .shell :is(.courseCard p,.sourcePanel p,.footerNote p,.lessonRow p,.pricingInline p,.courseDetails,.progressLabel){
+  color:#bbd0bf;
+}
+:global(:root[data-theme="dark"]) .shell :is(.hint,.courseDetails,.breadcrumbs,.deepFoot){color:#bbd0bf!important}
+:global(:root[data-theme="dark"]) .shell :is(.track,.lessonIndex){
+  background:#284633;color:#b7ebc7;
+}
+:global(:root[data-theme="dark"]) .shell .deepEyebrow,
+:global(:root[data-theme="dark"]) .shell .deepType,
+:global(:root[data-theme="dark"]) .shell .recommended{color:#a5e2bc}
+:global(:root[data-theme="dark"]) .shell .deepPanel>p,
+:global(:root[data-theme="dark"]) .shell .deepLesson>p,
+:global(:root[data-theme="dark"]) .shell .deepNext p{color:#d3e8d8}
+:global(:root[data-theme="dark"]) .shell :is(.deepProblem,.deepAnswer,.deepResources article){
+  background:#23372b;color:#edf5ed;border-color:#58765d;
+}
+:global(:root[data-theme="dark"]) .shell :is(.deepProblem,.deepAnswer,.deepResources article) :is(h3,h4,p,summary,strong){
+  color:#edf5ed!important;
+}
+:global(:root[data-theme="dark"]) .shell .deepSafety{
+  background:#382b1b;color:#ffe0b5;border-color:#e2a65b;
+}
+:global(:root[data-theme="dark"]) .shell .deepSafety :is(p,strong){color:#ffe0b5!important}
+:global(:root[data-theme="dark"]) .shell :is(.deepResources a,.deepNext a,.primaryButton,.primaryLink){
+  background:#236c47;color:#fff;border-color:#458963;
+}
+:global(:root[data-theme="dark"]) .shell :is(.deepResources a,.deepNext a,.primaryButton,.primaryLink):hover{
+  background:#195938;color:#fff;
+}
+:global(:root[data-theme="dark"]) .shell :is(.filter,.secondaryLink){
+  background:#253a2b;color:#d8f2e0;border-color:#658976;
+}
+:global(:root[data-theme="dark"]) .shell .filterSelected{
+  background:#356a4b;color:#fff;border-color:#8ab89a;
+}
+:global(:root[data-theme="dark"]) .shell .quiz label{
+  background:#203127;color:#edf5ed;border-color:#55715f;
+}
+:global(:root[data-theme="dark"]) .shell .quiz label:has(input:checked){
+  background:#294d36;color:#fff;border-color:#9dd3ae;
+}
+:global(:root[data-theme="dark"]) .shell :is(.formField,.formField:focus-within){color:#dceee0}
+:global(:root[data-theme="dark"]) .shell :is(.formField input,.formField select,.formField textarea,.checkPanel input:not([type="checkbox"]):not([type="radio"]),.checkPanel select,.checkPanel textarea){
+  background:#14231a;color:#f0f7f1;border-color:#749884;
+}
+:global(:root[data-theme="dark"]) .shell .notice{
+  background:#40261e;color:#ffddcd;border-color:#986650;
+}
+:global(:root[data-theme="dark"]) .shell .success{
+  background:#163e29;color:#c7f4d4;border-color:#4e9165;
+}
+:global(:root[data-theme="dark"]) .shell :is(.deepResources,.deepNext) a{color:#fff!important}
+:global(:root[data-theme="dark"]) .shell .pricingHero :is(h2,p){color:#f2f9f2}
+:global(:root[data-theme="dark"]) .shell .pricingInline{background:#1c3225}
+:global(:root[data-theme="dark"]) .shell .pricingStart{
+  background:#b6eac2;color:#154229!important;
+}
+@media print{
+  :global(:root[data-theme="dark"]) .shell :is(.courseHero,.lessonHero,.courseCard,.checkPanel,.sourcePanel,.lessonRow,.practice,.deepPanel,.deepLesson,.pricingInline){
+    background:#fff!important;color:#111!important;border-color:#aaa!important;
+  }
+  :global(:root[data-theme="dark"]) .shell :is(h1,h2,h3,h4,p,li,span,label,strong){color:#111!important}
+}
