@@ -391,6 +391,19 @@ These documents were added after the dated 9 October snapshot. Their listing rec
 
 - [`docs/LAPTOP-REFURB-OBSERVED-SKILLS-ASSESSMENT-2026-10-11.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/LAPTOP-REFURB-OBSERVED-SKILLS-ASSESSMENT-2026-10-11.md)
 
+
+### Subsequent files indexed on 13 October 2026 (9)
+
+- [`docs/COUNCIL-EWASTE-PROPOSAL-ANEL-2026-10-13.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/COUNCIL-EWASTE-PROPOSAL-ANEL-2026-10-13.md)
+- [`docs/SANITISATION-WORKBENCH-AND-ERASURE-TOOLS-2026-10-13.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/SANITISATION-WORKBENCH-AND-ERASURE-TOOLS-2026-10-13.md)
+- [`reports/analytics/dubbo_ewaste/2026-10-11.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/dubbo_ewaste/2026-10-11.md)
+- [`reports/analytics/dubbo_ewaste/2026-10-12.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/dubbo_ewaste/2026-10-12.md)
+- [`reports/analytics/github_pages/2026-10-11.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/github_pages/2026-10-11.md)
+- [`reports/analytics/github_pages/2026-10-12.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/github_pages/2026-10-12.md)
+- [`reports/analytics/render_backup/2026-10-11.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/render_backup/2026-10-11.md)
+- [`reports/analytics/render_backup/2026-10-12.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/render_backup/2026-10-12.md)
+- [`research/dubbo-mens-sheds-repair-cafe-2026-10-12.md`](https://github.com/joshualparris/DubboEwaste/blob/main/research/dubbo-mens-sheds-repair-cafe-2026-10-12.md)
+
 ## Coverage rule
 
 The full inventory captures files present during this scan; it does not include future additions, binary/media files, code files or database migrations. Research-file claims require original-source checking to claim freshness. For implementation details inspect the actual `EwasteApp/app/` routes, migrations, test scripts and current deployment.
