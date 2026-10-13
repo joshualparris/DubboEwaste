@@ -3,7 +3,7 @@ import {redirect} from "next/navigation";
 import {revalidatePath} from "next/cache";
 import {requireProgrammeContext} from "@/lib/programme-context";
 const root="/repair-cafe-volunteers/preflight";
-export const checks=[
+const checks=[
  ["host","Legal host and responsible coordinator confirmed"],
  ["insurance","Insurance covers venue, activities, volunteers and visitor property"],
  ["venue","Written venue permission and accessible layout checked"],
