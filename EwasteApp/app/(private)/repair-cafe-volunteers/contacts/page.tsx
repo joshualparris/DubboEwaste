@@ -31,7 +31,7 @@ export default async function RepairCafeContacts({searchParams}:{searchParams:Pr
     <label>Response<select name="status" defaultValue={p.status||""}><option value="">All statuses</option>{Object.entries(statusNames).map(([k,v])=><option key={k} value={k}>{v}</option>)}</select></label>
     <button className={styles.action} type="submit">Filter</button><Link className={styles.secondaryAction} href="/repair-cafe-volunteers/contacts">Clear</Link>
    </form>
-   <div className={styles.tableScroll}><table className={styles.table}><thead><tr><th>Repair Café or organisation</th><th>Town, state</th><th>Status</th><th>Follow-up</th><th>Insurance</th></tr></thead><tbody>
+   <div className={`${styles.tableScroll} table-wrap`}><table className={styles.table}><thead><tr><th>Repair Café or organisation</th><th>Town, state</th><th>Status</th><th>Follow-up</th><th>Insurance</th></tr></thead><tbody>
     {filtered.map(c=><tr key={c.id}><td><Link className={styles.contactLink} href={"/repair-cafe-volunteers/contacts/"+c.id}>{c.organisation_name||"Name to verify"}</Link><small>{c.email}</small></td><td>{[c.town,c.state].filter(Boolean).join(", ")||"Unverified"}</td><td><span className={styles.status}>{statusNames[c.contact_status]||c.contact_status}</span></td><td>{c.follow_up_on||"Not set"}{c.follow_up_on&&c.follow_up_on<=now&&["sent","auto_acknowledged","follow_up"].includes(c.contact_status)?<small className={styles.due}>Review due</small>:null}</td><td>{c.insurer||<span className={styles.muted}>Unknown</span>}</td></tr>)}
    </tbody></table>{!filtered.length?<p className={styles.empty}>No contacts match these filters.</p>:null}</div>
   </section>
