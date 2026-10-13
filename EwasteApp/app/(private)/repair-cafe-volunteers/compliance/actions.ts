@@ -16,7 +16,7 @@ export async function saveControl(f:FormData){
  const db=await manager();
  const id=field(f,"id"),owner=field(f,"owner_name"),evidence=field(f,"evidence_reference"),status=field(f,"status");
  if(!/^[\da-f-]{36}$/i.test(id)||!["not_started","in_progress","awaiting_verification","verified"].includes(status)||owner.length>120||evidence.length>1000)response("Invalid control data",true);
- const {error}=await db.from("repair_cafe_risk_controls").update({status,owner_name:owner||"Unassigned",evidence_reference:evidence,due_on:field(f,"due_on")||null}).eq("id",id);
+ const {error}=await db.from("repair_cafe_risk_controls").update({status,owner_name:owner||"Unassigned",evidence_reference:evidence,...(f.has("due_on")?{due_on:field(f,"due_on")||null}:{})}).eq("id",id);
  if(error)response(error.message,true);
  response("Control updated and audit event recorded");
 }
@@ -26,7 +26,8 @@ export async function saveRisk(f:FormData){
  const rating=(key:string)=>field(f,key)?Number(field(f,key)):null;
  const nums=["likelihood","impact","residual_likelihood","residual_impact"].map(rating);
  if(nums.some(v=>v!==null&&(!Number.isInteger(v)||v<1||v>5)))response("Ratings must be between 1 and 5",true);
- const {error}=await db.from("repair_cafe_risks").update({status,owner_name:owner||"Unassigned",likelihood:nums[0],impact:nums[1],residual_likelihood:nums[2],residual_impact:nums[3],review_due:field(f,"review_due")||null,review_note:field(f,"review_note").slice(0,2000)}).eq("id",id);
+ const assessment=f.has("likelihood")?{likelihood:nums[0],impact:nums[1],residual_likelihood:nums[2],residual_impact:nums[3],review_due:field(f,"review_due")||null,review_note:field(f,"review_note").slice(0,2000)}:{};
+ const {error}=await db.from("repair_cafe_risks").update({status,owner_name:owner||"Unassigned",...assessment}).eq("id",id);
  if(error)response(error.message,true);
  response(status==="closed"?"Risk closed with validated controls":"Risk saved and audit event recorded");
 }
@@ -43,7 +44,7 @@ export async function addRiskReview(f:FormData){
  if(!context.global_admin&&(context.selected!=="repair_cafe"||!["admin","manager"].includes(context.role??"")))redirect("/repair-cafe-volunteers");
  const {data:{user}}=await supabase.auth.getUser();if(!user)redirect("/login");
  const risk_id=field(f,"risk_id"),findings=field(f,"findings"),decision=field(f,"decision");
- if(!/^[\\da-f-]{36}$/i.test(risk_id)||findings.length<10||findings.length>2000||!["keep_open","request_changes","recommend_approval"].includes(decision))response("Review requires a valid risk and at least ten characters",true);
+ if(!/^[0-9a-f-]{36}$/i.test(risk_id)||findings.length<10||findings.length>2000||!["keep_open","request_changes","recommend_approval"].includes(decision))response("Review requires a valid risk and at least ten characters",true);
  const {error}=await supabase.from("repair_cafe_risk_reviews").insert({risk_id,reviewer:user.id,findings,decision});
  if(error)response(error.message,true);response("Review recorded; this does not itself approve closure");
 }
