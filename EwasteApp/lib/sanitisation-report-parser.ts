@@ -10,11 +10,9 @@ export function parseEraseReport(text:string,expectedSerial:string,fileName:stri
  const lines=text.split(/\r?\n/).slice(0,50000).filter(line=>line.length<3000);
  if(serial.length<4)return {format,observed_serial:"",observed_result:"UNKNOWN",match_status:"UNKNOWN",note:"Physical drive serial is missing or too short; manual identification required"};
  const tokenMatch=(line:string)=>{
-  const tokens=line.split(/[|,;\t/]/).map(x=>norm(x.trim())).filter(Boolean);
-  const raw=expectedSerial.trim();
-  const escaped=raw.replace(/[.*+?^${}()|[\]\\]/g,"\\  return tokens.includes(serial)||line.toUpperCase().includes(expectedSerial.trim().toUpperCase())&&expectedSerial.trim().length>=6;");
-  const bounded=new RegExp("(^|[^A-Za-z0-9])"+escaped+"(?=$|[^A-Za-z0-9])","i");
-  return tokens.includes(serial)||raw.length>=6&&bounded.test(line);
+  // Match a complete delimited drive-serial cell, never a substring of another serial.
+  const cells=line.split(/[|,;\t/]/).map(x=>norm(x.trim())).filter(Boolean);
+  return cells.includes(serial);
  };
  const rows=lines.filter(line=>tokenMatch(line)&&(/[|,;]/.test(line)));
  if(!rows.length)return {format,observed_serial:"",observed_result:"UNKNOWN",match_status:"MISMATCH",note:"No per-drive summary row containing the complete serial was identified"};
