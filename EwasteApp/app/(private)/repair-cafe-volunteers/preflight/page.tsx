@@ -10,11 +10,16 @@ export default async function Preflight({searchParams}:{searchParams:Promise<{ev
  const params=await searchParams;
  const {data:events,error:eventError}=await supabase.from("repair_cafe_sessions").select("id,title,event_date,status").is("deleted_at",null).order("event_date",{ascending:false}).limit(100);
  const selected=events?.find(x=>x.id===params.event)??events?.[0];
- const [{data:results,error:checkError},{data:decision,error:decisionError},{data:blockers}]=selected?await Promise.all([
+ const fetched=selected?await Promise.all([
  supabase.from("repair_cafe_event_inspections").select("item_key,result,notes,inspected_at").eq("event_id",selected.id),
  supabase.from("repair_cafe_event_go_nogo").select("decision,rationale,decided_at").eq("event_id",selected.id).maybeSingle(),
  supabase.from("repair_cafe_risks").select("code,title,status").in("code",["RC-001","RC-002","RC-008","RC-009","RC-010","RC-020","RC-039"]).neq("status","closed")
- ]):[{data:[],error:null},{data:null,error:null},{data:[],error:null}];
+ ]):null;
+ const results=fetched?.[0].data??[];
+ const decision=fetched?.[1].data??null;
+ const blockers=fetched?.[2].data??[];
+ const checkError=fetched?.[0].error??null;
+ const decisionError=fetched?.[1].error??null;
  const passing=checks.filter(c=>results?.some(x=>x.item_key===c[0]&&x.result==="pass")).length;
  const errors=[eventError,checkError,decisionError].filter(Boolean);
  const style={padding:10,border:"1px solid #aaa",borderRadius:8};
