@@ -26,6 +26,7 @@ jobs:
       - name: Verify documentation inventory and current internal references
         run: python scripts/check_documentation.py
       - name: Check every external link
+        if: always()
         run: python scripts/check_links.py
       - uses: actions/upload-artifact@v4
         if: always()
