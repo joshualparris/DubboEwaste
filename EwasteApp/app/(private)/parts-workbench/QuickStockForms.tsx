@@ -136,3 +136,29 @@ export function QuickConsumableForm({templates,action}:{templates:Template[];act
    <p className={styles.helper}>If you enter starting stock, its receipt is recorded automatically. Stock cannot go negative.</p>
  </form>;
 }
+
+type RepairChoice={id:string;label:string};
+export function QuickStockMovement({sku,name,quantity,unit,repairs,action}:{sku:string;name:string;quantity:number;unit:string;repairs:RepairChoice[];action:FormAction}){
+ const [direction,setDirection]=useState("receive");
+ return <form action={action} className={styles.form}>
+   <input type="hidden" name="consumable_id" value={sku}/>
+   <label className={styles.field}>What happened?
+     <select name="direction" value={direction} onChange={e=>setDirection(e.target.value)}>
+       <option value="receive">Received more stock (+)</option>
+       <option value="use">Used or discarded stock (−)</option>
+     </select>
+   </label>
+   <label className={styles.field}>How many {unit}?
+     <input name="quantity" type="number" required min="0.01" step="0.01" max="10000" placeholder="e.g. 5"/>
+   </label>
+   {direction==="use"&&<label className={styles.field}>Used for which repair? <span className={styles.subtle}>(optional)</span>
+     <select name="repair_id"><option value="">General workshop use</option>{repairs.map(r=><option key={r.id} value={r.id}>{r.label}</option>)}</select>
+   </label>}
+   <details className={styles.details}><summary>Add a note (optional)</summary>
+     <label className={styles.field}>Reason / source
+       <input name="reason" maxLength={500} placeholder={direction==="receive"?"Who donated or supplied it?":"What was it used for?"}/>
+     </label>
+   </details>
+   <button type="submit" className={styles.primary}>Save {direction==="receive"?"stock receipt":"stock use"}</button>
+ </form>;
+}
