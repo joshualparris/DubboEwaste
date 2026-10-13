@@ -35,7 +35,8 @@ assert.ok(css.includes("prefers-reduced-motion") && css.includes("max-width:720p
 assert.ok(globals.includes(".assetflow-help") && globals.includes("grid-template-columns:repeat(4,minmax(0,1fr))"), "Help styling and mobile nav included");
 
 // Confirm every link indexed in Help points to an actual page, not a guessed URL.
-const routes = [...index.matchAll(/href: "(\/[^"]+)"/g)].map(m => m[1]);
+const sectionIndex = index.split("export type HelpContext")[0];
+const routes = [...sectionIndex.matchAll(/href: "(\\/[^"]+)"/g)].map(m => m[1]);
 const missing = routes.filter(href => {
   const segments = href.slice(1);
   return !fs.existsSync(path.join(root, "app/(private)", segments, "page.tsx")) &&
