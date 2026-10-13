@@ -3,16 +3,19 @@ import Link from "next/link";
 import { createLot } from "../operations/actions";
 import { createClient } from "@/lib/supabase/server";
 
-export default async function LotsPage({searchParams}:{searchParams:Promise<{error?:string;success?:string;job?:string}>}) {
+export default async function LotsPage({searchParams}:{searchParams:Promise<{error?:string;success?:string;job?:string;view?:string}>}) {
   const params=await searchParams;
   const supabase=await createClient();
+  const showActive=params.view==="active";
+  let lotsQuery=supabase.from("lots").select("*,jobs(job_code)");
+  if(showActive) lotsQuery=lotsQuery.not("status","in",'("CLOSED","CONSUMED")');
   const [{data:lots},{data:jobs},{data:locations}]=await Promise.all([
-    supabase.from("lots").select("*,jobs(job_code)").order("created_at",{ascending:false}),
+    lotsQuery.order("created_at",{ascending:false}),
     supabase.from("jobs").select("id,job_code").order("created_at",{ascending:false}),
     supabase.from("locations").select("id,name").eq("active",true).order("name"),
   ]);
   return <div className="stack">
-    <div><div className="badge">P0</div><h1>Lots</h1><p className="muted">Bulk or mixed material can remain traceable before individual devices are serialized.</p></div>
+    <div><div className="badge">P0</div><h1>{showActive?"Active lots":"Lots"}</h1><p className="muted">Bulk or mixed material can remain traceable before individual devices are serialized.</p><p><Link className="button secondary" href={showActive?"/lots":"/lots?view=active"}>{showActive?"Show all lots":"Show active lots"}</Link></p></div>
     {params.error?<div className="error">{params.error}</div>:null}{params.success?<div className="success">{params.success}</div>:null}
     <form action={createLot} className="card form"><h2>Create lot</h2>
       <div className="two"><label>Job<select name="job_id" defaultValue={params.job ?? ""}><option value="">No job</option>{(jobs??[]).map(j=><option key={j.id} value={j.id}>{j.job_code}</option>)}</select></label><label>Commodity<input name="commodity" required placeholder="Mixed laptops" /></label></div>
