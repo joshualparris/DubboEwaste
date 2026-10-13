@@ -87,6 +87,7 @@ export default async function RepairCafeVolunteerHub() {
           <Link className="button secondary" href="/repair-cafe-volunteers/referrals">Find a local repairer · referrals</Link>
           {canSeeFeedback ? <Link className="button secondary" href="/repair-cafe-volunteers/stations">Station leads & capacity</Link> : null}
           <Link className="button secondary" href="/repair-cafe-volunteers/event-desk">Event Desk · check-in & repairs</Link>
+          {canSeeFeedback ? <Link className="button" href="/repair-cafe-volunteers/contacts">Australian Repair Cafés · Insurance & correspondence</Link> : null}
           {canSeeFeedback ? <Link className="button secondary" href="/repair-cafe-volunteers/operations">Operations & safety</Link> : null}
           {canSeeFeedback ? <Link className="button secondary" href="/repair-cafe-volunteers/compliance">Risk & compliance register</Link> : null}
           {canSeeFeedback ? <Link className="button secondary" href="/repair-cafe-volunteers/reports">Reports & exports</Link> : null}
