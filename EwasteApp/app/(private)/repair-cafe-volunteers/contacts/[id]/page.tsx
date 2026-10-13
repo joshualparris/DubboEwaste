@@ -9,7 +9,7 @@ const statuses:Record<string,string>={sent:"Awaiting reply",auto_acknowledged:"A
 const kinds:Record<string,string>={sent:"Sent email",auto_acknowledgement:"Automatic reply",human_reply:"Human reply",follow_up:"Follow-up",phone_call:"Phone call",note:"Research note",bounce:"Delivery failure"};
 const fields:{name:keyof Contact;label:string;kind?:"url"|"text"|"date"|"number";max?:number}[]=[
  {name:"organisation_name",label:"Repair Café / organisation",max:180},{name:"email",label:"Contact email",max:254},{name:"contact_name",label:"Contact person",max:160},
- {name:"phone",label:"Phone",max:80},{name:"town",label:"Town / locality",max:100},{name:"website",label:"Official website",kind:"url",max:500},
+ {name:"phone",label:"Phone",max:80},{name:"town",label:"Town / locality",max:100},{name:"website",label:"Website or directory listing",kind:"url",max:500},
  {name:"venue_description",label:"Venue(s) / rotating locations",max:500},{name:"legal_structure",label:"Organiser, Council and auspicing relationship",max:500},
  {name:"insurer",label:"Insurer / broker",max:180},{name:"public_liability",label:"Public liability coverage, limits and evidence",max:500},
  {name:"products_liability",label:"Products / completed work after handback",max:500},{name:"volunteer_cover",label:"Volunteer accident insurance",max:500},
