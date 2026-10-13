@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {QuickPartForm,QuickConsumableForm} from "./QuickStockForms";
+import {QuickPartForm,QuickConsumableForm,QuickStockMovement} from "./QuickStockForms";
 import styles from "./QuickStockForms.module.css";
 import {redirect} from "next/navigation";
 import {requireProgrammeContext} from "@/lib/programme-context";
@@ -41,18 +41,7 @@ export default async function PartsWorkbench({searchParams}:{searchParams:Promis
  <h3>Existing stock</h3>
  {(consumables||[]).length===0?<p>No stock SKUs yet. Create one above to get started.</p>:null}
  {(consumables||[]).map(x=><details key={x.id} className={styles.details}><summary>{x.name} · {x.quantity} {x.unit} · <code>{x.sku}</code></summary>
- <form action={moveConsumable} className={styles.form}>
- <input type="hidden" name="consumable_id" value={x.id}/>
- <label className={styles.field}>Quantity adjustment
-   <input name="delta" type="number" min="-10000" max="10000" step="0.01" required placeholder="+5 received or -1 used"/>
- </label>
- <label className={styles.field}>Reason
-   <input name="reason" required minLength={5} maxLength={500} placeholder="Stock received / Used during repair"/>
- </label>
- <label className={styles.field}>Repair (optional)
-   <select name="repair_id"><option value="">Not linked to a repair</option>{(repairs||[]).map(r=><option key={r.id} value={r.id}>{code(r.asset_id)}</option>)}</select>
- </label><button type="submit" className={styles.primary}>Save stock change</button>
- </form></details>)}
+ <QuickStockMovement sku={x.id} name={x.name} quantity={Number(x.quantity)} unit={x.unit} repairs={(repairs||[]).map(r=>({id:r.id,label:code(r.asset_id)}))} action={moveConsumable}/></details>)}
  </section>
  <section className="card"><h2>3. Component ledger</h2><form method="get"><label>Search components<input name="q" defaultValue={p.q||""}/></label><label>Status<select name="state" defaultValue={p.state||""}><option value="">All</option><option value="available">Available</option><option value="tested">Tested available</option><option value="installed">Installed</option></select></label><button>Filter</button></form><p>{visible.length} matching parts</p><div className="table-wrap"><table><thead><tr><th>Part</th><th>Donor</th><th>Specification</th><th>Test</th><th>Current location/state</th></tr></thead><tbody>{visible.map(x=><tr key={x.id}><td><Link href={"/parts-workbench/label?part="+x.id}>{x.part_code}</Link> · {x.part_type}</td><td>{code(x.origin_asset_id)}</td><td>{x.specification||x.model}</td><td>{x.test_status||"Unverified"}</td><td>{x.installed_at?"Installed into "+code(x.installed_asset_id):"Available"} · {x.storage_label||"Storage unrecorded"}</td></tr>)}</tbody></table></div></section>
  <section className="card"><h2>4. Remove a previously installed part</h2><p>Returning a part requires a reason and moves it to untested stock until re-verified.</p>{(parts||[]).some(x=>x.installed_at)?<form action={returnPart} className="stack"><label>Installed part<select name="part_id" required><option value="">Choose installed component</option>{(parts||[]).filter(x=>x.installed_at).map(x=><option key={x.id} value={x.id}>{x.part_code} · {x.part_type} · {code(x.installed_asset_id)}</option>)}</select></label><label>Removal reason<textarea name="reason" minLength={10} maxLength={1000} required/></label><button>Remove part and quarantine</button></form>:<p>No installed parts yet.</p>}</section>
