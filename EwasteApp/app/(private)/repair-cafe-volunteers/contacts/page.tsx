@@ -48,7 +48,7 @@ export default async function RepairCafeContacts({searchParams}:{searchParams:Pr
       <a className={styles.emailLink} href={"mailto:"+c.email}>{c.email}</a>
       <div className={styles.cardMeta}><span>Next follow-up</span><strong>{shortDate(c.follow_up_on)}</strong>{overdue?<span className={styles.overdue}>Due to review</span>:null}</div>
       <div className={styles.cardFooter}><Link className={styles.cardOpen} href={"/repair-cafe-volunteers/contacts/"+c.id}>View details &amp; messages →</Link>
-       {c.website?<a href={c.website} target="_blank" rel="noopener noreferrer">Website ↗</a>:c.evidence_url?<a href={c.evidence_url} target="_blank" rel="noopener noreferrer">Source ↗</a>:null}
+       {c.website?<a href={c.website} target="_blank" rel="noopener noreferrer">Website / listing ↗</a>:c.evidence_url?<a href={c.evidence_url} target="_blank" rel="noopener noreferrer">Source ↗</a>:null}
       </div>
      </article>;
     })}
