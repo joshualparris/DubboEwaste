@@ -9,7 +9,8 @@ async function actor(){const {context,supabase}=await requireProgrammeContext();
 function done(msg:string,error=false):never{revalidatePath(home);redirect(home+"?"+(error?"error":"notice")+"="+encodeURIComponent(msg));}
 export async function harvestPart(f:FormData){
  const {supabase,user}=await actor(),origin=str(f,"origin_asset_id"),part_type=str(f,"part_type"),specification=str(f,"specification"),status=str(f,"test_status");
- if(!uuid(origin)||part_type.length<2||part_type.length>90||specification.length>500||!["UNTESTED","PASS","FAILED"].includes(status))done("Complete donor, part type and test state",true);
+ if(!uuid(origin))done("Search for a donor asset and tap a matching result before saving",true);
+ if(part_type.length<2||part_type.length>90||specification.length>500||!["UNTESTED","PASS","FAILED"].includes(status))done("Complete component type and test state",true);
  const {data:asset}=await supabase.from("assets").select("id,programme,job_id,customer_id").eq("id",origin).eq("programme","dubbo_ewaste").maybeSingle();
  if(!asset)done("Donor not found in this programme",true);
  const cost=Number(str(f,"estimated_value")||"0");if(!Number.isFinite(cost)||cost<0||cost>100000)done("Enter valid part value",true);
