@@ -1,0 +1,23 @@
+.form{display:grid;gap:14px;width:100%;max-width:700px;min-width:0}
+.step{display:flex;align-items:center;gap:10px;margin-top:7px;line-height:1.4}
+.stepNumber{display:inline-grid;place-items:center;flex-shrink:0;width:32px;height:32px;border-radius:50%;background:color-mix(in srgb,currentColor 12%,transparent);font-weight:700}
+.field{display:grid;gap:6px;width:100%;min-width:0;font-weight:600;line-height:1.35}
+.field :is(input,select,textarea){display:block;box-sizing:border-box;width:100%;max-width:100%;min-width:0;min-height:48px;padding:10px 12px;border-radius:8px;border:1px solid #8888;color:inherit;background:var(--surface,transparent);font:inherit;font-size:16px}
+.field textarea{min-height:78px;resize:vertical}
+.quickOptions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:100%}
+.pill,.pillSelected{width:100%;min-width:0;min-height:46px;padding:8px;border-radius:8px;border:1px solid #9999;color:inherit;font-size:14px;line-height:1.35;white-space:normal;word-break:normal;text-align:center;cursor:pointer}
+.pill{background:transparent}
+.pillSelected{border:2px solid currentColor;background:color-mix(in srgb,currentColor 11%,transparent);font-weight:700}
+.details{padding:12px;border:1px solid #8886;border-radius:10px;min-width:0}
+.details summary{cursor:pointer;font-weight:600}
+.details>.form,.details>.field{margin-top:12px}
+.confirm{display:flex;align-items:flex-start;gap:10px;font-weight:500;line-height:1.4}
+.confirm input{width:20px;height:20px;flex-shrink:0;margin:0}
+.primary{min-height:50px;width:100%;padding:12px 16px;font:inherit;font-weight:700;cursor:pointer}
+.primary:disabled{opacity:.55;cursor:not-allowed}
+.note,.preview{border:1px solid #8886;border-radius:10px;padding:12px;margin:0;line-height:1.5}
+.preview{display:grid;gap:6px;overflow-wrap:anywhere}
+.preview code{font-size:13px;word-break:break-word}
+.helper,.subtle{font-weight:400;font-size:13px;line-height:1.4;opacity:.85;margin:0}
+.twoCols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media(max-width:390px){.twoCols{grid-template-columns:1fr}}
