@@ -63,10 +63,14 @@ export async function returnPart(f:FormData){
 }
 
 export async function moveConsumable(f:FormData){
- const {supabase}=await actor(),id=str(f,"consumable_id"),delta=Number(str(f,"delta")),reason=str(f,"reason"),repair=str(f,"repair_id");
- if(!uuid(id)||!Number.isFinite(delta)||delta===0||Math.abs(delta)>10000||reason.length<5||reason.length>500||(repair&&!uuid(repair)))done("Invalid stock movement",true);
- const {error}=await supabase.rpc("adjust_part_consumable",{p_id:id,p_delta:delta,p_reason:reason,p_repair:repair||null});
- if(error)done(error.message,true);done("Consumable quantity and movement ledger updated.");
+ const {supabase}=await actor(),id=str(f,"consumable_id"),direction=str(f,"direction"),amount=Number(str(f,"quantity")),repair=str(f,"repair_id");
+ if(!uuid(id)||!["receive","use"].includes(direction)||!Number.isFinite(amount)||amount<=0||amount>10000||(repair&&!uuid(repair)))done("Choose receipt/use and a positive quantity",true);
+ const detail=str(f,"reason");
+ if(detail.length>500)done("Notes are too long",true);
+ const delta=direction==="receive"?amount:-amount;
+ const reason=detail|| (direction==="receive"?"Stock receipt":repair?"Consumed for linked repair":"General workshop consumption");
+ const {error}=await supabase.rpc("adjust_part_consumable",{p_id:id,p_delta:delta,p_reason:reason,p_repair:direction==="use"?(repair||null):null});
+ if(error)done(error.message,true);done(direction==="receive"?"Received "+amount+" units of stock.":"Recorded "+amount+" units used.");
 }
 
 export async function createConsumable(f:FormData){
