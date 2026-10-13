@@ -36,7 +36,7 @@ assert.ok(globals.includes(".assetflow-help") && globals.includes("grid-template
 
 // Confirm every link indexed in Help points to an actual page, not a guessed URL.
 const sectionIndex = index.split("export type HelpContext")[0];
-const routes = [...sectionIndex.matchAll(/href: "(\\/[^"]+)"/g)].map(m => m[1]);
+const routes = [...sectionIndex.matchAll(/href: "(\/[^"]+)"/g)].map(m => m[1]);
 const missing = routes.filter(href => {
   const segments = href.slice(1);
   return !fs.existsSync(path.join(root, "app/(private)", segments, "page.tsx")) &&
