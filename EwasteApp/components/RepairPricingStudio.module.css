@@ -49,3 +49,36 @@
 .underline{text-decoration:underline;text-underline-offset:2px;color:#125c38;font-weight:650}
 @media(min-width:860px){.columns{grid-template-columns:repeat(2,minmax(0,1fr))}.totals{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:460px){.studio{padding:14px;gap:18px}.panel,.exercise,.breakdown{padding:13px}.inputGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.fieldLabel{font-size:12px}.field{padding:10px 8px}.totals{gap:7px}.money{font-size:17px}}
+
+
+/* Price-workbench colours must remain legible when embedded in dark learning pages. */
+:global(:root[data-theme="dark"]) .studio{
+  background:#1b2820;color:#edf5ed;border-color:#4b6655;
+}
+:global(:root[data-theme="dark"]) .studio :is(.panel,.stat,.totals p,.feedback,.exercise){
+  background:#23362a;color:#edf5ed;border-color:#54735e;
+}
+:global(:root[data-theme="dark"]) .studio :is(.tiny,.fieldLabel,.chartLegend,.hintInline,.footer){
+  color:#bfd3c4;
+}
+:global(:root[data-theme="dark"]) .studio :is(.eyebrow,.caseIndex,.underline){color:#a6e4bc}
+:global(:root[data-theme="dark"]) .studio :is(.field,.report){
+  background:#14231a;color:#f0f7f1;border-color:#739783;
+}
+:global(:root[data-theme="dark"]) .studio .field:disabled{background:#304435;color:#d3e1d7}
+:global(:root[data-theme="dark"]) .studio .chart{background:#12251a}
+:global(:root[data-theme="dark"]) .studio .outlineButton{
+  background:#253e2d;color:#e4f6e8;border-color:#8fb89a;
+}
+:global(:root[data-theme="dark"]) .studio .outlineButton:hover{background:#34573b}
+:global(:root[data-theme="dark"]) .studio .noticeGood{
+  background:#18492d;color:#c5f3d3;
+}
+:global(:root[data-theme="dark"]) .studio :is(.noticeBad,.noticeBadSmall){
+  background:#402e18;color:#ffdfa8;
+}
+@media print{
+  :global(:root[data-theme="dark"]) .studio,:global(:root[data-theme="dark"]) .studio :is(.panel,.stat,.feedback,.exercise){
+    background:#fff!important;color:#111!important;border-color:#aaa!important;
+  }
+}
