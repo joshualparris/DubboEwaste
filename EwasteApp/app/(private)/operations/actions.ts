@@ -450,6 +450,12 @@ export async function issueCertificate(formData: FormData) {
   ]);
   if (!asset) redirect("/certificates?error=Asset%20not%20found");
 
+  const mediaIds=(media??[]).map(m=>m.id);
+  const {data:reportReviews}=mediaIds.length
+    ?await supabase.from("sanitisation_report_imports")
+      .select("media_id,report_sha256,source_tool,source_format,observed_serial,observed_result,match_status,status,reviewed_by,reviewed_at,review_reason")
+      .in("media_id",mediaIds).eq("status","APPROVED")
+    :{data:[]};
   const snapshot = {
     generated_at: new Date().toISOString(),
     asset,
@@ -457,6 +463,7 @@ export async function issueCertificate(formData: FormData) {
     disposition: dispositions?.[0] ?? null,
     disposition_history: dispositions ?? [],
     media: media ?? [],
+    sanitisation_report_reviews: reportReviews ?? [],
     grade: grades?.[0] ?? null,
     evidence: evidence ?? [],
   };
