@@ -57,3 +57,49 @@
 :global(:root[data-theme="dark"]) .checklist li::marker{color:var(--rc-muted)}
 :global(:root[data-theme="dark"]) .links a{color:var(--rc-link);text-decoration:underline;text-underline-offset:3px}
 :global(:root[data-theme="dark"]) .links a:hover{text-decoration-thickness:2px}
+
+
+/* Dark-mode surfaces and text travel together. Keep the light palette unchanged. */
+:global(:root[data-theme="dark"]) .page{
+  --cafe-surface:#1b2820;
+  --cafe-raised:#23352a;
+  --cafe-border:#4b6655;
+  --cafe-text:#edf5ed;
+  --cafe-muted:#bbd0bf;
+  --cafe-accent:#a3e5bb;
+  color:var(--cafe-text);
+}
+:global(:root[data-theme="dark"]) .hero{
+  background:linear-gradient(135deg,#233d2e,#1b2b23);
+  color:#edf5ed;border-color:#58755e;
+}
+:global(:root[data-theme="dark"]) .summary article,
+:global(:root[data-theme="dark"]) .pilot article,
+:global(:root[data-theme="dark"]) .section{
+  background:#1b2820;color:#edf5ed;border-color:#4b6655;
+}
+:global(:root[data-theme="dark"]) .card{
+  background:#23352a;color:#edf5ed;border-color:#4b6655;
+}
+:global(:root[data-theme="dark"]) .hero p,
+:global(:root[data-theme="dark"]) .summary span,
+:global(:root[data-theme="dark"]) .pilot span,
+:global(:root[data-theme="dark"]) .intro,
+:global(:root[data-theme="dark"]) .card p{color:#bbd0bf}
+:global(:root[data-theme="dark"]) .page :is(h1,h2,h3,h4,strong,li){color:#edf5ed}
+:global(:root[data-theme="dark"]) .rank{color:#87b59a}
+:global(:root[data-theme="dark"]) .rating{color:#9bdeb6!important}
+:global(:root[data-theme="dark"]) .confirm{
+  background:#2d3025;color:#ffdfae;
+}
+:global(:root[data-theme="dark"]) .warning{
+  background:#382b1b;color:#ffe2b9;border-left-color:#efae59;
+}
+:global(:root[data-theme="dark"]) .warning :is(h3,h4,p,strong,li){color:#ffe2b9}
+:global(:root[data-theme="dark"]) .links a{color:#a3e5bb;text-decoration:underline;text-underline-offset:3px}
+@media print{
+  :global(:root[data-theme="dark"]) .page :is(.hero,.summary article,.pilot article,.section,.card,.warning,.confirm){
+    background:#fff!important;color:#111!important;border-color:#aaa!important;
+  }
+  :global(:root[data-theme="dark"]) .page :is(h1,h2,h3,h4,p,li,span,strong){color:#111!important}
+}
