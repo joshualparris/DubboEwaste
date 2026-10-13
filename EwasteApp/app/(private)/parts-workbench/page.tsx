@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {DonorAssetPicker} from "./DonorAssetPicker";
 import {redirect} from "next/navigation";
 import {requireProgrammeContext} from "@/lib/programme-context";
 import {harvestPart,installPart,returnPart,moveConsumable,createConsumable} from "./actions";
@@ -10,7 +11,7 @@ export default async function PartsWorkbench({searchParams}:{searchParams:Promis
  const {data:consumables}=await supabase.from("part_consumables").select("*").order("name");
  const [{data:parts,error:partError},{data:assets,error:assetError},{data:repairs,error:repairError},{data:history}]=await Promise.all([
  supabase.from("parts").select("id,part_code,part_type,specification,manufacturer,model,serial,test_status,origin_asset_id,installed_asset_id,installed_at,compatibility_notes,storage_label,test_evidence,tested_at").eq("programme","dubbo_ewaste").order("created_at",{ascending:false}).limit(300),
- supabase.from("assets").select("id,asset_code,manufacturer,model").eq("programme","dubbo_ewaste").order("created_at",{ascending:false}).limit(400),
+ supabase.from("assets").select("id,asset_code,manufacturer,model,serial_imei").eq("programme","dubbo_ewaste").order("created_at",{ascending:false}).limit(400),
  supabase.from("repairs").select("id,asset_id,status").eq("programme","dubbo_ewaste").order("created_at",{ascending:false}).limit(200),
  supabase.from("part_install_events").select("id,part_id,repair_id,target_asset_id,installed_at,estimated_cost_at_install").order("installed_at",{ascending:false}).limit(50)
  ]);
@@ -23,7 +24,7 @@ export default async function PartsWorkbench({searchParams}:{searchParams:Promis
  {partError||assetError||repairError?<p role="alert">Failed to load records: {partError?.message||assetError?.message||repairError?.message}</p>:null}
  <section className="card"><h2>Stock overview</h2><p>{parts?.length||0} components · {available.length} available · {availableTested.length} tested and available · {(parts||[]).filter(x=>x.installed_at).length} installed</p></section>
  <section className="card"><h2>1. Harvest a component</h2><form action={harvestPart} className="stack">
- <label>Donor asset<select name="origin_asset_id" required><option value="">Choose actual donor</option>{(assets||[]).map(a=><option key={a.id} value={a.id}>{a.asset_code} · {a.manufacturer} {a.model}</option>)}</select></label>
+ <DonorAssetPicker assets={assets??[]}/>
  <label>Component type<input name="part_type" required placeholder="DDR4 RAM, SATA SSD, charger"/></label>
  <label>Specification<input name="specification" maxLength={500} placeholder="8GB DDR4-2400 SODIMM"/></label>
  <label>Manufacturer<input name="manufacturer"/></label><label>Model<input name="model"/></label><label>Serial<input name="serial"/></label>
