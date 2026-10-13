@@ -35,3 +35,10 @@ export async function moveConsumable(f:FormData){
  const {error}=await supabase.rpc("adjust_part_consumable",{p_id:id,p_delta:delta,p_reason:reason,p_repair:repair||null});
  if(error)done(error.message,true);done("Consumable quantity and movement ledger updated.");
 }
+
+export async function createConsumable(f:FormData){
+ const {supabase}=await actor(),sku=str(f,"sku"),name=str(f,"name"),unit=str(f,"unit"),cost=Number(str(f,"unit_cost")||"0");
+ if(sku.length<3||sku.length>60||name.length<3||name.length>150||!unit||unit.length>30||!Number.isFinite(cost)||cost<0)done("Enter valid SKU, name and unit cost",true);
+ const {error}=await supabase.rpc("create_part_consumable",{p_sku:sku,p_name:name,p_unit:unit,p_unit_cost:cost});
+ if(error)done(error.message,true);done("Consumable SKU created. Record stock received as a separate movement.");
+}
