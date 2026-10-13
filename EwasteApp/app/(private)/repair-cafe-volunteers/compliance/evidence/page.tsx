@@ -13,6 +13,7 @@ export default async function EvidencePage({searchParams}:{searchParams:Promise<
  supabase.from("repair_cafe_compliance_evidence").select("*").order("submitted_at",{ascending:false}).limit(200),
  supabase.from("repair_cafe_evidence_history").select("*").order("at",{ascending:false}).limit(40)
  ]);
+ const secureLinks=await Promise.all((evidence??[]).map(async x=>{if(!x.storage_path)return {id:x.id,url:null};const {data}=await supabase.storage.from("repair-cafe-compliance").createSignedUrl(x.storage_path,120);return {id:x.id,url:data?.signedUrl??null};}));
  const records=evidence??[],expired=(d:string|null)=>!!d&&d<new Date().toISOString().slice(0,10);
  return <main style={{maxWidth:1080,padding:20,margin:"0 auto",lineHeight:1.65}}>
  <nav><Link href="/repair-cafe-volunteers/compliance">Risk Register</Link> · <Link href="/repair-cafe-volunteers/preflight">Event preflight</Link> · <Link href="/repair-cafe-volunteers">Volunteer Hub</Link></nav>
@@ -28,6 +29,7 @@ export default async function EvidencePage({searchParams}:{searchParams:Promise<
  <label>Related risk<select name="risk_id" required><option value="">Select risk</option>{(risks??[]).map(r=><option key={r.id} value={r.id}>{r.code} · {r.title}</option>)}</select></label>
  <label>Specific control (optional)<select name="control_id"><option value="">None</option>{(controls??[]).map(c=><option key={c.id} value={c.id}>{risks?.find(r=>r.id===c.risk_id)?.code} · {c.description.slice(0,80)}</option>)}</select></label>
  <label>Evidence reference or secure document location<input name="reference" maxLength={800} placeholder="Approved private file ID, case ID or document reference"/></label>
+ <label>Private certificate/document (PDF or image, max 10 MB)<input type="file" name="document" accept=".pdf,.jpg,.jpeg,.png,.webp"/></label>
  <label>Expiry date (if applicable)<input name="expires_on" type="date"/></label>
  <label>Coverage, limitations and what remains to verify<textarea name="coverage_note" rows={3} maxLength={1200}/></label>
  <button type="submit">Submit for review</button></form>
@@ -36,6 +38,7 @@ export default async function EvidencePage({searchParams}:{searchParams:Promise<
  {records.map(x=><article key={x.id} style={{border:"1px solid #8885",borderRadius:10,padding:16,margin:"12px 0"}}>
  <h3>{x.title}</h3><p>{x.kind.replaceAll("_"," ")} · {x.status.toUpperCase()}{expired(x.expires_on)?" · EXPIRED":""} · {risks?.find(r=>r.id===x.risk_id)?.code??"Linked control"}</p>
  <p><strong>Reference:</strong> {x.reference||"Not supplied"} · <strong>Expiry:</strong> {x.expires_on||"Not specified"}</p>
+ {secureLinks.find(v=>v.id===x.id)?.url?<p><a href={secureLinks.find(v=>v.id===x.id)!.url!} target="_blank" rel="noopener noreferrer">View private attachment (temporary link)</a></p>:null}
  <p>{x.coverage_note}</p>
  {x.status==="submitted"?(x.submitted_by===user.id?<p>Awaiting another authorised coordinator: you cannot review your own submission.</p>:<form action={reviewEvidence} style={{display:"grid",gap:10}}>
  <input type="hidden" name="id" value={x.id}/><label>Decision<select name="status"><option value="rejected">Reject / corrections needed</option><option value="approved">Approve evidence reference</option></select></label><label>Reason<textarea name="reason" required minLength={10} maxLength={1200}/></label><button type="submit">Record independent decision</button></form>):<p>Decision: {x.review_reason} · {x.reviewed_at?new Date(x.reviewed_at).toLocaleString("en-AU",{timeZone:"Australia/Sydney"}):"No review timestamp"}</p>}
