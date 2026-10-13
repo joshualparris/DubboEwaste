@@ -268,3 +268,13 @@ input[type="checkbox"],input[type="radio"]{width:20px;height:20px;flex:none}
   .nav-quick a:nth-child(n+5){display:none}
 }
 @media print{.assetflow-help .card{break-inside:avoid}}
+
+
+/* Tappable dashboard figures: whole card is an accessible navigation target. */
+.dashboard-metric-link{display:flex;flex-direction:column;gap:2px;min-height:132px;color:var(--ink);text-decoration:none;cursor:pointer;border:2px solid var(--line);transition:border-color .15s ease,background-color .15s ease,transform .15s ease}
+.dashboard-metric-link .metric{color:var(--ink);font-variant-numeric:tabular-nums}
+.dashboard-metric-hint{display:inline-block;margin-top:auto;padding-top:9px;color:var(--brand-dark);font-size:13px;font-weight:800;line-height:1.35}
+.dashboard-metric-link:hover{border-color:var(--brand);background:var(--soft);transform:translateY(-1px)}
+.dashboard-metric-link:focus-visible{outline:3px solid #146d44;outline-offset:3px;border-color:var(--brand)}
+.dashboard-metric-link:active{transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.dashboard-metric-link{transition:none}.dashboard-metric-link:hover,.dashboard-metric-link:active{transform:none}}
