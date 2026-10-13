@@ -81,7 +81,7 @@ export const HELP_SECTIONS: HelpSection[] = [
   ] },
 ];
 
-export type HelpContext = Pick<ProgrammeContext, "selected" | "global_admin" | "role">;
+export type HelpContext = { selected: ProgrammeContext["selected"]; global_admin: boolean; role: string | null };
 export function visibleHelpSections(context: HelpContext): HelpSection[] {
   return HELP_SECTIONS.map(section => ({
     ...section,
