@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DadLAN Control Centre — September 2026 rollout</title>
+<style>
+:root{--ink:#16211f;--muted:#6c7875;--paper:#f4f5f0;--panel:#fff;--line:#dfe4df;--mint:#b7ebcf;--teal:#167d6a;--orange:#ef8158;--yellow:#f0c45e}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}main{max-width:1180px;margin:auto;padding:32px 24px 60px}header{display:flex;justify-content:space-between;gap:20px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:20px}.eyebrow{font:700 11px/1.2 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}h1{font-size:clamp(40px,7vw,82px);line-height:.92;letter-spacing:-.05em;margin:48px 0 18px}h2{margin:0 0 18px;font-size:24px}.muted{color:var(--muted)}.pill{background:#e8f2ec;color:#28664f;padding:8px 10px;font:12px ui-monospace,monospace}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.card{background:var(--panel);border:1px solid var(--line);padding:20px}.card strong{font-size:24px;display:block;margin:10px 0}.card small{color:var(--muted)}section{padding:44px 0;border-bottom:1px solid var(--line)}table{width:100%;border-collapse:collapse;background:#fff}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line);vertical-align:top;font-size:13px}th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}.ok{color:var(--teal);font-weight:700}.warn{color:#9a7117;font-weight:700}.bad{color:#ba5d3e;font-weight:700}.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}.box{background:#fff;border:1px solid var(--line);padding:20px}code{background:#e9eeea;padding:2px 5px}ul{padding-left:20px}.footer{padding-top:24px;color:var(--muted);font-size:12px}@media(max-width:800px){.grid{grid-template-columns:1fr 1fr}.cols{grid-template-columns:1fr}table{display:block;overflow:auto}}@media(max-width:520px){.grid{grid-template-columns:1fr}header{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body><main>
+<header><div><div class="eyebrow">DadLAN / Control Centre</div><strong>Operational snapshot</strong></div><span class="pill">14 Sep 2026</span></header>
+<h1>LANCommander rollout<br>& fleet optimisation</h1>
+<p class="muted">Static public-safe snapshot of the September DadLAN rollout. Verify live state before acting; no credentials or secrets are included here.</p>
+<section><div class="grid">
+<div class="card"><span class="eyebrow">Server</span><strong>v2.1.15</strong><small>JParrisDesktop · 10.245.173.58:1337</small></div>
+<div class="card"><span class="eyebrow">Health</span><strong>HTTP 200</strong><small>/Health returned Healthy</small></div>
+<div class="card"><span class="eyebrow">Catalogue</span><strong>3 imported</strong><small>Teeworlds · Bitfighter · Armagetron</small></div>
+<div class="card"><span class="eyebrow">Fleet</span><strong>12 Windows</strong><small>Laptop #01–#11 plus JParrisDesktop</small></div>
+</div></section>
+<section><div class="eyebrow">Fleet status</div><h2>Machine-by-machine snapshot</h2><table><thead><tr><th>Machine</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+<tr><td>#01</td><td class="ok">Ready</td><td>Connected; performance improved after runaway LCX scan and ForgeGrid cleanup.</td></tr>
+<tr><td>#02</td><td class="ok">Ready / Avance</td><td>Chrome/Meet/OneDrive preserved; ForgeGrid manual-only.</td></tr>
+<tr><td>#03</td><td class="ok">Ready</td><td>Moved from 10.176.176.x to DadLAN 10.245.173.x; TCP/1337 restored.</td></tr>
+<tr><td>#04</td><td class="ok">Ready / canary</td><td>Connected; used for headless Teeworlds QA.</td></tr>
+<tr><td>#05</td><td class="ok">Ready</td><td>8 GB RAM; alternate telemetry looked healthy.</td></tr>
+<tr><td>#06</td><td class="warn">Maintenance pending</td><td>Windows Update / Delivery Optimization was the dominant CPU load.</td></tr>
+<tr><td>#07</td><td class="ok">Ready</td><td>Network repaired; launcher wrapper corrected.</td></tr>
+<tr><td>#08</td><td class="ok">Ready / low-end</td><td>AMD E1-2100; diagnostics themselves caused misleading CPU spikes.</td></tr>
+<tr><td>#09</td><td class="ok">Ready</td><td>LANCommander rollout previously verified.</td></tr>
+<tr><td>#10</td><td class="bad">Upgrade required</td><td>x64-capable Core 2 Duo, but 32-bit Windows 10, ~3.2 GB RAM and 120 GB HDD.</td></tr>
+<tr><td>#11</td><td class="warn">Startup validation pending</td><td>v2.1.15 installed and rebooted; visible interactive startup still needs proof.</td></tr>
+<tr><td>Server</td><td class="ok">Healthy</td><td>JParrisDesktop LANCommander Server v2.1.15.</td></tr>
+</tbody></table></section>
+<section><div class="cols"><div class="box"><div class="eyebrow">Performance</div><h2>Measured improvements</h2><ul><li>#02: 61.6% → 20.9% CPU while Chrome/Meet stayed open.</li><li>#04: 99.9% → 35.8% after cleanup.</li><li>#01: 34.1% → 23.1% while SearchIndexer settled.</li><li>#06: remained ~50% because Windows Update was active.</li></ul><p>ForgeGrid is now manual-only; a stuck whole-drive <code>dir /s /b C:\*.lcx</code> scan was also removed.</p></div><div class="box"><div class="eyebrow">Network</div><h2>#03 and #07 repair</h2><p>Both machines were stranded on <code>10.176.176.0/24</code> and could not reach the LANCommander server. After moving them onto <code>10.245.173.x</code>, TCP/1337 and the health endpoint became reachable.</p></div></div></section>
+<section><div class="cols"><div class="box"><div class="eyebrow">LCX staging</div><h2>Confirmed complete</h2><ul><li>Armagetron Advanced.lcx</li><li>Bitfighter.lcx</li><li>Teeworlds.lcx</li><li>ZeroK - Total Annihilation - Comunity engine.lcx</li></ul><p>Remaining large packages must be resumed and byte-size verified before import.</p></div><div class="box"><div class="eyebrow">Teeworlds canary</div><h2>Launch still unresolved</h2><p>Teeworlds is imported and LANCommander recognises it as installed, but the human-visible launch test on Laptop #02 produced no game window. The rollout is not considered fully complete until the normal client Play workflow visibly launches the game.</p></div></div></section>
+<section><div class="eyebrow">Legacy KB</div><h2>kb.dadlan.au</h2><p><code>kb.dadlan.au</code> resolved to <code>202.27.231.37</code>; DNS, TCP/443 and TLS were healthy, but <code>/</code>, <code>/wiki/Main_Page</code> and <code>/wiki/LAN_Commander</code> all returned OpenResty HTTP 500. The old wiki/backend is the failing layer.</p></section>
+<section><div class="eyebrow">Safe optimisation policy</div><h2>Measure, change the bottleneck, retest</h2><p>Keep Defender, Windows Update and system-managed paging. Prefer targeted startup cleanup, sensible indexing exclusions, Storage Sense without deleting Downloads, normal SSD TRIM/HDD optimisation, Game Mode, trusted drivers and maintenance outside LAN events. Avoid destructive debloat scripts, permanent Update shutdown, pagefile removal, HPET folklore and mass service disabling.</p></section>
+<div class="footer">Source: joshualparris/DadlanControlCentre · September 2026 operational snapshot</div>
+</main></body></html>
