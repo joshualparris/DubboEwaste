@@ -1,7 +1,8 @@
 import Link from "next/link";
 import {redirect} from "next/navigation";
 import {requireProgrammeContext} from "@/lib/programme-context";
-import {checks,savePreflight,recordHold} from "./actions";
+import {savePreflight,recordHold} from "./actions";
+const checks=[["host","Legal host and responsible coordinator confirmed"],["insurance","Insurance covers venue, activities, volunteers and visitor property"],["venue","Written venue permission and accessible layout checked"],["fire","Fire, exits, evacuation and first-aid equipment checked"],["electrical","Electrical scope, RCDs and testing procedures approved"],["battery","Lithium-battery isolation and disposal arrangements checked"],["people","Safety lead, deputy and competent station leads present"],["briefing","Volunteer safety briefing and stop-work authority communicated"],["scope","Every offered repair category has approval and necessary safeguards"]] as const;
 export default async function Preflight({searchParams}:{searchParams:Promise<{event?:string;notice?:string;error?:string}>}){
  const {supabase,context}=await requireProgrammeContext();
  if(!context.global_admin&&(context.selected!=="repair_cafe"||!["admin","manager"].includes(context.role||"")))redirect("/repair-cafe-volunteers");
@@ -13,7 +14,7 @@ export default async function Preflight({searchParams}:{searchParams:Promise<{ev
  supabase.from("repair_cafe_event_inspections").select("item_key,result,notes,inspected_at").eq("event_id",selected.id),
  supabase.from("repair_cafe_event_go_nogo").select("decision,rationale,decided_at").eq("event_id",selected.id).maybeSingle(),
  supabase.from("repair_cafe_risks").select("code,title,status").in("code",["RC-001","RC-002","RC-008","RC-009","RC-010","RC-020","RC-039"]).neq("status","closed")
- ]):[{data:[]},{data:null},{data:[]}];
+ ]):[{data:[],error:null},{data:null,error:null},{data:[],error:null}];
  const passing=checks.filter(c=>results?.some(x=>x.item_key===c[0]&&x.result==="pass")).length;
  const errors=[eventError,checkError,decisionError].filter(Boolean);
  const style={padding:10,border:"1px solid #aaa",borderRadius:8};
