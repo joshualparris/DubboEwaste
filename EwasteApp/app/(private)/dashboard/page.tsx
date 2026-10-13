@@ -14,7 +14,7 @@ export default async function DashboardPage() {
       supabase.from("assets").select("id,asset_code,category,manufacturer,model").order("created_at",{ascending:false}).limit(8)
     ]);
     return <div className="stack"><div><div className="badge">{context.role}</div><h1>{PROGRAMMES[context.selected]}</h1><p className="muted">Your programme's items and daily work.</p></div>
-      <div className="grid"><section className="card"><h2>Tracked items</h2><div className="metric">{items||0}</div></section><section className="card"><h2>Open repairs</h2><div className="metric">{openRepairs||0}</div></section></div>
+      <div className="grid"><Link className="card dashboard-metric-link" href="/assets" aria-label={`View ${items||0} tracked items`}><h2>Tracked items</h2><div className="metric">{items||0}</div><span className="dashboard-metric-hint">View items →</span></Link><Link className="card dashboard-metric-link" href="/repairs?view=open" aria-label={`View ${openRepairs||0} open repairs`}><h2>Open repairs</h2><div className="metric">{openRepairs||0}</div><span className="dashboard-metric-hint">View open repairs →</span></Link></div>
       <div className="actions"><Link href="/assets" className="button">View items</Link><Link href="/assets/new" className="button secondary">{context.selected === "repair_cafe" ? "Check in item" : "Catalogue item"}</Link><Link href={context.selected === "library_of_things" ? "/lending" : "/repair-cafe-volunteers"} className="button secondary">{context.selected === "library_of_things" ? "Loans & returns" : "Volunteer Hub"}</Link></div>
       <section className="card"><h2>Recent items</h2>{!recent?.length?<p className="muted">No items recorded yet.</p>:<div className="result-list">{recent.map(a=><Link className="result-row" key={a.id} href={"/assets/"+a.id}><strong>{a.asset_code}</strong><span>{[a.manufacturer,a.model].filter(Boolean).join(" ")||a.category}</span></Link>)}</div>}</section>
     </div>;
@@ -42,15 +42,21 @@ export default async function DashboardPage() {
   return <div className="stack">
     <div><div className="badge">AssetFlow</div><h1>Operations dashboard</h1><p className="muted">Receiving, chain of custody, sanitisation, diagnostics, repair, resale, recycling, CRM and evidence.</p></div>
     <div className="grid">
-      <div className="card"><div className="muted">Total assets</div><div className="metric">{all??0}</div></div>
-      <div className="card"><div className="muted">Open jobs</div><div className="metric">{jobs??0}</div></div>
-      <div className="card"><div className="muted">Active lots</div><div className="metric">{lots??0}</div></div>
-      <div className="card"><div className="muted">Media needing wipe/review</div><div className="metric">{unwiped??0}</div></div>
-      <div className="card"><div className="muted">Open exceptions</div><div className="metric">{exceptions??0}</div></div>
-      <div className="card"><div className="muted">Open repairs</div><div className="metric">{repairs??0}</div></div>
-      <div className="card"><div className="muted">Ready for sale</div><div className="metric">{ready??0}</div></div>
-      <div className="card"><div className="muted">Overdue follow-ups</div><div className="metric">{overdueCount}</div></div>
-      <div className="card"><div className="muted">Certificates</div><div className="metric">{certs??0}</div></div>
+      {[
+        {label:"Total assets",count:all??0,href:"/assets",action:"Browse assets"},
+        {label:"Open jobs",count:jobs??0,href:"/jobs?view=open",action:"View open jobs"},
+        {label:"Active lots",count:lots??0,href:"/lots?view=active",action:"View active lots"},
+        {label:"Media needing wipe/review",count:unwiped??0,href:"/media?view=review",action:"Review media"},
+        {label:"Open exceptions",count:exceptions??0,href:"/exceptions?view=open",action:"Review exceptions"},
+        {label:"Open repairs",count:repairs??0,href:"/repairs?view=open",action:"View open repairs"},
+        {label:"Ready for sale",count:ready??0,href:"/assets?status=READY_FOR_SALE",action:"View sale-ready assets"},
+        {label:"Overdue follow-ups",count:overdueCount,href:"/crm/follow-ups",action:"View follow-ups"},
+        {label:"Certificates",count:certs??0,href:"/certificates",action:"View certificates"}
+      ].map(item=><Link key={item.label} className="card dashboard-metric-link" href={item.href} aria-label={item.action+", "+item.count}>
+        <span className="muted">{item.label}</span>
+        <span className="metric">{item.count}</span>
+        <span className="dashboard-metric-hint">{item.action} →</span>
+      </Link>)}
     </div>
 
     <div className="actions">
