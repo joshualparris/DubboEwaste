@@ -164,6 +164,10 @@ export async function recordSanitisation(formData: FormData) {
     dco_state: parsed.data.dco_state || "NOT_CHECKED",
     opal_state: parsed.data.opal_state || "UNKNOWN",
   };
+  if(parsed.data.asset_id) {
+    const {data:linkedMedia}=await supabase.from("media").select("parent_asset_id").eq("id",parsed.data.media_id).maybeSingle();
+    if(linkedMedia?.parent_asset_id!==parsed.data.asset_id) redirect("/media?error=Asset%20and%20drive%20do%20not%20match");
+  }
   if (parsed.data.asset_id) {
     await supabase.from("media").update({
       freeze_lock_state: preflight.freeze_lock_state,
@@ -190,10 +194,23 @@ export async function recordSanitisation(formData: FormData) {
       .eq("active", true),
   ]);
 
-  const reportHash = parsed.data.raw_report_hash || evidence?.sha256 || null;
+  // Successful release uses the exact original report approved by a different authorised reviewer.
+  const {data:approvedReport}=parsed.data.status==="PASSED"?
+    await supabase.from("sanitisation_report_imports").select("evidence_id,report_sha256")
+      .eq("media_id",parsed.data.media_id).eq("status","APPROVED")
+      .eq("observed_result","PASSED").eq("match_status","MATCH")
+      .order("reviewed_at",{ascending:false}).limit(1).maybeSingle():
+    {data:null};
+  const reportHash = parsed.data.status==="PASSED"
+    ? approvedReport?.report_sha256??null
+    : parsed.data.raw_report_hash || evidence?.sha256 || null;
+  const verifiedEvidenceId = parsed.data.status==="PASSED" ? approvedReport?.evidence_id??null : evidence?.id??null;
+
 
   if (parsed.data.status === "PASSED") {
     const blockers: string[] = [];
+    if(!parsed.data.policy_id)blockers.push("select an approved sanitisation policy");
+    if(!approvedReport)blockers.push("import a serial-matched original report and obtain a second reviewer decision");
     const operation = (parsed.data.operation || "").toUpperCase();
     const standard = parsed.data.standard || "";
     const verification = (parsed.data.verification_result || "").toUpperCase();
@@ -249,7 +266,7 @@ export async function recordSanitisation(formData: FormData) {
   }
 
   const terminal = ["PASSED","FAILED","DESTROYED","NOT_REQUIRED"].includes(parsed.data.status);
-  await supabase.from("sanitisation_tasks").insert({
+  const {error:taskError}=await supabase.from("sanitisation_tasks").insert({
     media_id: parsed.data.media_id,
     policy_id: parsed.data.policy_id || null,
     status: parsed.data.status,
@@ -263,13 +280,14 @@ export async function recordSanitisation(formData: FormData) {
     preflight_snapshot: preflight,
     capability_snapshot: { recorded_by_operator: true, interface_checks: ["SATA", "SCSI", "SAS", "USB", "NVMe", "OPAL"] },
     raw_report_hash: reportHash,
-    report_evidence_id: evidence?.id || null,
+    report_evidence_id: verifiedEvidenceId,
     operator_id: user.id,
     workstation: parsed.data.workstation || null,
     notes: parsed.data.notes || null,
     started_at: parsed.data.status === "RUNNING" ? new Date().toISOString() : null,
     completed_at: terminal ? new Date().toISOString() : null,
   });
+  if(taskError)redirect("/media?error="+encodeURIComponent("Sanitisation task not saved: "+taskError.message));
 
   if (parsed.data.status === "PASSED") {
     await supabase.from("media").update({ data_state: "VERIFIED_CLEARED" }).eq("id", parsed.data.media_id);
