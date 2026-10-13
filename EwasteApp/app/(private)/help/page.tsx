@@ -11,7 +11,7 @@ export default async function HelpPage() {
   const allowed = new Set(sections.flatMap(section => section.links.map(link => link.href)));
   const shortcuts = GO_SHORTCUTS.filter(item => allowed.has(item.href));
 
-  const step = (href: string, title: string, details: string) => <li key={href}>
+  const step = (href: string, title: string, details: string) => <li key={title}>
     {allowed.has(href) ? <Link href={href}><strong>{title}</strong></Link> : <strong>{title}</strong>}
     <span className="muted"> — {details}</span>
   </li>;
