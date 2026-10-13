@@ -7,15 +7,16 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "vercel-build": "npm run qa:learning && npm run qa:pricing && npm run qa:mobile && npm run qa:appearance && npm run qa:programme-auth && npm run qa:repair-cafe && next build",
+    "vercel-build": "npm run qa:learning && npm run qa:pricing && npm run qa:mobile && npm run qa:appearance && npm run qa:programme-auth && npm run qa:repair-cafe && npm run qa:help && next build",
     "qa:mobile": "node scripts/mobile-qa.mjs",
-    "prebuild": "npm run qa:learning && npm run qa:pricing && npm run qa:mobile && npm run qa:appearance && npm run qa:programme-auth && npm run qa:repair-cafe",
+    "prebuild": "npm run qa:learning && npm run qa:pricing && npm run qa:mobile && npm run qa:appearance && npm run qa:programme-auth && npm run qa:repair-cafe && npm run qa:help",
     "qa:mobile:browser": "node scripts/mobile-browser-qa.mjs",
     "qa:programme-auth": "node scripts/programme-auth-qa.mjs",
     "qa:learning": "node scripts/learning-qa.mjs && node scripts/pricing-mastery-qa.mjs",
     "qa:repair-cafe": "node scripts/repair-cafe-operations-qa.mjs",
     "qa:pricing": "node scripts/repair-pricing-qa.mjs",
-    "qa:appearance": "node scripts/appearance-qa.mjs"
+    "qa:appearance": "node scripts/appearance-qa.mjs",
+    "qa:help": "node scripts/help-qa.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",
