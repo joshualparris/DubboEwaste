@@ -15,7 +15,7 @@
     "qa:learning": "node scripts/learning-qa.mjs && node scripts/pricing-mastery-qa.mjs",
     "qa:repair-cafe": "node scripts/repair-cafe-operations-qa.mjs",
     "qa:pricing": "node scripts/repair-pricing-qa.mjs",
-    "qa:appearance": "node scripts/appearance-qa.mjs",
+    "qa:appearance": "node scripts/appearance-qa.mjs && node scripts/dark-contrast-qa.mjs",
     "qa:help": "node scripts/help-qa.mjs",
     "qa:project-links": "node scripts/project-links-qa.mjs"
   },
