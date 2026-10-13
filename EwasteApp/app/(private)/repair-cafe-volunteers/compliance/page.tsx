@@ -19,6 +19,7 @@ export default async function CompliancePage({searchParams}:{searchParams:Promis
  const rr=(risks??[]) as Risk[],cc=(controls??[]) as Control[];
  return <main style={{maxWidth:1050,margin:"0 auto",padding:"32px 18px",lineHeight:1.6}}>
  <nav><Link href="/repair-cafe-volunteers">Volunteer Hub</Link> · <Link href="/repair-cafe-volunteers/operations">Operations</Link> · <Link href="/repair-cafe-volunteers/sessions">Events</Link></nav>
+ <p><Link href="/repair-cafe-volunteers/compliance/assessment">Open advanced assessments, filters and insurance →</Link></p>
  <header><p>REPAIR CAFÉ DUBBO · PRIVATE MANAGEMENT</p><h1>Risks & compliance</h1><p>Assign control owners, collect evidence references and verify real-world responsibilities. A draft does not mean the event is approved.</p></header>
  {query.error?<p role="alert" style={{color:"#b91c1c"}}>{query.error}</p>:null}
  {query.notice?<p role="status">{query.notice}</p>:null}
