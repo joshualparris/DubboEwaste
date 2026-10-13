@@ -5,22 +5,22 @@ import { createClient } from "@/lib/supabase/server";
 export default async function JobsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string; success?: string }>;
+  searchParams: Promise<{ error?: string; success?: string; view?: string }>;
 }) {
   const messages = await searchParams;
   const supabase = await createClient();
-  const { data: jobs } = await supabase
-    .from("jobs")
-    .select(
-      "id,job_code,source_site,status,expected_asset_count,expected_weight_kg,created_at,customers(name)",
-    )
-    .order("created_at", { ascending: false });
+  const showOpen = messages.view === "open";
+  let jobsQuery = supabase.from("jobs").select(
+    "id,job_code,source_site,status,expected_asset_count,expected_weight_kg,created_at,customers(name)",
+  );
+  if (showOpen) jobsQuery = jobsQuery.not("status", "in", '("CLOSED","CANCELLED")');
+  const { data: jobs } = await jobsQuery.order("created_at", { ascending: false });
 
   return (
     <div className="stack">
       <div>
         <div className="badge">P0</div>
-        <h1>Inbound jobs</h1>
+        <h1>{showOpen ? "Open inbound jobs" : "Inbound jobs"}</h1>
         <p className="muted">
           A job groups a customer/source, work instructions, lots and serialized assets.
         </p>
@@ -30,6 +30,7 @@ export default async function JobsPage({
       {messages.success ? <div className="success">{messages.success}</div> : null}
 
       <div className="actions">
+        <Link className="button secondary" href={showOpen ? "/jobs" : "/jobs?view=open"}>{showOpen ? "Show all jobs" : "Show open jobs"}</Link>
         <Link className="button" href="/jobs/new">
           New job
         </Link>
