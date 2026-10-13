@@ -48,3 +48,10 @@ export async function addRiskReview(f:FormData){
  const {error}=await supabase.from("repair_cafe_risk_reviews").insert({risk_id,reviewer:user.id,findings,decision});
  if(error)response(error.message,true);response("Review recorded; this does not itself approve closure");
 }
+
+export async function saveInsuranceRenewal(f:FormData){
+ const db=await manager(),id=field(f,"id"),owner=field(f,"renewal_owner"),action=field(f,"renewal_action"),review=field(f,"next_review_on");
+ if(!/^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i.test(id)||owner.length>120||action.length>1000||review&&!/^\d{4}-\d{2}-\d{2}$/.test(review))response("Invalid renewal information",true);
+ const {error}=await db.from("repair_cafe_insurance_policies").update({renewal_owner:owner||"Unassigned",renewal_action:action,next_review_on:review||null,updated_at:new Date().toISOString()}).eq("id",id);
+ if(error)response(error.message,true);response("Renewal tracking saved");
+}
