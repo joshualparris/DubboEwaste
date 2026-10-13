@@ -12,13 +12,15 @@ export async function harvestPart(f:FormData){
  if(!uuid(origin)||part_type.length<2||part_type.length>90||specification.length>500||!["UNTESTED","PASS","FAILED"].includes(status))done("Complete donor, part type and test state",true);
  const {data:asset}=await supabase.from("assets").select("id,programme,job_id,customer_id").eq("id",origin).eq("programme","dubbo_ewaste").maybeSingle();
  if(!asset)done("Donor not found in this programme",true);
- const {error}=await supabase.from("parts").insert({origin_asset_id:asset.id,origin_job_id:asset.job_id,origin_customer_id:asset.customer_id,part_type,specification,manufacturer:str(f,"manufacturer").slice(0,100),model:str(f,"model").slice(0,100),serial:str(f,"serial").slice(0,140),compatibility_notes:str(f,"compatibility_notes").slice(0,500),storage_label:str(f,"storage_label").slice(0,120),test_evidence:str(f,"test_evidence").slice(0,500),tested_at:status==="PASS"?new Date().toISOString():null,test_status:status,route:"STOCK",created_by:user.id,programme:"dubbo_ewaste"});
+ const cost=Number(str(f,"estimated_value")||"0");if(!Number.isFinite(cost)||cost<0||cost>100000)done("Enter valid part value",true);
+ const {error}=await supabase.from("parts").insert({estimated_value:cost,origin_asset_id:asset.id,origin_job_id:asset.job_id,origin_customer_id:asset.customer_id,part_type,specification,manufacturer:str(f,"manufacturer").slice(0,100),model:str(f,"model").slice(0,100),serial:str(f,"serial").slice(0,140),compatibility_notes:str(f,"compatibility_notes").slice(0,500),storage_label:str(f,"storage_label").slice(0,120),test_evidence:str(f,"test_evidence").slice(0,500),tested_at:status==="PASS"?new Date().toISOString():null,test_status:status,route:"STOCK",created_by:user.id,programme:"dubbo_ewaste"});
  if(error)done(error.message,true);done("Donor component recorded in available inventory.");
 }
 export async function installPart(f:FormData){
  const {supabase}=await actor(),part=str(f,"part_id"),repair=str(f,"repair_id"),notes=str(f,"notes");
  if(!uuid(part)||!uuid(repair)||notes.length>1000)done("Choose a part and repair",true);
- const {error}=await supabase.rpc("install_stock_part",{p_part_id:part,p_repair_id:repair,p_notes:notes});
+ if(str(f,"fit_confirmed")!=="yes")done("Confirm physical and electrical compatibility before installing",true);
+ const {error}=await supabase.rpc("install_stock_part",{p_part_id:part,p_repair_id:repair,p_notes:"Fit and specifications checked: "+notes});
  if(error)done(error.message,true);done("Part installed, reserved from stock and recorded in installation history.");
 }
 
