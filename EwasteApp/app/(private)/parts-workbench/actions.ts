@@ -28,3 +28,10 @@ export async function returnPart(f:FormData){
  const {error}=await supabase.rpc("return_installed_part",{p_part_id:part,p_reason:reason});
  if(error)done(error.message,true);done("Removed part returned to quarantine: test again before reuse.");
 }
+
+export async function moveConsumable(f:FormData){
+ const {supabase}=await actor(),id=str(f,"consumable_id"),delta=Number(str(f,"delta")),reason=str(f,"reason"),repair=str(f,"repair_id");
+ if(!uuid(id)||!Number.isFinite(delta)||delta===0||Math.abs(delta)>10000||reason.length<5||reason.length>500||(repair&&!uuid(repair)))done("Invalid stock movement",true);
+ const {error}=await supabase.rpc("adjust_part_consumable",{p_id:id,p_delta:delta,p_reason:reason,p_repair:repair||null});
+ if(error)done(error.message,true);done("Consumable quantity and movement ledger updated.");
+}
