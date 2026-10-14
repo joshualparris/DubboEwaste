@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { createClient as createServiceClient } from "@supabase/supabase-js";
+import { createClient as createSessionClient } from "@/lib/supabase/server";
 import { analyticsPath, analyticsTarget, geoFromHeaders, deviceFromUserAgent } from "@/lib/analytics";
 
 export const runtime = "nodejs";
@@ -40,8 +41,11 @@ export async function POST(request: Request) {
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) return NextResponse.json({ error: "Analytics backend not configured" }, { status: 503, headers: cors(origin) });
-  const supabase = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
+  // Existing anonymous INSERT policy supports telemetry without a service key.
+  // Use a server-only privileged client only when explicitly configured.
+  const supabase = url && key
+    ? createServiceClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } })
+    : await createSessionClient();
   // Auth only comes from a verified same-origin session, never from a browser-supplied flag.
   // Public telemetry is never allowed to assert an authenticated identity.
   // Login success is recorded separately by the verified server-side auth action.
