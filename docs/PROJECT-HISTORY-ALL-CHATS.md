@@ -97,6 +97,16 @@ DadLAN later became a larger hands-on environment for:
 
 An earlier Bendigo/DadLAN discussion recorded that some apparently "dead" or unwanted computers can turn out to have recoverable problems such as forgotten passwords, minor BIOS/configuration issues, missing storage/chargers, or straightforward component faults.
 
+### 14 October 2026: DadLAN Laptop #10 HDD used for Lenovo test
+
+**USER-CONFIRMED / PHOTOGRAPH-EVIDENCED, 14 October 2026.** Josh identified his personally owned **Hitachi HTS543212L9A300 120 GB HDD** as the source drive from **DadLAN Laptop #10**. The HDD was connected *temporarily* to a **Lenovo ThinkCentre M710s**, one of eight refurbished-computer candidates received from Leading Edge **without installed storage**. This does **not** make the Lenovo a DadLAN Laptop #10 or make the personal Hitachi part of the received batch.
+
+The temporary Windows installation was **Windows 10 Home x86/32-bit**, so only **3.42 GB** of the Lenovo's installed **8 GB RAM** was usable. The source disk's hostname matched the historical DadLAN Laptop10 Samba record. Josh opted to preserve that disk before installing a new 64-bit operating system in the Lenovo.
+
+Clonezilla Live was booted with Ventoy on **USB #6** after a graphics issue in Normal Mode; GRUB2 Mode and the VGA 800x600 Clonezilla entry worked. A direct Samba backup attempt to Josh's personal QNAP NAS failed due to network reachability, so the selected fallback was a `savedisk` image on **USB #21 (32 GB General UDisk)**, directory `2026-10-14-12-img`, using `zstdmt`. **At last observed screenshot, copying had started; successful image completion/verification had not been shown.** The source HDD is not cleared for wipe until the full image passes verification.
+
+See the [field note](field-notes/2026-10-14-lenovo-hitachi-laptop10.md) and [full DadLAN imaging session](https://github.com/Parris-Tech-Services/DadlanControlCentre/blob/main/docs/backup-records/2026-10-14-dadlan-laptop10-hitachi-to-usb21.md). This demonstrates a reuse-first and evidence-led imaging workflow, not an independently verified completed backup.
+
 ### Terminology constraint
 
 Do **not** use "DadLAN-grade" as shorthand for cheap/old/low-end reusable hardware.
