@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { createClient } from "@supabase/supabase-js";
 import { analyticsPath, analyticsTarget, geoFromHeaders, deviceFromUserAgent } from "@/lib/analytics";
 
 export const runtime = "nodejs";
@@ -38,10 +38,14 @@ export async function POST(request: Request) {
   if (payload.event !== "page_view" && payload.event !== "click")
     return NextResponse.json({ error: "Event not allowed" }, { status: 400, headers: cors(origin) });
 
-  const supabase = await createClient();
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) return NextResponse.json({ error: "Analytics backend not configured" }, { status: 503, headers: cors(origin) });
+  const supabase = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
   // Auth only comes from a verified same-origin session, never from a browser-supplied flag.
-  const isAuthenticated = (site === "dubbo_ewaste" || site === "render_backup") &&
-    (await supabase.auth.getUser()).data.user != null;
+  // Public telemetry is never allowed to assert an authenticated identity.
+  // Login success is recorded separately by the verified server-side auth action.
+  const isAuthenticated = false;
   const geo = geoFromHeaders(request.headers);
   const ref = request.headers.get("referer") || "";
   let referrerDomain: string | null = null;
