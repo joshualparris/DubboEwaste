@@ -40,6 +40,7 @@ For the complete documentation map, use **[docs/README.md](docs/README.md)**.
 - [Repair First Dubbo field kit](docs/REPAIR-FIRST-DUBBO-FIELD-KIT.md) — interview, participant intake, outcome and follow-up templates.
 - [Repair First Dubbo 6-month pilot](docs/REPAIR-FIRST-DUBBO-PILOT.md) — practical test design: free diagnosis, capped repair rebate, repair-business network, monthly Repair Café, loan devices, donor parts and measurable outcomes.
 - [Device schematics & repair library](docs/DEVICE-SCHEMATICS-LIBRARY.md) — DadLAN/home-tech inventory, purchase-derived device evidence, official service manuals, board-schematic leads and exact-model/PCB checks.
+- [14 Oct Lenovo test with DadLAN Laptop #10 HDD](docs/field-notes/2026-10-14-lenovo-hitachi-laptop10.md) — personal test drive provenance, 32-bit Windows RAM limitation, Clonezilla USB #21 image **pending verification** and do-not-wipe gate.
 - [31 genuine-gap deep-research pack](docs/DEEP-RESEARCH-2026-10-06-GENUINE-GAPS/00-INDEX-31-QUESTIONS.md) — 31 previously under-researched questions covering market size, procurement, tax, secure transport, cyber, electrical/parts compliance, recalls, Repair Café governance, environmental claims and right to repair; includes a structured closure register and source register.
 
 ## Field validation
