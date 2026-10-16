@@ -1,11 +1,22 @@
 {
-  "by_site": [],
-  "clicks": [],
   "date_sydney": "2026-10-15",
-  "devices": [],
-  "locations": [],
-  "notice": "Public aggregate only. Buckets under 5 withheld; private routes/actions generalized.",
-  "pages": [],
-  "referrers": [],
-  "site": "render_backup"
+  "site": "render_backup",
+  "source": "Supabase kukwydsfhlmwwxpgnbpn / public.analytics_events",
+  "recording_status": "no_events_recorded",
+  "metrics": {
+    "page_views": {
+      "count": 0
+    },
+    "clicks": {
+      "count": 0
+    },
+    "successful_logins": {
+      "count": 0
+    },
+    "generalized_pages": [],
+    "coarse_locations": [],
+    "referrer_domains": [],
+    "device_types": []
+  },
+  "privacy": "Aggregate only; no raw events, identifiers, private routes or precise locations. Buckets of 1–4 withheld. No recorded events does not prove no visits."
 }
