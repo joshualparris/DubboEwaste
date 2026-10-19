@@ -407,3 +407,26 @@ These documents were added after the dated 9 October snapshot. Their listing rec
 ## Coverage rule
 
 The full inventory captures files present during this scan; it does not include future additions, binary/media files, code files or database migrations. Research-file claims require original-source checking to claim freshness. For implementation details inspect the actual `EwasteApp/app/` routes, migrations, test scripts and current deployment.
+
+## Documentation inventory additions — 19 October 2026
+
+- [`docs/field-notes/2026-10-14-lenovo-hitachi-laptop10.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/field-notes/2026-10-14-lenovo-hitachi-laptop10.md)
+- [`docs/usb-inventory/USB-13-QNAP-PRESERVATION-2026-10-14.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/usb-inventory/USB-13-QNAP-PRESERVATION-2026-10-14.md)
+- [`reports/analytics/dubbo_ewaste/2026-10-13.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/dubbo_ewaste/2026-10-13.md)
+- [`reports/analytics/dubbo_ewaste/2026-10-14.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/dubbo_ewaste/2026-10-14.md)
+- [`reports/analytics/dubbo_ewaste/2026-10-15.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/dubbo_ewaste/2026-10-15.md)
+- [`reports/analytics/dubbo_ewaste/2026-10-16.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/dubbo_ewaste/2026-10-16.md)
+- [`reports/analytics/dubbo_ewaste/2026-10-17.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/dubbo_ewaste/2026-10-17.md)
+- [`reports/analytics/dubbo_ewaste/2026-10-18.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/dubbo_ewaste/2026-10-18.md)
+- [`reports/analytics/github_pages/2026-10-13.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/github_pages/2026-10-13.md)
+- [`reports/analytics/github_pages/2026-10-14.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/github_pages/2026-10-14.md)
+- [`reports/analytics/github_pages/2026-10-15.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/github_pages/2026-10-15.md)
+- [`reports/analytics/github_pages/2026-10-16.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/github_pages/2026-10-16.md)
+- [`reports/analytics/github_pages/2026-10-17.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/github_pages/2026-10-17.md)
+- [`reports/analytics/github_pages/2026-10-18.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/github_pages/2026-10-18.md)
+- [`reports/analytics/render_backup/2026-10-13.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/render_backup/2026-10-13.md)
+- [`reports/analytics/render_backup/2026-10-14.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/render_backup/2026-10-14.md)
+- [`reports/analytics/render_backup/2026-10-15.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/render_backup/2026-10-15.md)
+- [`reports/analytics/render_backup/2026-10-16.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/render_backup/2026-10-16.md)
+- [`reports/analytics/render_backup/2026-10-17.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/render_backup/2026-10-17.md)
+- [`reports/analytics/render_backup/2026-10-18.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/render_backup/2026-10-18.md)
