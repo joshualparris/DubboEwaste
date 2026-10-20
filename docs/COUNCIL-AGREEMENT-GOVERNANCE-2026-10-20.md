@@ -44,3 +44,7 @@ As at **20 October 2026**. Implementation for DubboEwaste/AssetFlow only. **An a
 Physical authorisation and signed-in browser end-to-end QA remain separate before actual collection. Run the matrix with synthetic records in a transaction on a disposable test database or carefully use rollback-only negative tests on production; never fabricate signed agreement data to display a false ACTIVE pilot.
 
 Reference: [Council policy directory](https://www.dubbo.nsw.gov.au/about-council/meetings-and-documents/policies) and [2025–2035 Waste Strategy](https://www.dubbo.nsw.gov.au/about-council/meetings-and-documents/plans-strategies). These describe Council's general governance and resource recovery policies; they are **not** a signed acceptance of this proposed pilot.
+
+## Council retains title until separate release
+
+The `ON_SIGNED_RELEASE` contract option is operationally enforced. New Council devices under that option are received **into custody only**, with `owner_kind=THIRD_PARTY`, an actual owner name and `ownership_verified=false`. Changing to verified ownership requires a signed, hashed, asset-linked `OWNER_TRANSFER` authority record. Standard intake still requires verified ownership outside authorised Council custody. The formal title transfer must match the actual agreement, not simply a staff assertion.
