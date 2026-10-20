@@ -15,6 +15,7 @@ const groups = [
       ["/jobs", "Jobs"],
       ["/council-pilot", "Council pilot · 20-device readiness"],
       ["/council-pilot/risks", "Council risk management"],
+      ["/council-pilot/custody", "Council QR custody and stocktake"],
       ["/lots", "Lots"],
       ["/assets", "Assets"],
       ["/triage", "Triage"],
