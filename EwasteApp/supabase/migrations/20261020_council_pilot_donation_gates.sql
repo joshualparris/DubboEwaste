@@ -71,7 +71,7 @@ grant execute on function private.is_ewaste_pilot_operator() to authenticated;
 
 create or replace function private.is_ewaste_pilot_supervisor()
 returns boolean language sql stable security definer set search_path = ''
-as $
+as $$
  select exists (
    select 1 from public.profiles p
    where p.id=auth.uid() and p.active and
@@ -80,7 +80,7 @@ as $
        and pa.active and pa.programme_role in ('admin','manager')
      ))
  )
-$;
+$$;
 revoke all on function private.is_ewaste_pilot_supervisor() from public,anon;
 grant execute on function private.is_ewaste_pilot_supervisor() to authenticated;
 
@@ -341,7 +341,7 @@ create trigger pilot_donated_asset_guard before insert or update of status on pu
 -- Donation-only means *no* sale, not merely a DONATE guard.
 create or replace function private.council_no_sale_guard()
 returns trigger language plpgsql security definer set search_path = ''
-as $
+as $$
 declare v_asset_id uuid;
 begin
  if tg_table_name='assets' then
@@ -360,7 +360,7 @@ begin
    then raise exception 'Council pilot assets may not be listed or sold'; end if;
  end if;
  return new;
-end $;
+end $$;
 revoke all on function private.council_no_sale_guard() from public,anon,authenticated;
 create trigger council_no_sale_status before insert or update of status on public.assets
  for each row execute function private.council_no_sale_guard();
@@ -375,14 +375,14 @@ create trigger council_no_sale_sales before insert or update of asset_id on publ
 -- If the status guard rejects the update, the entire INSERT transaction rolls back.
 create or replace function private.pilot_commit_donation_status()
 returns trigger language plpgsql security definer set search_path = ''
-as $
+as $$
 begin
  if new.disposition_type='DONATE' then
    update public.assets set status='DONATED' where id=new.asset_id;
    if not found then raise exception 'Donation asset missing'; end if;
  end if;
  return new;
-end $;
+end $$;
 revoke all on function private.pilot_commit_donation_status() from public,anon,authenticated;
 create trigger pilot_commit_donation_status after insert on public.dispositions
  for each row execute function private.pilot_commit_donation_status();
