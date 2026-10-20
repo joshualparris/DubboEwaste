@@ -303,8 +303,10 @@ begin
  end if;
  if new.status='MONITORING' then
   if new.owner_id is null or not exists (
-   select 1 from public.council_risk_assessments a where a.risk_id=new.id
-     and a.status='APPROVED' and a.review_due>=(now() at time zone 'Australia/Sydney')::date
+   select 1 from public.council_risk_assessments a
+   join public.council_risk_frameworks f on f.id=a.framework_id
+   where a.risk_id=new.id and a.status='APPROVED' and f.status='VERIFIED'
+     and a.review_due>=(now() at time zone 'Australia/Sydney')::date
   ) then raise exception 'Cannot monitor risk without approved current independent assessment';end if;
  end if;
  if new.status='CLOSED' and exists(select 1 from public.council_pilot_batches
@@ -451,8 +453,10 @@ begin
  end loop;
  for r in select id,owner_id from public.council_risks where batch_id=p_batch loop
   if r.owner_id is null then return false;end if;
-  if not exists(select 1 from public.council_risk_assessments
-   where risk_id=r.id and status='APPROVED' and review_due>=(now() at time zone 'Australia/Sydney')::date) then return false;end if;
+  if not exists(select 1 from public.council_risk_assessments a
+    join public.council_risk_frameworks f on f.id=a.framework_id
+   where a.risk_id=r.id and a.status='APPROVED' and f.status='VERIFIED'
+     and a.review_due>=(now() at time zone 'Australia/Sydney')::date) then return false;end if;
   if not exists(select 1 from public.council_risk_controls where risk_id=r.id and status='VERIFIED') then return false;end if;
   if exists(select 1 from public.council_risk_controls where risk_id=r.id and (status<>'VERIFIED' or next_review_on is null or next_review_on<(now() at time zone 'Australia/Sydney')::date)) then return false;end if;
   if exists(select 1 from public.council_risk_actions where risk_id=r.id and status<>'VERIFIED') then return false;end if;
