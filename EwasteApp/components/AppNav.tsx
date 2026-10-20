@@ -14,6 +14,7 @@ const groups = [
     links: [
       ["/jobs", "Jobs"],
       ["/council-pilot", "Council pilot · 20-device readiness"],
+      ["/council-pilot/risks", "Council risk management"],
       ["/lots", "Lots"],
       ["/assets", "Assets"],
       ["/triage", "Triage"],
