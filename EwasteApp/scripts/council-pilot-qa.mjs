@@ -6,6 +6,11 @@ import assert from "node:assert/strict";
 const root = path.resolve(import.meta.dirname, "..");
 const sql = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_pilot_donation_gates.sql"),"utf8");
 const hardening = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_pilot_collection_recycling_gates.sql"),"utf8");
+const riskLabels = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_risk_source_rating_labels.sql"),"utf8");
+const riskSql = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_risk_management.sql"),"utf8");
+const riskActions = fs.readFileSync(path.join(root,"app/(private)/council-pilot/risks/actions.ts"),"utf8");
+const riskUi = fs.readFileSync(path.join(root,"app/(private)/council-pilot/risks/page.tsx"),"utf8");
+const riskExport = fs.readFileSync(path.join(root,"app/api/council-pilot/risks/export/route.ts"),"utf8");
 const governance = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_agreement_governance.sql"),"utf8");
 const titleRelease = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_title_transfer_custody.sql"),"utf8");
 const intakeActions = fs.readFileSync(path.join(root,"app/(private)/assets/actions.ts"),"utf8");
@@ -43,6 +48,33 @@ mustContain(hardening,"Council collection/downstream gates",[
   "council_pilot_recycling_guard",
   "Verified recycler, serialised outbound entry, consignment reference",
   "failed media remain HOLD",
+]);
+mustContain(riskLabels,"source-defined risk-rating labels",["council_risk_matrix_rating_source_label","drop constraint"]);
+mustContain(riskSql,"Council risk governance",[
+ "council_risk_frameworks","council_risk_matrix_cells","council_risk_assessments",
+ "council_risk_controls","council_risk_actions","council_risk_incidents",
+ "council_risk_audit","council_risk_ready","council_risk_batch_gate",
+ "council_risk_operations_gate","council_risk_stop_work",
+ "risk_framework_guard","risk_assessment_guard","risk_control_guard",
+ "Independent supervisor must verify the risk framework",
+ "Every likelihood/consequence matrix cell must be explicitly recorded",
+ "Approved assessment is immutable",
+ "All risk controls need current independent verification",
+ "SERIOUS","CRITICAL","security_invoker=true",
+]);
+mustContain(riskActions,"risk server actions",[
+ "initialiseCouncilRisks","createRiskFramework","verifyRiskFramework",
+ "recordRiskMatrixCell","createRiskAssessment","approveRiskAssessment",
+ "addRiskControl","updateRiskControl","addRiskAction","updateRiskAction",
+ "reportCouncilRiskIncident","closeCouncilRiskIncident","retireRiskFramework","supersedeRiskAssessment"
+]);
+mustContain(riskUi,"risk dashboard",[
+ "Risk register and stop-work controls","Stop-work","Risk register",
+ "Council risk","Independently","Risk Management"
+].filter(x=>x!=="Stop-work" && x!=="Risk Management"));
+mustContain(riskExport,"restricted risk export",[
+ "supabase.auth.getUser()","Cache-Control","private, no-store",
+ "csv","quote","admin","manager"
 ]);
 mustContain(governance,"council agreement governance",[
   "council_pilot_agreements","council_agreement_events","council_agreement_one_approved_per_batch",
