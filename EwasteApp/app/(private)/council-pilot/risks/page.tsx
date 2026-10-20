@@ -275,7 +275,7 @@ export default async function CouncilRiskPage({searchParams}:{searchParams:Promi
      <button className="button secondary">Independently close verified incident</button>
     </form>:null}
    </details>)}
-   {manager?<form className="form" action={reportCouncilRiskIncident}>
+   {<form className="form" action={reportCouncilRiskIncident}>
     <h3>Record a new actual incident (never create test incidents in production)</h3>
     <input type="hidden" name="batch_id" value={batch.id}/>
     <label>Related risk<select name="risk_id"><option value="">General incident</option>{risks.map(r=><option key={r.id} value={r.id}>{r.reference} · {r.hazard}</option>)}</select></label>
@@ -289,7 +289,7 @@ export default async function CouncilRiskPage({searchParams}:{searchParams:Promi
     <label>Notification or incident number<input name="notification_reference"/></label>
     <label>Original incident evidence<select name="evidence_id">{options()}</select></label>
     <button className="button">Record incident and apply stop-work rules</button>
-   </form>:null}
+   </form>}
   </section>
   <section className="card stack">
    <h2>Change and decision history</h2>
