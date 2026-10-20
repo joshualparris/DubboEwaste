@@ -69,6 +69,21 @@ $$;
 revoke all on function private.is_ewaste_pilot_operator() from public,anon;
 grant execute on function private.is_ewaste_pilot_operator() to authenticated;
 
+create or replace function private.is_ewaste_pilot_supervisor()
+returns boolean language sql stable security definer set search_path = ''
+as $
+ select exists (
+   select 1 from public.profiles p
+   where p.id=auth.uid() and p.active and
+     (p.role='admin' or exists (
+       select 1 from public.program_access pa where pa.user_id=p.id and pa.program='dubbo_ewaste'
+       and pa.active and pa.programme_role in ('admin','manager')
+     ))
+ )
+$;
+revoke all on function private.is_ewaste_pilot_supervisor() from public,anon;
+grant execute on function private.is_ewaste_pilot_supervisor() to authenticated;
+
 alter table public.council_pilot_batches enable row level security;
 alter table public.pilot_custody_events enable row level security;
 alter table public.donation_handoffs enable row level security;
@@ -78,10 +93,10 @@ grant select,insert on public.pilot_custody_events,public.donation_handoffs to a
 create policy council_pilot_read on public.council_pilot_batches for select to authenticated
  using (private.is_ewaste_pilot_operator());
 create policy council_pilot_create on public.council_pilot_batches for insert to authenticated
- with check (private.is_ewaste_pilot_operator() and created_by=(select auth.uid()));
+ with check (private.is_ewaste_pilot_supervisor() and created_by=(select auth.uid()));
 create policy council_pilot_change on public.council_pilot_batches for update to authenticated
- using (private.is_ewaste_pilot_operator())
- with check (private.is_ewaste_pilot_operator() and created_by=created_by);
+ using (private.is_ewaste_pilot_supervisor())
+ with check (private.is_ewaste_pilot_supervisor());
 create policy pilot_custody_read on public.pilot_custody_events for select to authenticated
  using (private.is_ewaste_pilot_operator());
 create policy pilot_custody_append on public.pilot_custody_events for insert to authenticated
@@ -226,9 +241,9 @@ begin
     where asset_id=p_asset and status not in ('RELEASED','CLOSED'))
  then blockers:=array_append(blockers,'Unresolved quarantine'); end if;
 
- if not exists(select 1 from public.asset_tests where asset_id=p_asset and test_type='ELECTRICAL_SAFETY' and result='PASS')
+ if (select result from public.asset_tests where asset_id=p_asset and test_type='ELECTRICAL_SAFETY' order by created_at desc,id desc limit 1) is distinct from 'PASS'
  then blockers:=array_append(blockers,'Electrical safety test PASS missing'); end if;
- if not exists(select 1 from public.asset_tests where asset_id=p_asset and test_type='FUNCTIONAL_CHECK' and result='PASS')
+ if (select result from public.asset_tests where asset_id=p_asset and test_type='FUNCTIONAL_CHECK' order by created_at desc,id desc limit 1) is distinct from 'PASS'
  then blockers:=array_append(blockers,'Functional test PASS missing'); end if;
 
  select * into v_storage from public.asset_storage_assessments where asset_id=p_asset;
@@ -308,6 +323,22 @@ end $$;
 revoke all on function private.pilot_donated_asset_guard() from public,anon,authenticated;
 create trigger pilot_donated_asset_guard before insert or update of status on public.assets
  for each row execute function private.pilot_donated_asset_guard();
+
+-- Commit a valid donation status atomically with its disposition insertion.
+-- If the status guard rejects the update, the entire INSERT transaction rolls back.
+create or replace function private.pilot_commit_donation_status()
+returns trigger language plpgsql security definer set search_path = ''
+as $
+begin
+ if new.disposition_type='DONATE' then
+   update public.assets set status='DONATED' where id=new.asset_id;
+   if not found then raise exception 'Donation asset missing'; end if;
+ end if;
+ return new;
+end $;
+revoke all on function private.pilot_commit_donation_status() from public,anon,authenticated;
+create trigger pilot_commit_donation_status after insert on public.dispositions
+ for each row execute function private.pilot_commit_donation_status();
 
 -- Authenticated-only read-only report. RLS on underlying assets/batches remains effective.
 create or replace view public.council_pilot_readiness
