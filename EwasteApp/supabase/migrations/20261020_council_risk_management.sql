@@ -53,6 +53,7 @@ create table public.council_risk_controls (
   critical boolean not null default false,
   owner_id uuid not null references public.profiles(id),
   due_on date not null,
+  next_review_on date,
   status text not null default 'PLANNED' check(status in('PLANNED','IMPLEMENTED','VERIFIED','FAILED')),
   evidence_id uuid references public.evidence(id),
   verified_by uuid references public.profiles(id),
@@ -258,7 +259,7 @@ begin
   then raise exception 'Approval requires verified source matrix, separate assessor/approver, owner, worker consultation, dated review and job evidence';end if;
   if not exists(select 1 from public.council_risk_controls where risk_id=rr.id and status='VERIFIED')
     or exists(select 1 from public.council_risk_controls where risk_id=rr.id and
-       (status<>'VERIFIED' or due_on < (now() at time zone 'Australia/Sydney')::date))
+       (status<>'VERIFIED' or next_review_on is null or next_review_on < (now() at time zone 'Australia/Sydney')::date))
   then raise exception 'All risk controls need current independent verification';end if;
   if exists(select 1 from public.council_risk_actions where risk_id=rr.id and status<>'VERIFIED')
   then raise exception 'Open corrective actions block risk acceptance';end if;
@@ -300,7 +301,7 @@ begin
  end if;
  if new.status='VERIFIED' then
   if new.verified_by is distinct from auth.uid() or new.verified_by=new.created_by
-    or new.due_on < (now() at time zone 'Australia/Sydney')::date
+    or new.next_review_on is null or new.next_review_on < (now() at time zone 'Australia/Sydney')::date
     or not private.risk_same_batch_evidence(new.evidence_id,v_batch) then
     raise exception 'Control verification requires independent reviewer and hashed job evidence';end if;
   if tg_op='INSERT' or old.status is distinct from new.status then new.verified_at=now();end if;
@@ -404,21 +405,21 @@ declare n text;begin
 create or replace function private.council_risk_ready(p_batch uuid)
 returns boolean language plpgsql stable security definer set search_path=''
 as $f$
-declare r record; total int; n int;
+declare r record; req text; total int;
 begin
  if not exists(select 1 from public.council_risk_frameworks f where f.batch_id=p_batch and f.status='VERIFIED') then return false;end if;
  select count(*) into total from public.council_risks where batch_id=p_batch;
  if total<10 then return false;end if;
- foreach r in array array['SAFETY','FIRE_BATTERY','DATA_PRIVACY','CUSTODY','ELECTRICAL','TRANSPORT',
+ foreach req in array array['SAFETY','FIRE_BATTERY','DATA_PRIVACY','CUSTODY','ELECTRICAL','TRANSPORT',
   'ENVIRONMENT','GOVERNANCE','INSURANCE','BUSINESS_CONTINUITY'] loop
-  if not exists(select 1 from public.council_risks where batch_id=p_batch and category=r and status='MONITORING') then return false;end if;
+  if not exists(select 1 from public.council_risks where batch_id=p_batch and category=req and status='MONITORING') then return false;end if;
  end loop;
  for r in select id,owner_id from public.council_risks where batch_id=p_batch loop
   if r.owner_id is null then return false;end if;
   if not exists(select 1 from public.council_risk_assessments
    where risk_id=r.id and status='APPROVED' and review_due>=(now() at time zone 'Australia/Sydney')::date) then return false;end if;
   if not exists(select 1 from public.council_risk_controls where risk_id=r.id and status='VERIFIED') then return false;end if;
-  if exists(select 1 from public.council_risk_controls where risk_id=r.id and (status<>'VERIFIED' or due_on<(now() at time zone 'Australia/Sydney')::date)) then return false;end if;
+  if exists(select 1 from public.council_risk_controls where risk_id=r.id and (status<>'VERIFIED' or next_review_on is null or next_review_on<(now() at time zone 'Australia/Sydney')::date)) then return false;end if;
   if exists(select 1 from public.council_risk_actions where risk_id=r.id and status<>'VERIFIED') then return false;end if;
  end loop;
  if exists(select 1 from public.council_risk_incidents where batch_id=p_batch and status<>'CLOSED' and severity in('SERIOUS','CRITICAL')) then return false;end if;
