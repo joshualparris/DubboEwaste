@@ -23,6 +23,9 @@ mustContain(sql,"database release guards",[
   "ELECTRICAL_SAFETY","FUNCTIONAL_CHECK","Physical storage-media inspection incomplete",
   "Verified sanitisation missing","Signed recipient acceptance",
   "Council custody receipt is missing","status='ACTIVE'",
+  "council_no_sale_guard","council_no_sale_listings","council_no_sale_sales",
+  "Council pilot device cannot silently leave its governed batch",
+  "Current sanitisation certificate missing or predates media erasure",
   "private.is_ewaste_pilot_supervisor()","security_invoker=true",
   "revoke all on function public.asset_storage_assessment_audit()",
 ]);
