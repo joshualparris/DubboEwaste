@@ -7,6 +7,8 @@ const root = path.resolve(import.meta.dirname, "..");
 const sql = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_pilot_donation_gates.sql"),"utf8");
 const hardening = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_pilot_collection_recycling_gates.sql"),"utf8");
 const governance = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_agreement_governance.sql"),"utf8");
+const titleRelease = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_title_transfer_custody.sql"),"utf8");
+const intakeActions = fs.readFileSync(path.join(root,"app/(private)/assets/actions.ts"),"utf8");
 const agreementRelease = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_agreement_release_reporting.sql"),"utf8");
 const agreementUi = fs.readFileSync(path.join(root,"app/(private)/council-pilot/agreements/page.tsx"),"utf8");
 const agreementActions = fs.readFileSync(path.join(root,"app/(private)/council-pilot/agreements/actions.ts"),"utf8");
@@ -51,6 +53,14 @@ mustContain(governance,"council agreement governance",[
   "Council agreement blocks","Council agreement device limit reached",
   "current_setting", // deliberately absent? check below
 ].filter(x=>x!=="current_setting"));
+mustContain(titleRelease,"Council custody title-transfer gate",[
+ "council_title_transfer_guard","Council retains title","OWNER_TRANSFER",
+ "record custody under a named third-party owner",
+]);
+mustContain(intakeActions,"Council custody intake",[
+ 'ownership_verified: parsed.data.ownership_verified === "yes"',
+ "council_pilot_batches","THIRD_PARTY"
+]);
 mustContain(agreementRelease,"agreement-aware release reporting",[
  "No currently valid Council agreement authorises donation",
  "private.council_agreement_allows",
