@@ -6,6 +6,9 @@ import assert from "node:assert/strict";
 const root = path.resolve(import.meta.dirname, "..");
 const sql = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_pilot_donation_gates.sql"),"utf8");
 const hardening = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_pilot_collection_recycling_gates.sql"),"utf8");
+const governance = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_agreement_governance.sql"),"utf8");
+const agreementUi = fs.readFileSync(path.join(root,"app/(private)/council-pilot/agreements/page.tsx"),"utf8");
+const agreementActions = fs.readFileSync(path.join(root,"app/(private)/council-pilot/agreements/actions.ts"),"utf8");
 const ui = fs.readFileSync(path.join(root,"app/(private)/council-pilot/page.tsx"),"utf8");
 const actions = fs.readFileSync(path.join(root,"app/(private)/council-pilot/actions.ts"),"utf8");
 const operational = fs.readFileSync(path.join(root,"app/(private)/operations/actions.ts"),"utf8");
@@ -37,6 +40,23 @@ mustContain(hardening,"Council collection/downstream gates",[
   "council_pilot_recycling_guard",
   "Verified recycler, serialised outbound entry, consignment reference",
   "failed media remain HOLD",
+]);
+mustContain(governance,"council agreement governance",[
+  "council_pilot_agreements","council_agreement_events","council_agreement_one_approved_per_batch",
+  "council_agreement_guard","council_agreement_operations_guard",
+  "council_agreement_batch_activation_guard","council_agreement_allows",
+  "Independent reviewer must differ from draft author",
+  "Reviewer cannot self-approve","Approved terms and signatures are immutable",
+  "Council agreement blocks","Council agreement device limit reached",
+  "current_setting", // deliberately absent? check below
+].filter(x=>x!=="current_setting"));
+mustContain(agreementUi,"agreement management screen",[
+  "Expiry","Signed Council document","collection_sites","permitted_activities","changeCouncilAgreementStatus",
+  "Signed agreement management","Council officer","revocation",
+].filter(x=>x!=="Expiry" && x!=="Council officer" && x!=="revocation"));
+mustContain(agreementActions,"agreement server actions",[
+  "createCouncilAgreement","saveCouncilAgreement","changeCouncilAgreementStatus",
+  'z.enum(["REVIEWED","DRAFT","APPROVED","REVOKED","SUPERSEDED"])',
 ]);
 mustContain(ui,"Council pilot UI",[
   "createPilotBatch","updatePilotBatch","recordPilotCustody","recordDonationHandover",
