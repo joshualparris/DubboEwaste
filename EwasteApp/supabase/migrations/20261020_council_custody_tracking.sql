@@ -22,6 +22,7 @@ create table public.council_custody_transfers (
  batch_id uuid not null references public.council_pilot_batches(id) on delete restrict,
  asset_id uuid not null references public.assets(id) on delete restrict,
  event_type text not null check(event_type in ('COLLECTED','RECEIVED','INTERNAL_MOVE','QUARANTINED','RETURNED','HANDOVER')),
+ handover_route text check (handover_route in ('DONATE','RECYCLE')),
  from_location text not null check(length(trim(from_location))>=5),
  to_location_id uuid not null references public.council_custody_locations(id),
  releasing_user uuid not null references public.profiles(id),
@@ -178,7 +179,7 @@ begin
   if not private.council_risk_ready(b.id) then raise exception 'Council risk stop-work gate blocks custody';end if;
   if not private.council_agreement_allows(b.id,
      case when new.event_type='COLLECTED' then 'COLLECT'
-       when new.event_type='HANDOVER' then 'DONATE'
+       when new.event_type='HANDOVER' then new.handover_route
        else 'STORE' end, a.category,
      case when new.event_type='COLLECTED' then new.from_location else null end)
   then raise exception 'Signed Council agreement does not authorise custody event';end if;
@@ -188,7 +189,7 @@ begin
    where asset_id=a.id and status='CONFIRMED' order by confirmed_at desc,id desc limit 1;
  if tg_op='INSERT' then
   if new.releasing_user is distinct from auth.uid() or new.status<>'REQUESTED'
-    or new.received_by is not null then
+    or new.incoming_scan is not null then
    raise exception 'Custody request requires authenticated releasing operator';end if;
   if not private.council_custody_scan_matches(new.outgoing_scan,a.id) then
    raise exception 'Outgoing QR scan does not match this asset';end if;
@@ -206,6 +207,8 @@ begin
     raise exception 'Device has already left the pilot; new movements require a documented new intake';end if;
   end if;
   if new.event_type='COLLECTED' and prior.id is not null then raise exception 'Cannot collect the same asset twice';end if;
+  if (new.event_type='HANDOVER') is distinct from (new.handover_route is not null) then
+    raise exception 'Final handover must explicitly identify DONATE or RECYCLE route';end if;
   if new.event_type='HANDOVER' and loc.kind<>'EXTERNAL_HANDOVER' then
     raise exception 'Final handover requires verified external handover destination';end if;
   if new.event_type='QUARANTINED' and loc.kind<>'QUARANTINE' then
@@ -220,8 +223,8 @@ begin
     (to_jsonb(old)-'status'-'incoming_scan'-'confirmed_at'-'prev_hash'-'entry_hash'-'rejection_reason')
  then raise exception 'Custody request fields cannot be rewritten or replaced';end if;
  if new.status='REQUESTED' then
-   if new.incoming_scan is distinct from old.incoming_scan then
-    raise exception 'Use formal acceptance, not editable scan field';end if;
+   if to_jsonb(new) is distinct from to_jsonb(old) then
+     raise exception 'Custody requests are immutable while awaiting acceptance';end if;
    return new;
  end if;
  if new.status='CANCELLED' then
@@ -250,7 +253,7 @@ begin
  new.confirmed_at=now();
  new.entry_hash=encode(extensions.digest(convert_to(
     coalesce(new.prev_hash,'')||'|'||new.id::text||'|'||new.asset_id::text||'|'||
-    new.event_type||'|'||new.from_location||'|'||new.to_location_id::text||'|'||
+    new.event_type||'|'||coalesce(new.handover_route,'')||'|'||new.from_location||'|'||new.to_location_id::text||'|'||
     new.releasing_user::text||'|'||new.receiving_user::text||'|'||
     coalesce(new.external_party,'')||'|'||new.document_reference||'|'||
     evidence_hash||'|'||coalesce(new.serial_readback,'')||'|'||
@@ -317,6 +320,7 @@ begin
    (to_jsonb(new)-'status'-'resolution'-'resolution_evidence_id'-'resolved_by'-'resolved_at')
    is distinct from (to_jsonb(old)-'status'-'resolution'-'resolution_evidence_id'-'resolved_by'-'resolved_at') then
      raise exception 'Discrepancy facts are append-only; only signed resolution may change';end if;
+  if new.status='OPEN' then raise exception 'Open discrepancy facts cannot be edited';end if;
   if new.status='RESOLVED' then
     if new.resolved_by is distinct from auth.uid() or new.resolved_by=old.opened_by or
        not private.is_ewaste_pilot_supervisor() or
@@ -416,13 +420,14 @@ begin
     where asset_id=p_asset and event_type='RECEIVED' and status='CONFIRMED') then return false;end if;
  select * into latest from public.council_custody_transfers where asset_id=p_asset and status='CONFIRMED'
  order by confirmed_at desc,id desc limit 1;
- if latest.id is null or latest.event_type<>'HANDOVER' then return false;end if;
+ if latest.id is null or latest.event_type<>'HANDOVER' or latest.handover_route is distinct from p_type then return false;end if;
  select * into loc from public.council_custody_locations where id=latest.to_location_id;
  if loc.kind<>'EXTERNAL_HANDOVER' or loc.status<>'VERIFIED' then return false;end if;
  if not exists(select 1 from public.council_custody_reconciliations r
     where r.batch_id=b and r.location_id in(
       select id from public.council_custody_locations l where l.batch_id=b and l.kind<>'EXTERNAL_HANDOVER')
-      and r.status='MATCH' and r.checked_at>=now()-interval '7 days') then return false;end if;
+      and r.status='MATCH' and r.checked_at>=now()-interval '7 days'
+      and exists(select 1 from public.assets a where a.id=p_asset and a.asset_code=any(r.observed_codes))) then return false;end if;
  return true;
 end $f$;
 revoke all on function private.council_custody_release_ok(uuid,text) from public,anon;
