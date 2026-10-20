@@ -2,7 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { EvidenceUpload } from "@/components/EvidenceUpload";
 import { requireProgrammeContext } from "@/lib/programme-context";
-import { createPilotBatch, updatePilotBatch, recordPilotCustody, recordDonationHandover } from "./actions";
+import { createPilotBatch, updatePilotBatch, recordPilotCustody, recordDonationHandover, recordPilotTransferAuthority } from "./actions";
 
 const roles = ["admin", "manager", "technician"];
 const documentFields = [
@@ -134,6 +134,16 @@ export default async function CouncilPilotPage({
                 <p><Link href={"/assets/" + asset.asset_id}>Open asset, tests, media and certificates</Link></p>
                 {blockers.length ? <ul>{blockers.map((blocker,i) => <li key={i}>{blocker}</li>)}</ul> : <p className="success">All recorded release prerequisites present. Confirm physical equipment and recipient before dispatch.</p>}
                 <EvidenceUpload entityType="asset" entityId={asset.asset_id} label="Attach custody, ownership or signed recipient evidence" />
+                <h3>Signed Council transfer / donation authority</h3>
+                <form action={recordPilotTransferAuthority} className="form">
+                  <input type="hidden" name="batch_id" value={selected.id} />
+                  <input type="hidden" name="asset_id" value={asset.asset_id} />
+                  <label>Legal authority type<select name="authority_type"><option value="OWNER_TRANSFER">OWNER_TRANSFER</option><option value="DONATION">DONATION</option><option value="BUSINESS_DISPOSAL_AUTHORITY">BUSINESS_DISPOSAL_AUTHORITY</option></select></label>
+                  <label>Owner / source name<input name="source_party" required minLength={3}/></label>
+                  <label>Signed transfer reference<input name="reference" required minLength={3}/></label>
+                  <label>Signed transfer document (upload above first)<select name="evidence_id" required defaultValue="">{evidenceOptions(files)}</select></label>
+                  <button className="button secondary">Record signed transfer authority</button>
+                </form>
                 <h3>Append custody event</h3>
                 <form action={recordPilotCustody} className="form">
                   <input type="hidden" name="batch_id" value={selected.id} />
