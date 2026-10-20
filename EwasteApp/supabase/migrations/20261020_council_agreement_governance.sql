@@ -310,6 +310,15 @@ begin
  if v_activity='COLLECT' and v_site is null and tg_table_name in ('assets','pilot_custody_events') then
    raise exception 'A signed-agreement collection site must be recorded for Council pilot assets';
  end if;
+ if tg_table_name='assets' and tg_op='INSERT' then
+   perform 1 from public.jobs where id=v_job for update;
+   if (select count(*) from public.assets where job_id=v_job) >=
+      (select a.max_devices from public.council_pilot_batches b
+        join public.council_pilot_agreements a on a.id=b.approved_agreement_id
+        where b.id=v_batch) then
+     raise exception 'Council agreement device limit reached';
+   end if;
+ end if;
  if not private.council_agreement_allows(v_batch,v_activity,v_category,v_site) then
    raise exception 'Council agreement blocks %: approval absent, expired/revoked/paused, or site/category/activity outside signed scope',v_activity;
  end if;
