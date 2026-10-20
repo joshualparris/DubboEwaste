@@ -5,6 +5,7 @@ import assert from "node:assert/strict";
 
 const root = path.resolve(import.meta.dirname, "..");
 const sql = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_pilot_donation_gates.sql"),"utf8");
+const hardening = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_pilot_collection_recycling_gates.sql"),"utf8");
 const ui = fs.readFileSync(path.join(root,"app/(private)/council-pilot/page.tsx"),"utf8");
 const actions = fs.readFileSync(path.join(root,"app/(private)/council-pilot/actions.ts"),"utf8");
 const operational = fs.readFileSync(path.join(root,"app/(private)/operations/actions.ts"),"utf8");
@@ -28,6 +29,14 @@ mustContain(sql,"database release guards",[
   "Current sanitisation certificate missing or predates media erasure",
   "private.is_ewaste_pilot_supervisor()","security_invoker=true",
   "revoke all on function public.asset_storage_assessment_audit()",
+]);
+mustContain(hardening,"Council collection/downstream gates",[
+  "Council pilot is DRAFT or PAUSED: receiving or linking assets is prohibited",
+  "Cannot progress a Council pilot inbound job without an ACTIVE signed approval batch",
+  "A hashed receiving/collection/handover document is required",
+  "council_pilot_recycling_guard",
+  "Verified recycler, serialised outbound entry, consignment reference",
+  "failed media remain HOLD",
 ]);
 mustContain(ui,"Council pilot UI",[
   "createPilotBatch","updatePilotBatch","recordPilotCustody","recordDonationHandover",

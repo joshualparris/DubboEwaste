@@ -60,6 +60,7 @@ export default async function CouncilPilotPage({
       <div className="actions">
         <Link className="button secondary" href="/jobs">Inbound jobs</Link>
         <Link className="button secondary" href="/media">Sanitisation workbench</Link>
+        <Link className="button secondary" href="/recycling">Downstream recycling</Link>
         <Link className="button secondary" href="/triage">Safety triage</Link>
         {selected ? <Link className="button secondary" href={"/api/council-pilot/export?batch=" + selected.id}>Export private Council CSV</Link> : null}
       </div>
@@ -94,7 +95,7 @@ export default async function CouncilPilotPage({
       <section className="card">
         <h2>{job?.job_code || "Council pilot"} · {selected.status}</h2>
         <p>Registered devices: <strong>{devices.length}/20</strong> · Fully release-ready: <strong>{passed}</strong> · Blocked: <strong>{devices.length - passed}</strong></p>
-        <p className="muted">Any unmet condition blocks DONATE in the database even if an operator tries to bypass this screen. A green indicator only confirms recorded evidence; it does not certify the physical work.</p>
+        <p className="muted">Draft and paused batches cannot accept devices. Donation is blocked without the required records. Recycling closeout also requires a verified downstream receipt. These records do not replace physical testing or Council approval.</p>
       </section>
 
       {canSupervise ? <section className="card">
@@ -123,7 +124,7 @@ export default async function CouncilPilotPage({
       <section className="card">
         <h2>Device readiness and next actions</h2>
         <div className="stack">
-          {devices.length === 0 ? <p>No devices assigned to this batch yet. <Link href={"/assets/new?job=" + selected.job_id}>Receive the first serialised asset</Link>.</p> : null}
+          {devices.length === 0 ? <p>No devices assigned. {selected.status === "ACTIVE" ? <Link href={"/assets/new?job=" + selected.job_id}>Receive the first serialised asset</Link> : <strong>Device receipt is locked until the Council pilot is ACTIVE with genuine approvals.</strong>}</p> : null}
           {devices.map(asset => {
             const files = assetFiles.filter(e => e.entity_id === asset.asset_id);
             const blockers = Array.isArray(asset.blockers) ? asset.blockers as string[] : [];
