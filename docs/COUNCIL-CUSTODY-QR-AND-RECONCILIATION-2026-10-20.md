@@ -43,3 +43,11 @@ The current AssetFlow `AssetQr` QR payload is the asset's URL, while the printed
 Before collection, obtain Council's actual ownership and contractor constraints, written trial agreement, insurance approval, validated workshop and transport/storage inspections, approved privacy/erasure procedures and a real person-to-person handover process. Obtain and retain signatures or appropriate countersignature of Council representatives; the staff-to-staff acknowledgement in AssetFlow alone is not a Council official's legal signature.
 
 The current documentation and test status appear in the GitHub PR; deployed software does not itself establish Council compliance.
+
+## 20 October 2026 hardening review
+
+- An **OPEN custody discrepancy** now pauses an ACTIVE batch on creation, including operator-reported missing equipment, not only mismatches created by an inventory stocktake.
+- A receiving operator's **REJECTED** transfer creates an OPEN discrepancy and automatically escalates an ACTIVE pilot to PAUSED.
+- Donation and recycling release paths also recompute the server-side chain hashes and verify each preceding-hash link. A mismatch blocks release; the hashes are tamper-evident within the database trust boundary, not external notarisation.
+- Independently verified locations cannot be retired while holding the last recorded position of equipment or unresolved transfer requests.
+- **COLLECTED** and **HANDOVER** now require a named external releasing or receiving party in addition to the original asset-linked signed evidence.
