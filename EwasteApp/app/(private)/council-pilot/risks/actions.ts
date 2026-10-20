@@ -120,7 +120,7 @@ export async function createRiskFramework(fd:FormData){
 export async function recordRiskMatrixCell(fd:FormData){
  const batch=parseBatch(fd);const {supabase}=await actor();
  const p=z.object({framework_id:uuid,likelihood_code:z.string().min(1).max(40),
-  consequence_code:z.string().min(1).max(40),rating:z.enum(["LOW","MODERATE","HIGH","EXTREME"]),
+  consequence_code:z.string().min(1).max(40),rating:z.string().trim().min(2).max(80),
   response_instruction:z.string().trim().max(500),
  }).safeParse(Object.fromEntries(fd));
  if(!p.success)done(batch,"Select source matrix coordinates and rating",true);
