@@ -66,7 +66,7 @@ mustContain(riskActions,"risk server actions",[
  "initialiseCouncilRisks","createRiskFramework","verifyRiskFramework",
  "recordRiskMatrixCell","createRiskAssessment","approveRiskAssessment",
  "addRiskControl","updateRiskControl","addRiskAction","updateRiskAction",
- "reportCouncilRiskIncident","closeCouncilRiskIncident"
+ "reportCouncilRiskIncident","closeCouncilRiskIncident","retireRiskFramework","supersedeRiskAssessment"
 ]);
 mustContain(riskUi,"risk dashboard",[
  "Risk register and stop-work controls","Stop-work","Risk register",
