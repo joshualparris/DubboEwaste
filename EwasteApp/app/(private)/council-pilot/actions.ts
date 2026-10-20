@@ -129,3 +129,34 @@ export async function recordDonationHandover(formData: FormData) {
   if (error) finish(error.message, true, row.batch_id);
   finish("Recipient acceptance recorded. Confirm the readiness checks before recording DONATE on the asset.", false, row.batch_id);
 }
+
+
+export async function recordPilotTransferAuthority(formData: FormData) {
+  const parsed = z.object({
+    batch_id: uuid,
+    asset_id: uuid,
+    authority_type: z.enum(["OWNER_TRANSFER","DONATION","BUSINESS_DISPOSAL_AUTHORITY"]),
+    source_party: z.string().trim().min(3).max(200),
+    reference: z.string().trim().min(3).max(240),
+    evidence_id: uuid,
+  }).safeParse(Object.fromEntries(formData));
+  if (!parsed.success) finish("Signed ownership authority, source, and asset-linked document required", true);
+  const { supabase, user } = await operator();
+  const row = parsed.data;
+  const { data: asset } = await supabase.from("assets").select("job_id,programme").eq("id", row.asset_id).maybeSingle();
+  const { data: batch } = await supabase.from("council_pilot_batches").select("job_id").eq("id", row.batch_id).maybeSingle();
+  if (!asset || !batch || asset.job_id !== batch.job_id || asset.programme !== "dubbo_ewaste") {
+    finish("Asset is not part of the Council pilot", true, row.batch_id);
+  }
+  const { data: evidence } = await supabase.from("evidence").select("id").eq("id", row.evidence_id)
+    .eq("entity_type","asset").eq("entity_id",row.asset_id).maybeSingle();
+  if (!evidence) finish("Authority document must be uploaded against this specific asset", true, row.batch_id);
+  const { error } = await supabase.from("asset_authority_records").insert({
+    asset_id: row.asset_id, authority_type: row.authority_type, source_party: row.source_party,
+    reference: row.reference, evidence_id: row.evidence_id, created_by: user.id,
+  });
+  if (error) finish(error.message, true, row.batch_id);
+  const { error: flagError } = await supabase.from("assets").update({ownership_verified: true}).eq("id",row.asset_id);
+  if (flagError) finish("Document saved, but ownership flag was not updated: "+flagError.message, true,row.batch_id);
+  finish("Signed authority linked to this asset. Validate Council's legal transfer terms separately.", false,row.batch_id);
+}
