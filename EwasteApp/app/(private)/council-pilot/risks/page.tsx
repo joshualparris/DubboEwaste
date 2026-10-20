@@ -6,7 +6,7 @@ import {
  initialiseCouncilRisks,addCouncilRisk,updateCouncilRisk,createRiskFramework,
  recordRiskMatrixCell,verifyRiskFramework,addRiskControl,updateRiskControl,
  createRiskAssessment,approveRiskAssessment,addRiskAction,updateRiskAction,
- reportCouncilRiskIncident,closeCouncilRiskIncident
+ reportCouncilRiskIncident,closeCouncilRiskIncident,retireRiskFramework,supersedeRiskAssessment
 } from "./actions";
 
 type Row=Record<string,any>;
@@ -128,6 +128,11 @@ export default async function CouncilRiskPage({searchParams}:{searchParams:Promi
      <p>Source: {f.origin}. Original evidence: {f.source_evidence_id||"missing"}. Verified by: {f.verified_by||"not verified"}.</p>
      <p>Likelihood: {(f.likelihood_codes||[]).join(", ")} · Consequence: {(f.consequence_codes||[]).join(", ")}</p>
      <p>Recorded cells: {cells.filter(x=>x.framework_id===f.id).map(c=>c.likelihood_code+"/"+c.consequence_code+"="+c.rating).join(" · ")||"none"}</p>
+     {manager&&f.status==="VERIFIED"?<form action={retireRiskFramework}>
+      <input type="hidden" name="batch_id" value={batch.id}/><input type="hidden" name="framework_id" value={f.id}/>
+      <p className="muted">Retiring this source matrix will immediately block all prior assessments and pilot operation until reassessed. Do this only when superseded by a verified source.</p>
+      <button className="button secondary">Retire outdated risk framework</button>
+     </form>:null}
      {manager&&f.status==="DRAFT"?<>
       <form className="form" action={recordRiskMatrixCell}>
        <input type="hidden" name="batch_id" value={batch.id}/><input type="hidden" name="framework_id" value={f.id}/>
@@ -215,6 +220,10 @@ export default async function CouncilRiskPage({searchParams}:{searchParams:Promi
        <p><strong>Assessment v{a.version} · {a.status}</strong> · inherent {a.inherent_rating||"UNRATED"} · residual {a.residual_rating||"UNRATED"}</p>
        <p className="muted">{a.assessment_reasoning} · review due {a.review_due}</p>
        <p>Treatment: {a.treatment_plan}</p>
+       {a.status==="APPROVED"&&manager?<form action={supersedeRiskAssessment}>
+        <input type="hidden" name="batch_id" value={batch.id}/><input type="hidden" name="assessment_id" value={a.id}/>
+        <button className="button secondary">Supersede outdated assessment (blocks risk clearance)</button>
+       </form>:null}
        {a.status==="DRAFT"&&manager?<form action={approveRiskAssessment}>
         <input type="hidden" name="batch_id" value={batch.id}/><input type="hidden" name="assessment_id" value={a.id}/>
         <button className="button secondary">Independently approve assessment and verified controls</button>
