@@ -161,6 +161,11 @@ declare n text; begin
  execute format('create policy %I on public.%I for update to authenticated using (private.is_ewaste_pilot_supervisor()) with check (private.is_ewaste_pilot_supervisor())',n||'_update',n);
  end loop;
 end $pol$;
+
+-- Technicians may report genuine safety incidents; only supervisors may close them.
+drop policy council_risk_incidents_insert on public.council_risk_incidents;
+create policy council_risk_incidents_insert on public.council_risk_incidents for insert to authenticated
+ with check (private.is_ewaste_pilot_operator() and created_by=auth.uid());
 create policy council_risk_audit_read on public.council_risk_audit for select to authenticated
  using(private.is_ewaste_pilot_operator());
 
