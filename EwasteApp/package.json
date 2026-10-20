@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "vercel-build": "npm run qa:learning && npm run qa:pricing && npm run qa:mobile && npm run qa:appearance && npm run qa:programme-auth && npm run qa:repair-cafe && npm run qa:help && npm run qa:project-links && next build",
+    "vercel-build": "npm run qa:learning && npm run qa:pricing && npm run qa:mobile && npm run qa:appearance && npm run qa:programme-auth && npm run qa:repair-cafe && npm run qa:help && npm run qa:project-links && npm run qa:council-pilot && next build",
     "qa:mobile": "node scripts/mobile-qa.mjs",
-    "prebuild": "npm run qa:learning && npm run qa:pricing && npm run qa:mobile && npm run qa:appearance && npm run qa:programme-auth && npm run qa:repair-cafe && npm run qa:help && npm run qa:project-links",
+    "prebuild": "npm run qa:learning && npm run qa:pricing && npm run qa:mobile && npm run qa:appearance && npm run qa:programme-auth && npm run qa:repair-cafe && npm run qa:help && npm run qa:project-links && npm run qa:council-pilot",
     "qa:mobile:browser": "node scripts/mobile-browser-qa.mjs",
     "qa:programme-auth": "node scripts/programme-auth-qa.mjs",
     "qa:learning": "node scripts/learning-qa.mjs && node scripts/pricing-mastery-qa.mjs",
@@ -17,7 +17,8 @@
     "qa:pricing": "node scripts/repair-pricing-qa.mjs",
     "qa:appearance": "node scripts/appearance-qa.mjs && node scripts/dark-contrast-qa.mjs",
     "qa:help": "node scripts/help-qa.mjs",
-    "qa:project-links": "node scripts/project-links-qa.mjs"
+    "qa:project-links": "node scripts/project-links-qa.mjs",
+    "qa:council-pilot": "node scripts/council-pilot-qa.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",

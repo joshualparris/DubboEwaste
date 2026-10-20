@@ -13,6 +13,7 @@ const groups = [
     title: "Operations",
     links: [
       ["/jobs", "Jobs"],
+      ["/council-pilot", "Council pilot · 20-device readiness"],
       ["/lots", "Lots"],
       ["/assets", "Assets"],
       ["/triage", "Triage"],
