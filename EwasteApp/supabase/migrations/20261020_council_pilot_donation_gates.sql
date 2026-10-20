@@ -136,6 +136,10 @@ begin
  select expected_asset_count into v_expected from public.jobs where id=new.job_id and programme='dubbo_ewaste';
  if not found then raise exception 'Council pilot must use a Dubbo E-waste job'; end if;
  if v_count>20 or v_expected>20 then raise exception 'Council pilot is limited to 20 devices'; end if;
+ if exists(select 1 from public.resale_listings rl join public.assets a on a.id=rl.asset_id where a.job_id=new.job_id)
+  or exists(select 1 from public.sales s join public.assets a on a.id=s.asset_id where a.job_id=new.job_id)
+  or exists(select 1 from public.assets where job_id=new.job_id and status in ('READY_FOR_SALE','LISTED','SOLD'))
+ then raise exception 'Cannot enrol commercial stock into a donation-only Council pilot'; end if;
  if new.status in ('ACTIVE','CLOSED') then
    if coalesce(length(trim(new.council_reference)),0)<5 or
       not private.verify_job_evidence(new.approval_evidence_id,new.job_id) or
@@ -164,6 +168,10 @@ returns trigger language plpgsql security definer set search_path = ''
 as $$
 declare v_max int;
 begin
+ if tg_op='UPDATE' and old.job_id is distinct from new.job_id and
+   exists(select 1 from public.council_pilot_batches where job_id=old.job_id) then
+     raise exception 'Council pilot device cannot silently leave its governed batch';
+ end if;
  if new.job_id is not null and (tg_op='INSERT' or old.job_id is distinct from new.job_id) then
    if exists(select 1 from public.council_pilot_batches where job_id=new.job_id) then
      perform 1 from public.jobs where id=new.job_id for update;
@@ -263,9 +271,15 @@ begin
              and r.match_status='MATCH' and r.observed_result='PASSED'
          )))
    then blockers:=array_append(blockers,'Verified sanitisation missing for one or more media'); end if;
-   if not exists(select 1 from public.certificates where asset_id=p_asset
-      and certificate_type='SANITISATION' and status='ISSUED')
-   then blockers:=array_append(blockers,'Sanitisation certificate missing'); end if;
+   if not exists(select 1 from public.certificates c where c.asset_id=p_asset
+      and c.certificate_type='SANITISATION' and c.status='ISSUED'
+      and length(coalesce(c.snapshot_sha256,''))=64
+      and c.issued_at >= all (
+        select coalesce(t.completed_at,t.created_at)
+        from public.media m join public.sanitisation_tasks t on t.media_id=m.id
+        where m.parent_asset_id=p_asset and t.status='PASSED'
+      ))
+   then blockers:=array_append(blockers,'Current sanitisation certificate missing or predates media erasure'); end if;
  end if;
 
  if not exists(select 1 from public.donation_handoffs where asset_id=p_asset)
@@ -323,6 +337,39 @@ end $$;
 revoke all on function private.pilot_donated_asset_guard() from public,anon,authenticated;
 create trigger pilot_donated_asset_guard before insert or update of status on public.assets
  for each row execute function private.pilot_donated_asset_guard();
+
+-- Donation-only means *no* sale, not merely a DONATE guard.
+create or replace function private.council_no_sale_guard()
+returns trigger language plpgsql security definer set search_path = ''
+as $
+declare v_asset_id uuid;
+begin
+ if tg_table_name='assets' then
+   if new.status in ('READY_FOR_SALE','LISTED','SOLD') and
+     exists(select 1 from public.council_pilot_batches where job_id=new.job_id)
+   then raise exception 'Council pilot is donation-only: sales/listing status forbidden'; end if;
+ elsif tg_table_name='dispositions' then
+   if new.disposition_type='SELL' and exists (
+     select 1 from public.assets a join public.council_pilot_batches b on b.job_id=a.job_id
+       where a.id=new.asset_id
+   ) then raise exception 'Council pilot is donation-only: SELL prohibited'; end if;
+ else
+   v_asset_id:=new.asset_id;
+   if exists(select 1 from public.assets a join public.council_pilot_batches b on b.job_id=a.job_id
+        where a.id=v_asset_id)
+   then raise exception 'Council pilot assets may not be listed or sold'; end if;
+ end if;
+ return new;
+end $;
+revoke all on function private.council_no_sale_guard() from public,anon,authenticated;
+create trigger council_no_sale_status before insert or update of status on public.assets
+ for each row execute function private.council_no_sale_guard();
+create trigger council_no_sale_dispositions before insert or update of disposition_type on public.dispositions
+ for each row execute function private.council_no_sale_guard();
+create trigger council_no_sale_listings before insert or update of asset_id on public.resale_listings
+ for each row execute function private.council_no_sale_guard();
+create trigger council_no_sale_sales before insert or update of asset_id on public.sales
+ for each row execute function private.council_no_sale_guard();
 
 -- Commit a valid donation status atomically with its disposition insertion.
 -- If the status guard rejects the update, the entire INSERT transaction rolls back.
