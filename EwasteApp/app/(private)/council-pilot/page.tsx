@@ -41,6 +41,13 @@ export default async function CouncilPilotPage({
     ]) : [{ data: [] }, { data: [] }, { data: [] }, { data: [] }, { data: [] }];
   const devices = (readiness || []) as Row[];
   const passed = devices.filter(r => r.ready_to_donate).length;
+  const [{data:agreements},{data:agreementReadiness}] = selected
+    ? await Promise.all([
+      supabase.from("council_pilot_agreements").select("id,reference,revision_number,status,expires_on").eq("batch_id",selected.id).order("revision_number",{ascending:false}),
+      supabase.from("council_pilot_agreement_readiness").select("*").eq("batch_id",selected.id).maybeSingle(),
+    ])
+    : [{data:[]},{data:null}];
+  const operationalActive = agreementReadiness?.collection_authorised === true;
   const job = (jobs || []).find(j => j.id === selected?.job_id);
   const jobFiles = (jobEvidence || []) as Row[];
   const assetFiles = (allAssetEvidence || []) as Row[];
@@ -61,6 +68,7 @@ export default async function CouncilPilotPage({
         <Link className="button secondary" href="/jobs">Inbound jobs</Link>
         <Link className="button secondary" href="/media">Sanitisation workbench</Link>
         <Link className="button secondary" href="/recycling">Downstream recycling</Link>
+        {selected ? <Link className="button secondary" href={"/council-pilot/agreements?batch="+selected.id}>Manage signed Council agreement</Link> : null}
         <Link className="button secondary" href="/triage">Safety triage</Link>
         {selected ? <Link className="button secondary" href={"/api/council-pilot/export?batch=" + selected.id}>Export private Council CSV</Link> : null}
       </div>
@@ -95,6 +103,8 @@ export default async function CouncilPilotPage({
       <section className="card">
         <h2>{job?.job_code || "Council pilot"} · {selected.status}</h2>
         <p>Registered devices: <strong>{devices.length}/20</strong> · Fully release-ready: <strong>{passed}</strong> · Blocked: <strong>{devices.length - passed}</strong></p>
+        <p><strong>Signed Council agreement:</strong> {operationalActive ? "Currently within recorded collection scope" : "BLOCKED — no valid linked agreement, or expired/revoked/paused"}</p>
+        <p className="muted">The agreement's real dates, allowed collection sites and permitted activities are enforced independently of the batch ACTIVE flag.</p>
         <p className="muted">Draft and paused batches cannot accept devices. Donation is blocked without the required records. Recycling closeout also requires a verified downstream receipt. These records do not replace physical testing or Council approval.</p>
       </section>
 
@@ -104,6 +114,14 @@ export default async function CouncilPilotPage({
         <p className="muted">Documents are stored privately with SHA-256 evidence digests. Upload them first, then select each file below. Never use a quote or unaccepted proposal as if it were written approval.</p>
         <form action={updatePilotBatch} className="form">
           <input type="hidden" name="batch_id" value={selected.id} />
+          <label>Versioned, independently reviewed Council agreement
+            <select name="approved_agreement_id" defaultValue={selected.approved_agreement_id || ""}>
+              <option value="">No agreement linked — activation blocked</option>
+              {(agreements||[]).filter(a=>a.status==="APPROVED").map(a=>
+                <option key={a.id} value={a.id}>Revision {a.revision_number} · {a.reference} · expires {a.expires_on}</option>)}
+            </select>
+          </label>
+          <p className="muted small">First <Link href={"/council-pilot/agreements?batch="+selected.id}>record, independently review and approve the signed agreement</Link>. Then link it here and activate with the other five governance documents.</p>
           <label>Written Council approval / trial reference<input name="council_reference" defaultValue={selected.council_reference || ""} maxLength={200}/></label>
           {documentFields.map(([key,label]) => <label key={key}>{label}
             <select name={key} defaultValue={selected[key] || ""}>{evidenceOptions(jobFiles, selected[key])}</select>
@@ -124,7 +142,7 @@ export default async function CouncilPilotPage({
       <section className="card">
         <h2>Device readiness and next actions</h2>
         <div className="stack">
-          {devices.length === 0 ? <p>No devices assigned. {selected.status === "ACTIVE" ? <Link href={"/assets/new?job=" + selected.job_id}>Receive the first serialised asset</Link> : <strong>Device receipt is locked until the Council pilot is ACTIVE with genuine approvals.</strong>}</p> : null}
+          {devices.length === 0 ? <p>No devices assigned. {operationalActive ? <Link href={"/assets/new?job=" + selected.job_id}>Receive the first serialised asset</Link> : <strong>Device receipt is locked until the Council pilot is ACTIVE with genuine approvals.</strong>}</p> : null}
           {devices.map(asset => {
             const files = assetFiles.filter(e => e.entity_id === asset.asset_id);
             const blockers = Array.isArray(asset.blockers) ? asset.blockers as string[] : [];

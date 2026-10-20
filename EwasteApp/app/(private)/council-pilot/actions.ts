@@ -47,6 +47,7 @@ export async function updatePilotBatch(formData: FormData) {
   const parsed = z.object({
     batch_id: uuid,
     council_reference: z.string().trim().max(200),
+    approved_agreement_id: optionalId,
     approval_evidence_id: optionalId,
     insurance_evidence_id: optionalId,
     risk_assessment_evidence_id: optionalId,
@@ -61,6 +62,7 @@ export async function updatePilotBatch(formData: FormData) {
   const { error } = await supabase.from("council_pilot_batches")
     .update({
       council_reference: row.council_reference || null,
+      approved_agreement_id: row.approved_agreement_id,
       approval_evidence_id: row.approval_evidence_id,
       insurance_evidence_id: row.insurance_evidence_id,
       risk_assessment_evidence_id: row.risk_assessment_evidence_id,

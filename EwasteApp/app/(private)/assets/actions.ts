@@ -53,11 +53,20 @@ export async function createAsset(formData: FormData) {
   });
 
   if (!parsed.success) redirect("/assets/new?error=Please%20check%20the%20intake%20fields");
-  if (parsed.data.ownership_verified !== "yes") redirect("/assets/new?error=Ownership%20must%20be%20verified%20before%20acceptance");
-
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/login");
+  const { data: councilBatch } = parsed.data.job_id
+    ? await supabase.from("council_pilot_batches").select("id").eq("job_id",parsed.data.job_id).maybeSingle()
+    : { data: null };
+  if (parsed.data.ownership_verified !== "yes" &&
+      (!councilBatch || parsed.data.owner_kind !== "THIRD_PARTY" ||
+       (parsed.data.owner_name || "").length < 3)) {
+    redirect("/assets/new?error=Ownership%20must%20be%20verified%20except%20for%20documented%20Council%20custody");
+  }
+  if (councilBatch && !parsed.data.source_name) {
+    redirect("/assets/new?error=Council%20collection%20requires%20the%20exact%20approved%20site");
+  }
 
   const { data, error } = await supabase.from("assets").insert({
     programme: parsed.data.programme,
@@ -72,7 +81,7 @@ export async function createAsset(formData: FormData) {
     job_id: parsed.data.job_id || null,
     lot_id: parsed.data.lot_id || null,
     location_id: parsed.data.location_id || null,
-    ownership_verified: true,
+    ownership_verified: parsed.data.ownership_verified === "yes",
     data_bearing: parsed.data.data_bearing === "yes",
     data_state: parsed.data.data_bearing === "yes" ? "UNWIPED_RESTRICTED" : "NON_DATA_BEARING",
     initial_route: parsed.data.initial_route,
