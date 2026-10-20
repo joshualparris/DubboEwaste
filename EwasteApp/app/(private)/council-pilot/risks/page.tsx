@@ -13,7 +13,7 @@ type Row=Record<string,any>;
 const cats=["SAFETY","FIRE_BATTERY","DATA_PRIVACY","CUSTODY","ELECTRICAL","TRANSPORT",
   "ENVIRONMENT","GOVERNANCE","INSURANCE","BUSINESS_CONTINUITY","FRAUD","PROJECT_DELIVERY","OTHER"];
 const hierarchies=["ELIMINATION","SUBSTITUTION","ISOLATION","ENGINEERING","ADMINISTRATIVE","PPE"];
-const ratings=["LOW","MODERATE","HIGH","EXTREME"];
+
 export default async function CouncilRiskPage({searchParams}:{searchParams:Promise<{batch?:string;error?:string;notice?:string}>}){
  const search=await searchParams;
  if(!search.batch)redirect("/council-pilot");
@@ -133,7 +133,7 @@ export default async function CouncilRiskPage({searchParams}:{searchParams:Promi
        <input type="hidden" name="batch_id" value={batch.id}/><input type="hidden" name="framework_id" value={f.id}/>
        <label>Likelihood code<select name="likelihood_code">{(f.likelihood_codes||[]).map((x:string)=><option key={x}>{x}</option>)}</select></label>
        <label>Consequence code<select name="consequence_code">{(f.consequence_codes||[]).map((x:string)=><option key={x}>{x}</option>)}</select></label>
-       <label>Rating exactly from supplied matrix<select name="rating">{ratings.map(x=><option key={x}>{x}</option>)}</select></label>
+       <label>Risk band exactly as written in source matrix<input name="rating" required minLength={2} maxLength={80} placeholder="Use Council's exact label; no default rating" /></label>
        <label>Source-matrix response requirement<input name="response_instruction" maxLength={500}/></label>
        <button className="button secondary">Record / replace matrix cell</button>
       </form>
