@@ -430,3 +430,13 @@ The full inventory captures files present during this scan; it does not include 
 - [`reports/analytics/render_backup/2026-10-16.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/render_backup/2026-10-16.md)
 - [`reports/analytics/render_backup/2026-10-17.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/render_backup/2026-10-17.md)
 - [`reports/analytics/render_backup/2026-10-18.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/render_backup/2026-10-18.md)
+
+- [`docs/COUNCIL-AGREEMENT-GOVERNANCE-2026-10-20.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/COUNCIL-AGREEMENT-GOVERNANCE-2026-10-20.md)
+- [`docs/COUNCIL-ASSETFLOW-20-DEVICE-PILOT-ACCEPTANCE-2026-10-20.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/COUNCIL-ASSETFLOW-20-DEVICE-PILOT-ACCEPTANCE-2026-10-20.md)
+- [`docs/COUNCIL-PILOT-SECURITY-EXCEPTIONS-2026-10-20.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/COUNCIL-PILOT-SECURITY-EXCEPTIONS-2026-10-20.md)
+- [`docs/COUNCIL-PUBLIC-RECORD-VERIFICATION-AND-SHORT-EMAIL-2026-10-20.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/COUNCIL-PUBLIC-RECORD-VERIFICATION-AND-SHORT-EMAIL-2026-10-20.md)
+- [`docs/COUNCIL-WHYLANDRA-APPROVAL-DOSSIER-2026-10-20.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/COUNCIL-WHYLANDRA-APPROVAL-DOSSIER-2026-10-20.md)
+- [`docs/DEEP-RESEARCH-PROMPT-COUNCIL-WHYLANDRA-2026-10-20.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/DEEP-RESEARCH-PROMPT-COUNCIL-WHYLANDRA-2026-10-20.md)
+- [`reports/analytics/dubbo_ewaste/2026-10-19.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/dubbo_ewaste/2026-10-19.md)
+- [`reports/analytics/github_pages/2026-10-19.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/github_pages/2026-10-19.md)
+- [`reports/analytics/render_backup/2026-10-19.md`](https://github.com/joshualparris/DubboEwaste/blob/main/reports/analytics/render_backup/2026-10-19.md)
