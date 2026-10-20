@@ -51,7 +51,8 @@ export default async function AssetPage({ params, searchParams }: { params: Prom
     <AssetProgrammeDetails asset={a} context={context} history={transferHistory} />
     <div className="grid">
       <section className="card"><h2>Asset label</h2><AssetQr assetCode={a.asset_code} assetId={a.id} productName={[a.manufacturer,a.model].filter(Boolean).join(" ")||a.category} /></section>
-      <section className="card"><h2>Custody</h2><p><strong>Customer:</strong> {a.customers?.name||a.source_name||"—"}</p><p><strong>Job:</strong> {a.jobs?.job_code||"—"}</p><p><strong>Origin lot:</strong> {a.lots?.lot_code||"—"}</p><p><strong>Location:</strong> {a.locations?.name||"—"}</p><p><strong>Received:</strong> {new Date(a.received_at).toLocaleString("en-AU")}</p></section>
+      <section className="card"><h2>Custody</h2>{a.job_id && isEwaste ?
+    <p><Link href="/council-pilot">Council pilot custody controls and QR chain</Link> · For Council devices use the batch-specific QR custody dashboard.</p>:null}<p><strong>Customer:</strong> {a.customers?.name||a.source_name||"—"}</p><p><strong>Job:</strong> {a.jobs?.job_code||"—"}</p><p><strong>Origin lot:</strong> {a.lots?.lot_code||"—"}</p><p><strong>Location:</strong> {a.locations?.name||"—"}</p><p><strong>Received:</strong> {new Date(a.received_at).toLocaleString("en-AU")}</p></section>
       <section className="card"><h2>Intake state</h2><p><strong>Category:</strong> {a.category}</p><p><strong>Serial / IMEI:</strong> {a.serial_imei||"—"}</p><p><strong>Ownership verified:</strong> {a.ownership_verified?"Yes":"No"}</p><p><strong>Data state:</strong> {a.data_state}</p><p><strong>Initial route:</strong> {a.initial_route||"—"}</p><p><strong>Grade:</strong> {latestGrade?.final_grade||"Not graded"}</p></section>
     </div>
 
