@@ -68,7 +68,8 @@ export async function updatePilotBatch(formData: FormData) {
       downstream_plan_evidence_id: row.downstream_plan_evidence_id,
       status: row.status,
       operator_notes: row.operator_notes || null,
-      authorised_by: row.status === "ACTIVE" ? user.id : null,
+      // Preserve the previous authoriser when pausing; sign ACTIVE/CLOSED transitions.
+      ...(row.status === "ACTIVE" || row.status === "CLOSED" ? { authorised_by: user.id } : {}),
     }).eq("id", row.batch_id).select("id").single();
   if (error) finish(error.message, true, row.batch_id);
   finish(row.status === "ACTIVE" ? "Pilot activated against uploaded evidence. This is not proof of Council approval." : "Pilot batch saved.", false, row.batch_id);
