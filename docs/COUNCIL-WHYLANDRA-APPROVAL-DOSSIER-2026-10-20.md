@@ -1,3 +1,7 @@
+## Verification addendum — 20 October 2026
+
+**Superseding primary-source research:** See [Council public-record verification and the revised three-question email](COUNCIL-PUBLIC-RECORD-VERIFICATION-AND-SHORT-EMAIL-2026-10-20.md). The original dossier below is an initial scoping document; the follow-up resolves many of its open general questions. **Correction:** Dubbo Regional Council adopted an updated Risk Management Policy at its *23 June 2026* meeting; the public A–Z PDF still points to the older 2023 version. Do not call the 2023 policy current without obtaining the 2026 revision. Additionally, the Council's May 2026 GM delegation is publicly available, and the 28 September 2026 GIPA register does not name a current e-waste arrangement but is not a complete list of every Council agreement. 2025–2035 adopted Waste Strategy **Action 6.11** expressly contemplates circular-economy pilot collaborations; this does not grant approval. These corrections are supported and linked in the focused verification document.
+
 # Dubbo Council e-waste reuse pilot — approval and evidence dossier (20 October 2026)
 
 **Status: desk research and proposal preparation, NOT approval.** Prepared against Council's 20 October 2026 decision (held in private correspondence; deliberately not reproduced here). This public document records the substance of the decision without publishing confidential email content or personal/device information.
