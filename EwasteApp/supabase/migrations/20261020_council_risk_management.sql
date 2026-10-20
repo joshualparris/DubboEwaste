@@ -246,6 +246,8 @@ begin
   if new.created_by is distinct from auth.uid() or new.status<>'DRAFT' then raise exception 'Assessment must start DRAFT';end if;
   if new.version<>(select coalesce(max(version),0)+1 from public.council_risk_assessments where risk_id=new.risk_id) then
     raise exception 'Assessment revision must be consecutive';end if;
+ elsif tg_op='UPDATE' and (new.risk_id<>old.risk_id or new.framework_id<>old.framework_id or new.created_by<>old.created_by or new.version<>old.version) then
+  raise exception 'Risk assessment identity and authorship cannot change';
  elsif old.status='APPROVED' then
   if new.status<>'SUPERSEDED' or (to_jsonb(new)-'status') is distinct from (to_jsonb(old)-'status') then
     raise exception 'Approved assessment is immutable; create a new revision';end if;
@@ -285,6 +287,29 @@ end $f$;
 revoke all on function private.risk_assessment_guard() from public,anon,authenticated;
 create trigger council_risk_assessment_guard before insert or update on public.council_risk_assessments
 for each row execute function private.risk_assessment_guard();
+
+create or replace function private.risk_register_guard()
+returns trigger language plpgsql security definer set search_path=''
+as $f$
+begin
+ if tg_op='UPDATE' then
+  if new.batch_id<>old.batch_id or new.reference<>old.reference or new.created_by<>old.created_by
+  then raise exception 'Risk reference, attribution and batch are immutable';end if;
+ end if;
+ if new.status='MONITORING' then
+  if new.owner_id is null or not exists (
+   select 1 from public.council_risk_assessments a where a.risk_id=new.id
+     and a.status='APPROVED' and a.review_due>=(now() at time zone 'Australia/Sydney')::date
+  ) then raise exception 'Cannot monitor risk without approved current independent assessment';end if;
+ end if;
+ if new.status='CLOSED' and exists(select 1 from public.council_pilot_batches
+  where id=new.batch_id and status='ACTIVE')
+ then raise exception 'Active Council pilot risk cannot be silently closed';end if;
+ new.updated_at=now();return new;
+end $f$;
+revoke all on function private.risk_register_guard() from public,anon,authenticated;
+create trigger council_risk_register_guard before insert or update on public.council_risks
+for each row execute function private.risk_register_guard();
 
 create or replace function private.risk_control_guard()
 returns trigger language plpgsql security definer set search_path=''
@@ -342,7 +367,12 @@ begin
   if new.created_by is distinct from auth.uid() then raise exception 'Reporter identity required';end if;
   if new.risk_id is not null and not exists(select 1 from public.council_risks where id=new.risk_id and batch_id=new.batch_id) then
    raise exception 'Incident references a risk outside the Council pilot';end if;
- elsif old.status='CLOSED' then raise exception 'Closed incident immutable'; 
+ elsif old.status='CLOSED' then raise exception 'Closed incident immutable';
+ elsif new.batch_id<>old.batch_id or new.risk_id is distinct from old.risk_id
+   or new.severity<>old.severity or new.category<>old.category
+   or new.created_by<>old.created_by or new.description<>old.description
+   or new.occurred_at<>old.occurred_at then
+   raise exception 'Reported incident details are immutable; add a correction in the audit notes';
  elsif new.status='CLOSED' then
   if new.closed_by is distinct from auth.uid() or new.closed_by=old.created_by
      or length(trim(coalesce(new.closure_reason,'')))<15
