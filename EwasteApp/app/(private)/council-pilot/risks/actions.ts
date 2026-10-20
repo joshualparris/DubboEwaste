@@ -250,3 +250,22 @@ export async function closeCouncilRiskIncident(fd:FormData){
  if(error||!data)done(batch,error?.message||"Incident unavailable",true);
  done(batch,"Incident independently closed; PAUSED batch requires explicit fresh approval before operations resume.");
 }
+
+export async function retireRiskFramework(fd:FormData){
+ const batch=parseBatch(fd);const {supabase}=await actor();
+ const p=uuid.safeParse(fd.get("framework_id"));if(!p.success)done(batch,"Framework ID invalid",true);
+ const {data,error}=await supabase.from("council_risk_frameworks")
+  .update({status:"RETIRED"}).eq("id",p.data).eq("batch_id",batch).eq("status","VERIFIED").select("id").maybeSingle();
+ if(error||!data)done(batch,error?.message||"Verified framework not found",true);
+ done(batch,"Retired the former source matrix. All prior assessments are now insufficient for operational release until assessed against a newly verified framework.");
+}
+export async function supersedeRiskAssessment(fd:FormData){
+ const batch=parseBatch(fd);const {supabase}=await actor();
+ const p=uuid.safeParse(fd.get("assessment_id"));if(!p.success)done(batch,"Assessment ID invalid",true);
+ const {data:a}=await supabase.from("council_risk_assessments").select("id,risk_id").eq("id",p.data).eq("status","APPROVED").maybeSingle();
+ const {data:r}=await supabase.from("council_risks").select("id").eq("id",a?.risk_id||"00000000-0000-0000-0000-000000000000").eq("batch_id",batch).maybeSingle();
+ if(!r)done(batch,"Assessment not part of Council pilot",true);
+ const {data,error}=await supabase.from("council_risk_assessments").update({status:"SUPERSEDED"}).eq("id",p.data).select("id").maybeSingle();
+ if(error||!data)done(batch,error?.message||"Assessment could not be superseded",true);
+ done(batch,"Assessment superseded. This risk requires new evidence, independent approval and updated monitoring.");
+}
