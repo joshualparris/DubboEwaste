@@ -418,17 +418,24 @@ export async function recordDisposition(formData: FormData) {
     notes: parsed.data.notes || null,
     decided_by: user.id,
   });
-  if (!error) {
+  const assetUrl = "/assets/" + parsed.data.asset_id;
+  if (error) redirect(assetUrl + "?error=" + encodeURIComponent(error.message));
+  // The Council donation database trigger performs both the release validation
+  // and DONATED status change atomically with the INSERT. Never bypass it here.
+  if (parsed.data.disposition_type !== "DONATE") {
     const statusMap: Record<string,string> = {
-      REFURBISH: "TRIAGE", SELL: "READY_FOR_SALE", DONATE: "DONATED", PARTS: "PARTS",
+      REFURBISH: "TRIAGE", SELL: "READY_FOR_SALE", PARTS: "PARTS",
       RECYCLE: "RECYCLED", RETURN: "HOLD", HOLD: "HOLD", REJECT: "REJECTED",
     };
-    await supabase.from("assets").update({ status: statusMap[parsed.data.disposition_type] }).eq("id", parsed.data.asset_id);
-    await appendEvent(supabase, user.id, "asset", parsed.data.asset_id, "DISPOSITION_RECORDED", parsed.data);
+    const { error: updateError } = await supabase.from("assets")
+      .update({ status: statusMap[parsed.data.disposition_type] })
+      .eq("id", parsed.data.asset_id);
+    if (updateError) redirect(assetUrl + "?error=" + encodeURIComponent(updateError.message));
   }
-  revalidatePath(`/assets/${parsed.data.asset_id}`);
+  await appendEvent(supabase, user.id, "asset", parsed.data.asset_id, "DISPOSITION_RECORDED", parsed.data);
+  revalidatePath(assetUrl);
   revalidatePath("/dashboard");
-  redirect(`/assets/${parsed.data.asset_id}`);
+  redirect(assetUrl);
 }
 
 export async function issueCertificate(formData: FormData) {
