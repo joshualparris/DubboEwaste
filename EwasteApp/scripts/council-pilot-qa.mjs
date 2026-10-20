@@ -6,6 +6,7 @@ import assert from "node:assert/strict";
 const root = path.resolve(import.meta.dirname, "..");
 const sql = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_pilot_donation_gates.sql"),"utf8");
 const hardening = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_pilot_collection_recycling_gates.sql"),"utf8");
+const riskLabels = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_risk_source_rating_labels.sql"),"utf8");
 const riskSql = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_risk_management.sql"),"utf8");
 const riskActions = fs.readFileSync(path.join(root,"app/(private)/council-pilot/risks/actions.ts"),"utf8");
 const riskUi = fs.readFileSync(path.join(root,"app/(private)/council-pilot/risks/page.tsx"),"utf8");
@@ -48,6 +49,7 @@ mustContain(hardening,"Council collection/downstream gates",[
   "Verified recycler, serialised outbound entry, consignment reference",
   "failed media remain HOLD",
 ]);
+mustContain(riskLabels,"source-defined risk-rating labels",["council_risk_matrix_rating_source_label","drop constraint"]);
 mustContain(riskSql,"Council risk governance",[
  "council_risk_frameworks","council_risk_matrix_cells","council_risk_assessments",
  "council_risk_controls","council_risk_actions","council_risk_incidents",
