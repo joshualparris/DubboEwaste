@@ -46,3 +46,13 @@ Run these before any Council-owned asset is collected:
 ## Verification status
 
 Source-level regression checks: automated via \`npm run qa:council-pilot\`. GitHub CI runs \`npm run build\` on pull requests. At commit time, signed-in browser QA, multi-role RLS tests, real media erasure, 20-device physical dry run, restore test, insurer/Council paperwork and downstream handover **remain required**.
+
+
+## 20 October 2026: first draft and strengthened controls
+
+- Dedicated **unapproved DRAFT**: inbound job `DEW-J-2026-00004`, maximum 20, presently **zero real assets**. This entry does not claim Council acceptance or imply ownership transfer; it must remain uncollected until formal authority is uploaded.
+- Rollback-safe tests demonstrated that 20 synthetic device inserts were accepted and a 21st was rejected; **no test assets were retained**.
+- Admin/volunteer role policies and missing-approval activation were tested by impersonated SQL roles; those checks are not a signed-in browser session test.
+- Added explicit draft/paused collection lock, hashed custody evidence requirements and a job-status release guard.
+- Added defensive recycling closeout: verified downstream provider, receipt hash, consignment and received confirmation, plus independently sanitised media. **Failed media stays HOLD** until a separate secure-destruction evidence workflow is approved and verified; do not discard or mark destroyed prematurely.
+- Existing code-level checks/CI are not equivalent to physical acceptance, licence checks, liability insurance confirmation or NSW EPA/Council approval. Independent field evidence remains mandatory.
