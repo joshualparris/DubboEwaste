@@ -30,9 +30,10 @@ function done(batch:string,message:string,error=false):never{
  revalidatePath(location);revalidatePath("/council-pilot");
  redirect(location+"?"+new URLSearchParams({batch,[error?"error":"notice"]:message}));
 }
-async function actor(){
+async function actor(supervisorOnly=true){
  const {supabase,context}=await requireProgrammeContext();
- if(!context.global_admin && (context.selected!=="dubbo_ewaste" || !["admin","manager"].includes(context.role||""))){
+ if(!context.global_admin && (context.selected!=="dubbo_ewaste" ||
+    !(supervisorOnly?["admin","manager"]:["admin","manager","technician"]).includes(context.role||""))){
    redirect("/programmes?error=Council%20risk%20register%20requires%20an%20E-waste%20supervisor");
  }
  const {data:{user}}=await supabase.auth.getUser();
@@ -212,7 +213,7 @@ export async function updateRiskAction(fd:FormData){
  if(error)done(batch,error.message,true);done(batch,"Corrective action updated.");
 }
 export async function reportCouncilRiskIncident(fd:FormData){
- const batch=parseBatch(fd);const {supabase,user}=await actor();
+ const batch=parseBatch(fd);const {supabase,user}=await actor(false);
  const p=z.object({
   risk_id:opt,category:z.enum(["INJURY","NEAR_MISS","FIRE","BATTERY","ELECTRICAL","DATA_BREACH","LOST_DEVICE","THEFT","ENVIRONMENT","OTHER"]),
   severity:z.enum(["NEAR_MISS","MINOR","SERIOUS","CRITICAL"]),occurred_at:z.string().min(10).max(40),
@@ -222,7 +223,7 @@ export async function reportCouncilRiskIncident(fd:FormData){
  }).safeParse(Object.fromEntries(fd));
  if(!p.success)done(batch,"Enter incident type, severity, time, description and immediate actions",true);
  const timestamp=new Date(p.data.occurred_at);
- if(Number.isNaN(timestamp.valueOf())||timestamp>Date.now()+5*60*1000)done(batch,"Incident time is invalid or in the future",true);
+ if(!/(Z|[+-][0-9]{2}:[0-9]{2})$/.test(p.data.occurred_at)||Number.isNaN(timestamp.valueOf())||timestamp.valueOf()>Date.now()+5*60*1000)done(batch,"Incident time is invalid or in the future",true);
  if(p.data.risk_id){
   const {data:risk}=await supabase.from("council_risks").select("id").eq("id",p.data.risk_id).eq("batch_id",batch).maybeSingle();
   if(!risk)done(batch,"Selected risk does not belong to this pilot",true);
