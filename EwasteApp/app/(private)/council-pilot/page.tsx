@@ -47,7 +47,10 @@ export default async function CouncilPilotPage({
       supabase.from("council_pilot_agreement_readiness").select("*").eq("batch_id",selected.id).maybeSingle(),
     ])
     : [{data:[]},{data:null}];
-  const operationalActive = agreementReadiness?.collection_authorised === true;
+  const {data:riskReadiness}=selected
+    ? await supabase.from("council_risk_dashboard").select("*").eq("batch_id",selected.id).maybeSingle()
+    : {data:null};
+  const operationalActive = agreementReadiness?.collection_authorised === true && riskReadiness?.ready===true;
   const job = (jobs || []).find(j => j.id === selected?.job_id);
   const jobFiles = (jobEvidence || []) as Row[];
   const assetFiles = (allAssetEvidence || []) as Row[];
@@ -68,7 +71,10 @@ export default async function CouncilPilotPage({
         <Link className="button secondary" href="/jobs">Inbound jobs</Link>
         <Link className="button secondary" href="/media">Sanitisation workbench</Link>
         <Link className="button secondary" href="/recycling">Downstream recycling</Link>
-        {selected ? <Link className="button secondary" href={"/council-pilot/agreements?batch="+selected.id}>Manage signed Council agreement</Link> : null}
+        {selected ? <>
+          <Link className="button secondary" href={"/council-pilot/agreements?batch="+selected.id}>Manage signed Council agreement</Link>
+          <Link className="button secondary" href={"/council-pilot/risks?batch="+selected.id}>Risk register and stop-work</Link>
+        </> : null}
         <Link className="button secondary" href="/triage">Safety triage</Link>
         {selected ? <Link className="button secondary" href={"/api/council-pilot/export?batch=" + selected.id}>Export private Council CSV</Link> : null}
       </div>
@@ -103,6 +109,8 @@ export default async function CouncilPilotPage({
       <section className="card">
         <h2>{job?.job_code || "Council pilot"} · {selected.status}</h2>
         <p>Registered devices: <strong>{devices.length}/20</strong> · Fully release-ready: <strong>{passed}</strong> · Blocked: <strong>{devices.length - passed}</strong></p>
+        <p><strong>Risk and safety release:</strong> {riskReadiness?.ready===true?"Recorded risk requirements passed":"BLOCKED — missing Council-approved matrix, accepted assessments or verified controls"}</p>
+        <p><Link href={"/council-pilot/risks?batch="+selected.id}>Review hazards, outstanding controls and emergency stop-work rules</Link>.</p>
         <p><strong>Signed Council agreement:</strong> {operationalActive ? "Currently within recorded collection scope" : "BLOCKED — no valid linked agreement, or expired/revoked/paused"}</p>
         <p className="muted">The agreement's real dates, allowed collection sites and permitted activities are enforced independently of the batch ACTIVE flag.</p>
         <p className="muted">Draft and paused batches cannot accept devices. Donation is blocked without the required records. Recycling closeout also requires a verified downstream receipt. These records do not replace physical testing or Council approval.</p>
