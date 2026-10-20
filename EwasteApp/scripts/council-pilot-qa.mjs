@@ -5,6 +5,7 @@ import assert from "node:assert/strict";
 
 const root = path.resolve(import.meta.dirname, "..");
 const custodySql = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_custody_tracking.sql"),"utf8");
+const custodyHardening = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_custody_incident_hardening.sql"),"utf8");
 const custodyIntegration = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_custody_release_integration.sql"),"utf8");
 const custodyActions = fs.readFileSync(path.join(root,"app/(private)/council-pilot/custody/actions.ts"),"utf8");
 const custodyUi = fs.readFileSync(path.join(root,"app/(private)/council-pilot/custody/page.tsx"),"utf8");
@@ -45,6 +46,10 @@ mustContain(custodySql,"Council custody constraints",[
  "revoke insert on public.pilot_custody_events from authenticated",
  "council_custody_reconcile_exceptions","extensions.digest",
  "verified_transfer_id","entry_hash","status='OPEN'",
+]);
+mustContain(custodyHardening,"custody incident and integrity",[
+ "council_custody_discrepancy_pause","council_custody_rejection_flag",
+ "council_custody_chain_validation","Cannot retire location with outstanding devices"
 ]);
 mustContain(custodyIntegration,"custody release integration",[
  "private.pilot_release_blockers","private.council_custody_release_ok",
