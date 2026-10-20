@@ -336,6 +336,42 @@ on public.dispositions for each row execute function private.council_agreement_o
 create trigger council_agreement_job_operations before update of status
 on public.jobs for each row execute function private.council_agreement_operations_guard();
 
+
+-- Emergency custody records remain possible after PAUSED/REVOKED/expiry.
+-- They still require the same asset-linked hashed proof for release or return.
+create or replace function private.pilot_evidence_link_guard()
+returns trigger language plpgsql security definer set search_path=''
+as $safe$
+declare v_status text;
+begin
+ if not exists(select 1 from public.assets where id=new.asset_id and programme='dubbo_ewaste')
+ then raise exception 'Evidence must belong to a Dubbo E-waste asset'; end if;
+ select b.status into v_status
+ from public.assets a join public.council_pilot_batches b on b.job_id=a.job_id
+ where a.id=new.asset_id;
+ if v_status is null then raise exception 'Council custody or handover needs its matching pilot batch'; end if;
+ if tg_table_name='pilot_custody_events' then
+   if new.event_type not in ('RETURNED','QUARANTINED') and v_status<>'ACTIVE' then
+     raise exception 'Custody movements require an ACTIVE authorised Council batch'; end if;
+   if new.event_type in ('COLLECTED','RECEIVED','RETURNED','HANDOVER') and new.evidence_id is null then
+     raise exception 'A hashed receiving/collection/handover/return document is required'; end if;
+   if new.evidence_id is not null and not exists (
+     select 1 from public.evidence e where e.id=new.evidence_id
+       and e.entity_type='asset' and e.entity_id=new.asset_id
+       and length(coalesce(e.sha256,''))=64)
+   then raise exception 'Custody evidence must belong to the same asset'; end if;
+ else
+   if v_status<>'ACTIVE' then raise exception 'Recipient handover requires an ACTIVE Council batch'; end if;
+   if not exists(select 1 from public.evidence e where e.id=new.acceptance_evidence_id
+       and e.entity_type='asset' and e.entity_id=new.asset_id
+       and length(coalesce(e.sha256,''))=64)
+   then raise exception 'A hashed, asset-linked recipient acceptance file is required'; end if;
+ end if;
+ if new.created_by is distinct from auth.uid() then
+   raise exception 'Custody and handover records must identify the signed-in operator'; end if;
+ return new;
+end $safe$;
+
 -- Show truthful derived validity even if an ACTIVE flag remains after expiry.
 create or replace view public.council_pilot_agreement_readiness with(security_invoker=true) as
 select b.id as batch_id,b.job_id,b.status as batch_status,b.approved_agreement_id,
