@@ -50,6 +50,9 @@ export default async function CouncilPilotPage({
   const {data:riskReadiness}=selected
     ? await supabase.from("council_risk_dashboard").select("*").eq("batch_id",selected.id).maybeSingle()
     : {data:null};
+  const {data:custodyStatus}=selected ? await supabase.from("council_custody_asset_status")
+    .select("asset_id,release_evidence_complete,open_discrepancies,pending_handoffs").eq("batch_id",selected.id)
+    : {data:[]};
   const operationalActive = agreementReadiness?.collection_authorised === true && riskReadiness?.ready===true;
   const job = (jobs || []).find(j => j.id === selected?.job_id);
   const jobFiles = (jobEvidence || []) as Row[];
@@ -76,7 +79,10 @@ export default async function CouncilPilotPage({
           <Link className="button secondary" href={"/council-pilot/risks?batch="+selected.id}>Risk register and stop-work</Link>
         </> : null}
         <Link className="button secondary" href="/triage">Safety triage</Link>
-        {selected ? <Link className="button secondary" href={"/api/council-pilot/export?batch=" + selected.id}>Export private Council CSV</Link> : null}
+        {selected ? <>
+          <Link className="button secondary" href={"/council-pilot/custody?batch="+selected.id}>QR custody and stocktake</Link>
+          <Link className="button secondary" href={"/api/council-pilot/export?batch=" + selected.id}>Export private Council CSV</Link>
+        </> : null}
       </div>
     </div>
     {params.error ? <div className="error" role="alert">{params.error}</div> : null}
@@ -109,6 +115,7 @@ export default async function CouncilPilotPage({
       <section className="card">
         <h2>{job?.job_code || "Council pilot"} · {selected.status}</h2>
         <p>Registered devices: <strong>{devices.length}/20</strong> · Fully release-ready: <strong>{passed}</strong> · Blocked: <strong>{devices.length - passed}</strong></p>
+        <p><strong>Verified custody release:</strong> {(custodyStatus||[]).filter(x=>x.release_evidence_complete===true).length} device(s) have a complete independently acknowledged chain, signed stocktake and no unresolved discrepancies.</p>
         <p><strong>Risk and safety release:</strong> {riskReadiness?.ready===true?"Recorded risk requirements passed":"BLOCKED — missing Council-approved matrix, accepted assessments or verified controls"}</p>
         <p><Link href={"/council-pilot/risks?batch="+selected.id}>Review hazards, outstanding controls and emergency stop-work rules</Link>.</p>
         <p><strong>Signed Council agreement:</strong> {operationalActive ? "Currently within recorded collection scope" : "BLOCKED — no valid linked agreement, or expired/revoked/paused"}</p>
@@ -171,18 +178,9 @@ export default async function CouncilPilotPage({
                   <label>Signed transfer document (upload above first)<select name="evidence_id" required defaultValue="">{evidenceOptions(files)}</select></label>
                   <button className="button secondary">Record signed transfer authority</button>
                 </form>
-                <h3>Append custody event</h3>
-                <form action={recordPilotCustody} className="form">
-                  <input type="hidden" name="batch_id" value={selected.id} />
-                  <input type="hidden" name="asset_id" value={asset.asset_id} />
-                  <label>Event<select name="event_type"><option>RECEIVED</option><option>COLLECTED</option><option>INTERNAL_MOVE</option><option>QUARANTINED</option><option>RETURNED</option><option>HANDOVER</option></select></label>
-                  <label>From<input name="from_location" maxLength={240} placeholder="Council collection point, locked shelf etc"/></label>
-                  <label>To<input name="to_location" maxLength={240} placeholder="Secure receiving rack etc"/></label>
-                  <label>Custody reference / operator note<input name="reference" required minLength={3} maxLength={240}/></label>
-                  <label>Asset evidence file<select name="evidence_id" defaultValue="">{evidenceOptions(files)}</select></label>
-                  <button className="button secondary">Append custody event</button>
-                </form>
-                <p className="muted">Recent custody: {events.filter(e => e.asset_id === asset.asset_id).slice(0,5).map(e => e.event_type + " (" + e.reference + ")").join(" · ") || "none"}</p>
+                <h3>Two-person QR custody ledger</h3>
+                <p className="muted">Direct one-person custody entries are disabled. Both operators must scan the physical device, provide original evidence and acknowledge handover before custody becomes verified.</p>
+                <Link className="button secondary" href={"/council-pilot/custody?batch="+selected.id}>Open secure custody and reconciliation</Link>
                 <h3>Recipient acceptance and handover</h3>
                 {acknowledgement ? <p>Receipt {acknowledgement.receipt_reference} · {acknowledgement.recipient_organisation} · {new Date(acknowledgement.acknowledged_at).toLocaleString("en-AU")}</p>
                   : <form action={recordDonationHandover} className="form">

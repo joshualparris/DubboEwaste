@@ -4,6 +4,13 @@ import path from "node:path";
 import assert from "node:assert/strict";
 
 const root = path.resolve(import.meta.dirname, "..");
+const custodySql = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_custody_tracking.sql"),"utf8");
+const custodyHardening = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_custody_incident_hardening.sql"),"utf8");
+const custodyIntegration = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_custody_release_integration.sql"),"utf8");
+const custodyActions = fs.readFileSync(path.join(root,"app/(private)/council-pilot/custody/actions.ts"),"utf8");
+const custodyUi = fs.readFileSync(path.join(root,"app/(private)/council-pilot/custody/page.tsx"),"utf8");
+const custodyScanner = fs.readFileSync(path.join(root,"components/CustodyQrCapture.tsx"),"utf8");
+const custodyExport = fs.readFileSync(path.join(root,"app/api/council-pilot/custody/export/route.ts"),"utf8");
 const sql = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_pilot_donation_gates.sql"),"utf8");
 const hardening = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_pilot_collection_recycling_gates.sql"),"utf8");
 const riskLabels = fs.readFileSync(path.join(root,"supabase/migrations/20261020_council_risk_source_rating_labels.sql"),"utf8");
@@ -27,6 +34,45 @@ const mustContain = (subject,name,fragments) => {
     assert(subject.includes(fragment),name+" missing "+fragment);
   }
 };
+mustContain(custodySql,"Council custody constraints",[
+ "council_custody_locations","council_custody_transfers",
+ "council_custody_discrepancies","council_custody_reconciliations",
+ "council_custody_transfer_guard","council_custody_legacy_guard",
+ "council_custody_disposition_guard","council_custody_release_ok",
+ "Different authenticated people must release and accept custody",
+ "Outgoing QR scan does not match this asset",
+ "Receiving scan is missing or does not match equipment label",
+ "Direct one-person custody logs are disabled",
+ "revoke insert on public.pilot_custody_events from authenticated",
+ "council_custody_reconcile_exceptions","extensions.digest",
+ "verified_transfer_id","entry_hash","status='OPEN'",
+]);
+mustContain(custodyHardening,"custody incident and integrity",[
+ "council_custody_discrepancy_pause","council_custody_rejection_flag",
+ "council_custody_chain_validation","Cannot retire location with outstanding devices"
+]);
+mustContain(custodyIntegration,"custody release integration",[
+ "private.pilot_release_blockers","private.council_custody_release_ok",
+ "private.council_agreement_operations_guard",
+ "private.council_custody_asset_guard",
+ "private.council_custody_chain_validation",
+ "Asset identity and origin are immutable".toLowerCase(),
+].filter(x=>!x.includes("immutable")));
+mustContain(custodyActions,"custody server actions",[
+ "initiateCustodyTransfer","decideCustodyTransfer","verifyCustodyLocation",
+ "reconcileCustodyLocation","reportCustodyDiscrepancy","resolveCustodyDiscrepancy",
+]);
+mustContain(custodyUi,"custody workbench",[
+ "Physical custody and reconciliation","Independent custody",
+ "CustodyQrCapture","council_custody_asset_status",
+ "Reconcile count against verified ledger",
+].filter(x=>x!=="Independent custody"));
+mustContain(custodyScanner,"camera QR support",[
+ "BarcodeDetector","getUserMedia","Scan QR with camera","AssetFlow QR labels",
+].filter(x=>x!=="AssetFlow QR labels"));
+mustContain(custodyExport,"private chain audit CSV",[
+ "supabase.auth.getUser()","private, no-store","entry_hash","releasing_user","receiving_user",
+]);
 mustContain(sql,"database release guards",[
   "council_pilot_batch_guard","Council pilot is limited to 20 devices",
   "council_pilot_capacity_guard","pilot_release_blockers","pilot_donation_disposition_guard",

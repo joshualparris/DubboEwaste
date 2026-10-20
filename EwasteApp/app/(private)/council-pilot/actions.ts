@@ -77,33 +77,12 @@ export async function updatePilotBatch(formData: FormData) {
   finish(row.status === "ACTIVE" ? "Pilot activated against uploaded evidence. This is not proof of Council approval." : "Pilot batch saved.", false, row.batch_id);
 }
 
+// Retained as an explicit fail-closed redirect for stale links and old clients.
 export async function recordPilotCustody(formData: FormData) {
-  const parsed = z.object({
-    batch_id: uuid, asset_id: uuid,
-    event_type: z.enum(["COLLECTED", "RECEIVED", "INTERNAL_MOVE", "QUARANTINED", "RETURNED", "HANDOVER"]),
-    from_location: z.string().trim().max(240).optional(),
-    to_location: z.string().trim().max(240).optional(),
-    reference: z.string().trim().min(3).max(240),
-    evidence_id: optionalId,
-  }).safeParse(Object.fromEntries(formData));
-  if (!parsed.success) finish("Enter asset, custody event and a reference", true);
-  const { supabase, user } = await operator();
-  const row = parsed.data;
-  const { data: asset } = await supabase.from("assets").select("job_id,programme").eq("id", row.asset_id).maybeSingle();
-  const { data: batch } = await supabase.from("council_pilot_batches").select("job_id").eq("id", row.batch_id).maybeSingle();
-  if (!asset || !batch || asset.job_id !== batch.job_id || asset.programme !== "dubbo_ewaste") {
-    finish("Asset is not part of the selected Council batch", true, row.batch_id);
-  }
-  if (row.event_type === "RECEIVED" && !row.evidence_id) {
-    finish("Attach a hashed collection/receiving record to the asset before confirming custody", true, row.batch_id);
-  }
-  const { error } = await supabase.from("pilot_custody_events").insert({
-    asset_id: row.asset_id, event_type: row.event_type,
-    from_location: row.from_location || null, to_location: row.to_location || null,
-    reference: row.reference, evidence_id: row.evidence_id, created_by: user.id,
-  });
-  if (error) finish(error.message, true, row.batch_id);
-  finish("Append-only custody event recorded.", false, row.batch_id);
+  const id = uuid.safeParse(formData.get("batch_id"));
+  if (!id.success) redirect("/council-pilot");
+  redirect("/council-pilot/custody?batch="+id.data+"&error="+
+    encodeURIComponent("Single-person custody recording is disabled. Create a two-person QR-confirmed transfer."));
 }
 
 export async function recordDonationHandover(formData: FormData) {
