@@ -38,30 +38,41 @@
 
 If answer to #1 is impossible under current agreement, pause direct Council proposal and focus on independent donor model with its own approvals (Fair Trading/licence, site/lease/planning, insurer and data controls). Do **not** presume any noncommercial donation model is automatically exempt from product safety, property-title or second-hand dealer obligations.
 
-## Proposed short email, not sent
+## Additional primary-source insurance clarification (20 October 2026)
 
-Subject: Follow-up on Whylandra computer reuse proposal
+A recheck of Council's actual published documents shows a materially more precise answer than the earlier draft suggested:
+
+1. The **general April 2022 Procurement Policy** explicitly requires assessment and management of risks, refering to Council's Risk Management Policy and WHS contractor guidelines (p.6). It does **not itself specify** a blanket public liability limit for this pilot. Source: https://www.dubbo.nsw.gov.au/ArticleDocuments/241/Council%20Policy%20-%20Procurement.pdf.aspx?Embed=Y
+2. Council's **Prequalify as a Local Contractor** page (building trades, minor civil works, horticulture) **does require evidence of $10 million minimum public liability insurance**. These panel categories are not the proposed laptop reuse pathway. Source: https://www.dubbo.nsw.gov.au/business-investors/networks-and-opportunities/doing-business-with-council/prequalify-as-a-local-contractor
+3. The **Prequalified Supplier Panel Head Agreement**, Head Agreement Details p.5, lists **broadform public and products insurance $10m per occurrence** (with additional aggregate wording for products), and clause H8.2 p.12 requires certificates of currency on request, including covered risks and exclusions. It may provide an example of contractual assurance only; **not evidence** Council has chosen this panel or these amounts for an e-waste trial. Source: https://www.dubbo.nsw.gov.au/ArticleDocuments/435/Head%20Agreement%20-%20Prequalified%20Supplier%20Panel.pdf.aspx?Embed=Y
+4. **Accordingly, the most appropriate email question is whether this existing $10m cover or different requirements would apply**, and what Council trial risk/agreement template would be appropriate. Do not claim the generic Procurement Policy itself demands certificates of currency.
+
+**Pilot size:** circa 20 devices is a suggested negotiation starting point only, subject to Council agreement and separate operating/regulatory feasibility. NIST SP 800-88 Rev. 2 is a proposed technical framework; the operator must independently verify and record sanitisation rather than claim existing compliance or certify absent drives as erased.
+
+## Current three-question email (supersedes earlier draft; not sent)
+
+Subject: Re: Refurbishing Laptops Desktops — possible reuse pilot
 
 Hi Mark,
 
-Thanks for considering my proposal and explaining Council's concerns. I've since reviewed Council's published waste strategy, procurement and governance documents.
+Thanks for your reply on 20 October and for explaining Council's concerns. I'm not looking to resell equipment. My aim is to refurbish suitable laptops and desktops and donate them to local community organisations.
 
-Just to clarify, my aim is to refurbish suitable laptops and desktops and **donate them to local community organisations**, not sell them.
+I understand the Whylandra arrangements remain unchanged, and I wouldn't collect anything without written approval. I've copied Anel as we've also discussed the broader community reuse work.
 
-I understand the existing Whylandra arrangements remain in place, and I wouldn't collect anything without written approval.
+Before preparing a formal submission, could I please ask:
 
-Before preparing a detailed risk, privacy, sanitisation and insurance submission, could you please advise:
+1. Who would be the appropriate person or team to discuss how a small reuse trial could be assessed?
+2. Does the current e-waste contract restrict separating reusable devices before they reach the contractor, and at what point does ownership transfer?
+3. Council's published prequalified-contractor documents refer to $10 million public/products liability cover and certificates of currency. Would that, or different insurance requirements, apply here? Is there a preferred Council risk matrix or trial-agreement template?
 
-1. Does the current e-waste arrangement prevent a small, authorised reuse pilot, or could there be a pathway involving Council and the existing contractor?
-2. If a pathway might exist, who would be the right person/team to discuss its formal assessment and approval requirements?
-3. Is there a project-specific checklist or agreement/insurance standard they would want me to work to?
+For scale, I'd propose **around 20 devices initially, subject to Council agreement**, with data-bearing media appropriately sanitised and verified using NIST SP 800-88 Rev. 2, with records for each device.
 
-If there isn't a feasible pathway at present, that's helpful to know too. In the meantime, I'll explore proving the process using privately donated equipment, independently of Council.
-
-Thanks again for your guidance.
+If no Council-site pathway is available for now, I'll explore a separate proof of process using privately donated equipment and would appreciate the opportunity to share the documented results later. I'm happy to discuss by a quick 10-minute phone call if that's easier.
 
 Kind regards,
 Josh Parris
+DubboEwaste (proposed initiative)
+[phone number]
 
 ## Public reference links and next step
 
