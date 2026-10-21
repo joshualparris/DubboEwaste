@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-21",
+  "cursor": 6,
+  "unique_projects": 214,
+  "eligible": 138,
+  "playtested": 0,
+  "blocked_today": 2,
+  "next": [
+    "buckland-blocks-demo",
+    "Cheappcslaptops"
+  ],
+  "rotation_source": "private 2026-10-19 baseline and public 2026-10-20 cursor",
+  "note": "Aggregate-only snapshot; full private inventory not updated."
+}
