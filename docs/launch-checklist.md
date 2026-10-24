@@ -10,37 +10,37 @@ For the physical shed itself, use [MINIMUM-PHYSICAL-SHED-SETUP-CHECKLIST.md](MIN
 
 ## Before accepting equipment
 
-- [ ] Read and use [PHASE-0-OPERATING-BLUEPRINT.md](PHASE-0-OPERATING-BLUEPRINT.md) as the current Phase 0 design.
-- [ ] Define the exact legal entity that would operate Dubbo eWaste.
-- [ ] Check availability/register the **Dubbo eWaste** business name if proceeding.
-- [ ] Ask NSW Fair Trading in writing whether the **recycling and rubbish collection program exemption** covers the proposed collect → refurbish/resell → recycle model.
-- [ ] If an existing IT business may operate the project, confirm its legal entity, licence status and whether the proposed activity/premises are actually covered.
-- [ ] Ask Dubbo Regional Council to classify the **exact** pre-approved Tue/Sat model: <30 m², low traffic, no unattended bin, no outdoor stockpile, no walk-in retail showroom, online sales. Ask whether it is exempt home business, another use requiring consent, or a waste/resource activity.
-- [ ] If Council accepts a home-business pathway, keep business floor area within Dubbo LEP's 30 m² limit and every other exempt-development condition.
-- [ ] Confirm the intended shed area is permitted under the tenancy/landlord arrangements.
-- [ ] **Do not store resale stock or unwiped data devices there until the shed is demonstrably dry, secure and suitable given the documented moisture/mould history.**
-- [ ] Obtain public/product liability insurance quotes.
-- [ ] Identify a commercial downstream e-waste recycler and obtain its acceptance rules and pricing.
-- [ ] Check whether NSW scrap-metal registration is required for the planned activities.
+- [ ] **UN-20261024-018-0013** Read and use [PHASE-0-OPERATING-BLUEPRINT.md](PHASE-0-OPERATING-BLUEPRINT.md) as the current Phase 0 design.
+- [ ] **UN-20261024-018-0014** Define the exact legal entity that would operate Dubbo eWaste.
+- [ ] **UN-20261024-018-0015** Check availability/register the **Dubbo eWaste** business name if proceeding.
+- [ ] **UN-20261024-018-0016** Ask NSW Fair Trading in writing whether the **recycling and rubbish collection program exemption** covers the proposed collect → refurbish/resell → recycle model.
+- [ ] **UN-20261024-018-0017** If an existing IT business may operate the project, confirm its legal entity, licence status and whether the proposed activity/premises are actually covered.
+- [ ] **UN-20261024-018-0018** Ask Dubbo Regional Council to classify the **exact** pre-approved Tue/Sat model: <30 m², low traffic, no unattended bin, no outdoor stockpile, no walk-in retail showroom, online sales. Ask whether it is exempt home business, another use requiring consent, or a waste/resource activity.
+- [ ] **UN-20261024-018-0019** If Council accepts a home-business pathway, keep business floor area within Dubbo LEP's 30 m² limit and every other exempt-development condition.
+- [ ] **UN-20261024-018-0020** Confirm the intended shed area is permitted under the tenancy/landlord arrangements.
+- [ ] **UN-20261024-018-0021** **Do not store resale stock or unwiped data devices there until the shed is demonstrably dry, secure and suitable given the documented moisture/mould history.**
+- [ ] **UN-20261024-018-0022** Obtain public/product liability insurance quotes.
+- [ ] **UN-20261024-018-0023** Identify a commercial downstream e-waste recycler and obtain its acceptance rules and pricing.
+- [ ] **UN-20261024-018-0024** Check whether NSW scrap-metal registration is required for the planned activities.
 
 ## Minimum operating controls
 
-- [ ] Asset intake record for every device.
-- [ ] Record who transferred the equipment and that ownership was transferred.
-- [ ] Unique asset/intake ID.
-- [ ] Separate data-bearing devices immediately.
-- [ ] Documented erase/test process.
-- [ ] Record erase result or physical destruction outcome.
-- [ ] Triage categories: reuse / repair / parts / redeploy-donate / recycle.
-- [ ] Phase 0 does **not** accept loose lithium batteries; inspect embedded batteries before acceptance.
-- [ ] Confirm insurer/FRNSW-appropriate smoke/heat detection and safe charging/testing controls for the actual workspace.
-- [ ] Non-combustible charging surface.
-- [ ] No unattended/overnight charging.
-- [ ] Reject damaged/swollen/wet/fire-affected battery devices at intake. If damage is discovered later, stop use/charging and follow FRNSW/B-cycle/accredited-collector guidance.
-- [ ] No business waste sent through household CRC services as the business disposal pathway.
-- [ ] Give each workflow zone a physical shelf/bin limit; **full zone = pause intake**.
-- [ ] No unattended drop-off, gate pile, public waste bin or outdoor stock.
-- [ ] Pre-screen every item before it is given an intake appointment.
+- [ ] **UN-20261024-018-0028** Asset intake record for every device.
+- [ ] **UN-20261024-018-0029** Record who transferred the equipment and that ownership was transferred.
+- [ ] **UN-20261024-018-0030** Unique asset/intake ID.
+- [ ] **UN-20261024-018-0031** Separate data-bearing devices immediately.
+- [ ] **UN-20261024-018-0032** Documented erase/test process.
+- [ ] **UN-20261024-018-0033** Record erase result or physical destruction outcome.
+- [ ] **UN-20261024-018-0034** Triage categories: reuse / repair / parts / redeploy-donate / recycle.
+- [ ] **UN-20261024-018-0035** Phase 0 does **not** accept loose lithium batteries; inspect embedded batteries before acceptance.
+- [ ] **UN-20261024-018-0036** Confirm insurer/FRNSW-appropriate smoke/heat detection and safe charging/testing controls for the actual workspace.
+- [ ] **UN-20261024-018-0037** Non-combustible charging surface.
+- [ ] **UN-20261024-018-0038** No unattended/overnight charging.
+- [ ] **UN-20261024-018-0039** Reject damaged/swollen/wet/fire-affected battery devices at intake. If damage is discovered later, stop use/charging and follow FRNSW/B-cycle/accredited-collector guidance.
+- [ ] **UN-20261024-018-0040** No business waste sent through household CRC services as the business disposal pathway.
+- [ ] **UN-20261024-018-0041** Give each workflow zone a physical shelf/bin limit; **full zone = pause intake**.
+- [ ] **UN-20261024-018-0042** No unattended drop-off, gate pile, public waste bin or outdoor stock.
+- [ ] **UN-20261024-018-0043** Pre-screen every item before it is given an intake appointment.
 
 ## Cheapest pilot
 
