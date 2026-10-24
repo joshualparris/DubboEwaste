@@ -28,35 +28,35 @@ The research phase is broad enough for a tightly controlled, known-source Phase 
 
 ## P0 — must close before public or institutional intake
 
-- [ ] **Council:** obtain written planning/use classification for the exact premises, storage, traffic, online sales, testing and waste activity. Owner: operator + Dubbo Regional Council.
-- [ ] **Fair Trading:** obtain written interpretation of recycling exemption, donated/free devices, prescribed electronics, 14-day hold, alteration, wiping and premises notification. Owner: operator + NSW Fair Trading.
-- [ ] **Insurance:** obtain written quote/exclusions for customer devices in custody, repair, resale, batteries, fire, data/privacy, visitors, collection/delivery and product liability. Owner: operator + broker/insurer.
-- [ ] **Premises:** prove the shed is dry, secure, ventilated, electrically safe, separated from living areas and within the storage cap. Owner: operator.
-- [ ] **Battery:** complete site-specific quarantine, damaged-battery response and evacuation/000 drill with insurer/WHS/fire guidance. Owner: operator.
-- [ ] **Downstream:** obtain written AMR/alternative acceptance, lithium, CRT, commercial-load, fee, weight-ticket, certificate and rejected-load terms. Owner: operator + receiver.
-- [ ] **Data:** test and document a safe route for HDD, SATA SSD, NVMe, eMMC, Apple/Android devices and failed wipes before taking customer data.
+- [ ] **UN-20261024-002-0031** **Council:** obtain written planning/use classification for the exact premises, storage, traffic, online sales, testing and waste activity. Owner: operator + Dubbo Regional Council.
+- [ ] **UN-20261024-002-0032** **Fair Trading:** obtain written interpretation of recycling exemption, donated/free devices, prescribed electronics, 14-day hold, alteration, wiping and premises notification. Owner: operator + NSW Fair Trading.
+- [ ] **UN-20261024-002-0033** **Insurance:** obtain written quote/exclusions for customer devices in custody, repair, resale, batteries, fire, data/privacy, visitors, collection/delivery and product liability. Owner: operator + broker/insurer.
+- [ ] **UN-20261024-002-0034** **Premises:** prove the shed is dry, secure, ventilated, electrically safe, separated from living areas and within the storage cap. Owner: operator.
+- [ ] **UN-20261024-002-0035** **Battery:** complete site-specific quarantine, damaged-battery response and evacuation/000 drill with insurer/WHS/fire guidance. Owner: operator.
+- [ ] **UN-20261024-002-0036** **Downstream:** obtain written AMR/alternative acceptance, lithium, CRT, commercial-load, fee, weight-ticket, certificate and rejected-load terms. Owner: operator + receiver.
+- [ ] **UN-20261024-002-0037** **Data:** test and document a safe route for HDD, SATA SSD, NVMe, eMMC, Apple/Android devices and failed wipes before taking customer data.
 
 ## P1 — prove the operating model
 
-- [ ] Build and time the USB diagnostic/sanitisation kit on three representative machines.
-- [ ] Run the competency checklist and record pass/fail evidence for each device class.
-- [ ] Use the rejection log for every enquiry, including declined offers.
-- [ ] Pre-register a 20–30-item known-authority pilot with stop rules.
-- [ ] Measure triage, repair, sanitisation, listing, packing, return and downstream labour.
-- [ ] Track sold prices, days in stock, returns, disposal cost and gross contribution per labour hour.
-- [ ] Interview FlipTech or a comparable operator about thresholds, residue, staffing and regional partnership terms.
-- [ ] Interview Dubbo MSPs, Catholic/independent schools, local repairers and potential social-reuse partners.
-- [ ] Obtain current RTO/course quotes and complete the practical learning syllabus.
-- [ ] Test tracker export, backup, restore, redaction and retention with synthetic data.
-- [ ] Confirm a named recipient pathway before accepting donation-targeted stock.
+- [ ] **UN-20261024-002-0041** Build and time the USB diagnostic/sanitisation kit on three representative machines.
+- [ ] **UN-20261024-002-0042** Run the competency checklist and record pass/fail evidence for each device class.
+- [ ] **UN-20261024-002-0043** Use the rejection log for every enquiry, including declined offers.
+- [ ] **UN-20261024-002-0044** Pre-register a 20–30-item known-authority pilot with stop rules.
+- [ ] **UN-20261024-002-0045** Measure triage, repair, sanitisation, listing, packing, return and downstream labour.
+- [ ] **UN-20261024-002-0046** Track sold prices, days in stock, returns, disposal cost and gross contribution per labour hour.
+- [ ] **UN-20261024-002-0047** Interview FlipTech or a comparable operator about thresholds, residue, staffing and regional partnership terms.
+- [ ] **UN-20261024-002-0048** Interview Dubbo MSPs, Catholic/independent schools, local repairers and potential social-reuse partners.
+- [ ] **UN-20261024-002-0049** Obtain current RTO/course quotes and complete the practical learning syllabus.
+- [ ] **UN-20261024-002-0050** Test tracker export, backup, restore, redaction and retention with synthetic data.
+- [ ] **UN-20261024-002-0051** Confirm a named recipient pathway before accepting donation-targeted stock.
 
 ## P2 — expand only after the pilot passes
 
-- [ ] Add TVs, consoles, printers, monitors, board-level repair, batteries or mixed loads only with separate safety/economic/route evidence.
-- [ ] Compare wholesale buyers and parts/scrap routes using actual quotes and sell-through.
-- [ ] Formalise warranty, recall, repair-notice and consumer-remedy workflows.
-- [ ] Define impact accounting only after mass, reuse and final-route evidence is available.
-- [ ] Consider a regional ITAD partnership or branch only after pilot economics and written partner terms support it.
+- [ ] **UN-20261024-002-0055** Add TVs, consoles, printers, monitors, board-level repair, batteries or mixed loads only with separate safety/economic/route evidence.
+- [ ] **UN-20261024-002-0056** Compare wholesale buyers and parts/scrap routes using actual quotes and sell-through.
+- [ ] **UN-20261024-002-0057** Formalise warranty, recall, repair-notice and consumer-remedy workflows.
+- [ ] **UN-20261024-002-0058** Define impact accounting only after mass, reuse and final-route evidence is available.
+- [ ] **UN-20261024-002-0059** Consider a regional ITAD partnership or branch only after pilot economics and written partner terms support it.
 
 ## External closure pack
 
@@ -93,8 +93,8 @@ This section captures the wider set of useful work an AI coding/research agent c
 - [x] Add synthetic examples so the tools can be exercised without personal data or real device identifiers.
 - [x] Convert the intake tool into the production browser app with guided triage, QR asset IDs and private evidence/photo attachments.
 - [x] Replace the MVP demo login/local storage model with Supabase Auth, server-side/RLS permissions, private Storage evidence, audit logging and the production database.
-- [ ] Test a physical diagnostic/sanitisation USB kit on representative equipment.
-- [ ] Perform real backup/restore and retention testing with the operator's chosen storage system.
+- [ ] **UN-20261024-002-0096** Test a physical diagnostic/sanitisation USB kit on representative equipment.
+- [ ] **UN-20261024-002-0097** Perform real backup/restore and retention testing with the operator's chosen storage system.
 
 ### B. Inventory, resale and technical workflows
 
@@ -102,33 +102,33 @@ This section captures the wider set of useful work an AI coding/research agent c
 - [x] Add a repeatable unit-economics calculation specification.
 - [x] Add listing, warranty, returns, recall and repair-notice workflow links.
 - [x] Add category-specific triage and route rules.
-- [ ] Import actual sold-price observations from approved marketplace exports or manual research.
-- [ ] Validate repair and wipe scripts on real devices; never infer a wipe from a software exit code alone.
-- [ ] Establish real parts, wholesale and downstream quotes.
+- [ ] **UN-20261024-002-0105** Import actual sold-price observations from approved marketplace exports or manual research.
+- [ ] **UN-20261024-002-0106** Validate repair and wipe scripts on real devices; never infer a wipe from a software exit code alone.
+- [ ] **UN-20261024-002-0107** Establish real parts, wholesale and downstream quotes.
 
 ### C. Research and evidence production
 
 - [x] Add an AI research workflow with claim-level citations and evidence labels.
 - [x] Add a research backlog covering legal, safety, competitors, courses, resale, community and downstream questions.
 - [x] Add source freshness and unresolved-claim review guidance.
-- [ ] Recheck time-sensitive sources and record new date-checked evidence.
-- [ ] Conduct operator, MSP, school, repairer, recycler and social-recipient interviews.
-- [ ] Obtain current course, insurance, premises, Council, Fair Trading and receiver quotes or written answers.
+- [ ] **UN-20261024-002-0114** Recheck time-sensitive sources and record new date-checked evidence.
+- [ ] **UN-20261024-002-0115** Conduct operator, MSP, school, repairer, recycler and social-recipient interviews.
+- [ ] **UN-20261024-002-0116** Obtain current course, insurance, premises, Council, Fair Trading and receiver quotes or written answers.
 
 ### D. Business development and communications
 
 - [x] Maintain ready-to-review call scripts, email drafts, partner questions and capability-document structure.
 - [x] Add a partner/recipient validation checklist and no-claim rules.
-- [ ] Send outreach through an approved account and record replies in the evidence register.
-- [ ] Prepare grant, sponsorship, collection and community-impact applications using verified figures only.
+- [ ] **UN-20261024-002-0122** Send outreach through an approved account and record replies in the evidence register.
+- [ ] **UN-20261024-002-0123** Prepare grant, sponsorship, collection and community-impact applications using verified figures only.
 
 ### E. Safety, privacy and governance
 
 - [x] Keep raw personal data, device identifiers and private session outputs out of the public repository.
 - [x] Define safe handling boundaries for batteries, data-bearing devices, ownership and downstream claims.
 - [x] Add deterministic validation to CI for evidence and pilot schemas.
-- [ ] Complete site-specific battery, fire, electrical, insurance, privacy and incident drills.
-- [ ] Obtain qualified advice where legal, accounting, electrical, battery or WHS decisions are material.
+- [ ] **UN-20261024-002-0130** Complete site-specific battery, fire, electrical, insurance, privacy and incident drills.
+- [ ] **UN-20261024-002-0131** Obtain qualified advice where legal, accounting, electrical, battery or WHS decisions are material.
 
 ### AI completion boundary
 
