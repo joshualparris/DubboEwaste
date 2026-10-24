@@ -5,36 +5,36 @@
 
 
 ## BLOCKS PUBLIC INTAKE
-- [ ] Council planning answer in writing.
-- [ ] Fair Trading licence/exemption position in writing.
-- [ ] 14-day hold/wipe question closed if licence applies.
-- [ ] Insurance bound for actual activities.
-- [ ] Avance/employment conflict resolved before MSP outreach.
-- [ ] Premises dry, secure and access-controlled.
-- [ ] Lithium incident procedure posted.
-- [ ] No unattended public drop bin.
+- [ ] **UN-20261024-010-0008** Council planning answer in writing.
+- [ ] **UN-20261024-010-0009** Fair Trading licence/exemption position in writing.
+- [ ] **UN-20261024-010-0010** 14-day hold/wipe question closed if licence applies.
+- [ ] **UN-20261024-010-0011** Insurance bound for actual activities.
+- [ ] **UN-20261024-010-0012** Avance/employment conflict resolved before MSP outreach.
+- [ ] **UN-20261024-010-0013** Premises dry, secure and access-controlled.
+- [ ] **UN-20261024-010-0014** Lithium incident procedure posted.
+- [ ] **UN-20261024-010-0015** No unattended public drop bin.
 
 ## BLOCKS ANY RESALE
-- [ ] Ownership/authority-to-transfer recorded.
-- [ ] Serial/IMEI recorded.
-- [ ] Lock/MDM state cleared.
-- [ ] Data sanitisation completed and verified.
-- [ ] Functional test passed or faults explicitly disclosed.
-- [ ] Grade assigned using DubboEwaste grading standard.
-- [ ] Recall/safety check completed.
-- [ ] Listing uses ACL-safe wording.
-- [ ] Sale/recall record created.
-- [ ] Carrier-specific lithium rules checked before shipping.
+- [ ] **UN-20261024-010-0018** Ownership/authority-to-transfer recorded.
+- [ ] **UN-20261024-010-0019** Serial/IMEI recorded.
+- [ ] **UN-20261024-010-0020** Lock/MDM state cleared.
+- [ ] **UN-20261024-010-0021** Data sanitisation completed and verified.
+- [ ] **UN-20261024-010-0022** Functional test passed or faults explicitly disclosed.
+- [ ] **UN-20261024-010-0023** Grade assigned using DubboEwaste grading standard.
+- [ ] **UN-20261024-010-0024** Recall/safety check completed.
+- [ ] **UN-20261024-010-0025** Listing uses ACL-safe wording.
+- [ ] **UN-20261024-010-0026** Sale/recall record created.
+- [ ] **UN-20261024-010-0027** Carrier-specific lithium rules checked before shipping.
 
 ## READY BEFORE FIRST 30-DEVICE PILOT
-- [ ] Intake form and reject log.
-- [ ] Front-door triage card.
-- [ ] Category intake cards.
-- [ ] Data-erasure record/certificate.
-- [ ] Bench SOP and zones.
-- [ ] Pricing calculator / maximum acquisition price.
-- [ ] Parts/scrap floor matrix.
-- [ ] Pilot tracker and dashboard.
+- [ ] **UN-20261024-010-0030** Intake form and reject log.
+- [ ] **UN-20261024-010-0031** Front-door triage card.
+- [ ] **UN-20261024-010-0032** Category intake cards.
+- [ ] **UN-20261024-010-0033** Data-erasure record/certificate.
+- [ ] **UN-20261024-010-0034** Bench SOP and zones.
+- [ ] **UN-20261024-010-0035** Pricing calculator / maximum acquisition price.
+- [ ] **UN-20261024-010-0036** Parts/scrap floor matrix.
+- [ ] **UN-20261024-010-0037** Pilot tracker and dashboard.
 - [ ] First-30-device experiment plan.
 
 ## CAN LEARN DURING PILOT
