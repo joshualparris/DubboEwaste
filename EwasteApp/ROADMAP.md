@@ -11,7 +11,7 @@ The detailed long-range platform backlog remains in [docs/ASSETFLOW-PLATFORM-BAC
 ## Status legend
 
 - [x] shipped and operator-facing
-- [~] useful foundation exists; more automation/integration can be added later
+- [~] **UN-20261024-003-0014** useful foundation exists; more automation/integration can be added later
 - [ ] **UN-20261024-003-0015** not yet built
 - External = depends on hardware, third-party credentials, vendor approval or a real-world decision
 
@@ -38,10 +38,10 @@ The detailed long-range platform backlog remains in [docs/ASSETFLOW-PLATFORM-BAC
 - [x] ownership and authority gate
 - [x] lithium/physical safety gate
 - [x] account-lock / MDM / Autopilot gate
-- [~] category-specific lanes — Phase 0 categories are covered; deeper model/category playbooks remain ongoing
+- [~] **UN-20261024-003-0041** category-specific lanes — Phase 0 categories are covered; deeper model/category playbooks remain ongoing
 - [x] support/model lookup
 - [x] multi-source device intelligence: Google Play devices, Open Icecat adapter, Lenovo PSREF, FCC, PCI/USB IDs, LVFS, Wikidata and Wikipedia fallback
-- [~] rich vendor/specification enrichment — identity lookup is live; deeper per-model CPU/RAM/storage/display/support data will continue to expand
+- [~] **UN-20261024-003-0044** rich vendor/specification enrichment — identity lookup is live; deeper per-model CPU/RAM/storage/display/support data will continue to expand
 - [x] route selection and final-route gate
 - [x] reason / required-evidence output
 - [x] optional saved triage assessment against an existing asset
@@ -49,7 +49,7 @@ The detailed long-range platform backlog remains in [docs/ASSETFLOW-PLATFORM-BAC
 ## Slice 3 — diagnostics + sanitisation — OPERATOR WORKFLOW SHIPPED
 
 - [x] guided diagnostic checks
-- [~] imported battery/SMART results — manual/external-report recording works; native parsers remain
+- [~] **UN-20261024-003-0052** imported battery/SMART results — manual/external-report recording works; native parsers remain
 - [x] wipe/sanitisation jobs and verification records
 - [x] sanitisation capability matrix
 - [x] certificates/reports
@@ -64,7 +64,7 @@ The detailed long-range platform backlog remains in [docs/ASSETFLOW-PLATFORM-BAC
 - [x] parts/scrap routes
 - [x] do-not-accept rules through triage
 - [x] WIP ageing reporting
-- [~] automatic stale-stock repricing queue can be expanded later
+- [~] **UN-20261024-003-0067** automatic stale-stock repricing queue can be expanded later
 
 ## Slice 5 — selling + customer + CRM — PHASE 0 SHIPPED
 
@@ -81,14 +81,14 @@ The detailed long-range platform backlog remains in [docs/ASSETFLOW-PLATFORM-BAC
 - [x] resale listings and sales
 - [x] returns/RMA
 - [x] recall/audit traceability through customer → job → asset → sale records
-- [~] invoice/accounting export is later finance scope
+- [~] **UN-20261024-003-0084** invoice/accounting export is later finance scope
 - External: email delivery provider and marketplace APIs
 
 ## Slice 6 — integrations and scale
 
 The current production website is usable without these. They are later automation/enterprise capabilities, not blockers for the bounded Phase 0 site.
 
-- [~] bench diagnostic uploader/manual structured imports
+- [~] **UN-20261024-003-0091** bench diagnostic uploader/manual structured imports
 - [ ] **UN-20261024-003-0092** native nwipe/ShredOS + smartmontools parsers
 - External: local processing agent
 - External: direct barcode/label-printer, scale and carrier integrations
