@@ -12,7 +12,7 @@ The detailed long-range platform backlog remains in [docs/ASSETFLOW-PLATFORM-BAC
 
 - [x] shipped and operator-facing
 - [~] useful foundation exists; more automation/integration can be added later
-- [ ] not yet built
+- [ ] **UN-20261024-003-0015** not yet built
 - External = depends on hardware, third-party credentials, vendor approval or a real-world decision
 
 ## Slice 1 — foundation — COMPLETE
@@ -89,15 +89,15 @@ The detailed long-range platform backlog remains in [docs/ASSETFLOW-PLATFORM-BAC
 The current production website is usable without these. They are later automation/enterprise capabilities, not blockers for the bounded Phase 0 site.
 
 - [~] bench diagnostic uploader/manual structured imports
-- [ ] native nwipe/ShredOS + smartmontools parsers
+- [ ] **UN-20261024-003-0092** native nwipe/ShredOS + smartmontools parsers
 - External: local processing agent
 - External: direct barcode/label-printer, scale and carrier integrations
 - External: marketplace/auction APIs
-- [ ] customer portal with customer-scoped RLS
-- [ ] approval matrix for high-risk actions
-- [ ] multi-site/offline warehouse mode
-- [ ] enterprise SSO
-- [ ] advanced retention automation
+- [ ] **UN-20261024-003-0096** customer portal with customer-scoped RLS
+- [ ] **UN-20261024-003-0097** approval matrix for high-risk actions
+- [ ] **UN-20261024-003-0098** multi-site/offline warehouse mode
+- [ ] **UN-20261024-003-0099** enterprise SSO
+- [ ] **UN-20261024-003-0100** advanced retention automation
 
 ## Current website completion boundary
 
