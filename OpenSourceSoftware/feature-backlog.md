@@ -9,8 +9,8 @@ The broader vendor-feature backlog is tracked in [docs/ASSETFLOW-PLATFORM-BACKLO
 ## Status legend
 
 - [x] **Shipped** — implemented in the AssetFlow app/database with an operator-facing workflow.
-- [~] **Foundation** — schema/API/workflow foundation exists, but automation or integration is not yet complete.
-- [ ] **Backlog** — not yet implemented.
+- [~] **UN-20261024-011-0012** **Foundation** — schema/API/workflow foundation exists, but automation or integration is not yet complete.
+- [ ] **UN-20261024-011-0013** **Backlog** — not yet implemented.
 - **External** — depends on third-party credentials, hardware, vendor access or a documented external format.
 
 A checkbox is only marked shipped when the feature is represented by real operational data and can be used from the application or an implemented endpoint. A table alone is not enough.
@@ -46,12 +46,12 @@ A checkbox is only marked shipped when the feature is represented by real operat
 
 ### Data sanitisation and diagnostics
 
-- [~] nwipe/ShredOS report ingestion — raw report upload, hash retention and normalized manual result are shipped; automatic parser for native nwipe/ShredOS report formats remains.
+- [~] **UN-20261024-011-0049** nwipe/ShredOS report ingestion — raw report upload, hash retention and normalized manual result are shipped; automatic parser for native nwipe/ShredOS report formats remains.
 - [x] raw wipe evidence retention + hashes — immutable Storage object reference + SHA-256 + evidence metadata.
-- [ ] smartmontools ingestion — **External format adapter** still to build.
-- [~] automated hardware discovery — asset dynamic attributes/media model can ingest discovered data; local discovery adapter remains.
+- [ ] **UN-20261024-011-0051** smartmontools ingestion — **External format adapter** still to build.
+- [~] **UN-20261024-011-0052** automated hardware discovery — asset dynamic attributes/media model can ingest discovered data; local discovery adapter remains.
 - [x] sanitisation policies — named standard/method/retry/fallback policies.
-- [~] wipe retry/fallback workflow — retry/failure/destruction/supervisor states and exceptions exist; automatic policy executor remains.
+- [~] **UN-20261024-011-0054** wipe retry/fallback workflow — retry/failure/destruction/supervisor states and exceptions exist; automatic policy executor remains.
 - [x] Device History Report — certificate snapshot includes asset, diagnostics, media, sanitisation, grade, evidence and disposition history.
 
 ### Repair, parts and grading
@@ -70,7 +70,7 @@ A checkbox is only marked shipped when the feature is represented by real operat
 - [x] mass balance — parent input, child outputs and residual/loss/outbound adjustments reconcile against configurable tolerance; variance opens/resolves exceptions automatically.
 - [x] downstream vendors — capabilities/evidence requirements and contact details.
 - [x] outbound orders — destination/carrier/BOL/weight/status.
-- [~] downstream evidence — generic hashed evidence model accepts outbound evidence; dedicated receipt-evidence panel remains.
+- [~] **UN-20261024-011-0073** downstream evidence — generic hashed evidence model accepts outbound evidence; dedicated receipt-evidence panel remains.
 - [x] Certificate of Recycling — certificate type and hashed snapshot.
 - [x] Certificate of Destruction — certificate type and hashed snapshot.
 - [x] Certificate of Sanitisation — certificate type and media/sanitisation evidence snapshot.
@@ -80,21 +80,21 @@ A checkbox is only marked shipped when the feature is represented by real operat
 
 ### Workflow / workstation automation
 
-- [ ] visual workflow editor — JSON rule editor exists, but not a visual node editor.
+- [ ] **UN-20261024-011-0083** visual workflow editor — JSON rule editor exists, but not a visual node editor.
 - [x] rules engine — deterministic equality/in/not/exists/range/contains/all/any condition evaluator is live.
-- [~] automatic routing — matching rules are evaluated automatically, but route changes still require a human Apply action so conflicting rules remain visible and auditable.
+- [~] **UN-20261024-011-0085** automatic routing — matching rules are evaluated automatically, but route changes still require a human Apply action so conflicting rules remain visible and auditable.
 - [x] configurable workstation profiles — receiving/wipe/diagnostics/repair/grading/parts profiles.
-- [ ] local processing agent — **External workstation component** still required.
-- [ ] scale integration — **External hardware adapter**.
-- [ ] printer integration — QR generation exists; direct label-printer adapter remains.
-- [ ] FOG integration — **External service adapter**.
-- [ ] BIOS/UEFI data integration — dynamic attributes support it; discovery adapter remains.
+- [ ] **UN-20261024-011-0087** local processing agent — **External workstation component** still required.
+- [ ] **UN-20261024-011-0088** scale integration — **External hardware adapter**.
+- [ ] **UN-20261024-011-0089** printer integration — QR generation exists; direct label-printer adapter remains.
+- [ ] **UN-20261024-011-0090** FOG integration — **External service adapter**.
+- [ ] **UN-20261024-011-0091** BIOS/UEFI data integration — dynamic attributes support it; discovery adapter remains.
 
 ### Resale / commercial
 
 - [x] automated pricing — configurable category/grade pricing rules with minimums; matching market-observation median is used as fallback when no manual asking price is supplied.
 - [x] resale qualification gate — ownership + cleared/non-data-bearing state + grade are required before listing.
-- [ ] eBay API — **External credentials/API approval**; listing model is ready for an adapter.
+- [ ] **UN-20261024-011-0097** eBay API — **External credentials/API approval**; listing model is ready for an adapter.
 - [x] sale/fees/freight — sale events record sold value, marketplace fees and freight.
 - [x] returns/RMA — sale-linked returns can be opened, held, costed and resolved as refunded/repaired/replaced/closed/rejected.
 - [x] settlement — job settlement calculator automatically pulls resale revenue, marketplace fees, freight and repair parts, then combines service/material/scrap/labour inputs.
@@ -103,36 +103,36 @@ A checkbox is only marked shipped when the feature is represented by real operat
 ### Reporting / portal / API
 
 - [x] environmental dashboard — measured reuse/recycle/mass metrics only; no unsupported emissions claims.
-- [~] productivity dashboard — stage/WIP/test metrics exist; per-operator touch-time metrics remain.
+- [~] **UN-20261024-011-0106** productivity dashboard — stage/WIP/test metrics exist; per-operator touch-time metrics remain.
 - [x] WIP ageing — dashboard/report derives age from receipt time for open assets.
-- [~] processing throughput — current counts/pass rate exist; time-series throughput remains.
-- [ ] customer portal — staff app remains private; customer-scoped portal RLS/UI still required.
-- [~] Asset Vision — global search + device history provide the staff-side foundation; customer portal view remains.
-- [~] customer-scoped API tokens — secure hashed token table exists; issuance/API authentication endpoints remain.
-- [~] webhooks — configuration model exists; signed delivery/retry worker remains.
+- [~] **UN-20261024-011-0108** processing throughput — current counts/pass rate exist; time-series throughput remains.
+- [ ] **UN-20261024-011-0109** customer portal — staff app remains private; customer-scoped portal RLS/UI still required.
+- [~] **UN-20261024-011-0110** Asset Vision — global search + device history provide the staff-side foundation; customer portal view remains.
+- [~] **UN-20261024-011-0111** customer-scoped API tokens — secure hashed token table exists; issuance/API authentication endpoints remain.
+- [~] **UN-20261024-011-0112** webhooks — configuration model exists; signed delivery/retry worker remains.
 
 ## P3 — mature enterprise
 
 ### Integrity and verification
 
-- [~] cryptographic certificate signing — SHA-256 tamper-evident snapshot hashes are shipped; asymmetric signing/HSM-backed keys remain.
+- [~] **UN-20261024-011-0118** cryptographic certificate signing — SHA-256 tamper-evident snapshot hashes are shipped; asymmetric signing/HSM-backed keys remain.
 - [x] public certificate verification endpoint — public verification token page exposes certificate code/type/status/hash and minimal asset summary only.
-- [ ] remote sanitisation orchestration — deliberately not enabled until local-agent authentication, policy enforcement and safe execution boundaries exist.
-- [ ] enterprise SSO.
-- [ ] advanced retention policy.
+- [ ] **UN-20261024-011-0120** remote sanitisation orchestration — deliberately not enabled until local-agent authentication, policy enforcement and safe execution boundaries exist.
+- [ ] **UN-20261024-011-0121** enterprise SSO.
+- [ ] **UN-20261024-011-0122** advanced retention policy.
 
 ### Multi-site / governance / scale
 
-- [ ] multi-site warehouses.
-- [ ] cross-site transfers.
-- [ ] approval matrix.
-- [ ] automated client-specific report packs.
+- [ ] **UN-20261024-011-0126** multi-site warehouses.
+- [ ] **UN-20261024-011-0127** cross-site transfers.
+- [ ] **UN-20261024-011-0128** approval matrix.
+- [ ] **UN-20261024-011-0129** automated client-specific report packs.
 - [x] sustainability methodology/version registry — versioned methodology records prevent undocumented calculations.
-- [ ] reusable workflow/template marketplace.
-- [ ] high-volume batch station management.
-- [ ] advanced employee productivity metrics.
-- [ ] destruction/shred/bale capacity thresholds.
-- [ ] mobile warehouse app / offline mode.
+- [ ] **UN-20261024-011-0131** reusable workflow/template marketplace.
+- [ ] **UN-20261024-011-0132** high-volume batch station management.
+- [ ] **UN-20261024-011-0133** advanced employee productivity metrics.
+- [ ] **UN-20261024-011-0134** destruction/shred/bale capacity thresholds.
+- [ ] **UN-20261024-011-0135** mobile warehouse app / offline mode.
 
 ## Current implementation map
 
