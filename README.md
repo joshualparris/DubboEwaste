@@ -110,7 +110,7 @@ The `main/DubboEwasteApp/` directory is an **older static prototype source** and
 | [docs/codexGAPS.md](docs/codexGAPS.md) | **Codex gap audit:** research opportunities, unanswered questions and prioritised closure backlog |
 | [docs/RESEARCH-01-FRONT-DOOR-TRIAGE.md](docs/RESEARCH-01-FRONT-DOOR-TRIAGE.md) through [docs/RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md](docs/RESEARCH-16-CLOSURE-EVIDENCE-REGISTER.md) | **Systematic Codex research series:** triage, skills, competitor mechanics, resale, privacy, safety, repair, categories, inventory, partners, downstream, premises, finance, community, trust, pilot closure and evidence maturity |
 | [docs/PROJECT-HISTORY-ALL-CHATS.md](docs/PROJECT-HISTORY-ALL-CHATS.md) | **Cross-chat project history:** Bendigo 2025 origin, 10 donated laptops, DadLAN reuse experience, Dubbo pivot, Joe/Elise lessons, decisions, corrections and unresolved real-world questions |
-| [docs/SPOTIFY-PODCAST-LIST.md](docs/SPOTIFY-PODCAST-LIST.md) | **Curated Spotify listening guide:** ITAD, e-waste, repair, data sanitisation, social reuse, resale economics and Kristy creative-business podcasts |
+| [docs/SPOTIFY-PODCAST-LIST.md](docs/SPOTIFY-PODCAST-LIST.md) | **Curated Spotify listening guide:** ITAD, e-waste, repair, data sanitisation, social reuse, resale economics and the family collaborator creative-business podcasts |
 | [docs/SPOTIFY-AUSTRALIA-NSW-EWASTE.md](docs/SPOTIFY-AUSTRALIA-NSW-EWASTE.md) | **Preferred local Spotify list:** Australia/NSW e-waste, Renew IT/UNSW, refurbishment, reuse, right-to-repair and Australian reselling |
 | [docs/PODCASTS-AUSTRALIAN-ITAD-COMPANIES.md](docs/PODCASTS-AUSTRALIAN-ITAD-COMPANIES.md) | **Company/founder podcast appearances:** FlipTech, Renew IT, Reconnect, WorkVentures, WV Technologies, Total Green, Close the Loop and Sims Lifecycle |
 | [docs/ALL-CHAT-RESEARCH-SYNTHESIS.md](docs/ALL-CHAT-RESEARCH-SYNTHESIS.md) | Extended cross-chat strategic synthesis covering Council/AMR, Officeworks, regional routes, Sircel, TechCollect, Good360/Device Banks, Education, Phase 0, legal and pilot strategy |
@@ -118,10 +118,10 @@ The `main/DubboEwasteApp/` directory is an **older static prototype source** and
 | [docs/BACKLOG-01-05-PLANNING-LEGAL.md](docs/BACKLOG-01-05-PLANNING-LEGAL.md) | Property planning, NSW waste law, second-hand dealer and scrap-metal research |
 | [docs/BACKLOG-06-12-DOWNSTREAM-STEWARDSHIP.md](docs/BACKLOG-06-12-DOWNSTREAM-STEWARDSHIP.md) | AMR/Council downstream, NTCRS, MobileMuster and B-cycle research |
 | [docs/BACKLOG-13-16-REGIONAL-SUPPLY.md](docs/BACKLOG-13-16-REGIONAL-SUPPLY.md) | Surrounding councils, NetWaste/Sircel, volumes and supply-source research |
-| [docs/BACKLOG-17-32-INDEX.md](docs/BACKLOG-17-32-INDEX.md) | **Research handoff for backlog items 17–32: market, costs, tax, compliance, devices, data, safety, Bendigo/Kristy, grants, templates and pilot metrics** |
+| [docs/BACKLOG-17-32-INDEX.md](docs/BACKLOG-17-32-INDEX.md) | **Research handoff for backlog items 17–32: market, costs, tax, compliance, devices, data, safety, Bendigo/the family collaborator, grants, templates and pilot metrics** |
 | [docs/BACKLOG-17-20-MARKET-COST-TAX.md](docs/BACKLOG-17-20-MARKET-COST-TAX.md) | Dubbo competitor map, resale channels, corrected costs and tax/accounting |
 | [docs/BACKLOG-21-25-COMPLIANCE-DATA-SAFETY.md](docs/BACKLOG-21-25-COMPLIANCE-DATA-SAFETY.md) | ACL/product safety, Windows/device viability, NIST/ASD sanitisation, WHS/lithium and postage |
-| [docs/BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md](docs/BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md) | Joe/Elise early history, Kristy creative pathway and current grant landscape |
+| [docs/BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md](docs/BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md) | Joe/Elise early history, the family collaborator creative pathway and current grant landscape |
 | [docs/BACKLOG-30-32-OPERATIONS-CORRECTIONS.md](docs/BACKLOG-30-32-OPERATIONS-CORRECTIONS.md) | Operating paperwork, expanded pilot metrics and explicit correction register |
 | [docs/PHASE-0-OPERATING-BLUEPRINT.md](docs/PHASE-0-OPERATING-BLUEPRINT.md) | **Detailed cheapest-start blueprint: Tue/Sat intake, acceptance gates, storage, wiping, resale, safety and downstream** |
 | [docs/LEGAL-LICENSING.md](docs/LEGAL-LICENSING.md) | Second-hand dealer licence, council/planning, EPA, in detail |
@@ -131,7 +131,7 @@ The `main/DubboEwasteApp/` directory is an **older static prototype source** and
 | [docs/EMAIL-DRAFTS.md](docs/EMAIL-DRAFTS.md) | Ready-to-send emails for Fair Trading, Council, EPA, Joe, Australian Metal Recycling and Avance |
 | [docs/SOURCES.md](docs/SOURCES.md) | Sources and confidence levels |
 | [docs/bendigo-early-days-deep-dive.md](docs/bendigo-early-days-deep-dive.md) | Deep source-led reconstruction of Joe Parker / Bendigo E-Waste's startup path |
-| [docs/KRISTY-CREATIVE-MICROBUSINESS.md](docs/KRISTY-CREATIVE-MICROBUSINESS.md) | Research-backed hobby → microbusiness path for Kristy's creative/art work, modelled on The Painted Brush & Co |
+| [docs/KRISTY-CREATIVE-MICROBUSINESS.md](docs/KRISTY-CREATIVE-MICROBUSINESS.md) | Research-backed hobby → microbusiness path for the family collaborator's creative/art work, modelled on The Painted Brush & Co |
 | [templates/ownership-and-wipe-certificate.md](templates/ownership-and-wipe-certificate.md) | Client transfer-of-ownership and data-wipe certificate template |
 | [templates/asset-transfer-and-chain-of-custody.md](templates/asset-transfer-and-chain-of-custody.md) | Detailed asset authority, transfer basis and custody-state record |
 | [templates/partner-validation-record.md](templates/partner-validation-record.md) | Public-safe record for validating receivers, buyers, courses and social-reuse partners |
