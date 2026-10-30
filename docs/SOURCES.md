@@ -388,7 +388,7 @@ Preserved in [PROJECT-HISTORY-ALL-CHATS.md](PROJECT-HISTORY-ALL-CHATS.md):
 - **4 September 2025:** Josh reported receiving **10 donated laptops from Bendigo E-Waste**, without chargers; condition unknown but the units appeared substantially intact.
 - DadLAN's hands-on refurbishment/testing experience is treated as **user/project experience**, not an external industry dataset.
 - The historical Dubbo refurb margin figures ($10–$50 dead/untested acquisition, <$100–$120 total cost, ~$180–$250 resale, ~$80–$120 gross room) are preserved as **old working estimates**, not current market evidence.
-- The Painted Brush chronology supplied directly in chat is preserved as **first-person business-history material**; where a detail also has independent public evidence, the dedicated Bendigo/Kristy research file identifies it.
+- The Painted Brush chronology supplied directly in chat is preserved as **first-person business-history material**; where a detail also has independent public evidence, the dedicated Bendigo/a family member research file identifies it.
 
 ### Evidence rule
 
