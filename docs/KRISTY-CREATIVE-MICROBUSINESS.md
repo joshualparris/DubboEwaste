@@ -1,14 +1,14 @@
-# Kristy creative microbusiness pathway
+# the prospective founder creative microbusiness pathway
 
 Updated: 2 October 2026
 
-This note asks a simple question: **how could Kristy follow the same kind of progression as Elise Parker / The Painted Brush & Co, without needing to copy furniture restoration itself?**
+This note asks a simple question: **how could the prospective founder follow the same kind of progression as Elise Parker / The Painted Brush & Co, without needing to copy furniture restoration itself?**
 
 The useful part of Elise's story is the sequence:
 
 **interest/hobby -> Facebook page -> a few dollars -> home-based work -> repeat customers -> larger home workspace -> physical retail/workshop space -> warehouse only after demand exists**
 
-For Kristy, the strongest low-risk version to test first is **visual art / painting and small handmade creative products**, with **creative workshops as a later-stage option** if she enjoys selling and teaching.
+For the prospective founder, the strongest low-risk version to test first is **visual art / painting and small handmade creative products**, with **creative workshops as a later-stage option** if she enjoys selling and teaching.
 
 This document deliberately avoids health or other private personal information. It focuses only on the business pathway and public market evidence.
 
@@ -100,7 +100,7 @@ Sources:
 
 A single Rotunda stall is a much better validation test than opening a shop.
 
-Kristy could bring perhaps 10-20 finished pieces/products, see what people pick up, what they ask about, what price resistance looks like, and whether she actually enjoys the day.
+the prospective founder could bring perhaps 10-20 finished pieces/products, see what people pick up, what they ask about, what price resistance looks like, and whether she actually enjoys the day.
 
 ---
 
@@ -176,7 +176,7 @@ Dubbo already supports paid guided creative experiences:
 - a November 2026 guided paint-and-sip event is advertised at **$59 per person**;
 - September 2026 ceramic-painting classes in Dubbo were advertised at **$99-$109**.
 
-Those are not price recommendations for Kristy. They simply demonstrate that local people already pay for guided creative experiences.
+Those are not price recommendations for the prospective founder. They simply demonstrate that local people already pay for guided creative experiences.
 
 Sources:
 - https://www.nsw.gov.au/visiting-and-exploring-nsw/nsw-events/80s-and-90s-singalong-paint-and-sip-dubbo
@@ -186,7 +186,7 @@ Sources:
 
 Do not begin with workshops.
 
-First establish that Kristy:
+First establish that the prospective founder:
 
 1. enjoys making consistently;
 2. can finish work to a standard she is happy selling;
@@ -199,7 +199,7 @@ Then test a **very small hosted workshop** at an existing venue rather than invi
 
 ## Path 5 — furniture/upcycling later, not first
 
-Elise's exact product was furniture, but copying that part creates unnecessary friction for Kristy at this stage:
+Elise's exact product was furniture, but copying that part creates unnecessary friction for the prospective founder at this stage:
 
 - bulky stock;
 - transport;
@@ -209,7 +209,7 @@ Elise's exact product was furniture, but copying that part creates unnecessary f
 - much more conflict with residential/rental use;
 - harder unsold-inventory problem.
 
-If Kristy later discovers she loves furniture restoration, it can become another stream. It should not be assumed merely because that was Elise's route.
+If the prospective founder later discovers she loves furniture restoration, it can become another stream. It should not be assumed merely because that was Elise's route.
 
 ---
 
@@ -245,7 +245,7 @@ The test is not just revenue. Record:
 
 ## Stage 3 — online marketplace
 
-Etsy becomes useful if Kristy develops work that can ship repeatedly, particularly prints/cards or repeatable handmade products.
+Etsy becomes useful if the prospective founder develops work that can ship repeatedly, particularly prints/cards or repeatable handmade products.
 
 Current Etsy policy charges a **6.5% transaction fee**. For Australian domestic Etsy Payments, processing is currently **3% + A$0.25 per order**, with other listing/setup/advertising fees potentially applying.
 
@@ -276,7 +276,7 @@ Source:
 
 It is fine for the first step to be genuinely exploratory.
 
-But once Kristy deliberately starts producing regularly **for profit**, advertising, taking repeat orders or operating systematically, treat it as a business and sort out the appropriate ABN/name/tax records rather than continuing to label it a hobby.
+But once the prospective founder deliberately starts producing regularly **for profit**, advertising, taking repeat orders or operating systematically, treat it as a business and sort out the appropriate ABN/name/tax records rather than continuing to label it a hobby.
 
 Keep a simple spreadsheet from sale #1 anyway:
 
@@ -317,7 +317,7 @@ A tiny art business is therefore substantially easier to fit around the tenancy 
 
 ---
 
-# A 90-day "Painted Brush style" pilot for Kristy
+# A 90-day "Painted Brush style" pilot for the prospective founder
 
 ## Weeks 1-2 — make, don't brand
 
@@ -365,7 +365,7 @@ Afterwards review:
 - hours worked;
 - profit per hour;
 - what actually sold;
-- whether Kristy wants to keep doing it.
+- whether the prospective founder wants to keep doing it.
 
 The last measure matters. A profitable creative side business that kills the enjoyment of creating is not automatically a good outcome.
 
@@ -380,7 +380,7 @@ After 90 days:
 - strangers, not only friends/family, have bought work;
 - at least one product/style has repeated demand;
 - pricing covers materials and gives a worthwhile return for time;
-- Kristy still wants to make the work;
+- the prospective founder still wants to make the work;
 - inventory is not taking over the house.
 
 ### Change direction if
@@ -395,7 +395,7 @@ After 90 days:
 - the sales process removes the joy;
 - the hourly return is consistently poor;
 - it adds too much clutter/admin;
-- Kristy simply discovers she would rather keep art as art.
+- the prospective founder simply discovers she would rather keep art as art.
 
 That is exactly what a cheap pilot is for.
 
@@ -432,7 +432,7 @@ Joe went:
 A sensible Dubbo version could therefore be two very small experiments running independently:
 
 - **Dubbo E-Waste:** controlled electronics reuse/refurb pilot;
-- **Kristy's creative work:** art/creative products, local online sales and one market test.
+- **the prospective founder's creative work:** art/creative products, local online sales and one market test.
 
 Neither needs to carry the financial burden of becoming a "proper business" before customers prove that it should.
 
@@ -488,7 +488,7 @@ Watch for **Dubbo Art Fair 2027 applications**. The 2026 applications opened in 
 
 # Bottom line
 
-Kristy's strongest version of the Painted Brush story is not:
+the prospective founder's strongest version of the Painted Brush story is not:
 
 **"start a furniture business."**
 
