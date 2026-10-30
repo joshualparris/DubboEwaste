@@ -1,4 +1,4 @@
-# Backlog 26–29: Bendigo origins, Painted Brush, Kristy pathway and grants
+# Backlog 26–29: Bendigo origins, Painted Brush, the prospective founder pathway and grants
 
 **Researched:** 2 October 2026  
 **Scope:** online-research backlog items 26–29 only.  
@@ -248,9 +248,9 @@ Those are business-history questions for Elise.
 
 ---
 
-# 28. Kristy's creative microbusiness — expanded research
+# 28. the prospective founder's creative microbusiness — expanded research
 
-The existing Kristy pathway remains supported by current local evidence.
+The existing the prospective founder pathway remains supported by current local evidence.
 
 ## Dubbo Art Fair: unusually strong local validation
 
@@ -389,7 +389,7 @@ Social/local direct sales remain the cheapest demand-validation channel.
 
 ## Children's workshops
 
-If Kristy later runs children's creative workshops, NSW says a Working with Children Check is required where the work is **child-related work**, including services for under-18s that normally involve face-to-face contact that is more than incidental.
+If the prospective founder later runs children's creative workshops, NSW says a Working with Children Check is required where the work is **child-related work**, including services for under-18s that normally involve face-to-face contact that is more than incidental.
 
 A paid WWCC currently costs **$112** and is valid for 5 years.
 
@@ -410,7 +410,7 @@ Source:
 
 The low-friction pilot should avoid alcohol and use an existing licensed venue if that model is explored later.
 
-## Updated Kristy sequence
+## Updated the prospective founder sequence
 
 The strongest low-risk sequence is:
 
@@ -536,7 +536,7 @@ For a private microbusiness, the practical angle may eventually be:
 
 Do not assume direct eligibility.
 
-## Arts grants relevant to Kristy
+## Arts grants relevant to the prospective founder
 
 Monitor:
 
@@ -584,7 +584,7 @@ The most useful model is even stronger after the 2026 update:
 
 > **start tiny -> scale -> and be willing to deliberately shrink fixed overhead again when online/smaller operation suits the family/business better.**
 
-## Kristy
+## the prospective founder
 
 Dubbo has real evidence of art purchasing, but the first test should still be six-to-ten real pieces and real buyers, not a grant or shop.
 
@@ -629,7 +629,7 @@ Treat grants as acceleration for an already sensible project, not as the reason 
 
 ---
 
-# Supplementary Kristy / grant opportunities — 2 October 2026
+# Supplementary the prospective founder / grant opportunities — 2 October 2026
 
 ## HomeGround: a serious emerging-artist pathway in Dubbo
 
@@ -643,7 +643,7 @@ The 2026 program included:
 - artist talk;
 - studio visits and related support.
 
-The 2026 application window ran from **9 February to 10 April 2026**, so it is closed now, but it is exactly the kind of pathway Kristy should watch for the next intake if she builds a body of work.
+The 2026 application window ran from **9 February to 10 April 2026**, so it is closed now, but it is exactly the kind of pathway the prospective founder should watch for the next intake if she builds a body of work.
 
 Sources:
 - https://www.dubbo.nsw.gov.au/news-and-media/news-and-resources/council-news/2026/homeground-callout
@@ -665,7 +665,7 @@ Sources:
 - https://www.dubbo.nsw.gov.au/news-and-media/news-and-resources/council-news/2026/waste-2-art
 - https://www.westernplainsculturalcentre.org/
 
-### Kristy implication
+### the prospective founder implication
 
 This could be a future low-risk exhibition target if recycled-material art genuinely interests her. It should not be forced simply because Josh is researching e-waste.
 
@@ -705,4 +705,4 @@ Local public web research can identify programs and places to sell/exhibit, but 
 
 These are quote-stage inputs.
 
-Do not convert unsourced local shop estimates into the Kristy business model.
+Do not convert unsourced local shop estimates into the the prospective founder business model.
