@@ -1,7 +1,7 @@
 # Project history and all-chat consolidation
 
 **Compiled:** 2 October 2026  
-**Scope:** Dubbo E-Waste and directly related reuse/refurbishment discussions across prior ChatGPT conversations, including the earlier Bendigo phase, DadLAN reuse experience, Bendigo E-Waste/Joe Parker research, the Dubbo home-pilot concept, downstream/social-reuse research, and the Kristy/The Painted Brush comparison.
+**Scope:** Dubbo E-Waste and directly related reuse/refurbishment discussions across prior ChatGPT conversations, including the earlier Bendigo phase, DadLAN reuse experience, Bendigo E-Waste/Joe Parker research, the Dubbo home-pilot concept, downstream/social-reuse research, and the a family member/The Painted Brush comparison.
 
 This file is a **conversation-history and decision record**, not a substitute for the source-led legal/research files elsewhere in this repository.
 
@@ -295,9 +295,9 @@ See:
 
 ---
 
-# 7. Kristy creative-microbusiness discussion
+# 7. a family member creative-microbusiness discussion
 
-The Painted Brush sequence led to a separate question: could Kristy use the same **growth pattern**, without copying furniture?
+The Painted Brush sequence led to a separate question: could a family member use the same **growth pattern**, without copying furniture?
 
 The researched low-risk path became:
 
@@ -688,7 +688,7 @@ After the October 2026 deep research passes, several important questions require
 - [REGIONAL-EWASTE-PATHWAYS.md](REGIONAL-EWASTE-PATHWAYS.md)
 - [BACKLOG-13-16-REGIONAL-SUPPLY.md](BACKLOG-13-16-REGIONAL-SUPPLY.md)
 
-## Kristy creative path
+## a family member creative path
 - [KRISTY-CREATIVE-MICROBUSINESS.md](KRISTY-CREATIVE-MICROBUSINESS.md)
 
 ---
