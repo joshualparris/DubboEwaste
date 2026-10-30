@@ -16,7 +16,7 @@ This is not a generic sustainability playlist. Each item is included because it 
 - resale/flipping;
 - proving demand before holding stock;
 - starting a tiny home-based business;
-- Kristy's art/creative-business pathway.
+- a family member's art/creative-business pathway.
 
 Where a direct Spotify episode link was available, it is used. Where Spotify surfaced only a show page, the exact relevant episode is named.
 
@@ -180,11 +180,11 @@ https://open.spotify.com/episode/5zLLAGP9CfyjzcUSRNVliE
 Spotify:  
 https://open.spotify.com/show/4h2bNQbbtAL5ZJ6apfjRBr
 
-**Why it matters:** this is the closest match I found to the **Elise/Kristy path** rather than the e-waste operation.
+**Why it matters:** this is the closest match I found to the **Elise/a family member path** rather than the e-waste operation.
 
 The show's premise is turning a creative hobby into a real handmade business. The host describes starting her own handmade business as a spare-time hobby and progressively building it.
 
-**Repo connection:** Kristy's pathway:
+**Repo connection:** a family member's pathway:
 
 hobby → first products → small sales → prove demand → grow only behind real customers.
 
@@ -481,11 +481,11 @@ Beyond the demand-testing episode above, this is useful for:
 - returns;
 - building retail without immediately needing premises.
 
-**Repo connection:** online-first refurbished-device sales and Kristy's eventual online creative sales.
+**Repo connection:** online-first refurbished-device sales and a family member's eventual online creative sales.
 
 ---
 
-# F. Kristy's art / handmade-business path
+# F. a family member's art / handmade-business path
 
 ## 31. The Create & Thrive Podcast
 
@@ -521,7 +521,7 @@ Relevant themes include:
 - getting paid for art;
 - moving from artist to business owner.
 
-**Repo connection:** Kristy's possible original-art → commission → repeatable-products pathway.
+**Repo connection:** a family member's possible original-art → commission → repeatable-products pathway.
 
 ---
 
@@ -532,7 +532,7 @@ https://open.spotify.com/show/363qSeGLuJfE5GyFs11qMl
 
 **Why relevant:** Australian painters discussing how they actually became artists, their work, practice and careers.
 
-**Repo connection:** much more useful for Kristy's **artist-development side** than generic ecommerce podcasts.
+**Repo connection:** much more useful for a family member's **artist-development side** than generic ecommerce podcasts.
 
 ---
 
@@ -586,7 +586,7 @@ If only listening to a short sequence, use this order:
 7. **Profit or Loss**
 8. **Add To Cart #659 — Prove demand before stock**
 9. **Replace or Repair?**
-10. **Create & Thrive** — for the Elise/Kristy parallel
+10. **Create & Thrive** — for the Elise/a family member parallel
 
 That sequence moves from:
 
