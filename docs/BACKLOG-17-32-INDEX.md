@@ -21,7 +21,7 @@ The separate agent working on backlog **1–16** can merge independently.
 | 25 | Transport / postage | [BACKLOG-21-25-COMPLIANCE-DATA-SAFETY.md](BACKLOG-21-25-COMPLIANCE-DATA-SAFETY.md) |
 | 26 | Joe Parker / Bendigo early history | [BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md](BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md) |
 | 27 | Painted Brush / Elise history | [BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md](BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md) |
-| 28 | Kristy creative microbusiness expansion | [BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md](BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md) |
+| 28 | a family member creative microbusiness expansion | [BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md](BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md) |
 | 29 | Grants / government support | [BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md](BACKLOG-26-29-BENDIGO-KRISTY-GRANTS.md) |
 | 30 | Templates / operating paperwork | [BACKLOG-30-32-OPERATIONS-CORRECTIONS.md](BACKLOG-30-32-OPERATIONS-CORRECTIONS.md) |
 | 31 | Pilot tracker redesign | [BACKLOG-30-32-OPERATIONS-CORRECTIONS.md](BACKLOG-30-32-OPERATIONS-CORRECTIONS.md), [../pilot-tracker.csv](../pilot-tracker.csv) |
