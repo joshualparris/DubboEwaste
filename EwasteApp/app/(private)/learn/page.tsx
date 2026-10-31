@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { courses, programmes, courseProgress, type Programme } from "@/lib/learning/catalog";
 import { enrolInCourse } from "./actions";
@@ -12,12 +13,13 @@ export default async function LearningHome({
   const { track, error } = await searchParams;
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
+  if (!user) redirect("/login?error=Please%20sign%20in%20again");
   const [membership, enrolments, completions, assignments, profile] = await Promise.all([
-    supabase.from("program_access").select("program,programme_role").eq("user_id", user!.id),
-    supabase.from("learning_enrolments").select("course_slug").eq("user_id", user!.id),
-    supabase.from("learning_progress").select("course_slug,lesson_slug").eq("user_id", user!.id),
-    supabase.from("learning_assignments").select("course_slug,programme,due_date").eq("user_id", user!.id),
-    supabase.from("profiles").select("role").eq("id", user!.id).maybeSingle(),
+    supabase.from("program_access").select("program,programme_role").eq("user_id", user.id),
+    supabase.from("learning_enrolments").select("course_slug").eq("user_id", user.id),
+    supabase.from("learning_progress").select("course_slug,lesson_slug").eq("user_id", user.id),
+    supabase.from("learning_assignments").select("course_slug,programme,due_date").eq("user_id", user.id),
+    supabase.from("profiles").select("role").eq("id", user.id).maybeSingle(),
   ]);
   const assigned = new Set((membership.data ?? []).map(x => x.program));
   const joined = new Set((enrolments.data ?? []).map(x => x.course_slug));
