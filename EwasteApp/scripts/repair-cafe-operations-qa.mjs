@@ -2,6 +2,7 @@
 // replaces, end-to-end RLS, database transaction and authenticated browser tests.
 import assert from "node:assert/strict";
 import {Script} from "node:vm";
+import {transformSync} from "esbuild";
 import {readFileSync} from "node:fs";
 const read=(p)=>readFileSync(new URL("../"+p,import.meta.url),"utf8");
 const migrations=read("supabase/migrations/20261009170000_repair_cafe_event_operations.sql");
@@ -159,4 +160,20 @@ assert(offlineShell.indexOf("{children}\n  <details className={styles.offlinePan
  eventDeskCss.includes('.offlinePanel[open]>.offlineSummary::after') &&
  eventDeskCss.includes('max-width:1180px'),
  "Offline controls should be below the desk, collapsed by default, with pending/conflict status visible");
-console.log("Repair Café operations source QA PASS: 44 guards + offline syntax parses. Two-device browser testing still needed.");
+// TIME columns are HH:mm:ss, not parseable JS date-time strings.
+const checkInPage=read("app/(private)/repair-cafe-volunteers/check-in/page.tsx");
+assert(checkInPage.includes('formatRepairCafeTime as time')&&
+ !checkInPage.includes('new Date(d).toLocaleString'),"Check-in must use session clock-time formatter");
+const timeModule={exports:{}};
+new Script(transformSync(read("lib/repair-cafe-session-time.ts"),{loader:"ts",format:"cjs"}).code)
+ .runInNewContext({module:timeModule,exports:timeModule.exports});
+const formatTime=timeModule.exports.formatRepairCafeTime;
+assert.equal(formatTime("10:00:00"),"10:00 am");
+assert.equal(formatTime("13:00:00"),"1:00 pm");
+assert.equal(formatTime("00:05"),"12:05 am");
+assert.equal(formatTime("12:00"),"12:00 pm");
+assert.equal(formatTime("2026-11-07T00:00:00Z"),"11:00 am"); // AEDT
+assert.equal(formatTime("2026-07-07T00:00:00Z"),"10:00 am"); // AEST
+assert.equal(formatTime("not-a-date"),"Time not set");
+assert.equal(formatTime(null),"Time not set");
+console.log("Repair Café operations source QA PASS: guards, time-format regression + offline syntax parses. Two-device browser testing still needed.");

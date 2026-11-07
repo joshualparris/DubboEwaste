@@ -3,9 +3,10 @@ import {redirect} from "next/navigation";
 import {requireProgrammeContext} from "@/lib/programme-context";
 import {selfCheckAttendance} from "./actions";
 import QRPoster from "./QRPoster";
+import {formatRepairCafeTime as time} from "@/lib/repair-cafe-session-time";
 type Event={id:string;title:string;event_date:string;status:string;starts_at:string;ends_at:string};
 const date=(d:string)=>new Date(d+"T12:00:00Z").toLocaleDateString("en-AU",{timeZone:"Australia/Sydney",weekday:"long",day:"numeric",month:"long",year:"numeric"});
-const time=(d:string)=>new Date(d).toLocaleString("en-AU",{timeZone:"Australia/Sydney",hour:"numeric",minute:"2-digit"});
+
 export default async function VolunteerCheckIn({searchParams}:{searchParams:Promise<{event?:string;error?:string;success?:string}>}){
  const {supabase,context}=await requireProgrammeContext();
  if(!context.global_admin&&context.selected!=="repair_cafe")redirect("/programmes?error=Select%20Repair%20Cafe");
