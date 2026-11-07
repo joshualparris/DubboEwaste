@@ -5,8 +5,8 @@ Official public-facing project landing page (development-stage initiative, not y
 - **Public address (GitHub Pages):** https://joshualparris.github.io/DubboEwaste/repair-cafe-dubbo/
 - **Canonical source:** `main:website/repair-cafe-dubbo/index.html`
 - **Published copy:** `gh-pages:repair-cafe-dubbo/index.html`
-- **Existing expression-of-interest form:** https://dubbo-ewaste-app.vercel.app/repair-cafe-dubbo#have-your-say
-- **Private volunteer hub:** https://dubbo-ewaste-app.vercel.app/repair-cafe-volunteers
+- **Existing expression-of-interest form:** https://assetflow-backup.onrender.com/repair-cafe-dubbo#have-your-say (primary; Vercel alternative linked on page)
+- **Private volunteer hub:** https://assetflow-backup.onrender.com/repair-cafe-volunteers
 
 ## How to update
 
