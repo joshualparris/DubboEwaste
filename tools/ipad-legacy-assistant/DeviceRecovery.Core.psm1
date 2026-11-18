@@ -27,7 +27,7 @@ function Get-ConnectedRecoveryDevices {
    if($null -ne $item){$out+=,$item}
   }
  }catch{}
- return ,$out
+ return $out
 }
 function Get-RecoveryToolStatus {
  $pf=[Environment]::GetFolderPath('ProgramFiles')
@@ -70,8 +70,8 @@ function Get-AppleReadOnlyDetails {
 }
 function Get-AndroidReadOnlyDetails {
  param([string]$Adb)
- $out=@();if(!$Adb){return ,$out}
- try{$lines=@(& $Adb devices 2>$null)}catch{return ,$out}
+ $out=@();if(!$Adb){return $out}
+ try{$lines=@(& $Adb devices 2>$null)}catch{return $out}
  foreach($line in $lines){
   if($line -match '^\s*(\S+)\s+(device|offline|unauthorized)\s*$'){
    $serial=$Matches[1];$state=$Matches[2];$model='Unavailable';$version='Unavailable';$level=$null
@@ -89,7 +89,7 @@ function Get-AndroidReadOnlyDetails {
    $out+=,[pscustomobject]@{Family='Android';Connection=$state;Model=$model;Android=$version;BatteryPercent=$level;BatteryHealth='Not measured'}
   }
  }
- return ,$out
+ return $out
 }
 function Test-RecoveryModificationPermission {param([string]$Ownership);return ($Ownership -eq 'Owned and authorised')}
 function Get-RecoveryRecommendations {
