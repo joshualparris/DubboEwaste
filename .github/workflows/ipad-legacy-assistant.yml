@@ -1,4 +1,4 @@
-name: iPad Legacy Assistant - Windows checks
+name: Device Recovery Toolkit - Windows checks
 on:
   push:
     paths:
@@ -14,14 +14,18 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate PowerShell syntax and safety
+      - name: Validate original iPad Legacy Assistant
         shell: powershell
         run: '& .\tools\ipad-legacy-assistant\tests\Smoke.Tests.ps1'
-      - name: Package the portable Windows app
+      - name: Validate universal toolkit, privacy and ownership gates
         shell: powershell
-        run: Compress-Archive -Path .\tools\ipad-legacy-assistant\iPadLegacyAssistant.ps1,.\tools\ipad-legacy-assistant\Launch-iPad-Legacy-Assistant.cmd,.\tools\ipad-legacy-assistant\README.md -DestinationPath .\iPad-Legacy-Assistant-Windows.zip
+        run: '& .\tools\ipad-legacy-assistant\tests\Universal.Tests.ps1'
+      - name: Package portable Windows and Mac helpers
+        shell: powershell
+        run: |
+          Compress-Archive -Path .\tools\ipad-legacy-assistant\DeviceRecovery.Core.psm1,.\tools\ipad-legacy-assistant\DeviceRecoveryToolkit.ps1,.\tools\ipad-legacy-assistant\Start-Device-Recovery-Toolkit.cmd,.\tools\ipad-legacy-assistant\DeviceRecovery-Mac.sh,.\tools\ipad-legacy-assistant\iPadLegacyAssistant.ps1,.\tools\ipad-legacy-assistant\Launch-iPad-Legacy-Assistant.cmd,.\tools\ipad-legacy-assistant\README.md -DestinationPath .\Universal-Device-Recovery-Toolkit-Windows.zip -Force
       - uses: actions/upload-artifact@v4
         with:
-          name: iPad-Legacy-Assistant-Windows
-          path: iPad-Legacy-Assistant-Windows.zip
+          name: Universal-Device-Recovery-Toolkit-Windows
+          path: Universal-Device-Recovery-Toolkit-Windows.zip
           if-no-files-found: error
