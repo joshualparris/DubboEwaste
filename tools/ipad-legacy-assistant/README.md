@@ -1,5 +1,7 @@
 # Universal Device Recovery Toolkit (Windows)
 
+> **Legacy archive preserved:** The original iPad-only experiment was marked archived on main due to the device's unknown ownership and Find My lock. Its full original documentation is preserved in [LEGACY-ARCHIVE.md](LEGACY-ARCHIVE.md). The new universal toolkit is a separate, primarily read-only diagnostic project; it does not make the locked iPad usable.
+
 Portable **Windows PowerShell 5.1 + WinForms** toolkit for read-only assessment and responsible reuse of old Apple, Android, Windows and Mac devices. No additional runtime is required for the Windows GUI.
 
 The original **iPad Legacy Assistant** remains available as a separate, manual tool for owner-authorised iOS devices. This project is part of DubboEwaste's reuse-first electronics program.
