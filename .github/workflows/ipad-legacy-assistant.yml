@@ -17,6 +17,19 @@ jobs:
       - name: Validate PowerShell syntax and safety
         shell: powershell
         run: '& .\tools\ipad-legacy-assistant\tests\Smoke.Tests.ps1'
+      - name: Headless diagnostic self-check
+        shell: powershell
+        run: '& .\tools\ipad-legacy-assistant\iPadLegacyAssistant.ps1 -Scan'
+      - name: Pester unit tests (non-blocking)
+        shell: powershell
+        continue-on-error: true
+        run: |
+          if (-not (Get-Module -ListAvailable Pester | Where-Object { $_.Version -ge [version]'5.0.0' })) {
+            Set-PSRepository PSGallery -InstallationPolicy Trusted
+            Install-Module Pester -MinimumVersion 5.5.0 -Force -SkipPublisherCheck -Scope CurrentUser
+          }
+          Import-Module Pester -MinimumVersion 5.0.0
+          Invoke-Pester -Path .\tools\ipad-legacy-assistant\tests\IPadLegacyAssistant.Tests.ps1 -CI
       - name: Package the portable Windows app
         shell: powershell
         run: Compress-Archive -Path .\tools\ipad-legacy-assistant\iPadLegacyAssistant.ps1,.\tools\ipad-legacy-assistant\Launch-iPad-Legacy-Assistant.cmd,.\tools\ipad-legacy-assistant\README.md -DestinationPath .\iPad-Legacy-Assistant-Windows.zip

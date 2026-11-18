@@ -10,23 +10,37 @@
 > device. The honest ceiling made the whole approach low-value, and the unverified
 > ownership makes it something to think twice about. Left here as a documented dead end.
 >
-> _Last patch (2026-11-18): broadened model/iOS detection to find `ideviceinfo` from
-> common toolkits (libimobiledevice, 3uTools, scoop, chocolatey) and made the IPA
-> download tolerate releases with zero or multiple `.ipa` assets instead of crashing._
+> _Even archived, the code was kept honest. See **Changelog** below._
 
-A portable Windows GUI to detect old iPads, check Apple drivers, download official jailbreak IPA files, launch Sideloadly, and guide manual installation without modifying the device automatically.
+A portable Windows GUI to detect old iPads, check Apple drivers, download official jailbreak IPA files, launch Sideloadly, and guide manual installation (via **EverPwnage** or **Phoenix**) without modifying the device automatically.
 
 Designed for an **iPad 3 (2012) running iOS 9.3.6**, with an unidentified former Apple Account and **Find My iPad ON**.
+
+## Changelog
+
+- **v2 (2026-11-18)**
+  - **Readiness summary + action gating.** A `Scan` now reports a `score/5` of prerequisites met and **disables the IPA download, Sideloadly and Phoenix buttons until a real `iPad3,x` on iOS 9.3.6 is detected** (an *Advanced* checkbox overrides this at your own risk).
+  - **Phoenix path** added alongside EverPwnage (guide + official download site), since Phoenix is the other tool supporting iPad 3 / 9.3.6.
+  - **Get device-info helper** button: finds an existing `ideviceinfo` (3uTools, iMazing, MSYS2, scoop, chocolatey) or guides you to a trusted source. It **never silently downloads or runs a third-party binary**; an advanced `IPADLEGACY_HELPER_REPO` env var documents an opt-in path.
+  - **IPA integrity check**: the SHA-256 is compared to the hash GitHub publishes for the asset (when present) and the download is refused on mismatch; otherwise you are told to compare it yourself.
+  - **Resilient GitHub calls**: clear messages for rate-limit (HTTP 403) and offline instead of raw errors.
+  - **Headless mode** (`-Scan`): runs the diagnostic with no GUI, prints and saves a report — used by CI and scripting.
+  - Auto session logging to `%LOCALAPPDATA%\iPadLegacyAssistant`, HiDPI-aware UI, accessible control names, and Pester unit tests.
+- **v1.1 (2026-11-18)** broadened `ideviceinfo` discovery and made the IPA download tolerate zero/multiple `.ipa` assets.
 
 ## Run
 
 1. Download the app and launcher from this folder; keep both files together. Alternatively download the Windows ZIP from the successful GitHub Actions workflow.
 2. Double-click Launch-iPad-Legacy-Assistant.cmd. Windows PowerShell 5.1 and WinForms are already included in Windows 10 and 11.
 3. Connect the iPad using a working USB cable. Unlock and tap **Trust** on the iPad if prompted.
-4. Select **Scan connected iPad** to check USB, Apple Mobile Device Service, iTunes and Sideloadly. If a helper (`ideviceinfo` from libimobiledevice/3uTools, found on PATH or in common install locations) is present it also reads the exact model and iOS version and names the iPad 3/4 variant; otherwise it says so plainly instead of showing a bare "Unknown".
-5. Select **Download official IPA**. The app asks permission before downloading the latest official EverPwnage IPA from GitHub. It validates source URL, expected file size, ZIP signature and computes SHA-256. If the release has several `.ipa` assets it picks the largest and logs all of them; if it has none it tells you to pick manually from the releases page.
-6. Select **Open Sideloadly**. If absent it opens https://sideloadly.io/ so you can install it. Follow https://ios.cfw.guide/installing-everpwnage/ and drag the IPA from the downloads folder into Sideloadly. Sign with **your own Apple Account** directly in Sideloadly.
+4. Select **Scan connected iPad** to check USB, Apple Mobile Device Service, iTunes and Sideloadly, and to compute a **readiness score**. If a helper (`ideviceinfo`) is found it reads the exact model and iOS and names the iPad 3/4 variant; otherwise it says so plainly. Use **Get device-info helper** if you want that detail and have no helper yet.
+5. Once a supported device (`iPad3,x` on iOS 9.3.6) is confirmed, the prep buttons unlock. Select **Download EverPwnage IPA** (or use the **Phoenix** buttons). The app asks permission, then downloads the latest official EverPwnage IPA from GitHub, validating source URL, file size, ZIP signature, and the publisher SHA-256; multiple assets -> largest (all logged), none -> pick manually.
+6. Select **Open Sideloadly**. If absent it opens https://sideloadly.io/. Follow the EverPwnage or Phoenix guide and drag the IPA from the downloads folder into Sideloadly. Sign with **your own Apple Account** directly in Sideloadly.
 7. On-device app trust, IPA installation, jailbreak action and verification remain **manual**. Perform them only if you are authorised to alter the device.
+
+### Headless use
+
+Run `powershell -ExecutionPolicy Bypass -File .\iPadLegacyAssistant.ps1 -Scan` to print and save a privacy-safe diagnostic report with no window — handy for scripting and used by CI.
 
 ## Important limitations and safeguards
 
@@ -41,11 +55,13 @@ Designed for an **iPad 3 (2012) running iOS 9.3.6**, with an unidentified former
 
 ## Testing
 
-Windows CI runs the PowerShell syntax and safety smoke tests and packages a ZIP artifact. These checks **do not** prove that the app was run against the physical iPad or that a jailbreak succeeded.
+Windows CI runs the syntax/safety smoke test, a headless `-Scan` self-check, and (non-blocking) Pester unit tests, then packages a ZIP artifact. These checks **do not** prove the app was run against the physical iPad or that a jailbreak succeeded.
 
 ## Official sources
 
 - https://github.com/LukeZGD/EverPwnage/releases
 - https://ios.cfw.guide/installing-everpwnage/
+- https://phoenixpwn.com/ and https://ios.cfw.guide/installing-phoenix/
+- https://libimobiledevice.org/
 - https://sideloadly.io/
 - https://support.apple.com/en-au/108934
