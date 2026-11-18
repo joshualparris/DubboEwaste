@@ -5,9 +5,9 @@ $ErrorActionPreference='Stop'
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 [System.Windows.Forms.Application]::EnableVisualStyles()
-[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12
+[System.Net.ServicePointManager]::SecurityProtocol=[System.Net.SecurityProtocolType]::Tls12
 $script:DownloadDir=Join-Path $env:LOCALAPPDATA 'iPadLegacyAssistant\Downloads'
-[void][IO.Directory]::CreateDirectory($script:DownloadDir)
+[void][System.IO.Directory]::CreateDirectory($script:DownloadDir)
 $script:LastScan=$null
 function Open-Official([string]$url) {
  if($url -notmatch '^https://(sideloadly\.io|ios\.cfw\.guide|github\.com|support\.apple\.com)/'){throw 'Untrusted destination.'}
@@ -46,7 +46,7 @@ function Download-OfficialIpa {
  if($assets.Count -ne 1){throw "Unexpected IPA asset count: $($assets.Count). Check official releases manually."}
  $asset=$assets[0]; $url=[uri]$asset.browser_download_url
  if($url.Scheme -ne 'https' -or $url.Host -ne 'github.com' -or
-   !$url.AbsolutePath.StartsWith('/LukeZGD/EverPwnage/releases/download/',[StringComparison]::OrdinalIgnoreCase)){
+   !$url.AbsolutePath.StartsWith('/LukeZGD/EverPwnage/releases/download/',[System.StringComparison]::OrdinalIgnoreCase)){
    throw 'Refusing unexpected download URL.'
  }
  $name=([string]$release.tag_name+'-'+[string]$asset.name) -replace '[^a-zA-Z0-9_.-]','_'
@@ -55,7 +55,7 @@ function Download-OfficialIpa {
    Invoke-WebRequest -Uri $url.AbsoluteUri -OutFile $part -UseBasicParsing -TimeoutSec 120 -Headers @{'User-Agent'='iPadLegacyAssistant/1.0'}
    $file=Get-Item -LiteralPath $part
    if($file.Length -lt 1024 -or ($asset.size -gt 0 -and $file.Length -ne [long]$asset.size)){throw 'Download size mismatch.'}
-   $stream=[IO.File]::OpenRead($part)
+   $stream=[System.IO.File]::OpenRead($part)
    try{if($stream.ReadByte() -ne 80 -or $stream.ReadByte() -ne 75){throw 'Downloaded file is not a ZIP-based IPA.'}}
    finally{$stream.Dispose()}
    Move-Item -LiteralPath $part -Destination $dest -Force
@@ -63,22 +63,22 @@ function Download-OfficialIpa {
  }finally{if(Test-Path -LiteralPath $part){Remove-Item -LiteralPath $part -Force}}
 }
 function New-Button([string]$name,[int]$x,[int]$y,[int]$width){
- $b=New-Object Windows.Forms.Button
- $b.Text=$name;$b.Location=New-Object Drawing.Point($x,$y);$b.Size=New-Object Drawing.Size($width,49)
+ $b=New-Object System.Windows.Forms.Button
+ $b.Text=$name;$b.Location=New-Object System.Drawing.Point($x,$y);$b.Size=New-Object System.Drawing.Size($width,49)
  $b.FlatStyle='Flat';$b.FlatAppearance.BorderSize=0
- $b.BackColor=[Drawing.Color]::FromArgb(40,77,111);$b.ForeColor=[Drawing.Color]::White
- $b.Font=New-Object Drawing.Font('Segoe UI',9,[Drawing.FontStyle]::Bold)
+ $b.BackColor=[System.Drawing.Color]::FromArgb(40,77,111);$b.ForeColor=[System.Drawing.Color]::White
+ $b.Font=New-Object System.Drawing.Font('Segoe UI',9,[System.Drawing.FontStyle]::Bold)
  return $b
 }
 function New-Label([string]$text,[int]$x,[int]$y,[int]$w,[int]$h,[int]$fontSize){
- $l=New-Object Windows.Forms.Label;$l.Text=$text
- $l.Location=New-Object Drawing.Point($x,$y);$l.Size=New-Object Drawing.Size($w,$h)
- $l.Font=New-Object Drawing.Font('Segoe UI',$fontSize);$l.ForeColor=[Drawing.Color]::White;return $l
+ $l=New-Object System.Windows.Forms.Label;$l.Text=$text
+ $l.Location=New-Object System.Drawing.Point($x,$y);$l.Size=New-Object System.Drawing.Size($w,$h)
+ $l.Font=New-Object System.Drawing.Font('Segoe UI',$fontSize);$l.ForeColor=[System.Drawing.Color]::White;return $l
 }
-$script:form=New-Object Windows.Forms.Form
+$script:form=New-Object System.Windows.Forms.Form
 $script:form.Text='iPad Legacy Assistant';$script:form.StartPosition='CenterScreen'
-$script:form.ClientSize=New-Object Drawing.Size(825,640);$script:form.MinimumSize=New-Object Drawing.Size(760,650)
-$script:form.BackColor=[Drawing.Color]::FromArgb(20,29,45)
+$script:form.ClientSize=New-Object System.Drawing.Size(825,640);$script:form.MinimumSize=New-Object System.Drawing.Size(760,650)
+$script:form.BackColor=[System.Drawing.Color]::FromArgb(20,29,45)
 $script:form.Controls.Add((New-Label 'iPad Legacy Assistant' 27 20 780 45 23))
 $script:form.Controls.Add((New-Label 'Old iPad diagnostics and guided installation - no wipe, restore, or Activation Lock bypass' 27 72 770 60 10))
 $script:status=New-Label 'DEVICE NOT SCANNED' 27 149 780 35 12
@@ -94,14 +94,14 @@ $folderBtn=New-Button 'Open IPA folder' 27 405 242
 $reportBtn=New-Button 'Save local report' 289 405 242
 $appleBtn=New-Button 'Activation Lock support' 551 405 242
 $script:form.Controls.AddRange(@($scanBtn,$ipaBtn,$sideBtn,$guideBtn,$releaseBtn,$driversBtn,$folderBtn,$reportBtn,$appleBtn))
-$script:log=New-Object Windows.Forms.TextBox
-$script:log.Location=New-Object Drawing.Point(27,475);$script:log.Size=New-Object Drawing.Size(766,132)
+$script:log=New-Object System.Windows.Forms.TextBox
+$script:log.Location=New-Object System.Drawing.Point(27,475);$script:log.Size=New-Object System.Drawing.Size(766,132)
 $script:log.Multiline=$true;$script:log.ReadOnly=$true;$script:log.ScrollBars='Vertical'
 $script:log.Anchor='Top,Bottom,Left,Right'
-$script:log.BackColor=[Drawing.Color]::FromArgb(11,19,31);$script:log.ForeColor=[Drawing.Color]::FromArgb(183,229,218)
-$script:log.Font=New-Object Drawing.Font('Consolas',9);$script:form.Controls.Add($script:log)
+$script:log.BackColor=[System.Drawing.Color]::FromArgb(11,19,31);$script:log.ForeColor=[System.Drawing.Color]::FromArgb(183,229,218)
+$script:log.Font=New-Object System.Drawing.Font('Consolas',9);$script:form.Controls.Add($script:log)
 function Log([string]$text){$script:log.AppendText(('{0:HH:mm:ss}  {1}' -f (Get-Date),$text)+[Environment]::NewLine)}
-function Fail([string]$name,[string]$message){Log "$name failed: $message";[Windows.Forms.MessageBox]::Show($message,$name,'OK','Warning')|Out-Null}
+function Fail([string]$name,[string]$message){Log "$name failed: $message";[System.Windows.Forms.MessageBox]::Show($message,$name,'OK','Warning')|Out-Null}
 $scanBtn.Add_Click({
  $scanBtn.Enabled=$false;$script:form.Cursor='WaitCursor'
  try{
@@ -115,10 +115,10 @@ $scanBtn.Add_Click({
  finally{$scanBtn.Enabled=$true;$script:form.Cursor='Default'}
 })
 $ipaBtn.Add_Click({
- if([Windows.Forms.MessageBox]::Show('Download from the official EverPwnage GitHub release? This does not install or execute the IPA.','Official IPA','YesNo','Question') -ne [Windows.Forms.DialogResult]::Yes){return}
+ if([System.Windows.Forms.MessageBox]::Show('Download from the official EverPwnage GitHub release? This does not install or execute the IPA.','Official IPA','YesNo','Question') -ne [System.Windows.Forms.DialogResult]::Yes){return}
  $ipaBtn.Enabled=$false;$script:form.Cursor='WaitCursor'
  try{$info=Download-OfficialIpa;Log "Downloaded $($info.Tag); SHA256 $($info.SHA256)"
- [Windows.Forms.MessageBox]::Show("File: $($info.Path)"+[Environment]::NewLine+"SHA-256: $($info.SHA256)",'Download complete','OK','Information')|Out-Null}
+ [System.Windows.Forms.MessageBox]::Show("File: $($info.Path)"+[Environment]::NewLine+"SHA-256: $($info.SHA256)",'Download complete','OK','Information')|Out-Null}
  catch{Fail 'IPA download' $_.Exception.Message}
  finally{$ipaBtn.Enabled=$true;$script:form.Cursor='Default'}
 })
@@ -134,12 +134,12 @@ $driversBtn.Add_Click({try{Open-Official 'https://sideloadly.io/'}catch{Fail 'Dr
 $folderBtn.Add_Click({try{Start-Process explorer.exe -ArgumentList ('"'+$script:DownloadDir+'"')}catch{Fail 'Folder' $_.Exception.Message}})
 $appleBtn.Add_Click({try{Open-Official 'https://support.apple.com/en-au/108934'}catch{Fail 'Apple support' $_.Exception.Message}})
 $reportBtn.Add_Click({
- try{$dlg=New-Object Windows.Forms.SaveFileDialog;$dlg.Filter='Text file (*.txt)|*.txt';$dlg.FileName='ipad-legacy-report.txt'
-  if($dlg.ShowDialog() -ne [Windows.Forms.DialogResult]::OK){return}
+ try{$dlg=New-Object System.Windows.Forms.SaveFileDialog;$dlg.Filter='Text file (*.txt)|*.txt';$dlg.FileName='ipad-legacy-report.txt'
+  if($dlg.ShowDialog() -ne [System.Windows.Forms.DialogResult]::OK){return}
   $lines=@('iPad Legacy Assistant - local metadata only','No personal information, account credentials, serial or media copied.')
   if($script:LastScan){$s=$script:LastScan;$lines+=@("USB connected: $($s.Connected)","USB count: $($s.UsbCount)","Driver issue: $($s.DriverIssue)","Apple service: $($s.AppleService)","iTunes: $($s.ITunes)","Sideloadly: $($s.Sideloadly)","Model: $($s.Model)","iOS: $($s.IOS)")}
   $lines+='No jailbreak or Activation Lock change has been performed or verified.'
-  [IO.File]::WriteAllLines($dlg.FileName,[string[]]$lines,(New-Object Text.UTF8Encoding($false)));Log 'Saved metadata-only report.'
+  [System.IO.File]::WriteAllLines($dlg.FileName,[string[]]$lines,(New-Object System.Text.UTF8Encoding($false)));Log 'Saved metadata-only report.'
  }catch{Fail 'Save report' $_.Exception.Message}
 })
 Log 'Ready. iPad 3 / iOS 9.3.6 is supported by EverPwnage (check actual device before continuing).'
