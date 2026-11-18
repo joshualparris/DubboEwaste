@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 # iPad Legacy Assistant: local USB diagnostics and safe jailbreak preparation.
 Set-StrictMode -Version 2.0
 $ErrorActionPreference='Stop'
@@ -28,23 +28,30 @@ function Scan-AppleDevice {
  $pfx=[Environment]::GetFolderPath('ProgramFilesX86')
  $itunes=Find-Exe 'iTunes.exe' @((Join-Path $pf 'iTunes\iTunes.exe'),(Join-Path $pfx 'iTunes\iTunes.exe'))
  $side=Find-Exe 'Sideloadly.exe' @((Join-Path $pf 'Sideloadly\Sideloadly.exe'),(Join-Path $pfx 'Sideloadly\Sideloadly.exe'),(Join-Path $env:LOCALAPPDATA 'Programs\Sideloadly\Sideloadly.exe'))
- $idevice=Find-Exe 'ideviceinfo.exe' @()
- $model='Unknown';$ios='Unknown'
+ $idevice=Find-Exe 'ideviceinfo.exe' @((Join-Path $env:USERPROFILE 'scoop\shims\ideviceinfo.exe'),(Join-Path $env:ProgramData 'chocolatey\bin\ideviceinfo.exe'),(Join-Path $pf 'libimobiledevice\ideviceinfo.exe'),(Join-Path $pfx 'libimobiledevice\ideviceinfo.exe'),(Join-Path $pfx '3uTools\ideviceinfo.exe'))
+ $modelMap=@{'iPad3,1'='iPad 3 (Wi-Fi)';'iPad3,2'='iPad 3 (Cellular, CDMA)';'iPad3,3'='iPad 3 (Cellular, GSM)';'iPad3,4'='iPad 4 (Wi-Fi)';'iPad3,5'='iPad 4 (Cellular)';'iPad3,6'='iPad 4 (Cellular MM)'}
+ $helper=[bool]$idevice;$model='Unknown';$ios='Unknown'
  if($dev.Count -gt 0 -and $idevice){
-   try{$model=[string](& $idevice -k ProductType 2>$null | Select-Object -First 1)}catch{}
-   try{$ios=[string](& $idevice -k ProductVersion 2>$null | Select-Object -First 1)}catch{}
+   $pt='';try{$pt=([string](& $idevice -k ProductType 2>$null | Select-Object -First 1)).Trim()}catch{}
+   try{$ios=([string](& $idevice -k ProductVersion 2>$null | Select-Object -First 1)).Trim()}catch{}
+   if($pt){$model=if($modelMap.ContainsKey($pt)){$modelMap[$pt]+' ['+$pt+']'}else{$pt}}
+   if([string]::IsNullOrWhiteSpace($ios)){$ios='Unknown'}
+ }elseif($dev.Count -gt 0){
+   $model='Install ideviceinfo/3uTools to read';$ios='Install ideviceinfo/3uTools to read'
  }
  [pscustomobject]@{Connected=$dev.Count -gt 0;UsbCount=$dev.Count;DriverIssue=$bad -gt 0;
   AppleService=if($svc){[string]$svc.Status}else{'Missing'};ITunes=[bool]$itunes;
-  Sideloadly=[bool]$side;SideloadlyExe=$side;Model=$model;IOS=$ios}
+  Sideloadly=[bool]$side;SideloadlyExe=$side;Helper=$helper;Model=$model;IOS=$ios}
 }
 function Download-OfficialIpa {
  $api='https://api.github.com/repos/LukeZGD/EverPwnage/releases/latest'
  $release=Invoke-RestMethod -Uri $api -Headers @{'User-Agent'='iPadLegacyAssistant/1.0'} -TimeoutSec 30
  if(!$release -or !$release.tag_name){throw 'Incomplete official GitHub release data.'}
  $assets=@($release.assets | Where-Object {$_.name -match '(?i)\.ipa$'})
- if($assets.Count -ne 1){throw "Unexpected IPA asset count: $($assets.Count). Check official releases manually."}
- $asset=$assets[0]; $url=[uri]$asset.browser_download_url
+ if($assets.Count -eq 0){throw "The latest EverPwnage release ($($release.tag_name)) has no .ipa asset. Use 'Official EverPwnage releases' to pick the correct file manually."}
+ $asset=@($assets | Sort-Object {[long]$_.size} -Descending)[0]
+ $note=if($assets.Count -gt 1){'Multiple IPAs found ('+(($assets|ForEach-Object{$_.name}) -join ', ')+'); selected largest: '+$asset.name}else{''}
+ $url=[uri]$asset.browser_download_url
  if($url.Scheme -ne 'https' -or $url.Host -ne 'github.com' -or
    !$url.AbsolutePath.StartsWith('/LukeZGD/EverPwnage/releases/download/',[System.StringComparison]::OrdinalIgnoreCase)){
    throw 'Refusing unexpected download URL.'
@@ -59,7 +66,7 @@ function Download-OfficialIpa {
    try{if($stream.ReadByte() -ne 80 -or $stream.ReadByte() -ne 75){throw 'Downloaded file is not a ZIP-based IPA.'}}
    finally{$stream.Dispose()}
    Move-Item -LiteralPath $part -Destination $dest -Force
-   [pscustomobject]@{Path=$dest;Tag=$release.tag_name;SHA256=(Get-FileHash -LiteralPath $dest -Algorithm SHA256).Hash}
+   [pscustomobject]@{Path=$dest;Tag=$release.tag_name;Note=$note;SHA256=(Get-FileHash -LiteralPath $dest -Algorithm SHA256).Hash}
  }finally{if(Test-Path -LiteralPath $part){Remove-Item -LiteralPath $part -Force}}
 }
 function New-Button([string]$name,[int]$x,[int]$y,[int]$width){
@@ -110,14 +117,15 @@ $scanBtn.Add_Click({
    $script:detail.Text="USB devices: $($s.UsbCount); driver issue: $($s.DriverIssue); Apple service: $($s.AppleService)"+[Environment]::NewLine+
       "iTunes: $($s.ITunes); Sideloadly: $($s.Sideloadly); Model: $($s.Model); iOS: $($s.IOS)"
    Log "Scan: USB=$($s.Connected), iTunes=$($s.ITunes), Sideloadly=$($s.Sideloadly)."
-   if($s.Model -match '^iPad3,' -and $s.IOS -eq '9.3.6'){Log 'iPad 3 / iOS 9.3.6 match supported versions.'}
+   if($s.Connected -and -not $s.Helper){Log 'Tip: install ideviceinfo (libimobiledevice) or 3uTools to read exact model/iOS over USB.'}
+   if($s.Model -match 'iPad3,' -and $s.IOS -eq '9.3.6'){Log 'iPad 3 / iOS 9.3.6 match supported versions.'}
  }catch{Fail 'Scan' $_.Exception.Message}
  finally{$scanBtn.Enabled=$true;$script:form.Cursor='Default'}
 })
 $ipaBtn.Add_Click({
  if([System.Windows.Forms.MessageBox]::Show('Download from the official EverPwnage GitHub release? This does not install or execute the IPA.','Official IPA','YesNo','Question') -ne [System.Windows.Forms.DialogResult]::Yes){return}
  $ipaBtn.Enabled=$false;$script:form.Cursor='WaitCursor'
- try{$info=Download-OfficialIpa;Log "Downloaded $($info.Tag); SHA256 $($info.SHA256)"
+ try{$info=Download-OfficialIpa;if($info.Note){Log $info.Note};Log "Downloaded $($info.Tag); SHA256 $($info.SHA256)"
  [System.Windows.Forms.MessageBox]::Show("File: $($info.Path)"+[Environment]::NewLine+"SHA-256: $($info.SHA256)",'Download complete','OK','Information')|Out-Null}
  catch{Fail 'IPA download' $_.Exception.Message}
  finally{$ipaBtn.Enabled=$true;$script:form.Cursor='Default'}
@@ -143,5 +151,5 @@ $reportBtn.Add_Click({
  }catch{Fail 'Save report' $_.Exception.Message}
 })
 Log 'Ready. iPad 3 / iOS 9.3.6 is supported by EverPwnage (check actual device before continuing).'
-Log 'Find My iPad is ON. Do not restore or erase. Do not access the unknown owner’s content.'
+Log 'Find My iPad is ON. Do not restore or erase. Do not access the unknown content belonging to the unknown owner.'
 [void]$script:form.ShowDialog()
