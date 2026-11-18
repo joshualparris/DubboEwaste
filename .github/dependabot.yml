@@ -9,3 +9,5 @@ updates:
       time: "09:00"
       timezone: Australia/Sydney
     open-pull-requests-limit: 3
+    cooldown:
+      default-days: 7
