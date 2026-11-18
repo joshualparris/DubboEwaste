@@ -48,4 +48,5 @@ $badReport=Join-Path $env:TEMP 'recovery-test.exe'
 $rejected=$false
 try{Export-RecoverySnapshot -Snapshot $sample -Path $badReport | Out-Null}catch{$rejected=$true}
 Check $rejected 'Unsafe report extension rejected'
+Check (@(Get-AndroidReadOnlyDetails -Adb '').Count -eq 0) 'Missing ADB reports zero Android devices'
 Write-Host 'PASS: universal toolkit parser, classifiers, permission gates, reuse, privacy-safe export.'
