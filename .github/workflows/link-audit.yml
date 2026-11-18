@@ -26,7 +26,7 @@ jobs:
           python-version: '3.12'
       - name: Probe Projects directory destinations
         run: python scripts/check_project_links_live.py
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: projects-links-live-audit
@@ -45,7 +45,7 @@ jobs:
       - name: Check every external link
         if: always()
         run: python scripts/check_links.py
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: external-link-audit
