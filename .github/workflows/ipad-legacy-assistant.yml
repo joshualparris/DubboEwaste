@@ -1,0 +1,27 @@
+name: iPad Legacy Assistant - Windows checks
+on:
+  push:
+    paths:
+      - 'tools/ipad-legacy-assistant/**'
+      - '.github/workflows/ipad-legacy-assistant.yml'
+  pull_request:
+    paths:
+      - 'tools/ipad-legacy-assistant/**'
+      - '.github/workflows/ipad-legacy-assistant.yml'
+  workflow_dispatch:
+jobs:
+  test-and-package:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate PowerShell syntax and safety
+        shell: powershell
+        run: '& .\tools\ipad-legacy-assistant\tests\Smoke.Tests.ps1'
+      - name: Package the portable Windows app
+        shell: powershell
+        run: Compress-Archive -Path .\tools\ipad-legacy-assistant\iPadLegacyAssistant.ps1,.\tools\ipad-legacy-assistant\Launch-iPad-Legacy-Assistant.cmd,.\tools\ipad-legacy-assistant\README.md -DestinationPath .\iPad-Legacy-Assistant-Windows.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iPad-Legacy-Assistant-Windows
+          path: iPad-Legacy-Assistant-Windows.zip
+          if-no-files-found: error
