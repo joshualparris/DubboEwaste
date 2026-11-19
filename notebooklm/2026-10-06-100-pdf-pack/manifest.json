@@ -1,7 +1,7 @@
 {
   "pack_name": "Dubbo eWaste NotebookLM 100 PDF Research Pack - ORIGINAL SOURCES",
   "generated": "6 October 2026",
-  "source_commit": "77fee57f8ae6",
+  "source_commit": "7d8f10df5329",
   "pdf_count": 100,
   "repo_document_count": 44,
   "original_online_pdf_count": 55,
@@ -14,7 +14,7 @@
       "source": "This repository",
       "pages": 4,
       "encrypted": false,
-      "sha256": "a178e164e8f3ec1b0e7f80715d46d34d414a153e69d9da2ee1786e49df25ac95"
+      "sha256": "af84ab2c219741064560145f4b37b256245ed6c56b4d0c0c152f5fc9075e5953"
     },
     {
       "number": 2,
@@ -22,9 +22,9 @@
       "title": "Readme",
       "kind": "Full repository document",
       "source": "README.md",
-      "pages": 5,
+      "pages": 6,
       "encrypted": false,
-      "sha256": "c744613fe1b12a20762679df6fea1d22a23076dba9190274c1d434906f37f618"
+      "sha256": "77f2cf8f2ab65532661a72156582fc8631f17b9debdb60a667455435a32b5d86"
     },
     {
       "number": 3,
@@ -32,9 +32,9 @@
       "title": "Start Here",
       "kind": "Full repository document",
       "source": "START-HERE.md",
-      "pages": 3,
+      "pages": 6,
       "encrypted": false,
-      "sha256": "6d2cd64d669194c99f7d71d442201fffad963db0c53098f84398f635390cf5ed"
+      "sha256": "816bdfa6908f8d41b683074cc3e60f4dd3638efbe69e08cec5644cf96898e94b"
     },
     {
       "number": 4,
@@ -44,7 +44,7 @@
       "source": "EVIDENCE-SCHEMA.md",
       "pages": 1,
       "encrypted": false,
-      "sha256": "28531fdf15642ac07de2c41bbe6234aeabb6514ec72fce3b85793c87977dc667"
+      "sha256": "52c80a92cbc6803052856af7398243a3c12c4cd907d4b8176569ac4781eeaacc"
     },
     {
       "number": 5,
@@ -54,7 +54,7 @@
       "source": "OpenSourceSoftware/assetflow-concept.md",
       "pages": 6,
       "encrypted": false,
-      "sha256": "eb2a7430f9c3ced2307e2bdc92c1b65afed542dca9df1ef1b0f8578d5bacb463"
+      "sha256": "c76375322fccf5c55e2877242936613915dd181e4550c30c0e1f4f3faadd2fe0"
     },
     {
       "number": 6,
@@ -64,7 +64,7 @@
       "source": "OpenSourceSoftware/assetflow-software-specification.md",
       "pages": 20,
       "encrypted": false,
-      "sha256": "14284e70742d6c1a388e05c1cf1381bc20fccd87b7ddf3b510da0819fca9df45"
+      "sha256": "566ff8c6812bb43df39e90f0e7887d82b19a42a1b6036599fc1e84f3896c95b1"
     },
     {
       "number": 7,
@@ -74,7 +74,7 @@
       "source": "OpenSourceSoftware/data-model.md",
       "pages": 4,
       "encrypted": false,
-      "sha256": "c65789f19b83ecb4bef751d995807197e448f3509d1ab38655049d65e95592e6"
+      "sha256": "72e83d2ab2978fd50e8d89efb78d9d14652f3b67e9f09444370a0f30c5cd0f3a"
     },
     {
       "number": 8,
@@ -84,7 +84,7 @@
       "source": "OpenSourceSoftware/software-landscape.md",
       "pages": 6,
       "encrypted": false,
-      "sha256": "97558b7ed99c600280316e442e3997d88f5166a3f9223e4160c1b1cefbc92d70"
+      "sha256": "436e4d972092b2f908d58336e6dfb4e7e2ec76aa291c0bde13891948e61b1c7d"
     },
     {
       "number": 9,
@@ -94,7 +94,7 @@
       "source": "OpenSourceSoftware/vendor-workflow-reconstruction.md",
       "pages": 16,
       "encrypted": false,
-      "sha256": "453b04f893f9333e0da4745eddad44b3d895a800563fd03ca92f27bf8ce7ed0c"
+      "sha256": "f55fdbe86fdbdb14d315a048330bb67be4ae577732f02ab82dac78a7fc9a527c"
     },
     {
       "number": 10,
@@ -104,7 +104,7 @@
       "source": "docs/ALL-CHAT-RESEARCH-SYNTHESIS.md",
       "pages": 20,
       "encrypted": false,
-      "sha256": "07029b29312496dac5fc521956495acc443859f160d02b2e82b231f2c32bd89e"
+      "sha256": "fba3bc965719e1919c422673408fb579f0c3970a285966ef5f4135a4a83bb6c8"
     },
     {
       "number": 11,
@@ -114,7 +114,7 @@
       "source": "docs/AMR-DUBBO-DOWNSTREAM-FORENSIC.md",
       "pages": 10,
       "encrypted": false,
-      "sha256": "d6239ad90fd4de14f16147e53490d3a49f856bfb2ace502e0447a99926e2d564"
+      "sha256": "583c5b37bbd312624842c75295bb821bd49f8a1d28f804657055f216be2cba44"
     },
     {
       "number": 12,
@@ -124,7 +124,7 @@
       "source": "docs/ASSETFLOW-DEVICE-DATA-SOURCES.md",
       "pages": 2,
       "encrypted": false,
-      "sha256": "1605f614762ebe276152487cff50aec68d8a5e10527c1fddab227843fbbf425a"
+      "sha256": "98ab1d1105fc4e06a1863613213679a23d42706376c16205dffb963a836c218f"
     },
     {
       "number": 13,
@@ -134,7 +134,7 @@
       "source": "docs/ASSETFLOW-ERASURE-DIAGNOSTICS-INTEGRATIONS.md",
       "pages": 2,
       "encrypted": false,
-      "sha256": "c7b577e8500c70b640e4ee845f1b033dc16358dd36f9b10e157cf1092ae35d2a"
+      "sha256": "0a8a29933195e7e45f305aec3effb0364facbbeb6491cbdbf415d8ecbc56deeb"
     },
     {
       "number": 14,
@@ -144,7 +144,7 @@
       "source": "docs/AU-SHIPPING-MATRIX.md",
       "pages": 1,
       "encrypted": false,
-      "sha256": "94349ff63bacd00255287cbcbfb9a198de67e35c3d44fed5571bcb642fe53c6d"
+      "sha256": "fe92c607232fc3a7c028aa64e868541b6518565182d8d85cec7dc2f0a1a5e49d"
     },
     {
       "number": 15,
@@ -154,7 +154,7 @@
       "source": "docs/AUSTRALIAN-EWASTE-ITAD-MAJOR-PLAYERS.md",
       "pages": 4,
       "encrypted": false,
-      "sha256": "cfae922a9db8e81aeacd24d9819e449f2943cc03f5c282b874e765c2af3fa3d0"
+      "sha256": "f81ac384fdf845e0688d614bfbb83929fd5c762ebc1f7f290a28f9fce094cb20"
     },
     {
       "number": 16,
@@ -164,7 +164,7 @@
       "source": "docs/AUSTRALIAN-ITAD-STAFFING-DUBBO-BRANCH-SHORTLIST.md",
       "pages": 14,
       "encrypted": false,
-      "sha256": "32661730a9ad58c8e27b0e0436e46992aa22a5b6e7fd1a7ab19d194796250261"
+      "sha256": "f99fe2cd7706efb8c14d7c56a4bb7a4ac5edc255524eb1c8c7313b8d8b2dffbc"
     },
     {
       "number": 17,
@@ -174,7 +174,7 @@
       "source": "docs/BENCH-SOP-AND-LAYOUT.md",
       "pages": 5,
       "encrypted": false,
-      "sha256": "efe575c1b605e004937870a073d82cced9e768a1b28c7acfd8f414f320ac86f8"
+      "sha256": "9102dfd350c8ddfcc344e4e9c39f403120f3d8be7c384968f22a2a3d914befa4"
     },
     {
       "number": 18,
@@ -184,7 +184,7 @@
       "source": "docs/CATEGORY-INTAKE-CARDS.md",
       "pages": 2,
       "encrypted": false,
-      "sha256": "e965efc976363a20f779f43ceaaad2a57ca19b2d9e98fbf98f4ede0d679104f8"
+      "sha256": "e65eca36c5161c11fe79ef64a03955d44a5a67e658fe19b3c70cd2280cbc8168"
     },
     {
       "number": 19,
@@ -194,7 +194,7 @@
       "source": "docs/COMPLIANCE-REGISTER.md",
       "pages": 1,
       "encrypted": false,
-      "sha256": "92c8959f7a3cf4c1a645306bdb078ccf80bd014c84f9b536579b06204b2ddd15"
+      "sha256": "fbbcf6e8347bb21cd109102a7a536bf0505c2f9454f127222e18b787355daa54"
     },
     {
       "number": 20,
@@ -204,7 +204,7 @@
       "source": "docs/DEEP-RESEARCH-2026-10-05-COMPLIANCE-DATA-SAFETY.md",
       "pages": 13,
       "encrypted": false,
-      "sha256": "0dccd28ed1b407e86d49a8da78420f018257dc99c6118464629ef8eec382c41f"
+      "sha256": "1434644e46c677b81ef96ac785f659c3863fc2d7d333b4029dbdab13fc340822"
     },
     {
       "number": 21,
@@ -214,7 +214,7 @@
       "source": "docs/DEEP-RESEARCH-2026-10-05-EXECUTIVE-SYNTHESIS.md",
       "pages": 10,
       "encrypted": false,
-      "sha256": "fb30dff6659894a04480d4b96bc8c6c6314aea7dd90395b95930bc09ce211f64"
+      "sha256": "704e4ce47d18060091cb9ad62aafadb71825b76d21b0ec7098b379502ac260fb"
     },
     {
       "number": 22,
@@ -224,7 +224,7 @@
       "source": "docs/DEEP-RESEARCH-2026-10-05-OPERATIONS-ROUTING-CAPACITY.md",
       "pages": 15,
       "encrypted": false,
-      "sha256": "a66c2111512099e9b0b94b744c4d21a345bd020e75f64edecd2b1209a22ff8ff"
+      "sha256": "779ffb39ad538e249ff800e4c1ea93a2d6926449f21932613d09fb2b16bc7fd9"
     },
     {
       "number": 23,
@@ -234,7 +234,7 @@
       "source": "docs/DEEP-RESEARCH-2026-10-05-REFURB-SKILLS-REPAIR.md",
       "pages": 11,
       "encrypted": false,
-      "sha256": "f998752978bf054d20871334e5e746e0cb6ed027e6e4dd5af6ec360b060aa2fb"
+      "sha256": "c0eb9c8d6d76fc8f9eab678df1317572a42a373f2550e79dea8cc3c72092c275"
     },
     {
       "number": 24,
@@ -244,7 +244,7 @@
       "source": "docs/DEEP-RESEARCH-2026-10-05-SOFTWARE-ASSETFLOW-AUTOMATION.md",
       "pages": 10,
       "encrypted": false,
-      "sha256": "dc9728ec4616e54a03ad0dfbc98a51f6a3bd195c4fcfe131ba5725030b3277e3"
+      "sha256": "ccf7e788fb01b65ed17f8ec3a7b224b74430e09ada51552bbfb8b497e6f5c5d4"
     },
     {
       "number": 25,
@@ -254,7 +254,7 @@
       "source": "docs/DEEP-RESEARCH-2026-10-05-SOURCING-PARTNERSHIPS-BUSINESS.md",
       "pages": 14,
       "encrypted": false,
-      "sha256": "1098e85bb3eee77db8966ec921ff924dfafa1d4a33d22b47092dd498faf0350b"
+      "sha256": "f796d603db60834fe72c5906276004c7748796bb57210b77286d24ffe79f25c9"
     },
     {
       "number": 26,
@@ -264,7 +264,7 @@
       "source": "docs/DOWNSTREAM-PROVIDER-DUBBO-COST-COMPARISON.md",
       "pages": 3,
       "encrypted": false,
-      "sha256": "551d09e7423206793f8e4e655f5d4965fb777f08ea28d7ff845566e168aaf539"
+      "sha256": "96d554c859de4cd2e43e2fa51cb6100caff12bcde4bc2a5c133a39dd9a12527c"
     },
     {
       "number": 27,
@@ -274,7 +274,7 @@
       "source": "docs/DUBBO-COMPUTER-REPAIR-REUSE-EWASTE-DIRECTORY-2026-10-06.md",
       "pages": 10,
       "encrypted": false,
-      "sha256": "9081468936a5dcccdbf15bea8128ac94b78b3f1ff5e41274f025898f84e0726e"
+      "sha256": "45c4b7b058fd8b378bb5e56b1de4736cf1ee585aa843bef9292238449cbef1f2"
     },
     {
       "number": 28,
@@ -284,7 +284,7 @@
       "source": "docs/DUBBO-DEVICE-DISPOSAL-PROSPECTS.md",
       "pages": 6,
       "encrypted": false,
-      "sha256": "b709cae2208405f2e83c4c6b934d79a16c2f9604222400b2d785912f0eea807c"
+      "sha256": "edffcc1dc764edd889f82c2d3e1b5ebf56ade7fc04232cfa58e96a44ddbe569e"
     },
     {
       "number": 29,
@@ -294,7 +294,7 @@
       "source": "docs/DUBBO-DEVICE-DISPOSAL-SOURCES.md",
       "pages": 3,
       "encrypted": false,
-      "sha256": "020c3f33e57f6e091239884dd1357553a5cdf07e3919e1edc13e16fa0b69e954"
+      "sha256": "ae077a665fedff3111da57804c81d6224c6afe4f0aa373b4af3f1800c9d6868e"
     },
     {
       "number": 30,
@@ -304,7 +304,7 @@
       "source": "docs/DUBBO-INDEPENDENT-DEVICE-RECOVERY-OPERATORS.md",
       "pages": 4,
       "encrypted": false,
-      "sha256": "e6503e3a389035d38816ad92ff359f5da0599e313e9afa25f3db488f69e993e7"
+      "sha256": "8b169fcbde96b7cc8c0cf7d5c1332d05072ae7e415ad57ba84fc72b65e81d10e"
     },
     {
       "number": 31,
@@ -314,7 +314,7 @@
       "source": "docs/DUBBO-ITAD-BRANCH-ENTRY-PLAYBOOK.md",
       "pages": 26,
       "encrypted": false,
-      "sha256": "ae935712451d52ad0e00151549452229934dfe178c34e87d0d1b1e5f6078aec3"
+      "sha256": "bb9a1994444980e9305b11ba8d19e769ca2a0d59ae30ee186337ca701d01f4dc"
     },
     {
       "number": 32,
@@ -324,7 +324,7 @@
       "source": "docs/DUBBO-ITAD-BRANCH-PATHWAYS-COSTS-PROCESS.md",
       "pages": 26,
       "encrypted": false,
-      "sha256": "dcbbbe733e324bdfebf9964bf50378db8a2161c88f8067c1436d027decb5bed6"
+      "sha256": "0f7f7b20705e9e8a11f84f35637aa083c4eb7a4fdee9f5d2340de26f3bf4c1cb"
     },
     {
       "number": 33,
@@ -334,7 +334,7 @@
       "source": "docs/DUBBO-ITAD-DEEP-RESEARCH-2026.md",
       "pages": 37,
       "encrypted": false,
-      "sha256": "54cd3f66f128a951737496562fee92df7ba0ec59eea6c9217b5924d1d835e218"
+      "sha256": "87a0e7d6d0b6f471ee7a2fe460e73be8e7f6fd9a8512f8e4cd53fca6649a73f7"
     },
     {
       "number": 34,
@@ -344,7 +344,7 @@
       "source": "docs/DUBBO-WELLINGTON-NARROMINE-TRANGIE-REUSE-PROGRAMS.md",
       "pages": 6,
       "encrypted": false,
-      "sha256": "442a0a3742e73baf66d712b051234cc11f4943e0a966e0a5292157de318f6f59"
+      "sha256": "874fa860ec0a85ad17bd868d2c3d98bdb491ed2d6d060dbca840455731913fc9"
     },
     {
       "number": 35,
@@ -354,7 +354,7 @@
       "source": "docs/EWASTE-FACILITY-ZONE-BENCHMARK-AND-SHED-DESIGN.md",
       "pages": 19,
       "encrypted": false,
-      "sha256": "a0fe808347e393339f2317ded7a00eb80c6fc3016bc5a0a78b907bb450fee74f"
+      "sha256": "15be08dc7d204f10a7d17d42389b5650d058186aa80a8224bf50518f4a8cf3ce"
     },
     {
       "number": 36,
@@ -364,7 +364,7 @@
       "source": "docs/FACT-CHECK-NOTEBOOKLM-ITAD-2026-10-06.md",
       "pages": 5,
       "encrypted": false,
-      "sha256": "077439530201c2e44b645f450a59604af81c8123656baee0e97e7d3a19a1becf"
+      "sha256": "0d24bcfc3705e9903b4f6c6fd811be36e8849f83467adfd3dbe298da6bd84492"
     },
     {
       "number": 37,
@@ -374,7 +374,7 @@
       "source": "docs/FIRST-30-DEVICE-EXPERIMENT.md",
       "pages": 2,
       "encrypted": false,
-      "sha256": "258b23fab9a603cf67255f9c34e48f190d2f76b71ca24e2d0926b663c126290b"
+      "sha256": "5a0cc050d1c03b1eb92b06b87373c7466f6848dd6547b3d57857a996ea781802"
     },
     {
       "number": 38,
@@ -384,7 +384,7 @@
       "source": "docs/GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md",
       "pages": 27,
       "encrypted": false,
-      "sha256": "55ae641e08d33827b01266ad3e879daf6b8c86102b32e60daefab229a6a6f8af"
+      "sha256": "2d35063a4b13726aa0cf8469f9278547c63414f7213b4168fb069bf8a3b40df1"
     },
     {
       "number": 39,
@@ -394,7 +394,7 @@
       "source": "docs/INTAKE-POLICY.md",
       "pages": 7,
       "encrypted": false,
-      "sha256": "769ca6097c39732e2b1d04856c6288761d53b08e409b4e15335e747e4613bd8e"
+      "sha256": "589676844b9ab59467c73a2e63bbe3d438632cf98a37c329e0e9eff06b3ec513"
     },
     {
       "number": 40,
@@ -404,7 +404,7 @@
       "source": "docs/LEGAL-LICENSING.md",
       "pages": 2,
       "encrypted": false,
-      "sha256": "607aecb7e64a86dd91e351d389d2242d45042fc85e6897c2b8f9b002e62c5e32"
+      "sha256": "daf622c4dc5ea376928ba3a6b2649738559c89996736cab4f9ee87ec51c22f7d"
     },
     {
       "number": 41,
@@ -414,7 +414,7 @@
       "source": "docs/NATIONAL-ITAD-OPERATORS-DUBBO-COVERAGE.md",
       "pages": 3,
       "encrypted": false,
-      "sha256": "feadea78cf49599b38c7a605c546a4c5912bd5683d47c9d4dac4b703ea51d91a"
+      "sha256": "8e1baddf54ddc486669a477dbb8031977cf07e6111e63199fab8e4883096ec17"
     },
     {
       "number": 42,
@@ -424,7 +424,7 @@
       "source": "docs/NSW-EDUCATION-EWASTE-DUBBO-LAPTOPS.md",
       "pages": 13,
       "encrypted": false,
-      "sha256": "f48ac7be0aec5311f71ea9b96fb14cf2c8b4eebe85687d137844c31124e23bb4"
+      "sha256": "6d3e0d843273ece3374bbebd45c01955886c8f3d8e6bcdd95508a0e708e0b0c7"
     },
     {
       "number": 43,
@@ -434,7 +434,7 @@
       "source": "docs/PHASE-0-LAUNCH-GATES.md",
       "pages": 7,
       "encrypted": false,
-      "sha256": "139a14169eb55b8295250ef77eb21c640b9cedad6bcec934fa93fb28f3582bf6"
+      "sha256": "7d455fed23dcecf62eb45fc9598cad66f9d82e75efaaacdf03351c49fe73cc0e"
     },
     {
       "number": 44,
@@ -444,7 +444,7 @@
       "source": "docs/PHASE-0-OPERATING-BLUEPRINT.md",
       "pages": 31,
       "encrypted": false,
-      "sha256": "e9f01db2812d485b27c562e209282056d6f2e274989728c8acb5380177f25db8"
+      "sha256": "86162774ee7c7909ca54fd339d95f3476545b577b36106f701cfcd8736e2533c"
     },
     {
       "number": 45,
@@ -454,7 +454,7 @@
       "source": "docs/REGIONAL-EWASTE-PATHWAYS.md",
       "pages": 7,
       "encrypted": false,
-      "sha256": "a1b956da68dcf7e8e8d71d4ca0568c36bfa8b0daf81293e2dc8d52ec894bdde7"
+      "sha256": "cc6606f819a13c921b1a45c8ac434fe637d81d62f2073bf674d5996faffd0be1"
     },
     {
       "number": 46,
