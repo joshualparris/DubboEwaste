@@ -4,16 +4,18 @@ on:
   push:
     branches: [main]
     paths:
-      - '**/*.md'
-      - '**/*.csv'
-      - '**/*.txt'
-      - 'EwasteApp/app/(private)/projects/page.tsx'
-      - 'EwasteApp/public/dadlan-rollout.html'
       - 'scripts/check_project_links_live.py'
       - 'scripts/check_links.py'
       - 'scripts/check_documentation.py'
       - '.github/workflows/link-audit.yml'
   workflow_dispatch:
+  schedule:
+    # Live external links drift independently of commits; audit weekly.
+    - cron: '23 19 * * 0'
+
+concurrency:
+  group: external-link-audit
+  cancel-in-progress: true
 
 jobs:
   project-links:
