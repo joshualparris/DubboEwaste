@@ -1,5 +1,7 @@
 # AMR Dubbo downstream forensic trace — who actually receives the e-waste?
 
+> **25 November update:** [AMR reuse-first partnership research delta and gap-closing prompt](https://github.com/joshualparris/DubboEwaste/blob/main/docs/AMR-DUBBO-REUSE-PARTNERSHIP-RESEARCH-PROMPT-2026-11-25.md) adds current public policy evidence and a contractor-specific approval pathway. The identity of the downstream processors remains unverified.
+
 **Research date:** 2 October 2026 (AEST)  
 **Question:** After Australian Metal Recycling (AMR) accepts TVs, computers/laptops, monitors, smartphones/tablets and printers/scanners at 34 Mountbatten Drive, Dubbo, **which company/facility receives that e-waste next?**
 
