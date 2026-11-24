@@ -7,7 +7,7 @@ import { revalidatePath } from "next/cache";
 export const maxDuration = 60;
 const fail = (error: string, status=400) => NextResponse.json({error},{status});
 const analyseSchema = z.object({action:z.literal("analyse"),image:z.string().max(3_000_000).optional(),description:z.string().trim().max(4000).optional(),consent:z.literal(true)});
-const importSchema = z.object({action:z.literal("import"),job:z.string().uuid(),location:z.string().uuid().or(z.literal("")),confirmed:z.literal(true),kind:z.enum(["asset","lot"]),rows:z.array(rowSchema).min(1).max(80)});
+const importSchema = z.object({action:z.literal("import"),job:z.string().uuid(),location:z.string().uuid().or(z.literal("")),confirmed:z.literal(true),automatic:z.boolean().optional(),kind:z.enum(["asset","lot"]),rows:z.array(rowSchema).min(1).max(80)});
 
 export async function POST(request: Request) {
   // Same-origin only; no cross-site requests using the owner's session.
@@ -36,7 +36,8 @@ export async function POST(request: Request) {
   }
   const parsed=importSchema.safeParse(raw);
   if(!parsed.success)return fail("Check intake fields and confirm ownership.");
-  const {job,location,kind,rows}=parsed.data;
+  const {job,location,kind,rows,automatic}=parsed.data;
+  if(automatic&&(kind!=="asset"||rows.length!==1||!rows[0].manufacturer||!rows[0].model||rows[0].category==="OTHER"||! /^[A-Za-z0-9-]{5,80}$/.test(rows[0].serial)))return fail("Automatic registration requires one identified device with a readable serial.");
   if(rows.some(r=>r.kind!==kind)||new Set(rows.map(r=>r.id)).size!==rows.length||duplicateSerials(rows))return fail("Remove duplicate serials or invalid rows.");
   if(kind==="lot"&&rows.some(r=>r.commodity.length<2))return fail("Give every lot a commodity name.");
   const {data:{user}}=await supabase.auth.getUser();
@@ -59,11 +60,11 @@ export async function POST(request: Request) {
   if(prior?.length)return fail("Some rows already exist. Check inventory before importing again.",409);
   const serials=rows.filter(r=>r.serial&&kind==="asset").map(r=>r.serial);
   if(serials.length){
-    const {data:existing,error}=await supabase.from("assets").select("id").in("serial_imei",serials);
+    const {data:existing,error}=automatic ? await supabase.from("assets").select("id").ilike("serial_imei",serials[0]) : await supabase.from("assets").select("id").in("serial_imei",serials);
     if(error)return fail("Could not check existing serials.",500);
     if(existing?.length)return fail("A serial already exists in inventory. Check duplicates before importing.",409);
   }
-  const marker="Smart Intake — operator-reviewed; model/condition still require physical verification. ";
+  const marker=automatic?"Smart Intake — automatically registered with batch ownership authorisation; AI model and serial UNVERIFIED; physical inspection required. ":"Smart Intake — operator-reviewed; model/condition still require physical verification. ";
   const entries=rows.map(r=>kind==="asset"?{
     id:r.id,programme:"dubbo_ewaste",owner_kind:"PROGRAMME",owner_name:null,ownership_verified:true,
     job_id:job,customer_id:source.customer_id||null,source_name:source.source_site||null,location_id:location||null,
@@ -75,7 +76,7 @@ export async function POST(request: Request) {
   });
   const {data:inserted,error}=await supabase.from(table).insert(entries).select("id");
   if(error||!inserted)return fail("Import failed. Check inventory before retrying.",409);
-  const {error:auditError}=await supabase.from("operational_events").insert(inserted.map(r=>({programme:"dubbo_ewaste",entity_type:kind,entity_id:r.id,event_type:kind==="asset"?"ASSET_RECEIVED":"LOT_CREATED",actor_id:user.id,details:{job_id:job,method:"SMART_INTAKE"}})));
+  const {error:auditError}=await supabase.from("operational_events").insert(inserted.map(r=>({programme:"dubbo_ewaste",entity_type:kind,entity_id:r.id,event_type:kind==="asset"?"ASSET_RECEIVED":"LOT_CREATED",actor_id:user.id,details:{job_id:job,method:automatic?"SMART_INTAKE_AUTO":"SMART_INTAKE"}})));
   revalidatePath("/assets");revalidatePath("/lots");revalidatePath("/dashboard");revalidatePath("/jobs/"+job);
   return NextResponse.json({created:inserted.length,auditWarning:!!auditError});
 }
