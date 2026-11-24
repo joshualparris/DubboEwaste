@@ -1,5 +1,7 @@
 # AMR Dubbo reuse-first partnership: research delta and gap-closing prompt
 
+> **Execution update, 25 November:** [15-work-package research results](https://github.com/joshualparris/DubboEwaste/blob/main/docs/AMR-DUBBO-REUSE-PARTNERSHIP-RESEARCH-RESULTS-2026-11-25.md) cover the public desk research, current NTCRS rules, new Blancco licensing restriction, November Council register, economics and pilot gates. External confirmations and tests remain open.
+
 Updated 25 November 2026 (AEDT). Status: exploratory desk research; **no AMR, Council, scheme or downstream approval**. This public record contains only public-source context and proposed controls. Private stakeholder evidence is held separately in the owner's private research archive.
 
 ## Read first (avoid repeating October research)
