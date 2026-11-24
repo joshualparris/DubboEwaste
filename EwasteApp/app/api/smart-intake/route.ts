@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { canUseSmartIntake } from "@/lib/programmes";
 import { getProgrammeContext } from "@/lib/programme-context";
 import { parseDrafts, prompt, rowSchema, duplicateSerials } from "@/lib/smart-intake";
 import { z } from "zod";
@@ -13,7 +14,7 @@ export async function POST(request: Request) {
   // Same-origin only; no cross-site requests using the owner's session.
   if (request.headers.get("origin") !== new URL(request.url).origin) return fail("Invalid origin",403);
   const {supabase,context}=await getProgrammeContext();
-  if (!context?.global_admin || (context.selected!==null && context.selected!=="dubbo_ewaste")) return fail("E-waste administrator access required",403);
+  if (!canUseSmartIntake(context)) return fail("E-waste administrator access required",403);
   const length=Number(request.headers.get("content-length") || 0);
   if(length>3_200_000) return fail("Image too large",413);
   let raw: unknown;

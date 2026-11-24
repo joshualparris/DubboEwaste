@@ -29,3 +29,10 @@ export function canVisit(path: string, programme: ProgrammeContext["selected"], 
   if (programme === "repair_cafe") return section === "repair-cafe-volunteers" || (section === "repair-cafe-feedback" && ["admin","manager"].includes(role || ""));
   return false;
 }
+
+// Smart Intake is restricted to the selected E-waste programme's administrators.
+export function canUseSmartIntake(context: ProgrammeContext | null): boolean {
+  if (!context) return false;
+  if (context.global_admin) return context.selected === null || context.selected === "dubbo_ewaste";
+  return context.selected === "dubbo_ewaste" && context.role === "admin" && context.memberships.some(m => m.program === "dubbo_ewaste" && m.role === "admin");
+}

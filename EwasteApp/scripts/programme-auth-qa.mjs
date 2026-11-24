@@ -6,7 +6,7 @@ const require=createRequire(path.join(root,"package.json"));
 const fixture=`let mode='signed-out';let calls=0;
 export function setMode(value){mode=value;calls=0} export function rpcCalls(){return calls}
 export async function createClient(){return {auth:{getUser:async()=>({data:{user:mode==='signed-out'?null:{id:'qa'}}})},rpc:async()=>{calls++;return {data:mode==='inactive'?null:{id:'qa',selected:'repair_cafe',role:'volunteer'},error:mode==='failure'?{message:'unavailable'}:null}}}}`;
-const result=await build({stdin:{contents:`export {getProgrammeContext,requireProgrammeContext} from './lib/programme-context';export {setMode,rpcCalls} from '@/lib/supabase/server';`,resolveDir:root},bundle:true,write:false,platform:'node',format:'cjs',tsconfig:path.join(root,'tsconfig.json'),plugins:[{name:'isolated-auth-boundaries',setup(b){
+const result=await build({stdin:{contents:`export {getProgrammeContext,requireProgrammeContext} from './lib/programme-context';export {canUseSmartIntake} from './lib/programmes';export {setMode,rpcCalls} from '@/lib/supabase/server';`,resolveDir:root},bundle:true,write:false,platform:'node',format:'cjs',tsconfig:path.join(root,'tsconfig.json'),plugins:[{name:'isolated-auth-boundaries',setup(b){
  b.onResolve({filter:/^@\/lib\/supabase\/server$/},()=>({path:'client',namespace:'qa'}));
  b.onLoad({filter:/.*/,namespace:'qa'},()=>({contents:fixture,loader:'js'}));
  b.onResolve({filter:/^next\/navigation$/},()=>({path:'redirect',namespace:'redirect-qa'}));
@@ -19,3 +19,8 @@ q.setMode('inactive');try{await q.requireProgrammeContext();throw Error('Missing
 q.setMode('active');if((await q.requireProgrammeContext()).context.role!=='volunteer')throw Error('Active membership lost');
 q.setMode('failure');try{await q.getProgrammeContext();throw Error('Backend failure accepted')}catch(e){if(!e.message.includes('could not be loaded'))throw e}
 console.log('PASS: signed-out redirect without anonymous RPC, inactive account, active membership, backend failure.');
+
+const context={id:'qa',full_name:'QA',global_admin:false,selected:'dubbo_ewaste',role:'admin',memberships:[{program:'dubbo_ewaste',role:'admin'}]};
+const cases=[['E-waste admin',context,true],['global all',{...context,global_admin:true,selected:null},true],['global E-waste',{...context,global_admin:true},true],['global other programme',{...context,global_admin:true,selected:'repair_cafe'},false],['other programme',{...context,selected:'repair_cafe'},false],['volunteer',{...context,role:'volunteer',memberships:[{program:'dubbo_ewaste',role:'volunteer'}]},false],['manager',{...context,role:'manager'},false],['no membership',{...context,memberships:[]},false],['no selected programme',{...context,selected:null},false],['denied',{...context,selected:'__denied__'},false],['signed out',null,false]];
+for(const [label,input,expected] of cases)if(q.canUseSmartIntake(input)!==expected)throw Error('Smart Intake access: '+label);
+console.log('PASS: Smart Intake programme-admin and global-admin authorization boundaries.');
