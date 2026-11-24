@@ -22,6 +22,7 @@ async function call(payload:unknown){
 }
 export function SmartIntake({jobs,locations,initialJob}:{jobs:{id:string;job_code:string;source_site:string|null}[];locations:{id:string;name:string}[];initialJob:string}){
   const [job,setJob]=useState(initialJob),[location,setLocation]=useState(""),[description,setDescription]=useState(""),[photo,setPhoto]=useState<File|null>(null),[target,setTarget]=useState(""),[consent,setConsent]=useState(false),[confirmed,setConfirmed]=useState(false),[rows,setRows]=useState<Row[]>([]),[paste,setPaste]=useState(""),[busy,setBusy]=useState(false),[message,setMessage]=useState(""),[error,setError]=useState("");
+  const [autoSave,setAutoSave]=useState(false),[autoCount,setAutoCount]=useState(0);
   const [cameraOpen,setCameraOpen]=useState(false),[cameraStarting,setCameraStarting]=useState(false),[cameraReady,setCameraReady]=useState(false);
   const video=useRef<HTMLVideoElement>(null),stream=useRef<MediaStream|null>(null),cameraInput=useRef<HTMLInputElement>(null),galleryInput=useRef<HTMLInputElement>(null),cameraGeneration=useRef(0),inFlight=useRef(false);
   function stopCamera(){
@@ -85,7 +86,28 @@ export function SmartIntake({jobs,locations,initialJob}:{jobs:{id:string;job_cod
     inFlight.current=true;
     setPhoto(file);
     setBusy(true);setError("");setMessage("");
-    try{const image=file?await compress(file):undefined;const result=await call({action:"analyse",image,description:target?("Read the label of this single existing device. "+description):description,consent});if(target){const found=parseDrafts(JSON.stringify(result.rows));if(found.length!==1||found[0].kind!=="asset")throw Error("Label scan must identify one asset. Try a closer photo.");const d=found[0];setRows(old=>old.map(r=>r.id===target?{...r,manufacturer:d.manufacturer||r.manufacturer,model:d.model||r.model,serial:d.serial||r.serial,notes:[r.notes,d.notes].filter(Boolean).join(" ").slice(0,1000)}:r));setConfirmed(false);setTarget("");}else{append(result.rows);}setPhoto(null);setDescription("");setMessage("Photo analysed. Drafts updated. Take the next photo or review below.");}
+    try{const image=file?await compress(file):undefined;const result=await call({action:"analyse",image,description:target?("Read the label of this single existing device. "+description):description,consent});if(target){const found=parseDrafts(JSON.stringify(result.rows));if(found.length!==1||found[0].kind!=="asset")throw Error("Label scan must identify one asset. Try a closer photo.");const d=found[0];setRows(old=>old.map(r=>r.id===target?{...r,manufacturer:d.manufacturer||r.manufacturer,model:d.model||r.model,serial:d.serial||r.serial,notes:[r.notes,d.notes].filter(Boolean).join(" ").slice(0,1000)}:r));setConfirmed(false);setTarget(""); }else{
+      const found=parseDrafts(JSON.stringify(result.rows));
+      const d=found[0];
+      if(autoSave&&job&&file&&rows.length<80&&found.length===1&&d.kind==="asset"&&d.category!=="OTHER"&&d.manufacturer&&d.model&&/^[A-Za-z0-9-]{5,80}$/.test(d.serial)){
+        const row:Row={...d,id:crypto.randomUUID()};
+        // Preserve the same row ID if the response is lost; never rescan automatically.
+        setPhoto(null);setDescription("");
+        try{
+          const saved=await call({action:"import",job,location,confirmed:true,automatic:true,kind:"asset",rows:[row]});
+          setAutoCount(n=>n+saved.created);
+          setMessage("Saved "+[d.manufacturer,d.model,d.serial].join(" · ")+". Take the next photo."+ (saved.auditWarning?" Audit warning: check inventory before continuing.":""));
+          if(saved.auditWarning)setAutoSave(false);
+        }catch(e){
+          setAutoSave(false);
+          if(rows.length<80)setRows(old=>[...old,row]);
+          setConfirmed(false);
+          setError((e as Error).message+" Automatic saving stopped. Check inventory before manually importing this draft.");
+        }
+        return;
+      }
+      append(found);
+    }setPhoto(null);setDescription("");setMessage(autoSave?"Photo needs review (multiple items or missing model/serial). Drafts updated.":"Photo analysed. Drafts updated. Take the next photo or review below.");}
     catch(e){setError((e as Error).message);}finally{inFlight.current=false;setBusy(false);}
   }
   async function save(kind:"asset"|"lot"){
@@ -98,8 +120,14 @@ export function SmartIntake({jobs,locations,initialJob}:{jobs:{id:string;job_cod
   return <div className="stack">
     <section className="card form"><h2>1. Capture</h2>
       <p className="muted">Take a photo and AI automatically adds drafts. Keep the camera open to scan the next device. Review and confirm once at the end.</p>
-      <label><input type="checkbox" checked={consent} disabled={busy} onChange={e=>{setConsent(e.target.checked);if(!e.target.checked){stopCamera();setPhoto(null);}}}/> Allow AI photo processing for this session (external Vercel AI Gateway; only authorised equipment photos, no private documents or screen contents).</label>
-      <label>Capture mode<select value={target} disabled={busy} onChange={e=>setTarget(e.target.value)}><option value="">Add new equipment</option>{rows.filter(r=>r.kind==="asset").map((r,i)=><option key={r.id} value={r.id}>Update label for asset {i+1} — {[r.manufacturer,r.model,r.category].filter(Boolean).join(" ")}</option>)}</select></label>
+      <label><input type="checkbox" checked={consent} disabled={busy} onChange={e=>{setConsent(e.target.checked);if(!e.target.checked){stopCamera();setPhoto(null);setAutoSave(false);}}}/> Allow AI photo processing for this session (external Vercel AI Gateway; only authorised equipment photos, no private documents or screen contents).</label>
+      <details open={autoSave}><summary>Automatic inventory registration ({autoCount} saved)</summary>
+      <p className="muted">For individual devices, photograph the manufacturer's label clearly. AI will save a provisional HOLD record immediately when one device, model and serial are identified. Mixed or unclear photos remain drafts. No tests or data erasure are confirmed.</p>
+      <label>Inbound job<select value={job} disabled={busy} onChange={e=>{setJob(e.target.value);setAutoSave(false);setConfirmed(false);}}><option value="">Select an existing job</option>{jobs.map(j=><option key={j.id} value={j.id}>{j.job_code} · {j.source_site||"Unknown source"}</option>)}</select></label>
+      <label>Location<select value={location} disabled={busy} onChange={e=>{setLocation(e.target.value);setAutoSave(false);setConfirmed(false);}}><option value="">Unassigned</option>{locations.map(l=><option key={l.id} value={l.id}>{l.name}</option>)}</select></label>
+      <label><input type="checkbox" checked={autoSave} disabled={busy||!job||!consent||!!target||rows.length>=80} onChange={e=>setAutoSave(e.target.checked)}/> I confirm the programme owns this batch (not Council custody or customer repairs) and authorise automatic registration of AI-identified individual devices. Model and serial still require physical verification.</label>
+      </details>
+      <label>Capture mode<select value={target} disabled={busy} onChange={e=>{setTarget(e.target.value);setAutoSave(false);}}><option value="">Add new equipment</option>{rows.filter(r=>r.kind==="asset").map((r,i)=><option key={r.id} value={r.id}>Update label for asset {i+1} — {[r.manufacturer,r.model,r.category].filter(Boolean).join(" ")}</option>)}</select></label>
       <input ref={cameraInput} type="file" accept="image/*" capture="environment" hidden disabled={busy||!consent} onChange={pickPhoto}/>
       <input ref={galleryInput} type="file" accept="image/*" hidden disabled={busy||!consent} onChange={pickPhoto}/>
       <div className="actions">
@@ -125,7 +153,7 @@ export function SmartIntake({jobs,locations,initialJob}:{jobs:{id:string;job_cod
       {rows.map((r,i)=><div key={r.id} className="card form"><strong>Draft {i+1}</strong><label>Type<select value={r.kind} onChange={e=>update(r.id,{kind:e.target.value as Draft["kind"]})}><option value="asset">Individual asset</option><option value="lot">Bulk lot</option></select></label>{r.kind==="asset"?<><label>Category<select value={r.category} onChange={e=>update(r.id,{category:e.target.value as Draft["category"]})}>{categories.map(c=><option key={c}>{c}</option>)}</select></label><div className="two"><label>Manufacturer<input value={r.manufacturer} maxLength={100} onChange={e=>update(r.id,{manufacturer:e.target.value})}/></label><label>Model<input value={r.model} maxLength={160} onChange={e=>update(r.id,{model:e.target.value})}/></label></div><label>Serial / IMEI (verify label)<input value={r.serial} maxLength={160} onChange={e=>update(r.id,{serial:e.target.value})}/></label></>:<><label>Commodity<input value={r.commodity} maxLength={200} onChange={e=>update(r.id,{commodity:e.target.value})}/></label><label>Verified item count (blank if unknown)<input type="number" min="1" max="500" value={r.count??""} onChange={e=>update(r.id,{count:e.target.value?Number(e.target.value):null})}/></label></>}<label>Observations<textarea value={r.notes} maxLength={1000} onChange={e=>update(r.id,{notes:e.target.value})}/></label><button className="button secondary" type="button" disabled={busy} onClick={()=>{setRows(old=>old.filter(x=>x.id!==r.id));setConfirmed(false);}}>Remove draft</button></div>)}
       <button className="button secondary" type="button" disabled={busy||rows.length>=80} onClick={()=>append([emptyDraft])}>Add missing item</button>
     </section>
-    <section className="card form"><h2>3. Confirm custody and import</h2><label>Inbound job<select value={job} onChange={e=>{setJob(e.target.value);setConfirmed(false);}}><option value="">Select an existing job</option>{jobs.map(j=><option key={j.id} value={j.id}>{j.job_code} · {j.source_site||"Unknown source"}</option>)}</select></label><label>Location<select value={location} onChange={e=>{setLocation(e.target.value);setConfirmed(false);}}><option value="">Unassigned</option>{locations.map(l=><option key={l.id} value={l.id}>{l.name}</option>)}</select></label>
+    <section className="card form"><h2>3. Confirm custody and import</h2><label>Inbound job<select value={job} onChange={e=>{setJob(e.target.value);setAutoSave(false);setConfirmed(false);}}><option value="">Select an existing job</option>{jobs.map(j=><option key={j.id} value={j.id}>{j.job_code} · {j.source_site||"Unknown source"}</option>)}</select></label><label>Location<select value={location} onChange={e=>{setLocation(e.target.value);setAutoSave(false);setConfirmed(false);}}><option value="">Unassigned</option>{locations.map(l=><option key={l.id} value={l.id}>{l.name}</option>)}</select></label>
       <label><input type="checkbox" checked={confirmed} onChange={e=>setConfirmed(e.target.checked)}/> I have checked these rows, quantities and serials, confirmed the programme owns this equipment, and removed duplicates. This is not Council custody or a customer repair.</label>
       <p>All assets start in HOLD / UNWIPED_RESTRICTED. AI never verifies erasure or tests.</p><div className="actions">{(["asset","lot"] as const).map(kind=><button className="button" type="button" key={kind} disabled={busy||!job||!confirmed||!rows.some(r=>r.kind===kind)} onClick={()=>save(kind)}>Import {rows.filter(r=>r.kind===kind).length} {kind==="asset"?"assets":"lots"}</button>)}</div>
     </section>
