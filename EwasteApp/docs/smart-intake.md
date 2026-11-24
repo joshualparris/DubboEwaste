@@ -1,0 +1,7 @@
+# Smart Intake
+
+Admin-only Dubbo E-waste intake. Photo and text analysis uses Vercel AI Gateway with server-side AI_GATEWAY_API_KEY or VERCEL_OIDC_TOKEN, optional SMART_INTAKE_MODEL. No key is sent to the browser. Images are compressed locally, submitted only with consent, and not persisted by AssetFlow. External provider retention/billing applies. Use the JSON fallback to import inventory generated in ChatGPT without a gateway key. Do not upload unauthorised or private content.
+
+Review each visible device; use one asset per physical item, lots for cables/piles, no invented counts or serials. A separate job is required, ownership must be explicitly confirmed, Council custody is excluded. All assets enter HOLD and UNWIPED_RESTRICTED. Bulk lots are imported separately and may have no weight or count. Existing exact serials and same-request row IDs are checked, but unlabelled/overlapping photos still require manual duplicate review. This version does not retain source photos, infer resale prices, or auto-verify specifications, ownership, erasure or testing. Print QR labels using existing inventory screen.
+
+QA: check unauthenticated/other programme access, photo and text analysis, malformed JSON, duplicate serials and IDs, unknown model, Council job rejection, separate bulk and asset imports, audit events, QR print, and mobile camera workflow. Use a dedicated test job, not production inventory.
