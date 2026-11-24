@@ -7,6 +7,7 @@ on:
       - 'scripts/check_project_links_live.py'
       - 'scripts/check_links.py'
       - 'scripts/check_documentation.py'
+      - 'docs/DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md'
       - '.github/workflows/link-audit.yml'
   workflow_dispatch:
   schedule:
