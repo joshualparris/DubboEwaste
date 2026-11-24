@@ -3,7 +3,7 @@ import { ModelAutofill } from "@/components/ModelAutofill";
 import { createClient } from "@/lib/supabase/server";
 
 import { requireProgrammeContext } from "@/lib/programme-context";
-import { PROGRAMMES } from "@/lib/programmes";
+import { PROGRAMMES, canUseSmartIntake } from "@/lib/programmes";
 
 export default async function NewAssetPage({ searchParams }: { searchParams: Promise<{ error?: string; job?: string }> }) {
   const { error, job } = await searchParams;
@@ -20,7 +20,7 @@ export default async function NewAssetPage({ searchParams }: { searchParams: Pro
   return <div className="stack">
     <div><div className="badge">AssetFlow P0</div><h1>{context.selected === "library_of_things" ? "Catalogue item" : context.selected === "repair_cafe" ? "Check in repair item" : "Receive serialized asset"}</h1><p className="muted">Record the item, its programme, actual owner and custody location.</p></div>
     {error ? <div className="error">{error}</div> : null}
-    {isEwaste && context.global_admin ? <p><a className="button" href={job ? "/assets/smart-intake?job="+encodeURIComponent(job) : "/assets/smart-intake"}>Smart Intake — photos and bulk review</a></p> : null}
+    {canUseSmartIntake(context) ? <p><a className="button" href={job ? "/assets/smart-intake?job="+encodeURIComponent(job) : "/assets/smart-intake"}>Smart Intake — photos and bulk review</a></p> : null}
     <form action={createAsset} className="card form">
       <label>Programme<select name="programme" required defaultValue={context.selected || ""}><option value="" disabled>Choose programme</option>{Object.entries(PROGRAMMES).filter(([p]) => context.global_admin || context.memberships.some(m => m.program === p)).map(([p,label]) => <option key={p} value={p}>{label}</option>)}</select></label>
       <div className="two"><label>Owner type<select name="owner_kind" defaultValue={context.selected === "repair_cafe" ? "CUSTOMER" : context.selected === "library_of_things" ? "PROGRAMME" : "UNCONFIRMED"}><option value="UNCONFIRMED">Unconfirmed</option><option value="PROGRAMME">Programme-owned</option><option value="CUSTOMER">Customer-owned</option><option value="THIRD_PARTY">Other owner</option></select></label><label>Owner name<input name="owner_name" maxLength={200}/></label></div>
