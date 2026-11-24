@@ -1,5 +1,7 @@
 # AssetFlow erasure, diagnostics and deployment capability boundary
 
+> **25 November licensing and evidence update:** [AMR research results](https://github.com/joshualparris/DubboEwaste/blob/main/docs/AMR-DUBBO-REUSE-PARTNERSHIP-RESEARCH-RESULTS-2026-11-25.md) identify Blancco EULA s3.2 restrictions on third-party/service-provider licence use and distinguish vendor signature verification from stored file hashing. Do not share credits/credentials or claim signed-report validation before written permission and testing.
+
 Updated 6 October 2026.
 
 AssetFlow now records the control plane for these capabilities. It does not claim that a browser can safely overwrite a disk, alter firmware, execute a vendor MSI, boot a PXE fleet, or produce a legally binding digital signature without a separately approved workstation or enterprise integration.
