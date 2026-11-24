@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { requireProgrammeContext } from "@/lib/programme-context";
+import { canUseSmartIntake } from "@/lib/programmes";
 import { SmartIntake } from "@/components/SmartIntake";
 export default async function SmartIntakePage({searchParams}:{searchParams:Promise<{job?:string}>}){
   const {job}=await searchParams;
   const {supabase,context}=await requireProgrammeContext();
-  if(!context.global_admin || (context.selected!==null && context.selected!=="dubbo_ewaste"))return <p>Smart Intake is available to E-waste administrators.</p>;
+  if(!canUseSmartIntake(context))return <p>Smart Intake is available to E-waste administrators.</p>;
   const [{data:jobs,error:j},{data:locations,error:l}]=await Promise.all([
     supabase.from("jobs").select("id,job_code,source_site").eq("programme","dubbo_ewaste").not("status","in",'("CLOSED","CANCELLED")').order("created_at",{ascending:false}),
     supabase.from("locations").select("id,name").eq("programme","dubbo_ewaste").eq("active",true).order("name")
