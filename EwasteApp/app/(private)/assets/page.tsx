@@ -17,7 +17,7 @@ export default async function AssetsPage({searchParams}:{searchParams:Promise<{s
         <h1>{readyForSale?"Assets ready for sale":"Assets"}</h1>
         <p className="muted">{readyForSale?"Assets marked READY_FOR_SALE; listing and sanitisation gates still apply.":"The canonical operational inventory."}</p>
       </div>
-      <div className="actions"><Link className="button secondary" href={readyForSale?"/assets":"/assets?status=READY_FOR_SALE"}>{readyForSale?"Show all assets":"Show sale-ready assets"}</Link><Link className="button" href="/assets/new">New intake</Link></div>
+      <div className="actions"><Link className="button secondary" href={readyForSale?"/assets":"/assets?status=READY_FOR_SALE"}>{readyForSale?"Show all assets":"Show sale-ready assets"}</Link><Link className="button" href="/assets/smart-intake">Smart Intake</Link><Link className="button secondary" href="/assets/new">Manual intake</Link></div>
       <AssetBatchTable assets={assets ?? []} />
     </div>
   );
