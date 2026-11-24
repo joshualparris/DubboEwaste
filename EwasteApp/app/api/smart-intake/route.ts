@@ -24,8 +24,10 @@ export async function POST(request: Request) {
     const {image,description}=analysis.data;
     if(!image && !description) return fail("Add a photo or description.");
     if(image && !/^data:image\/jpeg;base64,[A-Za-z0-9+/=]+$/.test(image)) return fail("Invalid photo format.");
-    const token=process.env.AI_GATEWAY_API_KEY || process.env.VERCEL_OIDC_TOKEN;
-    if(!token) return fail("AI Gateway is not configured here. Paste ChatGPT JSON instead.",503);
+    // Vercel injects a fresh OIDC token into function requests, not the runtime environment.
+    // Keep provider credentials exclusively on the server and never include them in error messages.
+    const token=process.env.AI_GATEWAY_API_KEY || request.headers.get("x-vercel-oidc-token") || process.env.VERCEL_OIDC_TOKEN;
+    if(!token) return fail("AI Gateway runtime authentication is unavailable. Contact the administrator or use the JSON fallback.",503);
     try {
       const content: ({type:"text";text:string}|{type:"image_url";image_url:{url:string}})[]=[{type:"text",text:description || "Identify visible equipment."}];
       if(image)content.push({type:"image_url",image_url:{url:image}});
