@@ -21,7 +21,7 @@ async function call(payload:unknown){
   const body=await response.json();if(!response.ok)throw Error(body.error||"Request failed");return body;
 }
 export function SmartIntake({jobs,locations,initialJob}:{jobs:{id:string;job_code:string;source_site:string|null}[];locations:{id:string;name:string}[];initialJob:string}){
-  const [job,setJob]=useState(initialJob),[location,setLocation]=useState(""),[description,setDescription]=useState(""),[photo,setPhoto]=useState<File|null>(null),[consent,setConsent]=useState(false),[confirmed,setConfirmed]=useState(false),[rows,setRows]=useState<Row[]>([]),[paste,setPaste]=useState(""),[busy,setBusy]=useState(false),[message,setMessage]=useState(""),[error,setError]=useState("");
+  const [job,setJob]=useState(initialJob),[location,setLocation]=useState(""),[description,setDescription]=useState(""),[photo,setPhoto]=useState<File|null>(null),[target,setTarget]=useState(""),[consent,setConsent]=useState(false),[confirmed,setConfirmed]=useState(false),[rows,setRows]=useState<Row[]>([]),[paste,setPaste]=useState(""),[busy,setBusy]=useState(false),[message,setMessage]=useState(""),[error,setError]=useState("");
   function append(drafts:Draft[]){
     if(rows.length+drafts.length>80)throw Error("Maximum 80 draft rows per intake.");
     setRows(old=>[...old,...drafts.map(d=>({...d,id:crypto.randomUUID()}))]);setConfirmed(false);
@@ -29,7 +29,7 @@ export function SmartIntake({jobs,locations,initialJob}:{jobs:{id:string;job_cod
   function update(id:string,patch:Partial<Draft>){setRows(old=>old.map(r=>r.id===id?{...r,...patch}:r));setConfirmed(false);}
   async function analyse(){
     setBusy(true);setError("");setMessage("");
-    try{const image=photo?await compress(photo):undefined;const result=await call({action:"analyse",image,description,consent});append(result.rows);setPhoto(null);setDescription("");setMessage("Drafts added. Verify each device; do not add overlapping photos twice.");}
+    try{const image=photo?await compress(photo):undefined;const result=await call({action:"analyse",image,description:target?("Read the label of this single existing device. "+description):description,consent});if(target){const found=parseDrafts(JSON.stringify(result.rows));if(found.length!==1||found[0].kind!=="asset")throw Error("Label scan must identify one asset. Try a closer photo.");const d=found[0];setRows(old=>old.map(r=>r.id===target?{...r,manufacturer:d.manufacturer||r.manufacturer,model:d.model||r.model,serial:d.serial||r.serial,notes:[r.notes,d.notes].filter(Boolean).join(" ").slice(0,1000)}:r));setConfirmed(false);setTarget("");}else{append(result.rows);}setPhoto(null);setDescription("");setMessage("Review updated drafts. Verify each device; do not add overlapping photos twice.");}
     catch(e){setError((e as Error).message);}finally{setBusy(false);}
   }
   async function save(kind:"asset"|"lot"){
@@ -40,7 +40,7 @@ export function SmartIntake({jobs,locations,initialJob}:{jobs:{id:string;job_cod
   }
   return <div className="stack">
     <section className="card form"><h2>1. Capture</h2>
-      <label>Photo (one haul or individual label)<input type="file" accept="image/*" disabled={busy} onChange={e=>setPhoto(e.target.files?.[0]||null)}/></label>
+      <label>Capture mode<select value={target} disabled={busy} onChange={e=>setTarget(e.target.value)}><option value="">Add new equipment</option>{rows.filter(r=>r.kind==="asset").map((r,i)=><option key={r.id} value={r.id}>Update label for asset {i+1} — {[r.manufacturer,r.model,r.category].filter(Boolean).join(" ")}</option>)}</select></label><label>Photo (one haul or individual label)<input type="file" accept="image/*" disabled={busy} onChange={e=>setPhoto(e.target.files?.[0]||null)}/></label>
       {photo?<p>{photo.name}</p>:null}
       <label>Description (use your phone keyboard microphone to dictate)<textarea value={description} onChange={e=>setDescription(e.target.value)} maxLength={4000} placeholder="Three Dell laptops, two monitors and a tub of cables…"/></label>
       <label><input type="checkbox" checked={consent} onChange={e=>setConsent(e.target.checked)}/> I have authority to send this image/description to the external AI provider (Vercel AI Gateway). No personal documents, private screen contents or unauthorised identifiers.</label>

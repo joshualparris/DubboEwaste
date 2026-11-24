@@ -42,14 +42,14 @@ export async function POST(request: Request) {
   const {data:{user}}=await supabase.auth.getUser();
   if(!user)return fail("Sign in again.",401);
   const [{data:source,error:sourceError},{data:council,error:councilError}]=await Promise.all([
-    supabase.from("jobs").select("id,source_site,customer_id,status").eq("id",job).single(),
+    supabase.from("jobs").select("id,source_site,customer_id,status").eq("id",job).eq("programme","dubbo_ewaste").single(),
     supabase.from("council_pilot_batches").select("id").eq("job_id",job).maybeSingle()
   ]);
   if(sourceError||councilError||!source)return fail("Cannot verify the selected job.");
   if(council)return fail("Council custody requires the dedicated manual intake workflow.");
   if(["CLOSED","CANCELLED"].includes(source.status))return fail("Choose an open inbound job.");
   if(location){
-    const {data,error}=await supabase.from("locations").select("id").eq("id",location).eq("active",true).single();
+    const {data,error}=await supabase.from("locations").select("id").eq("id",location).eq("programme","dubbo_ewaste").eq("active",true).single();
     if(error||!data)return fail("Choose a valid active location.");
   }
   // Stable client-generated IDs prevent a repeated request from creating the same rows twice.
@@ -70,12 +70,12 @@ export async function POST(request: Request) {
     category:r.category,manufacturer:r.manufacturer||null,model:r.model||null,serial_imei:r.serial||null,
     data_bearing:true,data_state:"UNWIPED_RESTRICTED",initial_route:"HOLD",status:"INTAKE",notes:marker+r.notes,created_by:user.id,
   }:{
-    id:r.id,job_id:job,location_id:location||null,commodity:r.commodity,item_count:r.count,
+    id:r.id,programme:"dubbo_ewaste",job_id:job,location_id:location||null,commodity:r.commodity,item_count:r.count,
     notes:marker+r.notes,created_by:user.id,
   });
   const {data:inserted,error}=await supabase.from(table).insert(entries).select("id");
   if(error||!inserted)return fail("Import failed. Check inventory before retrying.",409);
-  const {error:auditError}=await supabase.from("operational_events").insert(inserted.map(r=>({entity_type:kind,entity_id:r.id,event_type:kind==="asset"?"ASSET_RECEIVED":"LOT_CREATED",actor_id:user.id,details:{job_id:job,method:"SMART_INTAKE"}})));
+  const {error:auditError}=await supabase.from("operational_events").insert(inserted.map(r=>({programme:"dubbo_ewaste",entity_type:kind,entity_id:r.id,event_type:kind==="asset"?"ASSET_RECEIVED":"LOT_CREATED",actor_id:user.id,details:{job_id:job,method:"SMART_INTAKE"}})));
   revalidatePath("/assets");revalidatePath("/lots");revalidatePath("/dashboard");revalidatePath("/jobs/"+job);
   return NextResponse.json({created:inserted.length,auditWarning:!!auditError});
 }
