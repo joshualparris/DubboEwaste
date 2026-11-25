@@ -26,6 +26,7 @@ The original **iPad Legacy Assistant** remains available as a separate, manual t
 | Battery health | Explicitly **not measurable** in ordinary Windows / iPad / Android scans; charge % is shown separately |
 | Multi-device dashboard | Displays USB interfaces and available ADB sessions; USB entries are **not** proven to be unique physical devices |
 | Activation Lock | Explains limitations and links to Apple's official ownership verification process; does not test or bypass the lock |
+| Android account lock (FRP) | Privacy-safe, non-authoritative hint: an Android interface present with no authorised ADB shell is flagged as *possible* factory-reset/Google account lock, directing to manufacturer-supported ownership verification. Does not test, confirm or bypass the lock |
 | Jailbreak / older iOS app preparation | Owner-authorised button opens the separate iPad Legacy Assistant and Sideloadly site; installation is manual |
 | Firmware | Safety guidance, no unsigned firmware claims and no restore/flash controls |
 | Repurposing assistant | Device- and version-aware offline reader, media, gaming, home dashboard and light-work suggestions |
