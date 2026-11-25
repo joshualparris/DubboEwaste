@@ -120,7 +120,7 @@ export function SmartIntake({jobs,locations,initialJob}:{jobs:{id:string;job_cod
   return <div className="stack">
     <section className="card form"><h2>1. Capture</h2>
       <p className="muted">Take a photo and AI automatically adds drafts. Keep the camera open to scan the next device. Review and confirm once at the end.</p>
-      <label><input type="checkbox" checked={consent} disabled={busy} onChange={e=>{setConsent(e.target.checked);if(!e.target.checked){stopCamera();setPhoto(null);setAutoSave(false);}}}/> Allow AI photo processing for this session (external Vercel AI Gateway; only authorised equipment photos, no private documents or screen contents).</label>
+      <label><input type="checkbox" checked={consent} disabled={busy} onChange={e=>{setConsent(e.target.checked);if(!e.target.checked){stopCamera();setPhoto(null);setAutoSave(false);}}}/> Allow AI photo processing for this session (external Cloudflare Workers AI (Mistral); only authorised equipment photos, no private documents or screen contents).</label>
       <details open={autoSave}><summary>Automatic inventory registration ({autoCount} saved)</summary>
       <p className="muted">For individual devices, photograph the manufacturer's label clearly. AI will save a provisional HOLD record immediately when one device, model and serial are identified. Mixed or unclear photos remain drafts. No tests or data erasure are confirmed.</p>
       <label>Inbound job<select value={job} disabled={busy} onChange={e=>{setJob(e.target.value);setAutoSave(false);setConfirmed(false);}}><option value="">Select an existing job</option>{jobs.map(j=><option key={j.id} value={j.id}>{j.job_code} · {j.source_site||"Unknown source"}</option>)}</select></label>
