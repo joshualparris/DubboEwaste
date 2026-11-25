@@ -49,4 +49,27 @@ $rejected=$false
 try{Export-RecoverySnapshot -Snapshot $sample -Path $badReport | Out-Null}catch{$rejected=$true}
 Check $rejected 'Unsafe report extension rejected'
 Check (@(Get-AndroidReadOnlyDetails -Adb '').Count -eq 0) 'Missing ADB reports zero Android devices'
-Write-Host 'PASS: universal toolkit parser, classifiers, permission gates, reuse, privacy-safe export.'
+# Android account-lock hint: privacy-safe, non-authoritative, boundary-reinforcing.
+$lockNone=Get-AndroidAccountLockHint -DeviceInterfaces @() -AndroidDetails @()
+Check ($lockNone.AccountLock -match 'No Android interface') 'No Android interface => no lock hint'
+$androidIface=@([pscustomobject]@{Family='Android'})
+$lockFrp=Get-AndroidAccountLockHint -DeviceInterfaces $androidIface -AndroidDetails @()
+Check ($lockFrp.AccountLock -match 'FRP') 'Interface present without authorised shell => possible FRP hint'
+Check ($lockFrp.OwnershipAction -match 'do not attempt lock bypass') 'FRP hint reinforces the no-bypass boundary'
+$lockOk=Get-AndroidAccountLockHint -DeviceInterfaces $androidIface -AndroidDetails @([pscustomobject]@{Family='Android';Connection='device'})
+Check ($lockOk.AccountLock -notmatch 'FRP') 'Authorised shell is not flagged as a lock'
+$lockSample=[pscustomobject]@{
+ Tool='Device Recovery Toolkit';Version='2.1.0';Captured='2026-11-25'
+ DeviceInterfaces=@($android);WindowsHost=[pscustomobject]@{BatteryPercent=50;BatteryHealth='Not measured'}
+ Apple=[pscustomobject]@{Model='Unknown';IOS='Unknown';ActivationLock='Not verifiable'}
+ Android=@($android);AndroidAccountLock=$lockFrp
+ ToolAvailability=[pscustomobject]@{ADBInstalled=$false;AppleService='Not installed'};Disclaimer='USB data is limited'
+}
+$lockReport=Join-Path $env:TEMP ('recovery-lock-'+[guid]::NewGuid().ToString('N')+'.json')
+try{
+ [void](Export-RecoverySnapshot -Snapshot $lockSample -Path $lockReport)
+ $ltxt=[System.IO.File]::ReadAllText($lockReport)
+ Check ($ltxt -match 'AndroidAccountLock') 'Export carries the Android account-lock hint'
+ Check ($ltxt -match 'do not attempt lock bypass') 'Exported hint keeps the no-bypass boundary'
+}finally{Remove-Item -LiteralPath $lockReport -Force -ErrorAction SilentlyContinue}
+Write-Host 'PASS: universal toolkit parser, classifiers, permission gates, reuse, account-lock hint, privacy-safe export.'

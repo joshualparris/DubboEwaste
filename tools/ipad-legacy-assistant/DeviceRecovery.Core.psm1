@@ -91,6 +91,21 @@ function Get-AndroidReadOnlyDetails {
  }
  return $out
 }
+function Get-AndroidAccountLockHint {
+ # Privacy-safe, NON-authoritative. Mirrors the Apple ActivationLock field for Android.
+ # An Android interface that is present but offers no authorised ADB shell commonly
+ # indicates a factory-reset / Google account (FRP) lock. This is a hint only: it never
+ # collects serial/IMEI/account data and never implies a bypass is available.
+ param($DeviceInterfaces=@(),$AndroidDetails=@())
+ $present=@($DeviceInterfaces | Where-Object {$_.Family -eq 'Android'}).Count -gt 0
+ $authorised=@($AndroidDetails | Where-Object {$_.Connection -eq 'device'}).Count -gt 0
+ if(!$present){return [pscustomobject]@{AccountLock='No Android interface detected';OwnershipAction='None'}}
+ if($authorised){return [pscustomobject]@{AccountLock='Shell reachable; account lock not indicated by USB scan';OwnershipAction='Confirm ownership before any change'}}
+ return [pscustomobject]@{
+  AccountLock='Possible factory-reset / Google account lock (FRP) - not verifiable from USB scan'
+  OwnershipAction='Verify ownership via manufacturer-supported process; do not attempt lock bypass'
+ }
+}
 function Test-RecoveryModificationPermission {param([string]$Ownership);return ($Ownership -eq 'Owned and authorised')}
 function Get-RecoveryRecommendations {
  param([string]$Family,[string]$Version,[string]$Ownership)
@@ -112,12 +127,15 @@ function Get-RecoveryRecommendations {
 }
 function Get-RecoverySnapshot {
  $tools=Get-RecoveryToolStatus
+ $interfaces=@(Get-ConnectedRecoveryDevices)
+ $androidDetails=@(Get-AndroidReadOnlyDetails -Adb $tools.ADB)
  [pscustomobject]@{
-  Tool='Device Recovery Toolkit';Version='2.0.0';Captured=(Get-Date).ToString('yyyy-MM-dd HH:mm:ss')
-  DeviceInterfaces=@(Get-ConnectedRecoveryDevices)
+  Tool='Device Recovery Toolkit';Version='2.1.0';Captured=(Get-Date).ToString('yyyy-MM-dd HH:mm:ss')
+  DeviceInterfaces=$interfaces
   WindowsHost=Get-RecoveryWindowsHealth
   Apple=Get-AppleReadOnlyDetails -IdeviceInfo $tools.IdeviceInfo
-  Android=@(Get-AndroidReadOnlyDetails -Adb $tools.ADB)
+  Android=$androidDetails
+  AndroidAccountLock=Get-AndroidAccountLockHint -DeviceInterfaces $interfaces -AndroidDetails $androidDetails
   ToolAvailability=[pscustomobject]@{
    ADBInstalled=[bool]$tools.ADB;IdeviceInfoInstalled=[bool]$tools.IdeviceInfo
    ITunesInstalled=$tools.ITunesInstalled;AppleDevicesInstalled=$tools.AppleDevicesInstalled
@@ -130,10 +148,11 @@ function Export-RecoverySnapshot {
  param([Parameter(Mandatory=$true)]$Snapshot,[Parameter(Mandatory=$true)][string]$Path)
  $ext=[System.IO.Path]::GetExtension($Path).ToLowerInvariant()
  if($ext -notin @('.json','.txt')){throw 'Only .json and .txt files supported.'}
- $data=[pscustomobject]@{Tool=$Snapshot.Tool;Version=$Snapshot.Version;Captured=$Snapshot.Captured;DeviceInterfaces=$Snapshot.DeviceInterfaces;WindowsHost=$Snapshot.WindowsHost;Apple=$Snapshot.Apple;Android=$Snapshot.Android;ToolAvailability=$Snapshot.ToolAvailability;Disclaimer=$Snapshot.Disclaimer}
+ $lock=if($Snapshot.PSObject.Properties.Name -contains 'AndroidAccountLock'){$Snapshot.AndroidAccountLock}else{$null}
+ $data=[pscustomobject]@{Tool=$Snapshot.Tool;Version=$Snapshot.Version;Captured=$Snapshot.Captured;DeviceInterfaces=$Snapshot.DeviceInterfaces;WindowsHost=$Snapshot.WindowsHost;Apple=$Snapshot.Apple;Android=$Snapshot.Android;AndroidAccountLock=$lock;ToolAvailability=$Snapshot.ToolAvailability;Disclaimer=$Snapshot.Disclaimer}
  $content=$data | ConvertTo-Json -Depth 7
  if($ext -eq '.txt'){$content='Device Recovery Toolkit - privacy-safe report'+[Environment]::NewLine+$content}
  [System.IO.File]::WriteAllText($Path,$content,(New-Object System.Text.UTF8Encoding($false)))
  return $Path
 }
-Export-ModuleMember -Function ConvertTo-RecoveryDevice,Get-ConnectedRecoveryDevices,Get-RecoveryToolStatus,Get-RecoveryWindowsHealth,Get-AppleReadOnlyDetails,Get-AndroidReadOnlyDetails,Get-RecoveryRecommendations,Test-RecoveryModificationPermission,Get-RecoverySnapshot,Export-RecoverySnapshot
+Export-ModuleMember -Function ConvertTo-RecoveryDevice,Get-ConnectedRecoveryDevices,Get-RecoveryToolStatus,Get-RecoveryWindowsHealth,Get-AppleReadOnlyDetails,Get-AndroidReadOnlyDetails,Get-AndroidAccountLockHint,Get-RecoveryRecommendations,Test-RecoveryModificationPermission,Get-RecoverySnapshot,Export-RecoverySnapshot
