@@ -9,6 +9,10 @@ import { revalidatePath } from "next/cache";
 export const maxDuration = 60;
 const fail = (error: string, status=400) => NextResponse.json({error},{status});
 const analyseSchema = z.object({action:z.literal("analyse"),image:z.string().max(3_000_000).optional(),description:z.string().trim().max(4000).optional(),consent:z.literal(true)});
+const createSchema=z.discriminatedUnion("action",[
+  z.object({action:z.literal("create_job"),id:z.string().uuid(),name:z.string().trim().min(2).max(200)}),
+  z.object({action:z.literal("create_location"),id:z.string().uuid(),name:z.string().trim().min(2).max(160),kind:z.enum(["SITE","ZONE","SHELF","BENCH","QUARANTINE","OTHER"])})
+]);
 const importSchema = z.object({action:z.literal("import"),job:z.string().uuid(),location:z.string().uuid().or(z.literal("")),confirmed:z.literal(true),automatic:z.boolean().optional(),kind:z.enum(["asset","lot"]),rows:z.array(rowSchema).min(1).max(80)});
 
 export async function POST(request: Request) {
@@ -20,6 +24,32 @@ export async function POST(request: Request) {
   if(length>3_200_000) return fail("Image too large",413);
   let raw: unknown;
   try { const body=await request.text(); if(body.length>3_200_000)return fail("Image too large",413); raw=JSON.parse(body); } catch {return fail("Invalid request");}
+  const creation=createSchema.safeParse(raw);
+  if(creation.success){
+    const input=creation.data;
+    const {data:{user}}=await supabase.auth.getUser();
+    if(!user)return fail("Sign in again.",401);
+    if(input.action==="create_job"){
+      const fields="id,job_code,source_site";
+      const find=()=>supabase.from("jobs").select(fields).eq("programme","dubbo_ewaste").eq("submission_key",input.id).maybeSingle();
+      const prior=await find();if(prior.error)return fail("Could not check existing job.",500);
+      if(prior.data)return NextResponse.json({record:prior.data});
+      const {data,error}=await supabase.from("jobs").insert({programme:"dubbo_ewaste",submission_key:input.id,source_site:input.name,status:"DRAFT",created_by:user.id}).select(fields).single();
+      if(error||!data){if(error?.code==="23505"){const retry=await find();if(retry.data)return NextResponse.json({record:retry.data});}return fail("Could not create inbound job.",409);}
+      const audit=await supabase.from("operational_events").insert({programme:"dubbo_ewaste",entity_type:"job",entity_id:data.id,event_type:"JOB_CREATED",actor_id:user.id,details:{job_code:data.job_code,method:"SMART_INTAKE"}});
+      revalidatePath("/jobs");revalidatePath("/dashboard");
+      return NextResponse.json({record:data,auditWarning:!!audit.error});
+    }
+    const fields="id,name";
+    const find=()=>supabase.from("locations").select(fields).eq("programme","dubbo_ewaste").eq("id",input.id).eq("active",true).maybeSingle();
+    const prior=await find();if(prior.error)return fail("Could not check existing location.",500);
+    if(prior.data)return NextResponse.json({record:prior.data});
+    const {data,error}=await supabase.from("locations").insert({id:input.id,programme:"dubbo_ewaste",name:input.name,kind:input.kind,active:true,created_by:user.id}).select(fields).single();
+    if(error||!data){if(error?.code==="23505"){const retry=await find();if(retry.data)return NextResponse.json({record:retry.data});}return fail("Could not create location. Check whether this name already exists.",409);}
+    const audit=await supabase.from("operational_events").insert({programme:"dubbo_ewaste",entity_type:"location",entity_id:data.id,event_type:"LOCATION_CREATED",actor_id:user.id,details:{name:data.name,method:"SMART_INTAKE"}});
+    revalidatePath("/locations");
+    return NextResponse.json({record:data,auditWarning:!!audit.error});
+  }
   const analysis=analyseSchema.safeParse(raw);
   if(analysis.success){
     const {image,description}=analysis.data;
