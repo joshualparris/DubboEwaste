@@ -1,0 +1,218 @@
+category,codename,name,year,arch,chassis,soc,source,source_date
+community,fairphone-fp4,Fairphone 4,2021,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,generic-ppc64le,Generic ppc64le system,2014,ppc64le,,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,generic-x86_64,generic x86_64 system,1999,x86_64,,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,google-asurada,Google Asurada Chromebook,2021,aarch64,laptop,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,google-bonito,Google Pixel 3a XL,2019,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,google-cherry,Google Cherry Chromebook,2021,aarch64,laptop,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,google-corsola,Google Corsola Chromebook,2023,aarch64,laptop,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,google-gru,Google Gru Chromebook,2017,aarch64,,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,google-kukui,Google Kukui Chromebook,2020,aarch64,convertible,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,google-manta,Google Nexus 10,2012,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,google-oak,Google Oak Chromebook,2017,aarch64,convertible,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,google-peach-pit,Samsung Chromebook 2 11.6\,2014,armv7,laptop,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,google-sargo,Google Pixel 3a,2019,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,google-trogdor,Google Trogdor Chromebook,2021,aarch64,convertible,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,google-veyron,Google Veyron Chromebook,2015,armv7,convertible,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,google-x64cros,Google Chromebook with x86_64 CPU,2011,x86_64,laptop,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,lenovo-21bx,Lenovo ThinkPad X13s,2022,aarch64,laptop,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,nokia-n900,Nokia N900,2009,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,odroid-xu4,Odroid XU4,2015,armv7,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,oneplus-enchilada,OnePlus 6,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,oneplus-fajita,OnePlus 6T,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,pine64-pinebookpro,PINE64 Pinebook Pro,2019,aarch64,laptop,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,pine64-pinenote,Pine64 PineNote,2021,aarch64,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,pine64-pinephonepro,PINE64 PinePhone Pro,2021,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,pine64-rockpro64,PINE64 RockPro64,2017,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,purism-librem5,Purism Librem 5 Phone,2019,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,qcom-msm8953,Qualcomm msm8953-based device,2016,aarch64,,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,qcom-qcs6490,Qualcomm QCS6490 Device,2025,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,qcom-sm7150,Qualcomm SM7150 Device,2019,aarch64,,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,qemu-aarch64,QEMU aarch64,2011,aarch64,vm,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,qemu-amd64,QEMU amd64,2003,x86_64,vm,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,samsung-coreprimevelte,Samsung Galaxy Core Prime VE LTE,2014,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,samsung-espresso10,Samsung Galaxy Tab 2 (10.1 inch),2012,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,samsung-espresso7,Samsung Galaxy Tab 2 (7.0 inch),2012,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,samsung-m0,Samsung Galaxy S III,2012,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,samsung-starqltechn,Samsung Galaxy S9,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,shift-axolotl,SHIFT6mq,2020,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+community,xiaomi-beryllium,Xiaomi Poco F1,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,amazon-ford,Amazon Fire 7 (2015),2015,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,amazon-wario,Amazon Kindle PaperWhite 3,2015,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,amlogic-aarch64-tvbox,Amlogic AArch64 TV box,2015,aarch64,desktop,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,apple-idevice,Apple Generic iDevice,2013,aarch64,,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,apple-mac-aarch64,Apple M-series Macs,2020,aarch64,laptop,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,arrow-db410c,Arrow DragonBoard 410c,2015,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,asus-flo,Google Nexus 7 2013,2013,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,asus-s5507q,ASUS Vivobook S 15,2024,aarch64,laptop,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,asus-sparrow,ASUS ZenWatch 2,2015,armv7,watch,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,asus-x00td,Asus ZenFone Max Pro M1,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,asus-z010d,Asus Zenfone Max ZC550KL,2016,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,asus-zenfone3,Asus Zenfone 3,2016,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,ayaneo-pocket-s2,Ayaneo Pocket S2,2025,aarch64,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,ayn-odin,AYN Odin,2021,aarch64,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,ayn-odin-3,AYN Odin 3,2025,aarch64,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,bananapi-bpi-cm4-cm4io,BananaPi BPI-CM4IO Baseboard with BPI-CM4,2023,aarch64,desktop,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,barnesnoble-encore,Barnes & Noble Nook Color,2010,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,blackberry-key2-generic,BlackBerry KEY2,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,clockworkpi-uconsole-radxa-cm5,Clockwork Tech ClockworkPi uConsole Radxa CM5,2023,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,dell-ariel,dell Dell Wyse 3020,2015,armv7,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,epson-embt2ws,Epson Moverio BT-200,2014,armv7,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,fairphone-fp2,Fairphone 2,2015,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,fairphone-fp3,Fairphone 3,2019,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,fairphone-fp5,Fairphone 5,2023,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,fairphone-fp6,Fairphone (Gen. 6),2025,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,generic-loongarch64,Generic loongarch64 system,2021,loongarch64,,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,generic-riscv64,Generic riscv64 system,2014,riscv64,,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,gigaset-gs290,Gigaset GS290,2020,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,gigaset-gs4,Gigaset GS4,2020,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,goclever-gcta741l,GoClever Orion 7OL,2013,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,google-bluejay,Google Pixel 6a,2022,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,google-blueline,Google Pixel 3,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,google-bluey,Google Bluey Googlebook,2026,aarch64,laptop,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,google-flame,Google Pixel 4,2019,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,google-nyan-big,Acer Chromebook 13 CB5-311 / Acer Chromebook C810,2014,armv7,laptop,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,google-nyan-blaze,HP Chromebook 14 G3,2014,armv7,laptop,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,google-oriole,Google Pixel 6,2021,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,google-raven,Google Pixel 6 Pro,2021,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,google-snow,Samsung Chromebook,2011,armv7,laptop,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,hp-elitebook-ultra-g1q,HP EliteBook Ultra G1q,2024,aarch64,laptop,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,htc-m8qlul,HTC One M8s,2015,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,htc-memul,HTC One Mini 2,2014,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,huawei-angler,Google Nexus 6P,2015,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,huawei-milan,Huawei Maimang 5 / G9 (Plus) / Nova (Plus),2016,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,huawei-sturgeon,Huawei Watch,2015,armv7,watch,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,jolla-c2,Jolla C2,2024,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,khadas-vim3,Khadas VIM3,2025,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,kobo-clara,Kobo Clara HD,2018,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,kobo-clara2e,Kobo Clara 2E,2022,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,kobo-librah2o,Kobo Libra H2O,2019,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,lark-freeme-70-2s,Lark FreeMe 70.2S,2012,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,lg-bullhead,Google Nexus 5X,2015,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,lg-hammerhead,Google Nexus 5,2013,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,lg-judyln,LG G7 ThinQ,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,lg-judyp,LG V35 ThinQ,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,lg-lenok,LG G Watch R,2015,armv7,watch,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,librecomputer-lafrite,Libre Computer AML-S805X-AC-V1.0,2019,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,librecomputer-lepotato,Libre Computer AML-S905X-CC-V1.0,2019,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,librecomputer-solitude,Libre Computer AML-S905D3-CC,2023,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,linksys-shelby,Linksys WRT1900ACS/WRT1900ACS V2,2015,armv7,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,lynx-r1,Lynx R1,2023,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,microsoft-dempsey,Microsoft Lumia 640 LTE Dual Sim,2015,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,microsoft-makepeace,Microsoft Lumia 640 XL,2015,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,microsoft-surface-rt,Microsoft Surface RT,2012,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,motorola-dubai,Motorola Edge 30,2022,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,nokia-pl2,HMD Global Nokia 6.1,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,nokia-tesla,Nokia Lumia 830,2014,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,nothing-spacewar,Nothing Phone (1),2022,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,nothing-tetris,Nothing CMF Phone 1,2024,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,nvidia-tegra-armv7,NVIDIA Tegra ARMv7,2011,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,odroid-c2,Hardkernel ODROID C2,2016,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,odroid-c4,Hardkernel ODROID C4,2020,aarch64,desktop,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,odroid-n2plus,Hardkernel ODROID N2+,2020,aarch64,desktop,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,odroid-u2,ODROID U2,2014,armv7,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,oneplus-bacon,OnePlus One,2014,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,oneplus-billie2,OnePlus Nord N100,2020,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,oneplus-guacamole,OnePlus 7 Pro,2019,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,oneplus-instantnoodlep,OnePlus 8 Pro,2020,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,oneplus-kebab,OnePlus 8T,2020,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,pine64-pinephone,PINE64 PinePhone,2019,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,pine64-pinetab2,PINE64 PineTab 2,2023,aarch64,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,postmarketos-trailblazer,postmarketOS Trailblazer,2024,aarch64,,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,powkiddy-x55,Powkiddy X55,2023,aarch64,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,qcom-handheld,Qualcomm SoC-based handheld device,2021,aarch64,,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,qcom-msm8226,Qualcomm msm8226-based device,2013,armv7,,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,qcom-msm8909,Qualcomm msm8905/msm8909/msm8916-based device,2015,armv7,,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,qcom-msm8916,Qualcomm msm8916-based device,2015,aarch64,,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,qcom-msm8956,Qualcomm msm8956-based device,2015,aarch64,,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,qcom-msm89x7,Qualcomm msm8937-based device,2015,aarch64,,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,qcom-rbx,Qualcomm RBx,2020,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,qcom-sm7125,Qualcomm SM7125 Device,2020,aarch64,,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,qualcomm-sdm845,Qualcomm SDM845 device,2023,aarch64,,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,radxa-e20c,Radxa E20C,2024,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,radxa-zero,Radxa Zero,2021,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,rockchip-rk322x,Rockchip rk3228/rk3229-based device,2016,armv7,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-a21s,Samsung Galaxy A21s,2020,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-baffinlite,Samsung Galaxy Grand Neo,2014,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-chagallwifi,Samsung Galaxy Tab S 10.5 WiFi,2014,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-codina,Samsung Galaxy Ace 2,2012,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-codina-tmo,Samsung Galaxy Exhibit (SGH-T599),2013,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-expressatt,Samsung Galaxy Express SGH-I437,2012,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-exynos7,Samsung Exynos 7 generic device,2015,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-exynos9820,Samsung Exynos 9820 Generic Device,2019,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-gavini,Samsung Galaxy Beam (GT-I8530),2012,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-golden,Samsung Galaxy S III mini,2012,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-i9100,Samsung Galaxy SII,2011,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-j5x,Samsung Galaxy J5 2016,2016,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-janice,Samsung Galaxy S Advance,2012,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-jflte,Samsung Galaxy S4,2013,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-klimtlte,Samsung Galaxy Tab S 8.4 LTE,2014,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-kona,Samsung Galaxy Note 8.0 (Wi-Fi),2013,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-kyle,Samsung Galaxy Amp (SGH-I407),2013,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-kylepro,Samsung Galaxy Trend Plus,2013,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-loganrelte,Samsung Galaxy Ace 3 LTE,2013,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-lt01,Samsung Galaxy Tab 3 8.0,2013,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-lt03lte,Samsung Galaxy Note 10.1 2014 LTE,2013,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-m3,Samsung Galaxy S III LTE,2012,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-milletwifi,Samsung Galaxy Tab 4 8.0 Wi-Fi,2014,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-n1awifi,Samsung Galaxy Note 10.1 (2014) WiFi,2013,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-n2awifi,Samsung Galaxy Tab PRO 10.1 (WiFi),2014,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-p4note,Samsung Galaxy Note 10.1,2012,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-skomer,Samsung Galaxy Xcover 2,2013,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,samsung-v1awifi,Samsung Galaxy Note Pro 12.2 Wi-Fi,2014,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,shift-otter,SHIFTphone 8,2024,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,solidrun-cubox,SolidRun CuBox,2011,armv7,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,sony-leo,Sony Xperia Z3,2014,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,sony-pdx215,Sony Xperia 1 III,2021,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,sony-pioneer,Sony Xperia XA2,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,sony-redwood,Sony Xperia XA1 Ultra,2017,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,sony-tulip,Sony Xperia M4 Aqua,2015,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,tolino-shine2hd,Tolino Shine 2HD,2015,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,tolino-shine3,Tolino Shine 3,2018,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,vsmart-zangyapro,Vsmart Active 1,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-begonia,Xiaomi Redmi Note 8 Pro,2019,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-cepheus,Xiaomi Mi 9,2019,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-clover,Xiaomi Mi Pad 4,2018,aarch64,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-elish,Xiaomi Mi Pad 5 Pro,2021,aarch64,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-equuleus,Xiaomi Mi 8 Pro,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-gauguin,Xiaomi Mi 10T Lite 5G,2020,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-ginkgo,Xiaomi Redmi Note 8,2019,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-jasmine_sprout,Xiaomi Mi A2,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-jason,Xiaomi Mi Note 3,2017,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-lancelot,Xiaomi Redmi 9,2020,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-laurel,Xiaomi Mi A3,2019,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-lavender,Xiaomi Redmi Note 7,2019,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-miatoll,Xiaomi Redmi Note 9 Pro / Redmi Note 9S,2020,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-mocha,Xiaomi Mi Pad,2014,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-nabu,Xiaomi Pad 5,2021,aarch64,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-pipa,Xiaomi Pad 6,2023,aarch64,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-pyxis,Xiaomi Mi 9 Lite,2019,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-scorpio,Xiaomi Mi Note 2,2016,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-tulip,Xiaomi Redmi Note 6 Pro,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-vayu,Xiaomi POCO X3 Pro,2021,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-whyred,Xiaomi Redmi Note 5 Pro,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xiaomi-willow,Xiaomi Redmi Note 8T,2019,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xunlong-orangepi-pc,Xunlong Orange Pi PC,2015,armv7,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xunlong-orangepi-zero3,Xunlong Orange Pi Zero 3,2023,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,xunlong-orangepi5-plus,Xunlong Orange Pi 5 Plus,2023,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,zhihe-generic,Zhihe series LTE dongles,2021,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+testing,zte-b860hv5,ZTE ZXV10 B860HV5,2019,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,amazon-sheldon,Amazon Fire TV Stick Lite,2020,armv7,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,bq-gohan,BQ Aquaris X5 Plus,2016,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,clockworkpi-uconsole-rpi,Clockwork Tech ClockworkPi uConsole with Rapsberry Pi compute modules,2023,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,fairphone-fp1,Fairphone 1,2013,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,htc-golfu,HTC Desire C,2012,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,lenovo-tb3-710i,Lenovo Tab3 7,2016,armv7,tablet,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,lg-elsa,LG V20,2016,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,lg-vee3e,LG Optimus L3 II,2013,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,nobby-230,Nobby 230,2019,armv7,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,raspberry-pi3,Raspberry Pi 3,2016,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,raspberry-pi4,Raspberry Pi 4,2019,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,raspberry-pi5,Raspberry Pi 5,2023,aarch64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,samsung-crownlte,Samsung Galaxy Note 9,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,samsung-j4lte,Samsung Galaxy J4,2018,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,samsung-m20lte,Samsung Galaxy M20,2019,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,sipeed-licheepi-4a,Sipeed LicheePi 4A,2023,riscv64,embedded,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,sqfmi-beepy,sqfmi SQFMI Beepy,2023,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,xiaomi-ido,Xiaomi Redmi 3,2016,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
+downstream,xiaomi-monet,Xiaomi Mi 10 Lite 5G,2020,aarch64,handset,,postmarketos-pmaports@fa1fa51,2026-11-25
