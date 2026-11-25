@@ -1,0 +1,16 @@
+import assert from "node:assert/strict";
+import {build} from "esbuild";
+const b=await build({entryPoints:["lib/inventory-filters.ts"],bundle:true,format:"esm",platform:"node",write:false});
+const {deviceFamily,matchesInventory,inventoryGroups,emptyFilters}=await import("data:text/javascript;base64,"+Buffer.from(b.outputFiles[0].text).toString("base64"));
+const row=(manufacturer,model,category,extra={})=>({manufacturer,model,category,asset_code:"DEW-TEST",serial_imei:"ABC123",status:"HOLD",data_state:"UNWIPED_RESTRICTED",initial_route:"HOLD",...extra});
+const records=[row("Apple","MacBook Air A1466","LAPTOP"),row("Apple","iMac 2017","DESKTOP"),row("Apple","iPhone 12","PHONE"),row("Apple","iPad Air","TABLET"),row("Lenovo","IdeaPad 3 15IAU7","LAPTOP"),row("Samsung","Galaxy A55","PHONE"),row("Toshiba","Canvio USB hard drive","OTHER"),row("Fitbit","Inspire 3","OTHER"),row("Acer","Chromebook 314","LAPTOP")];
+assert.deepEqual(records.map(deviceFamily),["Macs","Macs","iPhones","iPads","Laptops","Other phones","Storage & drives","Wearables","Chromebooks"]);
+assert.equal(records.filter(a=>matchesInventory(a,{...emptyFilters,family:"Macs"})).length,2);
+assert.equal(records.filter(a=>matchesInventory(a,{...emptyFilters,category:"LAPTOP"})).length,3);
+assert.equal(records.filter(a=>matchesInventory(a,{...emptyFilters,query:"LENOVO 15iau7"})).length,1);
+assert.equal(records.filter(a=>matchesInventory(a,{...emptyFilters,brand:"apple",status:"HOLD"})).length,4);
+assert.equal(matchesInventory(row("Dell","Latitude","LAPTOP",{location_id:"x"}),{...emptyFilters,location:"x"}),true);
+assert.equal(matchesInventory(records[0],{...emptyFilters,job:"__none"}),true);
+assert.equal(inventoryGroups(records,true).flatMap(g=>g.rows).length,records.length);
+assert.equal(inventoryGroups(records,false).length,1);
+console.log("PASS: inventory family classification, combined filters, search and grouping.");
