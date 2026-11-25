@@ -10,6 +10,9 @@ on:
       - 'scripts/triage_intake.py'
       - 'scripts/analyse_pilot.py'
       - 'examples/synthetic-intake.json'
+      - 'data/legacy-device-compatibility.csv'
+      - 'scripts/query_device_compatibility.py'
+      - 'scripts/test_query_device_compatibility.py'
       - '.github/workflows/evidence-validation.yml'
   pull_request:
     branches: [ "main" ]
@@ -36,3 +39,7 @@ jobs:
           python -m py_compile scripts/*.py
           python scripts/triage_intake.py examples/synthetic-intake.json > /tmp/triage.json
           python scripts/analyse_pilot.py pilot-tracker.csv > /tmp/pilot-summary.json
+      - name: Validate device compatibility database and OS recommendations
+        run: |
+          python scripts/query_device_compatibility.py --validate
+          cd scripts && python -m unittest -v test_query_device_compatibility

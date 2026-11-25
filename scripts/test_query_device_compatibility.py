@@ -24,10 +24,44 @@ class CompatibilityDbTests(unittest.TestCase):
         hits = q.search(self.rows, "msm8909")
         self.assertTrue(any(r["model_code"] == "2PST1" for r in hits))
 
-    def test_example_rows_flagged_unverified(self):
-        hits = q.search(self.rows, "hammerhead")
-        self.assertTrue(hits)
-        self.assertFalse(q.is_verified(hits[0]))
+    def test_unverified_rows_flagged(self):
+        row = dict(self.rows[0], verification="EXAMPLE-UNVERIFIED")
+        self.assertFalse(q.is_verified(row))
+        self.assertEqual(q.recommend(row)[0][0], "Research needed")
+
+    def row(self, code):
+        return q.search(self.rows, code)[0]
+
+    def test_recommend_prefers_maintained_lineageos_then_linux_options(self):
+        names = [n for n, _ in q.recommend(self.row("enchilada"))]
+        self.assertEqual(names, ["LineageOS", "postmarketOS", "Ubuntu Touch", "Droidian",
+                                 "Dubbo Reuse app on the existing Android"])
+
+    def test_locked_bootloader_gets_app_only_whatever_upstream_says(self):
+        locked = dict(self.row("enchilada"), bootloader_unlock="no")
+        names = [n for n, _ in q.recommend(locked)]
+        self.assertEqual(names, ["No OS replacement", "Dubbo Reuse app on the existing Android"])
+        self.assertEqual([n for n, _ in q.recommend(self.row("AMN-LX2"))][0], "No OS replacement")
+
+    def test_soc_match_alone_is_never_a_recommendation(self):
+        # Same SoC as a supported phone but no upstream listings: only the app.
+        clone = dict(self.row("enchilada"), model_code="clone", lineageos_official="no",
+                     postmarketos_status="unknown", ubuntu_touch_status="unknown", droidian_status="no")
+        self.assertEqual([n for n, _ in q.recommend(clone)], ["Dubbo Reuse app on the existing Android"])
+
+    def test_unmaintained_lineageos_ranked_last_with_warning(self):
+        recs = q.recommend(self.row("hammerhead"))
+        names = [n for n, _ in recs]
+        self.assertEqual(names[0], "Ubuntu Touch")
+        self.assertIn("LineageOS (unmaintained)", names)
+        self.assertIn("No security updates", dict(recs)["LineageOS (unmaintained)"])
+
+    def test_carrier_caveat_shown(self):
+        self.assertIn("Carrier-locked", q.recommend(self.row("sargo"))[0][1])
+
+    def test_linux_phone_gets_no_android_app(self):
+        names = [n for n, _ in q.recommend(self.row("pinephone"))]
+        self.assertEqual(names, ["postmarketOS", "Ubuntu Touch"])
 
     def test_verified_only_filter_excludes_examples(self):
         verified = q.filter_rows(self.rows, verified_only=True)

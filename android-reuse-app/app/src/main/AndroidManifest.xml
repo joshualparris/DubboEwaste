@@ -20,6 +20,8 @@
         <activity android:name=".ClockActivity" android:exported="false" />
         <activity android:name=".CalculatorActivity" android:exported="false" />
         <activity android:name=".StopwatchActivity" android:exported="false" />
+        <activity android:name=".PhotoFrameActivity" android:exported="false" android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".MusicActivity" android:exported="false" />
     </application>
 
 </manifest>

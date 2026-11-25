@@ -154,7 +154,9 @@ function Update-RecoveryPermission {
 }
 function Refresh-Reuse {
  try {
-  $ideas=@(Get-RecoveryRecommendations -Family ([string]$script:family.SelectedItem) -Version $script:version.Text -Ownership ([string]$script:owner.SelectedItem))
+  # Use the codename of the first authorised Android device from the last scan, if any.
+  $codename=if($script:Snapshot){@($script:Snapshot.Android | Where-Object {$_.Codename -and $_.Codename -ne 'Unavailable'})[0].Codename}else{$null}
+  $ideas=@(Get-RecoveryRecommendations -Family ([string]$script:family.SelectedItem) -Version $script:version.Text -Ownership ([string]$script:owner.SelectedItem) -Codename $codename)
   $script:reuseOut.Text=Join-RecoveryLines ($ideas | ForEach-Object { '- '+$_ })
  }catch{Show-Failure 'Reuse' $_.Exception.Message}
 }

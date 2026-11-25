@@ -16,5 +16,9 @@ public class LauncherActivity extends AppCompatActivity {
                 v -> startActivity(new Intent(this, CalculatorActivity.class)));
         findViewById(R.id.btnStopwatch).setOnClickListener(
                 v -> startActivity(new Intent(this, StopwatchActivity.class)));
+        findViewById(R.id.btnPhotoFrame).setOnClickListener(
+                v -> startActivity(new Intent(this, PhotoFrameActivity.class)));
+        findViewById(R.id.btnMusic).setOnClickListener(
+                v -> startActivity(new Intent(this, MusicActivity.class)));
     }
 }

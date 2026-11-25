@@ -5,4 +5,17 @@
     <string name="mode_clock">Clock</string>
     <string name="mode_calculator">Calculator</string>
     <string name="mode_stopwatch">Stopwatch</string>
+    <string name="mode_photo_frame">Photo frame</string>
+    <string name="mode_music">Music &amp; audiobooks</string>
+    <string name="photo_choose_folder">Tap to choose a folder of photos.</string>
+    <string name="photo_none_found">No photos were found in that folder. Tap to choose another folder.</string>
+    <string name="photo_no_picker">This phone has no file picker, so photos and music cannot be opened.</string>
+    <string name="music_choose">Choose songs or an audiobook to start.</string>
+    <string name="music_pick">Choose files</string>
+    <string name="music_play">Play</string>
+    <string name="music_pause">Pause</string>
+    <string name="music_back">Back 30 s</string>
+    <string name="music_forward">Forward 30 s</string>
+    <string name="music_next">Next file</string>
+    <string name="music_cannot_play">Cannot play %1$s</string>
 </resources>

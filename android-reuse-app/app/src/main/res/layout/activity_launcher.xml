@@ -40,6 +40,20 @@
         android:id="@+id/btnStopwatch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
         android:text="@string/mode_stopwatch" />
+
+    <Button
+        android:id="@+id/btnPhotoFrame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="@string/mode_photo_frame" />
+
+    <Button
+        android:id="@+id/btnMusic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mode_music" />
 
 </LinearLayout>

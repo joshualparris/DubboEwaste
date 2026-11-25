@@ -24,8 +24,46 @@ REQUIRED_COLUMNS = {
     "model_code", "marketing_name", "soc", "soc_family", "release_year",
     "shipped_android", "max_official_android", "ram_mb", "storage_gb",
     "frp_capable", "lineageos_official", "postmarketos_status",
+    "ubuntu_touch_status", "droidian_status", "bootloader_unlock",
     "recommended_roles", "verification", "source",
 }
+
+APP_FALLBACK = ("Dubbo Reuse app on the existing Android",
+                "Always possible on Android 6+: install the APK; no unlocking or reflashing.")
+
+
+def recommend(row: dict) -> list[tuple[str, str]]:
+    """Best existing OS options for one catalogued device, most practical first.
+
+    Only an upstream project's own device listing counts: a matching SoC is never enough.
+    A device whose bootloader the owner cannot unlock gets the app only, whatever the
+    upstream listings say. The Dubbo Reuse app is always the last option.
+    """
+    if not is_verified(row):
+        return [("Research needed", "This row is unverified; check upstream device lists first."), APP_FALLBACK]
+    unlock = row["bootloader_unlock"]
+    if unlock == "no":
+        return [("No OS replacement", "The owner cannot unlock this bootloader. Never attempt a bypass."), APP_FALLBACK]
+    caveat = {"carrier-dependent": " Carrier-locked variants cannot be unlocked: check the exact unit first.",
+              "unknown": " Bootloader unlockability is unknown: confirm before planning a reinstall.",
+              "yes": " Unlocking erases the phone; the owner must remove their account first.",
+              "not-needed": ""}.get(unlock, "")
+    options = []
+    if row["lineageos_official"] == "maintained":
+        options.append(("LineageOS", "Officially maintained Android replacement; most apps keep working." + caveat))
+    if row["postmarketos_status"] in ("main", "community"):
+        options.append(("postmarketOS", f"Native Linux, {row['postmarketos_status']} category." + caveat))
+    if row["ubuntu_touch_status"] == "listed":
+        options.append(("Ubuntu Touch", "Listed on devices.ubuntu-touch.io; use the UBports installer." + caveat))
+    if row["droidian_status"] == "listed":
+        options.append(("Droidian", "Debian on Android hardware; listed on devices.droidian.org." + caveat))
+    if row["postmarketos_status"] == "testing":
+        options.append(("postmarketOS (testing)", "Experimental: expect missing features." + caveat))
+    if row["lineageos_official"] == "unmaintained":
+        options.append(("LineageOS (unmaintained)", "No security updates: offline single-purpose use only." + caveat))
+    if row["shipped_android"] in ("", "n/a"):
+        return options  # not an Android device: the APK does not apply
+    return options + [APP_FALLBACK]
 
 UNVERIFIED = {"EXAMPLE-UNVERIFIED", "needs-confirmation", ""}
 
@@ -83,6 +121,9 @@ def format_row(row: dict) -> str:
         f"  FRP-capable   : {row['frp_capable']} (hardware era; not an unlock claim)\n"
         f"  LineageOS     : {row['lineageos_official']}\n"
         f"  postmarketOS  : {row['postmarketos_status']}\n"
+        f"  Ubuntu Touch  : {row['ubuntu_touch_status']}\n"
+        f"  Droidian      : {row['droidian_status']}\n"
+        f"  Bootloader    : {row['bootloader_unlock']}\n"
         f"  Reuse roles   : {', '.join(roles(row)) or 'none catalogued'}\n"
         f"  Verification  : {row['verification']}  (source: {row['source']})"
     )
@@ -95,6 +136,7 @@ def main(argv=None) -> int:
     p.add_argument("--verified-only", action="store_true", help="exclude placeholder/unverified rows")
     p.add_argument("--min-ram", type=int, help="minimum RAM in MB")
     p.add_argument("--validate", action="store_true", help="validate the CSV schema and exit")
+    p.add_argument("--recommend", action="store_true", help="rank the best existing OS for each match")
     args = p.parse_args(argv)
 
     try:
@@ -122,6 +164,10 @@ def main(argv=None) -> int:
 
     for row in result:
         print(format_row(row))
+        if args.recommend:
+            print("  Best options:")
+            for i, (name, why) in enumerate(recommend(row), 1):
+                print(f"    {i}. {name}: {why}")
         print()
     return 0
 

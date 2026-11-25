@@ -27,6 +27,23 @@ $unknown=@(Get-RecoveryRecommendations -Family Apple -Version '9.3.6' -Ownership
 Check (($unknown -join ' ') -match 'Ownership unresolved') 'Repurpose ideas are ownership gated'
 $owned=@(Get-RecoveryRecommendations -Family Apple -Version '9.3.6' -Ownership 'Owned and authorised')
 Check (($owned -join ' ') -match 'PDF') 'iOS 9 ideas present'
+# Mobile OS options: ranked from the shared compatibility database, ownership-gated, never inferred from SoC.
+$db=Get-MobileOsDatabasePath
+Check ([bool]$db) 'Compatibility database found from the module'
+$gated=@(Get-MobileOsOptions -Codename 'enchilada' -Ownership 'Unknown / unverified' -DatabasePath $db)
+Check ($gated.Count -eq 1 -and $gated[0] -match 'Ownership unresolved') 'OS replacement is ownership gated'
+$op6=@(Get-MobileOsOptions -Codename 'enchilada' -Ownership 'Owned and authorised' -DatabasePath $db)
+Check ($op6[0] -match '^LineageOS:') 'Maintained LineageOS ranked first'
+Check ((($op6 -join ' ') -match 'postmarketOS') -and (($op6 -join ' ') -match 'Ubuntu Touch') -and (($op6 -join ' ') -match 'Droidian')) 'All listed Linux options offered'
+Check ($op6[-1] -match '^Dubbo Reuse app') 'App fallback last'
+$huawei=@(Get-MobileOsOptions -Codename 'AMN-LX2' -Ownership 'Owned and authorised' -DatabasePath $db)
+Check ($huawei.Count -eq 2 -and $huawei[0] -match 'cannot unlock' -and $huawei[1] -match 'Dubbo Reuse app') 'Locked Huawei gets app only, no bypass'
+$unknownPhone=@(Get-MobileOsOptions -Codename 'notarealphone' -Ownership 'Owned and authorised' -DatabasePath $db)
+Check ($unknownPhone[0] -match 'not in the compatibility database') 'Uncatalogued phone treated as untested'
+$pine=@(Get-MobileOsOptions -Codename 'pinephone' -Ownership 'Owned and authorised' -DatabasePath $db)
+Check (-not (($pine -join ' ') -match 'Dubbo Reuse app')) 'No Android app offered for a Linux phone'
+$androidIdeas=@(Get-RecoveryRecommendations -Family Android -Version '11' -Ownership 'Owned and authorised' -Codename 'sargo')
+Check ((($androidIdeas -join ' ') -match 'Operating system option: LineageOS') -and (($androidIdeas -join ' ') -match 'Carrier-locked')) 'Android ideas include ranked OS options with carrier caveat'
 $sample=[pscustomobject]@{
  Tool='Device Recovery Toolkit';Version='2.0.0';Captured='2026-11-18'
  DeviceInterfaces=@($apple);WindowsHost=[pscustomobject]@{BatteryPercent=63;BatteryHealth='Not measured'}
