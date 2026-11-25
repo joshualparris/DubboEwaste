@@ -22,8 +22,11 @@ mkdir -p "$out"
 work=$(mktemp -d)
 echo "Building ReuseOS $arch ($dist) in $work"
 cd "$work"
+# Firmware is listed explicitly below. live-build's automatic firmware sweep pulled in
+# firmware-b43-installer, which downloads at install time and failed the first CI build.
 lb config --distribution "$dist" --architectures "$arch" --binary-images iso-hybrid \
   --archive-areas "main contrib non-free-firmware" --debian-installer none \
+  --firmware-chroot false --firmware-binary false \
   --iso-application "ReuseOS" --iso-volume "ReuseOS $arch" --iso-publisher "DubboEwaste ReuseOS" \
   --bootappend-live "boot=live components nopersistence noswap hostname=reuseos username=reuse locales=en_AU.UTF-8 keyboard-layouts=us console=tty0 console=ttyS0,115200n8"
 mkdir -p config/package-lists config/includes.chroot config/hooks/normal
