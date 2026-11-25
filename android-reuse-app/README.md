@@ -14,17 +14,18 @@ into a set of offline, no-account appliances. Part of DubboEwaste's reuse-first 
 | Clock | ✅ Built | Full-screen bedside clock, keeps screen on |
 | Calculator | ✅ Built | Two-operand arithmetic |
 | Stopwatch | ✅ Built | Start / stop / reset, accurate across pause/resume |
+| Photo frame | ✅ Built (v0.2) | Owner picks a folder once with the system picker; 10 s slideshow, screen stays on; tap for next, long-press to change folder |
+| Music & audiobooks | ✅ Built (v0.2) | Owner picks files with the system picker; play/pause, ±30 s, next; files over 10 min resume where you stopped (5 s rewind) |
 
-These need **no** storage, network, location or account permissions, so they run on a
-factory-fresh, signed-out, authorised handset.
+None of these requests storage, network, location or account permissions. Photo frame and
+music use the Storage Access Framework picker, so the owner grants access to just the chosen
+folder or files. Pure logic (slideshow order, audiobook resume, time display) is unit-tested in
+`app/src/test`. **Not yet tested on an emulator or a physical phone.**
 
-## Planned (v0.2 — NOT yet implemented)
+## Planned (v0.3 — NOT yet implemented)
 
-These need `READ_MEDIA_*` / storage runtime permissions and `MediaStore` access, so they
-are deliberately deferred until the permission UX and tests are in place:
+These can follow the same picker-based, no-permission approach:
 
-- MP3 / audiobook player (local files)
-- Digital photo frame (local images)
 - Offline educational library (local documents)
 - Information display
 
