@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dubbo Reuse</string>
+    <string name="tagline">Legacy device reuse toolkit</string>
+    <string name="mode_clock">Clock</string>
+    <string name="mode_calculator">Calculator</string>
+    <string name="mode_stopwatch">Stopwatch</string>
+</resources>
