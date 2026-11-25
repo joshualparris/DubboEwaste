@@ -1,0 +1,2 @@
+{"policies":{"Homepage":{"URL":"file:///usr/share/reuseos/dashboard/index.html","StartPage":"homepage","Locked":false},
+ "DisableTelemetry":true,"DisableFirefoxStudies":true,"DontCheckDefaultBrowser":true,"OverrideFirstRunPage":"","NoDefaultBookmarks":true}}

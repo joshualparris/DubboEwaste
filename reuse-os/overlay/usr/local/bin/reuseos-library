@@ -1,0 +1,14 @@
+#!/bin/sh
+# ReuseOS offline library: serves Kiwix .zim files (Wikipedia, Gutenberg, Khan Academy, ...)
+# from ~/Library or any mounted USB, entirely offline, then opens it in the browser.
+set -u
+found=$(find "$HOME/Library" /media /run/media -maxdepth 4 -type f -name '*.zim' 2>/dev/null)
+if [ -z "$found" ]; then
+  xdg-open /usr/share/reuseos/dashboard/library-help.html 2>/dev/null || cat /usr/share/reuseos/dashboard/library-help.html
+  exit 0
+fi
+pkill -u "$(id -u)" -f 'kiwix-serve --port 8642' 2>/dev/null
+# shellcheck disable=SC2086
+kiwix-serve --port 8642 --address 127.0.0.1 $found >/dev/null 2>&1 &
+sleep 1
+exec xdg-open http://127.0.0.1:8642/

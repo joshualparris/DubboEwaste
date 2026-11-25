@@ -1,0 +1,11 @@
+#!/bin/sh
+set -eu
+echo "ReuseOS read-only inventory - not proof of ownership, safety, or sanitisation"
+uname -m
+printf '\nCPU:\n'; lscpu | grep -E '^(Architecture|CPU\(s\)|Model name):' || true
+printf '\nMemory:\n'; free -h
+printf '\nStorage (no serials, no filesystem contents):\n'; lsblk -e 7 -o NAME,TYPE,SIZE,RO,TRAN
+printf '\nBattery:\n'; for b in /sys/class/power_supply/BAT*; do [ -d "$b" ] || continue; f=$(cat "$b/energy_full" 2>/dev/null || cat "$b/charge_full" 2>/dev/null || echo); d=$(cat "$b/energy_full_design" 2>/dev/null || cat "$b/charge_full_design" 2>/dev/null || echo); if [ -n "$f" ] && [ -n "$d" ] && [ "$d" -gt 0 ]; then echo "$(basename "$b"): $((f*100/d))% of design capacity"; else echo "$(basename "$b"): capacity not reported"; fi; done
+printf '\nPCI devices:\n'; lspci
+printf '\nUSB devices:\n'; lsusb
+printf '\nNo write, wipe or flash command was run. Review results privately.\n'

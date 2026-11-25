@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Hardware Check
+Comment=Read-only report of this computer's hardware
+Exec=reuseos-diagnostics
+Icon=computer
+Categories=ReuseOS;System;

@@ -1,0 +1,8 @@
+[Unit]
+Description=ReuseOS boot self-test (serial report, read-only)
+After=multi-user.target
+[Service]
+Type=simple
+ExecStart=/usr/local/sbin/reuseos-selftest
+[Install]
+WantedBy=multi-user.target

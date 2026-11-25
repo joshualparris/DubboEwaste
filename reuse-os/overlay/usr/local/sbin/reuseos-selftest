@@ -1,0 +1,25 @@
+#!/bin/sh
+# Boot-time self-test for CI and field checks. Writes one machine-readable line per check to
+# the first serial port (and the journal). Read-only: it changes nothing on any disk.
+log(){ echo "$*" > /dev/ttyS0 2>/dev/null; echo "$*"; }
+log REUSEOS_BOOT_OK
+missing=""
+for app in firefox-esr gnome-clocks galculator audacious atril foliate abiword vlc feh kiwix-serve sol gnome-mines gnome-sudoku thunar reuseos-check reuseos-photo-frame reuseos-library reuseos-diagnostics; do
+  command -v "$app" >/dev/null 2>&1 || missing="$missing $app"
+done
+command -v hardinfo2 >/dev/null 2>&1 || command -v hardinfo >/dev/null 2>&1 || missing="$missing hardinfo"
+[ "$(dpkg --print-architecture)" = i386 ] || command -v cozy >/dev/null 2>&1 || missing="$missing cozy"
+[ -s /usr/share/reuseos/dashboard/index.html ] || missing="$missing dashboard"
+if [ -z "$missing" ]; then log "REUSEOS_APPS_OK"; else log "REUSEOS_APPS_MISSING:$missing"; fi
+# Offline: the image must not depend on network; report whether any non-loopback route exists.
+if ip route 2>/dev/null | grep -q default; then log "REUSEOS_NETWORK=online"; else log "REUSEOS_NETWORK=offline"; fi
+# Desktop: wait up to 240 s for the XFCE session to start for the live user.
+i=0; while [ $i -lt 120 ]; do
+  if pgrep -x xfce4-session >/dev/null 2>&1; then log "REUSEOS_DESKTOP_OK after ${i}x2s"; break; fi
+  i=$((i+1)); sleep 2
+done
+[ $i -ge 120 ] && log "REUSEOS_DESKTOP_FAILED"
+sleep 20
+used=$(free -m | awk '/^Mem:/{print $3}'); total=$(free -m | awk '/^Mem:/{print $2}')
+log "REUSEOS_MEMORY_USED_MB=$used TOTAL_MB=$total"
+log "REUSEOS_SELFTEST_DONE"

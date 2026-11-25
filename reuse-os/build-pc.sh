@@ -1,63 +1,91 @@
 #!/usr/bin/env bash
-# ReuseOS: build a Debian live image for authorised x86-64 PCs.
+# ReuseOS: build a Debian live image for authorised PCs.
+#
+#   sudo bash reuse-os/build-pc.sh OUTPUT_DIR [amd64|i386]
+#
+# amd64  Debian 13 (trixie). Hybrid ISO: boots legacy BIOS and UEFI, from USB, CD or Ventoy.
+# i386   Debian 12 (bookworm). Debian 13 has no 32-bit PC kernel, so the 32-bit edition
+#        follows Debian 12 and its LTS support (to mid 2028). Legacy BIOS boot.
 set -euo pipefail
-if [[ $(id -u) != 0 ]]; then echo "Run as root on a Debian trixie build host." >&2; exit 1; fi
-if [[ $(uname -m) != x86_64 ]]; then echo "This builder targets x86-64 only." >&2; exit 1; fi
+here=$(cd "$(dirname "$0")" && pwd)
+arch=${2:-amd64}
+case "$arch" in
+  amd64) dist=trixie;   kernel=linux-image-amd64; extra_pkgs="libreoffice-writer" ;;
+  i386)  dist=bookworm; kernel=linux-image-686;   extra_pkgs="" ;;
+  *) echo "Unknown architecture '$arch' (use amd64 or i386)" >&2; exit 1 ;;
+esac
+if [[ $(id -u) != 0 ]]; then echo "Run as root on a Debian build host or container." >&2; exit 1; fi
+if [[ $(uname -m) != x86_64 ]]; then echo "Build on an x86-64 host." >&2; exit 1; fi
 for tool in lb sha256sum; do command -v "$tool" >/dev/null || { echo "Missing $tool (install live-build)" >&2; exit 1; }; done
 out=$(realpath -m "${1:-./reuseos-output}")
 mkdir -p "$out"
 work=$(mktemp -d)
-echo "Build directory: $work"
+echo "Building ReuseOS $arch ($dist) in $work"
 cd "$work"
-lb config --distribution trixie --architectures amd64 --binary-images iso-hybrid --archive-areas "main contrib non-free-firmware" --debian-installer none --bootappend-live "boot=live components nopersistence noswap hostname=reuseos username=reuse console=tty0 console=ttyS0,115200n8"
-mkdir -p config/package-lists config/includes.chroot/usr/local/bin config/includes.chroot/etc/systemd/system/multi-user.target.wants
-cat > config/package-lists/reuseos.list.chroot <<'PACKAGES'
+lb config --distribution "$dist" --architectures "$arch" --binary-images iso-hybrid \
+  --archive-areas "main contrib non-free-firmware" --debian-installer none \
+  --iso-application "ReuseOS" --iso-volume "ReuseOS $arch" --iso-publisher "DubboEwaste ReuseOS" \
+  --bootappend-live "boot=live components nopersistence noswap hostname=reuseos username=reuse locales=en_AU.UTF-8 keyboard-layouts=us console=tty0 console=ttyS0,115200n8"
+mkdir -p config/package-lists config/includes.chroot config/hooks/normal
+
+# One app set for every PC edition: see reuse-os/README.md "Applications".
+cat > config/package-lists/reuseos.list.chroot <<PACKAGES
 live-boot
 live-config
-linux-image-amd64
+live-config-systemd
+$kernel
 task-xfce-desktop
 firefox-esr
+gnome-clocks
+galculator
+audacious
+cozy
+atril
+foliate
+abiword
 mousepad
 ristretto
+feh
+zenity
 vlc
-libreoffice-writer
-firmware-linux-free
-firmware-iwlwifi
-firmware-realtek
-firmware-amd-graphics
+kiwix-tools
+aisleriot
+gnome-mines
+gnome-sudoku
+hardinfo2
+gsmartcontrol
 pciutils
 usbutils
 smartmontools
 nvme-cli
 memtester
 stress-ng
+firmware-linux-free
+firmware-iwlwifi
+firmware-realtek
+firmware-atheros
+firmware-amd-graphics
+firmware-misc-nonfree
+$extra_pkgs
 PACKAGES
-cat > config/includes.chroot/usr/local/bin/reuseos-check <<'CHECK'
+# Debian 12 has hardinfo instead of hardinfo2 and no cozy (Audacious plays audiobooks there).
+if [[ $dist == bookworm ]]; then sed -i -e 's/^hardinfo2$/hardinfo/' -e '/^cozy$/d' config/package-lists/reuseos.list.chroot; fi
+
+# Shared files: launchers, dashboard, browser start page, self-test.
+cp -a "$here/overlay/." config/includes.chroot/
+install -D -m 0755 "$here/reuseos-check" config/includes.chroot/usr/local/bin/reuseos-check
+cat > config/hooks/normal/9000-reuseos.hook.chroot <<'HOOK'
 #!/bin/sh
-set -eu
-echo "ReuseOS read-only inventory — not proof of ownership, safety, or sanitisation"
-uname -m
-printf '\nCPU:\n'; lscpu | grep -E '^(Architecture|CPU\(s\)|Model name):' || true
-printf '\nMemory:\n'; free -h
-printf '\nStorage (no serials, no filesystem contents):\n'; lsblk -e 7 -o NAME,TYPE,SIZE,RO,TRAN
-printf '\nPCI devices:\n'; lspci
-printf '\nUSB devices:\n'; lsusb
-printf '\nNo write, wipe or flash command was run. Review results privately.\n'
-CHECK
-chmod 0755 config/includes.chroot/usr/local/bin/reuseos-check
-cat > config/includes.chroot/etc/systemd/system/reuseos-ready.service <<'SERVICE'
-[Unit]
-Description=ReuseOS live boot smoke-test marker
-After=local-fs.target
-[Service]
-Type=oneshot
-ExecStart=/bin/sh -c 'echo REUSEOS_BOOT_OK > /dev/ttyS0'
-[Install]
-WantedBy=multi-user.target
-SERVICE
-ln -s ../reuseos-ready.service config/includes.chroot/etc/systemd/system/multi-user.target.wants/reuseos-ready.service
+set -e
+systemctl enable reuseos-selftest.service
+# Desktop launchers in the live user's home must be marked trusted to open with one click.
+chmod 0755 /etc/skel/Desktop/*.desktop
+HOOK
+chmod 0755 config/hooks/normal/9000-reuseos.hook.chroot
+
 lb build
-test -s live-image-amd64.hybrid.iso
-cp live-image-amd64.hybrid.iso "$out/reuseos-amd64.iso"
-(cd "$out"; sha256sum reuseos-amd64.iso > SHA256SUMS; sha256sum -c SHA256SUMS)
-echo "ISO and checksum: $out"
+iso=$(ls live-image-*.hybrid.iso)
+test -s "$iso"
+cp "$iso" "$out/reuseos-$arch.iso"
+(cd "$out"; sha256sum "reuseos-$arch.iso" > "SHA256SUMS-$arch"; sha256sum -c "SHA256SUMS-$arch")
+echo "ISO and checksum: $out/reuseos-$arch.iso"

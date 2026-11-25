@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ReuseOS Home</title>
+<style>
+:root{--bg:#f6f4ee;--ink:#1d2a24;--muted:#4f5d55;--card:#fff;--line:#d6d2c4;--accent:#2f6b4f}
+@media (prefers-color-scheme:dark){:root{--bg:#141a17;--ink:#e9efe9;--muted:#a9b6ad;--card:#1d2621;--line:#33413a;--accent:#7fc4a0}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.5 system-ui,sans-serif}
+main{max-width:980px;margin:0 auto;padding:24px 16px 48px}h1{font-size:2rem;margin:.2em 0}
+p.lead{color:var(--muted);margin-top:0}#clock{font-size:3rem;font-weight:700;font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.card h2{font-size:1.1rem;margin:0 0 4px}.card p{margin:0;color:var(--muted);font-size:.95rem}
+.where{display:block;margin-top:8px;font-size:.85rem;color:var(--accent)}a{color:var(--accent)}
+footer{margin-top:32px;color:var(--muted);font-size:.9rem}
+</style></head><body><main>
+<div id="clock" aria-live="off">--:--</div>
+<h1>Welcome to ReuseOS</h1>
+<p class="lead">This computer has been given a second life. Everything here works without internet or an account. Open apps from the <strong>Applications</strong> menu (top-left) or the icons on the desktop.</p>
+<div class="grid">
+<div class="card"><h2>Clock &amp; alarms</h2><p>Alarms, timers and world clocks.</p><span class="where">Applications › Clocks</span></div>
+<div class="card"><h2>Calculator</h2><p>Everyday and scientific maths.</p><span class="where">Applications › Galculator</span></div>
+<div class="card"><h2>Music</h2><p>Play music from this computer or a USB stick.</p><span class="where">Applications › Audacious</span></div>
+<div class="card"><h2>Audiobooks</h2><p>Remembers where you stopped listening.</p><span class="where">Applications › Cozy</span></div>
+<div class="card"><h2>Offline library</h2><p>Wikipedia, books and lessons with no internet.</p><span class="where">Desktop › Offline Library · <a href="library-help.html">how to add content</a></span></div>
+<div class="card"><h2>Read documents &amp; ebooks</h2><p>PDF, EPUB and more.</p><span class="where">Applications › Atril, Foliate</span></div>
+<div class="card"><h2>Write documents</h2><p>Letters and simple documents.</p><span class="where">Applications › AbiWord</span></div>
+<div class="card"><h2>Photo frame</h2><p>Full-screen slideshow of your photos.</p><span class="where">Desktop › Photo Frame</span></div>
+<div class="card"><h2>Videos</h2><p>Play almost any video file.</p><span class="where">Applications › VLC</span></div>
+<div class="card"><h2>Web browser</h2><p>Firefox, when you are online.</p><span class="where">Applications › Firefox</span></div>
+<div class="card"><h2>Games</h2><p>Solitaire, Mines and Sudoku.</p><span class="where">Applications › Games</span></div>
+<div class="card"><h2>Files</h2><p>Open USB sticks and manage your files.</p><span class="where">Applications › Thunar</span></div>
+<div class="card"><h2>Hardware check</h2><p>A read-only report of this computer's parts.</p><span class="where">Desktop › Hardware Check</span></div>
+</div>
+<footer>ReuseOS live edition · changes are not saved after shutdown unless you save files to a USB stick. Part of the DubboEwaste reuse program.</footer>
+</main>
+<script>
+const c=document.getElementById('clock');const t=()=>{c.textContent=new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})};t();setInterval(t,10000);
+</script></body></html>

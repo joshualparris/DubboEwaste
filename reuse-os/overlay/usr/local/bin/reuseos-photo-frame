@@ -1,0 +1,10 @@
+#!/bin/sh
+# ReuseOS digital photo frame: full-screen slideshow of a folder of photos.
+# Usage: reuseos-photo-frame [folder] [seconds-per-photo]
+dir="${1:-$HOME/Pictures}"; secs="${2:-10}"
+if ! find "$dir" -maxdepth 3 -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \) | grep -q .; then
+  msg="No photos found in $dir. Copy photos there (or plug in a USB stick and choose its folder), then try again."
+  command -v zenity >/dev/null && zenity --info --text="$msg" || echo "$msg"
+  exit 1
+fi
+exec feh --fullscreen --hide-pointer --randomize --recursive --auto-zoom --slideshow-delay "$secs" "$dir"
