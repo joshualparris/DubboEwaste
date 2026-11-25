@@ -4,6 +4,8 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
+import { getProgrammeContext } from "@/lib/programme-context";
+import { canUseSmartIntake } from "@/lib/programmes";
 
 const optionalUuid = z.preprocess((v) => v === "" || v == null ? undefined : v, z.string().uuid().optional());
 
@@ -137,4 +139,15 @@ export async function createAsset(formData: FormData) {
   revalidatePath("/assets");
   if (parsed.data.job_id) revalidatePath(`/jobs/${parsed.data.job_id}`);
   redirect(`/assets/${data.id}`);
+}
+
+export async function removeMistakenAssets(ids:string[],reason:string):Promise<{ok:true;count:number}|{ok:false;error:string}> {
+  const parsed=z.object({ids:z.array(z.string().uuid()).min(1).max(100).refine(v=>new Set(v).size===v.length),reason:z.string().trim().min(3).max(500)}).safeParse({ids,reason});
+  if(!parsed.success)return {ok:false,error:"Select valid assets and enter a reason."};
+  const {supabase,context}=await getProgrammeContext();
+  if(!canUseSmartIntake(context))return {ok:false,error:"E-waste administrator access required."};
+  const {data,error}=await supabase.rpc("remove_mistaken_assets",{p_ids:parsed.data.ids,p_reason:parsed.data.reason});
+  if(error||data!==parsed.data.ids.length)return {ok:false,error:error?.message||"Removal not confirmed. No success has been recorded."};
+  revalidatePath("/","layout");
+  return {ok:true,count:data};
 }
