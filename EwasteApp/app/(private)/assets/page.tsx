@@ -19,7 +19,7 @@ export default async function AssetsPage({searchParams}:{searchParams:Promise<{s
         <p className="muted">{readyForSale?"Assets marked READY_FOR_SALE; listing and sanitisation gates still apply.":"The canonical operational inventory."}</p>
       </div>
       <div className="actions"><Link className="button secondary" href={readyForSale?"/assets":"/assets?status=READY_FOR_SALE"}>{readyForSale?"Show all assets":"Show sale-ready assets"}</Link>{canUseSmartIntake(context) ? <Link className="button" href="/assets/smart-intake">Smart Intake</Link> : null}<Link className="button secondary" href="/assets/new">Manual intake</Link></div>
-      <AssetBatchTable assets={assets ?? []} />
+      <AssetBatchTable assets={assets ?? []} canRemove={canUseSmartIntake(context)} />
     </div>
   );
 }
