@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
 import { canUseSmartIntake } from "@/lib/programmes";
 import { getProgrammeContext } from "@/lib/programme-context";
-import { parseDrafts, prompt, rowSchema, duplicateSerials } from "@/lib/smart-intake";
+import { rowSchema, duplicateSerials } from "@/lib/smart-intake";
 import { z } from "zod";
+import { analyseEquipment } from "@/lib/smart-intake-provider";
 import { revalidatePath } from "next/cache";
 
 export const maxDuration = 60;
@@ -24,18 +25,12 @@ export async function POST(request: Request) {
     const {image,description}=analysis.data;
     if(!image && !description) return fail("Add a photo or description.");
     if(image && !/^data:image\/jpeg;base64,[A-Za-z0-9+/=]+$/.test(image)) return fail("Invalid photo format.");
-    // Vercel injects a fresh OIDC token into function requests, not the runtime environment.
-    // Keep provider credentials exclusively on the server and never include them in error messages.
-    const token=process.env.AI_GATEWAY_API_KEY || request.headers.get("x-vercel-oidc-token") || process.env.VERCEL_OIDC_TOKEN;
-    if(!token) return fail("AI Gateway runtime authentication is unavailable. Contact the administrator or use the JSON fallback.",503);
     try {
-      const content: ({type:"text";text:string}|{type:"image_url";image_url:{url:string}})[]=[{type:"text",text:description || "Identify visible equipment."}];
-      if(image)content.push({type:"image_url",image_url:{url:image}});
-      const response=await fetch("https://ai-gateway.vercel.sh/v1/chat/completions",{method:"POST",headers:{Authorization:"Bearer "+token,"Content-Type":"application/json"},body:JSON.stringify({model:process.env.SMART_INTAKE_MODEL || "google/gemini-3.5-flash",messages:[{role:"system",content:prompt},{role:"user",content}],max_tokens:6000}),signal:AbortSignal.timeout(45000),cache:"no-store"});
-      if(!response.ok)return fail("AI analysis unavailable ("+response.status+"). Try again or paste ChatGPT JSON.",502);
-      const result=await response.json();
-      return NextResponse.json({rows:parseDrafts(result.choices?.[0]?.message?.content || "")});
-    }catch{return fail("AI could not return a valid inventory. Try a clearer photo or paste JSON.",502);}
+      return NextResponse.json({rows:await analyseEquipment(image,description||"")});
+    }catch(error){
+      console.warn("Smart Intake analysis failed",error instanceof Error?error.message:"unknown");
+      return fail(error instanceof Error?error.message:"AI analysis failed",502);
+    }
   }
   const parsed=importSchema.safeParse(raw);
   if(!parsed.success)return fail("Check intake fields and confirm ownership.");
