@@ -51,6 +51,16 @@ As at 2026-11-25 the only verified row is the HTC Desire 530 (2PST1), grounded
 in this project's own research (DeviceAtlas/GSMArena specs; postmarketOS wiki
 for the generic MSM8909 port status).
 
+## Relationship to AssetFlow `model_support`
+
+This CSV is a lightweight, **offline/public** reuse-triage lookup focused on
+legacy-Android SoC families and alternative-OS roles. The **authoritative**
+intake compatibility reference is the private `model_support` table in the
+AssetFlow database (manufacturer, model, support summary, lock risks, battery
+notes, likely route, confidence, aliases, identifiers). When curating device
+facts for operational use, prefer `model_support`; this CSV is for offline/field
+triage and public sharing, and deliberately carries no donor or per-asset data.
+
 ## Boundary
 
 This database never bypasses, confirms or defeats an account/FRP lock. An
