@@ -22,6 +22,32 @@ async function call(payload:unknown){
 }
 export function SmartIntake({jobs,locations,initialJob}:{jobs:{id:string;job_code:string;source_site:string|null}[];locations:{id:string;name:string}[];initialJob:string}){
   const [job,setJob]=useState(initialJob),[location,setLocation]=useState(""),[description,setDescription]=useState(""),[photo,setPhoto]=useState<File|null>(null),[target,setTarget]=useState(""),[consent,setConsent]=useState(false),[confirmed,setConfirmed]=useState(false),[rows,setRows]=useState<Row[]>([]),[paste,setPaste]=useState(""),[busy,setBusy]=useState(false),[message,setMessage]=useState(""),[error,setError]=useState("");
+  const [jobOptions,setJobOptions]=useState(jobs),[locationOptions,setLocationOptions]=useState(locations);
+  const [creating,setCreating]=useState<{kind:"job"|"location";section:"auto"|"review";id:string}|null>(null),[newName,setNewName]=useState(""),[newKind,setNewKind]=useState("ZONE"),[createError,setCreateError]=useState("");
+  function beginCreate(kind:"job"|"location",section:"auto"|"review"){
+    setCreating({kind,section,id:crypto.randomUUID()});setNewName("");setNewKind("ZONE");setCreateError("");setAutoSave(false);setConfirmed(false);
+  }
+  async function createContext(){
+    if(!creating||inFlight.current||newName.trim().length<2)return;
+    inFlight.current=true;setBusy(true);setCreateError("");setError("");
+    try{
+      const result=await call({action:creating.kind==="job"?"create_job":"create_location",id:creating.id,name:newName.trim(),...(creating.kind==="location"?{kind:newKind}:{})});
+      if(creating.kind==="job"){setJobOptions(old=>[result.record,...old.filter(j=>j.id!==result.record.id)]);setJob(result.record.id);}
+      else{setLocationOptions(old=>[...old.filter(l=>l.id!==result.record.id),result.record].sort((a,b)=>a.name.localeCompare(b.name)));setLocation(result.record.id);}
+      setCreating(null);setConfirmed(false);setAutoSave(false);setMessage((creating.kind==="job"?"Inbound job":"Location")+" created and selected. Your drafts are unchanged."+(result.auditWarning?" Audit event could not be recorded; check activity log.":""));
+    }catch(e){setCreateError((e as Error).message);}finally{inFlight.current=false;setBusy(false);}
+  }
+  function custodyFields(section:"auto"|"review"){
+    return <>
+      <label>Inbound job<select value={job} disabled={busy} onChange={e=>{if(e.target.value==="__new"){beginCreate("job",section);return;}setCreating(null);setJob(e.target.value);setAutoSave(false);setConfirmed(false);}}><option value="">Select an existing job</option><option value="__new">+ Create new job</option>{jobOptions.map(j=><option key={j.id} value={j.id}>{j.job_code} · {j.source_site||"Unknown source"}</option>)}</select></label>
+      <label>Location<select value={location} disabled={busy} onChange={e=>{if(e.target.value==="__new"){beginCreate("location",section);return;}setCreating(null);setLocation(e.target.value);setAutoSave(false);setConfirmed(false);}}><option value="">Unassigned</option><option value="__new">+ Create new location</option>{locationOptions.map(l=><option key={l.id} value={l.id}>{l.name}</option>)}</select></label>
+      {creating?.section===section?<div className="card form"><h3>{creating.kind==="job"?"New inbound job":"New location"}</h3>
+      <label>{creating.kind==="job"?"Collection/source name":"Location name"}<input value={newName} maxLength={creating.kind==="job"?200:160} onChange={e=>setNewName(e.target.value)} placeholder={creating.kind==="job"?"e.g. Local donation — 25 November":"e.g. Workshop shelf 1"}/></label>
+      {creating.kind==="location"?<label>Location type<select value={newKind} onChange={e=>setNewKind(e.target.value)}>{["SITE","ZONE","SHELF","BENCH","QUARANTINE","OTHER"].map(k=><option key={k}>{k}</option>)}</select></label>:<p className="muted">Creates an open E-waste inbound job for ordinary donations. Council custody uses its dedicated workflow.</p>}
+      {createError?<p className="error" role="alert">{createError}</p>:null}
+      <div className="actions"><button type="button" className="button" disabled={busy||newName.trim().length<2} onClick={()=>void createContext()}>{busy?"Creating…":creating.kind==="job"?"Create job and select":"Create location and select"}</button><button type="button" className="button secondary" disabled={busy} onClick={()=>setCreating(null)}>Cancel</button></div></div>:null}
+    </>;
+  }
   const [autoSave,setAutoSave]=useState(false),[autoCount,setAutoCount]=useState(0);
   const [cameraOpen,setCameraOpen]=useState(false),[cameraStarting,setCameraStarting]=useState(false),[cameraReady,setCameraReady]=useState(false);
   const video=useRef<HTMLVideoElement>(null),stream=useRef<MediaStream|null>(null),cameraInput=useRef<HTMLInputElement>(null),galleryInput=useRef<HTMLInputElement>(null),cameraGeneration=useRef(0),inFlight=useRef(false);
@@ -121,11 +147,10 @@ export function SmartIntake({jobs,locations,initialJob}:{jobs:{id:string;job_cod
     <section className="card form"><h2>1. Capture</h2>
       <p className="muted">Take a photo and AI automatically adds drafts. Keep the camera open to scan the next device. Review and confirm once at the end.</p>
       <label><input type="checkbox" checked={consent} disabled={busy} onChange={e=>{setConsent(e.target.checked);if(!e.target.checked){stopCamera();setPhoto(null);setAutoSave(false);}}}/> Allow AI photo processing for this session (external Cloudflare Workers AI (Mistral); only authorised equipment photos, no private documents or screen contents).</label>
-      <details open={autoSave}><summary>Automatic inventory registration ({autoCount} saved)</summary>
+      <details open={autoSave||creating?.section==="auto"}><summary>Automatic inventory registration ({autoCount} saved)</summary>
       <p className="muted">For individual devices, photograph the manufacturer's label clearly. AI will save a provisional HOLD record immediately when one device, model and serial are identified. Mixed or unclear photos remain drafts. No tests or data erasure are confirmed.</p>
-      <label>Inbound job<select value={job} disabled={busy} onChange={e=>{setJob(e.target.value);setAutoSave(false);setConfirmed(false);}}><option value="">Select an existing job</option>{jobs.map(j=><option key={j.id} value={j.id}>{j.job_code} · {j.source_site||"Unknown source"}</option>)}</select></label>
-      <label>Location<select value={location} disabled={busy} onChange={e=>{setLocation(e.target.value);setAutoSave(false);setConfirmed(false);}}><option value="">Unassigned</option>{locations.map(l=><option key={l.id} value={l.id}>{l.name}</option>)}</select></label>
-      <label><input type="checkbox" checked={autoSave} disabled={busy||!job||!consent||!!target||rows.length>=80} onChange={e=>setAutoSave(e.target.checked)}/> I confirm the programme owns this batch (not Council custody or customer repairs) and authorise automatic registration of AI-identified individual devices. Model and serial still require physical verification.</label>
+      {custodyFields("auto")}
+      <label><input type="checkbox" checked={autoSave} disabled={busy||!!creating||!job||!consent||!!target||rows.length>=80} onChange={e=>setAutoSave(e.target.checked)}/> I confirm the programme owns this batch (not Council custody or customer repairs) and authorise automatic registration of AI-identified individual devices. Model and serial still require physical verification.</label>
       </details>
       <label>Capture mode<select value={target} disabled={busy} onChange={e=>{setTarget(e.target.value);setAutoSave(false);}}><option value="">Add new equipment</option>{rows.filter(r=>r.kind==="asset").map((r,i)=><option key={r.id} value={r.id}>Update label for asset {i+1} — {[r.manufacturer,r.model,r.category].filter(Boolean).join(" ")}</option>)}</select></label>
       <input ref={cameraInput} type="file" accept="image/*" capture="environment" hidden disabled={busy||!consent} onChange={pickPhoto}/>
@@ -153,9 +178,9 @@ export function SmartIntake({jobs,locations,initialJob}:{jobs:{id:string;job_cod
       {rows.map((r,i)=><div key={r.id} className="card form"><strong>Draft {i+1}</strong><label>Type<select value={r.kind} onChange={e=>update(r.id,{kind:e.target.value as Draft["kind"]})}><option value="asset">Individual asset</option><option value="lot">Bulk lot</option></select></label>{r.kind==="asset"?<><label>Category<select value={r.category} onChange={e=>update(r.id,{category:e.target.value as Draft["category"]})}>{categories.map(c=><option key={c}>{c}</option>)}</select></label><div className="two"><label>Manufacturer<input value={r.manufacturer} maxLength={100} onChange={e=>update(r.id,{manufacturer:e.target.value})}/></label><label>Model<input value={r.model} maxLength={160} onChange={e=>update(r.id,{model:e.target.value})}/></label></div><label>Serial / IMEI (verify label)<input value={r.serial} maxLength={160} onChange={e=>update(r.id,{serial:e.target.value})}/></label></>:<><label>Commodity<input value={r.commodity} maxLength={200} onChange={e=>update(r.id,{commodity:e.target.value})}/></label><label>Verified item count (blank if unknown)<input type="number" min="1" max="500" value={r.count??""} onChange={e=>update(r.id,{count:e.target.value?Number(e.target.value):null})}/></label></>}<label>Observations<textarea value={r.notes} maxLength={1000} onChange={e=>update(r.id,{notes:e.target.value})}/></label><button className="button secondary" type="button" disabled={busy} onClick={()=>{setRows(old=>old.filter(x=>x.id!==r.id));setConfirmed(false);}}>Remove draft</button></div>)}
       <button className="button secondary" type="button" disabled={busy||rows.length>=80} onClick={()=>append([emptyDraft])}>Add missing item</button>
     </section>
-    <section className="card form"><h2>3. Confirm custody and import</h2><label>Inbound job<select value={job} onChange={e=>{setJob(e.target.value);setAutoSave(false);setConfirmed(false);}}><option value="">Select an existing job</option>{jobs.map(j=><option key={j.id} value={j.id}>{j.job_code} · {j.source_site||"Unknown source"}</option>)}</select></label><label>Location<select value={location} onChange={e=>{setLocation(e.target.value);setAutoSave(false);setConfirmed(false);}}><option value="">Unassigned</option>{locations.map(l=><option key={l.id} value={l.id}>{l.name}</option>)}</select></label>
+    <section className="card form"><h2>3. Confirm custody and import</h2>{custodyFields("review")}
       <label><input type="checkbox" checked={confirmed} onChange={e=>setConfirmed(e.target.checked)}/> I have checked these rows, quantities and serials, confirmed the programme owns this equipment, and removed duplicates. This is not Council custody or a customer repair.</label>
-      <p>All assets start in HOLD / UNWIPED_RESTRICTED. AI never verifies erasure or tests.</p><div className="actions">{(["asset","lot"] as const).map(kind=><button className="button" type="button" key={kind} disabled={busy||!job||!confirmed||!rows.some(r=>r.kind===kind)} onClick={()=>save(kind)}>Import {rows.filter(r=>r.kind===kind).length} {kind==="asset"?"assets":"lots"}</button>)}</div>
+      <p>All assets start in HOLD / UNWIPED_RESTRICTED. AI never verifies erasure or tests.</p><div className="actions">{(["asset","lot"] as const).map(kind=><button className="button" type="button" key={kind} disabled={busy||!!creating||!job||!confirmed||!rows.some(r=>r.kind===kind)} onClick={()=>save(kind)}>Import {rows.filter(r=>r.kind===kind).length} {kind==="asset"?"assets":"lots"}</button>)}</div>
     </section>
     </fieldset>
     {message?<p className="success" role="status">{message}</p>:null}
