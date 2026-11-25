@@ -1,0 +1,4 @@
+model_code,marketing_name,soc,soc_family,release_year,shipped_android,max_official_android,ram_mb,storage_gb,frp_capable,lineageos_official,postmarketos_status,recommended_roles,verification,source
+2PST1,HTC Desire 530,Snapdragon 210 (MSM8909),msm8909,2016,6.0,6.0,1536,16,yes,no,generic-experimental,clock;calculator;stopwatch,checked-2026-11-25,deviceatlas+gsmarena+pmos-wiki
+hammerhead,LG Nexus 5,Snapdragon 800 (MSM8974),msm8974,2013,4.4,6.0,2048,16,yes,reported,reported-mainline,clock;calculator;stopwatch;audio;photo,EXAMPLE-UNVERIFIED,needs-confirmation
+falcon,Motorola Moto G (1st gen),Snapdragon 400 (MSM8226),msm8226,2013,4.3,5.1,1024,8,yes,reported,reported,clock;calculator;stopwatch;audio,EXAMPLE-UNVERIFIED,needs-confirmation
