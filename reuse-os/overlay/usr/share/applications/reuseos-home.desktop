@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=ReuseOS Home
-Comment=Start page with every ReuseOS app
-Exec=firefox-esr /usr/share/reuseos/dashboard/index.html
-Icon=go-home
-Categories=ReuseOS;Utility;

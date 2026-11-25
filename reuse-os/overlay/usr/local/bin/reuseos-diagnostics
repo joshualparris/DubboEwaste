@@ -1,4 +1,0 @@
-#!/bin/sh
-# Opens a terminal with the read-only ReuseOS hardware report and saves a copy to the desktop.
-out="$HOME/Desktop/reuseos-hardware-report.txt"
-exec x-terminal-emulator -e sh -c "reuseos-check | tee '$out'; echo; echo 'Saved to $out'; echo 'Press Enter to close.'; read x"

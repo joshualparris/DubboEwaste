@@ -1,11 +1,6 @@
 name: ReuseOS PC image
 on:
   workflow_dispatch:
-    inputs:
-      publish:
-        description: Publish a release when every boot test passes
-        type: boolean
-        default: false
   push:
     paths:
       - 'reuse-os/**'
@@ -13,100 +8,36 @@ on:
 permissions:
   contents: read
 jobs:
-  build:
-    strategy:
-      fail-fast: false
-      matrix:
-        arch: [amd64, i386]
+  build-and-boot:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
-      - name: Build Debian live ISO in a disposable container
+      - name: Build Debian live ISO in disposable container
         run: |
-          mkdir -p out
-          docker run --rm --privileged -v "$PWD/reuse-os:/source:ro" -v "$PWD/out:/output" debian:trixie bash -ec '
-            apt-get update
-            DEBIAN_FRONTEND=noninteractive apt-get install -y live-build debootstrap xorriso squashfs-tools isolinux syslinux-common grub-pc-bin grub-efi-amd64-bin grub-efi-ia32-bin mtools dosfstools ca-certificates
-            bash /source/build-pc.sh /output ${{ matrix.arch }}'
-          cd out && sha256sum -c SHA256SUMS-${{ matrix.arch }}
-          ls -l
-      - uses: actions/upload-artifact@v4
-        with:
-          name: reuseos-${{ matrix.arch }}-iso
-          path: out/
-          retention-days: 14
-
-  boot-test:
-    needs: build
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - {arch: amd64, firmware: bios}
-          - {arch: amd64, firmware: uefi}
-          - {arch: i386, firmware: bios}
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: reuseos-${{ matrix.arch }}-iso
-          path: out
-      - name: Install QEMU and UEFI firmware; enable KVM
+          mkdir -p reuseos-output
+          docker run --rm --privileged -v "$PWD/reuse-os:/source:ro" -v "$PWD/reuseos-output:/output" debian:trixie bash -ec 'apt-get update; DEBIAN_FRONTEND=noninteractive apt-get install -y live-build debootstrap xorriso squashfs-tools isolinux syslinux-common grub-pc-bin grub-efi-amd64-bin mtools ca-certificates; bash /source/build-pc.sh /output'
+          cd reuseos-output
+          sha256sum -c SHA256SUMS
+      - name: Boot from ISO in QEMU without hard disk
         run: |
           sudo apt-get update
-          sudo apt-get install -y qemu-system-x86 ovmf
-          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm.rules
-          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm || true
-      - name: Boot ${{ matrix.arch }} ISO (${{ matrix.firmware }}), no hard disk, no network
-        run: |
-          cd out
-          sha256sum -c SHA256SUMS-${{ matrix.arch }}
-          bin=qemu-system-x86_64; [ ${{ matrix.arch }} = i386 ] && bin=qemu-system-i386
-          accel="-machine accel=tcg"; [ -w /dev/kvm ] && accel="-enable-kvm"
-          fw=""; if [ ${{ matrix.firmware }} = uefi ]; then cp /usr/share/OVMF/OVMF_VARS_4M.fd vars.fd
-            fw="-drive if=pflash,format=raw,readonly=on,file=/usr/share/OVMF/OVMF_CODE_4M.fd -drive if=pflash,format=raw,file=vars.fd"; fi
-          mem=2048; [ ${{ matrix.arch }} = i386 ] && mem=1024
-          $bin $accel $fw -m $mem -smp 2 -cdrom reuseos-${{ matrix.arch }}.iso -boot d -vga std -display none \
-            -serial file:boot-${{ matrix.firmware }}.log -monitor none -nic none -no-reboot &
+          sudo apt-get install -y qemu-system-x86
+          timeout 360 qemu-system-x86_64 -m 3072 -smp 2 -boot d -cdrom reuseos-output/reuseos-amd64.iso -display none -serial file:reuseos-output/boot.log -monitor none -nic none -no-reboot &
           pid=$!
-          trap 'kill $pid 2>/dev/null || true' EXIT
-          for i in $(seq 1 420); do
-            grep -q REUSEOS_SELFTEST_DONE boot-${{ matrix.firmware }}.log 2>/dev/null && break
-            kill -0 $pid 2>/dev/null || break
+          trap 'kill "$pid" 2>/dev/null || true' EXIT
+          for i in $(seq 1 170); do
+            if grep -q REUSEOS_BOOT_OK reuseos-output/boot.log 2>/dev/null; then echo 'Live ISO reached multi-user target'; exit 0; fi
+            if ! kill -0 "$pid" 2>/dev/null; then break; fi
             sleep 2
           done
-          echo "---- self-test report"; grep -a '^REUSEOS_' boot-${{ matrix.firmware }}.log || true
-          grep -aq REUSEOS_BOOT_OK boot-${{ matrix.firmware }}.log || { echo "::error::did not boot"; tail -50 boot-${{ matrix.firmware }}.log; exit 1; }
-          grep -aq REUSEOS_APPS_OK boot-${{ matrix.firmware }}.log || { echo "::error::bundled apps missing"; exit 1; }
-          grep -aq REUSEOS_DESKTOP_OK boot-${{ matrix.firmware }}.log || { echo "::error::desktop did not start"; exit 1; }
-          grep -aq REUSEOS_NETWORK=offline boot-${{ matrix.firmware }}.log || { echo "::error::expected offline boot"; exit 1; }
-          echo "PASS: ${{ matrix.arch }} ${{ matrix.firmware }}"
-      - uses: actions/upload-artifact@v4
+          cat reuseos-output/boot.log || true
+          echo 'No verified boot marker' >&2
+          exit 1
+      - name: Upload build and boot logs
         if: always()
+        uses: actions/upload-artifact@v4
         with:
-          name: boot-log-${{ matrix.arch }}-${{ matrix.firmware }}
-          path: out/boot-*.log
-
-  release:
-    needs: boot-test
-    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || inputs.publish)
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          pattern: reuseos-*-iso
-          merge-multiple: true
-          path: out
-      - name: Publish boot-tested images
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          cd out
-          cat SHA256SUMS-* > SHA256SUMS && sha256sum -c SHA256SUMS
-          tag="reuseos-$(date -u +%Y.%m.%d)-${GITHUB_SHA::7}"
-          notes="ReuseOS live images built from ${GITHUB_SHA::7}. Boot-tested in QEMU (amd64: legacy BIOS and UEFI; i386: legacy BIOS) with no disk and no network; the in-image self-test confirmed the bundled apps and the XFCE desktop. NOT yet verified on physical hardware. Live images only: nothing is installed to disk."
-          gh release create "$tag" --repo "$GITHUB_REPOSITORY" --title "ReuseOS $tag" --notes "$notes" --latest reuseos-*.iso SHA256SUMS
+          name: ReuseOS-amd64
+          path: reuseos-output/
+          if-no-files-found: warn

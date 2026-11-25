@@ -74,9 +74,11 @@ function Get-AndroidReadOnlyDetails {
  try{$lines=@(& $Adb devices 2>$null)}catch{return $out}
  foreach($line in $lines){
   if($line -match '^\s*(\S+)\s+(device|offline|unauthorized)\s*$'){
-   $serial=$Matches[1];$state=$Matches[2];$model='Unavailable';$version='Unavailable';$level=$null
+   $serial=$Matches[1];$state=$Matches[2];$model='Unavailable';$version='Unavailable';$level=$null;$codename='Unavailable'
    if($state -eq 'device'){
     try{$candidate=([string](& $Adb -s $serial shell getprop ro.product.model 2>$null)).Trim();if($candidate -and $candidate.Length -lt 80){$model=$candidate}}catch{}
+    # Device codename (e.g. enchilada) is the key upstream OS projects use. It is a model identifier, not personal data.
+    try{$candidate=([string](& $Adb -s $serial shell getprop ro.product.device 2>$null)).Trim();if($candidate -match '^[A-Za-z0-9_-]{1,40}$'){$codename=$candidate}}catch{}
     try{$candidate=([string](& $Adb -s $serial shell getprop ro.build.version.release 2>$null)).Trim();if($candidate -match '^[0-9A-Za-z._-]+$' -and $candidate.Length -lt 30){$version=$candidate}}catch{}
     try{
      foreach($entry in @(& $Adb -s $serial shell dumpsys battery 2>$null)){
@@ -86,7 +88,7 @@ function Get-AndroidReadOnlyDetails {
     }catch{}
    }
    # No serial, IMEI, user files or accounts in returned results.
-   $out+=,[pscustomobject]@{Family='Android';Connection=$state;Model=$model;Android=$version;BatteryPercent=$level;BatteryHealth='Not measured'}
+   $out+=,[pscustomobject]@{Family='Android';Connection=$state;Model=$model;Codename=$codename;Android=$version;BatteryPercent=$level;BatteryHealth='Not measured'}
   }
  }
  return $out
@@ -106,9 +108,47 @@ function Get-AndroidAccountLockHint {
   OwnershipAction='Verify ownership via manufacturer-supported process; do not attempt lock bypass'
  }
 }
+function Get-MobileOsDatabasePath {
+ # Packaged next to the module in the release zip; in the repository it lives in data/.
+ foreach($candidate in @((Join-Path $PSScriptRoot 'legacy-device-compatibility.csv'),(Join-Path $PSScriptRoot '..\..\data\legacy-device-compatibility.csv'))){
+  if(Test-Path $candidate){return (Resolve-Path $candidate).Path}
+ }
+ return $null
+}
+function Get-MobileOsOptions {
+ # Ranks EXISTING operating systems for one catalogued phone or tablet, most practical first.
+ # Mirrors scripts/query_device_compatibility.py recommend(). Only an upstream project's own
+ # device listing counts; a matching processor is never enough. The ownership gate comes first.
+ param([string]$Codename,[string]$Ownership,[string]$DatabasePath=(Get-MobileOsDatabasePath))
+ $app='Dubbo Reuse app on the existing Android: no unlocking or reflashing needed (Android 6+).'
+ if(!(Test-RecoveryModificationPermission $Ownership)){
+  return @('Ownership unresolved: an operating system cannot be replaced. Diagnostics only.')
+ }
+ if(!$Codename -or $Codename -eq 'Unavailable'){return @('Codename unavailable: connect with authorised USB debugging to identify the model.',$app)}
+ if(!$DatabasePath -or !(Test-Path $DatabasePath)){return @('Compatibility database not found next to the toolkit.',$app)}
+ $row=@(Import-Csv -Path $DatabasePath | Where-Object {$_.model_code -ieq $Codename})[0]
+ if(!$row){return @("$Codename is not in the compatibility database yet: treat it as untested. Check upstream device lists (LineageOS, postmarketOS, Ubuntu Touch, Droidian) before planning a reinstall.",$app)}
+ if($row.verification -in @('','EXAMPLE-UNVERIFIED','needs-confirmation')){return @("$($row.marketing_name): catalogue entry unverified; research upstream support first.",$app)}
+ if($row.bootloader_unlock -eq 'no'){return @("$($row.marketing_name): the owner cannot unlock this bootloader. No OS replacement; never attempt a bypass.",$app)}
+ $caveat=switch($row.bootloader_unlock){
+  'carrier-dependent' {' Carrier-locked variants cannot be unlocked: check this exact unit first.'}
+  'unknown' {' Bootloader unlockability is unknown: confirm before planning a reinstall.'}
+  'yes' {' Unlocking erases the phone; the owner must remove their account first.'}
+  default {''}
+ }
+ $opts=@()
+ if($row.lineageos_official -eq 'maintained'){$opts+="LineageOS: officially maintained Android replacement.$caveat"}
+ if($row.postmarketos_status -in @('main','community')){$opts+="postmarketOS: native Linux ($($row.postmarketos_status) category).$caveat"}
+ if($row.ubuntu_touch_status -eq 'listed'){$opts+="Ubuntu Touch: listed upstream; use the UBports installer.$caveat"}
+ if($row.droidian_status -eq 'listed'){$opts+="Droidian: Debian on Android hardware, listed upstream.$caveat"}
+ if($row.postmarketos_status -eq 'testing'){$opts+="postmarketOS (testing): experimental, expect missing features.$caveat"}
+ if($row.lineageos_official -eq 'unmaintained'){$opts+="LineageOS (unmaintained): no security updates; offline single-purpose use only.$caveat"}
+ if($row.shipped_android -notin @('','n/a')){$opts+=$app}
+ return $opts
+}
 function Test-RecoveryModificationPermission {param([string]$Ownership);return ($Ownership -eq 'Owned and authorised')}
 function Get-RecoveryRecommendations {
- param([string]$Family,[string]$Version,[string]$Ownership)
+ param([string]$Family,[string]$Version,[string]$Ownership,[string]$Codename)
  if(!(Test-RecoveryModificationPermission $Ownership)){
   return @('Ownership unresolved: diagnostics only; do not change apps or personal data.','Ask the original owner to remove their account or seek manufacturer help with proof of purchase.','Keep the device offline while its ownership is unclear.')
  }
@@ -119,7 +159,11 @@ function Get-RecoveryRecommendations {
    }
    return @('Offline reading and media.','Home dashboard if compatible and supported.','Check apps and security updates before signing in.')
   }
-  'Android' {return @('Offline ebook and document viewer.','Local media or legitimately owned games.','Home dashboard only if browsers remain updated.','Avoid sensitive accounts on unsupported Android.')}
+  'Android' {
+   $ideas=@('Offline ebook and document viewer.','Local media or legitimately owned games.','Home dashboard only if browsers remain updated.','Avoid sensitive accounts on unsupported Android.')
+   if($Codename){$ideas+=@(Get-MobileOsOptions -Codename $Codename -Ownership $Ownership | ForEach-Object {'Operating system option: '+$_})}
+   return $ideas
+  }
   'Windows' {return @('Offline education / media machine.','Network diagnostic console.','Consider a lightweight Linux distribution after authorised backup.')}
   'Mac' {return @('Offline books, documents and media.','Local light-duty workstation.','Check storage, battery and supported macOS before repurposing.')}
   default {return @('Identify the model and OS before deciding on a secure reuse plan.')}
@@ -155,4 +199,4 @@ function Export-RecoverySnapshot {
  [System.IO.File]::WriteAllText($Path,$content,(New-Object System.Text.UTF8Encoding($false)))
  return $Path
 }
-Export-ModuleMember -Function ConvertTo-RecoveryDevice,Get-ConnectedRecoveryDevices,Get-RecoveryToolStatus,Get-RecoveryWindowsHealth,Get-AppleReadOnlyDetails,Get-AndroidReadOnlyDetails,Get-AndroidAccountLockHint,Get-RecoveryRecommendations,Test-RecoveryModificationPermission,Get-RecoverySnapshot,Export-RecoverySnapshot
+Export-ModuleMember -Function ConvertTo-RecoveryDevice,Get-ConnectedRecoveryDevices,Get-RecoveryToolStatus,Get-RecoveryWindowsHealth,Get-AppleReadOnlyDetails,Get-AndroidReadOnlyDetails,Get-AndroidAccountLockHint,Get-RecoveryRecommendations,Get-MobileOsOptions,Get-MobileOsDatabasePath,Test-RecoveryModificationPermission,Get-RecoverySnapshot,Export-RecoverySnapshot

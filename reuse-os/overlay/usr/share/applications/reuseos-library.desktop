@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Offline Library
-Comment=Wikipedia and books without internet (Kiwix)
-Exec=reuseos-library
-Icon=accessories-dictionary
-Categories=ReuseOS;Education;

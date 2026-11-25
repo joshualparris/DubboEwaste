@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Photo Frame
-Comment=Full-screen slideshow of your photos
-Exec=reuseos-photo-frame
-Icon=image-x-generic
-Categories=ReuseOS;Graphics;
