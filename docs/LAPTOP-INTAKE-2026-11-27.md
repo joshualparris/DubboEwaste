@@ -60,3 +60,32 @@ Photo crops re-checked against the inventory table. Still no power-on; nothing b
 - **#9 label detail.** LCD listed as B116XTN02.3 (11.6-inch HD, anti-glare), a common AUO panel worth keeping as a spare even if the chassis stays segregated. Adapter listed as 15 V / 2 A (PA-1300-43QD). Model, serial and P/N share the same LI9/L19 prefix.
 - **Batch pattern.** Batteries are absent on every opened unit and storage on most; several also had RAM pulled. Treat the batch as shells: estimate parts cost per unit before committing labour, and don't promise any unit to a recipient until it has posted.
 - **AMR returns (conditional).** If this batch came through the AMR set-aside arrangement, #4 and #7 are the clearest return candidates unless wanted as parts donors. #9 needs an ownership/regulatory decision rather than a default return.
+
+## Adapter matching — loose charger pile (27 November 2026)
+
+Matched from label photos only; no plug has been measured and no adapter has been metered. Rule for any match: same voltage, centre-positive polarity, correct plug size, and wattage at or above the laptop's requirement. An undersized adapter is for a BIOS/POST check only, never for release with a unit. Adapter serials and barcodes deliberately not recorded.
+
+| Adapter (label) | Output | Plug | Batch match |
+|---|---|---|---|
+| Lenovo ADP-65ME B (PN GX21J75537) | 20 V 3.25 A, 65 W | Lenovo round tip | **#1 Miix 520** (Lenovo specifies a 45 W round-tip adapter). Hold power until #1's cooling assembly is fitted. |
+| HP TPC-LA58 / PA-1650-39HA | 19.5 V 3.33 A, 65 W | 7.4 × 5.0 mm HP smart pin | **#3 HP** (dv6 family uses 7.4 mm). Undersized against the 120 W adapter listed for dv6-6000: POST/BIOS only. |
+| ASUS square 65 W | 19 V 3.42 A | Unmeasured: 5.5 × 2.5 or 4.0 × 1.35 mm | **#6 F55A** if 5.5 × 2.5 mm. Same rating and plug as **#4 C650D** if 5.5 × 2.5 mm. |
+| Generic "Replacement AC Adapter" HLY19004740 | 19 V 4.74 A, 90 W | Unmeasured | #4 or #6 if 5.5 × 2.5 mm. Unknown maker: meter output under load before use. |
+| Toshiba PA3822E-1AC3 (two units) | 19 V 2.37 A, 45 W | Toshiba 5.5 × 2.5 mm | Fits #4 C650D but undersized (unit needs 19 V 3.42 A): POST only. |
+| Toshiba PA3378E-3AC3 | 15 V 5 A | Toshiba 15 V series | No 19 V match. Voltage matches #9's label (15 V) only; #9 remains segregated. |
+| Toshiba PA3378E-2ACA | 15 V series | — | Casing wrapped in electrical tape: treat as damaged; reject and recycle. |
+| Dell LA65NM190 | USB-C PD, up to 20 V 3.25 A, 65 W | USB-C | No match in this batch (see #2 below). Keep for other stock. |
+| Lenovo ADLX90NCC3A | 20 V 4.5 A, 90 W | Lenovo slim tip | No match in this batch. |
+| Unbranded 65 W (model string suggests 19.5 V / 3.33 A) | 19.5 V 3.33 A (partly legible) | Unmeasured | Unknown until plug identified. |
+| LG ADS-24NP-12-1; UES24-120200SPA3; Delta DA-48M12 | 12 V (2 A, 2 A, 4 A) | — | Not laptop supplies. Keep off the laptop bench; some may physically fit laptop jacks. |
+
+**No adapter in the pile for:** #2 (needs the ASUS 230 W, 19.5 V / 11.8 A, 6.0 mm adapter; ASUS states the Pro Duo's USB-C port supplies power out but does not accept power in), #5 and #7 (both need a Dell 19.5 V barrel adapter; the only Dell unit here is USB-C), #8 and #10 (unidentified).
+
+**Consequence for bench order:** #2 remains the restoration priority but is blocked on sourcing the 230 W adapter. #3 is the only unit that can reach BIOS with what is on hand today (RAM fitted, matching plug).
+
+References (official sources first; retailer listings are lower-confidence cross-checks):
+- Lenovo PSREF, Miix 520-12IKB (45 W round-tip adapter): https://psref.lenovo.com/syspool/Sys/PDF/Lenovo_Tablets/Miix_520_12IKB_BE/Miix_520_12IKB_BE_Spec.pdf
+- ASUS ZenTalk, Pro Duo USB-C power-out only (UX581GV sibling model): https://zentalk.asus.com/t5/zenbook/charging-the-asus-zenbook-pro-duo-through-the-thunderbolt-port/m-p/151050
+- Retailer: ADP-65ME B / GX21J75537 listed as 65 W round tip: https://www.flipkart.com/lenovo-adlx65clgi2a-65-w-round-tip-ac-adapter/p/itm12fc7618402e6
+- Retailer: PA-1650-39HA listed with 7.4 × 5.0 mm plug: https://www.newegg.com/p/2S7-07JP-1CED2
+- Retailer: HP 120 W adapter listed for dv6-6000: https://pages.cs.wisc.edu/~qing/CS784/Stage1/Amazon_html/httpwww.amazon.comHP-Smart-Adapter-120W-VE025AAdpB002UACM0Y.html
