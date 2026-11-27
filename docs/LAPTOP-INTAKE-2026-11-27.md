@@ -10,11 +10,11 @@
 | 2 | ASUS ZenBook Pro Duo UX581L (cover label), likely UX581LV (2020) | RTX Studio label; twin fans, extensive dust, missing battery and apparent M.2 SSD; 16/32 GB soldered RAM per ASUS UX581LV specifications. Loose internal speaker; exposed chip appears to be PCH, not CPU; exact chip identity and cooling requirements not independently verified. | First restoration candidate; clean, secure speaker, verify correct adapter and cooling before POST. |
 | 3 | HP laptop; previous working hypothesis Pavilion dv6-6025tx, not yet independently confirmed | One installed SO-DIMM, second slot appears empty, Wi-Fi card present; battery and 2.5-inch drive appear absent. Windows-era licence sticker present (not recorded). | Fastest fallback POST candidate with compatible charger and existing RAM; confirm HP product ID and module specs. |
 | 4 | Toshiba Satellite C650D/006 (PSC16A-006011) | Empty visible RAM slots, empty 2.5-inch bay, no battery; DC label 19 V / 3.42 A. DDR3 family; CPU not verified on physical unit. | Low-cost donor/retro Linux candidate; test with known-good compatible DDR3 only if worthwhile. |
-| 5 | Dell XPS 15 L502X (P11F003) | DDR3-marked area with visible empty slots; cracked underside, very dusty fan, battery absent. Drive status not established. Exact CPU/GPU unknown. | Medium; clean, inspect structural damage, install compatible RAM for POST. |
+| 5 | Dell XPS 15 L502X (P11F003, confirmed from label crop) | DDR3-marked area with visible empty slots; cracked underside, very dusty fan, battery absent. Drive status not established. Exact CPU/GPU unknown. | Medium; clean, inspect structural damage, install compatible RAM for POST. |
 | 6 | ASUS F55A (label) | Empty visible SO-DIMM slot, empty drive bay, absent battery; Wi-Fi card present. DDR3-era platform; exact CPU, soldered memory and voltage requirements need checking. | Medium; inexpensive POST check with compatible parts. |
 | 7 | Dell PP22L, likely Inspiron 1520 or related chassis | DDR2 ONLY label; visible empty SO-DIMM slot (other slot not inspected), battery absent; WLAN card present; other internal components/storage not checked. | Low; retro or parts donor, no DDR3 substitution. |
 | 8 | Label NT16-PRO-C-E, date-like marking 20170908.13 | Exterior only; some screw positions empty. Exact manufacturer, CPU, memory, storage and battery unknown. Prototype hypothesis unverified. | Investigate labels/internal configuration before spending. |
-| 9 | Label L19 C1-C-Test (transcription approximate) | Exterior label explicitly states regulatory approvals incomplete and not for sale or lease; lists CPU, RAM and HDD as NO, 11.6-inch HD display, 802.11ac and 15 V / 2 A adapter. These describe label configuration, not verified current contents. | Segregate from sale/lease stock; possible engineering sample or test chassis. Check ownership, internals and regulatory status. |
+| 9 | Label LI9 C1-C-Test (second character ambiguous: I or 1) | Exterior label explicitly states regulatory approvals incomplete and not for sale or lease; lists CPU, RAM and HDD as NO, 11.6-inch HD display, 802.11ac and 15 V / 2 A adapter. These describe label configuration, not verified current contents. | Segregate from sale/lease stock; possible engineering sample or test chassis. Check ownership, internals and regulatory status. |
 | 10 | Unidentified white laptop | Exterior only; no model visible, some screw positions empty. Internal components uninspected. | Identify make/model and inspect before power. |
 
 ## First restoration: #2
@@ -47,3 +47,16 @@ Cover label UX581L and RTX Studio branding identify ASUS ZenBook Pro Duo; likely
 
 - ASUS specifications: https://www.asus.com/laptops/for-home/zenbook/zenbook-pro-duo-ux581/techspec/
 - ASUS repair guide: https://dlcdnets.asus.com/pub/ASUS/nb/Customer_self_repair_guide/UX581LV_Customer_Self_Repair_Guide_20210706.pdf
+
+## Second-pass review — label zoom and batch notes (27 November 2026)
+
+Photo crops re-checked against the inventory table. Still no power-on; nothing below changes the "no unit classified dead from photos" rule.
+
+- **First restoration stays #2.** It has the highest reuse value in the batch, and none of its known gaps (battery, SSD) needs a purchase before a POST attempt. The real gate is the correct 230 W ASUS adapter; if one isn't on hand, #3 is the quick POST fallback.
+- **#3 product number.** The base label carries HP product number LR735PA#ABG (Australian SKU). Use it on HP support to confirm or reject the dv6-6025tx hypothesis before buying RAM or a charger.
+- **#5 confirmed.** Regulatory label reads Reg Model P11F / Reg Type P11F003, matching XPS 15 L502X.
+- **#6 drive bay.** The silver plate in the 2.5-inch bay carries an ASUS part label, consistent with a bracket/shield rather than a drive. Lift it to confirm before recording the unit as non-data-bearing.
+- **#6 previous-repairer job sticker.** A third-party repair shop's job label with a previous customer's details is on the base (deliberately not transcribed). Remove it physically before the unit goes anywhere, and treat it as a provenance flag: confirm transfer authority covers this unit.
+- **#9 label detail.** LCD listed as B116XTN02.3 (11.6-inch HD, anti-glare), a common AUO panel worth keeping as a spare even if the chassis stays segregated. Adapter listed as 15 V / 2 A (PA-1300-43QD). Model, serial and P/N share the same LI9/L19 prefix.
+- **Batch pattern.** Batteries are absent on every opened unit and storage on most; several also had RAM pulled. Treat the batch as shells: estimate parts cost per unit before committing labour, and don't promise any unit to a recipient until it has posted.
+- **AMR returns (conditional).** If this batch came through the AMR set-aside arrangement, #4 and #7 are the clearest return candidates unless wanted as parts donors. #9 needs an ownership/regulatory decision rather than a default return.

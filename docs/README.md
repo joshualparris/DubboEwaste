@@ -1,5 +1,7 @@
 # Documentation hub
 
+**Bench intake (27 November 2026):** [Numbered laptop intake 1–10](LAPTOP-INTAKE-2026-11-27.md) — photo-based triage of ten laptops, first restoration pick (#2 ZenBook Pro Duo) and second-pass label checks; public-safe, no serials or customer details.
+
 **New policy research (27 November 2026):** [AI assistance, FRP and Australian ITAD right to repair](FRP-AI-POLICY-RIGHT-TO-REPAIR-2026-11-27.md) — comparative provider policies, Australian legal issues, sanitisation standards, cost barriers, proposed verified professional access and advocacy; research only, no operational permission granted.
 
 <!-- DOCUMENTATION-SYNC-2026-10-09 -->
