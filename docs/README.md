@@ -1,5 +1,7 @@
 # Documentation hub
 
+**New policy research (27 November 2026):** [AI assistance, FRP and Australian ITAD right to repair](FRP-AI-POLICY-RIGHT-TO-REPAIR-2026-11-27.md) — comparative provider policies, Australian legal issues, sanitisation standards, cost barriers, proposed verified professional access and advocacy; research only, no operational permission granted.
+
 <!-- DOCUMENTATION-SYNC-2026-10-09 -->
 > **Current product authority (reviewed 9 October 2026):** [Live feature and verification register](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md) · [Inventory of all Markdown/text documents and freshness rules](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md) · [Repair Café implementation roadmap](REPAIR-CAFE-PRODUCT-COMPARISON-IMPLEMENTATION-ROADMAP-2026-10-09.md). Historical research is intentionally preserved; it must not overrule verified code, migration state or actual launch permissions.
 
