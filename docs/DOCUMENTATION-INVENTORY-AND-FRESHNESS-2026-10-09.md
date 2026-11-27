@@ -300,6 +300,8 @@ Each link goes to the tracked source document. Historical category membership re
 - [`docs/FIRST-30-DEVICE-EXPERIMENT.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/FIRST-30-DEVICE-EXPERIMENT.md)
 - [`docs/FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/FLIPTECH-DUBBO-BRANCH-FEASIBILITY.md)
 - [`docs/FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/FLIPTECH-EQUIVALENTS-DUBBO-BRANCH-FEASIBILITY.md)
+- [`docs/FRP-MANUFACTURER-AUTHORISATION-RESEARCH-2026-11-27.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/FRP-MANUFACTURER-AUTHORISATION-RESEARCH-2026-11-27.md)
+- [`docs/FRP-OWNERSHIP-TRANSFER-AND-MOBILE-REUSE-2026-11-25.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/FRP-OWNERSHIP-TRANSFER-AND-MOBILE-REUSE-2026-11-25.md)
 - [`docs/FRONT-DOOR-TRIAGE-CARD.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/FRONT-DOOR-TRIAGE-CARD.md)
 - [`docs/GLOSSARY.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/GLOSSARY.md)
 - [`docs/GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md`](https://github.com/joshualparris/DubboEwaste/blob/main/docs/GOOD360-COMPNOW-NATIONAL-DEVICE-BANK-DUBBO.md)

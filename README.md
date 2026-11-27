@@ -24,7 +24,7 @@ For the complete documentation map, use **[docs/README.md](docs/README.md)**.
 
 ## Device-recovery research
 
-- [Manufacturer-authorised FRP recovery — costs and research brief](docs/FRP-MANUFACTURER-AUTHORISATION-RESEARCH-2026-11-27.md) — reported OEM referral, unknown accreditation costs, ownership proof, and deep research prompt (27 Nov 2026; no accreditation obtained).
+- [Manufacturer-authorised FRP recovery — costs and research brief](docs/FRP-MANUFACTURER-AUTHORISATION-RESEARCH-2026-11-27.md) — reported OEM referral, brand-by-brand cost and requirement evidence (Samsung ISP, Apple IRP, Huawei), donated-device ownership catch, and v2 gap-closing deep research prompt (27 Nov 2026; no accreditation obtained, no fees published by any manufacturer).
 
 - [National ITAD comparison](docs/NATIONAL-ITAD-OPERATORS-DUBBO-COVERAGE.md) — Greenbox, EraseIT, SLS and Renew IT: size, retired-device routes and advertised Dubbo coverage.
 - [Dubbo independent operators](docs/DUBBO-INDEPENDENT-DEVICE-RECOVERY-OPERATORS.md) — publicly named businesses, recycling/refurbishment offers and unresolved backyard identities, with a [lead tracker](docs/dubbo-independent-device-recovery-leads.csv).
