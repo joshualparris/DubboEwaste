@@ -1,0 +1,42 @@
+# Numbered laptop intake — 27 November 2026 (Dubbo)
+
+**Status:** photo-based preliminary triage only; no power-on, functional, battery, ownership, sanitisation or resale clearance confirmed. Intake numbers 1–10 are physical batch labels, not AssetFlow asset IDs. This public field note deliberately omits serials, service tags, customer/job labels, Windows keys, MAC addresses and raw photos. Private evidence and serialized inventory belong in the authenticated AssetFlow workflow.
+
+## Inventory
+
+| # | Identification / confidence | Observed condition and components | Preliminary disposition |
+|---|---|---|---|
+| 1 | Lenovo Miix 520-12IKB (20M3/20M4 family); board FRU 5B20Q58600 supports Core i5-8250U and 8 GB onboard RAM | Fan present but CPU heatpipe/heatsink absent; exposed thermal paste; battery and apparent M.2 storage absent. Display/keyboard and charger condition unknown. | High potential, hold power until correct cooling assembly fitted. |
+| 2 | ASUS-associated laptop, exact model and CPU/GPU unknown; ASUS marking on fan label | Blue board, twin blowers and multi-heatpipe cooling assembly; significant dust; battery bay and SSD-labelled M.2 position appear empty. RAM not visible; check under shielding/other side according to service manual. Dedicated GPU plausible, not proven. | First diagnostic/restoration candidate; identify exact model and safe charger before power. |
+| 3 | HP laptop; previous working hypothesis Pavilion dv6-6025tx, not yet independently confirmed | One installed SO-DIMM, second slot appears empty, Wi-Fi card present; battery and 2.5-inch drive appear absent. Windows-era licence sticker present (not recorded). | Fastest fallback POST candidate with compatible charger and existing RAM; confirm HP product ID and module specs. |
+| 4 | Toshiba Satellite C650D/006 (PSC16A-006011) | Empty visible RAM slots, empty 2.5-inch bay, no battery; DC label 19 V / 3.42 A. DDR3 family; CPU not verified on physical unit. | Low-cost donor/retro Linux candidate; test with known-good compatible DDR3 only if worthwhile. |
+| 5 | Dell XPS 15 L502X (P11F003) | DDR3-marked area with visible empty slots; cracked underside, very dusty fan, battery absent. Drive status not established. Exact CPU/GPU unknown. | Medium; clean, inspect structural damage, install compatible RAM for POST. |
+| 6 | ASUS F55A (label) | Empty visible SO-DIMM slot, empty drive bay, absent battery; Wi-Fi card present. DDR3-era platform; exact CPU, soldered memory and voltage requirements need checking. | Medium; inexpensive POST check with compatible parts. |
+| 7 | Dell PP22L, likely Inspiron 1520 or related chassis | DDR2 ONLY label; visible empty SO-DIMM slot (other slot not inspected), battery absent; WLAN card present; other internal components/storage not checked. | Low; retro or parts donor, no DDR3 substitution. |
+| 8 | Label NT16-PRO-C-E, date-like marking 20170908.13 | Exterior only; some screw positions empty. Exact manufacturer, CPU, memory, storage and battery unknown. Prototype hypothesis unverified. | Investigate labels/internal configuration before spending. |
+| 9 | Label L19 C1-C-Test (transcription approximate) | Exterior label explicitly states regulatory approvals incomplete and not for sale or lease; lists CPU, RAM and HDD as NO, 11.6-inch HD display, 802.11ac and 15 V / 2 A adapter. These describe label configuration, not verified current contents. | Segregate from sale/lease stock; possible engineering sample or test chassis. Check ownership, internals and regulatory status. |
+| 10 | Unidentified white laptop | Exterior only; no model visible, some screw positions empty. Internal components uninspected. | Identify make/model and inspect before power. |
+
+## First restoration: #2
+
+Prioritise potential performance/reuse value with an intact cooling assembly. #1 has a known modern CPU but requires cooling parts before any power-on; #3 is the quickest fallback for a low-effort POST.
+
+1. Record exact ASUS model/board ID privately; verify charger voltage, polarity, connector and wattage against manufacturer documentation. Check battery connector, board damage, corrosion and loose metal; disconnect all power.
+2. Clean both fans and heatsink exhaust fins, holding fan blades stationary during air cleaning; avoid disturbing heatsink unnecessarily. If removed, replace thermal paste and preserve correct thermal pad thickness.
+3. Confirm RAM topology and fit only compatible known-good memory if required. Reconnect required display, keyboard/power-button and cooling leads.
+4. With no donor storage attached and a compatible known-good adapter, attempt POST/UEFI. Watch for abnormal heat, smoke, smell or fan failure; stop on any anomaly. No assumption that this unit can run without a battery until tested.
+5. If POST succeeds, record CPU/GPU/RAM, check for management/firmware locks through authorised means, run a bootable diagnostic or Linux live USB, and test temperatures, screen, keyboard, Wi-Fi and ports. Do not run heavy GPU stress before confirming cooling.
+6. Only then estimate parts cost and decide on SSD/battery replacement. Use new or verified sanitised media. Complete documented ownership, data sanitisation, electrical/battery safety, grading and functionality checks before release.
+
+Fallback order: #3 for quick POST; #1 once correct heatsink is available; #5 and #6 for low-cost tests; #8–10 for identification (hold #9 from sale/lease); #4 and #7 for donor/retro assessment. No unit is classified dead from photos alone.
+
+## Verification references
+
+- Lenovo board FRU lookup: https://store.emprgroup.com.au/p-492173-5b20q58600.aspx
+- Lenovo model cross-reference: https://store.emprgroup.com.au/lenovo-898966-20m40000au-miix-520-12ikb-type-20m3-20m4-tablet-lenovo-type-20m4-20m40000au.aspx
+- Toshiba model support: https://support.dynabook.com/support/modelHome?freeText=1200014042
+- Dell regulatory model mapping: https://www.dell.com/en-us/legal/lp/product-info-datasheets-archived
+- Dell PP22L cross-reference: https://www.parts-people.com/blog/2016/03/16/dell-laptop-regulatory-model-reference-guide/
+- ASUS F55A platform reference: https://www.notebookcheck.net/Review-Asus-F55A-Notebook.88064.0.html
+
+Related local procedures: [intake policy](INTAKE-POLICY.md), [bench test sheet](bench-test-sheet.md), [bench SOP](BENCH-SOP-AND-LAYOUT.md), [battery/electrical safety](RESEARCH-06-BATTERY-ELECTRICAL-WORKSHOP-SAFETY.md), [grading standard](DUBBOEWASTE-GRADING-STANDARD.md).
