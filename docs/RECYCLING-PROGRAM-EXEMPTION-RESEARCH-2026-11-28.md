@@ -43,7 +43,7 @@ No contradictions between earlier files and this pass, other than the instrument
 - **s 4(2):** the Act does not apply to dealing in second-hand goods in the course of a fundraising appeal authorised under the Charitable Fundraising Act 1991, or to the business of an auctioneer [S10, E14].
 - The Act also provides for forfeiture of goods dealt with by unlicensed persons [S13].
 
-**The Regulation 2026 (2026 No 442)** [S01]. Read through search-index copies of the official page. Direct fetches failed, so the clause numbers other than cl 5, 7, 33 and 35 are unconfirmed.
+**The Regulation 2026 (2026 No 442)** [S01]. Read through search-index copies of the official page. Direct fetches failed, so clause numbers other than cl 5, 7, 32, 33 and 35 are unconfirmed.
 
 - **cl 5(1)(b):** electronic goods are prescribed [E13].
 - **cl 33, Exemption for recycling programs:** the wording quoted above [E02].
