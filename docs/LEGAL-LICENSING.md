@@ -1,5 +1,7 @@
 # Legal and licensing detail
 
+- [NSW recycling programme licence exemption and fee relief — 28 Nov 2026](https://github.com/joshualparris/DubboEwaste/blob/main/docs/NSW-RECYCLING-PROGRAMME-LICENCE-EXEMPTION-2026-11-28.md) — 2020 RIS confirms deliberate expansion beyond councils; 2021 sale/transfer exclusion and historical hardship relief; current 2026 exact text and project applicability remain unverified. Includes activity matrix, comparator evidence, draft charter and Fair Trading enquiry; existing launch HOLD unchanged.
+
 ## 1. Second-hand dealer licence (NSW Fair Trading)  [VERIFIED, page updated 1 Sep 2026]
 
 **Law:** Pawnbrokers and Second-hand Dealers Act 1996; Regulation 2026 (replaced the 2021 Regulation; clause numbers may differ from older sources).
