@@ -1,5 +1,8 @@
 # DubboEwaste master gap research — executed delta and closure ledger
 
+> **Later same-day corpus reconciliation:** [audit and corrected findings](CORPUS-AUDIT-AND-GAP-RECONCILIATION-2026-11-28.md). Council declined separate e-waste collection on 20 October 2026; maintain HOLD rather than treating approval as a fresh unanswered question. The prior selective corpus coverage is superseded by the pinned 76-branch audit; semantic validation remains incomplete.
+
+
 Date: 28 November 2026 (AEDT). Read with [120-question prompt](MASTER-GAP-RESEARCH-PROMPT-2026-11-28.md) and [machine-readable register](data/master-gap-questions-2026-11-28.csv). Public-source scope, not legal advice. No outreach sent, no site/asset inspected, no app or production change.
 
 ## Executive decision
