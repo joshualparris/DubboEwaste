@@ -1,5 +1,7 @@
 # Canonical research index
 
+- [NSW recycling programme licence exemption and fee relief — 28 Nov 2026](https://github.com/joshualparris/DubboEwaste/blob/main/docs/NSW-RECYCLING-PROGRAMME-LICENCE-EXEMPTION-2026-11-28.md) — 2020 RIS confirms deliberate expansion beyond councils; 2021 sale/transfer exclusion and historical hardship relief; current 2026 exact text and project applicability remain unverified. Includes activity matrix, comparator evidence, draft charter and Fair Trading enquiry; existing launch HOLD unchanged.
+
 - [Full pinned-branch corpus audit and gap reconciliation (28 Nov 2026)](CORPUS-AUDIT-AND-GAP-RECONCILIATION-2026-11-28.md) — 1,107 unique document versions, 76 branch trees, full-text screening, 17 evidence reconciliation items, v3 prompt, limitations.
 
 
