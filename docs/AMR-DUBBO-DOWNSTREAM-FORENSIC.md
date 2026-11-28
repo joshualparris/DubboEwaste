@@ -1,5 +1,7 @@
 # AMR Dubbo downstream forensic trace — who actually receives the e-waste?
 
+> **28 November 2026 correction:** Sircel entered voluntary administration on 31 October 2026 (KordaMentha appointed). Treat Sircel Parkes as unavailable until the outcome is known. See [master gap v2 WP05-01](MASTER-GAP-RESEARCH-V2-RESULTS-2026-11-28.md#wp05--downstream-recyclers-and-stewardship-schemes).
+
 > **25 November update:** [AMR reuse-first partnership research delta and gap-closing prompt](https://github.com/joshualparris/DubboEwaste/blob/main/docs/AMR-DUBBO-REUSE-PARTNERSHIP-RESEARCH-PROMPT-2026-11-25.md) adds current public policy evidence and a contractor-specific approval pathway. The identity of the downstream processors remains unverified.
 
 **Research date:** 2 October 2026 (AEST)  

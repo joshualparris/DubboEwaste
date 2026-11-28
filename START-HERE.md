@@ -46,7 +46,7 @@ Current application work includes intake/model lookup, camera barcode/QR scannin
 
 ## I want to close the remaining real-world unknowns
 
-Use [docs/FIELD-VALIDATION-UNKNOWN-CLOSURE-SYSTEM.md](docs/FIELD-VALIDATION-UNKNOWN-CLOSURE-SYSTEM.md).
+Use [docs/FIELD-VALIDATION-UNKNOWN-CLOSURE-SYSTEM.md](docs/FIELD-VALIDATION-UNKNOWN-CLOSURE-SYSTEM.md). The newest consolidated list of every open question, with what desk research has already answered, is [docs/MASTER-GAP-RESEARCH-V2-RESULTS-2026-11-28.md](docs/MASTER-GAP-RESEARCH-V2-RESULTS-2026-11-28.md).
 
 The private AssetFlow **Field Validation** screen records GIPA/informal responses, organisation disposal interviews, Repair Café demand, private commercial terms and measured per-device economics. It is deliberately separate from the public repository so private correspondence/quotes do not leak.
 

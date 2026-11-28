@@ -1545,3 +1545,236 @@
   verification_method: Independent secondary source
   confidence: Medium
   notes: '[CORROBORATED; Independently verified fact] Planned infrastructure; not a Dubbo route.'
+
+# Master gap research v2 — 28 November 2026
+- id: EVD-GAP2-WP01-01
+  claim: 'Yes, if the use meets the Standard Instrument definitions: the Codes SEPP lets a dwelling be used for
+    a home business, home industry or home occupation as exempt development, with up to 2 non-resident employees,
+    one sign up to 1 m², and the floor-area cap in the council LEP''s clause 5.4 (no less than 30 m²). Exclusions
+    (food manufacture, skin penetration, sex services) don''t affect electronics.'
+  type: Verified Fact
+  source: Master gap v2 WP01-01 — Can a home business or home industry run as exempt development in NSW, and on
+    wh
+  url: https://planning.nsw.gov.au/the-planning-system/development-assessment/planning-approval-pathways/development-types/home-based-enterprises
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[ANSWERED] Next: Read Dubbo LEP 2022 cl 5.4 for the exact m² figure; then ask Council planning to confirm
+    the activity fits ''home business'' (WP01-04).'
+- id: EVD-GAP2-WP02-01
+  claim: The regulation text found says the Act does not apply to conducting a recycling or rubbish collection program,
+    selling goods collected in one, or contracting to give someone ownership of such goods. That text is in the
+    Pawnbrokers and Second-hand Dealers Regulation 2021. NSW's staged repeal would have ended the 2021 Regulation
+    around 1 September 2026, so a 2026 remake may now be current — other repo notes cite 'Regulation 2026'. Which
+    instrument is in force wasn't confirmed.
+  type: Research Lead
+  source: Master gap v2 WP02-01 — What does the second-hand dealer law exempt for recycling programs, and which
+    re
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/sl-2021-0044
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[UNRESOLVED] Next: Check legislation.nsw.gov.au for a 2026 Regulation and compare the exemption wording;
+    then ask Fair Trading in writing whether refurbish-and-sell of donated devices is a ''recycling program''.'
+- id: EVD-GAP2-WP02-02
+  claim: No alteration until the retention period ends, and goods must be kept on notified premises (NSW business
+    obligations page). Fair Trading grants some licensees limited exemptions, including from retention where the
+    seller already held the goods for the required period. Whether data wiping is 'alteration' isn't stated.
+  type: Verified Fact
+  source: Master gap v2 WP02-02 — Can a licensed dealer wipe, test or repair goods during the retention period?
+  url: https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/pawnbrokers-and-second-hand-dealers
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[ANSWERED] Next: If licensed, don''t wipe during the hold; ask Fair Trading whether data erasure counts
+    as alteration.'
+- id: EVD-GAP2-WP02-04
+  claim: 'No NSW clause requiring test-and-tag or an ''untested'' label for second-hand articles was found: Part
+    6 of the Gas and Electricity (Consumer Safety) Regulation covers safety-direction notices and disposal of non-conforming
+    articles. NSW guidance says a second-hand declared article must have been approved when sold new, and sellers
+    of second-hand electrical equipment have obligations to ensure it''s safe. Queensland, by contrast, requires
+    sellers to tell buyers if an item is untested.'
+  type: Verified Fact
+  source: Master gap v2 WP02-04 — Must second-hand electrical goods be tested, tagged or labelled before resale
+    in
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2020-09-02/sl-2018-0501
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[ANSWERED] Next: Only resell items with original compliance marks; run and record a safety check; disclose
+    test status in listings as good practice. Check the current Regulation version for changes since 2020.'
+- id: EVD-GAP2-WP02-05
+  claim: 'Not without testing, certification and marking: from 1 February 2026 e-micromobility devices and their
+    lithium-ion batteries sold in NSW, including second-hand ones and former hire fleets, must be tested, certified
+    and marked. They are now declared electrical articles.'
+  type: Verified Fact
+  source: Master gap v2 WP02-05 — Can second-hand e-bikes, e-scooters and their batteries be resold in NSW?
+  url: https://www.nsw.gov.au/housing-and-construction/safety-home/electrical-safety/lithium-ion-battery-safety/new-standards-for-lithium-ion-batteries-e-micromobility-devices
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[ANSWERED] Next: Exclude e-micromobility from intake and resale; add to INTAKE-POLICY reject list.'
+- id: EVD-GAP2-WP02-06
+  claim: 'Yes for now: the tranche 2 exposure draft (Privacy Amendment (Personal Data Protection) Bill 2026, released
+    31 August 2026) does not remove the small business exemption, so businesses under $3 million turnover stay outside
+    the Act unless another trigger applies.'
+  type: Verified Fact
+  source: Master gap v2 WP02-06 — Does the Privacy Act's small business exemption still apply after the 2026 refor
+  url: https://www.sparke.com.au/insights/a-new-era-for-privacy-in-australia-implications-of-privacy-act-reform-tranche-2/
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: High
+  notes: '[ANSWERED] Next: Keep APP 11-style controls anyway; donors and partners will expect them.'
+- id: EVD-GAP2-WP03-01
+  claim: Typical public and products liability premiums were $370–$840 a year (median around $605) across 2,000+
+    policies arranged by one broker in 2022–26; BizCover's FY24 average for NSW was about $39 a month. These are
+    all-industry figures, not electronics-refurbishment quotes.
+  type: Verified Fact
+  source: Master gap v2 WP03-01 — What does public and products liability cover cost a micro-business in Australia
+  url: https://www.upcover.com/blog/public-liability-insurance-cost-australia
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: Medium
+  notes: '[ANSWERED] Next: Get two written quotes naming second-hand electronics resale and lithium batteries.'
+- id: EVD-GAP2-WP04-03
+  claim: Dubbo was one of the first 21 CRCs in the NSW EPA trial (September 2024 to September 2026), and Council
+    was still promoting it in July 2026. NTCRS products such as laptops are excluded. The processor, volumes and
+    post-September 2026 status aren't public.
+  type: Research Lead
+  source: Master gap v2 WP04-03 — What is the status of the Whylandra embedded-battery trial?
+  url: https://www.epa.nsw.gov.au/embedded-batteries
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[PARTIAL] Next: Ask NSW EPA (draft in the EcoCycle enquiry templates).'
+- id: EVD-GAP2-WP04-04
+  claim: Draft Chapter 2 of the Waste and Circular Infrastructure Plan covers regional NSW — underinvestment, capacity
+    shortages and high transport and recycling costs — and consultation closes Monday 30 November 2026.
+  type: Verified Fact
+  source: Master gap v2 WP04-04 — What is the NSW EPA proposing for regional waste infrastructure, and when do sub
+  url: https://newshub.medianet.com.au/2026/10/regional-waste-solutions-on-the-table/177204/
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: High
+  notes: '[ANSWERED] Next: Optional: lodge a short submission by 5pm Monday 30 November (draft in the other session''s
+    results doc).'
+- id: EVD-GAP2-WP05-01
+  claim: 'Sircel entered voluntary administration: KordaMentha''s Richard Tucker and Ryan Rabbitt were appointed
+    on 31 October 2026, with a first creditors'' meeting on 12 November. Sircel had six sites including its Parkes
+    solar-panel plant.'
+  type: Verified Fact
+  source: Master gap v2 WP05-01 — What is Sircel's current status (the repo's strongest regional downstream lead)?
+  url: https://reneweconomy.com.au/shock-and-dismay-as-one-of-australias-biggest-solar-recycling-hopes-put-into-administration
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: High
+  notes: '[ANSWERED] Next: Drop Sircel Parkes as a planning assumption; ask TechCollect/ANZRP who now services NSW
+    collections.'
+- id: EVD-GAP2-WP06-01
+  claim: The NSW Device Bank launched in May 2026 as a 12-month pilot run by NSW Telco Authority with WorkVentures.
+    It refurbishes surplus government laptops and distributes them, with Good Things Australia, through community
+    organisations and charities in metro, regional and remote NSW; the first laptops went out by late July 2026.
+    Community organisations apply through WorkVentures' EOI. The separate National Device Bank (WorkVentures and
+    Good Things Australia) takes business and government donations, and reported in February 2026 that demand exceeded
+    devices committed.
+  type: Verified Fact
+  source: 'Master gap v2 WP06-01 — How do the NSW and National Device Banks work, and can Dubbo organisations take '
+  url: https://jodieharrison.com.au/news/latest-news/nsw-device-bank-delivers-first-laptops-to-help-hurdle-digital-barriers/
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: High
+  notes: '[ANSWERED] Next: Point a Dubbo charity partner at the WorkVentures EOI; Dubbo eWaste itself isn''t the
+    eligible applicant.'
+- id: EVD-GAP2-WP06-05
+  claim: About 57,400 (ABS estimated resident population series via City Population).
+  type: Verified Fact
+  source: Master gap v2 WP06-05 — What is Dubbo Regional LGA's population for sizing?
+  url: https://www.citypopulation.de/en/australia/admin/new_south_wales/12390__dubbo_regional
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: Medium
+  notes: '[ANSWERED] Next:'
+- id: EVD-GAP2-WP07-01
+  claim: Windows 10 support ended 14 October 2025. On 25 June 2026 Microsoft extended consumer Extended Security
+    Updates by a year, so enrolled personal devices get security updates until 12 October 2027 (Microsoft's Australian
+    page confirms). Microsoft 365 apps keep security updates on Windows 10 until 10 October 2028.
+  type: Verified Fact
+  source: Master gap v2 WP07-01 — When do Windows 10 security updates end for donated home PCs?
+  url: https://www.microsoft.com/en-AU/windows/end-of-support
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[ANSWERED] Next: Confirms INTAKE-POLICY.md (already says 12 October 2027). Ship Windows 11 where eligible;
+    otherwise tell recipients to enrol in ESU and plan Linux or ChromeOS Flex before October 2027.'
+- id: EVD-GAP2-WP08-01
+  claim: The Product Lifecycle Responsibility Regulation 2026 commenced on 1 October 2026 as Australia's first mandatory
+    battery stewardship scheme; obligations fall on brand owners, and with no Product Stewardship Organisation appointed
+    yet, brand owners must comply individually. Whether a refurbisher that imports replacement batteries or supplies
+    devices containing batteries is a 'brand owner' wasn't established.
+  type: Research Lead
+  source: Master gap v2 WP08-01 — Does NSW's new battery stewardship regulation affect Dubbo eWaste?
+  url: https://hamiltonlocke.com.au/new-energy-bulletin-new-south-wales-battery-stewardship-scheme-now-in-effect/
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: High
+  notes: '[PARTIAL] Next: Ask NSW EPA whether buying replacement batteries from local suppliers (not importing)
+    keeps Dubbo eWaste out of brand-owner obligations.'
+- id: EVD-GAP2-WP08-02
+  claim: An electrical licence is needed for 'electrical wiring work' — physical work on an electrical installation.
+    Older NSW definitions exclude appliances connected through a socket from the installation, and disconnecting
+    or reconnecting hard-wired equipment needs its own certificate. So repairing plug-in laptops and power supplies
+    isn't licensed wiring work (inference from definitions); general safety duties still apply.
+  type: Verified Fact
+  source: Master gap v2 WP08-02 — Does repairing plug-in devices need an electrical licence in NSW?
+  url: https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/electrical
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[ANSWERED] Next: Don''t open mains-side PSUs or hard-wired equipment; confirm with Building Commission
+    NSW if in doubt.'
+- id: EVD-GAP2-WP08-03
+  claim: A PCBU must notify SafeWork NSW immediately on 13 10 50 of a serious injury, illness, death or dangerous
+    incident caused by a lithium-ion battery; SafeWork, FRNSW, Fair Trading and the EPA publish joint charge/store/recycle
+    guidance.
+  type: Verified Fact
+  source: Master gap v2 WP08-03 — What must a workplace do about lithium-ion incidents in NSW?
+  url: https://www.safework.nsw.gov.au/hazards-a-z/lithium-ion-batteries
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[ANSWERED] Next: Add the notification step to SAFETY-DECISION-TREES.md.'
+- id: EVD-GAP2-WP09-01
+  claim: TAFE NSW opened fee-free applications on 8 November 2026 for courses starting from 1 January 2027. The
+    NSW Fee Free list includes Certificate II in Electrotechnology (Career Start), standard fee $5,450 and estimated
+    $0–$1,000, delivered online or mixed. TAFE NSW Dubbo runs the Certificate III Electrician at Myall Street.
+  type: Verified Fact
+  source: Master gap v2 WP09-01 — Which fee-free courses suit the operator in 2027?
+  url: https://www.tafensw.edu.au/jobtrainer
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[ANSWERED] Next: Check eligibility; places are limited.'
+- id: EVD-GAP2-WP12-01
+  claim: Nothing suitable is open. The EPA's Local Government Waste Solutions Fund is for councils in the waste-levy
+    area (Round 4 closed October 2025; it funded a Port Macquarie reuse/repair event pilot) — Dubbo is likely outside
+    the levy area (inference). The Environmental Trust's 2026 rounds have closed. The EPA's Together on Country
+    program supports Aboriginal communities' circular-economy work and business partnerships and may fit a partnership.
+    Dubbo's 2026/27 community funding closes 28 February 2027 (other session).
+  type: Research Lead
+  source: Master gap v2 WP12-01 — Are there open grants that fit right now?
+  url: https://www.epa.nsw.gov.au/Working-together/Grants
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[PARTIAL] Next: Budget zero grant income; watch the EPA grants calendar.'
+- id: EVD-GAP2-WP12-02
+  claim: Not soon. At the 18 September 2026 Environment Ministers' Meeting, ministers agreed a Circular Economy
+    Roadmap with packaging, batteries and solar panels as the first national harmonisation priorities. The Productivity
+    Commission's reuse/repair target recommendation for the NTCRS remains a recommendation.
+  type: Verified Fact
+  source: Master gap v2 WP12-02 — Will national reform add reuse targets for computers soon?
+  url: https://enviliance.com/regions/oceania/au/report_17822
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: Medium
+  notes: '[ANSWERED] Next: Plan without NTCRS reuse credit.'

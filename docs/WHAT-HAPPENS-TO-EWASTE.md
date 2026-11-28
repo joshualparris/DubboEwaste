@@ -1,5 +1,7 @@
 # What happens to e-waste after it reaches AMR Dubbo?
 
+> **28 November 2026 correction:** Sircel entered voluntary administration on 31 October 2026 (KordaMentha appointed). Treat Sircel Parkes as unavailable until the outcome is known. See [master gap v2 WP05-01](MASTER-GAP-RESEARCH-V2-RESULTS-2026-11-28.md#wp05--downstream-recyclers-and-stewardship-schemes).
+
 **Research date:** 2 October 2026 (AEST)  
 **Scope:** TVs, computers/laptops, monitors, smartphones/tablets and printers/scanners accepted by Australian Metal Recycling (AMR), particularly the Dubbo yard at 34 Mountbatten Drive.
 
