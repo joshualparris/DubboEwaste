@@ -1,5 +1,8 @@
 # Canonical research index
 
+- [Full pinned-branch corpus audit and gap reconciliation (28 Nov 2026)](CORPUS-AUDIT-AND-GAP-RECONCILIATION-2026-11-28.md) — 1,107 unique document versions, 76 branch trees, full-text screening, 17 evidence reconciliation items, v3 prompt, limitations.
+
+
 - **[Master gap-closing research — 28 November 2026](https://github.com/joshualparris/DubboEwaste/blob/main/docs/MASTER-GAP-RESEARCH-RESULTS-2026-11-28.md)** — [120-question prompt](https://github.com/joshualparris/DubboEwaste/blob/main/docs/MASTER-GAP-RESEARCH-PROMPT-2026-11-28.md), [machine-readable answer register](https://github.com/joshualparris/DubboEwaste/blob/main/docs/data/master-gap-questions-2026-11-28.csv). 4 bounded public answers, 39 partial, 41 external-blocked, 36 pilot/test-dependent. Existing launch gates remain unchanged; no field approvals or partnerships claimed. Includes regional infrastructure consultation (closes 30 Nov 2026), procurement and NSW Device Bank updates.
 
 <!-- DOCUMENTATION-SYNC-2026-10-09 -->
