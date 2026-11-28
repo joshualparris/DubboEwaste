@@ -1,6 +1,8 @@
 # NSW second-hand dealer licensing: recycling programme exemption and low-cost pathways
 28 November 2026 | Evidence-led public-source investigation | Not legal advice or permission to trade.
 
+> **Second pass, same day:** [RECYCLING-PROGRAM-EXEMPTION-RESEARCH-2026-11-28.md](RECYCLING-PROGRAM-EXEMPTION-RESEARCH-2026-11-28.md) found the current 2026 wording this report couldn't read: Regulation 2026 **cl 33** (not cl 6) exempts *buying or selling goods collected in a recycling program or rubbish collection program* and contracting to transfer ownership. There's no separate "conducting a program" limb. The fee-waiver power is now cl 32.
+
 ## Decision
 Do not assume all electronics are exempt; do not spend $692 merely to resolve uncertainty. Seek written classification of the actual operation first, and maintain existing P0-I05 HOLD for activities that may require licensing. The strongest new evidence is NSW's own 2020 Regulatory Impact Statement (RIS), section 5.3 p13 and Appendix 4 p29: the proposed reform intentionally broadened the council-only exemption to all recycling and rubbish collection programmes, including community schemes. This was enacted in the 2021 Regulation cl6. September 2026 NSW guidance confirms recycling programmes remain exempt in principle. The exact current 2026 instrument's full wording was inaccessible; do not claim current cl6 text, eligibility, or formal approval. If classification fails, request a section 4A individual exemption and investigate the current equivalent of historical cl39 fee relief. No applications, communications, new sales, approvals or payments made.
 

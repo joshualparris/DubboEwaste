@@ -57,6 +57,8 @@ Each row's sources are numbered links. Rows marked *Not researched in this pass*
 | WP02-06 | **Answered** | Yes for now: the tranche 2 exposure draft (Privacy Amendment (Personal Data Protection) Bill 2026, released 31 August 2026) does not remove the small business exemption, so businesses under $3 million turnover stay outside the Act unless another trigger applies. Sources: [1](https://www.sparke.com.au/insights/a-new-era-for-privacy-in-australia-implications-of-privacy-act-reform-tranche-2/) [2](https://www.aoshearman.com/en/insights/new-rules-of-engagement-australias-draft-privacy-bill-and-what-it-means-for-your-business) | Keep APP 11-style controls anyway; donors and partners will expect them. |
 | WP02-07 | **Partial** | Other session (B07): Division 66 may allow credits on qualifying second-hand goods acquired for resale, not automatically on free devices. Not re-researched.  | Accountant. |
 
+> **WP02-01 update (28 Nov 2026):** answered in part. The current instrument is Regulation 2026 No 442 (published 21 Aug 2026); the exemption is now cl 33 and covers *buying or selling goods collected in* a recycling or rubbish collection program. Whether this model is a "program" still needs Fair Trading (WP02-03). See [RECYCLING-PROGRAM-EXEMPTION-RESEARCH-2026-11-28.md](RECYCLING-PROGRAM-EXEMPTION-RESEARCH-2026-11-28.md).
+
 ### WP03 — Insurance and liability
 
 | ID | Status | Finding | Next |

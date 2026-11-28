@@ -1,6 +1,7 @@
 # DubboEwaste
 
 - [NSW recycling programme licence exemption and fee relief — 28 Nov 2026](https://github.com/joshualparris/DubboEwaste/blob/main/docs/NSW-RECYCLING-PROGRAMME-LICENCE-EXEMPTION-2026-11-28.md) — 2020 RIS confirms deliberate expansion beyond councils; 2021 sale/transfer exclusion and historical hardship relief; current 2026 exact text and project applicability remain unverified. Includes activity matrix, comparator evidence, draft charter and Fair Trading enquiry; existing launch HOLD unchanged.
+- [Recycling-program exemption second pass: 2026 clause 33 wording — 28 Nov 2026](https://github.com/joshualparris/DubboEwaste/blob/main/docs/RECYCLING-PROGRAM-EXEMPTION-RESEARCH-2026-11-28.md) — the current exemption (Regulation 2026 No 442 cl 33) covers *buying or selling goods collected in* a recycling or rubbish collection program; "program" is undefined; refurbish-and-sell is arguable, bought stock isn't covered. History 1998–2026, s 4A exemptions, fee waiver, activity matrix, ranked models, draft Fair Trading enquiry, charter and exemption pack (none sent). [PDF](https://github.com/joshualparris/DubboEwaste/blob/main/reports/RECYCLING-PROGRAM-EXEMPTION-2026-11-28.pdf)
 
 - [Research corpus audit and gap reconciliation (28 Nov 2026)](docs/CORPUS-AUDIT-AND-GAP-RECONCILIATION-2026-11-28.md) — 76 pinned branches, 1,107 document versions, corrected evidence and explicit outstanding verification.
 

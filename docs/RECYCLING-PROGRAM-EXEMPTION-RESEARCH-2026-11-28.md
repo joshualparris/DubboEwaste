@@ -208,11 +208,11 @@ The licence obligation is assessed on what a person actually does, across everyt
 
 1. Fair Trading's written view on cl 33 for this model (the gate P0-I05 question).
 2. Full text of the 2026 Regulation: any subclauses of cl 33, the cl 32 waiver wording, the penalty notice schedule, the fees schedule.
-2a. Whether Fair Trading would consider a s 4A exemption for a small program, and its fee and process.
-3. The meaning of "to the extent the person buys" for reselling government surplus.
-4. Whether exempt small fundraisers' appeals are "authorised" for s 4(2)(a).
-5. Licence status of comparable organisations, via the NSW register.
-6. Status of the Fair Trading and Building Legislation Amendment Bill 2026.
+3. Whether Fair Trading would consider a s 4A exemption for a small program, and its fee and process.
+4. The meaning of "to the extent the person buys" for reselling government surplus.
+5. Whether exempt small fundraisers' appeals are "authorised" for s 4(2)(a).
+6. Licence status of comparable organisations, via the NSW register.
+7. Status of the Fair Trading and Building Legislation Amendment Bill 2026.
 
 ## Files
 
