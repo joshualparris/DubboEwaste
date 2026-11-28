@@ -1,0 +1,578 @@
+{
+  "checked": "2026-11-28",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "Pawnbrokers and Second-hand Dealers Regulation 2026 (2026 No 442), version from 21 Aug 2026",
+      "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/2026-08-21/sl-2026-0442",
+      "access": "Official text read through search-index excerpts (cl 1-2, 5(1), 7, 33, government purchase and factory seconds clauses). Direct page fetch failed twice (client error)."
+    },
+    {
+      "id": "S02",
+      "title": "NSW legislation notification, bulletin 23 Aug 2026",
+      "url": "https://legislation.nsw.gov.au/epub?bulletin=20260823",
+      "access": "Search excerpt: Regulation 2026 (2026-442) published LW 21 August 2026."
+    },
+    {
+      "id": "S03",
+      "title": "Pawnbrokers and Second-hand Dealers Regulation 2021, cl 6 and Sch 1",
+      "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/sl-2021-0044",
+      "access": "Page fetched 28 Nov 2026 plus search excerpts of the 12 Feb 2025 version."
+    },
+    {
+      "id": "S04",
+      "title": "Pawnbrokers and Second-hand Dealers Regulation 2015, version 28 Aug 2015, cl 6",
+      "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/2015-08-28/sl-2015-0500",
+      "access": "Search excerpt."
+    },
+    {
+      "id": "S05",
+      "title": "Regulation 2015 compare view 28 Aug 2015 to 26 Jul 2019, cl 6(3)",
+      "url": "https://legislation.nsw.gov.au/view/html/compare/2015-08-28/2019-07-26/sl-2015-0500",
+      "access": "Search excerpt; amending instrument not identified."
+    },
+    {
+      "id": "S06",
+      "title": "Pawnbrokers and Second-hand Dealers Regulation 2003, version 1 Jul 2007, cl 6",
+      "url": "https://legislation.nsw.gov.au/view/whole/html/2007-07-01/sl-2003-0627",
+      "access": "Search excerpt."
+    },
+    {
+      "id": "S07",
+      "title": "Pawnbrokers and Second-hand Dealers Regulation 1997, versions 2001-2003, cl 6A",
+      "url": "https://legislation.nsw.gov.au/view/whole/html/2001-03-31/sl-1997-0163",
+      "access": "Search excerpts; history note 'cl 6A: Ins 24.7.1998'."
+    },
+    {
+      "id": "S08",
+      "title": "Regulatory Impact Statement, proposed Regulation 2020 (NSW Customer Service)",
+      "url": "https://www.productivity.nsw.gov.au/sites/default/files/2020-09/Pawnbrokers%20and%20Second-hand%20Dealers%20Draft%20Regulation%202020.pdf",
+      "access": "PDF fetched 28 Nov 2026: s 5.3 p 13, Appendix 4 p 29, objectives p 4, s 5.2 p 11."
+    },
+    {
+      "id": "S09",
+      "title": "Pawnbrokers and Second-hand Dealers Act 1996, version from 20 Aug 2024",
+      "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/2024-08-20/act-1996-013",
+      "access": "Search excerpts: s 4(1), s 7 penalty, s 38."
+    },
+    {
+      "id": "S10",
+      "title": "Pawnbrokers and Second-hand Dealers Act 1996, version 1 Dec 2014",
+      "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/2014-12-01/act-1996-013",
+      "access": "Search excerpts: s 3 definition of second-hand goods, s 4(2)(a)-(b), s 7. Direct fetch failed."
+    },
+    {
+      "id": "S11",
+      "title": "Pawnbrokers and Second-hand Dealers Act 1996, XML export 11 Aug 2024 (s 38)",
+      "url": "https://legislation.nsw.gov.au/export/xml/2024-08-11/act-1996-013",
+      "access": "Search excerpt."
+    },
+    {
+      "id": "S12",
+      "title": "Act PDF, status page",
+      "url": "https://legislation.nsw.gov.au/view/whole/pdf/inforce/2025-11-12/act-1996-013",
+      "access": "Search excerpt: 'Current version for 20 August 2024 to date (accessed 10 December 2025)'. Direct fetch failed."
+    },
+    {
+      "id": "S13",
+      "title": "Act contents, version 2 Jul 2022",
+      "url": "https://legislation.nsw.gov.au/view/html/inforce/2022-07-02/act-1996-13",
+      "access": "Search excerpt: contents list includes 'Forfeiture of goods dealt with by unlicensed persons'."
+    },
+    {
+      "id": "S14",
+      "title": "NSW Government: Pawnbroker and second-hand dealer licences (updated 1 Sep 2026)",
+      "url": "https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/pawnbrokers-and-second-hand-dealers/pawnbroker-and-second-hand-dealer-licences",
+      "access": "Page fetched 28 Nov 2026."
+    },
+    {
+      "id": "S15",
+      "title": "NSW Government: Running a market stall selling second-hand goods (updated 1 Sep 2026)",
+      "url": "https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/running-a-second-hand-market-stall",
+      "access": "Page fetched 28 Nov 2026."
+    },
+    {
+      "id": "S16",
+      "title": "NSW Government: Limited exemptions for pawnbrokers and second-hand dealers (list as of 27 Feb 2025)",
+      "url": "https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/pawnbrokers-and-second-hand-dealers/limited-exemptions-for-pawnbrokers-and-second-hand-dealers",
+      "access": "Page fetched 28 Nov 2026."
+    },
+    {
+      "id": "S17",
+      "title": "Waste Avoidance and Resource Recovery Act 2001, s 3 (version 1 Jul 2008)",
+      "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/2008-07-01/act-2001-058",
+      "access": "Search excerpt; current version not opened."
+    },
+    {
+      "id": "S18",
+      "title": "NSW EPA: The waste hierarchy",
+      "url": "https://www.epa.nsw.gov.au/Your-environment/Recycling-and-reuse/warr-strategy/The-waste-hierarchy",
+      "access": "Search excerpt."
+    },
+    {
+      "id": "S19",
+      "title": "NSW Government: Authority to fundraise in NSW",
+      "url": "https://www.nsw.gov.au/money-and-taxes/charitable-fundraising/charitable-fundraising-guidelines/authority-to-fundraise-nsw",
+      "access": "Search excerpt."
+    },
+    {
+      "id": "S20",
+      "title": "NSW Government: Conducting an appeal",
+      "url": "https://www.nsw.gov.au/money-and-taxes/charitable-fundraising/charitable-fundraising-guidelines/conducting-an-appeal",
+      "access": "Search excerpt."
+    },
+    {
+      "id": "S21",
+      "title": "ABLIS: Authority to Fundraise for Charitable Purposes (NSW)",
+      "url": "https://ablis.business.gov.au/Redirect/Service/52114e3c-a421-4790-80dd-c2340bf3ef6c",
+      "access": "Search excerpt."
+    },
+    {
+      "id": "S22",
+      "title": "ABLIS: Pawnbroker or Second-Hand Dealer's Licence (NSW)",
+      "url": "https://ablis.business.gov.au/service/nsw/pawnbroker-or-second-hand-dealers-licence/16617",
+      "access": "Search excerpts (names Regulation 2026; eligibility)."
+    },
+    {
+      "id": "S23",
+      "title": "DubboEwaste docs/LEGAL-LICENSING.md (fees recorded from the 1 Sep 2026 Fair Trading page)",
+      "url": "https://github.com/joshualparris/DubboEwaste/blob/main/docs/LEGAL-LICENSING.md",
+      "access": "Repo record; fees not re-read in this pass."
+    },
+    {
+      "id": "S24",
+      "title": "WorkVentures website (home, CircularIT, NSW Device Bank EOI)",
+      "url": "https://workventures.com.au/",
+      "access": "Search excerpts."
+    },
+    {
+      "id": "S25",
+      "title": "Fair Trading and Building Legislation Amendment Bill 2026, first print (Schedule 14)",
+      "url": "https://www.parliament.nsw.gov.au/bill/files/18857/First%20Print.pdf",
+      "access": "Search excerpt; passage status not checked."
+    },
+    {
+      "id": "S26",
+      "title": "Service NSW: Apply for a pawnbroker licence",
+      "url": "https://www.service.nsw.gov.au/transaction/apply-for-a-pawnbroker-licence",
+      "access": "Search excerpt."
+    },
+    {
+      "id": "S27",
+      "title": "Pawnbrokers and Second-hand Dealers Regulation 2008, version 4 Mar 2015, cl 5(3)",
+      "url": "https://legislation.nsw.gov.au/view/whole/html/2015-03-04/sl-2008-0391",
+      "access": "Search excerpt."
+    },
+    {
+      "id": "S28",
+      "title": "Pawnbrokers and Second-hand Dealers Act 1996, current version (s 4A Exemptions)",
+      "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1996-013",
+      "access": "Search excerpts of the official current page: s 4A(1)-(3); history note 's 4A: Ins 2020 No 25'."
+    },
+    {
+      "id": "S29",
+      "title": "Pawnbrokers and Second-hand Dealers Regulation 2021, version 12 Feb 2025 (fee waiver clause)",
+      "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/2025-02-12/sl-2021-0044",
+      "access": "Search excerpt."
+    },
+    {
+      "id": "S30",
+      "title": "Companion report: docs/NSW-RECYCLING-PROGRAMME-LICENCE-EXEMPTION-2026-11-28.md (other session, same day)",
+      "url": "https://github.com/joshualparris/DubboEwaste/blob/main/docs/NSW-RECYCLING-PROGRAMME-LICENCE-EXEMPTION-2026-11-28.md",
+      "access": "Repo record; its findings not re-verified here unless also cited to another source."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "status": "VERIFIED",
+      "claim": "The current instrument is the Pawnbrokers and Second-hand Dealers Regulation 2026 (2026 No 442), published on the NSW legislation website on 21 August 2026. It repeals and replaces the 2021 Regulation.",
+      "sources": "S01;S02;S22",
+      "confidence": "High"
+    },
+    {
+      "id": "E02",
+      "status": "VERIFIED",
+      "claim": "Regulation 2026 cl 33 'Exemption for recycling programs': the Act does not apply to acts or omissions relating to (a) buying or selling goods collected in a recycling program or rubbish collection program, or (b) contracting with another person to give the person ownership of goods collected in such a program.",
+      "sources": "S01",
+      "confidence": "High"
+    },
+    {
+      "id": "E03",
+      "status": "PARTIAL",
+      "claim": "Compared with 2021 cl 6(1), the 2026 clause no longer has a separate limb for 'conducting a recycling program', and limb (a) now covers buying as well as selling. Whether cl 33 has further subclauses was not seen, because the full page could not be opened.",
+      "sources": "S01;S03",
+      "confidence": "Medium"
+    },
+    {
+      "id": "E04",
+      "status": "VERIFIED",
+      "claim": "Neither the Act, the 2026 clause text seen, nor Fair Trading's guidance defines 'recycling program' or 'rubbish collection program'. No registration, approval, minimum volume, entity type, non-profit condition or downstream-recycler condition appears in the text seen.",
+      "sources": "S01;S09;S14",
+      "confidence": "Medium"
+    },
+    {
+      "id": "E05",
+      "status": "VERIFIED",
+      "claim": "History: from 24 Jul 1998 (1997 Reg cl 6A) the exemption covered only acts by a local government council or its employees.",
+      "sources": "S07",
+      "confidence": "High"
+    },
+    {
+      "id": "E06",
+      "status": "VERIFIED",
+      "claim": "2003 and 2015 Regulations limited the exemption to an 'approved person', which included a contractor acting for a council under a contract won by tender.",
+      "sources": "S04;S06",
+      "confidence": "High"
+    },
+    {
+      "id": "E07",
+      "status": "PARTIAL",
+      "claim": "By 26 Jul 2019 the 2015 Regulation also said recycling-program activity carried out in the course of, or ancillary to, a business that does not need a licence was not carrying on a dealer business. The amending instrument and date were not identified.",
+      "sources": "S05",
+      "confidence": "Medium"
+    },
+    {
+      "id": "E08",
+      "status": "VERIFIED",
+      "claim": "2021 Regulation cl 6(1) removed the 'approved person' limit: the Act did not apply to acts in connection with conducting a recycling or rubbish collection program, selling goods collected in one, or contracting to give ownership of such goods.",
+      "sources": "S03",
+      "confidence": "High"
+    },
+    {
+      "id": "E09",
+      "status": "VERIFIED",
+      "claim": "The 2020 RIS says the change expanded the council-only exemption 'to include all recycling programs as well as rubbish collection programs', giving examples of programs run by the Australian Government and community recycling schemes. It states no criteria and does not mention charities, private recyclers or e-waste.",
+      "sources": "S08",
+      "confidence": "High"
+    },
+    {
+      "id": "E10",
+      "status": "VERIFIED",
+      "claim": "The 2020 RIS gives the Act's implied objectives as limiting the traffic in stolen goods through dealer businesses and enhancing NSW Police capability to combat property theft.",
+      "sources": "S08",
+      "confidence": "High"
+    },
+    {
+      "id": "E11",
+      "status": "VERIFIED",
+      "claim": "Act s 7: a person must not carry on a business of buying or selling second-hand goods except in accordance with a licence held by the person. Maximum penalty 100 penalty units.",
+      "sources": "S09;S10",
+      "confidence": "High"
+    },
+    {
+      "id": "E12",
+      "status": "VERIFIED",
+      "claim": "Act s 38: in proceedings, a person who sold second-hand goods on more than 6 days in any 12 months is presumed to be carrying on a business of buying or selling second-hand goods; the presumption can be rebutted.",
+      "sources": "S09;S11",
+      "confidence": "High"
+    },
+    {
+      "id": "E13",
+      "status": "VERIFIED",
+      "claim": "Electronic goods are a prescribed class (2026 Reg cl 5(1)(b)); 2021 wording was 'electric or electronic goods, including mobile phones, global positioning system equipment and audio devices'.",
+      "sources": "S01;S03;S14",
+      "confidence": "High"
+    },
+    {
+      "id": "E14",
+      "status": "VERIFIED",
+      "claim": "Act s 4(2): the Act does not apply to dealing in second-hand goods in the course of a fundraising appeal authorised under the Charitable Fundraising Act 1991, or to the business of an auctioneer.",
+      "sources": "S10;S14",
+      "confidence": "High"
+    },
+    {
+      "id": "E15",
+      "status": "VERIFIED",
+      "claim": "Act s 4(1): the Act does not require a licence for an activity authorised by a licence, permit or other authority under another Act.",
+      "sources": "S09;S10",
+      "confidence": "High"
+    },
+    {
+      "id": "E16",
+      "status": "VERIFIED",
+      "claim": "2026 Reg: the Act does not apply to a person to the extent the person buys second-hand goods from a government sector agency, a statutory public authority or a State owned corporation; nor to a person dealing only in factory seconds.",
+      "sources": "S01",
+      "confidence": "High"
+    },
+    {
+      "id": "E17",
+      "status": "PARTIAL",
+      "claim": "2026 Reg keeps an ancillary-business carve-out (a business not otherwise required to be licensed; uncollected goods, trade-ins and rental goods in the 2021 version). Full 2026 wording not seen.",
+      "sources": "S01;S03;S14",
+      "confidence": "Medium"
+    },
+    {
+      "id": "E18",
+      "status": "VERIFIED",
+      "claim": "Penalty notice for unlicensed dealing (Act s 7) under the 2021 Regulation Sch 1: $1,100 for an individual, $2,200 for a corporation. The 2026 Schedule amount was not read.",
+      "sources": "S03",
+      "confidence": "Medium"
+    },
+    {
+      "id": "E19",
+      "status": "PARTIAL",
+      "claim": "Fees 2026-27 (recorded in repo from the Fair Trading page): new licence $692 for 1 year, $1,574 for 3 years, $2,456 for 5 years; no fee concession found.",
+      "sources": "S23",
+      "confidence": "Medium"
+    },
+    {
+      "id": "E20",
+      "status": "VERIFIED",
+      "claim": "You cannot operate as a second-hand dealer while a licence application is being assessed.",
+      "sources": "S14;S26",
+      "confidence": "High"
+    },
+    {
+      "id": "E21",
+      "status": "VERIFIED",
+      "claim": "Every published limited exemption (list as of 27 Feb 2025) belongs to a named licensee with a licence number and lifts specific duties (ID evidence s 15, records s 16, retention s 21). None removes the licence requirement.",
+      "sources": "S16",
+      "confidence": "High"
+    },
+    {
+      "id": "E22",
+      "status": "VERIFIED",
+      "claim": "Licensed technology businesses on that list include TES-AMM (2PS04726), Asurion (2PS16175), Assurant (2PS20872), Kingfisher Mobile (2PS22126), Industry Trading (2PS23292) and Likewise (2PS26174, 2PS26251).",
+      "sources": "S16",
+      "confidence": "High"
+    },
+    {
+      "id": "E23",
+      "status": "VERIFIED",
+      "claim": "NSW waste law lists reuse, reprocessing, recycling and energy recovery as separate parts of 'resource recovery' (WARR Act s 3; EPA waste hierarchy).",
+      "sources": "S17;S18",
+      "confidence": "High"
+    },
+    {
+      "id": "E24",
+      "status": "INFERENCE",
+      "claim": "Because 'recycling' sits beside 'reuse' in NSW waste law, a regulator or court could read 'recycling program' narrowly and treat a refurbish-and-resell operation as reuse trading, not recycling. Equally, the 2021 RIS intent to cover 'all recycling programs' and community schemes, and industry usage (e.g. WorkVentures calls its reuse work an 'e-waste recycling program'), support a wider reading.",
+      "sources": "S08;S17;S24",
+      "confidence": "Medium"
+    },
+    {
+      "id": "E25",
+      "status": "VERIFIED",
+      "claim": "An individual or organisation conducting a charitable fundraising appeal in NSW needs an authority unless exempt; ACNC charities are eligible; small volunteer-only fundraisers are exempt; ABLIS lists no fee, a $15,000-a-year trigger and 28-day processing.",
+      "sources": "S19;S21",
+      "confidence": "Medium"
+    },
+    {
+      "id": "E26",
+      "status": "VERIFIED",
+      "claim": "A participant may only take part in a fundraising appeal with written authority from the authority holder.",
+      "sources": "S20",
+      "confidence": "High"
+    },
+    {
+      "id": "E27",
+      "status": "UNRESOLVED",
+      "claim": "Whether an appeal by a fundraiser exempt from holding an authority counts as 'authorised under the Charitable Fundraising Act' for Act s 4(2)(a).",
+      "sources": "S10;S19",
+      "confidence": "Low"
+    },
+    {
+      "id": "E28",
+      "status": "NOT_FOUND",
+      "claim": "No NSW court or tribunal decision interpreting 'recycling program' in this legislation was found; no 2026 RIS or consultation paper for the 2026 Regulation was found.",
+      "sources": "S01",
+      "confidence": "Low"
+    },
+    {
+      "id": "E29",
+      "status": "NOT_FOUND",
+      "claim": "The NSW public register for second-hand dealer licences could not be reached with the tools available, so licence status of comparable organisations other than those on the exemptions list was not checked.",
+      "sources": "S16",
+      "confidence": "Low"
+    },
+    {
+      "id": "E30",
+      "status": "PARTIAL",
+      "claim": "A Fair Trading and Building Legislation Amendment Bill 2026 proposes amendments to the Act (Schedule 14, licence cancellation orders). Passage and effect were not checked.",
+      "sources": "S25",
+      "confidence": "Low"
+    },
+    {
+      "id": "E31",
+      "status": "VERIFIED",
+      "claim": "The Act's version current from 20 Aug 2024 was still current when accessed on 10 Dec 2025; the Act includes a provision for forfeiture of goods dealt with by unlicensed persons.",
+      "sources": "S12;S13",
+      "confidence": "Medium"
+    },
+    {
+      "id": "E32",
+      "status": "VERIFIED",
+      "claim": "Act s 4A (inserted 2020): the Secretary may, by written notice, exempt a person from the operation of the Act or specified provisions; an exemption can have conditions and an expiry, can be amended or revoked, and its details must be published.",
+      "sources": "S28",
+      "confidence": "High"
+    },
+    {
+      "id": "E33",
+      "status": "PARTIAL",
+      "claim": "Regulation 2026 has a clause headed 'Powers to waive, reduce, postpone or refund fees' (cl 32). Its wording was not read; the 2021 equivalent allowed this where the person suffers financial hardship or special circumstances exist.",
+      "sources": "S01;S29",
+      "confidence": "Medium"
+    },
+    {
+      "id": "E34",
+      "status": "VERIFIED",
+      "claim": "Regulation 2026 notes the processing fee is discounted for applications made electronically, and that if an application is refused or withdrawn all fees except the processing fee are refunded.",
+      "sources": "S01",
+      "confidence": "Medium"
+    },
+    {
+      "id": "E35",
+      "status": "PARTIAL",
+      "claim": "A companion report the same day reached the same direction (seek written classification; no licence purchase just to remove doubt) but could not read the 2026 wording. It adds Scrap Metal Industry Act obligations for scrap streams, the Service NSW Small Business Advisory program and comparator details; those were not re-verified here.",
+      "sources": "S30",
+      "confidence": "Medium"
+    }
+  ],
+  "activities": [
+    {
+      "id": "A01",
+      "activity": "Free donated computers and laptops, given away free after refurbishment",
+      "buying_or_selling": "No buying or selling",
+      "likely_position": "NOT DEALING",
+      "basis": "s 7 covers a business of buying or selling; gifting is neither.",
+      "what_would_change_it": "Any payment, 'donation' required in return, or swaps.",
+      "confidence": "High"
+    },
+    {
+      "id": "A02",
+      "activity": "Free donated computers and laptops, refurbished and sold",
+      "buying_or_selling": "Selling",
+      "likely_position": "EXEMPT IF GENUINE PROGRAM",
+      "basis": "Reg 2026 cl 33(a) covers selling goods collected in a recycling program; 'program' undefined.",
+      "what_would_change_it": "Fair Trading's written view; whether the operation looks like a genuine program or ordinary trading.",
+      "confidence": "Medium"
+    },
+    {
+      "id": "A03",
+      "activity": "Unwanted phones and tablets collected free, sold",
+      "buying_or_selling": "Selling",
+      "likely_position": "UNCERTAIN",
+      "basis": "Same as A02, but phones are the classic high-theft goods the Act targets, so scrutiny is likelier.",
+      "what_would_change_it": "Fair Trading's view; IMEI and lock checks.",
+      "confidence": "Low"
+    },
+    {
+      "id": "A04",
+      "activity": "Bulk graphics cards and components bought",
+      "buying_or_selling": "Buying and selling",
+      "likely_position": "LICENCE LIKELY",
+      "basis": "Buying from the public or traders is not goods collected in a program, unless bought from a program (cl 33(a)), a government body, or as factory seconds.",
+      "what_would_change_it": "Source of the lots.",
+      "confidence": "Medium"
+    },
+    {
+      "id": "A05",
+      "activity": "Equipment purchased for refurbishment",
+      "buying_or_selling": "Buying and selling",
+      "likely_position": "LICENCE LIKELY",
+      "basis": "Same as A04.",
+      "what_would_change_it": "Buying only from government bodies or from a recycling program.",
+      "confidence": "Medium"
+    },
+    {
+      "id": "A06",
+      "activity": "Equipment collected free from businesses",
+      "buying_or_selling": "Selling (if sold)",
+      "likely_position": "EXEMPT IF GENUINE PROGRAM",
+      "basis": "As A02; business origin does not change the clause.",
+      "what_would_change_it": "If the business is paid a price, it becomes buying.",
+      "confidence": "Medium"
+    },
+    {
+      "id": "A07",
+      "activity": "Repairs to customer-owned devices",
+      "buying_or_selling": "Neither",
+      "likely_position": "NOT DEALING",
+      "basis": "Repair for a fee is a service; the owner keeps title.",
+      "what_would_change_it": "Taking devices as trade-ins or buying them.",
+      "confidence": "High"
+    },
+    {
+      "id": "A08",
+      "activity": "Refurbished electronics sold on eBay or Facebook Marketplace",
+      "buying_or_selling": "Selling",
+      "likely_position": "EXEMPT IF GENUINE PROGRAM",
+      "basis": "Online selling is not treated separately in the text seen; s 38 presumption applies above 6 selling days in 12 months.",
+      "what_would_change_it": "Source of the goods; Fair Trading's view.",
+      "confidence": "Medium"
+    },
+    {
+      "id": "A09",
+      "activity": "Parts harvested from unusable collected devices, sold",
+      "buying_or_selling": "Selling",
+      "likely_position": "UNCERTAIN",
+      "basis": "Arguably still 'goods collected in' the program; not addressed in text or guidance.",
+      "what_would_change_it": "Fair Trading's view.",
+      "confidence": "Low"
+    },
+    {
+      "id": "A10",
+      "activity": "Personal belongings sold occasionally",
+      "buying_or_selling": "Selling",
+      "likely_position": "NOT DEALING",
+      "basis": "Not carrying on a business, but selling on more than 6 days in 12 months raises the s 38 presumption.",
+      "what_would_change_it": "Frequency; mixing with Dubbo eWaste stock.",
+      "confidence": "Medium"
+    },
+    {
+      "id": "A11",
+      "activity": "Commercial IT asset disposal (paid to take corporate gear, then resell)",
+      "buying_or_selling": "Selling",
+      "likely_position": "UNCERTAIN",
+      "basis": "Goods are collected, but a paid ITAD contract looks like ordinary trade.",
+      "what_would_change_it": "Fair Trading's view; contract terms on title.",
+      "confidence": "Low"
+    },
+    {
+      "id": "A12",
+      "activity": "Repair Cafe sessions",
+      "buying_or_selling": "Neither",
+      "likely_position": "NOT DEALING",
+      "basis": "Owners keep their items.",
+      "what_would_change_it": "Selling unclaimed items.",
+      "confidence": "High"
+    },
+    {
+      "id": "A13",
+      "activity": "Selling through a partner charity's fundraising appeal",
+      "buying_or_selling": "Selling (by charity)",
+      "likely_position": "OTHER EXEMPTION",
+      "basis": "Act s 4(2)(a): dealing in the course of a fundraising appeal authorised under the Charitable Fundraising Act 1991. Participants need written authority.",
+      "what_would_change_it": "Charity's authority status; whether an exempt small fundraiser counts as 'authorised'.",
+      "confidence": "Medium"
+    },
+    {
+      "id": "A14",
+      "activity": "Commission or consignment sales for other people",
+      "buying_or_selling": "Selling",
+      "likely_position": "LICENCE LIKELY",
+      "basis": "Selling for others is selling; no exemption found.",
+      "what_would_change_it": "None found.",
+      "confidence": "Medium"
+    },
+    {
+      "id": "A15",
+      "activity": "Government or public-authority surplus bought",
+      "buying_or_selling": "Buying",
+      "likely_position": "OTHER EXEMPTION",
+      "basis": "2026 Reg: the Act does not apply to the extent a person buys from a government sector agency, statutory authority or State owned corporation.",
+      "what_would_change_it": "Whether the onward sale is also covered ('to the extent' wording).",
+      "confidence": "Medium"
+    },
+    {
+      "id": "A16",
+      "activity": "Rejects and scrap given or sold to recyclers",
+      "buying_or_selling": "Selling (if paid)",
+      "likely_position": "EXEMPT IF GENUINE PROGRAM",
+      "basis": "Giving away is not dealing; selling collected goods falls under cl 33(a).",
+      "what_would_change_it": "Payment and the program question.",
+      "confidence": "Medium"
+    }
+  ]
+}

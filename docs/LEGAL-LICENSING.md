@@ -1,6 +1,7 @@
 # Legal and licensing detail
 
 - [NSW recycling programme licence exemption and fee relief — 28 Nov 2026](https://github.com/joshualparris/DubboEwaste/blob/main/docs/NSW-RECYCLING-PROGRAMME-LICENCE-EXEMPTION-2026-11-28.md) — 2020 RIS confirms deliberate expansion beyond councils; 2021 sale/transfer exclusion and historical hardship relief; current 2026 exact text and project applicability remain unverified. Includes activity matrix, comparator evidence, draft charter and Fair Trading enquiry; existing launch HOLD unchanged.
+- [Recycling-program exemption second pass: 2026 clause 33 wording — 28 Nov 2026](https://github.com/joshualparris/DubboEwaste/blob/main/docs/RECYCLING-PROGRAM-EXEMPTION-RESEARCH-2026-11-28.md) — the current exemption (Regulation 2026 No 442 cl 33) covers *buying or selling goods collected in* a recycling or rubbish collection program; "program" is undefined; refurbish-and-sell is arguable, bought stock isn't covered. History 1998–2026, s 4A exemptions, fee waiver, activity matrix, ranked models, draft Fair Trading enquiry, charter and exemption pack (none sent). [PDF](https://github.com/joshualparris/DubboEwaste/blob/main/reports/RECYCLING-PROGRAM-EXEMPTION-2026-11-28.pdf)
 
 ## 1. Second-hand dealer licence (NSW Fair Trading)  [VERIFIED, page updated 1 Sep 2026]
 
@@ -38,6 +39,8 @@ Processing fee ($251 new) is non-refundable. Fees may rise with CPI each 1 July.
 **Exemptions:** An applicant can apply to Fair Trading for an exemption from specific provisions: licensing.exemptions@customerservice.nsw.gov.au (form on the Fair Trading page).
 
 **Recycling-program carve-out:** The earlier 2021 Regulation said the Act doesn't apply to acts connected with conducting a recycling or rubbish collection program, selling goods collected in one, or contracting to give someone ownership of goods collected in one. Whether a private refurb operation is a "program" is not defined in anything I found. **Get Fair Trading's answer in writing.**
+
+> **28 November 2026 update:** the current wording is Regulation 2026 cl 33. The Act does not apply to acts or omissions relating to (a) *buying or selling goods collected in a recycling program or rubbish collection program*, or (b) contracting to give ownership of such goods. Still undefined, still needs Fair Trading's written view. Act s 4A also allows discretionary exemptions, and the 2026 Regulation has a fee-waiver power. See [RECYCLING-PROGRAM-EXEMPTION-RESEARCH-2026-11-28.md](RECYCLING-PROGRAM-EXEMPTION-RESEARCH-2026-11-28.md).
 
 ## 2. Licence-sharing with an employer or related business
 - A licence is held by an individual, partnership or corporation, not a trading name. For "Dubbo eWaste" to be covered, it must be operated **by** the licensed entity, with the shed notified as premises.

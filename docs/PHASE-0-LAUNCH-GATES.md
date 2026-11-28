@@ -104,6 +104,8 @@ Ask the insurer/broker to map exposures to policy wording:
 
 ### P0-I05 — Fair Trading classification and hold workflow are resolved
 
+> 28 Nov 2026: current exemption wording (Regulation 2026 cl 33), activity matrix and the draft written enquiry (not sent) are in [RECYCLING-PROGRAM-EXEMPTION-RESEARCH-2026-11-28.md](RECYCLING-PROGRAM-EXEMPTION-RESEARCH-2026-11-28.md). The gate stays open until Fair Trading answers in writing.
+
 **Meaning:** determine whether this acquisition/refurbishment/resale model requires a second-hand dealer licence or fits an exemption. NSW guidance covers electronic goods and includes a recycling-program exemption; its application to this project remains unresolved. Where the retention rule applies, guidance requires a 14-day hold on notified premises without alteration, subject to exceptions. [S06–S07; EVD-P0-006–007]
 
 **Do before intake:**
