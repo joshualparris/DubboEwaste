@@ -1,5 +1,7 @@
 # DubboEwaste
 
+- **[EcoBatt / EcoCycle — Dubbo electronics supply-chain investigation (28 Nov 2026)](https://github.com/joshualparris/DubboEwaste/blob/main/docs/ECOBATT-ECOCYCLE-DUBBO-RESEARCH-2026-11-28.md)** — 46 source links, named retailer streams, WA regulator-confirmed battery-device pathway, expired Council contract, 100-device reuse pilot and cost scenarios. Dubbo-specific downstream route and corporate ITAD contracts remain unverified.
+
 <!-- DOCUMENTATION-SYNC-2026-10-09 -->
 > **Documentation reviewed 9 October 2026.** For what the running software implements *and what is not yet verified*, read [Live features & verification](docs/LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md). For the full documentation catalogue and historical-source rules, read [Documentation inventory](docs/DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md). Current routes now include a Repair Café Event Desk, volunteer QR check-in, live-queue UI, station dispatch, repair knowledge base, offline-capture client, operations/safety and reports. Code presence does not prove field readiness; do not infer real venue bookings, delivered messages or software production permissions from documentation alone.
 
