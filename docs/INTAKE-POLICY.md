@@ -102,6 +102,7 @@ By approval where there is a known market:
 - fire-affected battery devices
 - water-submerged battery devices
 - e-bike/e-scooter batteries
+- whole e-bikes, e-scooters and other e-micromobility devices for resale (28 Nov 2026 note: from 1 February 2026 NSW requires second-hand e-micromobility devices and batteries to be tested, certified and marked before sale — [master gap v2 WP02-05](MASTER-GAP-RESEARCH-V2-RESULTS-2026-11-28.md#wp02--legal-entity-second-hand-dealing-tax-and-privacy))
 - vapes/e-cigarettes
 - whitegoods
 - printers/scanners unless pre-approved

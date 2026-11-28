@@ -1,5 +1,7 @@
 # Documentation hub
 
+**Master gap research v2 (28 November 2026):** [Results](MASTER-GAP-RESEARCH-V2-RESULTS-2026-11-28.md) and [prompt](MASTER-GAP-RESEARCH-V2-PROMPT-2026-11-28.md) — every recorded gap swept into 69 questions; what changed, which gates moved, and the contact/pilot/decision pack.
+
 **EcoCycle / EcoBatt supply chain (28 November 2026):** [Investigation](ECOBATT-ECOCYCLE-DUBBO-RESEARCH-2026-11-28.md) and [second-pass verification with datasets, diagrams and PDF](ECOCYCLE-ECOBATT-DUBBO-SUPPLY-CHAIN-RESEARCH-2026-11-28.md) — where Dubbo phones, computers and batteries go, why the reuse window closes at the bin, and which partners to approach first. No contact made; no partnership exists.
 
 **Bench intake (27 November 2026):** [Numbered laptop intake 1–10](LAPTOP-INTAKE-2026-11-27.md) — photo-based triage of ten laptops, first restoration pick (#2 ZenBook Pro Duo) and second-pass label checks; public-safe, no serials or customer details.

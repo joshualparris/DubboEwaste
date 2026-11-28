@@ -1,0 +1,15 @@
+work_package,name,mined_lines_primary,mined_lines_any,questions_in_register
+WP00,Unclassified / navigation,248,248,0
+WP01,"Premises, planning and property",72,72,8
+WP02,"Legal entity, second-hand dealing, tax and privacy",56,65,9
+WP03,Insurance and liability,45,64,5
+WP04,"Council, Whylandra and regional waste flow",125,160,7
+WP05,Downstream recyclers and stewardship schemes,104,178,7
+WP06,"Supply, institutional disposal and procurement",111,170,6
+WP07,"Data sanitisation, operating systems, locks and ownership",182,302,5
+WP08,"Battery, electrical safety and WHS",66,149,5
+WP09,"Triage, repair, testing, parts and skills",184,409,4
+WP10,"Market, pricing, economics and capacity",60,263,3
+WP11,"Repair Café, digital inclusion and community",17,126,4
+WP12,"Policy, funding, circular economy and impact",35,372,4
+WP13,"Governance, records, software and research integrity",153,861,2
