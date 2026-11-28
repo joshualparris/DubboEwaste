@@ -1,0 +1,16 @@
+stream,organisation,provider,scope,confidence,local_route_status,source
+customer_battery_phone,BIG W,EcoBatt / EcoCycle,national,A,unverified,https://www.bigw.com.au/sustainability/recycling-unit
+customer_battery_phone,Woolworths,EcoBatt,national,A,unverified,https://www.woolworths.com.au/shop/about/sustainability/recycling/battery-mobile-recycling-unit
+customer_battery,Coles,EcoBatt / Close the Loop,national,A,allocation unknown,https://www.coles.com.au/about/sustainability/our-commitment/battery-recycling
+customer_battery,Bunnings,EcoBatt,national,A,unverified,https://trade.bunnings.com.au/trade-services/battery-recycling
+customer_phone,JB Hi-Fi,Eco E-Waste names bins,national,A,unverified,https://www.ecoewaste.net/recycle-mobile-phones/
+trade_in,JB Hi-Fi,Assurant,national,A,not recycling bin,https://www.jbhifi.com.au/pages/tradein
+customer_computer,The Good Guys,Ecycle Solutions,Dubbo directory,B,confirm current contract,https://www.recyclingnearyou.com.au/business/14792
+customer_computer,Officeworks,unconfirmed,national,A,unverified,https://www.officeworks.com.au/information/about-us/recycling
+customer_computer,Harvey Norman,Ecycle Solutions,participating stores,A,Dubbo participation unverified,https://www.harveynorman.com.au/e-waste
+customer_battery,ALDI,unconfirmed,national,A,unverified,https://www.aldi.com.au/sustainability/good-planet/battery-recycling
+customer_phone,Mobile carriers,MobileMuster,industry programme,A,individual stores unverified,https://www.mobilemuster.com.au/about-us/
+council_ewaste,Dubbo Regional Council,Matthews Metals,historical contract,A,expired 2025-06-30,https://www.dubbo.nsw.gov.au/ArticleDocuments/242/Waste_Strategy_2025_Adopted.pdf.aspx
+corporate_IT,BIG W / Woolworths,unknown,Dubbo,C,no public contract found,https://www.woolworthsgroup.com.au/au/en/our-impact/sustainability/human-rights/responsible-sourcing-program.html
+commercial_ewaste,AMR Dubbo,downstream unknown,Dubbo,B,no destination established,https://github.com/joshualparris/DubboEwaste/blob/main/docs/AMR-DUBBO-DOWNSTREAM-FORENSIC.md
+embedded_battery,WA EcoCycle,Campbellfield BIDS,WA only,A,not evidence for Dubbo,https://www.der.wa.gov.au/images/documents/our-work/licences-and-works-approvals/Decisions_/L2956/L2956%2016-10-2025%20DR.pdf
