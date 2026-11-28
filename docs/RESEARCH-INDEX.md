@@ -1,5 +1,7 @@
 # Canonical research index
 
+- **[Master gap-closing research — 28 November 2026](https://github.com/joshualparris/DubboEwaste/blob/main/docs/MASTER-GAP-RESEARCH-RESULTS-2026-11-28.md)** — [120-question prompt](https://github.com/joshualparris/DubboEwaste/blob/main/docs/MASTER-GAP-RESEARCH-PROMPT-2026-11-28.md), [machine-readable answer register](https://github.com/joshualparris/DubboEwaste/blob/main/docs/data/master-gap-questions-2026-11-28.csv). 4 bounded public answers, 39 partial, 41 external-blocked, 36 pilot/test-dependent. Existing launch gates remain unchanged; no field approvals or partnerships claimed. Includes regional infrastructure consultation (closes 30 Nov 2026), procurement and NSW Device Bank updates.
+
 <!-- DOCUMENTATION-SYNC-2026-10-09 -->
 > **Current reference (9 October 2026):** This file is an index of dated research, not the current software roadmap. For the **complete current document file inventory**, see [Documentation freshness inventory](DOCUMENTATION-INVENTORY-AND-FRESHNESS-2026-10-09.md), and for actual app capabilities/database status see [Live features & verification](LIVE-FEATURES-AND-VERIFICATION-2026-10-09.md). Avoid using 2–8 October research gaps as proof a now-shipped app feature is still missing, or vice versa: software completion does not confirm a real-world partner agreement.
 
