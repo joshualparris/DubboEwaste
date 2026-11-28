@@ -1,0 +1,108 @@
+name: One-off read-only research corpus extraction
+on:
+  push:
+    branches: ['research/corpus-audit-2026-11-28']
+    paths: ['.github/workflows/research-corpus-audit-2026-11-28.yml']
+permissions:
+  contents: read
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Extract pinned repository document blobs
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import csv, json, os, re, subprocess, collections, hashlib, pathlib, tempfile, shutil, zipfile
+          from xml.etree import ElementTree
+          out=pathlib.Path("corpus-audit-output"); out.mkdir(exist_ok=True)
+          refs=json.loads("[{\"name\":\"admin-crud-console\",\"sha\":\"04578d866c8d71ce51fba1194d52f99f0fae0327\"},{\"name\":\"assetflow-delete-mistaken-assets\",\"sha\":\"39d289175b7808eba08e0f4fa5d802a4a13a7862\"},{\"name\":\"assetflow-inventory-filters\",\"sha\":\"1f6ee9e54e432b7baa7133a4071deb03ee045648\"},{\"name\":\"assetflow-lifecycle-engine\",\"sha\":\"cac0735bfcb5488e4e81a140bfdae468e3dcd1de\"},{\"name\":\"assetflow-lifecycle-integration\",\"sha\":\"cac0735bfcb5488e4e81a140bfdae468e3dcd1de\"},{\"name\":\"auth/separate-repair-cafe-access\",\"sha\":\"108b3e03f7e4718b1e0a5579904c9208725ad310\"},{\"name\":\"autopatch/dependabot-cooldown\",\"sha\":\"12437055613ef4bbed3aee96e472dff3047ac7d0\"},{\"name\":\"chatgpt/asset-label-print-button\",\"sha\":\"b051926b92485ba7503f3f06a4c7cd333a3e256d\"},{\"name\":\"chatgpt/asset-qr-scanner\",\"sha\":\"3eadf27d3f3b6008d866fbd78f0c5c6d35f5b6e8\"},{\"name\":\"chatgpt/batch-asset-label-printing\",\"sha\":\"f0970aff92b008fc4e9d326c4f33ad2e756d3f48\"},{\"name\":\"claude/frp-cost-research-2026-11-27\",\"sha\":\"e06fc7b01ac423567f0e3b2d965e752905859080\"},{\"name\":\"dependabot/github_actions/actions/checkout-7\",\"sha\":\"f94233613843a24b45ba376ce610cce50e49aa13\"},{\"name\":\"dependabot/github_actions/actions/setup-node-7\",\"sha\":\"8609f96b3f807f85c40a03894e0e4b321ddd8362\"},{\"name\":\"dependabot/github_actions/actions/setup-python-7\",\"sha\":\"c4ebb229200d7338fe3c6a99747abe898e7eef45\"},{\"name\":\"docs/notebooklm-itad-fact-check-20261006\",\"sha\":\"4bbaf0adea7090c809612391787a1fffb1232802\"},{\"name\":\"feat/assetflow-appearance-settings-20261011\",\"sha\":\"fadf9e5e0441cbc96c2ede8ecae348b776f287fb\"},{\"name\":\"feat/barcode-intake-public-lookups-20261005\",\"sha\":\"b7d4a0fd6e78906ba6953700d8b444d7cc223925\"},{\"name\":\"feat/barcode-intake-public-lookups-v2\",\"sha\":\"a01cad5f4ca4a87c158b320f3e426a5438c6d068\"},{\"name\":\"feat/council-agreement-governance-20261020\",\"sha\":\"ddcd787dd6bca89871f5ec316f0669629649b01a\"},{\"name\":\"feat/council-custody-chain-20261020\",\"sha\":\"e783ca6434d40fcc7df0978f73d4170eca5f2abf\"},{\"name\":\"feat/council-pilot-release-controls-20261020\",\"sha\":\"85105701b229d3d3405ee56058c04d3c846ed0bc\"},{\"name\":\"feat/council-risk-management-20261020\",\"sha\":\"24df06440239dda814aa93b632e71d3b38b855cf\"},{\"name\":\"feat/device-intelligence-sources-20261005\",\"sha\":\"0d2e518b78d3f6d8879703c9236444afa87c8f06\"},{\"name\":\"feat/ipad-legacy-assistant-20261118\",\"sha\":\"7b3f2f1a2a6888860f9f6961748459e1bf2f4d9e\"},{\"name\":\"feat/ipad-legacy-assistant-v2\",\"sha\":\"a9e964fb5a33bede40ab047ffe61bb5be32ec6fd\"},{\"name\":\"feat/learning-audio-observed-mastery-20261011\",\"sha\":\"ce1e3f1b1fc79d3318a6d92ff23c8ceb6e193045\"},{\"name\":\"feat/lms-inline-media-playback-20261011\",\"sha\":\"ac4e6ede7f939afa96bb1d0d48fa14daf1bac708\"},{\"name\":\"feat/mastery-repair-pricing-studio-20261011\",\"sha\":\"f89644e8213a44b80f0cfc0c036a8a0bd2d9aea7\"},{\"name\":\"feat/pricing-quote-studio-clean-20261011\",\"sha\":\"fe66ebf51471f7f2e30b26c9216a8b7e3085c7d3\"},{\"name\":\"feat/repair-pricing-curated-video-podcast-20261011\",\"sha\":\"d8397a26a982eafd571c10c13ca312bb25c43f31\"},{\"name\":\"feat/repair-pricing-mastery-20261011\",\"sha\":\"53253f065cd09143b2444980f04d1124131c9aba\"},{\"name\":\"feat/universal-device-recovery-20261118\",\"sha\":\"797909d9d4e0c283d6a012498dd771eaaee56fa5\"},{\"name\":\"feature/adaptive-mastery-20261011\",\"sha\":\"055dc57c33b66bd612fa920ca55caf5765cb193b\"},{\"name\":\"feature/circular-learning-lms\",\"sha\":\"5898237d94a9b283e6db891852690cc491b89a3a\"},{\"name\":\"feature/learning-media-assessments-v2\",\"sha\":\"aa41543bbbaea111bae10bad1e828fac1abbb327\"},{\"name\":\"feature/learning-media-v2-reconciled\",\"sha\":\"44b91309c4eac850cea917ad274bc3fb4d99ef70\"},{\"name\":\"feature/repair-cafe-dubbo-community-site\",\"sha\":\"2f433ba922a48a5cbe5e0005540ae625ae50d54a\"},{\"name\":\"feature/ssd-refurb-depth-integrated-2026-10-11\",\"sha\":\"47124474315eb7cc6c90696723f4cc5e3c13f6bf\"},{\"name\":\"feature/ssd-upgrade-mastery-2026-10-11\",\"sha\":\"b4e9d2c331e696dbf8c8da0feb6b26c8cd2e9290\"},{\"name\":\"feature/volunteer-learning-recall-20261011\",\"sha\":\"4dd56f2e98d066fb5bae4d43ff674bf763a28def\"},{\"name\":\"fix/assessment-answer-length-bias-20261011\",\"sha\":\"cf842bea018c360e108aa5dc11a073c5d7527376\"},{\"name\":\"fix/council-pilot-approval-and-downstream-gates\",\"sha\":\"a96a72fb2d9be241c86b07dc92c952d2921f7df6\"},{\"name\":\"fix/documentation-inventory-2026-10-11\",\"sha\":\"fd596434ea9f137494d0c88af5336342ad24d7b8\"},{\"name\":\"fix/model-search-and-build-20261005\",\"sha\":\"3dd7b4ce27bdc557baee881a0d7ae01cf0f16244\"},{\"name\":\"fix/playable-pricing-media-restore-podcasts-20261011\",\"sha\":\"84333f37eda180f7991e0d3b18007ef560229443\"},{\"name\":\"fix/recovery-empty-scan-20261118\",\"sha\":\"876ac9a975d27e162b35653744c03a34c7147790\"},{\"name\":\"fix/repair-cafe-checkin-session-time-20261107\",\"sha\":\"f736bc41226782242ca0754e7a95d9e1ad4eb6e2\"},{\"name\":\"fix/repair-cafe-form-validation-lock\",\"sha\":\"15ccf27752dfa8f9452668e2a2b051040a51cddf\"},{\"name\":\"fix/smart-intake-programme-admin\",\"sha\":\"dc4eb8580d2032b2fdf47739c52acf4bdeeeecba\"},{\"name\":\"fix-ci-audit-20261019\",\"sha\":\"bffccb0bc4e16996f058f1528324eb408e9b8931\"},{\"name\":\"gh-pages\",\"sha\":\"5a91a5d624d09515e48c5a237c78e1f33b657ce9\"},{\"name\":\"improve/pricing-cap-judgement-20261011\",\"sha\":\"ab37ec4afcbf7b5183dea9df0744c701dae8f52d\"},{\"name\":\"intake-2026-11-27-adapters\",\"sha\":\"61df3af7fdd9d29a7caea18825b86110bb83b01e\"},{\"name\":\"intake-2026-11-27-second-pass\",\"sha\":\"1a331f1201989723f02d320ad8babb224b2e3106\"},{\"name\":\"itad-partner-unlock-queue-20261127\",\"sha\":\"dbcfe373cd30990f288eb183b00e70c17cf8a035\"},{\"name\":\"main\",\"sha\":\"50ef5896942b2b89a6782e1e02a9e80d9006dbed\"},{\"name\":\"project-health-audit-rotation\",\"sha\":\"89418515fa39a7f0831daa96c2840a20bb539704\"},{\"name\":\"repo-navigation-cleanup\",\"sha\":\"17fe2cec20b61051a61fffb32f4ae61d1104c861\"},{\"name\":\"research/amr-dubbo-openness-2026-11-25\",\"sha\":\"b40fe6bdfd39ed4a51ef23d1e0746b1bce5e16b2\"},{\"name\":\"research/dubbo-circular-economy-2026-10-08\",\"sha\":\"4fa60fc23d63ab780203a788bf684e306da33292\"},{\"name\":\"research/dubbo-repair-ewaste-2026-10-06\",\"sha\":\"07d655d3b7580e6c92fa63dc4e776e42e9567a0f\"},{\"name\":\"research/ecocycle-dubbo-second-pass-2026-11-28\",\"sha\":\"6ace207a28ff579c6547cf773fd07e9ecc0c9412\"},{\"name\":\"research/master-gap-v2-2026-11-28\",\"sha\":\"0e1ed24254ec396e7c74585c5589a7827dedb8c1\"},{\"name\":\"research/regional-computer-experts-2026-10-06\",\"sha\":\"b37a670fb508feb14014b07233da810f3e297e42\"},{\"name\":\"research/regional-itad-deep-research-2026-10-05\",\"sha\":\"0a93b74997d77f8afd94a906fa62967f5bc21757\"},{\"name\":\"reuseos-v0.2\",\"sha\":\"6cb7fedc5b734ceaeefc99a1bbe3783c9d1a30e7\"},{\"name\":\"salvage/assetflow-lifecycle-model-from-pr3\",\"sha\":\"add941310a1ccd722af266b25a18e7924a918e8d\"},{\"name\":\"security/ewaste-next-zod-20261116\",\"sha\":\"b3e674ca1d90ba66bac340504bf79904f8262527\"},{\"name\":\"smart-intake-auto-register\",\"sha\":\"ce10660a59cf0aca102f9a4aaf40f40f2c3f08a8\"},{\"name\":\"smart-intake-camera-first\",\"sha\":\"f6c78aca65ec7a4959e11e8a97e42c844dbdccd0\"},{\"name\":\"smart-intake-cloudflare-verified\",\"sha\":\"18f6d87298d32a14b9b8af3c07fb9a76b11086af\"},{\"name\":\"smart-intake-fix-runtime-oidc\",\"sha\":\"7a9b8153df50d9d00c1eebe91570fae891ce2167\"},{\"name\":\"smart-intake-inline-custody\",\"sha\":\"09157a21d65a075624a39806a71930bacdacd486\"},{\"name\":\"smart-intake-photo-review\",\"sha\":\"05e69fff02ec97c32cd27f4f260ec6365697cd54\"},{\"name\":\"ux/repair-cafe-volunteer-login-link\",\"sha\":\"99801a6c87b14b594f98b6dab58fa6a6f7874201\"},{\"name\":\"ux/simplify-repair-cafe-public\",\"sha\":\"add82448df2e82dc90c657f86134ce12b1460179\"}]")
+          exts={".md",".mdx",".txt",".pdf",".docx",".csv",".json",".yaml",".yml",".html",".htm",".rst",".zip"}
+          def git(*args): return subprocess.check_output(["git",*args])
+          def relevant(path):
+              p=pathlib.PurePosixPath(path)
+              if p.suffix.lower() not in exts: return False
+              if any(x in {"node_modules","vendor",".git","dist","build"} for x in p.parts): return False
+              if p.name in {"package-lock.json","pnpm-lock.yaml","yarn.lock"}: return False
+              return True
+          records={}; refs_status=[]
+          for ref in refs:
+              try:
+                  raw=git("ls-tree","-r","-z",ref["sha"])
+                  entries=0
+                  for row in raw.split(b"\0"):
+                      if not row: continue
+                      meta,path=row.split(b"\t",1)
+                      mode,kind,sha=meta.decode().split()
+                      path=path.decode("utf-8","replace")
+                      if kind!="blob" or not relevant(path): continue
+                      entries+=1
+                      v=records.setdefault(sha,{"paths":set(),"refs":set()})
+                      v["paths"].add(path); v["refs"].add(ref["name"])
+                  refs_status.append({**ref,"status":"scanned_tree","document_entries":entries})
+              except subprocess.CalledProcessError as e: refs_status.append({**ref,"status":"tree_failed","error":str(e)})
+          # Treat repository text as untrusted data. No repo script, macro, link or archive code is executed.
+          gap=re.compile(r"\b(?:unresolved|unverified|unknown|not (?:yet )?(?:confirmed|established|verified|tested|found|available)|requires? (?:direct|written|external|further|field)|needs? (?:confirmation|verification|research)|evidence gap|outstanding|to be confirmed|must confirm|blocked|open question)\b|^\s*[-*]\s*\[ \]",re.I)
+          sensitive=re.compile(r"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}|(?:\+61|0)[\s()\-]*[23478](?:[\s()\-]*\d){8}\b|\b(?:sk-[A-Za-z0-9_-]{15,}|gh[pousr]_[A-Za-z0-9_]{15,})\b",re.I)
+          def parse_blob(raw, suffix):
+              if raw.startswith(b"version https://git-lfs.github.com/spec/v1"): return None,"git_lfs_pointer"
+              if suffix==".pdf":
+                  if not shutil.which("pdftotext"): return None,"pdftotext_unavailable"
+                  try:
+                      p=subprocess.run(["pdftotext","-layout","-","-"],input=raw,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=25,check=True)
+                      return p.stdout.decode("utf-8","replace"),"pdf_text_extracted"
+                  except Exception as e: return None,"pdf_extraction_failed:"+type(e).__name__
+              if suffix==".docx":
+                  try:
+                      import io
+                      with zipfile.ZipFile(io.BytesIO(raw)) as z:
+                          info=z.getinfo("word/document.xml")
+                          if info.file_size>20_000_000:return None,"docx_xml_size_limit"
+                          root=ElementTree.fromstring(z.read(info))
+                          ns={"w":"http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+                          return "\n".join("".join(t.text or "" for t in p.findall(".//w:t",ns)) for p in root.findall(".//w:p",ns)),"docx_text_extracted"
+                  except Exception as e:return None,"docx_extraction_failed:"+type(e).__name__
+              if suffix==".zip":return None,"archive_inventory_only"
+              if b"\x00" in raw[:8192]:return None,"binary_not_text"
+              try:return raw.decode("utf-8-sig"),"utf8_full"
+              except UnicodeDecodeError:return raw.decode("utf-8","replace"),"utf8_replacement"
+          summary=collections.Counter()
+          with (out/"documents.jsonl").open("w",encoding="utf-8") as docs,(out/"gap-candidates.jsonl").open("w",encoding="utf-8") as gaps,(out/"manifest.csv").open("w",encoding="utf-8",newline="") as mf:
+              fields=["blob_sha","sha256","bytes","paths","branch_count","in_main","extraction_status","text_chars","line_count","gap_candidates"]
+              w=csv.DictWriter(mf,fieldnames=fields);w.writeheader()
+              for sha,record in sorted(records.items()):
+                  paths=sorted(record["paths"]); branches=sorted(record["refs"])
+                  suffix=pathlib.PurePosixPath(paths[0]).suffix.lower()
+                  try:
+                      raw=git("cat-file","blob",sha)
+                      txt,status=parse_blob(raw,suffix)
+                  except Exception as e: raw=b"";txt=None;status="blob_failed:"+type(e).__name__
+                  lines=txt.splitlines() if txt is not None else []
+                  hits=[]
+                  for i,line in enumerate(lines,1):
+                      if gap.search(line):
+                          hits.append({"line":i,"text":sensitive.sub("[redacted]",line)[:2000]})
+                  w.writerow({"blob_sha":sha,"sha256":hashlib.sha256(raw).hexdigest(),"bytes":len(raw),"paths":json.dumps(paths),"branch_count":len(branches),"in_main":"main" in branches,"extraction_status":status,"text_chars":len(txt or ""),"line_count":len(lines),"gap_candidates":len(hits)})
+                  summary[status]+=1
+                  if txt is not None:
+                      docs.write(json.dumps({"sha":sha,"paths":paths,"branches":branches,"text":txt},ensure_ascii=False)+"\n")
+                  for hit in hits:gaps.write(json.dumps({"sha":sha,"paths":paths,"in_main":"main" in branches,**hit},ensure_ascii=False)+"\n")
+                  summary["candidate_lines"]+=len(hits)
+                  if "main" in branches: summary["unique_main_blobs"]+=1
+                  else: summary["unique_branch_only_blobs"]+=1
+          report={"pinned_refs":len(refs),"trees_ok":sum(r["status"]=="scanned_tree" for r in refs_status),"unique_document_blobs":len(records),"counts":dict(summary),"limitations":["Mechanical extraction and candidate matching, not semantic human/AI review.","Image-only PDF pages, archive members, LFS pointers, binary formats and extraction failures require separate review.","No Google Drive data included. No production changes."]}
+          (out/"branches.json").write_text(json.dumps(refs_status,indent=2),encoding="utf-8")
+          (out/"summary.json").write_text(json.dumps(report,indent=2),encoding="utf-8")
+          print(json.dumps(report,indent=2))
+          
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: research-corpus-audit-2026-11-28
+          path: corpus-audit-output/
+          retention-days: 1
