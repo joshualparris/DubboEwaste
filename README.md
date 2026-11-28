@@ -1,5 +1,8 @@
 # DubboEwaste
 
+- [Research corpus audit and gap reconciliation (28 Nov 2026)](docs/CORPUS-AUDIT-AND-GAP-RECONCILIATION-2026-11-28.md) — 76 pinned branches, 1,107 document versions, corrected evidence and explicit outstanding verification.
+
+
 - **[Master gap-closing research — 28 November 2026](https://github.com/joshualparris/DubboEwaste/blob/main/docs/MASTER-GAP-RESEARCH-RESULTS-2026-11-28.md)** — [120-question prompt](https://github.com/joshualparris/DubboEwaste/blob/main/docs/MASTER-GAP-RESEARCH-PROMPT-2026-11-28.md), [machine-readable answer register](https://github.com/joshualparris/DubboEwaste/blob/main/docs/data/master-gap-questions-2026-11-28.csv). 4 bounded public answers, 39 partial, 41 external-blocked, 36 pilot/test-dependent. Existing launch gates remain unchanged; no field approvals or partnerships claimed. Includes regional infrastructure consultation (closes 30 Nov 2026), procurement and NSW Device Bank updates.
 
 - **[Master gap research v2 — every open question (28 Nov 2026)](https://github.com/joshualparris/DubboEwaste/blob/main/docs/MASTER-GAP-RESEARCH-V2-RESULTS-2026-11-28.md)** — machine sweep of 1,458 open-gap lines across all research repos, consolidated into 69 questions with closure modes; 16 desk questions answered with sources (Sircel administration, NSW battery scheme live, e-micromobility resale ban, electrical resale and licensing position, home-business exemption, ESU to Oct 2027, device banks), field-closure pack for the rest. [Prompt](https://github.com/joshualparris/DubboEwaste/blob/main/docs/MASTER-GAP-RESEARCH-V2-PROMPT-2026-11-28.md) · [register](https://github.com/joshualparris/DubboEwaste/blob/main/data/master-gap-v2-2026-11-28/question-register.csv).
