@@ -1024,3 +1024,524 @@
   confidence: Medium
   notes: Proposed product ambition, not current implementation, exhaustive vendor inventory or independently measured
     superiority.
+
+# EcoCycle / EcoBatt Dubbo supply-chain research — 28 November 2026
+- id: EVD-ECO-01
+  claim: EcoCycle Group describes itself as comprising EcoCycle, EcoBatt, EcoBatt Safety, Eco E-Waste, Recycal,
+    Castings Tasmania and ACL Metal Powders.
+  type: Verified Fact
+  source: EcoCycle — About EcoCycle (group companies)
+  url: https://ecocycle.com.au/?p=6079
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Company claim] Company/retailer self-description; Self-description; ASIC group structure not
+    checked.'
+- id: EVD-ECO-02
+  claim: Doug Rowe is publicly described as EcoCycle Group Chief Executive Officer / Managing Director; Nick Dodd
+    as EcoCycle General Manager; Tom Susen as Group Risk and Compliance Manager.
+  type: Verified Fact
+  source: Waste Management Review — EcoCycle celebrates 30 years
+  url: https://wastemanagementreview.com.au/ecocycle-celebrates-30-years-of-specialist-recycling/
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Company claim] Company/retailer self-description; Trade-press profile quoting the company.'
+- id: EVD-ECO-03
+  claim: The group is 'owned by the Rowe family'.
+  type: Research Lead
+  source: EcoCycle — Ecocycle now under new ownership (2014)
+  url: https://ecocycle.com.au/ecocycle-now-new-ownership
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: Medium
+  notes: '[PARTIAL; Historical evidence] 2014: Ecocycle assets bought from CMA Recycling receivers and placed under
+    management of Nick Dodd and Doug Rowe; Doug described as owner of Recycal; Recycal described as family-owned.
+    Group-level shareholding needs an ASIC extract (companion report agrees ownership not established).'
+- id: EVD-ECO-04
+  claim: EcoCycle publicly contrasts itself with recyclers that wipe and on-sell computers, stating that it physically
+    destroys data-bearing items.
+  type: Verified Fact
+  source: EcoCycle — Certified destruction / what happens to your data
+  url: https://ecocycle.com.au/certified-destruction-cma-ecocycle-destroys-personal-information-attached-items-recycled/
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Company claim] Company/retailer self-description; Supports the destruction-first characterisation
+    for EcoCycle itself.'
+- id: EVD-ECO-05
+  claim: Eco E-Waste's secure data disposal page promises physical destruction and says it does not refurbish or
+    resell e-waste.
+  type: Verified Fact
+  source: Eco E-Waste — Secure data disposal (via companion [3])
+  url: https://ecoewaste.com.au/secure-data-disposal/
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: Medium
+  notes: '[CORROBORATED; Company claim] Read by the companion 28 Nov report; this pass could not retrieve the page.
+    Consistent with E04. Screenshot with date before quoting verbatim.'
+- id: EVD-ECO-06
+  claim: Eco E-Waste is EcoCycle's electronics recycling company with national pick-up coverage, sorting into material
+    streams and robotic removal of mercury-containing parts.
+  type: Verified Fact
+  source: EcoCycle — E-waste recycling and mercury recovery (Eco E-Waste)
+  url: https://ecocycle.com.au/e-waste-recycling-mercury-recovery/
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Company claim] Company/retailer self-description;'
+- id: EVD-ECO-07
+  claim: EcoCycle claims AS 5377 certification and was reported in April 2025 as achieving R2v3 certification.
+  type: Verified Fact
+  source: EcoCycle — How do I safely recycle old hard drives? (AS 5377)
+  url: https://ecocycle.com.au/?p=4687
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[VERIFIED; Company claim] Company/retailer self-description; Certificates, sites and R2v3 scope/appendices
+    (e.g. any test-and-repair scope) not inspected.'
+- id: EVD-ECO-08
+  claim: Ecocycle Pty Ltd's FY23/24 NTCRS annual report records 85,333 kg collected against a co-regulatory recycling
+    target of 77,466 kg.
+  type: Verified Fact
+  source: Ecocycle Pty Ltd NTCRS annual report FY23/24 (DCCEEW)
+  url: https://www.dcceew.gov.au/sites/default/files/documents/ecocycle-ntcrs-annual-report-fy-23-24.pdf
+  date_checked: '2026-11-28'
+  verification_method: Public registry
+  confidence: High
+  notes: '[VERIFIED; Independently verified fact] Published on DCCEEW. Indicates a small NTCRS footprint relative
+    to the scheme.'
+- id: EVD-ECO-09
+  claim: Ecocycle is a current approved NTCRS co-regulatory arrangement.
+  type: Verified Fact
+  source: National EPA — NTCRS co-regulatory arrangements
+  url: https://www.nationalepa.gov.au/node/269
+  date_checked: '2026-11-28'
+  verification_method: Public registry
+  confidence: High
+  notes: '[VERIFIED; Independently verified fact] Prior repo research used the DCCEEW list of 20 May 2026; National
+    EPA now administers the list — re-check before relying on it.'
+- id: EVD-ECO-10
+  claim: 'EcoBatt/EcoCycle opened a battery-in-device shredding (BIDS) plant in Campbellfield (launch reported 3
+    Sep 2025) with $2 million from Victoria''s Circular Economy Infrastructure Fund: Hazardous Waste Round 3, recovering
+    up to 95% of materials at up to 1 t/hour.'
+  type: Verified Fact
+  source: Victorian Premier — First of a kind battery recycling in Victoria
+  url: https://www.premier.vic.gov.au/first-kind-battery-recycling-victoria
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Independently verified fact] Government release plus industry report.'
+- id: EVD-ECO-11
+  claim: A separate April 2024 Victorian announcement awarded $2.5 million to Ecobatt for a lithium battery processing
+    plant in Campbellfield; Sustainability Victoria lists Ecocycle Pty Ltd as project lead.
+  type: Verified Fact
+  source: Sustainability Victoria — funded project, Ecobatt battery plant
+  url: https://sustainability.vic.gov.au/grants-funding-and-investment/grants-and-funding/ecobatts-turnkey-lithium-battery-processing-and-recycling-plant
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Independently verified fact] Do not merge with the $2m BIDS grant without checking whether
+    they are the same project.'
+- id: EVD-ECO-12
+  claim: EcoBatt claims about 7,500 public drop-off points and a company-owned transport fleet.
+  type: Verified Fact
+  source: Recycling Near You — World-first battery recycling plant opens (3 Sep 2025)
+  url: https://recyclingnearyou.com.au/news/world-first-battery-recycling-plant-opens-in-melbourne
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[VERIFIED; Company claim] Company/retailer self-description; Claim reported in trade press; not independently
+    audited.'
+- id: EVD-ECO-13
+  claim: Woolworths offers battery and mobile phone recycling units in all supermarkets with Ecobatt; items are
+    collected by EcoCycle, sorted and sent for recycling; customers are told to delete data first.
+  type: Verified Fact
+  source: Woolworths — Battery & mobile phone recycling unit
+  url: https://woolworths.com.au/shop/discover/sustainability/recycling-unit
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Company claim] Company/retailer self-description; Dubbo store-level presence not confirmed
+    by visit.'
+- id: EVD-ECO-14
+  claim: In 2021 Woolworths said Ecobatt would split batteries for recycling and send remaining phone components
+    to MobileMuster.
+  type: Verified Fact
+  source: Woolworths Group — national network of 1,000 collection bins (Apr 2021)
+  url: https://woolworthsgroup.com.au/au/en/our-newsroom/latest-news/2021/woolworths-to-make-battery-recycling-easier-with-national-network-of-1000-collection-bins.html
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[VERIFIED; Historical evidence] May have changed since 2021.'
+- id: EVD-ECO-15
+  claim: BIG W added household battery and mobile phone recycling units to all 177 stores (from Oct 2022); BIG W's
+    page names EcoBatt/EcoCycle, mentions MobileMuster and prohibits retrieval of deposited devices.
+  type: Verified Fact
+  source: Woolworths Group — BIG W sustainability progress (2023)
+  url: https://woolworthsgroup.com.au/au/en/our-newsroom/media-releases/latest-news/2023/big-w-says-goodbye-to-soft-plastic--shopping-bags-in-nationwide-.html
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: High
+  notes: '[CORROBORATED; Company claim] Store rollout verified in this pass; recycler and no-retrieval terms read
+    by the companion report.'
+- id: EVD-ECO-16
+  claim: Coles battery bins are managed by Close the Loop and Ecobatt under B-cycle.
+  type: Verified Fact
+  source: Coles — Battery recycling
+  url: https://www.coles.com.au/about/sustainability/our-commitment/battery-recycling
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Company claim] Company/retailer self-description; Batteries only; no phone collection stated.'
+- id: EVD-ECO-17
+  claim: Bunnings battery units are serviced by Ecobatt and do not accept products with embedded batteries.
+  type: Verified Fact
+  source: Bunnings — Battery recycling
+  url: https://www.bunnings.com.au/qr-cat-f-battery-recycling
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Company claim] Company/retailer self-description;'
+- id: EVD-ECO-18
+  claim: JB Hi-Fi stores have battery and phone collection points (Eco E-Waste names JB bins); JB's booked e-waste
+    service is with Ecoactiv; consumer trade-in is via Assurant; JB Hi-Fi Business ITAD uses a certified partner
+    with Blancco erasure.
+  type: Verified Fact
+  source: Recycling Near You — Batteries (JB Hi-Fi collection points)
+  url: https://recyclingnearyou.com.au/batteries
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: Medium
+  notes: '[CORROBORATED; Company claim] Eco E-Waste bin naming and Assurant trade-in read by the companion report;
+    Dubbo store operator not confirmed.'
+- id: EVD-ECO-19
+  claim: The Good Guys accepts small e-waste and batteries in store, has TV e-waste cages at selected stores and
+    runs a trade-in portal; a Dubbo listing names Ecycle Solutions for TVs/computers.
+  type: Verified Fact
+  source: The Good Guys — E-waste & battery recycling
+  url: https://www.thegoodguys.com.au/e-waste-recycling
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: Medium
+  notes: '[CORROBORATED; Company claim] Dubbo Ecycle Solutions listing read by the companion report; current contract
+    to confirm. EcoBatt battery partnership unconfirmed.'
+- id: EVD-ECO-20
+  claim: Ecycle Solutions is a wholly owned QLS Group subsidiary and a separate NTCRS co-regulator, historically
+    collecting via retailer drop-offs including Harvey Norman and The Good Guys.
+  type: Verified Fact
+  source: Ecycle Solutions NTCRS annual report 2020 (QLS Group subsidiary)
+  url: https://www.agriculture.gov.au/sites/default/files/documents/ecycle-solutions-annual-report-2020.pdf
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Independently verified fact] Not part of EcoCycle Group. Current Dubbo retail role unconfirmed.'
+- id: EVD-ECO-21
+  claim: MobileMuster says collected items are dismantled in Australia and that circuit boards, batteries and plastics
+    are processed by its recycling partner in Singapore.
+  type: Verified Fact
+  source: MobileMuster — FAQs (processing locations)
+  url: https://www.mobilemuster.com.au/faqs
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Company claim] Company/retailer self-description;'
+- id: EVD-ECO-22
+  claim: In 2019 MobileMuster's manager said none of the phones it collects are resold and data is destroyed during
+    disassembly.
+  type: Verified Fact
+  source: 'Waste Management Review Jul 2019 — MobileMuster: none of the phones are resold'
+  url: https://issuu.com/primecreativemedia-2016/docs/wmr0719_lr/s/10446164
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[VERIFIED; Historical evidence] Policy may have changed; re-confirm.'
+- id: EVD-ECO-23
+  claim: MobileMuster partners with charities such as The Reconnect Project (reuse) and acts as recycling partner
+    for commercial reuse programs.
+  type: Verified Fact
+  source: MobileMuster — Reuse (charity and trade-in partners)
+  url: https://mobilemuster.com.au/reuse/
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Company claim] Company/retailer self-description; This is the most transferable reuse-partner
+    model found.'
+- id: EVD-ECO-24
+  claim: Spyro Kalos was quoted in September 2025 as EcoCycle's National Partnerships Manager for Australia and
+    New Zealand (he was previously MobileMuster's manager).
+  type: Verified Fact
+  source: Resource Recycling — Australia opens world's first BIDS plant (11 Sep 2025)
+  url: https://resource-recycling.com/e-scrap/2025/09/11/australia-opens-worlds-first-battery-in-device-shredding-plant/
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[VERIFIED; Independently verified fact] Role may have changed; confirm before writing.'
+- id: EVD-ECO-25
+  claim: Officeworks Bring it Back says items may be reused or repurposed by charitable organisations where appropriate,
+    or recycled through certified partners; over 11,000 tonnes collected since 2015 including trade-in.
+  type: Verified Fact
+  source: Officeworks — Recycling at Officeworks / Bring it Back
+  url: https://www.officeworks.com.au/information/about-us/sustainability/environment/recycling
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Company claim] Company/retailer self-description; Reuse share and Dubbo handling unknown.'
+- id: EVD-ECO-26
+  claim: Officeworks' trade-in partner Moorup kept 4,753 products in use in 2024; Officeworks also partners with
+    Circonomy.
+  type: Verified Fact
+  source: Wesfarmers FY2024 — Officeworks circularity and waste
+  url: https://www.wesfarmers.com.au/sustainability/fy2024/our-businesses/officeworks/circularity-and-waste
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Company claim] Company/retailer self-description;'
+- id: EVD-ECO-27
+  claim: Dubbo has Officeworks, JB Hi-Fi Home and BIG W/Woolworths (Orana Mall), Harvey Norman (223 Cobra St) and
+    The Good Guys stores.
+  type: Verified Fact
+  source: Harvey Norman — Dubbo store
+  url: https://stores.harveynorman.com.au/harvey-norman-dubbo-nsw
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Independently verified fact] Coles, ALDI, Bunnings and telco store presence not checked this
+    session.'
+- id: EVD-ECO-28
+  claim: Whylandra accepts household e-waste free, operates under EPL 6058 and participates in the NSW EPA embedded
+    battery trial.
+  type: Verified Fact
+  source: Dubbo Regional Council — Whylandra Waste and Recycling Centre
+  url: https://www.dubbo.nsw.gov.au/Households-Residents/Rubbish-Recycling-and-Sustainability/whylandra-waste-recycling-centre
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Independently verified fact]'
+- id: EVD-ECO-29
+  claim: The NSW EPA embedded batteries trial ran from September 2024 to September 2026, Dubbo was among the first
+    21 CRCs, and NTCRS products such as laptops are excluded and sent to e-waste collection.
+  type: Verified Fact
+  source: NSW EPA — Embedded batteries trial
+  url: https://www.epa.nsw.gov.au/embedded-batteries
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Independently verified fact] Processor and post-September 2026 status unknown.'
+- id: EVD-ECO-30
+  claim: Council small CRC stations at Dubbo and Wellington customer centres and Dubbo library accept mobile phones
+    and accessories, smoke detectors and ink cartridges.
+  type: Verified Fact
+  source: Dubbo Regional Council — Council waste facilities (CRC small stations)
+  url: https://www.dubbo.nsw.gov.au/Households-Residents/Rubbish-Recycling-and-Sustainability/council-waste-facilities
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Independently verified fact] Downstream collector not named.'
+- id: EVD-ECO-31
+  claim: Council's recorded Matthews Metals e-waste arrangement expired 30 June 2025; the current contractor is
+    not publicly verified.
+  type: Verified Fact
+  source: Repo — Council Whylandra approval dossier (20 Oct 2026)
+  url: https://github.com/joshualparris/DubboEwaste/blob/main/docs/COUNCIL-WHYLANDRA-APPROVAL-DOSSIER-2026-10-20.md
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Historical evidence] From prior repository research.'
+- id: EVD-ECO-32
+  claim: The NTCRS operates under the Recycling and Waste Reduction Act 2020 and 2021 Rules; the National EPA became
+    its regulator on 1 July 2026.
+  type: Verified Fact
+  source: DCCEEW — National Television and Computer Recycling Scheme
+  url: https://www.dcceew.gov.au/environment/protection/waste/product-stewardship/television-computer-recycling-scheme
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Independently verified fact]'
+- id: EVD-ECO-33
+  claim: The PC interim report found the NTCRS focus on recycling results in some functional or repairable products
+    being dismantled or destroyed, and recommended reuse and repair targets (Rec 9.2).
+  type: Verified Fact
+  source: Productivity Commission — Circular economy interim report (Mar 2025)
+  url: https://assets.pc.gov.au/2025-05/circular-economy-interim.pdf
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Independently verified fact] Recommendation, not law.'
+- id: EVD-ECO-34
+  claim: The PC circular economy final report was handed to Government on 22 August 2025, released 16 January 2026
+    and tabled 23 January 2026.
+  type: Verified Fact
+  source: Productivity Commission — Circular economy final report page
+  url: https://www.pc.gov.au/inquiries-and-research/circular-economy/report
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Independently verified fact]'
+- id: EVD-ECO-35
+  claim: Ecocycle lodged a final-round submission (No. 217) to the PC inquiry, received 11 April 2025.
+  type: Verified Fact
+  source: Productivity Commission — Circular economy submissions list (Ecocycle No. 217)
+  url: https://www.pc.gov.au/inquiries-and-research/circular-economy/submissions/
+  date_checked: '2026-11-28'
+  verification_method: Public registry
+  confidence: High
+  notes: '[VERIFIED; Independently verified fact] Existence only.'
+- id: EVD-ECO-36
+  claim: Ecocycle's submission prioritises NTCRS reform and audit transparency before reuse targets and stresses
+    consumer expectations of destruction.
+  type: Verified Fact
+  source: PC submission 217 — Ecocycle, p3 (via companion [35])
+  url: https://assets.pc.gov.au/392368/sub217-circular-economy.pdf
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: Medium
+  notes: '[CORROBORATED; Independently verified fact] Page 3 read by the companion report; not re-read in this pass.'
+- id: EVD-ECO-37
+  claim: NSW's Product Lifecycle Responsibility Act 2025 was assented 9 April 2025; the Product Lifecycle Responsibility
+    Regulation 2026 creates a mandatory battery stewardship scheme, with embedded batteries in policy scope.
+  type: Verified Fact
+  source: NSW Legislation — Product Lifecycle Responsibility Act 2025 No 22
+  url: https://legislation.nsw.gov.au/view/html/inforce/2025-04-09/act-2025-022/lh
+  date_checked: '2026-11-28'
+  verification_method: Public registry
+  confidence: High
+  notes: '[VERIFIED; Independently verified fact] Commencement dates for specific obligations not confirmed.'
+- id: EVD-ECO-38
+  claim: WorkVentures told the PC that the NTCRS disincentivises device reuse for digital inclusion.
+  type: Verified Fact
+  source: PC submission 089 — WorkVentures (NTCRS disincentivises reuse)
+  url: https://pc.gov.au/__data/assets/pdf_file/0006/387465/sub089-circular-economy.pdf
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Independently verified fact] Stakeholder view.'
+- id: EVD-ECO-39
+  claim: ANZRP (TechCollect) told the PC that the NTCRS framework does not recognise or reward product reuse.
+  type: Verified Fact
+  source: PC submission 195 — ANZRP comment on interim report
+  url: https://assets.pc.gov.au/392246/sub195-circular-economy.pdf
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Independently verified fact] Stakeholder view from a co-regulator.'
+- id: EVD-ECO-40
+  claim: Telstra trade-in is managed by Assurant; Vodafone says traded-in devices may be refurbished, resold or
+    recycled; telco stores host MobileMuster bins.
+  type: Verified Fact
+  source: Telstra — Trade-in (managed by Assurant)
+  url: https://telstra.com.au/trade-in
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED; Company claim] Company/retailer self-description; Trade-in is a reuse stream that bypasses
+    recycling bins.'
+- id: EVD-ECO-41
+  claim: EcoCycle has a NSW site at 22 Christie Street, St Marys, under NSW EPL 21136.
+  type: Verified Fact
+  source: NSW EPA public register — EPL 21136 (via companion [6])
+  url: https://apps.epa.nsw.gov.au/prpoeoapp/ViewPOEOLicence.aspx?DOCID=211294&LICID=21136&SYSUID=1
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: Medium
+  notes: '[CORROBORATED; Independently verified fact] EPL read by the companion report; licence scope/limits and
+    the 02 9833 4155 number still to verify. Not evidence of a Dubbo route.'
+- id: EVD-ECO-42
+  claim: EcoCycle lists sites including Rocherlea (Tas), Kwinana (WA) and Auckland (NZ); its Campbellfield battery
+    sorting and BIDS hub is at 5–11 Reo Crescent.
+  type: Verified Fact
+  source: EcoCycle — Contact (sites)
+  url: https://ecocycle.com.au/contact
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: Medium
+  notes: '[CORROBORATED; Company claim] Reo Crescent address from EcoBatt site page cited by the companion report.'
+- id: EVD-ECO-43
+  claim: Dubbo Regional LGA population is about 57,400 (ABS ERP series).
+  type: Verified Fact
+  source: City Population — Dubbo Regional (ABS ERP series)
+  url: https://www.citypopulation.de/en/australia/admin/new_south_wales/12390__dubbo_regional
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[VERIFIED; Independently verified fact] Secondary aggregator of ABS data.'
+- id: EVD-ECO-44
+  claim: Australia generates roughly 23 kg of e-waste per person per year (Global E-waste Monitor 2019 as cited
+    by Officeworks).
+  type: Verified Fact
+  source: Officeworks media release Nov 2021 (23 kg per person, GEM 2019)
+  url: https://www.Officeworks.Com.Au/resources/pdfs/media-centre/PressRelease_BringitBack_NOV21.pdf
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[VERIFIED; Independently verified fact] National average, all electrical equipment by weight — not a Dubbo
+    device count.'
+- id: EVD-ECO-45
+  claim: EcoCycle/EcoBatt's visible Dubbo footprint is retail battery and phone bins, not general computer collection.
+  type: Hypothesis
+  source: Victorian Premier — Boosting Victoria's battery recovery industry (Apr 2024)
+  url: https://www.premier.vic.gov.au/boosting-victorias-battery-recovery-industry
+  date_checked: '2026-11-28'
+  verification_method: Industry inference
+  confidence: Medium
+  notes: '[INFERENCE; Reasonable inference] Bin programmes accept batteries, phones and wearables; Bunnings excludes
+    embedded-battery products. Store-by-store Dubbo bins not checked.'
+- id: EVD-ECO-46
+  claim: Phones placed in Woolworths/BIG W units are on a recycling and data-destruction pathway; diverting them
+    to reuse would conflict with depositors' expectations and the programme's stated purpose.
+  type: Hypothesis
+  source: Woolworths — Battery & mobile phone recycling unit
+  url: https://woolworths.com.au/shop/discover/sustainability/recycling-unit
+  date_checked: '2026-11-28'
+  verification_method: Industry inference
+  confidence: Medium
+  notes: '[INFERENCE; Reasonable inference] Legal title transfer at deposit not established.'
+- id: EVD-ECO-47
+  claim: EcoBatt and ecoe-waste are registered business names of ECOCYCLE PTY LTD (ABN 76 146 190 516), not necessarily
+    separate legal subsidiaries.
+  type: Verified Fact
+  source: ABR — ECOCYCLE PTY LTD, ABN 76 146 190 516 (via companion [1])
+  url: https://abr.business.gov.au/ABN/View?id=76146190516
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: High
+  notes: '[CORROBORATED; Independently verified fact] ABR record cited by the companion report.'
+- id: EVD-ECO-48
+  claim: A WA regulator decision (Oct 2025) records EcoCycle's WA site routing embedded-battery products, including
+    laptops, tablets and phones, to the Campbellfield BIDS plant.
+  type: Verified Fact
+  source: WA DWER decision report L2956/2025/1 (via companion [13])
+  url: https://www.der.wa.gov.au/images/documents/our-work/licences-and-works-approvals/Decisions_/L2956/L2956%2016-10-2025%20DR.pdf
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: Medium
+  notes: '[CORROBORATED; Independently verified fact] WA route only; not evidence of the NSW/Dubbo route.'
+- id: EVD-ECO-49
+  claim: Council's adopted Waste Strategy records the Matthews Metals e-waste contract as 30 June 2023 to 30 June
+    2025, and names separate CRC battery contractors.
+  type: Verified Fact
+  source: Dubbo Regional Council — Waste Strategy 2025 adopted, contract table p49 (via companion [31])
+  url: https://www.dubbo.nsw.gov.au/ArticleDocuments/242/Waste_Strategy_2025_Adopted.pdf.aspx
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: High
+  notes: '[CORROBORATED; Historical evidence] Consistent with prior repo research (E31).'
+- id: EVD-ECO-50
+  claim: Harvey Norman offers e-waste through Ecycle Solutions at participating stores.
+  type: Verified Fact
+  source: Harvey Norman — E-waste (via companion [27])
+  url: https://www.harveynorman.com.au/e-waste
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: Medium
+  notes: '[CORROBORATED; Company claim] Dubbo participation unconfirmed.'
+- id: EVD-ECO-51
+  claim: Queensland announced a $10 million grant for an EcoBatt all-chemistries battery plant at Hemmant on 26
+    November 2026.
+  type: Verified Fact
+  source: Queensland Government statement 106498 (via companion [12])
+  url: https://statements.qld.gov.au/statements/106498
+  date_checked: '2026-11-28'
+  verification_method: Independent secondary source
+  confidence: Medium
+  notes: '[CORROBORATED; Independently verified fact] Planned infrastructure; not a Dubbo route.'

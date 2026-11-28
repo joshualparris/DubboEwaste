@@ -99,3 +99,9 @@ When a historical document conflicts with `CURRENT-STATE.md`, use the current-st
 ## Dubbo technology business field guide — 10 October 2026
 
 [Full research and learning module](DUBBO-TECH-BUSINESS-FIELD-GUIDE-2026-10-10.md): 14 businesses, 15 locations, 67 sources, public role maps, workplace evidence, project experiments and a 30-day plan. Also available as `dubbo-business-field-guide` in the shared LMS. [Snapshot manifest](DUBBO-TECH-RESEARCH-MANIFEST.md).
+
+## EcoCycle / EcoBatt and Dubbo's e-waste supply chain — 28 November 2026
+
+- [EcoBatt / EcoCycle Dubbo supply-chain investigation](ECOBATT-ECOCYCLE-DUBBO-RESEARCH-2026-11-28.md) — corporate/legal-name findings (ABR), St Marys EPL, WA BIDS routing, retailer streams, expired Council contract, 100-device pilot and variable-cost scenarios.
+- [Second-pass verification](ECOCYCLE-ECOBATT-DUBBO-SUPPLY-CHAIN-RESEARCH-2026-11-28.md) — claim check of the preliminary summary, reconciliation with the investigation, phones → MobileMuster chain and reuse-partner model, Officeworks/Circonomy route, Whylandra embedded-battery trial, ranked partnership models, FTE-based scenarios. [PDF](../reports/ECOCYCLE-ECOBATT-DUBBO-SUPPLY-CHAIN-2026-11-28.pdf) · [datasets](../data/ecocycle-dubbo-2026-11-28/) · [prompt](ECOCYCLE-DUBBO-SUPPLY-CHAIN-RESEARCH-PROMPT-2026-11-28.md) · [draft enquiries (not sent)](../templates/ecocycle-mobilemuster-officeworks-enquiry-drafts-2026-11-28.md).
+- Neither establishes a Dubbo shipment to EcoCycle, a current Council contractor or any permission to divert collected equipment.

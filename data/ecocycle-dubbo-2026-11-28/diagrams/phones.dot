@@ -1,0 +1,16 @@
+digraph phones {
+  rankdir=TB; node [shape=box, style="rounded,filled", fillcolor="#f5f5f5", fontname="Helvetica", fontsize=10]; edge [fontname="Helvetica", fontsize=9];
+  owner [label="Dubbo phone owner"];
+  trade [label="Telco / retailer trade-in\n(e.g. Telstra via Assurant)", fillcolor="#e3f2e1"];
+  charity [label="MobileMuster charity reuse partner\n(e.g. The Reconnect Project)", fillcolor="#e3f2e1"];
+  bins [label="Woolworths / BIG W / JB / IGA units\nCouncil small stations"];
+  telco [label="Telco store MobileMuster bin"];
+  eco [label="Ecobatt / EcoCycle\ncollect + sort"];
+  mm [label="MobileMuster\ndismantled in Australia"];
+  sg [label="Boards, batteries, plastics\nprocessed in Singapore"];
+  owner -> trade [label="reuse"]; owner -> charity [label="donate (reuse)"];
+  owner -> bins [label="recycle"]; owner -> telco [label="recycle"];
+  bins -> eco [label="verified nationally"]; eco -> mm [label="2021 statement", style=dashed];
+  telco -> mm; mm -> sg;
+  bins -> mm [label="council stations:\ncollector unnamed", style=dotted];
+}

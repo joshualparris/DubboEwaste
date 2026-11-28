@@ -1,6 +1,8 @@
 # EcoBatt / EcoCycle: Dubbo electronic-waste supply-chain investigation
 28 November 2026 | Public-source research | AUD | No partnership, access or disposal authority granted.
 
+> **Second pass:** independently cross-checked the same day in [ECOCYCLE-ECOBATT-DUBBO-SUPPLY-CHAIN-RESEARCH-2026-11-28.md](ECOCYCLE-ECOBATT-DUBBO-SUPPLY-CHAIN-RESEARCH-2026-11-28.md) (evidence register, MobileMuster/Officeworks reuse routes, Whylandra battery trial, diagrams, PDF).
+
 ## Executive verdict
 EcoBatt and ecoe-waste are registered business names of ECOCYCLE PTY LTD, ABN 76 146 190 516 [1], not necessarily separate legal subsidiaries. EcoCycle is an approved NTCRS co-regulatory arrangement [2]. Its secure-disposal page promises physical destruction and no refurbishment/resale of e-waste [3]. This is a company policy, not proof every asset of every customer is destroyed or that all group contracts prohibit reuse. BIG W explicitly prohibits retrieval of deposited mobile devices [4]. The actionable opportunity is an owner-approved separate reuse-first intake BEFORE surrender to recycling, not salvage from existing bins. No Dubbo-to-EcoCycle shipment or corporate ITAD contract has been traced.
 
