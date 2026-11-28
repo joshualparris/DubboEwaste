@@ -1,5 +1,7 @@
 # DubboEwaste
 
+- **[Master gap-closing research — 28 November 2026](https://github.com/joshualparris/DubboEwaste/blob/main/docs/MASTER-GAP-RESEARCH-RESULTS-2026-11-28.md)** — [120-question prompt](https://github.com/joshualparris/DubboEwaste/blob/main/docs/MASTER-GAP-RESEARCH-PROMPT-2026-11-28.md), [machine-readable answer register](https://github.com/joshualparris/DubboEwaste/blob/main/docs/data/master-gap-questions-2026-11-28.csv). 4 bounded public answers, 39 partial, 41 external-blocked, 36 pilot/test-dependent. Existing launch gates remain unchanged; no field approvals or partnerships claimed. Includes regional infrastructure consultation (closes 30 Nov 2026), procurement and NSW Device Bank updates.
+
 - **[EcoBatt / EcoCycle — Dubbo electronics supply-chain investigation (28 Nov 2026)](https://github.com/joshualparris/DubboEwaste/blob/main/docs/ECOBATT-ECOCYCLE-DUBBO-RESEARCH-2026-11-28.md)** — 46 source links, named retailer streams, WA regulator-confirmed battery-device pathway, expired Council contract, 100-device reuse pilot and cost scenarios. Dubbo-specific downstream route and corporate ITAD contracts remain unverified.
 
 <!-- DOCUMENTATION-SYNC-2026-10-09 -->
