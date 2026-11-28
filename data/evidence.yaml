@@ -1778,3 +1778,415 @@
   verification_method: Independent secondary source
   confidence: Medium
   notes: '[ANSWERED] Next: Plan without NTCRS reuse credit.'
+# Recycling-program exemption research — 28 November 2026
+- id: EVD-RPE-001
+  claim: The current instrument is the Pawnbrokers and Second-hand Dealers Regulation 2026 (2026 No 442), published
+    on the NSW legislation website on 21 August 2026. It repeals and replaces the 2021 Regulation.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E01: Pawnbrokers and Second-hand Dealers Regulation 2026 (2026 No
+    442), version from 21 Aug 2026'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2026-08-21/sl-2026-0442
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S01, S02, S22. Official text read through search-index excerpts (cl 1-2, 5(1), 7, 33,
+    government purchase and factory seconds clauses). Direct page fetch failed twice (client error).'
+- id: EVD-RPE-002
+  claim: 'Regulation 2026 cl 33 ''Exemption for recycling programs'': the Act does not apply to acts or omissions
+    relating to (a) buying or selling goods collected in a recycling program or rubbish collection program, or (b)
+    contracting with another person to give the person ownership of goods collected in such a program.'
+  type: Verified Fact
+  source: 'Recycling-program exemption research E02: Pawnbrokers and Second-hand Dealers Regulation 2026 (2026 No
+    442), version from 21 Aug 2026'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2026-08-21/sl-2026-0442
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S01. Official text read through search-index excerpts (cl 1-2, 5(1), 7, 33, government
+    purchase and factory seconds clauses). Direct page fetch failed twice (client error).'
+- id: EVD-RPE-003
+  claim: Compared with 2021 cl 6(1), the 2026 clause no longer has a separate limb for 'conducting a recycling program',
+    and limb (a) now covers buying as well as selling. Whether cl 33 has further subclauses was not seen, because
+    the full page could not be opened.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E03: Pawnbrokers and Second-hand Dealers Regulation 2026 (2026 No
+    442), version from 21 Aug 2026'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2026-08-21/sl-2026-0442
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[PARTIAL] Sources S01, S03. Official text read through search-index excerpts (cl 1-2, 5(1), 7, 33, government
+    purchase and factory seconds clauses). Direct page fetch failed twice (client error).'
+- id: EVD-RPE-004
+  claim: Neither the Act, the 2026 clause text seen, nor Fair Trading's guidance defines 'recycling program' or
+    'rubbish collection program'. No registration, approval, minimum volume, entity type, non-profit condition or
+    downstream-recycler condition appears in the text seen.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E04: Pawnbrokers and Second-hand Dealers Regulation 2026 (2026 No
+    442), version from 21 Aug 2026'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2026-08-21/sl-2026-0442
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[VERIFIED] Sources S01, S09, S14. Official text read through search-index excerpts (cl 1-2, 5(1), 7, 33,
+    government purchase and factory seconds clauses). Direct page fetch failed twice (client error).'
+- id: EVD-RPE-005
+  claim: 'History: from 24 Jul 1998 (1997 Reg cl 6A) the exemption covered only acts by a local government council
+    or its employees.'
+  type: Verified Fact
+  source: 'Recycling-program exemption research E05: Pawnbrokers and Second-hand Dealers Regulation 1997, versions
+    2001-2003, cl 6A'
+  url: https://legislation.nsw.gov.au/view/whole/html/2001-03-31/sl-1997-0163
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S07. Search excerpts; history note ''cl 6A: Ins 24.7.1998''.'
+- id: EVD-RPE-006
+  claim: 2003 and 2015 Regulations limited the exemption to an 'approved person', which included a contractor acting
+    for a council under a contract won by tender.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E06: Pawnbrokers and Second-hand Dealers Regulation 2015, version
+    28 Aug 2015, cl 6'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2015-08-28/sl-2015-0500
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S04, S06. Search excerpt.'
+- id: EVD-RPE-007
+  claim: By 26 Jul 2019 the 2015 Regulation also said recycling-program activity carried out in the course of, or
+    ancillary to, a business that does not need a licence was not carrying on a dealer business. The amending instrument
+    and date were not identified.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E07: Regulation 2015 compare view 28 Aug 2015 to 26 Jul 2019, cl
+    6(3)'
+  url: https://legislation.nsw.gov.au/view/html/compare/2015-08-28/2019-07-26/sl-2015-0500
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[PARTIAL] Sources S05. Search excerpt; amending instrument not identified.'
+- id: EVD-RPE-008
+  claim: '2021 Regulation cl 6(1) removed the ''approved person'' limit: the Act did not apply to acts in connection
+    with conducting a recycling or rubbish collection program, selling goods collected in one, or contracting to
+    give ownership of such goods.'
+  type: Verified Fact
+  source: 'Recycling-program exemption research E08: Pawnbrokers and Second-hand Dealers Regulation 2021, cl 6 and
+    Sch 1'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/sl-2021-0044
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S03. Page fetched 28 Nov 2026 plus search excerpts of the 12 Feb 2025 version.'
+- id: EVD-RPE-009
+  claim: The 2020 RIS says the change expanded the council-only exemption 'to include all recycling programs as
+    well as rubbish collection programs', giving examples of programs run by the Australian Government and community
+    recycling schemes. It states no criteria and does not mention charities, private recyclers or e-waste.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E09: Regulatory Impact Statement, proposed Regulation 2020 (NSW
+    Customer Service)'
+  url: https://www.productivity.nsw.gov.au/sites/default/files/2020-09/Pawnbrokers%20and%20Second-hand%20Dealers%20Draft%20Regulation%202020.pdf
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S08. PDF fetched 28 Nov 2026: s 5.3 p 13, Appendix 4 p 29, objectives p 4, s 5.2 p
+    11.'
+- id: EVD-RPE-010
+  claim: The 2020 RIS gives the Act's implied objectives as limiting the traffic in stolen goods through dealer
+    businesses and enhancing NSW Police capability to combat property theft.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E10: Regulatory Impact Statement, proposed Regulation 2020 (NSW
+    Customer Service)'
+  url: https://www.productivity.nsw.gov.au/sites/default/files/2020-09/Pawnbrokers%20and%20Second-hand%20Dealers%20Draft%20Regulation%202020.pdf
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S08. PDF fetched 28 Nov 2026: s 5.3 p 13, Appendix 4 p 29, objectives p 4, s 5.2 p
+    11.'
+- id: EVD-RPE-011
+  claim: 'Act s 7: a person must not carry on a business of buying or selling second-hand goods except in accordance
+    with a licence held by the person. Maximum penalty 100 penalty units.'
+  type: Verified Fact
+  source: 'Recycling-program exemption research E11: Pawnbrokers and Second-hand Dealers Act 1996, version from
+    20 Aug 2024'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2024-08-20/act-1996-013
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S09, S10. Search excerpts: s 4(1), s 7 penalty, s 38.'
+- id: EVD-RPE-012
+  claim: 'Act s 38: in proceedings, a person who sold second-hand goods on more than 6 days in any 12 months is
+    presumed to be carrying on a business of buying or selling second-hand goods; the presumption can be rebutted.'
+  type: Verified Fact
+  source: 'Recycling-program exemption research E12: Pawnbrokers and Second-hand Dealers Act 1996, version from
+    20 Aug 2024'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2024-08-20/act-1996-013
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S09, S11. Search excerpts: s 4(1), s 7 penalty, s 38.'
+- id: EVD-RPE-013
+  claim: Electronic goods are a prescribed class (2026 Reg cl 5(1)(b)); 2021 wording was 'electric or electronic
+    goods, including mobile phones, global positioning system equipment and audio devices'.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E13: Pawnbrokers and Second-hand Dealers Regulation 2026 (2026 No
+    442), version from 21 Aug 2026'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2026-08-21/sl-2026-0442
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S01, S03, S14. Official text read through search-index excerpts (cl 1-2, 5(1), 7, 33,
+    government purchase and factory seconds clauses). Direct page fetch failed twice (client error).'
+- id: EVD-RPE-014
+  claim: 'Act s 4(2): the Act does not apply to dealing in second-hand goods in the course of a fundraising appeal
+    authorised under the Charitable Fundraising Act 1991, or to the business of an auctioneer.'
+  type: Verified Fact
+  source: 'Recycling-program exemption research E14: Pawnbrokers and Second-hand Dealers Act 1996, version 1 Dec
+    2014'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2014-12-01/act-1996-013
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S10, S14. Search excerpts: s 3 definition of second-hand goods, s 4(2)(a)-(b), s 7.
+    Direct fetch failed.'
+- id: EVD-RPE-015
+  claim: 'Act s 4(1): the Act does not require a licence for an activity authorised by a licence, permit or other
+    authority under another Act.'
+  type: Verified Fact
+  source: 'Recycling-program exemption research E15: Pawnbrokers and Second-hand Dealers Act 1996, version from
+    20 Aug 2024'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2024-08-20/act-1996-013
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S09, S10. Search excerpts: s 4(1), s 7 penalty, s 38.'
+- id: EVD-RPE-016
+  claim: '2026 Reg: the Act does not apply to a person to the extent the person buys second-hand goods from a government
+    sector agency, a statutory public authority or a State owned corporation; nor to a person dealing only in factory
+    seconds.'
+  type: Verified Fact
+  source: 'Recycling-program exemption research E16: Pawnbrokers and Second-hand Dealers Regulation 2026 (2026 No
+    442), version from 21 Aug 2026'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2026-08-21/sl-2026-0442
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S01. Official text read through search-index excerpts (cl 1-2, 5(1), 7, 33, government
+    purchase and factory seconds clauses). Direct page fetch failed twice (client error).'
+- id: EVD-RPE-017
+  claim: 2026 Reg keeps an ancillary-business carve-out (a business not otherwise required to be licensed; uncollected
+    goods, trade-ins and rental goods in the 2021 version). Full 2026 wording not seen.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E17: Pawnbrokers and Second-hand Dealers Regulation 2026 (2026 No
+    442), version from 21 Aug 2026'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2026-08-21/sl-2026-0442
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[PARTIAL] Sources S01, S03, S14. Official text read through search-index excerpts (cl 1-2, 5(1), 7, 33,
+    government purchase and factory seconds clauses). Direct page fetch failed twice (client error).'
+- id: EVD-RPE-018
+  claim: 'Penalty notice for unlicensed dealing (Act s 7) under the 2021 Regulation Sch 1: $1,100 for an individual,
+    $2,200 for a corporation. The 2026 Schedule amount was not read.'
+  type: Verified Fact
+  source: 'Recycling-program exemption research E18: Pawnbrokers and Second-hand Dealers Regulation 2021, cl 6 and
+    Sch 1'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/sl-2021-0044
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[VERIFIED] Sources S03. Page fetched 28 Nov 2026 plus search excerpts of the 12 Feb 2025 version.'
+- id: EVD-RPE-019
+  claim: 'Fees 2026-27 (recorded in repo from the Fair Trading page): new licence $692 for 1 year, $1,574 for 3
+    years, $2,456 for 5 years; no fee concession found.'
+  type: Verified Fact
+  source: 'Recycling-program exemption research E19: DubboEwaste docs/LEGAL-LICENSING.md (fees recorded from the
+    1 Sep 2026 Fair Trading page)'
+  url: https://github.com/joshualparris/DubboEwaste/blob/main/docs/LEGAL-LICENSING.md
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[PARTIAL] Sources S23. Repo record; fees not re-read in this pass.'
+- id: EVD-RPE-020
+  claim: You cannot operate as a second-hand dealer while a licence application is being assessed.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E20: NSW Government: Pawnbroker and second-hand dealer licences
+    (updated 1 Sep 2026)'
+  url: https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/pawnbrokers-and-second-hand-dealers/pawnbroker-and-second-hand-dealer-licences
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S14, S26. Page fetched 28 Nov 2026.'
+- id: EVD-RPE-021
+  claim: Every published limited exemption (list as of 27 Feb 2025) belongs to a named licensee with a licence number
+    and lifts specific duties (ID evidence s 15, records s 16, retention s 21). None removes the licence requirement.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E21: NSW Government: Limited exemptions for pawnbrokers and second-hand
+    dealers (list as of 27 Feb 2025)'
+  url: https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/pawnbrokers-and-second-hand-dealers/limited-exemptions-for-pawnbrokers-and-second-hand-dealers
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S16. Page fetched 28 Nov 2026.'
+- id: EVD-RPE-022
+  claim: Licensed technology businesses on that list include TES-AMM (2PS04726), Asurion (2PS16175), Assurant (2PS20872),
+    Kingfisher Mobile (2PS22126), Industry Trading (2PS23292) and Likewise (2PS26174, 2PS26251).
+  type: Verified Fact
+  source: 'Recycling-program exemption research E22: NSW Government: Limited exemptions for pawnbrokers and second-hand
+    dealers (list as of 27 Feb 2025)'
+  url: https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/pawnbrokers-and-second-hand-dealers/limited-exemptions-for-pawnbrokers-and-second-hand-dealers
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S16. Page fetched 28 Nov 2026.'
+- id: EVD-RPE-023
+  claim: NSW waste law lists reuse, reprocessing, recycling and energy recovery as separate parts of 'resource recovery'
+    (WARR Act s 3; EPA waste hierarchy).
+  type: Verified Fact
+  source: 'Recycling-program exemption research E23: Waste Avoidance and Resource Recovery Act 2001, s 3 (version
+    1 Jul 2008)'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2008-07-01/act-2001-058
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S17, S18. Search excerpt; current version not opened.'
+- id: EVD-RPE-024
+  claim: Because 'recycling' sits beside 'reuse' in NSW waste law, a regulator or court could read 'recycling program'
+    narrowly and treat a refurbish-and-resell operation as reuse trading, not recycling. Equally, the 2021 RIS intent
+    to cover 'all recycling programs' and community schemes, and industry usage (e.g. WorkVentures calls its reuse
+    work an 'e-waste recycling program'), support a wider reading.
+  type: Hypothesis
+  source: 'Recycling-program exemption research E24: Regulatory Impact Statement, proposed Regulation 2020 (NSW
+    Customer Service)'
+  url: https://www.productivity.nsw.gov.au/sites/default/files/2020-09/Pawnbrokers%20and%20Second-hand%20Dealers%20Draft%20Regulation%202020.pdf
+  date_checked: '2026-11-28'
+  verification_method: Industry inference
+  confidence: Medium
+  notes: '[INFERENCE] Sources S08, S17, S24. PDF fetched 28 Nov 2026: s 5.3 p 13, Appendix 4 p 29, objectives p
+    4, s 5.2 p 11.'
+- id: EVD-RPE-025
+  claim: An individual or organisation conducting a charitable fundraising appeal in NSW needs an authority unless
+    exempt; ACNC charities are eligible; small volunteer-only fundraisers are exempt; ABLIS lists no fee, a $15,000-a-year
+    trigger and 28-day processing.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E25: NSW Government: Authority to fundraise in NSW'
+  url: https://www.nsw.gov.au/money-and-taxes/charitable-fundraising/charitable-fundraising-guidelines/authority-to-fundraise-nsw
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[VERIFIED] Sources S19, S21. Search excerpt.'
+- id: EVD-RPE-026
+  claim: A participant may only take part in a fundraising appeal with written authority from the authority holder.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E26: NSW Government: Conducting an appeal'
+  url: https://www.nsw.gov.au/money-and-taxes/charitable-fundraising/charitable-fundraising-guidelines/conducting-an-appeal
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S20. Search excerpt.'
+- id: EVD-RPE-027
+  claim: Whether an appeal by a fundraiser exempt from holding an authority counts as 'authorised under the Charitable
+    Fundraising Act' for Act s 4(2)(a).
+  type: Research Lead
+  source: 'Recycling-program exemption research E27: Pawnbrokers and Second-hand Dealers Act 1996, version 1 Dec
+    2014'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2014-12-01/act-1996-013
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Low
+  notes: '[UNRESOLVED] Sources S10, S19. Search excerpts: s 3 definition of second-hand goods, s 4(2)(a)-(b), s
+    7. Direct fetch failed.'
+- id: EVD-RPE-028
+  claim: No NSW court or tribunal decision interpreting 'recycling program' in this legislation was found; no 2026
+    RIS or consultation paper for the 2026 Regulation was found.
+  type: Research Lead
+  source: 'Recycling-program exemption research E28: Pawnbrokers and Second-hand Dealers Regulation 2026 (2026 No
+    442), version from 21 Aug 2026'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2026-08-21/sl-2026-0442
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Low
+  notes: '[NOT_FOUND] Sources S01. Official text read through search-index excerpts (cl 1-2, 5(1), 7, 33, government
+    purchase and factory seconds clauses). Direct page fetch failed twice (client error).'
+- id: EVD-RPE-029
+  claim: The NSW public register for second-hand dealer licences could not be reached with the tools available,
+    so licence status of comparable organisations other than those on the exemptions list was not checked.
+  type: Research Lead
+  source: 'Recycling-program exemption research E29: NSW Government: Limited exemptions for pawnbrokers and second-hand
+    dealers (list as of 27 Feb 2025)'
+  url: https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/pawnbrokers-and-second-hand-dealers/limited-exemptions-for-pawnbrokers-and-second-hand-dealers
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Low
+  notes: '[NOT_FOUND] Sources S16. Page fetched 28 Nov 2026.'
+- id: EVD-RPE-030
+  claim: A Fair Trading and Building Legislation Amendment Bill 2026 proposes amendments to the Act (Schedule 14,
+    licence cancellation orders). Passage and effect were not checked.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E30: Fair Trading and Building Legislation Amendment Bill 2026,
+    first print (Schedule 14)'
+  url: https://www.parliament.nsw.gov.au/bill/files/18857/First%20Print.pdf
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Low
+  notes: '[PARTIAL] Sources S25. Search excerpt; passage status not checked.'
+- id: EVD-RPE-031
+  claim: The Act's version current from 20 Aug 2024 was still current when accessed on 10 Dec 2025; the Act includes
+    a provision for forfeiture of goods dealt with by unlicensed persons.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E31: Act PDF, status page'
+  url: https://legislation.nsw.gov.au/view/whole/pdf/inforce/2025-11-12/act-1996-013
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[VERIFIED] Sources S12, S13. Search excerpt: ''Current version for 20 August 2024 to date (accessed 10
+    December 2025)''. Direct fetch failed.'
+- id: EVD-RPE-032
+  claim: 'Act s 4A (inserted 2020): the Secretary may, by written notice, exempt a person from the operation of
+    the Act or specified provisions; an exemption can have conditions and an expiry, can be amended or revoked,
+    and its details must be published.'
+  type: Verified Fact
+  source: 'Recycling-program exemption research E32: Pawnbrokers and Second-hand Dealers Act 1996, current version
+    (s 4A Exemptions)'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1996-013
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: High
+  notes: '[VERIFIED] Sources S28. Search excerpts of the official current page: s 4A(1)-(3); history note ''s 4A:
+    Ins 2020 No 25''.'
+- id: EVD-RPE-033
+  claim: Regulation 2026 has a clause headed 'Powers to waive, reduce, postpone or refund fees' (cl 32). Its wording
+    was not read; the 2021 equivalent allowed this where the person suffers financial hardship or special circumstances
+    exist.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E33: Pawnbrokers and Second-hand Dealers Regulation 2026 (2026 No
+    442), version from 21 Aug 2026'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2026-08-21/sl-2026-0442
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[PARTIAL] Sources S01, S29. Official text read through search-index excerpts (cl 1-2, 5(1), 7, 33, government
+    purchase and factory seconds clauses). Direct page fetch failed twice (client error).'
+- id: EVD-RPE-034
+  claim: Regulation 2026 notes the processing fee is discounted for applications made electronically, and that if
+    an application is refused or withdrawn all fees except the processing fee are refunded.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E34: Pawnbrokers and Second-hand Dealers Regulation 2026 (2026 No
+    442), version from 21 Aug 2026'
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/2026-08-21/sl-2026-0442
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[VERIFIED] Sources S01. Official text read through search-index excerpts (cl 1-2, 5(1), 7, 33, government
+    purchase and factory seconds clauses). Direct page fetch failed twice (client error).'
+- id: EVD-RPE-035
+  claim: A companion report the same day reached the same direction (seek written classification; no licence purchase
+    just to remove doubt) but could not read the 2026 wording. It adds Scrap Metal Industry Act obligations for
+    scrap streams, the Service NSW Small Business Advisory program and comparator details; those were not re-verified
+    here.
+  type: Verified Fact
+  source: 'Recycling-program exemption research E35: Companion report: docs/NSW-RECYCLING-PROGRAMME-LICENCE-EXEMPTION-2026-11-28.md
+    (other session, same day)'
+  url: https://github.com/joshualparris/DubboEwaste/blob/main/docs/NSW-RECYCLING-PROGRAMME-LICENCE-EXEMPTION-2026-11-28.md
+  date_checked: '2026-11-28'
+  verification_method: Primary source
+  confidence: Medium
+  notes: '[PARTIAL] Sources S30. Repo record; its findings not re-verified here unless also cited to another source.'
