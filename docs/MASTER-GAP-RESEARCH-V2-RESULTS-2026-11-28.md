@@ -1,12 +1,15 @@
 # DubboEwaste master gap research v2 — results
 
+> **Correction after corpus audit:** [audit and reconciliation](CORPUS-AUDIT-AND-GAP-RECONCILIATION-2026-11-28.md). Sircel entered receivership/administration on **31 October 2025**, not 2026; current route unverified. LEP 2025 consolidation clause 5.4 shows 30 m² for home business, 50 m² for home industry; current legal version and site classification still require confirmation. NSW official Sept 2026 guidance and Parliament identify Regulation 2026 No 442. Battery commencement/transition discrepancy is not closed without proclamation and PSO evidence.
+
+
 **28 November 2026 AEDT.** Executes the [v2 prompt](MASTER-GAP-RESEARCH-V2-PROMPT-2026-11-28.md), building on the same-day [120-question results](MASTER-GAP-RESEARCH-RESULTS-2026-11-28.md). Public desk research only — not legal advice. No organisation has been contacted and nothing has been sent.
 
 **Scope.** A machine sweep of every research file found 1,458 open-gap lines across four repos. They consolidate into 69 questions: 35 desk questions and 34 that need a contact, a pilot measurement or an owner decision. Of the 35 desk questions, this pass **answered 16**, found **partial** answers to 11, **found nothing** for 2, left 1 **unresolved** and didn't reach 5. Register: [question-register.csv](../data/master-gap-v2-2026-11-28/question-register.csv) · evidence: `EVD-GAP2-*` in [data/evidence.yaml](../data/evidence.yaml).
 
 ## What changed
 
-1. **Sircel is in voluntary administration** (KordaMentha appointed 31 October 2026). The repo's strongest regional downstream lead, Sircel Parkes, can't be relied on. Dated notes added to the AMR forensic and "what happens to e-waste" docs. (WP05-01)
+1. **Sircel is in voluntary administration** (KordaMentha appointed 31 October 2025). The repo's strongest regional downstream lead, Sircel Parkes, can't be relied on. Dated notes added to the AMR forensic and "what happens to e-waste" docs. (WP05-01)
 2. **NSW's mandatory battery stewardship scheme is live** — it commenced 1 October 2026, with no Product Stewardship Organisation appointed yet. Obligations sit with brand owners. Ask the EPA whether a refurbisher that imports replacement batteries counts as one; buying batteries from local suppliers probably avoids it. (WP08-01)
 3. **Don't resell e-bikes or e-scooters.** Since 1 February 2026, second-hand e-micromobility devices and their batteries must be tested, certified and marked before sale in NSW. Intake policy note added. (WP02-05)
 4. **No NSW test-and-tag rule for second-hand electrical resale was found** — but declared articles must have been approved when new, and sellers must still make sure goods are safe. Sell only items with original compliance marks, record a safety check, and state test status in listings. (WP02-04)
@@ -74,7 +77,7 @@ Each row's sources are numbered links. Rows marked *Not researched in this pass*
 
 | ID | Status | Finding | Next |
 | --- | --- | --- | --- |
-| WP05-01 | **Answered** | Sircel entered voluntary administration: KordaMentha's Richard Tucker and Ryan Rabbitt were appointed on 31 October 2026, with a first creditors' meeting on 12 November. Sircel had six sites including its Parkes solar-panel plant. Sources: [1](https://reneweconomy.com.au/shock-and-dismay-as-one-of-australias-biggest-solar-recycling-hopes-put-into-administration) [2](https://mraconsulting.com.au/?p=8274) | Drop Sircel Parkes as a planning assumption; ask TechCollect/ANZRP who now services NSW collections. |
+| WP05-01 | **Answered** | Sircel entered voluntary administration: KordaMentha's Richard Tucker and Ryan Rabbitt were appointed on 31 October 2025, with a first creditors' meeting on 12 November. Sircel had six sites including its Parkes solar-panel plant. Sources: [1](https://reneweconomy.com.au/shock-and-dismay-as-one-of-australias-biggest-solar-recycling-hopes-put-into-administration) [2](https://mraconsulting.com.au/?p=8274) | Drop Sircel Parkes as a planning assumption; ask TechCollect/ANZRP who now services NSW collections. |
 | WP05-02 | **Partial** | No current TechCollect Dubbo site was found. A 2019 NetWaste e-waste poster listed Wellington (inside Dubbo Regional LGA), Narromine, Orange and Mudgee among drop-off points; that's historical. Council's A–Z guide points residents to Council depots and says Officeworks accepts some e-waste. Sources: [1](https://www.oberon.nsw.gov.au/files/assets/public/v/1/waste-garbage-services/191204-e_waste_acceptableitems_a4poster_print-1.pdf) [2](https://www.dubbo.nsw.gov.au/Households-Residents/Rubbish-Recycling-and-Sustainability/Domestic-Waste-Services/a-z-recycling) | Check TechCollect's and Ecycle Solutions' site finders. |
 | WP05-07 | **Open** | Not researched this pass; see DOWNSTREAM-PROVIDER-DUBBO-COST-COMPARISON.md (October). Sircel's administration changes that comparison.  | — |
 
