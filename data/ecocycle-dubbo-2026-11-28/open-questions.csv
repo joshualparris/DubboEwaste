@@ -1,0 +1,21 @@
+id,question,who_can_answer,method,priority
+Q01,Screenshot Eco E-Waste's secure data disposal page with date (companion report read it; this pass could not).,EcoCycle website,Screenshot,Medium
+Q02,Re-read PC submission No. 217 p3 and record a short verbatim quote before using it externally.,PC website,Read,Low
+Q03,"Which EcoCycle entity services Dubbo's Woolworths, BIG W, Coles and Bunnings bins, how often, and via which consolidation point?",EcoCycle,Ask Spyro Kalos,High
+Q04,"Do BIG W/Woolworths Dubbo bins feed EcoCycle directly or via MobileMuster for phones, and which consolidation point?",EcoCycle / Woolworths Group,Ask,Medium
+Q05,Does any EcoCycle stream test or grade devices before destruction? What do its R2v3 certificate scope and appendices cover?,EcoCycle,Certificate / ask,High
+Q06,"Would EcoCycle accept residual devices and batteries from a small Dubbo refurbisher, on what terms and with what certificates?",EcoCycle,Ask,High
+Q07,"Does MobileMuster accept regional reuse partners like The Reconnect Project, and what are the eligibility, data and reporting rules?",MobileMuster,Ask,High
+Q08,Who handles Officeworks Dubbo's Bring it Back IT equipment and who decides which items are reused by charities?,Officeworks,Ask store / corporate,High
+Q09,Does Circonomy have regional reuse partners and could one be in Dubbo?,Officeworks/Circonomy,Ask,Medium
+Q10,Who is Council's current e-waste contractor for Whylandra (post 30 June 2025)?,Dubbo Regional Council,Informal request / GIPA,High
+Q11,Who processed Whylandra's embedded-battery trial material and did the trial continue after September 2026?,NSW EPA / Council,Ask,Medium
+Q12,"Are Coles, ALDI, Bunnings, IGA/Mitre 10 and telco stores in Dubbo running the bins described nationally?",Site visits,Photograph signage,Medium
+Q13,Does The Good Guys Dubbo have a TV cage and who collects its e-waste?,The Good Guys Dubbo,Ask,Low
+Q14,"What, if anything, does Harvey Norman Dubbo offer for e-waste now?",Harvey Norman Dubbo,Ask,Low
+Q15,"What does EPL 21136 (St Marys) authorise, and does any Dubbo material go there?",NSW EPA register / EcoCycle,Register check / ask,Low
+Q16,"Does title in deposited items pass to the retailer or recycler at deposit, and does any programme term permit reuse?",Retailers / legal,Read programme terms,Medium
+Q17,"Under current NTCRS rules and National EPA practice, can a co-regulator permit reuse of collected items and how is it reported?",National EPA,Ask,Medium
+Q18,When do NSW PLR Regulation 2026 battery obligations commence and do they affect a small refurbisher's battery handling?,NSW EPA,Read regulation,Medium
+Q19,Group ownership of EcoCycle: ASIC extract for the holding entity.,ASIC,Paid extract,Low
+Q20,What is the measured working/repairable share of devices arriving at Dubbo collection points? (No public data.),Field audit with permission,Sample audit,High

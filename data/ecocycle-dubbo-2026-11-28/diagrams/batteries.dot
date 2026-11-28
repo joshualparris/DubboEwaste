@@ -1,0 +1,12 @@
+digraph batteries {
+  rankdir=TB; node [shape=box, style="rounded,filled", fillcolor="#f5f5f5", fontname="Helvetica", fontsize=10]; edge [fontname="Helvetica", fontsize=9];
+  owner [label="Dubbo resident"];
+  bcycle [label="B-cycle bins\n(Woolworths, BIG W, Coles, Bunnings, ALDI)"];
+  trial [label="Whylandra embedded-battery\ntrial (Sep 2024 – Sep 2026)"];
+  ewaste [label="E-waste stream\n(laptops excluded from trial)"];
+  sort [label="Ecobatt / Close the Loop\nsort by chemistry"];
+  bids [label="EcoBatt BIDS plant, Campbellfield\n(up to 95% material recovery)"];
+  unk [label="Trial processor\n(not public)", fillcolor="#fde2e2"];
+  owner -> bcycle; owner -> trial [label="toys, vapes,\nsmall devices"]; owner -> ewaste [label="laptops, controllers"];
+  bcycle -> sort; trial -> unk [style=dashed]; unk -> bids [style=dotted, label="possible, not evidenced"];
+}

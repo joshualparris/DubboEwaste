@@ -1,0 +1,16 @@
+digraph computers {
+  rankdir=LR; node [shape=box, style="rounded,filled", fillcolor="#f5f5f5", fontname="Helvetica", fontsize=10]; edge [fontname="Helvetica", fontsize=9];
+  owner [label="Dubbo household /\nsmall business"];
+  biz [label="Larger organisation\n(lease / ITAD contract)"];
+  donate [label="Direct donation to\nDubbo eWaste (reuse-first)", fillcolor="#e3f2e1"];
+  ow [label="Officeworks Bring it Back\n'may be reused by charities'", fillcolor="#fff7d6"];
+  jb [label="JB / Good Guys e-waste\n(Ecoactiv booking, in-store)"];
+  why [label="Whylandra CRC\n(contractor after Jun 2025 unknown)"];
+  amr [label="AMR Dubbo yard\n(downstream unnamed)"];
+  itad [label="ITAD erasure + remarketing\n(e.g. JB Business partner)", fillcolor="#e3f2e1"];
+  rec [label="NTCRS-certified recycler\n(dismantle / shred)"];
+  owner -> donate [label="before disposal"]; owner -> ow; owner -> jb; owner -> why; owner -> amr;
+  biz -> itad; biz -> rec [label="destruction contracts"];
+  ow -> rec; jb -> rec [style=dashed]; why -> rec [style=dashed, label="unverified"]; amr -> rec [style=dashed, label="partners unnamed"];
+  itad -> rec [label="rejects"]; donate -> rec [label="rejects via\nverified downstream", style=dashed];
+}

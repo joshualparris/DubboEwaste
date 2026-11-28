@@ -123,6 +123,7 @@ Use:
 - [docs/REGIONAL-EWASTE-PATHWAYS.md](docs/REGIONAL-EWASTE-PATHWAYS.md)
 - [docs/SIRCEL-ITAD-REUSE-MODEL.md](docs/SIRCEL-ITAD-REUSE-MODEL.md)
 - [docs/TECHCOLLECT-REUSE-DEEP-DIVE.md](docs/TECHCOLLECT-REUSE-DEEP-DIVE.md)
+- [docs/ECOBATT-ECOCYCLE-DUBBO-RESEARCH-2026-11-28.md](docs/ECOBATT-ECOCYCLE-DUBBO-RESEARCH-2026-11-28.md) and its [second-pass verification](docs/ECOCYCLE-ECOBATT-DUBBO-SUPPLY-CHAIN-RESEARCH-2026-11-28.md) — EcoCycle/EcoBatt, retail bins, MobileMuster and Officeworks routes (28 Nov 2026)
 
 ## I want reuse / donation / digital inclusion research
 
